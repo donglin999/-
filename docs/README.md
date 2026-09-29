@@ -12,8 +12,8 @@
 |---|---|
 | 襄阳城 | `SC.gate`（南门外）、`SC.street`（街市）、`SC.alley`（偏巷）均采用程序排布的 `m_*_v2` 底图、单体图集与碰撞 mask。街市北门本片段封闭，南口接南门，东口接偏巷；场景拓扑见[襄阳城设定](design/xiangyang-city.md) |
 | 渡口与寨子 | `SC.ferry`、`SC.crossing`、`SC.ferry_e`、`SC.bgate`、`SC.cave` 等仍为旧剧情流程中的可玩场景；目标案件允许救人后不打穿山寨 |
-| 角色和剧情 | 普通开局仍有羊太傅庙旧流程；`#xiangyang` 使用成年萧白和叶蘅测试阵容，但叶蘅暂借 `c_lady` 外观，三年培养尚未实现。旧对白与目标设定的差异见[襄阳片段测试](design/xiangyang-test.md) |
-| 美术 | 探索场景使用明亮的三分之四俯视像素画；单体参考 `raw_scene/style_ref.png`。当前城景可复用候选、缺失角色与案场证物见[襄阳素材规范](design/xiangyang-art.md) |
+| 角色和剧情 | 普通开局仍有羊太傅庙旧流程；`#xiangyang` 使用成年萧白和叶蘅初始同行，已接入青蚨散调查、共同救治和地方案件结算。三年培养尚未实现，细节见[襄阳章节脚本](design/xiangyang-chapter.md) |
+| 美术 | 探索场景使用明亮的三分之四俯视像素画；叶蘅、老周、疤脸刘、浪里鳅和关键证物已有独立素材，叶蘅另有七张表情差分，见[襄阳素材规范](design/xiangyang-art.md) |
 | 音频 | 街市已有 BGM、环境音、打铁与倒茶点声源；其他城市场景差异音景尚待制作 |
 | 存档 | `#street`、`#streetbright`、`#xiangyang` 为评审入口，保存到 `sessionStorage['xjh.review.save']`；普通游戏使用 `localStorage['xjh.save']` |
 
@@ -37,7 +37,7 @@ cd /home/user/xiaojianghu && python3 -m http.server 8000
 | `index.html` | 标题画面 → 继续江湖（读档 `xjh.save`）/ 初入江湖（建角 → 羊太傅庙） |
 | `index.html#street` | **评审直达**：`reviewStart()` 以默认角色「萧白」（银两 40、已通过城门盘查）直接进入襄阳街市，不读档 |
 | `index.html#streetbright` | 与 `#street` 相同的历史别名；明亮模式现已由 `BRIGHT=true` 常开 |
-| `index.html#xiangyang` | 襄阳单片段测试入口：成年萧白与叶蘅初始同行，地方事件结算；叶蘅外观仍为占位 |
+| `index.html#xiangyang` | 襄阳单片段测试入口：成年萧白与叶蘅初始同行，调查并救治老周，可地方结案或继续深追 |
 
 注意：评审入口仍会自动保存，但使用独立的会话存档，不覆盖普通 `xjh.save`。
 

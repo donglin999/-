@@ -252,7 +252,7 @@ ASSETS.push('m_crossing_v2','m_crossing_v2_props','m_crossing_far','m_ferry_e_v2
 Object.assign(ITEMS.token,{name:'黑风令牌',desc:'乌木腰牌，正面烙着「黑风」二字，背面刻一道浪纹。黑风寨的通行令牌——寨门只认牌子。'});
 ITEMS.bf_note=ITEMS.bf_note||{name:'暗号纸条',desc:'从浪里鳅身上搜出的油纸条，歪歪扭扭写着四个字：风起云涌。背面画着一道浪纹。',key:1};
 SKILLS.fanjiang=SKILLS.fanjiang||{name:'翻江刺',kind:'刀',mp:8,pow:1.3,range:1,shape:'single',combo:0,desc:'浪里鳅的分水刺，贴身连扎。'};
-const TANG={name:'汤老舵',sp:'c_boatman'},LANGLI={name:'浪里鳅',sp:'c_bandit'};
+const TANG={name:'汤老舵',sp:'c_boatman'},LANGLI={name:'浪里鳅',sp:'c_langli'};
 // 旧档：老船夫曾当面告诉过暗号（改版前 ferry_ev 即开放黑风寨），视为已知暗号
 const bfCode=()=>hasFlag('bf_code')||(!!S.unlocked.bandit&&!hasFlag('bf_east')&&hasFlag('ferry_ev'));
 const saltOn=()=>{const q=window.QAPI&&QAPI.get('q_salt');return!!q&&q.stage===1&&!q.done};
@@ -398,7 +398,7 @@ SC.ferry_e={name:'东津渡 · 东岸芦苇荡',bg:'m_ferry_e_v2',start:[23.5,7.
       if(o.startsWith('（亮出')){await talk(n,'哈！寨里的新兄弟？……牌子是真的。','上山报「风起云涌」，再亮这块牌子，就没人拦你。');
         setFlag('bf_code');setFlag('bf_east','join');await moral(-1);await toast('新目标 · 回西岸（栈桥找汤老舵）',1500);hud();return}
       await talk(n,'走错了就滚远点！')}},
-    {id:'langli_drunk',name:'浪里鳅（醉）',sp:'c_bandit',x:40.5,y:23.85,dir:'l',verb:'查看',show:()=>hasFlag('bf_trick'),async act(){await narr('浪里鳅抱着酒坛子打呼噜，口水淌了一胡子。')}},
+    {id:'langli_drunk',name:'浪里鳅（醉）',sp:'c_langli',x:40.5,y:23.85,dir:'l',verb:'查看',show:()=>hasFlag('bf_trick'),async act(){await narr('浪里鳅抱着酒坛子打呼噜，口水淌了一胡子。')}},
     {id:'eaves',name:'窝棚后墙',sp:null,x:39,y:11.4,verb:'偷听',show:()=>!hasFlag('bf_east')&&!hasFlag('bf_code'),async act(){
       await narr('你猫着腰贴到窝棚后墙，芦苇杆缝里透出火光和酒气。');
       await say('棚里的水匪','——明儿上山交货，暗号还是那句？','c_bandit');
@@ -429,11 +429,11 @@ function mk(k){const T={
   wolf:{name:'野狼',sp:'c_wolf',lv:3,st:{str:5,con:3,agi:8,wil:2,wis:3},skills:{bite:1},h:95,exp:18,silver:0},
   // 渡江（05 §9.7）：黑风水匪（bandit 精灵，身法高、盾 2，怕拳/棍/雷）、浪里鳅（东岸暗桩头目，精英）、寨犬（wolf 精灵）。数值沿用现行 mkFoe 公式，目标值见 05 §9.7  // TODO 数值待定（08）
   pirate:{name:'黑风水匪',sp:'c_bandit',lv:4,st:{str:5,con:4,agi:9,wil:3,wis:3},skills:{blade:1},h:170,exp:30,silver:8,shield:2,weak:['拳','棍','雷'],drops:{wine:15}},
-  langli:{name:'浪里鳅',sp:'c_bandit',lv:5,st:{str:8,con:7,agi:9,wil:4,wis:4},skills:{blade:1,fanjiang:1},h:180,hpMul:.6,exp:90,silver:24,shield:4,weak:['拳','棍','暗器','雷'],drops:{pill:100}},
+  langli:{name:'浪里鳅',sp:'c_langli',lv:5,st:{str:8,con:7,agi:9,wil:4,wis:4},skills:{blade:1,fanjiang:1},h:180,hpMul:.6,exp:90,silver:24,shield:4,weak:['拳','棍','暗器','雷'],drops:{pill:100}},
   gatedog:{name:'寨犬',sp:'c_wolf',lv:5,st:{str:6,con:4,agi:10,wil:2,wis:3},skills:{bite:1},h:95,exp:22,silver:0,shield:2,weak:['棍','拳','阳']},
   snake:{name:'青鳞巨蟒',sp:'c_snake',lv:8,st:{str:10,con:12,agi:5,wil:6,wis:4},skills:{coil:1,bite:1},h:140,hpMul:.55,exp:120,silver:0},
   thug:{name:'铁臂帮打手',sp:'c_bandit',lv:2,st:{str:5,con:4,agi:3,wil:2,wis:2},skills:{blade:1},h:170,exp:20,silver:10},
-  scarliu:{name:'疤脸刘',sp:'c_bandit',lv:4,st:{str:8,con:6,agi:4,wil:4,wis:3},skills:{blade:1,ghost:1},h:180,hpMul:.6,exp:70,silver:30},
+  scarliu:{name:'疤脸刘',sp:'c_liu',lv:4,st:{str:8,con:6,agi:4,wil:4,wis:3},skills:{blade:1,ghost:1},h:180,hpMul:.6,exp:70,silver:30},
   chief:{name:'独眼阎罗',sp:'c_chief',lv:9,st:{str:12,con:11,agi:6,wil:8,wis:6},skills:{blade:1,ghost:1},h:200,hpMul:.6,exp:200,silver:0}}[k];return JSON.parse(JSON.stringify(T))}
 
 async function ending(kind){
@@ -577,7 +577,7 @@ function affOf(id){S.aff=S.aff||{};return S.aff[id]||0}
 function aff(d,id='suzhi'){S.aff=S.aff||{};S.aff[id]=clamp((S.aff[id]||0)+d,-10,20);return gain(`苏芷 好感 ${d>0?'+':''}${d}`)}
 const SZ={get name(){return '苏芷'},get sp(){return SUZHI_SP()}};
 const SE=e=>SZ.sp+':'+e,HE=e=>'c_hero:'+e;   // 带表情的立绘 sp
-const LIU={name:'疤脸刘',sp:'c_bandit'},ZHOU={name:'老周',sp:'c_villager'};
+const LIU={name:'疤脸刘',sp:'c_liu'},ZHOU={name:'老周',sp:'c_zhou'};
 async function clueGot(k,txt){setFlag('xq_c_'+k);await toast(`线索 · ${txt}`,1500);
   if(clues()>=2&&XQ()<2){xqSet(2);await narr('线索已经够了。疤脸刘每到申时，都会去柳三娘的茶摊「收例钱」。');await toast('新目标 · 去茶摊找疤脸刘',1500)}
   hud()}
@@ -618,7 +618,7 @@ window.questLine=questLine;window.questLog=questLog;
 
 // 街心：倒地的老周 + 苏芷
 SC.street.npcs.push(
-  {id:'zhou',name:'倒地的挑夫',sp:'c_villager',x:33.9,y:17.85,dir:'l',verb:'查看',show:()=>XQ()<4,mark:()=>XQ()===0,async act(n){
+  {id:'zhou',name:'倒地的挑夫',sp:'c_zhou',x:33.9,y:17.85,dir:'l',verb:'查看',show:()=>XQ()<4,mark:()=>XQ()===0,async act(n){
     if(XQ()===0){
       await narr('人群让开一道缝。一个挑夫打扮的汉子倒在地上，嘴唇乌青，手指抽搐。');
       await say('围观的闲汉','刚才还好好的，喝完茶走到这儿就栽了！','c_merchant');
@@ -653,14 +653,14 @@ SC.street.npcs.push(
       await narr('药灌下去不到一炷香，老周咳出一大口黑血，睁开了眼。');
       await say(ZHOU.name,'我、我这是……阎王爷不收？',ZHOU.sp);
       await say(SZ.name,'收的。我没让。',SE('smile'));
-      await say(ZHOU.name,'恩公！女菩萨！小的给二位磕头——','c_villager');
+      await say(ZHOU.name,'恩公！女菩萨！小的给二位磕头——',ZHOU.sp);
       const c=await choose(S.name,'（老周抖抖索索摸出一串铜钱）',['「留着买药吧。」','「那我就收下了。」']);
       if(c===0){await moral(1);await aff(1)}else{S.silver+=15;await gain('银两 +15');await say(SZ.name,'……',SE('angry'))}
       S.bag.jieyao=0;xqSet(4);
       await narr('人群散了。苏芷收好金针，把那只空瓷瓶翻过来，盯着瓶底的青虫看了很久。');
       await recruit();return}
     if(x===4){await say(SZ.name,'还有事？',SZ.sp);await recruit(true)}}},
-  {id:'liu',name:'疤脸刘',sp:'c_bandit',x:27.9,y:21.1,dir:'r',verb:'对质',show:()=>XQ()===2,mark:()=>1,async act(n){await confront()}},
+  {id:'liu',name:'疤脸刘',sp:'c_liu',x:27.9,y:21.1,dir:'r',verb:'对质',show:()=>XQ()===2,mark:()=>1,async act(n){await confront()}},
   {id:'thug1',name:'铁臂帮打手',sp:'c_bandit',x:26.2,y:21.25,dir:'r',verb:'搭话',show:()=>XQ()===2&&!hasFlag('xq_w1'),async act(n){
     await say(n.name,'看什么看？找我们刘爷说话去。',n.sp)}});
 

@@ -415,8 +415,12 @@ function mnPor(w){if(w==='hero')return'assets/p_hero.webp';const P=PARTY_DEF[w];
   return mnMk('spr'+w,()=>{const m=miniSprite('c_'+pickArt(P.art));return m?m.toDataURL():''})}
 const MN_KCOL={拳:'#b8612c',掌:'#a0522d',剑:'#2f6f8f',刀:'#6b6356',棍:'#8a6a3a',鞭:'#7a5a2a',腿:'#9a4a2a',暗器:'#4f5f78',内:'#3a4f8a',医:'#2f6b45',咬:'#6b4a3a'};
 function mnBlot(ch,col,sz=30){return mnMk(`bl${ch}${col}${sz}`,()=>mnB().url(mnB().blot(ch,col,sz)))}
-function mnIco(k,sz=30){if(icoAtlas()&&window.ART&&ART.icons&&ART.icons[k])return ico(k).replace('class="ico img"',`class="ico img jm-ai" style="width:${sz/16}em;height:${sz/16}em"`);const g=ICO[k]||(ITEMS[k]?.name||'?')[0];return`<img class="jm-blot" src="${mnBlot(g,mnQ(k)[1],sz)}" alt="">`}
-function mnSkIco(k,sz=30){const s=SKILLS[k];const ch=(s.name||s.kind)[0];return`<img class="jm-blot" src="${mnBlot(ch,MN_KCOL[s.kind]||'#3b2c1b',sz)}" alt="">`}
+function mnAtlasIco(kind,k,sz){const a=window.MENU_ICONS,r=a&&a[kind]&&a[kind][k];if(!r)return'';
+  const[x,y]=r,px=a.cols>1?x/(a.cols-1)*100:0,py=a.rows>1?y/(a.rows-1)*100:0;
+  return`<span class="jm-blot jm-pxi" style="width:${sz}px;height:${sz}px;background-image:url(assets/i_jianghu.webp);background-size:${a.cols*100}% ${a.rows*100}%;background-position:${px}% ${py}%" aria-hidden="true"></span>`}
+function mnIco(k,sz=30){const art=mnAtlasIco('item',k,sz);if(art)return art;if(icoAtlas()&&window.ART&&ART.icons&&ART.icons[k])return ico(k).replace('class="ico img"',`class="ico img jm-ai" style="width:${sz/16}em;height:${sz/16}em"`);const g=ICO[k]||(ITEMS[k]?.name||'?')[0];return`<img class="jm-blot" src="${mnBlot(g,mnQ(k)[1],sz)}" alt="">`}
+function mnSkIco(k,sz=30){const art=mnAtlasIco('skill',k,sz);if(art)return art;const s=SKILLS[k];const ch=(s.name||s.kind)[0];return`<img class="jm-blot" src="${mnBlot(ch,MN_KCOL[s.kind]||'#3b2c1b',sz)}" alt="">`}
+function mnXfIco(k,sz=30){return mnAtlasIco('xinfa',k,sz)||`<img class="jm-blot" src="${mnBlot('心','#3a4f8a',sz)}" alt="">`}
 function mnSeal(t,w=26,h=w){return mnMk(`se${t}${w}${h}`,()=>mnB().url(mnB().seal(t,w,h)))}
 function mnBar(lbl,v,max,col,key){const p=clamp(v/Math.max(1,max),0,1)*100,tr=mnSw(300,10,{col:'#3b2c1b',a:.16,dry:.5,seed:71,tail:.2},'tr'),fl=mnSw(300,10,{col,a:.92,dry:.35,seed:key.length+72,tail:.12,head:.03},'f'+key);
   return`<div class="jm-bar"><span class="l">${lbl}</span><div class="tr" style="background-image:url(${tr})"><i style="width:${p}%;background-image:url(${fl});background-size:${p>0?1e4/p:100}% 100%"></i></div><b>${v}<small>/${max}</small></b></div>`}
@@ -430,7 +434,8 @@ function mnDraw(){const p=$('panel');if(!p||p.hidden||!p.classList.contains('jm'
   if(menuTab==='xinfa')menuTab='skill';if(!mnMembers().includes(mnWho))mnWho='hero';const T=TABS.find(t=>t[0]===menuTab)||TABS[0];
   const oldScroll=p.dataset.menuTab===menuTab&&p.dataset.menuWho===mnWho?p.querySelector('.jm-body')?.scrollTop||0:0;
   const pageNote={attr:'人物根基与江湖阅历',skill:'招式与心法，内外同修',bag:'随身器物与行路所需',equip:'兵刃衣甲，因人而择',party:'同行之人，共赴江湖',quest:'旧事新约，记于此卷',sys:'声画与行路习惯'}[menuTab];
-  const tabs=TABS.map(([k,n,i],j)=>{const dot=(k==='attr'&&mnMembers().some(w=>mnPts(w)));return`<button data-a="tab" data-k="${k}" class="${menuTab===k?'on':''}" aria-label="${n}"><span class="n">${j+1}</span><span class="jm-navmark">${i}</span><span class="jm-navlabel">${n}</span>${dot?'<i class="jm-dot"></i>':''}</button>`}).join('');
+  const navArt={attr:['skill','jingxin'],skill:['item','book'],bag:['item','shuxia'],equip:['item','iron'],party:['skill','lick'],quest:['item','bf_note'],sys:['skill','dingshen']};
+  const tabs=TABS.map(([k,n,i],j)=>{const dot=(k==='attr'&&mnMembers().some(w=>mnPts(w))),a=navArt[k];return`<button data-a="tab" data-k="${k}" class="${menuTab===k?'on':''}" aria-label="${n}"><span class="n">${j+1}</span><span class="jm-navmark">${a?mnAtlasIco(a[0],a[1],26):i}</span><span class="jm-navlabel">${n}</span>${dot?'<i class="jm-dot"></i>':''}</button>`}).join('');
   const mem=mnMemTab(menuTab)?`<div class="jm-mem">${mnMembers().map(w=>`<button data-a="who" data-w="${w}" class="jm-mc${w===mnWho?' on':''}" aria-label="${esc(mnName(w))}"><span class="f" style="background-image:url(${mnFace(w)})"></span><span class="r" style="background-image:url(${mnMk('enso'+(w===mnWho),()=>mnB().url(mnB().enso(64,{col:w===mnWho?'#a8261c':'#2b1e12',seed:w.length+3})))})"></span><span class="nm">${esc(mnName(w))}</span>${mnPts(w)?'<i class="jm-dot"></i>':''}</button>`).join('')}<span class="jm-memk">Z / C 切换</span></div>`:'';
   const side=mem&&matchMedia('(min-width:761px)').matches?(()=>{const {hp,mp,d}=mnHP(mnWho);return`<aside class="jm-side"><div class="jm-sideCaption">人物 · ${String(mnMembers().indexOf(mnWho)+1).padStart(2,'0')}</div><div class="jm-sidePortrait" style="background-image:url(${mnPor(mnWho)})"></div><div class="jm-sideName">${esc(mnName(mnWho))}</div><div class="jm-sideRole">${mnDef(mnWho).role} · 境界 ${S.lv} 层</div><div class="jm-sideVitals">${mnBar('气血',hp,d.mhp,'#b3261e','sidehp')}${mnBar('内力',mp,d.mmp,'#2d4f73','sidemp')}</div><div class="jm-sideLabel">同行人物</div>${mem}</aside>`})():mem;
   let body='';try{body=MN_TAB[menuTab]()}catch(e){console.error(e);body=`<div class="jm-empty">此页出错：${esc(e.message)}</div>`}
@@ -525,7 +530,7 @@ xinfa(){if(!mnXfOn())return`<div class="jm-xf"><div class="slots">${['主修','�
   <div class="tx"><img src="${mnSeal('后续',30)}" alt=""><strong>内功篇 · 第二章开启</strong><p>主修与辅修的槽位已列于此。习得心法后，可在本页悬停查看加成、点击运转。</p></div></div>`;
   const w=mnWho;if(mnDef(w).noXf)return`<div class="jm-empty">${esc(mnName(w))}是条狗，不修内功心法。<br>它的本事都在牙口与鼻子上。</div>`;
   const x=mnXf(w),X=mnXfSum(w),subCap=mnSubCap(),L=mnXfList(w).map((id,i)=>[id,(x.main===id||x.subs.includes(id))?0:mnXfWhy(w,id,XINFA[id].slot)?2:1,i]).sort((a,b)=>a[1]-b[1]||a[2]-b[2]).map(a=>a[0]),XC={阳:'#b8612c',阴:'#3a4f8a',中:'#2f6b45'};
-  const circ=(id,lab,lock)=>id?`<div class="xc on"><img class="jm-blot" src="${mnBlot('心',XC[XINFA[id].xing],40)}" alt=""><b>${XINFA[id].name}</b><small>${lab} · 第 ${x.lv[id]||1} 层</small></div>`
+  const circ=(id,lab,lock)=>id?`<div class="xc on">${mnXfIco(id,40)}<b>${XINFA[id].name}</b><small>${lab} · 第 ${x.lv[id]||1} 层</small></div>`
     :`<div class="xc${lock?' lk':''}"><span class="em">${lock?'锁':'空'}</span><small>${lock||lab}</small></div>`;
   const subs=[0,1,2].map(i=>i<subCap?circ(x.subs[i],'辅修'):circ(null,'辅修',['登堂入室','融会贯通','出神入化'][i]));
   const pctTxt=Object.entries(X.pct).filter(([,v])=>v).map(([a,v])=>`${MN_FXN[a]} +${Math.round(v*1000)/10}%`),addTxt=Object.entries(X.add).filter(([,v])=>v).map(([a,v])=>`${MN_FXN[a]} +${Math.round(v*10)/10}`);
@@ -546,7 +551,7 @@ bag(){const cats=['全部','兵器','护具','佩饰','药食','杂物','要物'
    ${L.length?`<div class="jm-inventory-grid">${L.map(k=>mnBagTile(k,mnWho)).join('')}</div>`:'<div class="jm-empty">这一格里空空如也</div>'}`},
 equip(){const w=mnWho,e=mnEq(w),D=mnDef(w),{hp,mp,d}=mnHP(w);
   const slots=MN_SLOTS.map(([s,n,g])=>{const k=e[s],can=D.slots.includes(s);return`<div class="jm-wornslot${can?'':' unavailable'}" ${k?`data-tip-kind="item" data-k="${k}" data-w="${w}"`:''}>
-    <span class="jm-wornicon">${k?mnIco(k,48):`<img class="jm-blot" src="${mnBlot(g,'#8a7a62',48)}" alt="">`}</span><span class="jm-worntxt"><small>${n}</small><strong>${k?esc(ITEMS[k].name):can?'尚未装备':'不可使用'}</strong></span>
+    <span class="jm-wornicon">${k?mnIco(k,48):`<span class="jm-slotghost">${mnIco({weapon:'iron',armor:'vest',acc:'jade'}[s],48)}</span>`}</span><span class="jm-worntxt"><small>${n}</small><strong>${k?esc(ITEMS[k].name):can?'尚未装备':'不可使用'}</strong></span>
     ${k?`<button class="jm-b ghost sm" data-a="uneq" data-k="${s}">卸下</button>`:''}</div>`}).join('');
   const groups=MN_SLOTS.map(([s,n])=>{const items=Object.keys(S.bag).filter(k=>S.bag[k]>0&&mnSlot(k)===s);return`<section class="jm-gearGroup"><h4>${n}<span class="jm-dim">${items.length} 件 · 悬停比较，点击装备</span></h4><div class="jm-geargrid">${items.length?items.map(k=>mnBagTile(k,w)).join(''):'<span class="jm-empty sm">暂无可用物品</span>'}</div></section>`}).join('');
   return`<div class="jm-equipBoard"><div class="jm-equipHero"><div class="jm-equipIdentity"><span class="face" style="background-image:url(${mnFace(w)})"></span><div><strong>${esc(mnName(w))}</strong><small>${mnDef(w).role} · 境界 ${S.lv} 层</small></div></div>
@@ -620,10 +625,10 @@ function mnBagTile(k,w){const it=ITEMS[k],sl=mnSlot(k),active=sl||it.heal||it.mp
     <span class="jm-invname">${esc(it.name)}</span><span class="jm-invtype">${mnCat(k)}</span></button>`}
 function mnXinfaCard(id,w,x){const f=XINFA[id],n=x.lv[id]||1,run=x.main===id||x.subs.includes(id),why=run?'':mnXfWhy(w,id,f.slot),step=mnXfStep(n),pct=n>=5?100:Math.min(100,Math.round((x.prog[id]||0)/step*100)),col={阳:'#b8612c',阴:'#3a4f8a',中:'#2f6b45'}[f.xing];
   return`<button class="jm-skillcard jm-xfcard${run?' on':''}${why?' locked':''}" data-a="${f.slot==='main'?'xfm':'xfs'}" data-k="${id}" data-w="${w}" data-tip-kind="xinfa" style="--kind:${col}" aria-label="${esc(f.name)}，${run?'运转中':'点击运转'}">
-    <span class="jm-skillart"><img class="jm-blot" src="${mnBlot('心',col,54)}" alt=""></span><span class="jm-skillname">${esc(f.name)}</span><span class="jm-skillmeta">${f.slot==='main'?'主修':'辅修'} · 性${f.xing} · ${n} 层</span>
+    <span class="jm-skillart">${mnXfIco(id,54)}</span><span class="jm-skillname">${esc(f.name)}</span><span class="jm-skillmeta">${f.slot==='main'?'主修':'辅修'} · 性${f.xing} · ${n} 层</span>
     <span class="jm-skillprog"><i style="width:${pct}%"></i></span><span class="jm-skillstate">${run?'运转中':why?'暂不可修':'点击运转'}</span></button>`}
 function mnTipXinfa(id,w){const f=XINFA[id],x=mnXf(w),n=x.lv[id]||1,run=x.main===id||x.subs.includes(id),why=run?'':mnXfWhy(w,id,f.slot),per=f.per||{},effects=[...Object.entries(per.add||{}).map(([a,v])=>`${MN_FXN[a]||a} +${v}`),...Object.entries(per.pct||{}).map(([a,v])=>`${MN_FXN[a]||a} +${Math.round(v*100)}%`)];
-  return`<div class="jm-tipkind">${f.slot==='main'?'主修':'辅修'} · 性${f.xing}${f.sect?' · '+MN_SECT[f.sect]:''}</div><div class="jm-tiphead"><img class="jm-blot" src="${mnBlot('心',{阳:'#b8612c',阴:'#3a4f8a',中:'#2f6b45'}[f.xing],44)}" alt=""><div><strong>${esc(f.name)}</strong><small>第 ${n} 层 · ${run?'运转中':'已习得'}</small></div></div>
+  return`<div class="jm-tipkind">${f.slot==='main'?'主修':'辅修'} · 性${f.xing}${f.sect?' · '+MN_SECT[f.sect]:''}</div><div class="jm-tiphead">${mnXfIco(id,44)}<div><strong>${esc(f.name)}</strong><small>第 ${n} 层 · ${run?'运转中':'已习得'}</small></div></div>
     <p>${esc(f.desc)}</p><div class="jm-tipfx"><span>进度 ${x.prog[id]||0} / ${mnXfStep(n)}</span>${effects.map(t=>`<span>每层 ${t}</span>`).join('')}</div>
     <div class="jm-tipnote">门槛 ${f.req?mnReqTxt(f.req):'无'}<br>三层：${esc(f.d3)}<br>五层：${esc(f.d5)}</div>${why?`<div class="jm-tipwarn">${esc(why)}</div>`:''}<div class="jm-tipfoot">${run&&f.slot==='main'?'主修中':`点击${run?'停修':f.slot==='main'?'主修或改修':'辅修'}`}</div>`}
 function mnHideHover(){const f=$('panel')?.querySelector('.jm-float');if(f)f.hidden=true}
@@ -673,7 +678,7 @@ function mnCSS(){if($('jm-css'))return;const st=document.createElement('style');
 .jm-sheet h5{margin:.9em 0 .35em;font:500 .85em var(--serif);color:var(--dimk);letter-spacing:.2em}
 .jm-dim{color:var(--dimk)}.jm-red{color:var(--cin)}.jm-green{color:var(--jadek)}
 .jm-empty{padding:1.6em;text-align:center;color:var(--dimk);letter-spacing:.15em;line-height:1.9}.jm-empty.sm{padding:.6em;text-align:left}
-.jm-blot{width:1.9em;height:1.9em;flex:none;display:block}
+.jm-blot{width:1.9em;height:1.9em;flex:none;display:block}.jm-pxi{background-repeat:no-repeat;image-rendering:pixelated}.jm-slotghost{opacity:.27;filter:grayscale(1)}
 .jm-sheet .ico{flex:none}.jm-sheet .ico.jm-ai{display:block;border-radius:50%;padding:.28em;background:radial-gradient(circle,#3a2a1a 55%,#1a120a);box-shadow:0 0 0 1.5px rgba(43,30,18,.55)}.jm-sheet .ico.jm-ai i{display:block;width:100%;height:100%;background-repeat:no-repeat;image-rendering:pixelated}
 .jm-b{display:inline-flex;align-items:center;justify-content:center;min-width:4.6em;padding:.28em 1.2em!important;background:url(${inkBtn}) center/100% 100% no-repeat!important;color:#f3e6c8!important;font-family:var(--serif)!important;letter-spacing:.2em!important;font-size:.92em!important;transition:transform .12s,filter .12s}
 .jm-b:hover:not(:disabled),.jm-b:focus-visible{background-image:url(${redBtn})!important;outline:none;transform:translateY(-1px)}

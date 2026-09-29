@@ -4,12 +4,12 @@
 
 // ───────────────────────── 资源 ─────────────────────────
 const IMG = {};
-const CHARS=['hero','monk','soldier','gossip','oldman','smith','lady','beggar','boatman','bandit','chief','villager','child','merchant','dog','rooster','snake','wolf','suzhi'];
-const PORTS=['hero','monk','soldier','gossip','oldman','smith','lady','beggar','boatman','bandit','chief','suzhi'];
+const CHARS=['hero','monk','soldier','gossip','oldman','smith','lady','beggar','boatman','bandit','chief','villager','child','merchant','dog','rooster','snake','wolf','suzhi','ye','liu','zhou','langli'];
+const PORTS=['hero','monk','soldier','gossip','oldman','smith','lady','beggar','boatman','bandit','chief','suzhi','ye','liu','zhou','langli'];
 // 新加入、美术可能尚未就绪的角色/立绘：走可选加载（缺文件静默，不画粉块）
 const OPT_CHARS=['suzhi'],OPT_PORTS=['suzhi'];
 // 立绘表情差分 p_{角色}_{表情}.webp：对话 sp 写作 'c_suzhi:shy'，缺图时回退基础立绘（后台加载，不阻塞进度条）
-const EXPR={hero:['smile','angry','surprise','think','hurt','battle'],suzhi:['smile','shy','angry','worry','surprise','battle']};
+const EXPR={hero:['smile','angry','surprise','think','hurt','battle'],suzhi:['smile','shy','angry','worry','surprise','battle'],ye:['smile','shy','angry','worry','surprise','battle','hurt']};
 function loadExpr(){for(const c in EXPR)for(const e of EXPR[c])loadOpt(`p_${c}_${e}`,`p_${c}_${e}`);loadOpt('s_hero_battle','s_hero_battle')}  // 附带主角战斗动作表
 // 探索地图：v2 场景为程序排布底图 m_*_v2 + 素材图集 m_*_v2_props（tools_scene/build_scene.py）；旧街市 m_street/_fg/_bright 已不再加载
 const ASSETS=['bg_title','m_world','m_street_v2','m_street_v2_props','m_alley_v2','m_alley_v2_props','m_ferry_v2','m_ferry_v2_props',

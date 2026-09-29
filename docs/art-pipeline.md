@@ -1,5 +1,9 @@
 # 美术管线
 
+## 当前出图接口约定
+
+襄阳体验章节本轮按用户最新决定使用 Codex 内置 `image_gen` 直接生成；全部采用稿、身份参考、提示词和后处理记录在[襄阳生图记录](design/xiangyang-art-prompts.md)。此前 `tools_common/flatimg.py` 是旧素材和接口对照稿的制作路径，历史来源按各自记录保留，不倒写成同一模型。后续其他章节的出图接口按该章节用户要求确定。
+
 美术资源有不同批次：早期整图与角色素材使用 HY-Image-V3.0；当前街市单体管线 `tools_scene/gen_props.py` 使用 `tools_common/flatimg.py`，模型与参数以该脚本的 `PARAMS` 为准，再经本仓库的 Python（Pillow + numpy，部分用 scipy）脚本抠图、像素化、切帧、排布和打包。运行时读取 `assets/` 下的 webp。**所有脚本都以仓库根目录为工作目录运行**（路径写死为相对路径）。襄阳的设定与审图标准见[城设定](design/xiangyang-city.md)、[素材规范](design/xiangyang-art.md)；本页描述技术管线。
 
 ## 1. 资源格式与命名
@@ -192,7 +196,7 @@ v1 厚涂立绘 AI 感重、构图不一，已全部替换。新管线：
 ### 表情差分（男女主）
 
 - **生成**：`python3 tools_por/gen_por.py hero:all suzhi:all`（或单张 `suzhi_shy`）。以 `raw_por/p_{角色}.png` 为参考图走 edits（异步 `/images/edits/async`），提示词 = `VARIANT_BASE`（锁定同脸同装同构图）+ 表情/手势描述 + 原 STYLE 与角色描述；清单在 `gen_por.py` 的 `VARIANTS`。输出 `raw_por/p_{角色}_{表情}.png`，再 `post_por.py` 转 `assets/p_{角色}_{表情}.webp`。
-- **清单**：hero = smile / angry / surprise / think / hurt / battle；suzhi = smile / shy / angry / worry / surprise / battle。新增表情需同时改 `VARIANTS` 与 `js/core.js` 的 `EXPR`。
+- **清单**：hero = smile / angry / surprise / think / hurt / battle；suzhi = smile / shy / angry / worry / surprise / battle。叶蘅 = smile / shy / angry / worry / surprise / battle / hurt，采用内置生图及[独立提示词](design/ye-expression-prompts.md)，不走此处的 FlatRouter `VARIANTS`。新增运行时表情均需在 `js/core.js` 的 `EXPR` 登记。
 - **运行时**：`EXPR` 中的差分在 `loadAll()` 开头后台加载，不计入进度条。对话 `say/choose` 的 `sp` 写作 `'c_suzhi:shy'`（story.js 里用 `SE('shy')` / `HE('think')`），缺图回退基础立绘；同一说话人仅换表情时不重播入场动画。战斗卡片 `porKey()`：默认 `battle`，气血 <30% 换 `hurt`（无则 `worry`）。
 - 苏芷 v2 基准图重做过（药囊改为宽布背带斜挎、贴腰胯承重），旧基准原图在 `raw_por/suzhi_v1/`。
 

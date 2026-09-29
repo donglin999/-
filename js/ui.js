@@ -2,7 +2,7 @@
 // ───────────────────────── 对话 ─────────────────────────
 let dlgBusy=false;
 const esc=t=>String(t).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
-const FOES=['bandit','chief','snake','wolf'];
+const FOES=['bandit','chief','snake','wolf','liu','langli'];
 function face(sp){if(!sp)return'none';const[k,e]=sp.replace(/^c_/,'').split(':');if(!PORTS.includes(k))return'none';if(typeof OPT_PORTS!=='undefined'&&OPT_PORTS.includes(k)&&!ok(IMG['p_'+k]))return'none';
   if(e&&ok(IMG[`p_${k}_${e}`]))return`url(assets/p_${k}_${e}.webp)`;return`url(assets/p_${k}.webp)`}
 function whoType(who,sp){if(!who)return'narr';const k=(sp||'').replace(/^c_/,'').replace(/[_:].*/,'');
@@ -277,6 +277,7 @@ const TAB={
     <h3>可换装备</h3>${cand.length?`<div class="list">${cand.map(([k,n])=>`<div class="item">${ico(k)}<div><div class="nm">${ITEMS[k].name}<small>×${n}</small></div><div class="ds">${ITEMS[k].desc}</div></div><div class="rt"><button data-u="${k}">装备</button></div></div>`).join('')}</div>`:'<div class="empty" style="padding:1em">行囊中暂无可换装备</div>'}
     <p class="muted" style="font-size:.85em">攻击 <span class="gold">${d.atk}</span>　防御 <span class="gold">${d.def}</span>　暴击 <span class="gold">${d.crit}%</span></p>`},
   party:()=>`<div class="list"><div class="item"><div class="ico">侠</div><div><div class="nm">${esc(S.name)}<small>Lv ${S.lv}</small></div><div class="ds">${ORIGINS[S.origin].desc}</div></div><div class="rt muted" style="font-size:.85em">主角</div></div>
+    ${S.party.includes('ye')?`<div class="item comp"><img class="por" src="assets/p_ye.webp" alt=""><div><div class="nm">叶蘅<small>Lv ${S.lv} · 乡村医者</small></div><div class="ds">与萧白同行赴襄阳。善辨脉象、用针护人；自己的去向由她决定。</div></div><div class="rt muted" style="font-size:.85em">同伴</div></div>`:''}
     ${S.party.includes('suzhi')?suzhiCard():''}
     ${S.pet==='dog'?`<div class="item"><div class="ico">犬</div><div><div class="nm">${DOG.name}<small>Lv ${S.lv}</small></div><div class="ds">自动参战；主角气血偏低时护主，危急时舔舐疗伤。</div></div><div class="rt muted" style="font-size:.85em">宠物</div></div>`:''}</div>
     ${S.party.length?'':'<div class="empty" style="padding:1em">江湖路远，尚无同行之人</div>'}`,
