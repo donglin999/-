@@ -3,7 +3,9 @@
 let dlgBusy=false;
 const esc=t=>String(t).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 const FOES=['bandit','chief','snake','wolf','liu','langli'];
-function face(sp){if(!sp)return'none';const[k,e]=sp.replace(/^c_/,'').split(':');if(!PORTS.includes(k))return'none';if(typeof OPT_PORTS!=='undefined'&&OPT_PORTS.includes(k)&&!ok(IMG['p_'+k]))return'none';
+// 只有贯穿章节的人物使用全身立绘。一次性反派与路人沿用探索精灵小像。
+const DIALOGUE_LEADS=new Set(['hero','ye','suzhi','monk','zhou']);
+function face(sp){if(!sp)return'none';const[k,e]=sp.replace(/^c_/,'').split(':');if(!DIALOGUE_LEADS.has(k)||!PORTS.includes(k))return'none';if(typeof OPT_PORTS!=='undefined'&&OPT_PORTS.includes(k)&&!ok(IMG['p_'+k]))return'none';
   if(e&&ok(IMG[`p_${k}_${e}`]))return`url(assets/p_${k}_${e}.webp)`;return`url(assets/p_${k}.webp)`}
 function whoType(who,sp){if(!who)return'narr';const k=(sp||'').replace(/^c_/,'').replace(/[_:].*/,'');
   if(k==='hero'||(typeof S!=='undefined'&&who===S.name))return'hero';if(FOES.includes(k))return'foe';if(!sp)return'thing';return'npc'}
@@ -13,6 +15,7 @@ function miniSprite(sp){const im=IMG[sp+'_d']||IMG[sp+'_d_0']||IMG[sp];if(!im||!
   c.width=96;c.height=96;const x=c.getContext('2d');x.imageSmoothingEnabled=false;x.drawImage(im,(96-w*s)/2,96-h*s-2,w*s,h*s);return c}
 let lastSpeaker=null;
 function dlgSetup(who,sp,chooseMode){const d=$('dlg');const wasHidden=d.hidden;d.hidden=false;const f=face(sp),fe=d.querySelector('.face'),mi=d.querySelector('.mini');
+  d.dataset.portrait=f==='none'?'none':(sp||'').replace(/^c_/,'').split(':')[0];
   const key=(who||'')+'|'+(sp||'').split(':')[0]/* 仅换表情不重播入场动画 */;const changed=wasHidden||key!==lastSpeaker;lastSpeaker=key;
   fe.style.backgroundImage=f;fe.hidden=f==='none';d.classList.toggle('hasface',f!=='none');d.classList.toggle('choose',!!chooseMode);
   mi.innerHTML='';const ms=f==='none'&&sp?miniSprite(sp.split(':')[0]):null;if(ms)mi.appendChild(ms);mi.hidden=!ms;d.classList.toggle('hasmini',!!ms);

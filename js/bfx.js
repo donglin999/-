@@ -44,7 +44,9 @@ const BFXI=(()=>{
     if(A){const im=IMG[A.file],s=spec(A,st.k),[cw,ch]=A.cell,cols=A.cols||Math.max(1,Math.floor(im.naturalWidth/cw)),fi=fidx(s,t-st.t0,!!(st.loop||s.loop)&&!st.hold);
       return{im,sx:(fi%cols)*cw,sy:Math.floor(fi/cols)*ch,sw:cw,sh:ch,dh:h,dw:h*cw/ch,flip:(A.facing||want)!==want,sheet:1,st,has:k=>hasA(A,k),legacy:!!A.legacy}}
     const key=unitImg(u,want);if(!key)return{st,none:1,dh:h,dw:h*.4};const im=IMG[key],other=want==='l'?'r':'l',iw=im.naturalWidth||im.width,ih=im.naturalHeight||im.height;
-    return{im,sx:0,sy:0,sw:iw,sh:ih,dh:h,dw:h*iw/ih,flip:key.startsWith(`c_${u.art}_${other}`),sheet:0,st,has:()=>false}}
+    const bounds=u.side==='ally'&&typeof charBounds==='function'?charBounds(im):null;
+    const dh=bounds?h*ih/bounds.height:h;
+    return{im,sx:0,sy:0,sw:iw,sh:ih,dh,dw:dh*iw/ih,foot:bounds?(ih-bounds.bottom)*dh/ih:0,tone:u.art==='ye'?'brightness(1.22) contrast(1.12)':'none',flip:key.startsWith(`c_${u.art}_${other}`),sheet:0,st,has:()=>false}}
 
   // ── 精灵绘制：着色（闪白/灰化/压暗）在复用的小离屏画布上按源分辨率完成，不逐帧新建画布 ──
   const SC=document.createElement('canvas');SC.width=SC.height=192;const sc=SC.getContext('2d');
@@ -57,7 +59,8 @@ const BFXI=(()=>{
     if(o.white){sc.globalCompositeOperation='source-atop';sc.globalAlpha=Math.min(1,o.white);sc.fillStyle=o.wc||'#fff';sc.fillRect(0,0,w,h)}
     sc.globalCompositeOperation='source-over';sc.globalAlpha=1;return[SC,0,0,w,h]}
   function blit(fr,x,y,o={}){if(fr.none)return;const[src,sx,sy,sw,sh]=prep(fr,o);g.save();g.globalAlpha=o.alpha??1;if(o.comp)g.globalCompositeOperation=o.comp;g.imageSmoothingEnabled=false;
-    g.translate(Math.round(x),Math.round(y));if(o.rot)g.rotate(o.rot);g.scale((fr.flip?-1:1)*(o.sx||1),o.sy||1);const dw=Math.round(fr.dw),dh=Math.round(fr.dh);
+    g.translate(Math.round(x),Math.round(y+(fr.foot||0)));if(o.rot)g.rotate(o.rot);g.scale((fr.flip?-1:1)*(o.sx||1),o.sy||1);const dw=Math.round(fr.dw),dh=Math.round(fr.dh);
+    if(fr.tone&&fr.tone!=='none')g.filter=fr.tone;
     g.drawImage(src,sx,sy,sw,sh,-Math.round(dw/2),-dh,dw,dh);g.restore()}
 
   // ── 像素图元（直接画在世界层 g 上，3px 网格） ──

@@ -6,6 +6,8 @@
 
 美术资源有不同批次：早期整图与角色素材使用 HY-Image-V3.0；当前街市单体管线 `tools_scene/gen_props.py` 使用 `tools_common/flatimg.py`，模型与参数以该脚本的 `PARAMS` 为准，再经本仓库的 Python（Pillow + numpy，部分用 scipy）脚本抠图、像素化、切帧、排布和打包。运行时读取 `assets/` 下的 webp。**所有脚本都以仓库根目录为工作目录运行**（路径写死为相对路径）。襄阳的设定与审图标准见[城设定](design/xiangyang-city.md)、[素材规范](design/xiangyang-art.md)；本页描述技术管线。
 
+江湖菜单专用图标 v2 单独使用精细手绘管线，规范见[江湖图标](design/jianghu-icons.md)。`tools_scene/menu_icons_v2_manifest.json` 逐件列出 65 个物品、招式、心法的主体描述；`tools_scene/gen_menu_icons_v2.py` 经现有 FlatRouter 异步接口生成缺失的高分辨率原稿，保存在本地忽略目录 `raw_menu_icons/` 并记录参数；`tools_scene/build_menu_icons_v2.py` 对不透明白底图执行透明化、平滑缩小并打包为 `assets/i_jianghu.webp`，同步生成 `js/menu-icons.js` 坐标。构建器遇到缺图会直接失败，不会混入旧的像素图标。游戏旧图集 `assets/i_icons.webp` 仍供其他既有用途使用。
+
 ## 1. 资源格式与命名
 
 | 命名 | 尺寸 | 用途 | 生成 |

@@ -391,7 +391,7 @@ hud=function(){mnHud0();try{if(S&&mode==='scene'&&!S.pts&&mnMembers().some(w=>mn
 
 // ───────── 江湖菜单 ─────────
 TABS.length=0;TABS.push(['attr','属性','人'],['skill','武学','武'],['bag','行囊','囊'],['equip','装备','装'],['party','队伍','伴'],['quest','任务','志'],['sys','设置','设']);
-const MN_MEMTABS=['attr','skill','bag','equip'];const mnMemTab=t=>MN_MEMTABS.includes(t);
+const MN_MEMTABS=['attr','skill','bag','equip','party'];const mnMemTab=t=>MN_MEMTABS.includes(t);
 let mnWho='hero',mnPend=null,mnBagCat='全部';
 // 水墨素材（BUI 程序化生成，缓存为 dataURL）
 const mnArt={};
@@ -413,11 +413,14 @@ function mnFace(w){return mnMk('face'+w,()=>{const U=mnB();let u;
   const c=U.face(u,72);if(c)return U.url(c);const m=miniSprite('c_'+u.art);return m?m.toDataURL():''})}
 function mnPor(w){if(w==='hero')return'assets/p_hero.webp';const P=PARTY_DEF[w];const p=P.por.find(p=>ok(IMG['p_'+p]));if(p)return`assets/p_${p}.webp`;
   return mnMk('spr'+w,()=>{const m=miniSprite('c_'+pickArt(P.art));return m?m.toDataURL():''})}
+function mnSideGear(w){const e=mnEq(w),D=mnDef(w),ghost={weapon:'iron',armor:'vest',acc:'jade'};
+  return`<div class="jm-sideGear" aria-label="身上装备位置">${MN_SLOTS.map(([slot,name])=>{const k=e[slot],can=D.slots.includes(slot);
+    return`<button class="jm-sideGearSlot ${slot}${k?' worn':''}" ${k?`data-a="uneq" data-k="${slot}" data-tip-kind="item" data-item="${k}" data-w="${w}"`:'disabled'} aria-label="${name}：${k?esc(ITEMS[k].name):can?'未装备':'不可使用'}${k?'，点击卸下':''}"><span class="jm-sideGearIcon">${mnIco(k||ghost[slot],48)}</span><small>${name}</small></button>`}).join('')}</div>`}
 const MN_KCOL={拳:'#b8612c',掌:'#a0522d',剑:'#2f6f8f',刀:'#6b6356',棍:'#8a6a3a',鞭:'#7a5a2a',腿:'#9a4a2a',暗器:'#4f5f78',内:'#3a4f8a',医:'#2f6b45',咬:'#6b4a3a'};
 function mnBlot(ch,col,sz=30){return mnMk(`bl${ch}${col}${sz}`,()=>mnB().url(mnB().blot(ch,col,sz)))}
 function mnAtlasIco(kind,k,sz){const a=window.MENU_ICONS,r=a&&a[kind]&&a[kind][k];if(!r)return'';
   const[x,y]=r,px=a.cols>1?x/(a.cols-1)*100:0,py=a.rows>1?y/(a.rows-1)*100:0;
-  return`<span class="jm-blot jm-pxi" style="width:${sz}px;height:${sz}px;background-image:url(assets/i_jianghu.webp);background-size:${a.cols*100}% ${a.rows*100}%;background-position:${px}% ${py}%" aria-hidden="true"></span>`}
+  return`<span class="jm-blot jm-pxi" style="width:${sz}px;height:${sz}px;background-image:url(assets/i_jianghu.webp?v=3);background-size:${a.cols*100}% ${a.rows*100}%;background-position:${px}% ${py}%" aria-hidden="true"></span>`}
 function mnIco(k,sz=30){const art=mnAtlasIco('item',k,sz);if(art)return art;if(icoAtlas()&&window.ART&&ART.icons&&ART.icons[k])return ico(k).replace('class="ico img"',`class="ico img jm-ai" style="width:${sz/16}em;height:${sz/16}em"`);const g=ICO[k]||(ITEMS[k]?.name||'?')[0];return`<img class="jm-blot" src="${mnBlot(g,mnQ(k)[1],sz)}" alt="">`}
 function mnSkIco(k,sz=30){const art=mnAtlasIco('skill',k,sz);if(art)return art;const s=SKILLS[k];const ch=(s.name||s.kind)[0];return`<img class="jm-blot" src="${mnBlot(ch,MN_KCOL[s.kind]||'#3b2c1b',sz)}" alt="">`}
 function mnXfIco(k,sz=30){return mnAtlasIco('xinfa',k,sz)||`<img class="jm-blot" src="${mnBlot('心','#3a4f8a',sz)}" alt="">`}
@@ -429,7 +432,10 @@ const mnArrow=d=>d>0?`<em class="up">▲${d}</em>`:d<0?`<em class="dn">▼${-d}<
 function bagPanel(tab,who){if(!S)return;mnEnsure();if(who)mnWho=who;if(!mnMembers().includes(mnWho))mnWho='hero';
   if(tab)menuTab=tab==='xinfa'?'skill':tab;else{const pw=mnMembers().find(w=>mnPts(w));if(pw){menuTab='attr';mnWho=pw}}
   if(!TABS.some(t=>t[0]===menuTab))menuTab='attr';mnPend=null;
-  const p=openPanel('jm');panelClose=()=>{mnPend=null;hud()};p.onclick=mnClick;p.onpointermove=mnHover;p.onpointerleave=mnHideHover;p.onfocusin=mnHover;p.onfocusout=mnHideHover;try{mnB()&&mnB().injectFonts()}catch(e){}mnDraw()}
+  const p=openPanel('jm');panelClose=()=>{mnPend=null;hud()};p.onclick=mnClick;p.onpointermove=mnHover;p.onpointerleave=mnHideHover;
+  // focusin/focusout 以事件监听注册，保证键盘聚焦格子也能打开说明。
+  if(!p._jmFocusReady){p.addEventListener('focusin',mnHover);p.addEventListener('focusout',mnHideHover);p._jmFocusReady=true}
+  try{mnB()&&mnB().injectFonts()}catch(e){}mnDraw()}
 function mnDraw(){const p=$('panel');if(!p||p.hidden||!p.classList.contains('jm'))return;panelKind='menu';panelRedraw=mnDraw;mnCSS();mnEnsure();
   if(menuTab==='xinfa')menuTab='skill';if(!mnMembers().includes(mnWho))mnWho='hero';const T=TABS.find(t=>t[0]===menuTab)||TABS[0];
   const oldScroll=p.dataset.menuTab===menuTab&&p.dataset.menuWho===mnWho?p.querySelector('.jm-body')?.scrollTop||0:0;
@@ -437,7 +443,7 @@ function mnDraw(){const p=$('panel');if(!p||p.hidden||!p.classList.contains('jm'
   const navArt={attr:['skill','jingxin'],skill:['item','book'],bag:['item','shuxia'],equip:['item','iron'],party:['skill','lick'],quest:['item','bf_note'],sys:['skill','dingshen']};
   const tabs=TABS.map(([k,n,i],j)=>{const dot=(k==='attr'&&mnMembers().some(w=>mnPts(w))),a=navArt[k];return`<button data-a="tab" data-k="${k}" class="${menuTab===k?'on':''}" aria-label="${n}"><span class="n">${j+1}</span><span class="jm-navmark">${a?mnAtlasIco(a[0],a[1],26):i}</span><span class="jm-navlabel">${n}</span>${dot?'<i class="jm-dot"></i>':''}</button>`}).join('');
   const mem=mnMemTab(menuTab)?`<div class="jm-mem">${mnMembers().map(w=>`<button data-a="who" data-w="${w}" class="jm-mc${w===mnWho?' on':''}" aria-label="${esc(mnName(w))}"><span class="f" style="background-image:url(${mnFace(w)})"></span><span class="r" style="background-image:url(${mnMk('enso'+(w===mnWho),()=>mnB().url(mnB().enso(64,{col:w===mnWho?'#a8261c':'#2b1e12',seed:w.length+3})))})"></span><span class="nm">${esc(mnName(w))}</span>${mnPts(w)?'<i class="jm-dot"></i>':''}</button>`).join('')}<span class="jm-memk">Z / C 切换</span></div>`:'';
-  const side=mem&&matchMedia('(min-width:761px)').matches?(()=>{const {hp,mp,d}=mnHP(mnWho);return`<aside class="jm-side"><div class="jm-sideCaption">人物 · ${String(mnMembers().indexOf(mnWho)+1).padStart(2,'0')}</div><div class="jm-sidePortrait" style="background-image:url(${mnPor(mnWho)})"></div><div class="jm-sideName">${esc(mnName(mnWho))}</div><div class="jm-sideRole">${mnDef(mnWho).role} · 境界 ${S.lv} 层</div><div class="jm-sideVitals">${mnBar('气血',hp,d.mhp,'#b3261e','sidehp')}${mnBar('内力',mp,d.mmp,'#2d4f73','sidemp')}</div><div class="jm-sideLabel">同行人物</div>${mem}</aside>`})():mem;
+  const side=mem&&matchMedia('(min-width:761px)').matches?(()=>{const {hp,mp,d}=mnHP(mnWho);return`<aside class="jm-side"><div class="jm-sideCaption">人物 · ${String(mnMembers().indexOf(mnWho)+1).padStart(2,'0')}</div><div class="jm-sidePortrait" style="background-image:url(${mnPor(mnWho)})"></div>${menuTab==='equip'?mnSideGear(mnWho):''}<div class="jm-sideName">${esc(mnName(mnWho))}</div><div class="jm-sideRole">${mnDef(mnWho).role} · 境界 ${S.lv} 层</div><div class="jm-sideVitals">${mnBar('气血',hp,d.mhp,'#b3261e','sidehp')}${mnBar('内力',mp,d.mmp,'#2d4f73','sidemp')}</div><div class="jm-sideLabel">同行人物</div>${mem}</aside>`})():mem;
   let body='';try{body=MN_TAB[menuTab]()}catch(e){console.error(e);body=`<div class="jm-empty">此页出错：${esc(e.message)}</div>`}
   p.innerHTML=`<div class="jm-top"><span class="jm-ttl">江湖行卷</span><span class="jm-topChapter">襄阳风云 · ${S.chapter||1} 卷</span><span class="jm-stat"><span><img src="${mnMk('coin',()=>mnB().url(mnB().coin('on',18)))}" alt="">银两 <b>${S.silver}</b></span><span>侠义 <b>${S.moral}</b></span><span>境界 <b>${S.lv}</b> 层</span></span><button class="jm-desktop-close" data-a="close" aria-label="返回江湖">×<small>Esc</small></button><button class="jm-mobile-close" data-a="close" aria-label="返回江湖">返回</button></div>
    <nav class="jm-tabs" style="--sw:url(${mnSw(200,44,{col:'#0d0806',a:.94,dry:.4,seed:9,halo:'#d8c49a',haloA:.28},'tab')})">${tabs}<button data-a="close" class="jm-close" aria-label="返回">返回<small>Esc</small></button></nav>
@@ -522,10 +528,11 @@ skill(){const w=mnWho,r=mnRec(w),sk=mnSk(w),e=mnEq(w),wk=e.weapon&&ITEMS[e.weapo
     if(i>=cap){const s=MN_LOAD_STEPS.find(x=>x[1]===i+1);return`<div class="jm-ls lk"><span class="em">锁</span><small>${s?(s[0]>=13?'登堂入室':`境界 ${s[0]} 层`):''}</small></div>`}
     return`<div class="jm-ls"><span class="em">空</span><small>从下方装配</small></div>`};
   const nx=MN_LOAD_STEPS.find(x=>x[0]>(S.lv||1));
+  const emptySkills=Array.from({length:Math.max(0,4-list.length)},()=>'<span class="jm-skillcard jm-vacant" aria-hidden="true"><span class="jm-vacant-mark">◇</span></span>').join('');
   return`<div class="jm-martial"><section class="jm-martial-art"><h4>招式装配<span class="jm-dim">${r.load.length} / ${cap} 格${nx?` · 境界 ${nx[0]} 层增至 ${nx[1]} 格`:''} · 普攻「${w==='hero'?(wk?ITEMS[e.weapon].name:'拳脚'):PARTY_DEF[w].atkName}」不占栏位</span></h4>
     <div class="jm-load">${[...Array(MN_LOAD).keys()].map(slot).join('')}</div>
     <details class="jm-rules"><summary>装配与精进规则</summary><p>群攻至多 ${MN_AOE_MAX} 门 · 需兵器的武学只择一种兵刃 · 单招内力 ×${MN_MP_RATIO} ≤ 内力上限 · 本章重数上限 ${chCap} 重 · 悟性 ${st.wis||0} → 熟练 ×${mnWisMul(st.wis||3).toFixed(2)}</p></details>
-    <h4>已学招式<span class="jm-dim">${list.length} 门 · 悬停查看招式与进度，点击装配或卸下</span></h4>${list.length?`<div class="jm-skillgrid">${list.map(k=>mnSkillCard(k,w,r,sk)).join('')}</div>`:'<div class="jm-empty">尚未习得招式</div>'}</section><section class="jm-martial-inner"><h4>内功心法<span class="jm-dim">${mnXfOn()?'运转内息，常驻加成':'第二章开放'}</span></h4>${MN_TAB.xinfa()}</section></div>`},
+    <h4>已学招式<span class="jm-dim">${list.length} 门 · 悬停查看招式与进度，点击装配或卸下</span></h4><div class="jm-skillgrid">${list.map(k=>mnSkillCard(k,w,r,sk)).join('')}${emptySkills}</div></section><section class="jm-martial-inner"><h4>内功心法<span class="jm-dim">${mnXfOn()?'运转内息，常驻加成':'第二章开放'}</span></h4>${MN_TAB.xinfa()}</section></div>`},
 xinfa(){if(!mnXfOn())return`<div class="jm-xf"><div class="slots">${['主修','辅修','辅修','辅修'].map((t,i)=>`<div class="c"><span class="mark">${i?'辅':'主'}</span><span>${t}</span><small>未开放</small></div>`).join('')}</div>
   <div class="tx"><img src="${mnSeal('后续',30)}" alt=""><strong>内功篇 · 第二章开启</strong><p>主修与辅修的槽位已列于此。习得心法后，可在本页悬停查看加成、点击运转。</p></div></div>`;
   const w=mnWho;if(mnDef(w).noXf)return`<div class="jm-empty">${esc(mnName(w))}是条狗，不修内功心法。<br>它的本事都在牙口与鼻子上。</div>`;
@@ -547,20 +554,21 @@ xinfa(){if(!mnXfOn())return`<div class="jm-xf"><div class="slots">${['主修','�
 bag(){const cats=['全部','兵器','护具','佩饰','药食','杂物','要物'],own=Object.keys(S.bag).filter(k=>S.bag[k]>0&&ITEMS[k]);
   const cnt=c=>own.filter(k=>c==='全部'||mnCat(k)===c).length,L=own.filter(k=>mnBagCat==='全部'||mnCat(k)===mnBagCat);
   const order=['兵器','护具','佩饰','药食','杂物','要物'];L.sort((a,b)=>order.indexOf(mnCat(a))-order.indexOf(mnCat(b))||((ITEMS[b].q||0)-(ITEMS[a].q||0)));
+  const blanks=Array.from({length:Math.max(0,Math.max(24,Math.ceil(L.length/8)*8)-L.length)},()=>'<span class="jm-invcell jm-vacant" aria-hidden="true"><span class="jm-vacant-mark">·</span></span>').join('');
   return`<div class="jm-cats">${cats.map(c=>`<button data-a="cat" data-k="${c}" class="${mnBagCat===c?'on':''}">${c}<small>${cnt(c)}</small></button>`).join('')}<span class="jm-dim cap">当前使用者：${esc(mnName(mnWho))} · 悬停查看详情</span></div>
-   ${L.length?`<div class="jm-inventory-grid">${L.map(k=>mnBagTile(k,mnWho)).join('')}</div>`:'<div class="jm-empty">这一格里空空如也</div>'}`},
+   <div class="jm-inventory-grid">${L.map(k=>mnBagTile(k,mnWho)).join('')}${blanks}</div>`},
 equip(){const w=mnWho,e=mnEq(w),D=mnDef(w),{hp,mp,d}=mnHP(w);
   const slots=MN_SLOTS.map(([s,n,g])=>{const k=e[s],can=D.slots.includes(s);return`<div class="jm-wornslot${can?'':' unavailable'}" ${k?`data-tip-kind="item" data-k="${k}" data-w="${w}"`:''}>
     <span class="jm-wornicon">${k?mnIco(k,48):`<span class="jm-slotghost">${mnIco({weapon:'iron',armor:'vest',acc:'jade'}[s],48)}</span>`}</span><span class="jm-worntxt"><small>${n}</small><strong>${k?esc(ITEMS[k].name):can?'尚未装备':'不可使用'}</strong></span>
     ${k?`<button class="jm-b ghost sm" data-a="uneq" data-k="${s}">卸下</button>`:''}</div>`}).join('');
-  const groups=MN_SLOTS.map(([s,n])=>{const items=Object.keys(S.bag).filter(k=>S.bag[k]>0&&mnSlot(k)===s);return`<section class="jm-gearGroup"><h4>${n}<span class="jm-dim">${items.length} 件 · 悬停比较，点击装备</span></h4><div class="jm-geargrid">${items.length?items.map(k=>mnBagTile(k,w)).join(''):'<span class="jm-empty sm">暂无可用物品</span>'}</div></section>`}).join('');
+  const groups=MN_SLOTS.map(([s,n])=>{const items=Object.keys(S.bag).filter(k=>S.bag[k]>0&&mnSlot(k)===s);return`<section class="jm-gearGroup"><h4>${n}<span class="jm-dim">${items.length} 件 · 悬停比较，点击装备</span></h4><div class="jm-geargrid">${items.length?items.map(k=>mnBagTile(k,w)).join(''):`<div class="jm-gearEmpty"><span class="jm-slotghost">${mnIco({weapon:'iron',armor:'vest',acc:'jade'}[s],42)}</span><span>暂无可用${n}</span></div>`}</div></section>`}).join('');
   return`<div class="jm-equipBoard"><div class="jm-equipHero"><div class="jm-equipIdentity"><span class="face" style="background-image:url(${mnFace(w)})"></span><div><strong>${esc(mnName(w))}</strong><small>${mnDef(w).role} · 境界 ${S.lv} 层</small></div></div>
     ${mnBar('气血',hp,d.mhp,'#b3261e','eqhp')}${mnBar('内力',mp,d.mmp,'#2d4f73','eqmp')}
     <h4>身上装备</h4>${slots}<div class="jm-sum">${['atk','def','crit','dodge'].map(k=>`<span>${MN_FXN[k]} <b>${d[k]}${MN_PCT[k]?'%':''}</b></span>`).join('')}</div></div>
     <div class="jm-equipStock">${groups}</div></div>`},
 party(){const M=mnMembers();
   const card=(w,i)=>{const{hp,mp,d}=mnHP(w),a=w==='hero'||!mnDef(w).teachAff?null:((S.aff||{})[w]||0),pts=mnPts(w),r=mnRec(w);
-    return`<div class="jm-pc"><div class="fc" style="background-image:url(${mnFace(w)})"></div><div class="rg" style="background-image:url(${mnMk('enso0',()=>mnB().url(mnB().enso(64,{col:'#2b1e12',seed:3})))})"></div>
+    return`<div class="jm-pc jm-pc-person"><div class="jm-pc-portrait" style="background-image:url(${mnPor(w)})"></div>
       <div class="nm">${esc(mnName(w))}</div><div class="jm-dim ro">${mnDef(w).role} · ${w==='hero'?'领队':`第 ${i+1} 位`}</div>
       ${mnBar('气血',hp,d.mhp,'#b3261e','hp')}${mnBar('内力',mp,d.mmp,'#2d4f73','mp')}
       <div class="ln">${a!=null?`<span class="jm-red">♥</span> 好感 ${a}`:w==='hero'?'<span class="jm-dim">侠义 '+S.moral+'</span>':'<span class="jm-dim">忠心耿耿</span>'}${pts?`<span class="jm-red">　待分配 ${pts}</span>`:''}</div>
@@ -583,17 +591,24 @@ party(){const M=mnMembers();
     ${pet.equip.acc?'<button class="jm-b ghost" data-a="petuneq">卸下项圈</button>':S.bag.collar>0?'<button class="jm-b ghost" data-a="peteq">戴上项圈</button>':''}</div></div>`:'<div class="jm-pc empty"><div class="jm-empty">尚无同行宠物</div></div>';
   return`<h4>人物同伴</h4><div class="jm-pgrid">${M.map((w,i)=>card(w,i-1)).join('')}${comps.length?'':'<div class="jm-pc empty"><div class="jm-empty">江湖路远<br>尚无同行之人</div></div>'}</div><h4>宠物</h4><div class="jm-pgrid">${petCard}</div>
     ${comps.length?`<h4>传授与请教<span class="jm-dim">把自己会的武学教给同伴，或向同伴讨教；好感越深，肯教的越多</span></h4>${teach||'<div class="jm-empty sm">眼下没有可传授的武学</div>'}`:''}`},
-quest(){const main=(window.questLog?questLog():[]),side=mnQuests();
-  const it=q=>`<div class="jm-q${q.done?' done':''}"><img src="${mnSeal(q.done?'毕':'行',26)}" alt=""><div><div class="nm">${esc(q.t)}${q.giver?`<small>${esc(q.giver)}</small>`:''}</div><div class="ds">${q.d||''}</div></div></div>`;
-  return`<h4>主线<span class="jm-dim">第一章 · 襄阳风云</span></h4>${main.length?main.map(it).join(''):'<div class="jm-empty sm">尚无要事</div>'}
-    <h4>支线<span class="jm-dim">市井小事，牵出江湖大局</span></h4>${side.length?side.map(it).join(''):'<div class="jm-empty sm">暂无支线。多在城里走走，和人聊聊。</div>'}`},
+quest(){const main=(window.questLog?questLog():[]),side=mnQuests(),goal=window.questLine?questLine():'',loc=cur?.name||'';
+  const known=typeof NODES==='undefined'?[]:NODES.filter(n=>S.unlocked?.[n.id]);
+  const step=(q,i)=>`<article class="jm-questStep${q.done?' done':' active'}"><div class="jm-questNode"><span>${String(i+1).padStart(2,'0')}</span><img src="${mnSeal(q.done?'毕':'行',29)}" alt=""></div><div class="jm-questText"><div class="jm-questTitle">${esc(q.t)}<small>${q.done?'已了结':'进行中'}</small></div><div class="jm-questDesc">${q.d||''}</div></div></article>`;
+  const sideCard=q=>`<article class="jm-sideQuest${q.done?' done':''}"><div class="jm-sideQuestHead"><img src="${mnSeal(q.done?'毕':'行',27)}" alt=""><div><strong>${esc(q.t)}</strong><small>${q.kind?esc(q.kind)+' · ':''}${q.done?'已了结':q.stage?'第 '+q.stage+' 阶段':'进行中'}</small></div></div>${q.where?`<div class="jm-questPlace">${esc(q.where)}</div>`:''}<p>${q.d||''}</p>${q.giver?`<span class="jm-questGiver">委托 · ${esc(q.giver)}</span>`:''}</article>`;
+  return`<div class="jm-questBoard"><section class="jm-questPrimary"><div class="jm-currentQuest"><span class="jm-currentKicker">当前行动${loc?` · 所在 ${esc(loc)}`:''}</span><strong>${esc(goal||'暂无进行中的目标')}</strong><span class="jm-currentProgress">主线记录 ${main.filter(q=>q.done).length} / ${main.length}</span></div>
+    <h4>主线进程<span class="jm-dim">${main.length} 个已记录阶段</span></h4><div class="jm-mainPath">${main.length?main.map(step).join(''):'<div class="jm-empty sm">尚无要事</div>'}</div></section>
+    <section class="jm-questBranch"><h4>支线札记<span class="jm-dim">已接 ${side.length} 件 · 有地点的任务标出行路方向</span></h4><div class="jm-sideQuestList">${side.length?side.map(sideCard).join(''):`<div class="jm-questNone"><img src="${mnSeal('待',46)}" alt=""><strong>尚无已接支线</strong><span>在城中交谈、探索后，已接之事会记在这里。</span></div>`}</div></section>
+    <section class="jm-questAtlas" aria-label="已探明地点舆图"><div class="jm-questMap" role="img" aria-label="襄阳周边舆图"></div><div class="jm-questMapList"><span class="jm-currentKicker">行路舆图</span><strong>已探明 ${known.length} 处</strong><div class="jm-questPlaces">${known.length?known.map(n=>`<span>${esc(n.name)}</span>`).join(''):'<span>尚未探明地点</span>'}</div><small>地点依当前探索记录显示</small></div></section></div>`},
 sys(){let muted=false;try{muted=__audio.muted}catch(e){}const th=(window.BUI&&BUI.theme)||'ink';
-  return`<div class="jm-sys"><div class="row"><span class="k">声音</span><button class="jm-b ghost" data-a="mute">${muted?'已静音 · 点击开启':'开启中 · 点击静音'}</button></div>
+  const key=(k,txt)=>`<div><kbd>${k}</kbd><span>${txt}</span></div>`;
+  return`<div class="jm-sys"><div class="row"><span class="k">声音</span><button class="jm-b ghost" data-a="mute">${muted?'已静音 · 点击开启':'开启中 · 点击静音'}</button><small>M 键也可切换</small></div>
     <div class="row"><span class="k">战斗界面</span><button class="jm-b ghost" data-a="theme">${th==='ink'?'墨迹题签':'卷轴木牌'} · 点击切换</button></div>
-    <div class="row"><span class="k">存档</span><button class="jm-b" data-a="save">立即存档</button><span class="jm-dim">进场、入队与每 5 秒自动存档</span></div>
-    <h4>操作</h4><div class="jm-keyt"><span>WASD / 方向键</span>行走<span>E / 空格</span>互动<span>I</span>江湖菜单<span>Q / E · 1–7</span>翻页 / 直达<span>Z / C</span>切换人物<span>Esc</span>返回<span>鼠标</span>寻路、交谈、操作格子</div></div>`}};
+    <div class="row"><span class="k">存档</span><button class="jm-b" data-a="save">立即存档</button><small>进场、入队与每 5 秒自动存档</small></div>
+    <h4>行路与操作</h4><div class="jm-controlGrid"><section><h5>探索</h5>${key('WASD / 方向键','移动')}${key('Shift','按一次切换跑步 / 步行')}${key('鼠标','寻路、交谈')}</section>
+    <section><h5>互动</h5>${key('E / 空格','对话与调查')}${key('I','打开江湖行卷')}${key('Esc','返回江湖')}</section>
+    <section><h5>行卷</h5>${key('Q / E','前后翻页')}${key('1–7','直达系统页')}${key('Z / C','切换人物')}${key('悬停 / 焦点','查看物品与武学')}</section></div></div>`}};
 // 支线：读取 W3 的 window.QUESTS（数组或 {id:定义}）与 S.quests（{id:状态}）；结构未定时尽量宽松地取字段
-function mnQuests(){const Q=window.QUESTS,st=(S&&S.quests)||{};try{if(Q&&typeof Q.log==='function')return Q.log().map(q=>({t:q.t||q.name||q.title,d:q.d||q.desc||'',done:!!q.done,giver:q.giver}))}catch(e){}
+function mnQuests(){const Q=window.QUESTS,st=(S&&S.quests)||{};try{if(typeof window.questEntries==='function')return window.questEntries().map(q=>({t:q.name,d:esc(q.desc||''),done:!!q.done,giver:q.giver,where:q.where,kind:Q[q.id]?.kind,stage:q.stage,reward:q.reward}));if(Q&&typeof Q.log==='function')return Q.log().map(q=>({t:q.t||q.name||q.title,d:q.d||q.desc||'',done:!!q.done,giver:q.giver}))}catch(e){}
   let L=Array.isArray(Q)?Q:Q&&typeof Q==='object'?Object.entries(Q).filter(([,q])=>q&&typeof q==='object').map(([id,q])=>({id,...q})):[];
   return L.filter(q=>q.id&&st[q.id]).map(q=>{const s=st[q.id],state=typeof s==='object'?(s.state||s.status||(s.done?'done':'active')):s;
     const done=state==='done'||state==='finished'||state===2&&!q.steps||(typeof s==='object'&&s.done===true);const step=typeof s==='object'?(s.step??s.stage):typeof s==='number'?s:null;
@@ -633,10 +648,13 @@ function mnTipXinfa(id,w){const f=XINFA[id],x=mnXf(w),n=x.lv[id]||1,run=x.main==
     <div class="jm-tipnote">门槛 ${f.req?mnReqTxt(f.req):'无'}<br>三层：${esc(f.d3)}<br>五层：${esc(f.d5)}</div>${why?`<div class="jm-tipwarn">${esc(why)}</div>`:''}<div class="jm-tipfoot">${run&&f.slot==='main'?'主修中':`点击${run?'停修':f.slot==='main'?'主修或改修':'辅修'}`}</div>`}
 function mnHideHover(){const f=$('panel')?.querySelector('.jm-float');if(f)f.hidden=true}
 function mnHover(e){const p=$('panel'),f=p?.querySelector('.jm-float'),t=e.target?.closest?.('[data-tip-kind]');if(!f||!t||!p.contains(t)){mnHideHover();return}
-  const kind=t.dataset.tipKind,k=t.dataset.k,w=t.dataset.w||mnWho,id=kind+':'+k+':'+w;
+  const kind=t.dataset.tipKind,k=t.dataset.item||t.dataset.k,w=t.dataset.w||mnWho,id=kind+':'+k+':'+w;
   if(f.dataset.id!==id){f.innerHTML=kind==='skill'?mnTipSkill(k,w):kind==='xinfa'?mnTipXinfa(k,w):mnTipItem(k,w);f.dataset.id=id}f.hidden=false;
-  const pr=p.getBoundingClientRect(),tr=t.getBoundingClientRect(),x=(e.clientX||tr.right)-pr.left,y=(e.clientY||tr.top)-pr.top;
-  f.style.left=Math.max(8,Math.min(x+18,p.clientWidth-f.offsetWidth-10))+'px';f.style.top=Math.max(8,Math.min(y+16,p.clientHeight-f.offsetHeight-10))+'px'}
+  const pr=p.getBoundingClientRect(),tr=t.getBoundingClientRect();
+  let x=tr.right-pr.left+12;if(x+f.offsetWidth>p.clientWidth-10)x=tr.left-pr.left-f.offsetWidth-12;
+  if(x<8)x=Math.max(8,Math.min(tr.left-pr.left,p.clientWidth-f.offsetWidth-8));
+  const y=Math.max(8,Math.min(tr.top-pr.top,p.clientHeight-f.offsetHeight-10));
+  f.style.left=x+'px';f.style.top=y+'px'}
 // 属性页下半：兵刃造诣 · 技艺 · 品德（主角）/ 师门（同伴）
 function mnDimsHTML(w,part){const r=mnRec(w);mnDimEnsure(r,w);const ji=mnJi(w),bar=(v,max=MN_ZY_MAX)=>`<i class="bb"><b style="width:${clamp(v/max,0,1)*100}%"></b></i>`;
   const zy=MN_ZY.map(t=>{const v=Math.floor(r.zy[t]||0),b=mnZyBonus(v);return`<div class="r"><span class="k" style="color:${MN_KCOL[t==='暗器'?'暗器':t]||'inherit'}">${t}</span>${bar(v)}<b>${v}</b><small>${b?`伤 +${Math.round(b*100)}%`:''}</small></div>`}).join('');
@@ -678,7 +696,7 @@ function mnCSS(){if($('jm-css'))return;const st=document.createElement('style');
 .jm-sheet h5{margin:.9em 0 .35em;font:500 .85em var(--serif);color:var(--dimk);letter-spacing:.2em}
 .jm-dim{color:var(--dimk)}.jm-red{color:var(--cin)}.jm-green{color:var(--jadek)}
 .jm-empty{padding:1.6em;text-align:center;color:var(--dimk);letter-spacing:.15em;line-height:1.9}.jm-empty.sm{padding:.6em;text-align:left}
-.jm-blot{width:1.9em;height:1.9em;flex:none;display:block}.jm-pxi{background-repeat:no-repeat;image-rendering:pixelated}.jm-slotghost{opacity:.27;filter:grayscale(1)}
+.jm-blot{width:1.9em;height:1.9em;flex:none;display:block}.jm-pxi{background-repeat:no-repeat;image-rendering:auto}.jm-slotghost{opacity:.27;filter:grayscale(1)}
 .jm-sheet .ico{flex:none}.jm-sheet .ico.jm-ai{display:block;border-radius:50%;padding:.28em;background:radial-gradient(circle,#3a2a1a 55%,#1a120a);box-shadow:0 0 0 1.5px rgba(43,30,18,.55)}.jm-sheet .ico.jm-ai i{display:block;width:100%;height:100%;background-repeat:no-repeat;image-rendering:pixelated}
 .jm-b{display:inline-flex;align-items:center;justify-content:center;min-width:4.6em;padding:.28em 1.2em!important;background:url(${inkBtn}) center/100% 100% no-repeat!important;color:#f3e6c8!important;font-family:var(--serif)!important;letter-spacing:.2em!important;font-size:.92em!important;transition:transform .12s,filter .12s}
 .jm-b:hover:not(:disabled),.jm-b:focus-visible{background-image:url(${redBtn})!important;outline:none;transform:translateY(-1px)}
@@ -951,6 +969,78 @@ em.up{font-style:normal;color:var(--jadek);font-size:.8em;font-weight:600}em.dn{
  .jm-body.jm-xinfa .jm-xf{display:grid;grid-template-columns:16em minmax(0,1fr);align-content:center;gap:2em;width:min(100%,56em);min-height:22em;margin:auto;padding:1.5em 2em;background:linear-gradient(145deg,rgba(65,47,31,.12),rgba(65,47,31,.03));border-left:3px solid rgba(168,38,28,.55)}.jm-body.jm-xinfa .jm-xf .slots{display:grid;grid-template-columns:repeat(2,1fr);align-content:center;justify-items:center;gap:1em}.jm-body.jm-xinfa .jm-xf .c{width:6em;height:6em;border:1px solid rgba(224,191,120,.4);border-radius:0;clip-path:polygon(12% 0,100% 0,100% 88%,88% 100%,0 100%,0 12%);background:linear-gradient(145deg,#463425,#1b1510);color:#d5bc8e;box-shadow:inset 0 1px rgba(224,191,120,.45)}.jm-body.jm-xinfa .jm-xf .tx{max-width:none}.jm-body.jm-xinfa .jm-xf .tx p{font-size:.87em;line-height:1.6}.jm-body.jm-xinfa .jm-xf .tx p:last-child{margin-top:1em;padding:.6em 0;border-top:1px solid rgba(80,49,24,.2)}
  .jm-float{border-top:2px solid #c19c60;box-shadow:0 14px 32px rgba(0,0,0,.8),inset 4px 0 #b3261e}
  .jm-keys{left:3.5%;bottom:.35%}
+ /* 以半身立绘作为人物页共同主视觉；下部信息压在渐暗衣袍上。 */
+ .jm-sheet{grid-template-columns:minmax(16em,31%) minmax(0,1fr)}
+ .jm-side{justify-content:flex-end;padding:.85em 1em .75em;overflow:hidden;background:linear-gradient(150deg,#46301f,#1c130e)}
+ .jm-side::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(16,11,8,.08) 5%,rgba(16,11,8,0) 34%,rgba(16,11,8,.64) 58%,rgba(10,7,5,.98) 100%);pointer-events:none;z-index:0}
+ .jm-sidePortrait{position:absolute;inset:.25em .2em 0;height:auto;margin:0;background:center 8%/auto 102% no-repeat;mask:none;-webkit-mask:none;z-index:0}
+ .jm-sideCaption{position:absolute;left:1.4em;top:1.2em;z-index:1;padding:.2em .65em;background:rgba(17,12,9,.68)}
+ .jm-sideName,.jm-sideRole,.jm-sideVitals,.jm-sideLabel,.jm-side .jm-mem{position:relative;z-index:1}
+ .jm-sideName{font-size:2em;line-height:1.05;text-shadow:0 2px 6px #000}
+ .jm-sideRole{font-size:.78em;color:#efe0be;text-shadow:0 1px 4px #000}
+ .jm-sideVitals{padding:.35em .15em .1em;background:rgba(14,10,7,.34)}
+ .jm-sideVitals .jm-bar{font-size:.76em}
+ .jm-sideLabel{margin:.25em 0 .12em;font-size:.7em;color:#e0bf78}
+ .jm-side .jm-mem{flex-direction:row;flex-wrap:wrap;gap:.2em}
+ .jm-side .jm-mc{flex:1 1 5.5em;min-height:2.2em;padding:.1em .25em!important;background:rgba(9,7,5,.56)!important}
+ .jm-side .jm-mc .f{width:1.8em;height:1.8em}.jm-side .jm-mc .r{width:2em;height:2em;top:.08em;left:.2em}.jm-side .jm-mc .nm{font-size:.8em}
+ .jm-sheet:has(.jm-side)>.jm-body{padding:.75em .9em 1em 1em}
+ .jm-inventory-grid{grid-template-columns:repeat(8,minmax(0,1fr));gap:.28em;padding:.15em 0 .4em}
+ #panel.jm .jm-invcell{min-height:5.8em;padding:.35em .14em .25em!important;clip-path:none;border:1px solid rgba(81,55,31,.75);background:linear-gradient(150deg,#3d2b1c,#1a130f 78%)!important}
+ .jm-invcell::before{inset:.18em;border:1px solid rgba(224,191,120,.28)}
+ .jm-invicon{width:3.25em;height:3.2em}.jm-invicon .jm-blot,.jm-invicon .jm-ai{width:3.05em!important;height:3.05em!important}
+ .jm-invname{font-size:.82em}.jm-invtype{font-size:.68em}
+ #panel.jm .jm-invcell.jm-vacant,#panel.jm .jm-skillcard.jm-vacant{min-height:5.8em;pointer-events:none;background:linear-gradient(150deg,rgba(50,37,26,.77),rgba(23,18,15,.82))!important;clip-path:none;opacity:1}
+ .jm-vacant::before{border:1px solid rgba(195,166,117,.2)!important}.jm-vacant::after{display:none!important}
+ .jm-vacant-mark{font:1.5em var(--serif);color:rgba(202,171,121,.22);line-height:1}
+ .jm-martial-art .jm-skillgrid{grid-template-columns:repeat(4,minmax(0,1fr));gap:.3em}
+ #panel.jm .jm-martial-art .jm-skillcard{min-height:5.9em!important;padding:.35em .15em!important;clip-path:none}
+ .jm-martial-art .jm-skillart{height:2.6em}.jm-martial-art .jm-skillart .jm-blot{width:2.6em;height:2.6em}
+ .jm-martial-art .jm-skillname{font-size:.84em}.jm-martial-art .jm-skillmeta,.jm-martial-art .jm-skillstate{font-size:.66em}
+ .jm-martial-inner .jm-xf .tx p{display:none}
+ .jm-martial-inner .jm-xf .tx{padding:.3em 0;text-align:center}.jm-martial-inner .jm-xf .tx img{display:none}
+ .jm-martial-inner .jm-xf .c{width:5.1em;height:5.1em}
+ .jm-float{width:min(24em,40%);font-size:1em;line-height:1.6}
+ .jm-float p{font-size:.9em}
+ .jm-pc-person{align-items:stretch;padding-left:43%;text-align:left;background:linear-gradient(110deg,#62503b,#21170f 75%)!important}
+ .jm-pc-portrait{position:absolute;left:.25em;bottom:0;width:44%;height:96%;background:center bottom/contain no-repeat;mask:linear-gradient(90deg,#000 78%,transparent);-webkit-mask:linear-gradient(90deg,#000 78%,transparent)}
+ .jm-pc-person .nm,.jm-pc-person .ro,.jm-pc-person .jm-bar,.jm-pc-person .ln,.jm-pc-person .acts{position:relative;z-index:1}
+ .jm-pc-person .nm{align-self:flex-start;text-align:left}.jm-pc-person .ro{align-self:flex-start;text-align:left}
+ .jm-pc-person .jm-bar{width:100%}.jm-pc-person .ln{text-align:left}.jm-pc-person .acts{justify-content:flex-start;flex-wrap:wrap;gap:.2em}
+ .jm-sideGear{position:absolute;inset:0;z-index:2;pointer-events:none}
+ #panel.jm .jm-sideGearSlot{position:absolute;width:3.75em;min-height:4.2em;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.05em;padding:.15em!important;background:linear-gradient(155deg,rgba(55,38,23,.95),rgba(15,11,8,.96))!important;border:1px solid rgba(224,191,120,.65)!important;box-shadow:0 4px 9px rgba(0,0,0,.5)!important;color:#eadcbc!important;pointer-events:auto}
+ #panel.jm .jm-sideGearSlot.worn{border-color:#c59957!important}#panel.jm .jm-sideGearSlot:disabled{opacity:.7}
+ .jm-sideGearSlot.weapon{left:3%;top:30%}.jm-sideGearSlot.armor{right:3%;top:43%}.jm-sideGearSlot.acc{right:3%;top:19%}
+ .jm-sideGearIcon{width:2.9em;height:2.9em;display:grid;place-items:center}.jm-sideGearIcon .jm-blot{width:2.75em!important;height:2.75em!important}.jm-sideGearSlot:disabled .jm-sideGearIcon{filter:grayscale(1);opacity:.48}
+ .jm-sideGearSlot small{font-size:.68em;letter-spacing:.12em;color:#dcc397}
+ .jm-sideGearSlot:hover:not(:disabled),.jm-sideGearSlot:focus-visible{outline:2px solid #e0bf78;outline-offset:2px}
+ .jm-body.jm-quest,.jm-body.jm-sys{padding:.7em 1em 1em!important}.jm-body.jm-quest::after,.jm-body.jm-sys::after{display:none}
+ .jm-questBoard{display:grid;grid-template-columns:minmax(0,1.14fr) minmax(0,.86fr);grid-template-rows:auto minmax(11em,1fr);gap:1em;min-height:100%}
+ .jm-questPrimary,.jm-questBranch{min-width:0;display:flex;flex-direction:column}
+ .jm-currentQuest{position:relative;display:flex;flex-direction:column;gap:.35em;min-height:7.7em;padding:.85em 1.15em;background:linear-gradient(140deg,#4e3421,#21170f 82%);color:#f0ddba;border-top:2px solid #bd9252;box-shadow:inset 0 0 0 1px rgba(224,191,120,.25)}
+ .jm-currentQuest::after{content:"";position:absolute;right:1em;top:.45em;width:3em;height:3em;background:url(${mnSeal('行',47)}) center/contain no-repeat;opacity:.7}
+ .jm-currentKicker{font-size:.72em;color:#d3b584;letter-spacing:.15em}.jm-currentQuest strong{font:1.3em var(--serif);line-height:1.45;max-width:28em}.jm-currentProgress{margin-top:auto;color:#bca783;font-size:.7em}
+ .jm-questBoard h4{margin:.7em 0 .4em}.jm-mainPath{position:relative;display:flex;flex-direction:column;gap:.4em;overflow:auto;max-height:16em;padding:.15em .2em .5em .9em}
+ .jm-mainPath::before{content:"";position:absolute;left:1.55em;top:.5em;bottom:.7em;border-left:1px solid rgba(137,85,39,.48)}
+ .jm-questStep{position:relative;display:grid;grid-template-columns:3em minmax(0,1fr);gap:.65em;min-height:4.5em;padding:.4em .65em .45em .1em;background:rgba(91,61,33,.08)}
+ .jm-questStep.active{background:linear-gradient(90deg,rgba(168,38,28,.15),rgba(92,63,37,.05))}.jm-questNode{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;gap:.1em;background:#e8d8b4}.jm-questNode span{font:700 .7em var(--sans);color:#8a6746}.jm-questNode img{width:1.75em;height:1.75em}
+ .jm-questText{min-width:0}.jm-questTitle{display:flex;align-items:center;gap:.6em;font-weight:700;letter-spacing:.1em}.jm-questTitle small{font-size:.67em;color:#a8261c;font-weight:400}.jm-questStep.done .jm-questTitle small{color:#467252}
+ .jm-questDesc{font-size:.8em;line-height:1.55;color:#624a32;margin-top:.1em}.jm-sideQuestList{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));align-content:start;gap:.55em;max-height:22em;overflow:auto}
+ .jm-sideQuest{min-width:0;min-height:8.3em;padding:.65em .75em;background:linear-gradient(145deg,#4b3423,#21170f 82%);color:#f0dfc1;border-top:2px solid #aa7e46}
+ .jm-sideQuest.done{opacity:.75}.jm-sideQuestHead{display:flex;align-items:center;gap:.45em}.jm-sideQuestHead img{width:1.8em;height:1.8em}.jm-sideQuestHead strong{display:block;line-height:1.2}.jm-sideQuestHead small{display:block;color:#cab48e;font-size:.68em}
+ .jm-questPlace{display:inline-block;margin-top:.5em;padding:.1em .45em;background:rgba(224,191,120,.16);color:#edce90;font-size:.72em}.jm-sideQuest p{margin:.35em 0;font-size:.78em;line-height:1.5}.jm-questGiver{color:#bca783;font-size:.68em}
+ .jm-questNone{grid-column:1/-1;min-height:12em;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.5em;background:linear-gradient(145deg,rgba(66,45,29,.94),rgba(25,18,13,.96));color:#f0dfc1;border:1px solid rgba(224,191,120,.4)}
+ .jm-questNone img{width:3.5em;height:3.5em}.jm-questNone strong{font:1.25em var(--serif)}.jm-questNone span{max-width:20em;color:#cab48e;text-align:center;font-size:.78em;line-height:1.6}
+ .jm-questAtlas{grid-column:1/-1;min-height:11em;display:grid;grid-template-columns:minmax(0,1.6fr) minmax(12em,.4fr);overflow:hidden;border:2px solid rgba(80,49,24,.46);background:#312219}
+ .jm-questMap{background:url(assets/m_world.webp) center/cover no-repeat;min-height:11em}
+ .jm-questMapList{display:flex;flex-direction:column;gap:.5em;padding:1em 1.15em;color:#efdcbb;border-left:2px solid #9c7041;background:linear-gradient(145deg,#4b3523,#221910)}
+ .jm-questMapList strong{font:1.35em var(--serif)}.jm-questPlaces{display:flex;flex-wrap:wrap;align-content:flex-start;gap:.45em;overflow:auto}.jm-questPlaces span{font-size:.8em;padding:.3em .55em;border:1px solid rgba(224,191,120,.45);background:rgba(224,191,120,.1)}.jm-questMapList small{margin-top:auto;color:#bda785;font-size:.7em}
+ .jm-gearEmpty{grid-column:1/-1;display:flex;align-items:center;gap:.8em;min-height:4em;padding:.4em .8em;background:linear-gradient(90deg,rgba(64,46,30,.16),rgba(64,46,30,.03));border:1px dashed rgba(103,68,34,.45);color:#765a3e;font-size:.82em}.jm-gearEmpty .jm-slotghost{width:2.8em;height:2.8em;display:grid;place-items:center;opacity:.45;filter:grayscale(1)}.jm-gearEmpty .jm-blot{width:2.6em!important;height:2.6em!important}
+ .jm-body.jm-sys>.jm-sys{max-width:none;min-height:100%;grid-template-columns:repeat(3,minmax(0,1fr));grid-template-rows:minmax(7.6em,.35fr) auto minmax(11em,.65fr);gap:.7em}
+ .jm-sys .row{min-height:7.6em;padding:.8em 1em}.jm-sys .row small{font-size:.72em;color:#bba581}.jm-sys h4,.jm-controlGrid{grid-column:1/-1}
+ .jm-controlGrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.7em}.jm-controlGrid section{display:flex;flex-direction:column;justify-content:space-around;min-height:10.8em;padding:.55em .9em .8em;background:linear-gradient(145deg,rgba(92,63,37,.14),rgba(92,63,37,.04));border:1px solid rgba(116,77,41,.38)}
+ .jm-controlGrid h5{font:1.05em var(--brush);color:#674221;margin:.1em 0 .5em;padding-bottom:.3em;border-bottom:1px solid rgba(116,77,41,.35)}
+ .jm-controlGrid section>div{display:flex;align-items:center;gap:.65em;margin:.35em 0;font-size:.82em}.jm-controlGrid kbd{min-width:7.6em;padding:.15em .4em;background:#3a291b;color:#f0d9af;font:700 .88em var(--sans);text-align:center;white-space:nowrap}.jm-controlGrid section>div span{color:#513823}
 }
 `;document.head.appendChild(st)}
 

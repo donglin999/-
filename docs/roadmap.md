@@ -4,7 +4,7 @@
 
 | 优先级 | 事项 | 说明 |
 |---|---|---|
-| 高 | 其余 5 个旧场景按 v2 管线重建 | 街市 / 偏巷 / 渡口已于 2026-09 用 `tools_scene/` 程序排布重建（见 art-pipeline.md §场景管线 v2）。`temple temple_out gate bgate cave` 仍为旧整图像素化地图（已补精确 mask）：待按同一方法重建（庙内需要柱子/神龛前景遮挡，城门外需与街市北门楼呼应），并补音景（`SCENES` 表）、路人与剧情加厚；`dark/tint` 夜景在 `BRIGHT` 下与明亮角色风格不统一 |
+| 高 | 余下场景的完整性与风格验收 | 襄阳相关的 10 个场景已纳入地图与碰撞审计；后续仍需逐场核对前景遮挡、音景、路人密度及明暗调色，特别是夜景角色与背景的一致性。场景比例和可行走边界以 [视觉验收规范](design/visual-acceptance.md) 为准。 |
 | 高 | 剧情等级下的战斗平衡 | 新战斗系统只在街市评审配置（`reviewStart` 的 Lv1 萧白）下试过；老僧教学战、吴长老、怒晴鸡、渡口/山道狼群、寨门、巨蟒、独眼阎罗在正常剧情等级与装备下未测试。`mkFoe` 的 HP ×(hpMul‖.45)×1.8、攻击 ×(atkMul‖.62) 系数与 `FOE_DEF` 盾值需要整体调 |
 | 高 | 未验证的剧情分支 | 青蚨散：婉拒同行 `xq_decline` 后再招募、代付 20 两 `xq_pay` 路线、对质战败 `lost()` 后重试、`xq_fate` 三种处置的后续台词；以及非 `noLose` 战斗失败回庙（银两减半）流程 |
 | 中 | 苏芷立绘定稿 | 候选 `assets/review/p_suzhi_alt_{37,58,74}.webp`，当前 `p_suzhi.webp` = 37；定稿后复制并清理候选 |
@@ -15,7 +15,7 @@
 
 ## 2. 代码中发现的小问题（未修复）
 
-- `battle()` 中 `battleLoop()` 抛异常会被当作胜利（`catch(e){console.error(e);result='win'}`），可能掩盖 bug 并白给奖励。
+- `battle()` 的异常路径须持续回归，避免战斗脚本错误被判成胜利并白给奖励。
 - `core.js` 注释称 `#streetbright` 才载入明亮变体、`BRIGHT_CHARS`「为本轮评审出的六个角色」；实际 `BRIGHT=true` 常开、`BRIGHT_CHARS=CHARS`。
 - scene.js 注释列出的场景字段 `leaves:true`、`smoke:[[x,y]]` 未被读取（需在 `fx()` 里手动调用）。
 - scene.js 的 `SIZE` 表无 `suzhi`（被 `ART.scale.suzhi` 覆盖，不影响显示）。

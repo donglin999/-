@@ -418,7 +418,14 @@ function drawUnit(u,t){const now=t,h=unitH(u);let x=u.x,y=u.y,alpha=1;
   if(u.isHero&&VFX.drawHero(u,x,y,h,alpha,flash,now)){}
   else if(key){
     g.save();if(u.broken&&u.hp>0){g.translate(x,y);g.rotate(u.side==='foe'?-.08:.08);g.translate(-x,-y)}
-    drawSprite(key,x,y,h,false,{breath:now/420+u.id*9,alpha,flash});g.restore()}
+    // 没有专用战斗表的同伴沿用探索精灵；按不透明轮廓配齐可见身高与脚底，
+    // 否则同为成人、unitH 数值相近却会因源图留白显得矮一截。
+    const raw=IMG[key],fit=u.side==='ally'&&!(window.BART&&BART[u.art])&&raw;
+    const box=fit&&charBounds(raw),ih=raw&&(raw.naturalHeight||raw.height);
+    const dh=box?h*ih/box.height:h;
+    const foot=box?(ih-box.bottom)*dh/ih:0;
+    if(fit)g.imageSmoothingEnabled=false;
+    drawSprite(key,x,y+foot,dh,false,{breath:now/420+u.id*9,alpha,flash});g.restore()}
   else{g.save();g.globalAlpha=alpha*.9;g.fillStyle='#0b0806';g.beginPath();g.ellipse(x,y-h*.35,h*.18,h*.35,0,0,7);g.arc(x,y-h*.82,h*.12,0,7);g.fill();g.restore()}
   g.filter='none';
   if(u.broken&&u.hp>0){for(let i=0;i<3;i++){const a=now/300+i*2.1;g.fillStyle='#ffe25a';g.font='14px serif';g.textAlign='center';g.fillText('✦',x+Math.cos(a)*24,y-h-4+Math.sin(a)*6)}}

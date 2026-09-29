@@ -591,6 +591,8 @@ def alley():
     """偏巷：西口—公井—巷尾一条主巷；南侧仅柴角、鸡场、土地龛三个有用途的短支区。
     功能和剧情位置见 docs/design/xiangyang-alley.md。沿用现有单体，不复用无剧情依据的废宅。"""
     S = Scene('alley', 800, 440, seed=23)
+    # 北侧是住家后园而非一大片可进入的空沙地；沿主巷的连续院墙与房屋围合其南边。
+    S.rect(0, 0, 800, 178, 4)
     S.rect(0, 244, 800, 312, 1)                   # 连续主巷，西口直达巷尾
     S.rect(280, 180, 450, 244, 2)                 # 公井与大黄所在的北侧小场
     S.rect(548, 192, 760, 244, 1)                 # 吴长老歇脚处
@@ -598,7 +600,19 @@ def alley():
     S.rect(352, 312, 574, 404, 6)                 # 围栏鸡场
     S.rect(646, 312, 774, 394, 6)                 # 小土地龛的藏银支角
     S.paint_ground()
-    S.backwall(285, 450, 164)                     # 公井背墙，界定小场而不另开一条北巷
+    # 后园沿全图封闭；公井小场只在南面与主巷相通，其余屋间小缝用短墙收口。
+    S.backwall(0, 800, 164)
+    for a, b in ((0, 20), (138, 156), (589, 624), (756, 800)):
+        S.backwall(a, b, 222)
+        S.block_rect(a, 222, b, 231)
+    # 后园的成组树冠让背景成为真实的住家院落，前排建筑仍保持一条立面，不造第二条街。
+    for i, (k, x, b, w_) in enumerate((('sheet_trees_1', 64, 80, 50), ('sheet_trees_2', 166, 70, 34),
+                                      ('sheet_trees_0', 274, 88, 48), ('sheet_trees_1', 408, 75, 52),
+                                      ('sheet_trees_2', 534, 80, 36), ('sheet_trees_0', 675, 73, 46),
+                                      ('sheet_trees_2', 760, 91, 34), ('sheet_trees_2', 112, 148, 35),
+                                      ('sheet_trees_1', 356, 151, 46), ('sheet_trees_2', 568, 147, 34),
+                                      ('sheet_trees_1', 716, 148, 46))):
+        S.place(k, x, b, w_, cx=True, fp='none', shadow='none', sort='flat', key='backyard_tree%d' % i)
     # 北侧仅保留有住户的院落。屋檐沿同一条立面排列，不另造北巷或废宅纵深。
     for i, (kind, x, width) in enumerate((('hut', 20, 118), ('residence', 156, 130), ('hut_b', 474, 115), ('residence', 624, 132))):
         S.place(kind, x, 222, width, fp='band:0.58', key='home%d' % i)
@@ -610,25 +624,37 @@ def alley():
     # 吴长老所在的檐下只留坐凳，不用官宅门楼替他讲身世。
     S.place('sheet_props_6', 584, 240, 27, fp='cols:4', shadow='small', key='beggar_bench')
     # 南侧三个短支区：柴角藏挖点和泼皮，鸡场可挑战，土地龛承接消息铺藏银。
-    S.place('sheet_alley_1', 36, 373, 50, fp='band:0.55', shadow='drop', key='woodpile')
+    S.place('sheet_alley_1', 36, 373, 28, fp='band:0.55', shadow='drop', key='woodpile')
     S.place('sheet_alley_4', 136, 378, 56, fp='cols:5', shadow='small', key='drying_rack')
     S.place('sheet_alley_9', 91, 391, 32, fp='none', sort='flat', shadow='none', key='drying_mat')
     for i, x in enumerate((360, 400, 500, 540)):
         S.place('sheet_alley_6', x, 329, 39, fp='band:0.8', shadow='small', key='fence%d' % i)
-    S.place('sheet_alley_0', 520, 391, 48, fp='band:0.6', shadow='drop', key='coop')
+    S.place('sheet_alley_0', 520, 391, 34, fp='band:0.6', shadow='drop', key='coop')
     S.place('sheet_props_10', 371, 390, 21, fp='band:0.6', shadow='small', key='chicken_feed')
-    S.place('sheet_alley_2', 718, 362, 35, cx=True, fp='rect:0,0.3,1,1.05', shadow='drop', key='shrine')
+    S.place('sheet_alley_2', 718, 362, 22, cx=True, fp='rect:0,0.3,1,1.05', shadow='drop', key='shrine')
     S.place('sheet_alley_8', 680, 372, 12, cx=True, fp='band:0.6', shadow='small', key='incense_jar')
+    # 主巷南侧仅三条支路开放。其余住家后院在入口处以院墙封闭，避免平坦土面被无形 mask 截断。
     for a, b in ((0, 18), (222, 352), (574, 646), (774, 800)):
+        S.backwall(a, b, 312)
         S.backwall(a, b, 401)
+    # 支路两侧用连续的私院绿篱说明不可跨越的边，不借浅/深地面颜色暗示碰撞。
+    for i, (x, y) in enumerate(((222, 350), (222, 384), (352, 350), (352, 384),
+                                (574, 350), (574, 384), (646, 350), (646, 384),
+                                (774, 352), (774, 383))):
+        S.place('sheet_trees_5', x, y, 21, cx=True, fp='band:0.5', shadow='small', key='yard_hedge%d' % i)
     # 可走区按功能开放，背景房屋与南侧空地都不能任意穿行。
-    S.walk_rect(0, 246, 792, 310)
+    S.walk_rect(0, 222, 792, 310)             # 住家门前浅土也可走；只在实墙、建筑处挡住
     S.walk_rect(280, 192, 450, 247)
     S.walk_rect(548, 203, 760, 247)
     S.walk_rect(18, 310, 222, 401)
     S.walk_rect(352, 310, 574, 402)
     S.walk_rect(646, 310, 774, 393)
-    S.block_rect(0, 246, 13, 253)              # 西沿只在正式出口高度开放
+    # 鸡场北沿竹篱的可见顶边始于 y≈307；脚底阴影需在篱前停下，不能压上顶梁。
+    # 中间 x444–494 保持 50 源像素开口，供进出鸡场。
+    S.block_rect(354, 301, 444, 332)
+    S.block_rect(494, 301, 584, 332)
+    S.block_rect(748, 200, 765, 223)          # 东端屋檐与树干后的狭缝，避免出现可站却不可达的孤岛
+    S.block_rect(0, 222, 13, 253)              # 西沿只在正式出口高度开放；门前浅土也不能走出地图
     S.block_rect(0, 307, 13, 310)
     S.tufts(110, (0, 65, 800, 150)); S.tufts(75, (0, 320, 800, 405))
     S.exits = [(0, 19, 0, 22)]
@@ -745,23 +771,23 @@ def temple():
     S.place('temple_shrine', 320, 172, 150, cx=True, fp='rect:0.08,0.5,0.92,1.02', shadow='drop', ncol=48)
     S.place('sheet_temple_4', 305, 190, 20, cx=True, fp='none', sort='flat', shadow='none', key='cushion_w')   # 拜垫
     S.place('sheet_temple_4', 335, 190, 20, cx=True, fp='none', sort='flat', shadow='none', key='cushion_e')
-    S.place('sheet_temple_9', 220, 176, 24, cx=True, fp='rect:0,0.5,1,1.02', shadow='small', key='ding')     # 铜香鼎（神龛西侧）
+    S.place('sheet_temple_9', 220, 176, 17, cx=True, fp='rect:0,0.5,1,1.02', shadow='small', key='ding')     # 铜香鼎（神龛西侧）
     # ── 殿柱：内两根（金柱，夹着神龛）+ 前两根（檐柱，框住殿中空地），人绕到柱后被遮挡 ──
     pillar(S, 168, 184, 30, 18, 'pillar_nw'); pillar(S, 472, 184, 30, 18, 'pillar_ne')
     pillar(S, 104, 290, 0, 22, 'pillar_sw'); pillar(S, 536, 290, 0, 22, 'pillar_se')
     # ── 殿中篝火（带吊锅三脚架）：破庙无灯，生火取暖、煮粥；夜景主光源 ──
-    S.place('sheet_temple_1', 320, 262, 46, cx=True, fp='rect:0.08,0.64,0.92,1.03', shadow='none', key='campfire')
+    S.place('sheet_temple_1', 320, 262, 11, cx=True, fp='rect:0.08,0.64,0.92,1.03', shadow='none', key='campfire')
     # 篝火西：主角的草席铺盖（孤儿/小乞/放羊娃都睡在火边）
     S.place('sheet_temple_2', 192, 264, 58, fp='none', sort='flat', shadow='none', key='bedroll')
     # 篝火东：老僧打坐的蒲团（尾声老僧坐在这里）
     S.place('sheet_temple_4', 353, 272, 22, cx=True, fp='none', sort='flat', shadow='none', key='cushion_monk')
     # ── 东侧：老僧的起居角——矮几（油灯、茶壶）、旧木箱（压着几卷旧书；消息"老和尚夜里点灯看一卷旧东西"，01 §5.3 #23） ──
-    S.place('sheet_temple_3', 434, 224, 38, fp='rect:0,0.35,1,1', shadow='small', key='lamp_table')
-    S.place('sheet_temple_5', 480, 222, 34, fp='rect:0,0.3,1,1', shadow='small', key='monk_chest')
-    S.place('sheet_temple_7', 578, 262, 28, cx=True, fp='rect:0,0.4,1,1', shadow='small', key='water_jar')    # 水缸（庙外古井挑来的水）
+    S.place('sheet_temple_3', 434, 224, 28, fp='rect:0,0.35,1,1', shadow='small', key='lamp_table')
+    S.place('sheet_temple_5', 480, 222, 30, fp='rect:0,0.3,1,1', shadow='small', key='monk_chest')
+    S.place('sheet_temple_7', 578, 262, 23, cx=True, fp='rect:0,0.4,1,1', shadow='small', key='water_jar')    # 水缸（庙外古井挑来的水）
     # ── 西侧：柴垛（烧火用）；东北角：屋顶漏洞下掉落的碎瓦断椽（破庙，月光从这里漏进来） ──
-    S.place('sheet_temple_6', 44, 252, 38, fp='rect:0,0.3,1,1', shadow='small', key='firewood')
-    S.place('sheet_temple_6', 58, 226, 30, fp='rect:0,0.3,1,1', shadow='small', key='firewood2', flip=True)
+    S.place('sheet_temple_6', 44, 252, 26, fp='rect:0,0.3,1,1', shadow='small', key='firewood')
+    S.place('sheet_temple_6', 58, 226, 24, fp='rect:0,0.3,1,1', shadow='small', key='firewood2', flip=True)
     S.place('sheet_temple_8', 526, 172, 60, fp='rect:0.05,0.35,0.95,1', shadow='small', key='rubble')
     # ── 可走区 ──
     S.walk_rect(36, 124, 604, 334)
@@ -787,6 +813,12 @@ def temple_out():
                                           (500, 40, 'sheet_mount_0', 70), (560, 54, 'sheet_mount_1', 26), (620, 46, 'sheet_bandit_5', 40), (690, 62, 'sheet_mount_0', 80),
                                           (300, 20, 'sheet_bandit_5', 34), (420, 22, 'sheet_bandit_5', 34), (360, 12, 'sheet_mount_1', 22))):
         S.place(tk, tx, tb, tw, cx=True, fp='none', shadow='none', sort='flat', key='far%d' % i)
+    # 庙后两翼以成组的松柏接住远景林线；树干和后面的山坡都不作隐藏的可走空间。
+    for i, (tk, tx, tb, tw) in enumerate((('sheet_mount_0', 102, 142, 54), ('sheet_mount_1', 148, 156, 23),
+                                           ('sheet_bandit_5', 198, 151, 34), ('sheet_mount_0', 510, 151, 53),
+                                           ('sheet_mount_1', 548, 165, 23), ('sheet_bandit_5', 592, 148, 35),
+                                           ('sheet_mount_0', 650, 163, 52))):
+        S.place(tk, tx, tb, tw, cx=True, fp='trunk', shadow='tree', key='back_tree%d' % i)
     S.tufts(160, (0, 0, S.w, 150))
     # ── 庙（正殿外观）：坐北朝南，台阶正中；排序线取门槛（台阶上的人画在庙前面，不被"吞"） ──
     hall = S.place('temple_hall', 360, 172, 194, cx=True, fp='rect:0,0,1,0.84|rect:0,0.84,0.33,1|rect:0.67,0.84,1,1', shadow='drop', ncol=48)
@@ -796,7 +828,7 @@ def temple_out():
     S.place('sheet_mount_1', 476, 176, 24, cx=True, fp='trunk', shadow='tree', key='cypress_e', flip=True)
     S.place('sheet_temple_6', 470, 166, 26, fp='rect:0,0.3,1,1', shadow='small', key='firewood')     # 庙东墙根柴垛
     # ── 庙前：石香炉（祠庙常制，居中轴线） + 石径两侧石灯 ──
-    S.place('sheet_mount_4', 360, 226, 30, cx=True, fp='rect:0.1,0.55,0.9,1.02', shadow='small', key='censer')
+    S.place('sheet_mount_4', 360, 226, 22, cx=True, fp='rect:0.1,0.55,0.9,1.02', shadow='small', key='censer')
     S.place('sheet_mount_5', 318, 300, 12, cx=True, fp='rect:0,0.6,1,1', shadow='small', key='lantern_w')
     S.place('sheet_mount_5', 404, 300, 12, cx=True, fp='rect:0,0.6,1,1', shadow='small', key='lantern_e')
     # ── 西：古井 + 菜畦（老僧自种菜蔬，井水浇菜）+ 水桶 ──
@@ -812,6 +844,12 @@ def temple_out():
     S.place('sheet_mount_6', 560, 336, 58, cx=True, fp='rect:0.05,0.45,0.95,1', shadow='drop', key='rocks_se')
     S.place('sheet_mount_7', 604, 262, 22, cx=True, fp='rect:0,0.4,1,1', shadow='small', key='rock_e')
     S.place('sheet_mount_7', 104, 330, 18, cx=True, fp='rect:0,0.4,1,1', shadow='small', key='rock_w')
+    # 可走坡地边界跟随灌木、树干与山石；阻挡物压在边界上，避免颜色分区形成空气墙。
+    for i, (tk, tx, tb, tw, fp_) in enumerate((('sheet_trees_5', 107, 234, 30, 'band:0.55'),
+                                                ('sheet_mount_1', 101, 284, 23, 'trunk'),
+                                                ('sheet_trees_5', 604, 214, 30, 'band:0.55'),
+                                                ('sheet_mount_1', 623, 268, 23, 'trunk'))):
+        S.place(tk, tx, tb, tw, cx=True, fp=fp_, shadow='tree', key='slope_edge%d' % i)
     # ── 收边：东西两侧山石松林、下方坡沿（前景，人走到树后被遮挡） ──
     for i, (k, x, b, w_, fp_) in enumerate((('sheet_mount_0', 40, 230, 86, 'trunk'), ('sheet_mount_6', 40, 300, 70, 'rect:0,0.3,1,1'), ('sheet_bandit_5', 24, 380, 44, 'trunk'),
                                             ('sheet_mount_0', 680, 236, 86, 'trunk'), ('sheet_bandit_6', 690, 310, 56, 'rect:0,0.3,1,1'), ('sheet_bandit_5', 700, 392, 44, 'trunk'),
@@ -821,7 +859,10 @@ def temple_out():
         S.place(k, x, b, w_, cx=True, fp=fp_, shadow='tree' if 'mount_0' in k or 'bandit_5' in k else 'small', key='edge%d' % i)
     S.tufts(200, (0, 150, S.w, 400))
     # ── 可走区：庙前空地 + 台阶（出口）+ 石径出图 ──
-    S.walk_poly([(150, 168), (570, 168), (612, 250), (620, 300), (560, 360), (420, 372), (398, 400), (340, 400), (320, 372), (160, 364), (104, 300), (110, 250)])
+    # 草地是同一片庙前坡面，行走一直延伸到树石边；不再沿夯土色块裁出隐形多边形。
+    S.walk_poly([(142, 162), (582, 162), (622, 216), (653, 278), (650, 326), (564, 365),
+                 (420, 372), (398, 400), (340, 400), (320, 372), (152, 365), (76, 326),
+                 (75, 278), (94, 216)])
     S.walk_rect(330, door_y + 2, 390, 172)        # 台阶
     S.block_rect(0, 392, 334, 400); S.block_rect(386, 392, 720, 400)   # 下沿只留石径出口
     S.exits = [(25, 10, 28, 11), (25, 29, 28, 29)]
@@ -873,7 +914,8 @@ def gate():
     S.place('sheet_props_8', 344, 214, 11, cx=True, fp='band:0.2', shadow='small', key='lamp_w')
     S.place('sheet_props_8', 456, 214, 11, cx=True, fp='band:0.2', shadow='small', key='lamp_e')
     # ── 吊桥（护城河上，放下时即桥面；桥面高度同地面，画在人物之下） ──
-    br = S.place('moat_bridge', 400, 342, 60, cx=True, fp='none', shadow='none', sort='flat')
+    # 75 源像素宽时，桥板北端到 y≈248，与 y=250 的石坪相接；旧 60 宽版本的首块木板始于水面。
+    br = S.place('moat_bridge', 400, 342, 75, cx=True, fp='none', shadow='none', sort='flat')
     # 桥两侧河沿沙袋（战前加固）
     S.place('sheet_war_7', 336, 250, 30, cx=True, fp='rect:0,0.3,1,1', shadow='small', key='sand_nw')
     S.place('sheet_war_7', 464, 250, 30, cx=True, fp='rect:0,0.3,1,1', shadow='small', key='sand_ne')
@@ -884,7 +926,7 @@ def gate():
     S.place('sheet_war_6', 552, 376, 22, cx=True, fp='rect:0,0.6,1,1', shadow='small', key='weapons')
     S.place('sheet_gate_1', 344, 336, 12, cx=True, fp='rect:0.2,0.9,0.8,1', shadow='small', key='flag_w')
     S.place('sheet_gate_1', 456, 336, 12, cx=True, fp='rect:0.2,0.9,0.8,1', shadow='small', key='flag_e', flip=True)
-    S.place('sheet_war_4', 286, 386, 26, cx=True, fp='rect:0,0.7,1,1', shadow='small', key='notice')
+    S.place('sheet_war_4', 286, 386, 36, cx=True, fp='rect:0,0.7,1,1', shadow='small', key='notice')
     # ── 路西：候验的盐商车队（货车 + 挑箱）；路东：歇脚茶棚 + 桌凳、饮马槽、拴马石 ──
     S.place('sheet_gate_2', 196, 384, 52, cx=True, fp='rect:0.1,0.35,1,1', shadow='drop', key='salt_cart')
     S.place('sheet_gate_5', 250, 382, 34, cx=True, fp='rect:0,0.5,1,1', shadow='small', key='chests')
@@ -911,7 +953,7 @@ def gate():
     # ── 可走区 ──
     S.walk_rect(4, 209, 796, 247)                 # 城墙根 / 门前石坪（墙脚以南）
     S.force_rect(arch[0] + 3, 196, arch[1] - 3, 209)   # 门洞口（出口）
-    S.walk_rect(br['x'] + 11, 244, br['x'] + br['w'] - 11, 338)   # 吊桥桥面
+    S.walk_rect(br['x'] + 18, 247, br['x'] + br['w'] - 18, 338)   # 只开放木板中央，接上两岸石面
     S.walk_rect(4, 336, 796, 474)                 # 城外（下沿灌木 fp 收边）
     S.walk_rect(0, 392, 800, 430)                 # 东西大路出图（左右出口）
     S.walk_rect(364, 470, 436, 480)               # 官道出图
@@ -995,17 +1037,17 @@ def cave():
     S.place('sheet_cave_1', 292, 178, 22, cx=True, fp='rect:0.1,0.6,0.9,1', shadow='small', key='brazier_w')
     S.place('sheet_cave_1', 428, 178, 22, cx=True, fp='rect:0.1,0.6,0.9,1', shadow='small', key='brazier_e')
     # ── 西：聚饮长桌 + 长凳 + 酒坛 ──
-    S.place('sheet_cave_2', 124, 210, 72, cx=True, fp='rect:0,0.3,1,1', shadow='small', key='feast')
+    S.place('sheet_cave_2', 124, 210, 55, cx=True, fp='rect:0,0.3,1,1', shadow='small', key='feast')
     S.place('sheet_cave_3', 124, 236, 62, cx=True, fp='rect:0,0.2,1,1', shadow='small', key='bench')
-    S.place('sheet_cave_5', 56, 198, 40, cx=True, fp='rect:0,0.3,1,1', shadow='small', key='jars')
+    S.place('sheet_cave_5', 56, 198, 32, cx=True, fp='rect:0,0.3,1,1', shadow='small', key='jars')
     S.place('sheet_cave_5', 210, 184, 30, cx=True, fp='rect:0,0.3,1,1', shadow='small', key='jars2', flip=True)
     # ── 东：赃物（箱笼、兵器架）+ 账桌 + 山川图 ──
-    S.place('sheet_cave_7', 556, 176, 58, cx=True, crop=(0, 0, 1.0, .49), fp='rect:0,0.3,1,1', shadow='small', key='loot')
-    S.place('sheet_cave_4', 628, 174, 54, cx=True, fp='rect:0,0.6,1,1', shadow='small', key='weapons')
-    S.place('sheet_cave_6', 530, 240, 62, cx=True, fp='rect:0,0.3,1,1', shadow='small', key='ledger')
-    S.place('sheet_cave_7', 626, 262, 46, cx=True, crop=(0, .5, 1.0, 1.0), fp='rect:0.1,0.8,0.9,1', shadow='small', key='hidemap')
+    S.place('sheet_cave_7', 556, 176, 44, cx=True, crop=(0, 0, 1.0, .49), fp='rect:0,0.3,1,1', shadow='small', key='loot')
+    S.place('sheet_cave_4', 628, 174, 42, cx=True, fp='rect:0,0.6,1,1', shadow='small', key='weapons')
+    S.place('sheet_cave_6', 530, 240, 48, cx=True, fp='rect:0,0.3,1,1', shadow='small', key='ledger')
+    S.place('sheet_cave_7', 626, 262, 36, cx=True, crop=(0, .5, 1.0, 1.0), fp='rect:0.1,0.8,0.9,1', shadow='small', key='hidemap')
     # 洞中偏西南：喽啰煮饭的火塘（吊锅），洞口内侧哨位（兵器架 + 货箱）
-    S.place('sheet_temple_1', 232, 300, 38, cx=True, fp='rect:0.08,0.64,0.92,1.03', shadow='none', key='cookfire')
+    S.place('sheet_temple_1', 232, 300, 11, cx=True, fp='rect:0.08,0.64,0.92,1.03', shadow='none', key='cookfire')
     S.place('sheet_bandit_9', 300, 352, 16, cx=True, fp='rect:0,0.7,1,1', shadow='small', key='post_rack')
     S.place('sheet_props_3', 452, 346, 26, cx=True, fp='rect:0,0.4,1,1', shadow='small', key='post_crates')
     S.place('sheet_props_2', 238, 176, 22, cx=True, fp='rect:0,0.4,1,1', shadow='small', key='barrels')          # 酒桶

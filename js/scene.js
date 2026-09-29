@@ -224,7 +224,7 @@ function updateScene(dt){setDims(cur);
     if(ix||iy){player.path=null;player.goal=null;player.talkTo=null}
     else if(player.path&&player.path.length){const[tx,ty]=player.path[0];const dx=tx-player.x,dy=ty-player.y,d=Math.hypot(dx,dy),last=player.path.length===1;
       if(d<(last?2:10)){player.path.shift();if(!player.path.length)endPath()}else{ix=dx/d;iy=dy/d;if(last)arrive=Math.min(1,d/28+.15)}}}
-  const kbd=!frozen&&(keys.left||keys.right||keys.up||keys.down),wantRun=!frozen&&(kbd?!!(keys.shift||keys.run):!!(player.path&&player.runPath));
+  const kbd=!frozen&&(keys.left||keys.right||keys.up||keys.down),wantRun=!frozen&&(kbd?!!(walkRunToggle||keys.run):!!(player.path&&(walkRunToggle||player.runPath)));
   player.runK+=((wantRun?1:0)-player.runK)*(1-Math.exp(-dt/(wantRun?220:160)));
   const spd=SPEED*(1+(RUN_MUL-1)*player.runK),l=Math.hypot(ix,iy),tvx=l?ix/l*spd*arrive:0,tvy=l?iy/l*spd*arrive:0;
   const k=1-Math.exp(-dt/(l?70:45));player.vx+=(tvx-player.vx)*k;player.vy+=(tvy-player.vy)*k;
@@ -250,6 +250,12 @@ function endPath(talk=true){player.path=null;player.goal=null;const t=player.tal
 function charImg(k,dir,f){const n=window.ART&&ART.frames&&ART.frames[k];
   if(n){const im=IMG[`c_${k}_${dir}_${f<n?f:0}`];if(ok(im))return im;const i0=IMG[`c_${k}_${dir}_0`];if(ok(i0))return i0}
   const im=IMG[`c_${k}_${dir}`];if(ok(im))return im;return null}
+// 精灵表的透明留白并不一致。按实际非透明轮廓计算接地点与站立身高，
+// 避免叶蘅背面等帧在同一世界脚底坐标上悬空，倒地人物只校正落点。
+function charBounds(im){if(im._charBounds)return im._charBounds;const iw=im.naturalWidth||im.width,ih=im.naturalHeight||im.height;
+  try{const c=document.createElement('canvas');c.width=iw;c.height=ih;const x=c.getContext('2d',{willReadFrequently:true});x.drawImage(im,0,0);const a=x.getImageData(0,0,iw,ih).data;let top=ih,bottom=0;
+    for(let y=0;y<ih;y++)for(let col=0;col<iw;col++)if(a[(y*iw+col)*4+3]>=48){if(y<top)top=y;if(y+1>bottom)bottom=y+1}
+    return im._charBounds={top:top===ih?0:top,bottom:bottom||ih,height:Math.max(1,bottom-top)}}catch(_){return im._charBounds={top:0,bottom:ih,height:ih}}}
 // 4 帧（站/左脚/过渡/右脚）按 左-过渡-右-过渡 循环
 const CYCLE4=[1,2,3,2];
 function drawChar(sp,x,y,dir='d',walk=0,t=0,opts={}){const k=spKey(sp),h=opts.h||charH(sp),n=(window.ART&&ART.frames&&ART.frames[k])|0;
@@ -268,14 +274,18 @@ function drawChar(sp,x,y,dir='d',walk=0,t=0,opts={}){const k=spKey(sp),h=opts.h|
   if(!im&&(dir==='l'||dir==='r')){im=charImg(k,dir==='l'?'r':'l',f);flip=!!im}
   if(!im)im=charImg(k,'d',0)}
   if(!im&&OPT_CHARS.includes(k))return;
-  const w=im?h*im.naturalWidth/im.naturalHeight:h*.45;
+  const box=im?charBounds(im):null,ih=im&&(im.naturalHeight||im.height),iw=im&&(im.naturalWidth||im.width);
+  const upright=box&&box.height>ih*.62&&!['dog','wolf','rooster','snake'].includes(k);
+  const drawH=upright?Math.min(h*1.25,h*ih/box.height):h;
+  const w=im?drawH*iw/ih:h*.45;
   // 脚底阴影
   g.fillStyle='rgba(0,0,0,.3)';g.beginPath();g.ellipse(x,y,Math.min(w*.42,h*.3),h*.07,0,0,7);g.fill();
   if(!im){if(!OPT_CHARS.includes(k)){g.fillStyle='#b88';g.fillRect(x-w/2,y-h,w,h)}return}
   let bob=0,sy=1,sx=1;
   if(moving){if(n<=1&&!wk){const ph=walk/(h*.1);bob=Math.abs(Math.sin(ph))*h*.035;sy=1+Math.sin(ph*2)*.015;sx=1/sy}}
   else if(!IDLE[k]){const b=Math.sin(t/650+(opts.ph||0));sy=1+b*.012;sx=1-b*.005}
-  if(CHAR_GRADE_OK&&!BRIGHT)im=graded(im,(cur&&cur.grade)||CHAR_GRADE);g.save();g.translate(x,y);if(flip)sx=-sx;g.scale(sx,sy);g.drawImage(im,-w/2,-h-bob,w,h);g.restore()}
+  if(CHAR_GRADE_OK&&!BRIGHT)im=graded(im,(cur&&cur.grade)||CHAR_GRADE);g.save();g.translate(x,y);if(flip)sx=-sx;g.scale(sx,sy);
+  const footPad=box?(ih-box.bottom)*drawH/ih:0;g.drawImage(im,-w/2,-drawH+footPad-bob,w,drawH);g.restore()}
 // 角色调色：略压亮度/饱和、微暖，让干净的精灵融入地图（场景可用 grade 覆盖）
 // 调色结果按 (帧,调色) 缓存成离屏画布：逐帧逐角色走 ctx.filter 很贵（软件渲染下人多的场景掉帧一半）
 function graded(im,f){const c=im._gr||(im._gr={});let o=c[f];if(o)return o;o=document.createElement('canvas');o.width=im.naturalWidth||im.width;o.height=im.naturalHeight||im.height;

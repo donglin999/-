@@ -5,6 +5,7 @@ const fs = require('fs');
 const path = require('path');
 const EXE = require('os').homedir() + '/Library/Caches/ms-playwright/chromium_headless_shell-1228/chrome-headless-shell-mac-arm64/chrome-headless-shell';
 const out = process.argv[2] || 'review/jianghu-icons';
+const base = process.env.XJH_TEST_URL || 'http://localhost:8123';
 fs.mkdirSync(out, { recursive: true });
 let failures = 0;
 const check = (ok, what, detail) => { console.log(`${ok ? '✓' : '✗'} ${what}${detail ? ' ' + JSON.stringify(detail) : ''}`); if (!ok) failures++; };
@@ -15,7 +16,7 @@ const check = (ok, what, detail) => { console.log(`${ok ? '✓' : '✗'} ${what}
   const errors = [], missing = [];
   page.on('pageerror', e => errors.push(e.message));
   page.on('response', r => { if (r.status() >= 400 && /i_jianghu|menu-icons/.test(r.url())) missing.push(`${r.status()} ${r.url()}`); });
-  await page.goto('http://localhost:8123/?icons=' + Date.now() + '#street', { waitUntil: 'load' });
+  await page.goto(base + '/?icons=' + Date.now() + '#street', { waitUntil: 'load' });
   await page.waitForFunction(() => typeof mode !== 'undefined' && mode === 'scene' && !!window.MENU_ICONS);
   const inventory = await page.evaluate(() => {
     const groups = { item: ITEMS, skill: SKILLS, xinfa: XINFA }, result = {};
@@ -26,6 +27,7 @@ const check = (ok, what, detail) => { console.log(`${ok ? '✓' : '✗'} ${what}
     return result;
   });
   for (const [kind, r] of Object.entries(inventory)) check(!r.missing.length, `${kind} 图标全覆盖（${r.count}）`, r);
+  check(await page.evaluate(() => MENU_ICONS.cell >= 192), '图集使用高分辨率原稿');
 
   await page.evaluate(() => bagPanel('bag'));
   check(await page.locator('.jm-invcell .jm-pxi').count() > 0 && await page.locator('.jm-tabs .jm-pxi').count() === 7, '第一章普通存档可打开带图标的江湖菜单');
@@ -43,6 +45,7 @@ const check = (ok, what, detail) => { console.log(`${ok ? '✓' : '✗'} ${what}
   await page.locator('.jm-invcell').first().waitFor();
   check(await page.locator('.jm-tabs .jm-pxi').count() === 7, '七个江湖系统入口显示图标');
   check(await page.locator('.jm-invcell .jm-pxi').count() === inventory.item.count, '行囊每格均使用图片');
+  check(await page.locator('.jm-invcell .jm-pxi').first().evaluate(el => getComputedStyle(el).imageRendering !== 'pixelated'), '图标按平滑方式缩放');
   await page.screenshot({ path: path.join(out, '01-bag.png') });
   await page.locator('.jm-invcell').first().hover();
   await page.waitForTimeout(150);

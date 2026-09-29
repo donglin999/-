@@ -406,6 +406,25 @@ button.pri:hover:not(:disabled),button.pri:focus-visible{background:#7d3622;bord
 #dlg:not(.narr) .box.frame{border:0;box-shadow:0 8px 22px rgba(0,0,0,.5);background:linear-gradient(180deg,rgba(32,23,16,.96),rgba(13,10,8,.98))}
 #dlg:not(.narr) .box.frame::before{inset:0;--l:0;background:linear-gradient(90deg,transparent,rgba(224,191,120,.75) 8%,rgba(224,191,120,.75) 85%,transparent) top/100% 2px no-repeat}
 #dlg .who.frame{border:0;box-shadow:none;background:linear-gradient(90deg,rgba(30,20,14,.98),rgba(30,20,14,.74) 78%,transparent);border-left:3px solid var(--red)}
+/* 桌面对话：正文与选项共用起始线，主次人物按不同视觉等级出场。 */
+#dlg{font-family:var(--serif)}
+#dlg:not(.narr) .box{height:auto;min-height:17%;max-height:40%;padding:1.1em 1.6em 1.2em}
+#dlg:not(.narr) .who{left:1.6em;min-width:0;padding:.27em .7em .27em 0;font-size:1.12em;letter-spacing:.12em}
+#dlg:not(.narr) .txt{font-family:var(--serif);font-size:max(18px,1.12em);line-height:1.65;letter-spacing:.055em;max-width:39em}
+#dlg:not(.narr) .choices{max-height:11em;overflow:auto;gap:.12em;margin-top:.35em}
+#dlg:not(.narr) .choices button{font-family:var(--serif);font-size:max(17px,1.03em);line-height:1.5;min-height:2em;padding:.18em .7em .18em 1.2em}
+#dlg:not(.narr) .choices button::before{left:.2em}
+#dlg.hasface .face{right:1.5%;width:32%;height:84%;aspect-ratio:auto;background-position:center bottom;background-size:auto 100%}
+#dlg.hasface[data-portrait="ye"] .face{right:-5%;width:36%;height:110%;bottom:-26%}
+#dlg.hasface::before{width:36%}
+#dlg.hasface .box{right:29%}
+#dlg.hasface .txt{padding-right:0}
+#dlg.hasface .more{right:1.6em}
+#dlg.hasmini .box{padding-left:7.8em}
+#dlg.hasmini .who{left:6.9em}
+#dlg.hasmini .mini{left:1.3em;top:50%;width:5.4em;height:5.4em}
+#dlg.narr .txt{font-size:max(18px,1.12em);line-height:1.65}
+#dlg .more{bottom:.6em}
 /* 任务志 / 同伴卡 */
 .qlog .item.done{opacity:.6}.qlog .item .ds{line-height:1.7}
 .item.comp{grid-template-columns:4.6em 1fr auto}

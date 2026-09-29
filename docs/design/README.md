@@ -15,6 +15,7 @@
 | 做队友或宠物 | [队伍与宠物](party-pets.md) | [叶蘅分支](ye-routes.md) |
 | 做襄阳地图、人物与证物 | [襄阳素材规范](xiangyang-art.md) | [生图提示词](xiangyang-art-prompts.md)、[美术管线](../art-pipeline.md) |
 | 做其他立绘、地图或界面 | [表现规范](presentation.md) | 对应人物或事件页 |
+| 核对本轮视觉整改与发布 | [视觉与交互验收合同](visual-acceptance.md) | [技术测试](../testing.md)、[襄阳素材规范](xiangyang-art.md) |
 | AI/开发对齐 | [文档与实现边界](delivery.md) | 对应主题页、[当前技术文档](../README.md) |
 
 ## 已确认的方向

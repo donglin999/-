@@ -18,15 +18,17 @@ cv.addEventListener('pointerdown',e=>{const[x,y]=toLocal(e),sx=x,sy=y;
     setPath(x,y,dbl?true:e.pointerType==='touch'?'touch':undefined)}});
 let lastClick=0,lastCX=0,lastCY=0;
 const KM={a:'left',arrowleft:'left',d:'right',arrowright:'right',w:'up',arrowup:'up',s:'down',arrowdown:'down'};
+// Shift 切换步行/跑步，不依赖按键持续按下。失焦后复位，避免回到页面时意外疾跑。
+let walkRunToggle=false;
 addEventListener('keydown',e=>{if(e.target.tagName==='INPUT')return;const k=e.key.toLowerCase();
-  if(k==='shift')keys.shift=1;
+  if(k==='shift'&&mode==='scene'&&!e.repeat&&!busy&&!dlgBusy&&$('panel').hidden){walkRunToggle=!walkRunToggle;e.preventDefault();toast(walkRunToggle?'步法：跑步':'步法：步行',850)}
   // 双击方向键：跑步，直到松开所有方向键
   if(KM[k]&&mode==='scene'){if(!e.repeat&&!keys[KM[k]]){const now=performance.now();if(tapDir===KM[k]&&now-tapT<280)keys.run=1;tapDir=KM[k];tapT=now}keys[KM[k]]=1;e.preventDefault()}
   if((k==='e'||k===' ')&&mode==='scene'&&!dlgBusy&&$('panel').hidden){e.preventDefault();interact()}
   if(k==='i'&&mode==='scene'&&!dlgBusy&&!busy)bagPanel()});
 let tapDir=null,tapT=0;
-addEventListener('keyup',e=>{const k=e.key.toLowerCase();if(k==='shift')keys.shift=0;if(KM[k]){keys[KM[k]]=0;if(!keys.left&&!keys.right&&!keys.up&&!keys.down)keys.run=0}});
-addEventListener('blur',()=>{for(const k in keys)keys[k]=0});
+addEventListener('keyup',e=>{const k=e.key.toLowerCase();if(KM[k]){keys[KM[k]]=0;if(!keys.left&&!keys.right&&!keys.up&&!keys.down)keys.run=0}});
+addEventListener('blur',()=>{for(const k in keys)keys[k]=0;walkRunToggle=false});
 for(const[id,key]of[['tl','left'],['tr','right'],['tu','up'],['td','down']]){const b=$(id);b.onpointerdown=()=>keys[key]=1;b.onpointerup=b.onpointerleave=()=>keys[key]=0}
 $('te').onclick=()=>interact();
 

@@ -193,7 +193,7 @@ function stageActive(now){if(!B)return;const dt=Math.min(50,now-(B._stT||now));B
   g.fillStyle=gr;g.translate(a.x,a.y);g.scale(1,.28);g.translate(-a.x,-a.y);g.beginPath();g.arc(a.x,a.y,r,0,7);g.fill();g.restore()}
 
 // 显示高度：BART[art].h 优先（D 已按档位与统一像素密度给出，直接采用）；表内非 boss 档却当头目用时 ×1.3。
-// 回退（无 BART）：party≈165、minion≈1.2×、elite≈1.5×、boss≈2.2×（×体型 ART.scale），最后乘纵深缩放 dscale
+// 回退（无 BART）：普通队友与有战斗表的主角使用同一成人身高标尺；敌方仍按档位区分。
 const TIER_MUL={party:1,minion:1.2,elite:1.5,boss:2.2};
 // 战斗显示倍率（参照《八方旅人》：我方约占画高 1/6）：BART 表为 3× 像素，×2/3 → 每美术像素 2 画布像素（整数倍）
 const BSC=.5;   // 参照《八方旅人》人物很小：表内 3× 像素 → 显示每美术像素 1.5 画布像素
@@ -203,6 +203,7 @@ function unitH(u){
   if(ba&&ba.h)return ba.h*BSC*(u.side==='foe'&&u.bossy&&ba.tier!=='boss'?1.5:1);   // ×1.5 → 每美术像素 3 画布像素
   else{const tier=u.side==='ally'?'party':u.bossy?'boss':(u.tierHint||'minion');
     const s=(window.ART&&ART.scale&&ART.scale[u.art])||(u.h?u.h/170:1);
+    if(tier==='party')return ((window.BART&&BART.hero&&BART.hero.h)||210)*BSC*s;
     h=165*TIER_MUL[tier]*(tier==='boss'?Math.min(1,s):s)}
   return h*BSC*(u.dscale||1)}
 

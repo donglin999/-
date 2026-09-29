@@ -2,6 +2,8 @@
 
 项目以 Node 内置测试、**无头浏览器驱动真实页面**（Playwright + Chromium）、碰撞审计与截图人工评审验证。
 
+2026-09-30 起的桌面视觉整改按[视觉与交互验收合同](design/visual-acceptance.md)的 V01–V09 逐项判定。`debug.pdf` 的参考图不是运行结果；必须在同一待发布包中取得实际截图、碰撞叠图和交互记录。独立验收者记录每项通过/失败及证据路径，失败项修复并重测后才能发布。`tests/menu-icons.test.cjs` 只能证明图标映射与加载，不能证明语义和 UI 观感；碰撞审计也不能代替浅色地面与不可见阻挡的目视核对。
+
 襄阳片段回归（2026-09-29）：在项目目录依次运行 `node --test tests/toast.test.cjs tests/npc-actions.test.cjs`、`node tests/battle-error-regression.cjs`、`node tests/xiangyang-slice.test.cjs`、`node tools_scene/xiangyang_regression.cjs`、`node tests/xiangyang-combat-balance.cjs`。分别检查提示与 NPC 菜单、战斗异常、单片段角色／存档／结算、剧情状态分支和正常数值战斗抽样。`tools_scene/street_flow.cjs <截图目录> '#xiangyang'` 通过真实寻路和键盘对话走街市流程，但为了聚焦场景交互会把敌人 HP 压到 1；它不用于证明战斗平衡。战斗抽样使用原战斗逻辑、固定种子与自动选招，详情见[襄阳测试范围](design/xiangyang-test.md)。
 
 ## 1. Playwright 环境
@@ -55,7 +57,7 @@ console.log(await p.evaluate(()=>[S.flags.xq,S.aff,questLine()]));   // → [1,{
 ### 2.0 一键审计与冒烟（`tools_scene/`，推荐）
 
 ```bash
-node tools_scene/audit.cjs [输出目录=review/scene_v4/audit] [场景id…]   # 全部 8 个场景的碰撞/交互/家具净空/出入方向审计
+node tools_scene/audit.cjs [输出目录=review/scene_v4/audit] [场景id…]   # 全部 10 个场景的碰撞/交互/家具净空/出入方向审计
 node tools_scene/street_flow.cjs [截图目录=review/scene_v3/flow]    # 街市主线 + 同伴不可交互 + 出口方向 + 旧档迁移 冒烟
 node tools_scene/exit_frames.cjs [输出目录=review/scene_v3/exits] [场景id…]  # 每个场景间出口的切换连续帧（26 帧/110ms）
 node tools_scene/s1_flow.cjs [截图目录=review/scene_v4/s1flow]     # 序章（新开局→庙内→庙外教学战→进城）+ 寨门→山洞→头目战 + 尾声站位 + 5 图旧档迁移

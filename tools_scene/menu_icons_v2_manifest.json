@@ -1,0 +1,331 @@
+{
+  "version": 2,
+  "style": "Southern Song grounded wuxia, premium hand-painted ink-gouache, transparent cutout, warm upper-left light, cool shadows, unique silhouette readable at 48px",
+  "entries": [
+    {
+      "kind": "item",
+      "id": "arrows",
+      "prompt": "bundle of three long iron-tipped arrows bound with hemp cord, distinct feather fletching, angled"
+    },
+    {
+      "kind": "item",
+      "id": "bf_note",
+      "prompt": "folded beige informant note with broken red wax seal and a dark ink fingerprint, no readable writing"
+    },
+    {
+      "kind": "item",
+      "id": "book",
+      "prompt": "single torn martial manual page, irregular parchment corners, one ink brush figure in fighting stance, no readable writing"
+    },
+    {
+      "kind": "item",
+      "id": "bun",
+      "prompt": "steamed lamb bun, one round pleated white wheat bun with a small bite revealing browned minced lamb, squat food silhouette"
+    },
+    {
+      "kind": "item",
+      "id": "canglong_map",
+      "prompt": "irregular half-piece parchment map with torn right edge, small blue river lines and red route dots, no letters"
+    },
+    {
+      "kind": "item",
+      "id": "charm",
+      "prompt": "yellow temple paper talisman folded into slim triangular pouch with red knot and faded vermilion brush mark, no readable text"
+    },
+    {
+      "kind": "item",
+      "id": "cloth",
+      "prompt": "simple cross-collar coarse cloth short jacket with wide sleeves and tied waist, light gray brown woven texture"
+    },
+    {
+      "kind": "item",
+      "id": "club",
+      "prompt": "short stout jujube-wood cudgel with one knotted knob at tip and dark hand grip, diagonal"
+    },
+    {
+      "kind": "item",
+      "id": "collar",
+      "prompt": "dog collar made of worn brown leather with one large bronze bell and buckle, open ring but asymmetric strap silhouette"
+    },
+    {
+      "kind": "item",
+      "id": "ferry_tag",
+      "prompt": "narrow wooden cargo tally tag with two drilled holes and rough hemp string, one blue stamp, no readable writing"
+    },
+    {
+      "kind": "item",
+      "id": "gall",
+      "prompt": "dark olive translucent snake gall bladder on a tiny herbal leaf, tear-shaped organic medicine ingredient"
+    },
+    {
+      "kind": "item",
+      "id": "iron",
+      "prompt": "LONG SLENDER polished steel Chinese jian oriented vertically with symmetric bronze guard and dark cord grip"
+    },
+    {
+      "kind": "item",
+      "id": "jade",
+      "prompt": "carved pale-green jade orchid pendant hanging from dark braided cord with red knot, ornamental but humble"
+    },
+    {
+      "kind": "item",
+      "id": "jieyao",
+      "prompt": "small cobalt blue medicinal antidote bottle with cloth stopper, white ceramic tag, thin cord, no readable writing"
+    },
+    {
+      "kind": "item",
+      "id": "knife",
+      "prompt": "heavy-backed woodcutting dao, single broad iron edge and thick blunt spine, rough wooden handle, angular silhouette"
+    },
+    {
+      "kind": "item",
+      "id": "ledger",
+      "prompt": "thick worn accounting ledger bound with dark blue thread, opened slightly to show ruled entries without readable writing"
+    },
+    {
+      "kind": "item",
+      "id": "mianjia",
+      "prompt": "quilted hemp padded jacket with cross collar, bulky shoulders and simple cord fasteners, pale flax textile"
+    },
+    {
+      "kind": "item",
+      "id": "needles",
+      "prompt": "small dark leather roll opened to reveal seven fine copper acupuncture needles fanned visibly"
+    },
+    {
+      "kind": "item",
+      "id": "pelt",
+      "prompt": "flattened gray-brown wolf pelt with four visible legs and pointed ears, no gore"
+    },
+    {
+      "kind": "item",
+      "id": "pill",
+      "prompt": "small white Song porcelain medicine jar with dark green cloth stopper and a narrow cinnabar paper seal, no readable text"
+    },
+    {
+      "kind": "item",
+      "id": "rusty",
+      "prompt": "BROKEN CHIPPED rusty sword diagonal from upper left to lower right, jagged snapped tip and bent guard"
+    },
+    {
+      "kind": "item",
+      "id": "shovel",
+      "prompt": "well-worn iron digging spade with broad rounded metal head and short wooden D handle, diagonal"
+    },
+    {
+      "kind": "item",
+      "id": "shuxia",
+      "prompt": "small weathered wooden book chest with curved lid and brass clasp, shown three-quarter view"
+    },
+    {
+      "kind": "item",
+      "id": "tea_bowl",
+      "prompt": "rough brown Song pottery tea bowl with chipped lip and visible brown tea stain, low wide profile"
+    },
+    {
+      "kind": "item",
+      "id": "token",
+      "prompt": "rectangular black lacquered wooden mountain-pass token with notched top, red cord and stamped abstract seal, no readable characters"
+    },
+    {
+      "kind": "item",
+      "id": "vest",
+      "prompt": "soft cowhide lamellar vest with open neck, broad shoulders and visible leather panels, no metal plate armor"
+    },
+    {
+      "kind": "item",
+      "id": "wine",
+      "prompt": "short green-glazed ceramic wine flask with woven bamboo sleeve and tied cord, visibly liquid vessel, not a gourd"
+    },
+    {
+      "kind": "item",
+      "id": "wood",
+      "prompt": "SHORT BROAD BLUNT peachwood training sword oriented horizontally, carved wooden grip and no metal reflection"
+    },
+    {
+      "kind": "item",
+      "id": "xf_can",
+      "prompt": "rolled and partly opened yellowed internal-cultivation manuscript with stitched blue cover corner, drawn breathing figure, no readable words"
+    },
+    {
+      "kind": "item",
+      "id": "zhupian",
+      "prompt": "several narrow bamboo slips bound by dark cord, splayed fan shape, faint abstract brush marks no readable text"
+    },
+    {
+      "kind": "skill",
+      "id": "baicao",
+      "prompt": "three different medicinal herbs tied in bundle with one clear dew drop falling into a small clay bowl"
+    },
+    {
+      "kind": "skill",
+      "id": "bianfa",
+      "prompt": "long flexible shepherd's braided whip curling across a wide horizontal arc, handle at left, separated whip tip at right, no person"
+    },
+    {
+      "kind": "skill",
+      "id": "bite",
+      "prompt": "wolf jaws in profile with open fangs and small torn cloth shred, no full wolf head, earthy colors"
+    },
+    {
+      "kind": "skill",
+      "id": "blade",
+      "prompt": "plain heavy Chinese dao chopping diagonally through one split wood chip, broad dark blade and simple grip"
+    },
+    {
+      "kind": "skill",
+      "id": "coil",
+      "prompt": "dark green snake body winding tightly around a short wooden branch in three visible coils, small head at upper right"
+    },
+    {
+      "kind": "skill",
+      "id": "dingshen",
+      "prompt": "aged bronze meditation handbell with small wooden striker and one restrained vibration ring; no human figure"
+    },
+    {
+      "kind": "skill",
+      "id": "fanjiang",
+      "prompt": "broad dao slicing upward through blue-green river splash, curling foam with strong diagonal motion, no magic glow"
+    },
+    {
+      "kind": "skill",
+      "id": "fist",
+      "prompt": "one tightly clenched bare fist punching straight toward viewer with short ochre impact strokes, plain basic kung fu, distinct from open claw"
+    },
+    {
+      "kind": "skill",
+      "id": "fuhu",
+      "prompt": "cloth-wrapped forearm and open tiger-claw hand striking diagonally downward with separated fingers"
+    },
+    {
+      "kind": "skill",
+      "id": "ghost",
+      "prompt": "rough black-iron ghost-head dao cutting downward, dark red torn banner ribbon trailing, ominous but no supernatural glow"
+    },
+    {
+      "kind": "skill",
+      "id": "guafeng",
+      "prompt": "lower leg in simple cloth shoe sweeping in broad ground-level arc, dust and three bent reed stalks showing direction"
+    },
+    {
+      "kind": "skill",
+      "id": "huichun",
+      "prompt": "small folded paper packet spilling finely ground green medicinal powder onto an open palm, a few herb leaves"
+    },
+    {
+      "kind": "skill",
+      "id": "jingxin",
+      "prompt": "two hands cupping a short steady candle over folded dark blue meditation cloth, no seated person"
+    },
+    {
+      "kind": "skill",
+      "id": "jinzhen",
+      "prompt": "three silver acupuncture needles flying apart from a small hand in blue sleeve toward three tiny red target dots, no text"
+    },
+    {
+      "kind": "skill",
+      "id": "lianhua",
+      "prompt": "beggar's palm striking through one red lotus petal burst, open hand side-on, flowing diagonal strike, no flower medallion"
+    },
+    {
+      "kind": "skill",
+      "id": "lick",
+      "prompt": "golden dog's head in side profile gently licking a bandaged human hand, caring healing gesture, no bite"
+    },
+    {
+      "kind": "skill",
+      "id": "liuye",
+      "prompt": "slender Chinese jian sweeping with curved willow leaves and clear dynamic motion arc"
+    },
+    {
+      "kind": "skill",
+      "id": "palm_m",
+      "prompt": "monk's broad open palm pressing forward, simple ochre sleeve and one soft bronze pressure arc, no halo or circle"
+    },
+    {
+      "kind": "skill",
+      "id": "peck",
+      "prompt": "red-combed fighting rooster head darting forward with sharply pointed iron-dark beak and two impact strokes"
+    },
+    {
+      "kind": "skill",
+      "id": "shuaibei",
+      "prompt": "open palm slamming down on a cracked upright stone tablet, dust shards around contact point, forceful downward motion"
+    },
+    {
+      "kind": "skill",
+      "id": "sniff",
+      "prompt": "golden dog's muzzle in three-quarter view close to earth, nose prominent and two faint scent trails leading to a footprint"
+    },
+    {
+      "kind": "skill",
+      "id": "staff",
+      "prompt": "wooden staff thrusting through tall reeds, visible reed blades bent and broken by strike, dynamic diagonal"
+    },
+    {
+      "kind": "xinfa",
+      "id": "bx_du",
+      "prompt": "small dark purple ceramic poison vial with narrow neck, beside one venomous white flower and two sharp green leaves, no skull or magical glow"
+    },
+    {
+      "kind": "xinfa",
+      "id": "bx_xin",
+      "prompt": "opened stitched herbal medicine book with a freshly pressed green medicinal sprig laid across one page, no readable characters"
+    },
+    {
+      "kind": "xinfa",
+      "id": "gb_shi",
+      "prompt": "pair of worn cloth shoes stepping across two uneven cobblestones, evasive agile street footwork, asymmetrical diagonal"
+    },
+    {
+      "kind": "xinfa",
+      "id": "gb_xin",
+      "prompt": "worn patched beggar robe folded over a simple wooden begging bowl, many fabric patches, humble earthy colors"
+    },
+    {
+      "kind": "xinfa",
+      "id": "lm_bo",
+      "prompt": "fan of three different old books tied with narrow cord, one page showing tiny non-readable diagrams and linework"
+    },
+    {
+      "kind": "xinfa",
+      "id": "lm_xin",
+      "prompt": "open weathered scholar's scroll with a dark ink brush across the corner and one broad abstract black ink stroke; no human figure or readable characters"
+    },
+    {
+      "kind": "xinfa",
+      "id": "th_xin",
+      "prompt": "weathered Daoist mountain talisman plaque carved from dark slate with one thin silver crescent and a small thundercloud relief, no readable text, no ring"
+    },
+    {
+      "kind": "xinfa",
+      "id": "th_zuo",
+      "prompt": "empty woven meditation cushion with a folded pale Daoist robe and one white cloud wisp; no person or statue"
+    },
+    {
+      "kind": "xinfa",
+      "id": "tuna",
+      "prompt": "rolled bamboo breathing manual partly open beside a small clay incense burner and restrained breath-like wisp; no human figure"
+    },
+    {
+      "kind": "xinfa",
+      "id": "yq_shi",
+      "prompt": "heavy weathered temple stone slab with one carved open palm relief, chips and dust; no person or whole statue"
+    },
+    {
+      "kind": "xinfa",
+      "id": "yq_xin",
+      "prompt": "weathered mossy stone spring basin with jade-green water flowing over one side"
+    },
+    {
+      "kind": "xinfa",
+      "id": "yy_xin",
+      "prompt": "soldier's bronze canteen and folded red cloth sash beside a sturdy upright spear butt, disciplined field-breathing symbol"
+    },
+    {
+      "kind": "xinfa",
+      "id": "yy_zhen",
+      "prompt": "three overlapping rectangular Song infantry shields arranged in staggered formation, compact red-brown defense silhouette"
+    }
+  ]
+}
