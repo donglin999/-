@@ -99,7 +99,7 @@ window.BUI = { weakIcon(type) -> HTMLCanvasElement|Image, breakBanner(u) }   // 
 | `bg_temple_out` `m_temple_out` / `temple_out` | `bb_temple_out` | 庙外空地 |
 | `bg_gate` `m_gate` / `gate` | `bb_gate` | 南门外官道、护城河石桥、城楼（S2 新增；quests 城防营操演用） |
 | `bg_street` `m_street_v2` / `street` | `bb_street` | 街市 |
-| `bg_alley` `m_alley_v2` / `alley` | `bb_alley` | 偏巷 |
+| `bb_alley_v3` `m_alley_v2` / `alley` | `bb_alley_v3` | 偏巷公井与住家立面；`bb_alley_v2` 因过亮过艳未采用 |
 | `bg_ferry` `m_ferry_v2` / `ferry` | `bb_ferry` | 东津渡 |
 | `bg_bandit_gate` `m_bgate` / `bgate` | `bb_bandit_gate` | 黑风寨寨门（`BB_ALIAS.bgate`） |
 | `bg_bandit_cave` `m_cave` / `cave` | `bb_bandit_cave` | 黑风寨山洞（S2 重生成：全封闭洞穴，无天空） |
@@ -108,6 +108,7 @@ window.BUI = { weakIcon(type) -> HTMLCanvasElement|Image, breakBanner(u) }   // 
 | `bb_road` | `bb_road` | 大地图赶路途中的山道遭遇（ui.js 往东津渡的饿狼战，S2 新增） |
 
 - 回退：`bb_*` 未载入时用传入键的图（旧 `bg_*` 或探索地图）压暗降饱和；再没有就用当前探索场景底图 `SC[S.scene].bg` 模糊铺底。
+- 统一调色：所有战斗背景在离屏缓存阶段先应用同一低饱和、轻对比度基准，再叠各场景的环境色、远景景深、薄雾和暗角。角色与世界特效在单位 UI 绘制前轻叠相同环境色，保留血条与文字辨识度。更换场景时先审核素材本身的明度、饱和度和笔触；统一滤镜仅做收束，不能补救画风不一致的原图。
 - `bg_bgate` / `bg_cave` 没有文件（battle.js 不传 bg 时会按场景 id 拼出这两个键）：bstage 在 `bb_bandit_gate/bb_bandit_cave` 载入后把图挂到这两个键上（`NOFILE`），battle.js 就不再去请求。根治应在 battle.js 143 行改为 `opt.bg||'bb_'+BSTAGE.sceneOf()` 一类写法（归总控）。
 - 预载：进入游戏 4s 后按 `SC` 表预载全部 `bb_*`（共 9 张，每张 30–40KB）。
 - 新增战斗场景：`tools_fx/gen_battle_bg.py` 的 `SCENES` 加一项 → `python3 tools_fx/gen_battle_bg.py all <键> --raw <目录>` → bstage `SC` 表加氛围一行（`hz` 按成图地平线填）。验证：`node review/map_v2/bg_test.cjs`（逐键开战截图、核对实际使用的 bb 键、统计 404）。

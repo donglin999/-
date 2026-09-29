@@ -101,6 +101,29 @@ function check(ok, name, detail) { console.log(`${ok ? '✓' : '✗'} ${name}${d
     check(reloaded.pet === 'dog' && reloaded.party.join(',') === 'suzhi' && reloaded.bag.bun === 1, '页面重载后测试档仍可读且无重复扣物', reloaded);
   });
 
+  await run('偏巷鸡场战败重试与一次性奖励', async p => {
+    await act(p, 'alley', 'rooster', [0], ['lose']);
+    let s = await state(p);
+    check(!s.flags.rooster && s.fights === 1 && await p.evaluate(() => SC.alley.npcs.find(n => n.id === 'rooster').show()), '战败后红冠将军仍可挑战', s);
+    await act(p, 'alley', 'rooster', [0], ['win']);
+    s = await state(p);
+    const reward = await p.evaluate(() => ({ bonus: S.atkBonus, skill: !!S.skills.guafeng, visible: SC.alley.npcs.find(n => n.id === 'rooster').show() }));
+    check(!!s.flags.rooster && s.fights === 2 && reward.bonus === 5 && reward.skill && !reward.visible, '获胜只结算一次并隐藏鸡场目标', { s, reward });
+    await p.evaluate(() => save());
+    const saved = await p.evaluate(() => loadSave());
+    check(saved.flags.rooster && saved.atkBonus === 5 && saved.skills.guafeng, '鸡场奖励写入存档');
+  });
+
+  await run('偏巷旧档落点', async p => {
+    await p.evaluate(() => goScene('alley', [1.6, 20.4]));
+    await p.waitForFunction(() => S.scene === 'alley' && cur === SC.alley, null, { timeout: 20000 });
+    const points = await p.evaluate(() => [[23, 24], [34.12, 10.45], [37.65, 17.85], [33, 27], [3, 29.4], [54.4, 19.3], [17, 14], [19, 10.5], [31, 24.5]].map(([x, y]) => {
+      S.mapv.alley = 1; player.x = x * TS; player.y = y * TS; placeFix();
+      return { old: [x, y], now: [+(player.x / TS).toFixed(2), +(player.y / TS).toFixed(2)], walkable: standOk(player.x, player.y), version: S.mapv.alley };
+    }));
+    check(points.every(v => v.walkable && v.version === 4), '九个旧档代表位置均迁移到可站立点', points);
+  });
+
   await run('江心盐船奖励幂等', async p => {
     await p.evaluate(() => { QAPI.set('q_salt', 1); S.silver = 0 });
     await p.evaluate(async () => { window.__test.choices = [1]; await onSaltEscort() });

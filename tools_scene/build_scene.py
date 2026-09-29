@@ -598,6 +598,7 @@ def alley():
     S.rect(352, 312, 574, 404, 6)                 # 围栏鸡场
     S.rect(646, 312, 774, 394, 6)                 # 小土地龛的藏银支角
     S.paint_ground()
+    S.backwall(285, 450, 164)                     # 公井背墙，界定小场而不另开一条北巷
     # 北侧仅保留有住户的院落。屋檐沿同一条立面排列，不另造北巷或废宅纵深。
     for i, (kind, x, width) in enumerate((('hut', 20, 118), ('residence', 156, 130), ('hut_b', 474, 115), ('residence', 624, 132))):
         S.place(kind, x, 222, width, fp='band:0.58', key='home%d' % i)
@@ -627,9 +628,11 @@ def alley():
     S.walk_rect(18, 310, 222, 401)
     S.walk_rect(352, 310, 574, 402)
     S.walk_rect(646, 310, 774, 393)
+    S.block_rect(0, 246, 13, 253)              # 西沿只在正式出口高度开放
+    S.block_rect(0, 307, 13, 310)
     S.tufts(110, (0, 65, 800, 150)); S.tufts(75, (0, 320, 800, 405))
     S.exits = [(0, 19, 0, 22)]
-    for n, (x_, y_) in dict(arrive=(18, 272), well=(331, 233), dog=(404, 237), water_neighbor=(280, 235),
+    for n, (x_, y_) in dict(arrive=(18, 272), well=(331, 233), dog=(404, 237), water_neighbor=(287, 243),
                              beggar=(648, 237), wood_corner=(180, 354), dig=(93, 383),
                              rooster=(456, 370), shrine=(718, 377), cache=(704, 379)).items(): S.anchor(n, x_, y_)
     return S

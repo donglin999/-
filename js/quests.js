@@ -273,7 +273,7 @@ addNpc('alley',{id:'q_pipi',...PIPI,dir:'l',verb:'讨回书匣',mark:()=>1,show:
   const c=await choose(PIPI.name,'泼皮把书匣往怀里一揣，身后又冒出一个帮闲。',opts,PIPI.sp);
   if(c===1){await say(PIPI.name,'嘿，上道！',PIPI.sp);await silver(12);await moral(-2);qdone('q_book','split');return}
   if(c===2){S.silver-=10;await gain('银两 -10');await say(PIPI.name,'早这样不就结了。',PIPI.sp);await moral(1)}
-  else{const r=await battle({bg:'bg_alley',foes:[Object.assign(mk('thug'),{name:'泼皮'}),Object.assign(mk('thug'),{name:'帮闲'})],noLose:true});
+  else{const r=await battle({bg:'bb_alley_v3',foes:[Object.assign(mk('thug'),{name:'泼皮'}),Object.assign(mk('thug'),{name:'帮闲'})],noLose:true});
     if(r!=='win'){await narr('你被推了个趔趄，泼皮嘻嘻哈哈地看着你。（再来一次？）');return}
     await say(PIPI.name,'好汉饶命！匣子还你，还你！',PIPI.sp)}
   await giveItem('shuxia');qset('q_book',2)}},spot({sc:'alley',xy:[13.5,25.5]}));

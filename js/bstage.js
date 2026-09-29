@@ -2,7 +2,7 @@
 // ───────────────────────── 战斗舞台与镜头（工作流 A，见 docs/battle-v2.md）─────────────────────────
 // 覆盖 battle.js：drawBattleBg / drawStageFront / layoutUnits / unitH，赋值 CAM。
 //  · 背景：优先 assets/bb_{scene}.webp（战斗专用，低地平线、中场空旷、偏暗），缺则回退 bg_{scene} 并压暗调色。
-//    景深虚化 / 调色 / 地平线薄雾 预渲染到离屏画布（每张图只做一次），每帧只 drawImage 一次。
+//    共用低饱和/对比度基准、景深、场景调色和地平线薄雾预渲染到离屏画布；环境色也轻覆角色，UI 保持原色。
 //  · 前景：3px 像素颗粒的尘埃 / 火星 / 落叶 / 萤火，低处薄雾带（低分辨率贴图最近邻放大、横向缓慢滚动）。
 //  · 站位：我方从右前向右后斜线纵深，敌方错落、头目居中偏前；按脚底 y 写 u.depth(0 后排..1 前排) 与 u.dscale。
 //  · 镜头：CAM.focus/punch/reset，平滑缓动，缩放 1–1.25，边界夹紧不露黑边；toWorld 为 apply 的精确逆变换。
@@ -28,6 +28,7 @@ const BSTAGE=(()=>{
   // 剧情可传 bb_* / bg_{scene} / m_{scene}(_v2)：去前缀与 _vN 后缀，探索场景 id 与战斗背景名不同的走 BB_ALIAS。
   // 这样 m_gate/bg_gate→bb_gate、m_temple_out→bb_temple_out、m_bgate→bb_bandit_gate、m_cave→bb_bandit_cave、m_street_v2→bb_street、crossing→bb_river、ferry_e→bb_ferry。
   const BB_ALIAS={bgate:'bandit_gate',cave:'bandit_cave',crossing:'river',ferry_e:'ferry'};   // 渡船 → bb_river；东岸芦苇荡 → bb_ferry（同一段江岸）
+  const BB_ASSET={alley:'bb_alley_v3'};       // 偏巷公井背景按既有 bb_* 的低明度、低饱和画风重制
   const bbName=k=>{const s=String(k||'').replace(/^(bb|bg|m)_/,'').replace(/_v\d+$/,'');return BB_ALIAS[s]||s};
   // 没有对应文件的旧键（battle.js 未传 bg 时按 'bg_'+S.scene 取图）：bb 载入后挂到这些键上，避免 404
   const NOFILE={bg_bgate:'bb_bandit_gate',bg_cave:'bb_bandit_cave',bg_crossing:'bb_river',bg_ferry_e:'bb_ferry'};
@@ -40,7 +41,7 @@ const BSTAGE=(()=>{
   function want(k){if(IMG[k]||req.has(k))return;req.add(k);loadOpt(k,k).then(okk=>{if(!okk){IMG[k]=null;return}
     for(const[a,b]of Object.entries(NOFILE))if(b===k&&!IMG[a])IMG[a]=IMG[k]})}
   // 进入游戏空闲后预载全部战斗背景（很小），避免开战时闪一帧回退图
-  setTimeout(()=>{for(const k of Object.keys(SC))want('bb_'+k)},4000);
+  setTimeout(()=>{for(const k of Object.keys(SC))want(BB_ASSET[k]||'bb_'+k)},4000);
 
   // ── 背景预渲染缓存 ──
   const cache=new Map();                       // key → canvas (W+2B)×(H+2B)
@@ -48,10 +49,12 @@ const BSTAGE=(()=>{
     const im=IMG[key],CW=W+BLEED*2,CH=H+BLEED*2,c=cv(CW,CH),x=c.getContext('2d');
     const hz=BLEED+H*(cfg().hz||HORIZON);
     x.imageSmoothingEnabled=false;
+    x.filter='saturate(.90) contrast(1.03)'; // 所有背景共用；只在首次预渲染时计算
     if(im&&im.naturalWidth){x.drawImage(im,0,0,CW,CH)}
     else{ // 场景地图兜底
       const m=IMG[bstageMapKey(S.scene)]||IMG['m_'+S.scene];x.fillStyle='#1d1812';x.fillRect(0,0,CW,CH);
       if(ok(m)){const s=Math.max(CW/m.naturalWidth,CH/m.naturalHeight)*1.1;x.drawImage(m,(CW-m.naturalWidth*s)/2,(CH-m.naturalHeight*s)/2,m.naturalWidth*s,m.naturalHeight*s)}}
+    x.filter='none';
     // 景深：远景（地平线以上）与最下缘前景虚化，中场清晰。模糊副本 + 渐变遮罩合成
     const bl=cv(CW,CH),bx=bl.getContext('2d');bx.filter=`blur(${fallback?2.2:1.3}px)`;bx.drawImage(c,0,0);bx.filter='none';
     bx.globalCompositeOperation='destination-in';
@@ -79,7 +82,7 @@ const BSTAGE=(()=>{
     x.fillStyle=sg;x.fillRect(0,0,CW,CH);
     return c}
   function bgCanvas(){
-    const bg=(B&&B.bg)||'bg_street',nm=sceneOf(),bb=SC[nm]?'bb_'+nm:null;if(bb)want(bb);   // 只请求登记过的 bb_*，杜绝 404
+    const bg=(B&&B.bg)||'bg_street',nm=sceneOf(),bb=SC[nm]?(BB_ASSET[nm]||'bb_'+nm):null;if(bb)want(bb);   // 只请求登记过的 bb_*，杜绝 404
     let key,fb;
     if(bb&&ok(IMG[bb])){key=bb;fb=false}else{key=bg;fb=true}
     const ck=key+(ok(IMG[key])?'':'#map');
@@ -100,6 +103,10 @@ const BSTAGE=(()=>{
     for(const u of B.units){if(u.hp<=0&&u.side==='foe')continue;const h=unitH(u),w=Math.max(110,h*.9)*(u.hp>0?1:.7);
       g.globalAlpha=(u.hp>0?1:.4)*(.75+.25*(u.depth??1));g.drawImage(p,u.x-w/2,u.y-w*.15,w,w*.3)}
     g.restore()}
+
+  function gradeWorld(){
+    // 让单位与特效吃到同一场景环境色；在单位 UI 前绘制，不改变血条与文字。
+    g.save();g.globalCompositeOperation='soft-light';g.globalAlpha=.8;g.fillStyle=cfg().tint;g.fillRect(0,0,W,H);g.restore()}
 
   // ── 前景：像素粒子与低处薄雾 ──
   const LW=W/PX,LH=H/PX;
@@ -149,11 +156,11 @@ const BSTAGE=(()=>{
       else{g.globalAlpha=fade*(.25+.2*Math.sin(p.ph));g.fillStyle=`rgb(${p.c})`;g.fillRect(X,Y,PX,PX)}}
     g.restore()}
 
-  return {drawBg,drawFront,sceneOf,HORIZON};
+  return {drawBg,drawFront,gradeWorld,sceneOf,HORIZON};
 })();
 
 function drawBattleBg(){BSTAGE.drawBg();stageActive(performance.now())}
-function drawStageFront(now){BSTAGE.drawFront(now)}
+function drawStageFront(now){BSTAGE.drawFront(now);BSTAGE.gradeWorld()}
 
 // ───────── 站位 ─────────
 // 纵深：脚底 y 在 [Y_BACK, Y_FRONT] 间映射 depth 0..1，dscale = .84..1（后排略小）
