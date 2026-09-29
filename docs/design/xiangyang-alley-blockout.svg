@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="680" viewBox="0 0 1200 680">
+  <defs>
+    <style>
+      text { font-family: 'PingFang SC', 'Noto Sans CJK SC', sans-serif; fill: #24313a; }
+      .title { font-size: 30px; font-weight: 700; }
+      .sub { font-size: 17px; fill: #60717a; }
+      .zone { font-size: 23px; font-weight: 700; }
+      .note { font-size: 17px; }
+      .hint { font-size: 15px; fill: #60717a; }
+      .line { stroke: #57716f; stroke-width: 6; stroke-linecap: round; }
+    </style>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#57716f"/></marker>
+  </defs>
+  <rect width="1200" height="680" fill="#f3f0e7"/>
+  <text x="55" y="56" class="title">襄阳偏巷 · 功能灰盒示意</text>
+  <text x="55" y="86" class="sub">功能与剧情已接入场景。方块代表用途，不代表建筑实际尺寸或造型。</text>
+  <text x="1104" y="57" class="hint">北 ↑</text>
+
+  <rect x="55" y="157" width="189" height="202" rx="14" fill="#d9e3de" stroke="#a6b9ae" stroke-width="2"/>
+  <text x="74" y="201" class="zone">A 西口</text>
+  <text x="74" y="237" class="note">连接街市</text>
+  <text x="74" y="269" class="note">民居门面</text>
+  <text x="74" y="301" class="hint">出口一眼可见</text>
+
+  <rect x="299" y="130" width="450" height="228" rx="14" fill="#d7e7e7" stroke="#9ab5b5" stroke-width="2"/>
+  <text x="322" y="175" class="zone">C 公井 · 大黄</text>
+  <text x="322" y="211" class="note">取水、喂食／收养、街坊闲话</text>
+  <text x="322" y="248" class="note">汲水妇人目击泼皮拐进西侧柴角</text>
+  <text x="322" y="290" class="hint">水钵与屋檐说明大黄为何在此</text>
+
+  <rect x="821" y="155" width="323" height="203" rx="14" fill="#e7ddcb" stroke="#bba987" stroke-width="2"/>
+  <text x="844" y="201" class="zone">D 巷尾 · 吴长老</text>
+  <text x="844" y="237" class="note">交谈、给食、比试</text>
+  <text x="844" y="273" class="note">檐下休息处</text>
+  <text x="844" y="311" class="hint">留回转与对话站位</text>
+
+  <rect x="55" y="383" width="1089" height="100" rx="18" fill="#eadfca" stroke="#bea988" stroke-width="3"/>
+  <text x="80" y="427" class="zone">B 连续主巷</text>
+  <text x="80" y="457" class="note">西口 → 公井 → 巷尾；至少 5 格净宽，出口与主要人物始终好找</text>
+  <line x1="428" y1="425" x2="1067" y2="425" class="line" marker-end="url(#arrow)"/>
+
+  <line x1="199" y1="485" x2="199" y2="523" class="line" marker-end="url(#arrow)"/>
+  <line x1="810" y1="485" x2="810" y2="523" class="line" marker-end="url(#arrow)"/>
+  <line x1="1055" y1="485" x2="1055" y2="523" class="line" marker-end="url(#arrow)"/>
+
+  <rect x="55" y="532" width="353" height="100" rx="14" fill="#e1dfce" stroke="#b6b19b" stroke-width="2"/>
+  <text x="77" y="571" class="zone">E 柴角</text>
+  <text x="77" y="604" class="note">说书匣泼皮、可选挖掘</text>
+
+  <rect x="611" y="532" width="310" height="100" rx="14" fill="#e7dcc9" stroke="#bea689" stroke-width="2"/>
+  <text x="633" y="571" class="zone">F 围栏鸡场</text>
+  <text x="633" y="604" class="note">可选挑战；围栏留入口</text>
+
+  <rect x="945" y="532" width="199" height="100" rx="14" fill="#d7dfc9" stroke="#a4b18c" stroke-width="2"/>
+  <text x="966" y="571" class="zone">G 土地龛</text>
+  <text x="966" y="604" class="note">消息铺藏银线索</text>
+
+  <text x="55" y="660" class="hint">区域关系示意 · 实际碰撞、建筑和人物位置以游戏地图与审计图为准</text>
+</svg>

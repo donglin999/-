@@ -1,0 +1,17 @@
+.DS_Store
+.env
+**/.env
+**/.env.*
+dist/
+node_modules/
+review/
+assets/review/
+assets/audio/voice_pick/
+raw*/
+frames/
+http:/
+__pycache__/
+*.pyc
+*.log
+*.zip
+/*.png
