@@ -6,7 +6,7 @@
 const DIR='assets/audio/';
 const VOL={bgm:.25,amb:.35,sfx:.5};
 // 每条素材的额外增益（粗略响度对齐；试听后可微调）
-const GAIN={blip:.35,advance:.6,select:.7,menu_open:.6,menu_close:.6,chime:.7,whoosh:.35,coin:.8,forge:.5,kettle:1,step1:.45,step2:.45,step3:.45};
+const GAIN={blip:.35,advance:.6,select:.7,menu_open:.6,menu_close:.6,chime:.7,whoosh:.35,coin:.8,forge:.5,kettle:1};
 // 各场景的音景；未列出的场景保持安静
 const SCENES={street:{bgm:'bgm_street',amb:'amb_street'}};
 
@@ -67,22 +67,20 @@ wrap('openPanel',o=>function(){if(document.getElementById('panel')?.hidden)sfx('
 wrap('closePanel',o=>function(){if(!document.getElementById('panel')?.hidden)sfx('menu_close');return o.apply(this,arguments)});
 wrap('fade',o=>function(){if(typeof mode!=='undefined'&&mode==='scene')sfx('whoosh');return o.apply(this,arguments)});
 
-// ── 轮询：场景音景 / 脚步 / 铁匠铺 / 银两 ──
-let last=performance.now(),px=null,py=null,acc=0,stepN=0,forgeT=3,kettleT=8,silver=null;
+// ── 轮询：场景音景 / 铁匠铺 / 银两 ──
+// 现有脚步素材带明显金属铃音，暂不按行走距离循环播放。
+let last=performance.now(),forgeT=3,kettleT=8,silver=null;
 function g(n){try{return eval(n)}catch(e){return undefined}}
 function frame(now){const dt=Math.min(.1,(now-last)/1000);last=now;btn();
   const md=g('mode'),c=g('cur'),P=g('player'),SCx=g('SC'),S_=g('S'),TSz=g('TS')||48;
   let id=null;if(md==='scene'&&c&&SCx)for(const k in SCx)if(SCx[k]===c){id=k;break}
   const cfg=SCENES[id]||{};bgm.set(cfg.bgm||null);amb.set(cfg.amb||null);bgm.tick(dt);amb.tick(dt);
   if(md==='scene'&&P){
-    if(px!==null){const d=Math.hypot(P.x-px,P.y-py);if(d<TSz*2){acc+=d;if(acc>TSz*.9){acc=0;sfx('step'+(1+stepN++%3),.9+Math.random()*.2,.92+Math.random()*.16)}}else acc=0}
-    if(!P.moving&&!P.path)acc=Math.min(acc,TSz*.5);
-    px=P.x;py=P.y;
     if(id==='street'){const npcs=c.npcs||[],sm=npcs.find(n=>n.id==='smith');
       if(sm){const dist=Math.hypot(P.x-sm.x*TSz,P.y-sm.y*TSz)/TSz;forgeT-=dt;
         if(forgeT<=0){forgeT=2.8+Math.random()*2.5;if(dist<12)sfx('forge',Math.max(.15,1-dist/12),.95+Math.random()*.1)}}
       kettleT-=dt;if(kettleT<=0){kettleT=14+Math.random()*12;sfx('kettle',.8)}}
-  }else{px=null}
+  }
   if(S_&&typeof S_.silver==='number'){if(silver!==null&&S_.silver<silver)sfx('coin');silver=S_.silver}
   requestAnimationFrame(frame)}
 requestAnimationFrame(frame);

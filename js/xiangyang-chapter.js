@@ -4,17 +4,24 @@
 const xySlice=()=>!!(S&&S.flags&&S.flags.xiangyang_slice);
 const xyNpc=(scene,id)=>SC[scene].npcs.find(n=>n.id===id);
 const xyYe=(line,expression)=>say('叶蘅',line,'c_ye'+(expression?':'+expression:''));
-async function xyCG(src,caption){
+async function xyCG(src,caption,beats=[]){
   const img=new Image();img.src=src;
   try{await img.decode()}catch(e){return}
   const wasBusy=dlgBusy;dlgBusy=true;
   try{await new Promise(resolve=>{
     const veil=document.createElement('div');veil.className='xy-cg';veil.setAttribute('role','dialog');veil.setAttribute('aria-label',caption);
-    veil.innerHTML=`<div class="xy-cg-frame"><img src="${src}" alt="${caption}"><div class="xy-cg-caption">${caption}</div><button type="button">继续　›</button></div>`;
+    const picture=document.createElement('img');picture.src=src;picture.alt=caption;
+    const title=document.createElement('div');title.className='xy-cg-title';title.textContent=caption;
+    const line=document.createElement('div');line.className='xy-cg-line';line.setAttribute('aria-live','polite');
+    const speaker=document.createElement('strong'),words=document.createElement('span');line.append(speaker,words);
+    const button=document.createElement('button');button.type='button';
+    veil.append(picture,title,line,button);
+    let i=0;
+    const draw=()=>{const beat=beats[i];speaker.textContent=beat?.who||'';speaker.hidden=!beat?.who;words.textContent=beat?.text||'';button.textContent=i<beats.length-1?'继续　›':'返回街心　›'};
     const done=()=>{veil.remove();window.removeEventListener('keydown',key);resolve()};
-    const key=e=>{if(['Enter',' ','Escape'].includes(e.key)){e.preventDefault();done()}};
-    veil.querySelector('button').onclick=done;
-    $('game').appendChild(veil);window.addEventListener('keydown',key);veil.querySelector('button').focus();
+    const next=()=>{if(i<beats.length-1){i++;draw()}else done()};
+    const key=e=>{if(!e.repeat&&['Enter',' ','e','E'].includes(e.key)){e.preventDefault();next()}};
+    veil.onclick=next;draw();$('game').appendChild(veil);window.addEventListener('keydown',key);button.focus();
   })}finally{dlgBusy=wasBusy}
 }
 Object.assign(ITEMS,{
@@ -29,8 +36,13 @@ xyNpc('street','zhou').act=async function(n){
     await narr('第一年夏，萧白与叶蘅来襄阳采买药材。街心忽然起了喧声，挑夫老周连人带货担倒在石板上。');
     await xyYe('他的指尖发凉，呼吸却急。萧白，替我把人群拦开。','worry');
     await say('苏芷','肩别抬，压住他的上臂。','c_suzhi');
-    await xyCG('assets/cg_zhou_rescue.webp','街心 · 叶蘅与苏芷合力救治老周');
-    await narr('素衣女医落下三针，叶蘅顺着脉象检查老周的嘴唇和手指。两人互看一眼，神色同时沉了。');
+    await xyCG('assets/cg_zhou_rescue.webp','街心 · 合力救治老周',[
+      {text:'苏芷三针落下，叶蘅扶住老周的肩，指尖紧贴他的脉。街上的喧声渐渐远了。'},
+      {who:'叶蘅',text:'脉又沉了一分。苏姑娘，左手指尖开始发青。'},
+      {who:'苏芷',text:'我看到了。先守住气息，别让人给他灌水。'},
+      {who:'叶蘅',text:'我数他的呼吸，你看毒走到哪儿。萧白，替我们留出地方。'},
+      {text:'两人对看一眼，苏芷换针，叶蘅随即按住老周颤动的手。'}
+    ]);
     const c=await choose('萧白','眼下先做什么？',['护住救治空地，让叶蘅按脉','取茶棚的清水和干净布带','追问围观者是谁碰过老周']);
     if(c===0){await xyYe('脉还在。苏姑娘的针压住了毒势，我能再替他稳一阵。');await moral(1)}
     else if(c===1){await xyYe('水留下，先别喂。他现在吞咽不稳。');await moral(1)}
@@ -56,10 +68,13 @@ xyNpc('street','suzhi').act=async function(n){
   }
   if(XQ()===3){
     if(!S.bag.jieyao){await say('苏芷','解药还没到手。','c_suzhi');return}
-    await narr('萧白交出小瓷瓶。苏芷闻过药液，叶蘅取出干净布带，扶稳老周的肩。');
-    await say('苏芷','是对药。叶蘅，留意他的呼吸。','c_suzhi');
-    await xyYe('我数着。你施针，我来喂药。');
-    await narr('药入喉后，老周咳出浊液，终于睁眼。两位医者收针、擦手，又看了一遍脉。');
+    await xyCG('assets/cg_zhou_rescue.webp','街心 · 解药入喉',[
+      {text:'萧白交出小瓷瓶。苏芷闻过药液，叶蘅取出布带，扶稳老周的肩。'},
+      {who:'苏芷',text:'是对药。我先施针，等他能吞咽再喂。叶蘅，留意呼吸。'},
+      {who:'叶蘅',text:'我数着……好了，他喉间有动静了。先喂一口。'},
+      {who:'苏芷',text:'等他咽下去。别急。'},
+      {text:'老周猛地咳出浊液。叶蘅重新搭脉，向苏芷轻轻点头；两人才收了针。'}
+    ]);
     await say('老周','我还活着？货……货担呢？','c_zhou');
     await xyYe('担子在。先别起来，今天不能再扛货。','smile');
     const c=await choose('萧白','老周摸出一串铜钱，硬要谢你们。',['让他留着买药','收下，替他保管后续药费']);

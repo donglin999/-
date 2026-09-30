@@ -97,11 +97,12 @@ kbd,#prompt kbd{display:inline-block;min-width:1.6em;padding:0 .35em;margin-righ
 
 /* ── 面板（菜单/商店/结局）── */
 .panel{inset:0;background:rgba(10,8,6,.84);backdrop-filter:blur(2px);overflow:hidden;z-index:4;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.5em;text-align:center;padding:8%;line-height:2}
-.xy-cg{position:absolute;inset:0;z-index:40;background:rgba(8,7,6,.94);display:flex;align-items:center;justify-content:center;padding:2%}
-.xy-cg-frame{position:relative;width:min(100%,1280px);max-height:100%;display:flex;align-items:center;justify-content:center}
-.xy-cg img{display:block;max-width:100%;max-height:100%;object-fit:contain;border:1px solid #947348;box-shadow:0 10px 35px #000b}
-.xy-cg-caption{position:absolute;left:0;right:0;bottom:0;padding:.65em 1em;color:#f3e4c4;background:linear-gradient(transparent,rgba(12,9,7,.92));font-family:var(--serif);letter-spacing:.18em;text-align:left}
-.xy-cg button{position:absolute;right:1em;bottom:.6em;z-index:1;background:#271c13;color:#f1dfa9;border:1px solid #9b7845;padding:.35em 1em;cursor:pointer}
+.xy-cg{position:absolute;inset:0;z-index:40;background:#080706;cursor:pointer;overflow:hidden}
+.xy-cg img{position:absolute;inset:0;display:block;width:100%;height:100%;object-fit:cover}
+.xy-cg-title{position:absolute;top:3%;left:3%;padding:.3em .7em;color:#f3e4c4;background:rgba(12,9,7,.7);font-family:var(--serif);font-size:.8em;letter-spacing:.15em}
+.xy-cg-line{position:absolute;left:0;right:0;bottom:0;min-height:25%;display:flex;flex-direction:column;justify-content:center;gap:.35em;padding:2.5% 16% 4% 5%;color:#fff4dd;background:linear-gradient(transparent,rgba(8,6,5,.88) 34%,rgba(8,6,5,.96));font-family:var(--serif);font-size:clamp(15px,2cqw,29px);line-height:1.55;text-shadow:0 2px 5px #000}
+.xy-cg-line strong{color:#f3d58e;font-size:.8em;letter-spacing:.2em}
+.xy-cg button{position:absolute;right:3%;bottom:4%;z-index:1;background:rgba(25,17,12,.9);color:#f1dfa9;border:1px solid #9b7845;padding:.4em .8em;cursor:pointer;font-size:.85em}
 .panel p{margin:0;max-width:40em}
 .panel.plain{background:transparent;backdrop-filter:none}
 .panel h2{font-family:var(--brush);font-weight:400;color:var(--gold);margin:.1em 0 .5em;font-size:1.6em;letter-spacing:.15em}

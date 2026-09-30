@@ -25,16 +25,23 @@ const url='file://'+path.resolve(__dirname,'../index.html');
     assert.equal(expressions.count,7);
     assert.ok(expressions.smile.includes('p_ye_smile.webp'));
     assert.equal(expressions.battle,'ye_battle');assert.equal(expressions.hurt,'ye_hurt');
-    const cgDone=page.evaluate(()=>xyCG('assets/cg_zhou_rescue.webp','街心救治'));
+    const cgDone=page.evaluate(()=>xyCG('assets/cg_zhou_rescue.webp','街心救治',[
+      {who:'叶蘅',text:'先稳住他的脉。'},{who:'苏芷',text:'我来施针。'}
+    ]));
     await page.waitForSelector('.xy-cg img');
     assert.ok(await page.locator('.xy-cg img').evaluate(img=>img.naturalWidth>0));
+    assert.equal(await page.locator('.xy-cg img').evaluate(img=>getComputedStyle(img).objectFit),'cover');
+    assert.equal(await page.locator('.xy-cg-line').innerText(),'叶蘅\n先稳住他的脉。');
+    assert.equal(await page.locator('#dlg').isVisible(),false);
+    await page.click('.xy-cg button');
+    assert.equal(await page.locator('.xy-cg-line').innerText(),'苏芷\n我来施针。');
     await page.click('.xy-cg button');await cgDone;
     assert.equal(await page.locator('.xy-cg').count(),0);
     await page.evaluate(()=>{
-      window.__xy={choices:[],fights:[],lines:[]};
+      window.__xy={choices:[],fights:[],lines:[],cgs:[]};
       choose=async()=>{if(!__xy.choices.length)throw Error('missing choice');return __xy.choices.shift()};
       say=async(w,t,sp)=>{__xy.lines.push(w+':'+t+'|'+(sp||''))};
-      xyCG=async()=>{};
+      xyCG=async(src,caption,beats)=>{__xy.cgs.push({src,caption,beats})};
       toast=async()=>{};gain=async()=>{};battle=async()=>__xy.fights.shift()||'win';
     });
     const act=async(id,choices=[],fights=[])=>page.evaluate(async({id,choices,fights})=>{
@@ -43,6 +50,8 @@ const url='file://'+path.resolve(__dirname,'../index.html');
       if(__xy.choices.length)throw Error('unused choices '+__xy.choices);
     },{id,choices,fights});
     await act('zhou',[0]);
+    assert.equal(await page.evaluate(()=>__xy.cgs.length),1);
+    assert.ok(await page.evaluate(()=>__xy.cgs[0].beats.length>=5));
     await act('gossip');
     await act('lady',[0]);
     let state=await page.evaluate(()=>({xq:XQ(),party:S.party.slice(),bowl:S.bag.tea_bowl,ye:hasFlag('ye_referral_offer'),lines:__xy.lines.slice()}));
@@ -53,6 +62,8 @@ const url='file://'+path.resolve(__dirname,'../index.html');
     state=await page.evaluate(()=>({xq:XQ(),antidote:S.bag.jieyao,ledger:S.bag.ledger,fate:S.flags.xq_fate}));
     assert.deepEqual(state,{xq:3,antidote:1,ledger:1,fate:'guard'});
     await act('suzhi',[0,0]);
+    assert.equal(await page.evaluate(()=>__xy.cgs.length),2);
+    assert.ok(await page.evaluate(()=>__xy.cgs[1].beats.some(b=>b.who==='苏芷')&&__xy.cgs[1].beats.some(b=>b.who==='叶蘅')));
     state=await page.evaluate(()=>({xq:XQ(),party:S.party.slice(),saved:hasFlag('xq_saved'),referral:hasFlag('ye_referral_offer'),ferry:S.unlocked.ferry,antidote:S.bag.jieyao}));
     assert.deepEqual(state,{xq:5,party:['ye','suzhi'],saved:true,referral:true,ferry:1,antidote:0});
     assert.ok(await page.evaluate(()=>__xy.lines.some(s=>s.endsWith('|c_ye:shy'))));
