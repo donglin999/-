@@ -161,3 +161,5 @@ dmg = atk*pow*(多段?.65:1)*(全体?.85:1) - def*0.5
 当前为测试辅助策略，不保证胜利；不会复活倒下角色，也不会替玩家跳过剧情或结算。
 
 验证命令：`node tests/battle-auto.test.cjs`（策略边界、开关与过期回调）、`BATTLE_AUTO=1 node tests/xiangyang-combat-balance.cjs`（3 种队伍状态 × 7 场战斗 × 5 个种子，实际循环）、`node tests/battle-error-regression.cjs` 与 `node tests/xiangyang-slice.test.cjs`。105 场策略测试全部完成，101 胜 / 4 败；失败均为初始等级挑战帮主。该循环测试替换动画和输入，不代替浏览器 UI 验收。
+
+发布记录：`45c6143` 已推送并部署 Cloudflare Pages（`https://5f5d159c.luotuo-36x.pages.dev`）。主域 `https://luotuo-36x.pages.dev` 的自动战斗脚本 SHA-256 为 `84df069257152594d7444a634d95ba93835afaae410e7f10a3cf9c7216d8e8ae`，与发布提交一致；线上浏览器验证按钮默认关闭，开启后第三回合获胜，停在结算页，按钮隐藏且托管关闭，无页面错误。独立本地浏览器验证开/关、暂停接管、手动出招、重复点击、完整胜利与第二场重置；证据位于 `/tmp/accept-battle-auto-flow.json` 及 `/tmp/accept-battle-auto-{manual,running,win,second}.png`（临时验收文件）。
