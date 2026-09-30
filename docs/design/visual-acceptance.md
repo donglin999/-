@@ -89,3 +89,7 @@
 | 叶蘅、苏芷跑动 | **未通过**：静止接地；跑动截图中衣摆、可辨脚部与影圈脱离，产生悬空/滑行观感。最低不透明像素与世界脚点相差约 1px 仍不能证明鞋底落地，因为衣摆或地面补点可能占据最低点。 | **通过（本次跑动样本）**：叶蘅侧向新折膝双腿从裙摆连到承重鞋，鞋在影圈内，不再呈细直竿或独立贴片；苏芷专用跑步帧四向未见连续悬空、脚断开或裙摆穿地。 | 旧版四向移动 `/tmp/accept-prod-four-montage.png`；本地叶蘅右跑第 3 帧局部 `/tmp/accept-ye-right3-foot-r3.png`、四向当前运行绘制逐帧 `/tmp/accept-cycle-ye-montage.png`，苏芷四向十帧 `/tmp/accept-cycle-suzhi-montage.png`。实际按键移动的状态与所选帧见 `/tmp/accept-{ye,suzhi}-state2.jsonl`；叶蘅右跑样本为 `moving=true`、`running=true`、`c_ye_r_2`，苏芷右跑为 `r_suzhi_r_5`。完整帧表是在当前游戏运行版中固定角色位置调用 `drawScene`/`drawChar` 检查；实际移动为四向时间抽帧，南向很快触发地图出口，未把固定位置逐帧检查称作完整路线实走。 |
 
 跑动验收同时查看可辨鞋腿与影圈的关系、动作连续性和正常视口观感，不能只以资源 alpha 外框、脚点坐标或单帧补丁判通过。上述截图存于本机 `/tmp`，若需长期追溯，应另行归档。
+
+### 本轮正式域名发布后抽测
+
+`39ec420` 已推送 `main` 并通过 Cloudflare Pages Direct Upload 部署；正式域名 `js/scene.js`、`assets/s_zhou.webp` 与最终 `dist/` SHA256 相同。冷启动实图 `/tmp/accept-prod-final-zhou.png` 中老周头脸与屈腿可辨、接地；`/tmp/accept-prod-final-party-run.png` 中叶蘅与苏芷均为 `moving=true,running=true`，代表帧腿脚与影圈连贯。相关精灵与脚本请求 HTTP 200，浏览器 `pageerror=[]`、HTTP 错误 `[]`。正式域名此次只抽测代表帧；完整四向周期使用同哈希本地构建的当前绘制函数逐帧验证，范围以上表为准。
