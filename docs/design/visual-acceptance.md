@@ -77,4 +77,4 @@
 
 修正 `264ac04` 推送到 `main` 并经 Cloudflare Pages Direct Upload 发布后，正式域名的 `index.html`、`js/scene.js`、`js/bstage.js`、`js/core.js`、偏巷和东岸地图文件与发布包 SHA256 相同。正式域名实开探索和战斗，`pageerror=[]`、HTTP 错误 `[]`。老周倒地长轴 100px / 萧白站姿 97px = **1.031**；战斗萧白/叶蘅/苏芷/喽啰/僧兵/军士同深度可见身体高度为 **105/100/104/101/106/106px**，普通成人比值 **0.952–1.010**。见 `/tmp/accept-prod-zhou.png`、`/tmp/accept-battle-prod-mixed-1280.png`。这确认 V01、V06 的上述样本在正式域名生效，不扩充为全角色逐帧验收。
 
-发布后首次开战另发现战斗专用表未到时主角短暂显示旧回退造型。按[战斗首帧规范](../battle-v2.md#3-统一约束)预载本场参战 `BART` 表后的最终 `dist/` 冷启动复验：进入战斗前 `b_hero`、`b_suzhi`、`b_bandit` 均未加载；第一个主角绘制以及遮罩揭开后的第一可见帧已是 `b_hero.webp`，全程未绘制旧主角表，`pageerror=[]`、HTTP 错误 `[]`。见 `/tmp/accept-dist-first-visible-battle.png`。此项须随新的 `dist/` 发布，再复核正式域名。
+发布后首次开战另发现战斗专用表未到时主角短暂显示旧回退造型。按[战斗首帧规范](../battle-v2.md#3-统一约束)预载本场参战 `BART` 表，随 `b95ebe6` 二次部署。最终正式域名冷启动复验：进入战斗前 `b_hero`、`b_suzhi`、`b_bandit` 均未加载；第一个主角绘制以及遮罩揭开后的第一可见帧已是 `b_hero.webp`，全程未绘制旧主角表，`pageerror=[]`、HTTP 错误 `[]`。见 `/tmp/accept-prod-first-visible-battle.png`。
