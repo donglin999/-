@@ -47,7 +47,7 @@ const BFXI=(()=>{
     const key=unitImg(u,want);if(!key)return{st,none:1,dh:h,dw:h*.4};const im=IMG[key],other=want==='l'?'r':'l',iw=im.naturalWidth||im.width,ih=im.naturalHeight||im.height;
     const bounds=typeof charBounds==='function'?charBounds(im):null;
     const dh=bounds?h*ih/bounds.height:h;
-    return{im,sx:0,sy:0,sw:iw,sh:ih,dh,dw:dh*iw/ih,foot:bounds?(ih-bounds.bottom)*dh/ih:0,tone:u.art==='ye'?'brightness(1.22) contrast(1.12)':'none',flip:key.startsWith(`c_${u.art}_${other}`),sheet:0,st,has:()=>false}}
+    return{im,sx:0,sy:0,sw:iw,sh:ih,dh,dw:dh*iw/ih,foot:bounds?(ih-bounds.bottom)*dh/ih:0,flip:key.startsWith(`c_${u.art}_${other}`),sheet:0,st,has:()=>false}}
 
   // ── 精灵绘制：着色（闪白/灰化/压暗）在复用的小离屏画布上按源分辨率完成，不逐帧新建画布 ──
   const SC=document.createElement('canvas');SC.width=SC.height=192;const sc=SC.getContext('2d');

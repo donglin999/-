@@ -1,7 +1,7 @@
 'use strict';
 // 战斗精灵表规格与数据（battle v2 工作流 D 建立，v3 起由工作流 E 维护），格式见 docs/battle-v2.md §2.1，规格见 docs/battle-sprite-spec.md
 // 所有表：assets/b_{char}.webp，1 行 N 帧，美术像素 ×3 最近邻；脚底贴单元底边、角色（按脚部锚点）水平居中。
-// h = cell[1] —— 整数倍率：1 美术像素 = 3 画布像素（未计头目 ×4/3），全员同一像素密度、像素宽窄一致。
+// h = cell[1] 是源表高度；运行时按待机可见身体高度归一，实际像素颗粒须在战斗镜头复核。
 // 动作条目：f 帧序号；ms 每帧毫秒（数字或逐帧数组）；loop 循环；hit 命中帧在 f 中的序号（出招伤害对齐）。
 // 自动区由 tools_fx/bart_sync.py 从 raw_battle/{D,E}/sheets.json 生成，勿手改。
 window.BART=window.BART||{};
@@ -130,4 +130,25 @@ window.BART=window.BART||{};
     brk:{f:[11,12],ms:[420,420],loop:true},
     dead:{f:[9,11,13],ms:[140,160,400]}}};
   //@@END
+  // 叶蘅：独立战斗造型与 20 帧动作，按我方同一身体高度和像素网格绘制。
+  B.ye={file:'b_ye',cell:[396,210],cols:20,facing:'l',h:210,tier:'party',anim:{
+    idle:{f:[0,1,2,1,0,3],ms:[200,180,220,180,200,240],loop:true},
+    dash:{f:[4,5],ms:[90,120]},
+    atk:{f:[6,7,8,9],ms:[150,70,170,130],hit:1},
+    atk2:{f:[10,11,9],ms:[80,70,150],hit:1},
+    hurt:{f:[12],ms:320},
+    cast:{f:[13,14],ms:[260,260]},
+    brk:{f:[15,16],ms:[420,420],loop:true},
+    dead:{f:[12,15,17],ms:[140,160,400]},
+    win:{f:[18,19,18],ms:[240,280,400]}}};
+  // 守军：同战斗管线的 18 帧动作表；放在自动同步区外，避免旧 sheets.json 覆盖。
+  B.soldier={file:'b_soldier',cell:[408,270],cols:18,facing:'r',h:270,tier:'minion',anim:{
+    idle:{f:[0,1,2,1,0,3],ms:[200,180,220,180,200,240],loop:true},
+    dash:{f:[4,5],ms:[90,120]},
+    atk:{f:[6,7,8,9],ms:[160,70,170,130],hit:1},
+    atk2:{f:[10,11,9],ms:[90,70,150],hit:1},
+    hurt:{f:[12],ms:320},
+    cast:{f:[13,14],ms:[260,260]},
+    brk:{f:[15,16],ms:[420,420],loop:true},
+    dead:{f:[12,15,17],ms:[140,160,400]}}};
 })(window.BART);
