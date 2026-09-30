@@ -257,8 +257,13 @@ function charImg(k,dir,f){const n=window.ART&&ART.frames&&ART.frames[k];
 // 避免叶蘅背面等帧在同一世界脚底坐标上悬空，倒地人物只校正落点。
 function charBounds(im){if(im._charBounds)return im._charBounds;const iw=im.naturalWidth||im.width,ih=im.naturalHeight||im.height;
   try{const c=document.createElement('canvas');c.width=iw;c.height=ih;const x=c.getContext('2d',{willReadFrequently:true});x.drawImage(im,0,0);const a=x.getImageData(0,0,iw,ih).data;let top=ih,bottom=0,left=iw,right=0;
-    for(let y=0;y<ih;y++)for(let col=0;col<iw;col++)if(a[(y*iw+col)*4+3]>=48){if(y<top)top=y;if(y+1>bottom)bottom=y+1;if(col<left)left=col;if(col+1>right)right=col+1}
-    return im._charBounds={top:top===ih?0:top,bottom:bottom||ih,height:Math.max(1,bottom-top),left:left===iw?0:left,right:right||iw,width:Math.max(1,right-left)}}catch(_){return im._charBounds={top:0,bottom:ih,height:ih,left:0,right:iw,width:iw}}}
+    const bands=[];let band=null,total=0;
+    for(let y=0;y<ih;y++){let count=0;for(let col=0;col<iw;col++)if(a[(y*iw+col)*4+3]>=48){count++;if(y<top)top=y;if(y+1>bottom)bottom=y+1;if(col<left)left=col;if(col+1>right)right=col+1}
+      if(count){total+=count;if(!band){band={top:y,bottom:y+1,count:0};bands.push(band)}band.bottom=y+1;band.count+=count}else band=null}
+    // 向右的叶蘅帧底部有脱离身体的暗色残片。脚点取身体，不能被少量孤立像素拉低。
+    const rawBottom=bottom,body=bands.reduce((best,b)=>!best||b.count>best.count?b:best,null),tail=body?bands.filter(b=>b.top>=body.bottom):[];
+    if(tail.length&&tail.every(b=>b.top-body.bottom>=3)&&tail.reduce((sum,b)=>sum+b.count,0)<=total*.02)bottom=body.bottom;
+    return im._charBounds={top:top===ih?0:top,bottom:bottom||ih,height:Math.max(1,bottom-top),left:left===iw?0:left,right:right||iw,width:Math.max(1,right-left),trimBottom:bottom<rawBottom}}catch(_){return im._charBounds={top:0,bottom:ih,height:ih,left:0,right:iw,width:iw}}}
 // 4 帧（站/左脚/过渡/右脚）按 左-过渡-右-过渡 循环
 const CYCLE4=[1,2,3,2];
 function drawChar(sp,x,y,dir='d',walk=0,t=0,opts={}){const k=spKey(sp),h=opts.h||charH(sp),n=(window.ART&&ART.frames&&ART.frames[k])|0;
@@ -310,7 +315,9 @@ function drawChar(sp,x,y,dir='d',walk=0,t=0,opts={}){const k=spKey(sp),h=opts.h|
     }
     g.restore();
   }
-  const footPad=box?(ih-box.bottom)*drawH/ih:0;g.drawImage(im,-w/2,-drawH+footPad-bob,w,drawH);g.restore()}
+  const footPad=box?(ih-box.bottom)*drawH/ih:0;
+  if(box&&box.trimBottom)g.drawImage(im,0,0,iw,box.bottom,-w/2,-drawH+footPad-bob,w,drawH*box.bottom/ih);
+  else g.drawImage(im,-w/2,-drawH+footPad-bob,w,drawH);g.restore()}
 // 角色调色：略压亮度/饱和、微暖，让干净的精灵融入地图（场景可用 grade 覆盖）
 // 调色结果按 (帧,调色) 缓存成离屏画布：逐帧逐角色走 ctx.filter 很贵（软件渲染下人多的场景掉帧一半）
 function graded(im,f){const c=im._gr||(im._gr={});let o=c[f];if(o)return o;o=document.createElement('canvas');o.width=im.naturalWidth||im.width;o.height=im.naturalHeight||im.height;

@@ -94,6 +94,10 @@
 
 `39ec420` 已推送 `main` 并通过 Cloudflare Pages Direct Upload 部署；正式域名 `js/scene.js`、`assets/s_zhou.webp` 与最终 `dist/` SHA256 相同。冷启动实图 `/tmp/accept-prod-final-zhou.png` 中老周头脸与屈腿可辨、接地；`/tmp/accept-prod-final-party-run.png` 中叶蘅与苏芷均为 `moving=true,running=true`，代表帧腿脚与影圈连贯。相关精灵与脚本请求 HTTP 200，浏览器 `pageerror=[]`、HTTP 错误 `[]`。正式域名此次只抽测代表帧；完整四向周期使用同哈希本地构建的当前绘制函数逐帧验证，范围以上表为准。
 
+## 2026-09-30 探索右向接地补查
+
+用户补充只有向右移动时悬空。复查发现 `s_ye` 右向四帧的身体下沿均为源 y=126，另有脱离身体的暗色残片位于 y=138–140；旧 `charBounds` 以 y=141 当作脚点，身体仍比影圈高约 10 世界像素。先前只量全帧最低像素的通过结论不足以证明身体接地。修正后按主体下沿归一身高与脚点，并裁掉这类分离小残片；四方向真实渲染对照 `/tmp/right-ground-before.png`、`/tmp/right-ground-after-all.png`，键盘右向步行 `/tmp/right-ground-walking.png`。所有专用 hero/suzhi/dog walk/run/idle 源帧的包围盒保持原值；另纠正 liu 右向第 3 帧及 langli 右向四帧的同类底部碎片。回归测试 `tests/character-grounding.test.cjs` 验证身体落点、源裁切、保留大片独立形状及普通透明留白。
+
 ## 2026-09-30 战斗像素画风复核
 
 用户再次指出敌我战斗人物的像素颗粒和清晰度不统一。**先前 V06 对可见身体高度的通过结论仍限于身高，不能作为战斗画风通过证明；本项画风验收撤回。** 独立验收在正式域名与本地版实开萧白、苏芷、叶蘅对黑风喽啰、守军的同屏战斗，1280/1920 图见 `/tmp/accept-battle-style-prod-{1280,1920}.png`、局部 `/tmp/accept-battle-style-prod-1920-crops.png`。叶蘅与守军沿用探索 Q 版精灵，另三人有专用 `BART` 战斗表：叶蘅源帧主体 alpha≥240 仅约 70%，边缘发灰、姿态和身体比例不符；她与守军按同一身体高度显示后的像素块分别约为萧白的 1.71、1.48 倍。守军与喽啰同屏尤其显出不同的盔甲块感与笔触。源帧对照 `/tmp/accept-battle-source-normalized.png`。页面无资源或运行错误，阻断点是资产来源与画风。
