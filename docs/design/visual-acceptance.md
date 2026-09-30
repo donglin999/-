@@ -98,6 +98,8 @@
 
 用户补充只有向右移动时悬空。复查发现 `s_ye` 右向四帧的身体下沿均为源 y=126，另有脱离身体的暗色残片位于 y=138–140；旧 `charBounds` 以 y=141 当作脚点，身体仍比影圈高约 10 世界像素。先前只量全帧最低像素的通过结论不足以证明身体接地。修正后按主体下沿归一身高与脚点，并裁掉这类分离小残片；四方向真实渲染对照 `/tmp/right-ground-before.png`、`/tmp/right-ground-after-all.png`，键盘右向步行 `/tmp/right-ground-walking.png`。所有专用 hero/suzhi/dog walk/run/idle 源帧的包围盒保持原值；另纠正 liu 右向第 3 帧及 langli 右向四帧的同类底部碎片。回归测试 `tests/character-grounding.test.cjs` 验证身体落点、源裁切、保留大片独立形状及普通透明留白。
 
+独立验收在 gate 场景实际按方向键，叶蘅、苏芷各四方向步行/跑步每组 12 个连续采样；叶蘅右向完整 4 帧循环均被覆盖，确认身体鞋底接触影圈，残片没有显示，非仅程序补腿撑住脚点。`/tmp/accept-ground-v5-ye-{walk,run}-r-montage.png`、`/tmp/accept-ground-v5-suzhi-run-all.png`；无页面错误或 HTTP≥400。提交 `0249bc1` 已推送并从干净快照部署，正式域名 `scene.js` SHA256 与构建包一致（`f6ec5436…`）；在线实测叶蘅+苏芷右向跑步均为 `moving=true,running=true`，身体脚底正常，截图 `/tmp/right-ground-online-running.png`，无页面错误。验收范围是 gate 场景及此轮方向循环，未穷尽全部地形/镜头。
+
 ## 2026-09-30 战斗像素画风复核
 
 用户再次指出敌我战斗人物的像素颗粒和清晰度不统一。**先前 V06 对可见身体高度的通过结论仍限于身高，不能作为战斗画风通过证明；本项画风验收撤回。** 独立验收在正式域名与本地版实开萧白、苏芷、叶蘅对黑风喽啰、守军的同屏战斗，1280/1920 图见 `/tmp/accept-battle-style-prod-{1280,1920}.png`、局部 `/tmp/accept-battle-style-prod-1920-crops.png`。叶蘅与守军沿用探索 Q 版精灵，另三人有专用 `BART` 战斗表：叶蘅源帧主体 alpha≥240 仅约 70%，边缘发灰、姿态和身体比例不符；她与守军按同一身体高度显示后的像素块分别约为萧白的 1.71、1.48 倍。守军与喽啰同屏尤其显出不同的盔甲块感与笔触。源帧对照 `/tmp/accept-battle-source-normalized.png`。页面无资源或运行错误，阻断点是资产来源与画风。
