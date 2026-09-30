@@ -1010,8 +1010,17 @@ def bgate():
                                             ('sheet_bandit_5', 590, 408, 44, 'trunk'), ('sheet_mount_7', 60, 404, 26, 'rect:0,0.4,1,1'))):
         S.place(k, x, b, w_, cx=True, fp=fp_, shadow='tree' if fp_ == 'trunk' else 'small', key='edge%d' % i)
     S.tufts(260, (0, 170, S.w, 400))
-    # ── 可走区 ──
-    S.walk_poly([(150, 176), (580, 176), (610, 250), (600, 300), (520, 330), (420, 340), (330, 330), (260, 400), (160, 400), (100, 350), (96, 270), (120, 220)])
+    # 两侧陡石坡连续收边；足迹贴石体，避免开放草坡后从左右画面外走出。
+    for side, edge in (('w', 0), ('e', 720)):
+        for i, (base, width, inset) in enumerate(((230, 76, 8), (286, 86, 12), (342, 70, 6), (398, 92, 14))):
+            x = edge + inset if side == 'w' else edge - inset
+            S.place('sheet_bandit_6', x, base, width, cx=True, flip=(i + (side == 'e')) % 2 == 1,
+                    fp='rect:0,0.25,1,1', shadow='small', key='side_rock_%s%d' % (side, i))
+    # 南坡挡土石墙：把地图下沿的边界做成实物，山道留出缺口。
+    for i, (x, w_) in enumerate(((0, 88), (88, 86), (239, 96), (335, 96), (431, 96), (527, 96), (623, 97))):
+        S.place('sheet_mount_9', x, 404, w_, flip=bool(i % 2), fp='rect:0,0.25,1,1', shadow='small', key='south_wall%d' % i)
+    # ── 可走区：整片可见草地均开放，再由寨墙、拒马、树石及南坡实体占地扣除 ──
+    S.walk_rect(0, 176, 720, 400)
     S.force_rect(op[0] + 2, 150, op[1] - 2, 178)  # 寨门门洞（出口）
     S.block_rect(0, 392, 174, 400); S.block_rect(239, 392, 720, 400)   # 下沿只留山道出口
     S.exits = [(26, 11, 27, 12), (13, 29, 17, 29)]
@@ -1065,7 +1074,7 @@ def cave():
     S.place('sheet_cave_9', 444, 380, 36, cx=True, fp='rect:0.1,0.5,0.9,1', shadow='small', key='stal_ge', flip=True)
     S.place('sheet_cave_9', 680, 240, 36, cx=True, fp='rect:0.1,0.5,0.9,1', shadow='small', key='stal_e')
     # ── 可走区 ──
-    S.walk_poly([(44, 126), (676, 126), (694, 200), (682, 286), (632, 344), (428, 366), (410, 400), (310, 400), (292, 366), (100, 346), (36, 296), (26, 200)])
+    S.walk_poly(floor)  # 岩地边界即岩壁脚；物件占地在 compose() 扣除
     S.block_rect(0, 392, 334, 400); S.block_rect(386, 392, 720, 400)   # 下沿只留洞口
     S.exits = [(25, 29, 28, 29)]
     for n, (x, y) in dict(arrive=(360, 360), chief=(360, 190), snake=(116, 304), ledger=(530, 248), hidemap=(626, 268), feast_w=(96, 244), feast_e=(156, 244), loot=(540, 196)).items(): S.anchor(n, x, y)

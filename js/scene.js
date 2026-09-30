@@ -66,7 +66,7 @@ function placeFix(){if(!S||!cur)return;const id=Object.keys(SC).find(k=>SC[k]===
   if(best){player.x=best[0];player.y=best[1]}}
 function spawnWanderers(){placeFix();cur._npcs=npcsOf(cur);wanderers=[];bubbles.length=0;ambInit();
   const list=[...(cur.crowd||[]).map(([sp,c0,r0,c1,r1])=>({sp,mode:'wander',box:[c0,r0,c1,r1]})),...(cur.extras||[]).filter(e=>!e.show||e.show())];
-  for(const e of list){const w={sp:e.sp,mode:e.mode||'wander',box:e.box,pts:e.pts,pi:0,x:0,y:0,dir:e.dir||'d',face:e.dir,walk:0,moving:false,tx:null,ty:0,
+  for(const e of list){const w={sp:e.sp,source:e,mode:e.mode||'wander',box:e.box,pts:e.pts,pi:0,x:0,y:0,dir:e.dir||'d',face:e.dir,walk:0,moving:false,tx:null,ty:0,
       wait:rnd(300,2500),ph:Math.random()*9,barks:e.barks,bt:rnd(1500,6000),step:0,
       spd:e.mode==='run'?.13:e.mode==='patrol'?.05:.06};
     if(e.x!=null){w.x=e.x*TS;w.y=e.y*TS}
@@ -180,7 +180,10 @@ function updateCam(dt){
   let tx=camC.x,ty=camC.y;if(fx-tx>DZX)tx=fx-DZX;else if(tx-fx>DZX)tx=fx+DZX;if(fy-ty>DZY)ty=fy-DZY;else if(ty-fy>DZY)ty=fy+DZY;
   const k=1-Math.exp(-dt/170);camC.x+=(tx-camC.x)*k;camC.y+=(ty-camC.y)*k;
   cam.x=clamp(camC.x-VW/2,0,WW-VW);cam.y=clamp(camC.y-VH/2,0,WH-VH)}
-function updateWanderers(dt){for(const w of wanderers){
+function updateWanderers(dt){
+  // 剧情旗标可在当前场景内改变；只移除失效的路人，不重刷其他人的站位。
+  for(let i=wanderers.length-1;i>=0;i--){const e=wanderers[i].source;if(e&&e.show&&!e.show())wanderers.splice(i,1)}
+  for(const w of wanderers){
   updBark(w,dt);
   // 站桩者：主角靠近时转头看一眼，走开后恢复原朝向
   if(w.mode==='stand'){if(w.hx==null){w.hx=w.x;w.hy=w.y}const d=Math.hypot(w.x-player.x,w.y-player.y);w.dir=d<90?faceTo(player.x-w.x,player.y-w.y):(w.face||w.dir);w.moving=false;
