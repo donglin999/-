@@ -145,7 +145,12 @@ async function battle(opt={}){
   if(opt.bg&&!ok(IMG[bgKey]))await loadOpt(bgKey,bgKey);   // 未指定背景时由 bstage 按场景解析 bb_*（只请求登记过的文件，见 docs/battle-v2.md §4）
   const ports=['p_hero',...(S.party||[]).flatMap(k=>(PARTY_DEF[k]||{por:[]}).por.filter(p=>PORTS.includes(p)).map(p=>'p_'+p))];   // 只预载登记过的立绘（大黄无立绘，头像取战斗精灵）
   ports.push(...ports.flatMap(p=>(EXPR[p.slice(2)]||[]).map(e=>p+'_'+e)));
-  await Promise.all(ports.filter(p=>!IMG[p]).map(p=>loadOpt(p,p)));
+  // 战斗专用表必须在遮罩揭开前就绪，避免首帧先显示旧回退造型再突然换装。
+  const arts=['hero',...(opt.tutorial?[]:[...(S.party||[]).map(k=>PARTY_DEF[k]&&pickArt(PARTY_DEF[k].art)),S.pet]),
+    ...(opt.foes||[]).map(f=>(f.sp||'').replace(/^c_/,''))];
+  const battleSheets=[...new Set(arts.filter(Boolean).map(k=>window.BART&&BART[k]&&BART[k].file).filter(Boolean))];
+  await Promise.all([...ports.filter(p=>!ok(IMG[p])).map(p=>loadOpt(p,p)),
+    ...battleSheets.filter(k=>!ok(IMG[k])).map(k=>loadOpt(k,k))]);
   await fade(async()=>{mode='battle';$('prompt').hidden=true;$('hud').hidden=true;if(tp)tp.style.display='none';
     ['blog','border','bhud'].forEach(i=>{if($(i))$(i).hidden=true});
     const allies=[mkHero()];if(!opt.tutorial){for(const k of(S.party||[])){const a=mkAlly(k);if(a)allies.push(a)}if(S.pet&&typeof mkPet==='function'){const p=mkPet(S.pet);if(p)allies.push(p)}}

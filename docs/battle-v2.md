@@ -86,6 +86,7 @@ window.BUI = { weakIcon(type) -> HTMLCanvasElement|Image, breakBanner(u) }   // 
 - **画风**：像素画 + 暗调氛围光（HD-2D 感），所有新 UI/特效元素都要像素化（整数倍、最近邻、1px 深色描边），不要矢量柔边、不要系统 emoji。字体：中文用现有 `ZCOOL XiaoWei`/`Noto Serif SC`，数字用像素字（B 实现）。
 - **特效等级**：C 必须遵守 `docs/vfx.md` 的 T0–T3 预算与单调性，`VFX.audit()` 零警告。
 - **性能**：960×540 画布 60fps；每帧不得新建大画布；模糊等昂贵滤镜只在预渲染/缓存时做。
+- **首帧人物一致性**：入场遮罩揭开前，预载本场出战人物已有的 `BART` 专用表；不让主角或敌人在玩家可见的前几帧先穿旧回退精灵，再切换成专用精灵。确实没有专用表的角色按探索精灵回退。
 - **生图**：`tools_por/.env` 的 FlatRouter，模型 `gpt-image-2.5-sunburst`，**每个工作流同时最多 1 个请求**（接口会断连，需重试；已有其他后台任务在用）。生成原图存 `raw_battle/<工作流>/`，参数与提示词记录到同目录 `params.json`。
 - **验证**：`node --check` 自己的 JS；`node tools_fx/bt_smoke.cjs <输出目录> [ms] [间隔] [bandits|boss|slow]` 截图并确认 `errors: []`；输出目录用 `review/battle_v2/<工作流>/`。写文件用整文件写入，避免半截状态影响其他工作流的测试。
 
