@@ -22,12 +22,7 @@ async function npcActionMenu(n,spec){
   }
 }
 
-// 只在 #xiangyang 测试入口开放；不会改变 #street 既有 NPC、任务与存档流程。
-const npcSliceReviewStart=reviewStart;
-reviewStart=function(){
-  npcSliceReviewStart();
-  if(location.hash==='#xiangyang')S.npcArts={...(S.npcArts||{}),inquire:1};
-};
+// 样例 NPC 保留；手段学习与等级由 npc-arts.js 统一接管，不再自动赠送打探。
 SC.street.npcs.push({
   id:'slice_herbalist',name:'城南铁铺伙计',sp:'c_merchant',x:23.8,y:34.9,dir:'d',verb:'交谈',
   show:()=>location.hash==='#xiangyang',

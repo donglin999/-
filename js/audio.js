@@ -15,7 +15,7 @@ let started=false;
 const pool={};
 function sfx(name,vol=1,rate=1){if(!started||muted)return;
   const list=pool[name]||(pool[name]=[]);let a=list.find(x=>x.paused||x.ended);
-  if(!a){if(list.length>=4)a=list[0];else{a=new Audio(DIR+name+'.mp3');a.preload='auto';list.push(a)}}
+  if(!a){if(list.length>=4)a=list[0];else{a=new Audio(DIR+name+(name.startsWith('arts_')?'.wav':'.mp3'));a.preload='auto';list.push(a)}}
   try{a.currentTime=0}catch(e){}
   a.volume=Math.max(0,Math.min(1,VOL.sfx*(GAIN[name]??1)*vol));a.playbackRate=rate;a.preservesPitch=false;
   const p=a.play();p&&p.catch(()=>{})}

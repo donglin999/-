@@ -1,0 +1,12 @@
+const assert=require('node:assert/strict'),path=require('node:path'),{chromium}=require('/private/tmp/claude-501/pw/node_modules/playwright');
+(async()=>{const b=await chromium.launch({executablePath:'/Users/wuxiuxiang/Library/Caches/ms-playwright/chromium_headless_shell-1228/chrome-headless-shell-mac-arm64/chrome-headless-shell'}),p=await b.newPage();try{await p.goto('file://'+path.resolve('index.html')+'#xiangyang');await p.waitForFunction(()=>mode==='scene');
+ await p.evaluate(()=>{window.played=[];const play=HTMLMediaElement.prototype.play;HTMLMediaElement.prototype.play=function(){played.push(this.src);return play.call(this)}});await p.locator('#npc-arts-button').click();await p.keyboard.press('Escape');
+ for(const id of ['inquire','persuade','steal','inspect','spar'])for(const dir of ['l','r','u','d']){
+ await p.evaluate(({id,dir})=>{const n={x:player.x/TS+(dir==='r'?1:dir==='l'?-1:0),y:player.y/TS+(dir==='d'?1:dir==='u'?-1:0)};window.actionP=NPCGesture.play(id,n)}, {id,dir});await p.waitForTimeout(350);await p.screenshot({path:`/tmp/npc-action-${id}-${dir}.png`});await p.evaluate(()=>actionP)
+ }
+ assert.equal(await p.evaluate(()=>NPCGesture.state),null);for(const id of ['inquire','persuade','steal','inspect','spar'])assert.ok(await p.evaluate(id=>played.some(s=>s.endsWith('arts_'+id+'.wav')),id));
+ const count=await p.evaluate(()=>{__audio.setMute(true);return played.length});await p.evaluate(()=>NPCGesture.play('inspect',{x:player.x/TS+1,y:player.y/TS}));assert.equal(await p.evaluate(()=>played.length),count);
+ // 真实低血切磋败北，不修改战斗循环；关闭音效便于自动验证。
+ await p.evaluate(()=>{S.hp=2;S.mp=1;S.st={str:1,con:1,agi:1,wil:1,wis:1};S.weapon=null;S.armor=null;window.before={hp:S.hp,mp:S.mp,exp:S.exp,silver:S.silver};const n=cur.npcs.find(n=>n.id==='smith');const fixture=NPCArts.spec(n);fixture.spar={...fixture.spar,lv:30,str:30,con:30,agi:30};window.lossP=NPCArts.perform('spar',n,fixture)});await p.waitForFunction(()=>mode==='battle'&&B?.round>=1);await p.waitForSelector('#dlg:not([hidden]):not(.choose)',{timeout:60000});await p.locator('#dlg .txt').click();await p.locator('#dlg .txt').click();await p.evaluate(()=>lossP);
+ assert.deepEqual(await p.evaluate(()=>({hp:S.hp,mp:S.mp,exp:S.exp,silver:S.silver})),await p.evaluate(()=>before));assert.equal(await p.evaluate(()=>mode),'scene');console.log('20 poses captured; first gesture audio/mute gating and actual spar defeat/resource restore PASS')
+ }finally{await b.close()}})().catch(e=>{console.error(e);process.exitCode=1});

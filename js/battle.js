@@ -52,7 +52,7 @@ function mkAlly(key){const P=PARTY_DEF[key];if(!P)return null;const u=statUnit({
 function mkFoe(t,i){const k=(t.sp||'').replace(/^c_/,''),D=FOE_DEF[k]||{};const u=statUnit(t,'foe');
   u.mhp=Math.round(u.mhp*(t.hpMul||.45)*1.8);u.hp=u.mhp;u.atk=Math.round(u.atk*(t.atkMul||.62));u.art=k;u.key=k;
   u.maxShield=t.shield||D.shield||3;u.shield=u.maxShield;u.weak=(t.weak||D.weak||['拳','刀']).slice();u.known=new Set();
-  u.skills=Object.keys(t.skills||{blade:1}).filter(s=>SKILLS[s]);u.drops=t.drops||D.drops||{};u.exp=t.exp||u.lv*20;u.silver=t.silver||0;
+  u.skills=Object.keys(t.skills||{blade:1}).filter(s=>SKILLS[s]);u.drops=t.drops||D.drops||{};u.exp=t.exp??u.lv*20;u.silver=t.silver||0;
   u.bossy=!!t.boss||k==='chief';u.h=(t.h||160);return u}
 // 站位（bstage.js 覆盖）：设置每个单位的 u.x/u.y（脚底），可顺带写 u.depth 等
 function layoutUnits(allies,foes,opt){
@@ -146,14 +146,14 @@ async function battle(opt={}){
   const ports=['p_hero',...(S.party||[]).flatMap(k=>(PARTY_DEF[k]||{por:[]}).por.filter(p=>PORTS.includes(p)).map(p=>'p_'+p))];   // 只预载登记过的立绘（大黄无立绘，头像取战斗精灵）
   ports.push(...ports.flatMap(p=>(EXPR[p.slice(2)]||[]).map(e=>p+'_'+e)));
   // 战斗专用表必须在遮罩揭开前就绪，避免首帧先显示旧回退造型再突然换装。
-  const arts=['hero',...(opt.tutorial?[]:[...(S.party||[]).map(k=>PARTY_DEF[k]&&pickArt(PARTY_DEF[k].art)),S.pet]),
+  const arts=['hero',...(opt.tutorial||opt.solo?[]:[...(S.party||[]).map(k=>PARTY_DEF[k]&&pickArt(PARTY_DEF[k].art)),S.pet]),
     ...(opt.foes||[]).map(f=>(f.sp||'').replace(/^c_/,''))];
   const battleSheets=[...new Set(arts.filter(Boolean).map(k=>window.BART&&BART[k]&&BART[k].file).filter(Boolean))];
   await Promise.all([...ports.filter(p=>!ok(IMG[p])).map(p=>loadOpt(p,p)),
     ...battleSheets.filter(k=>!ok(IMG[k])).map(k=>loadOpt(k,k))]);
   await fade(async()=>{mode='battle';$('prompt').hidden=true;$('hud').hidden=true;if(tp)tp.style.display='none';
     ['blog','border','bhud'].forEach(i=>{if($(i))$(i).hidden=true});
-    const allies=[mkHero()];if(!opt.tutorial){for(const k of(S.party||[])){const a=mkAlly(k);if(a)allies.push(a)}if(S.pet&&typeof mkPet==='function'){const p=mkPet(S.pet);if(p)allies.push(p)}}
+    const allies=[mkHero()];if(!opt.tutorial&&!opt.solo){for(const k of(S.party||[])){const a=mkAlly(k);if(a)allies.push(a)}if(S.pet&&typeof mkPet==='function'){const p=mkPet(S.pet);if(p)allies.push(p)}}
     const foes=opt.foes.map((f,i)=>mkFoe(f,i));
     layoutUnits(allies,foes,opt);
     B={opt,allies,foes,units:[...allies,...foes],bg:bgKey,round:0,fx:[],parts:[],shake:0,cur:null,order:[],next:[],done:new Set(),bpUse:0,

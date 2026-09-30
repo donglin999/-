@@ -11,6 +11,7 @@
 | 重做襄阳偏巷 | [偏巷功能布局](xiangyang-alley.md) | [襄阳城设定](xiangyang-city.md)、[襄阳素材规范](xiangyang-art.md) |
 | 改襄阳现有剧情 | [襄阳章节脚本](xiangyang-chapter.md) | [青蚨散事件](xiangyang-case.md)、[故事主线](story.md) |
 | 只测试襄阳片段 | [测试范围与缺口](xiangyang-test.md) | [青蚨散事件](xiangyang-case.md)、[技术测试](../testing.md) |
+| 做生活技能、师承、练习与动作音效 | [生活技能规范](life-skills.md) | [NPC 交互](npc-interaction.md)、[生活与资源](life.md) |
 | 做 NPC 对话或江湖手段 | [NPC 交互](npc-interaction.md) | [三年培养](cultivation.md) |
 | 做队友或宠物 | [队伍与宠物](party-pets.md) | [叶蘅分支](ye-routes.md) |
 | 做襄阳地图、人物与证物 | [襄阳素材规范](xiangyang-art.md) | [生图提示词](xiangyang-art-prompts.md)、[美术管线](../art-pipeline.md) |
