@@ -2,8 +2,8 @@
 // frames[char]=N 表示存在 assets/c_{char}_{dir}_{0..N-1}.webp（0 为站立帧，1..3 为行走循环：迈左脚/过渡/迈右脚）；未列出则只有 c_{char}_{dir}.webp
 // scale[char] 为相对主角的身高倍率（主角=1）
 window.ART={frames:{},scale:{
-  hero:1,monk:1.05,soldier:1.05,gossip:0.95,oldman:0.95,smith:1.12,lady:0.97,beggar:0.95,boatman:1.02,
-  bandit:1.02,chief:1.15,villager:1,child:0.75,merchant:1,dog:0.6,rooster:0.5,snake:0.8,wolf:0.7,suzhi:0.98,ye:0.95,liu:1.04,zhou:1,langli:1}};
+  hero:1,monk:1.02,soldier:1,gossip:1,oldman:0.98,smith:1.03,lady:1,beggar:1,boatman:1,
+  bandit:1,chief:1.07,villager:1,child:0.75,merchant:1,dog:0.6,rooster:0.5,snake:0.8,wolf:0.7,suzhi:1,ye:1,liu:1.02,zhou:1,langli:1}};
 ['hero','monk','soldier','gossip','oldman','smith','lady','beggar','boatman','bandit','chief','villager','child','merchant','dog','rooster','snake','wolf','suzhi','ye','liu','zhou','langli'].forEach(function(c){window.ART.frames[c]=4;});
 // 精灵表：assets/s_{char}.webp，4 行(d,l,r,u) × 4 列(帧 0..3)，单元格 [宽,高]
 ART.sheet={"hero": [90, 141], "monk": [96, 141], "soldier": [99, 141], "gossip": [96, 141], "oldman": [114, 141], "smith": [105, 141], "lady": [75, 141], "beggar": [93, 141], "boatman": [111, 141], "bandit": [87, 141], "chief": [144, 141], "villager": [90, 141], "child": [78, 141], "merchant": [114, 141], "dog": [138, 141], "rooster": [99, 141], "snake": [159, 141], "wolf": [129, 141], "suzhi": [72, 141], "ye": [75, 141], "liu": [90, 141], "zhou": [120, 141], "langli": [90, 141]};

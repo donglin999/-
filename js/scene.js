@@ -12,8 +12,8 @@ const sceneW=sc=>((sc&&sc.gw)||48)*TS,sceneH=sc=>((sc&&sc.gh)||27)*TS;
 // 主角世界高度（≈ 屏幕 77px，约为门洞高度的 0.6~0.8，参照原作人物与门、桌椅的比例）
 const CHAR_H=92;
 // 相对主角身高（ART.scale 优先）；动物明显更小
-const SIZE={hero:1,monk:1.02,soldier:1.06,gossip:.97,oldman:.95,smith:1.08,lady:.97,beggar:.97,boatman:1,bandit:1.04,chief:1.14,
-  villager:1,child:.76,merchant:1.01,dog:.5,rooster:.4,snake:.66,wolf:.58};
+const SIZE={hero:1,monk:1.02,soldier:1,gossip:1,oldman:.98,smith:1.03,lady:1,beggar:1,boatman:1,bandit:1,chief:1.07,
+  villager:1,child:.75,merchant:1,dog:.6,rooster:.5,snake:.8,wolf:.7,suzhi:1,ye:1,liu:1.02,zhou:1,langli:1};
 const SPEED=.27,FOLLOW_GAP=52,RUN_MUL=1.7,RUN_PATH=8*40,RUN_PATH_TOUCH=5*40;
 const SC={};
 let cur=null,player={x:0,y:0,dir:'d',walk:0,vx:0,vy:0,moving:false,path:null,goal:null,trail:[],talkTo:null,running:false,runPath:false,runK:0},
@@ -253,9 +253,9 @@ function charImg(k,dir,f){const n=window.ART&&ART.frames&&ART.frames[k];
 // 精灵表的透明留白并不一致。按实际非透明轮廓计算接地点与站立身高，
 // 避免叶蘅背面等帧在同一世界脚底坐标上悬空，倒地人物只校正落点。
 function charBounds(im){if(im._charBounds)return im._charBounds;const iw=im.naturalWidth||im.width,ih=im.naturalHeight||im.height;
-  try{const c=document.createElement('canvas');c.width=iw;c.height=ih;const x=c.getContext('2d',{willReadFrequently:true});x.drawImage(im,0,0);const a=x.getImageData(0,0,iw,ih).data;let top=ih,bottom=0;
-    for(let y=0;y<ih;y++)for(let col=0;col<iw;col++)if(a[(y*iw+col)*4+3]>=48){if(y<top)top=y;if(y+1>bottom)bottom=y+1}
-    return im._charBounds={top:top===ih?0:top,bottom:bottom||ih,height:Math.max(1,bottom-top)}}catch(_){return im._charBounds={top:0,bottom:ih,height:ih}}}
+  try{const c=document.createElement('canvas');c.width=iw;c.height=ih;const x=c.getContext('2d',{willReadFrequently:true});x.drawImage(im,0,0);const a=x.getImageData(0,0,iw,ih).data;let top=ih,bottom=0,left=iw,right=0;
+    for(let y=0;y<ih;y++)for(let col=0;col<iw;col++)if(a[(y*iw+col)*4+3]>=48){if(y<top)top=y;if(y+1>bottom)bottom=y+1;if(col<left)left=col;if(col+1>right)right=col+1}
+    return im._charBounds={top:top===ih?0:top,bottom:bottom||ih,height:Math.max(1,bottom-top),left:left===iw?0:left,right:right||iw,width:Math.max(1,right-left)}}catch(_){return im._charBounds={top:0,bottom:ih,height:ih,left:0,right:iw,width:iw}}}
 // 4 帧（站/左脚/过渡/右脚）按 左-过渡-右-过渡 循环
 const CYCLE4=[1,2,3,2];
 function drawChar(sp,x,y,dir='d',walk=0,t=0,opts={}){const k=spKey(sp),h=opts.h||charH(sp),n=(window.ART&&ART.frames&&ART.frames[k])|0;
@@ -275,11 +275,13 @@ function drawChar(sp,x,y,dir='d',walk=0,t=0,opts={}){const k=spKey(sp),h=opts.h|
   if(!im)im=charImg(k,'d',0)}
   if(!im&&OPT_CHARS.includes(k))return;
   const box=im?charBounds(im):null,ih=im&&(im.naturalHeight||im.height),iw=im&&(im.naturalWidth||im.width);
-  const upright=box&&box.height>ih*.62&&!['dog','wolf','rooster','snake'].includes(k);
-  const drawH=upright?Math.min(h*1.25,h*ih/box.height):h;
+  const prone=k==='zhou',upright=box&&box.height>ih*.62&&!['dog','wolf','rooster','snake'].includes(k);
+  // 躺姿按头到脚的长轴对齐成年站姿；141px 站姿画布里的 29px 厚度不是身高。
+  const drawH=box&&prone?h*1.02*ih/(box.width||iw):upright?h*ih/box.height:h;
   const w=im?drawH*iw/ih:h*.45;
   // 脚底阴影
-  g.fillStyle='rgba(0,0,0,.3)';g.beginPath();g.ellipse(x,y,Math.min(w*.42,h*.3),h*.07,0,0,7);g.fill();
+  const shadowRx=prone&&box?drawH*box.width/ih*.5:Math.min(w*.42,h*.3);
+  g.fillStyle='rgba(0,0,0,.3)';g.beginPath();g.ellipse(x,y,shadowRx,h*.07,0,0,7);g.fill();
   if(!im){if(!OPT_CHARS.includes(k)){g.fillStyle='#b88';g.fillRect(x-w/2,y-h,w,h)}return}
   let bob=0,sy=1,sx=1;
   if(moving){if(n<=1&&!wk){const ph=walk/(h*.1);bob=Math.abs(Math.sin(ph))*h*.035;sy=1+Math.sin(ph*2)*.015;sx=1/sy}}
@@ -303,7 +305,7 @@ function drawMarker(t){const gl=player.goal;if(!gl)return;const a=Math.min(1,gl.
   const b=Math.sin(t/160)*3;g.globalAlpha=.9*a;g.fillStyle='#ffe2a0';g.beginPath();g.moveTo(gl.x-6,gl.y-22+b);g.lineTo(gl.x+6,gl.y-22+b);g.lineTo(gl.x,gl.y-13+b);g.closePath();g.fill();g.restore()}
 function drawNpc(n,t,near){const x=n.x*TS,y=n.y*TS;
   if(n.sp){const h=npcH(n),id=typeof npcIdle==='function'?npcIdle(n,t,near):null;   // 待机活动见 js/idle.js
-    drawChar(n.sp,x+(id?id.dx:0),y+(id?id.dy:0),id?id.dir:(n.dir||'d'),id?id.walk:0,t,{h,moving:!!(id&&id.moving),ph:n.x*1.7});if(id)npcIdleFx(n,t,x,y,h,near,id);const ty=y-h-8;
+    drawChar(n.sp,x+(id?id.dx:0),y+(id?id.dy:0),id?id.dir:(n.dir||'d'),id?id.walk:0,t,{h,moving:!!(id&&id.moving),ph:n.x*1.7});if(id)npcIdleFx(n,t,x,y,h,near,id);const ty=y-(spKey(n.sp)==='zhou'?h*.42:h)-8;
     if(near&&near.o===n)label(n.name,x,ty);else if(n.mark&&n.mark()){const b=Math.sin(t/200)*2;g.fillStyle='#e9a23b';g.beginPath();g.arc(x,ty-6+b,10,0,7);g.fill();g.strokeStyle='#2a1a0a';g.lineWidth=2;g.stroke();g.fillStyle='#2a1a0a';g.font='bold 16px serif';g.textAlign='center';g.fillText('!',x,ty+b)}
     return}
   const a=.45+Math.sin(t/260+n.x)*.4;g.fillStyle=`rgba(255,226,140,${a})`;

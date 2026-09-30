@@ -37,8 +37,8 @@ function loadOpt(key,file){return new Promise(res=>{const i=new Image();i.onload
 // 明亮版街市前景：用常规前景层的 alpha 作蒙版，从明亮底图里抠出同形状的屋檐/灯笼
 function brightFg(){const fg=IMG.m_street_fg,bm=IMG.m_street;if(!ok(fg)||!ok(bm))return;const w=fg.naturalWidth,h=fg.naturalHeight,c=document.createElement('canvas');c.width=w;c.height=h;
   const x=c.getContext('2d');x.imageSmoothingEnabled=false;x.drawImage(bm,0,0,w,h);x.globalCompositeOperation='destination-in';x.drawImage(fg,0,0,w,h);c.complete=true;c.naturalWidth=w;c.naturalHeight=h;IMG.m_street_fg=c}
-// 明亮变体清单：ART.bright 优先，否则为本轮评审出的六个角色（避免对不存在的文件发请求）
-const BRIGHT_CHARS=CHARS;
+// 只请求实际入库的明亮变体；其余角色沿用常规表，避免启动时无意义的 404。
+const BRIGHT_CHARS=CHARS.filter(c=>!['ye','liu','zhou','langli'].includes(c));
 function loadAll(onProg){loadExpr();let n=0;const walks=CHARS.filter(c=>walkSpec(c)),runs=CHARS.filter(c=>walkSpec(c,'run')),idles=CHARS.filter(c=>walkSpec(c,'idle')),tot=ASSETS.length+walks.length+runs.length+idles.length+OPT_CHARS.length+OPT_PORTS.length+(BRIGHT?BRIGHT_CHARS.length:0),tick=()=>{n++;onProg(Math.min(1,n/tot))};
   const base=ASSETS.map(k=>new Promise(res=>{const i=new Image();i.onload=i.onerror=()=>{tick();res()};i.src=`assets/${k}.webp`;IMG[k]=i}));
   const opt=walks.map(c=>{const sp=walkSpec(c);return(BRIGHT?loadOpt('w_'+c,sp.bright).then(o=>o||loadOpt('w_'+c,sp.file)):loadOpt('w_'+c,sp.file)).then(tick)});

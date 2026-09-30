@@ -192,20 +192,27 @@ function stageActive(now){if(!B)return;const dt=Math.min(50,now-(B._stT||now));B
   g.save();const gr=g.createRadialGradient(a.x,a.y,2,a.x,a.y,r);gr.addColorStop(0,`rgba(255,214,120,${.42*p})`);gr.addColorStop(.6,`rgba(255,180,70,${.16*p})`);gr.addColorStop(1,'rgba(255,160,60,0)');
   g.fillStyle=gr;g.translate(a.x,a.y);g.scale(1,.28);g.translate(-a.x,-a.y);g.beginPath();g.arc(a.x,a.y,r,0,7);g.fill();g.restore()}
 
-// 显示高度：BART[art].h 优先（D 已按档位与统一像素密度给出，直接采用）；表内非 boss 档却当头目用时 ×1.3。
-// 回退（无 BART）：普通队友与有战斗表的主角使用同一成人身高标尺；敌方仍按档位区分。
-const TIER_MUL={party:1,minion:1.2,elite:1.5,boss:2.2};
-// 战斗显示倍率（参照《八方旅人》：我方约占画高 1/6）：BART 表为 3× 像素，×2/3 → 每美术像素 2 画布像素（整数倍）
-const BSC=.5;   // 参照《八方旅人》人物很小：表内 3× 像素 → 显示每美术像素 1.5 画布像素
-function unitH(u){
-  const ba=window.BART&&BART[u.art];let h;
-  // 有 BART：保持整数像素倍率（h 为 3× 像素高）——不乘纵深缩放；非头目表当头目时 ×4/3（每美术像素 3→4 画布像素）
-  if(ba&&ba.h)return ba.h*BSC*(u.side==='foe'&&u.bossy&&ba.tier!=='boss'?1.5:1);   // ×1.5 → 每美术像素 3 画布像素
-  else{const tier=u.side==='ally'?'party':u.bossy?'boss':(u.tierHint||'minion');
-    const s=(window.ART&&ART.scale&&ART.scale[u.art])||(u.h?u.h/170:1);
-    if(tier==='party')return ((window.BART&&BART.hero&&BART.hero.h)||210)*BSC*s;
-    h=165*TIER_MUL[tier]*(tier==='boss'?Math.min(1,s):s)}
-  return h*BSC*(u.dscale||1)}
+// unitH 的语义统一为「可见身体高度」。表格的透明留白、持械宽度与素材来源均不参与角色身高。
+// 普通成人同深度保持在主角的 0.93–1.08；头目仅按明示角色单独放大。
+const BATTLE_ADULT_H=105;
+const BATTLE_ADULT=new Set(['hero','suzhi','ye','monk','soldier','gossip','oldman','smith','lady','beggar','boatman','bandit','villager','merchant','liu','zhou','langli']);
+const BATTLE_ADULT_RATIO={suzhi:.99,ye:.98,monk:1.03,soldier:1.02,gossip:.97,oldman:.96,smith:1.05,lady:.98,beggar:.98,boatman:1.02,liu:1.04,langli:1.04};
+const BATTLE_BOSS_RATIO={chief:1.75,liu:1.14,langli:1.14,soldier:1.06,monk:1.08,beggar:1.08};
+const BATTLE_BEAST_H={dog:45,wolf:54,rooster:72,snake:99};
+// 只量待机第 0 帧中央人体范围：横向伸出的刀、剑、棍不会改变身高。此值供 BFX 把格高换成身体高。
+function battleBodyBounds(A){const im=A&&IMG[A.file],ch=A&&A.cell&&A.cell[1],cw=A&&A.cell&&A.cell[0];if(!ch||!cw||!ok(im))return{height:ch||1,bottom:ch||1};
+  if(A._bodyBounds&&A._bodyBounds.image===im)return A._bodyBounds;
+  const c=document.createElement('canvas');c.width=cw;c.height=ch;const x=c.getContext('2d',{willReadFrequently:true});x.drawImage(im,0,0,cw,ch,0,0,cw,ch);
+  const a=x.getImageData(0,0,cw,ch).data,left=Math.floor(cw*.24),right=Math.ceil(cw*.76);let top=ch,bottom=0;
+  for(let y=0;y<ch;y++)for(let px=left;px<right;px++)if(a[(y*cw+px)*4+3]>=48){if(y<top)top=y;if(y+1>bottom)bottom=y+1}
+  return A._bodyBounds={image:im,height:bottom>top?bottom-top:ch,bottom:bottom||ch}}
+function unitH(u){const depth=u.dscale??1,art=u.art||'';
+  if(BATTLE_ADULT.has(art)){const ratio=BATTLE_ADULT_RATIO[art]||1,boss=u.side==='foe'&&u.bossy?(BATTLE_BOSS_RATIO[art]||1):1;
+    return BATTLE_ADULT_H*ratio*boss*depth}
+  if(art==='chief')return BATTLE_ADULT_H*(u.bossy?BATTLE_BOSS_RATIO.chief:1.14)*depth;
+  if(BATTLE_BEAST_H[art])return BATTLE_BEAST_H[art]*depth;
+  // 未列资产按角色设定身高取保守范围；不得用战斗 tier 把普通人自动放大。
+  return BATTLE_ADULT_H*Math.max(.8,Math.min(1.2,(u.h||170)/170))*depth}
 
 // ───────── 2D 镜头 ─────────
 // 世界坐标 = 画布 960×540 坐标；视图中心 (cx,cy)、缩放 z（1..1.25），apply: translate(W/2,H/2)·scale(z)·translate(-cx,-cy)

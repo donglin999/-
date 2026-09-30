@@ -42,9 +42,10 @@ const BFXI=(()=>{
     return{k:'idle',t0:-((u.id*7919)%1)*4000,loop:1}}
   function frameOf(u,t,h){const st=stateOf(u,t),want=u.side==='foe'?'r':'l',A=artOf(u);
     if(A){const im=IMG[A.file],s=spec(A,st.k),[cw,ch]=A.cell,cols=A.cols||Math.max(1,Math.floor(im.naturalWidth/cw)),fi=fidx(s,t-st.t0,!!(st.loop||s.loop)&&!st.hold);
-      return{im,sx:(fi%cols)*cw,sy:Math.floor(fi/cols)*ch,sw:cw,sh:ch,dh:h,dw:h*cw/ch,flip:(A.facing||want)!==want,sheet:1,st,has:k=>hasA(A,k),legacy:!!A.legacy}}
+      const body=battleBodyBounds(A),dh=h*ch/body.height;
+      return{im,sx:(fi%cols)*cw,sy:Math.floor(fi/cols)*ch,sw:cw,sh:ch,dh,dw:dh*cw/ch,foot:(ch-body.bottom)*dh/ch,flip:(A.facing||want)!==want,sheet:1,st,has:k=>hasA(A,k),legacy:!!A.legacy}}
     const key=unitImg(u,want);if(!key)return{st,none:1,dh:h,dw:h*.4};const im=IMG[key],other=want==='l'?'r':'l',iw=im.naturalWidth||im.width,ih=im.naturalHeight||im.height;
-    const bounds=u.side==='ally'&&typeof charBounds==='function'?charBounds(im):null;
+    const bounds=typeof charBounds==='function'?charBounds(im):null;
     const dh=bounds?h*ih/bounds.height:h;
     return{im,sx:0,sy:0,sw:iw,sh:ih,dh,dw:dh*iw/ih,foot:bounds?(ih-bounds.bottom)*dh/ih:0,tone:u.art==='ye'?'brightness(1.22) contrast(1.12)':'none',flip:key.startsWith(`c_${u.art}_${other}`),sheet:0,st,has:()=>false}}
 

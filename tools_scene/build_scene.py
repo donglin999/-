@@ -624,7 +624,9 @@ def alley():
     # 吴长老所在的檐下只留坐凳，不用官宅门楼替他讲身世。
     S.place('sheet_props_6', 584, 240, 27, fp='cols:4', shadow='small', key='beggar_bench')
     # 南侧三个短支区：柴角藏挖点和泼皮，鸡场可挑战，土地龛承接消息铺藏银。
-    S.place('sheet_alley_1', 36, 373, 28, fp='band:0.55', shadow='drop', key='woodpile')
+    # 两束横放的家用柴包组成低宽柴垛；原竖向柴架近一人高，和巷内用途不符。
+    S.place('sheet_temple_6', 33, 373, 22, fp='band:0.55', shadow='drop', key='woodpile')
+    S.place('sheet_temple_6', 54, 373, 22, fp='band:0.55', shadow='drop', key='woodpile_e', flip=True)
     S.place('sheet_alley_4', 136, 378, 56, fp='cols:5', shadow='small', key='drying_rack')
     S.place('sheet_alley_9', 91, 391, 32, fp='none', sort='flat', shadow='none', key='drying_mat')
     for i, x in enumerate((360, 400, 500, 540)):
@@ -837,7 +839,7 @@ def temple_out():
     S.place('sheet_mount_10', 150, 214, 54, fp='rect:0,0.25,1,1', shadow='small', key='veg2', flip=True)
     S.place('sheet_props_2', 226, 248, 18, fp='rect:0,0.4,1,1', shadow='small', key='bucket')
     # ── 东：老僧的药炉 + 晾药架（老僧身中慢毒多年，常年煎药——01 §4.1 伏笔）；老僧站在炉边等你 ──
-    S.place('sheet_mount_3', 452, 216, 24, cx=True, fp='rect:0,0.4,1,1', shadow='small', key='stove')
+    S.place('sheet_mount_3', 452, 216, 14, cx=True, fp='rect:0,0.4,1,1', shadow='small', key='stove')
     S.place('sheet_mount_11', 548, 204, 46, cx=True, fp='cols:5', shadow='small', key='herbs')
     # ── 西南荒草：半截断碑（岘山堕泪碑的传说）；东南：大石 ──
     S.place('sheet_mount_2', 150, 324, 22, cx=True, fp='rect:0.05,0.55,0.95,1', shadow='small', key='stele')
@@ -1188,7 +1190,7 @@ def ferry_e():
     S.place('sheet_reed_3', 648, 256, 64, cx=True, fp='rect:0,0.25,1,1', shadow='small', key='loot')              # 赃货堆
     S.place('sheet_river_3', 414, 236, 40, cx=True, fp='cols:5', shadow='small', key='netrack')                   # 晾网架
     S.place('sheet_reed_4', 440, 290, 50, cx=True, fp='cols:4', shadow='small', key='fishrack')                   # 晒鱼架
-    S.place('sheet_reed_5', 560, 300, 26, cx=True, fp='rect:0.1,0.55,0.9,1', shadow='none', key='fire')          # 火塘
+    S.place('sheet_reed_5', 560, 300, 14, cx=True, fp='rect:0.1,0.55,0.9,1', shadow='none', key='fire')          # 低火塘，显示高约成人腰部
     S.place('sheet_river_5', 690, 300, 26, cx=True, fp='rect:0,0.3,1,1', shadow='small', key='crates')           # 货箱
     # ── 可走区 ──
     S.walk_rect(8, 108, 712, 160)                 # 江滩
