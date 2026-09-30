@@ -18,7 +18,7 @@ const SPEED=.27,FOLLOW_GAP=52,RUN_MUL=1.7,RUN_PATH=8*40,RUN_PATH_TOUCH=5*40;
 const SC={};
 let cur=null,player={x:0,y:0,dir:'d',walk:0,vx:0,vy:0,moving:false,path:null,goal:null,trail:[],talkTo:null,running:false,runPath:false,runK:0},
   keys={},particles=[],cam={x:0,y:0},camC={x:0,y:0},wanderers=[],followers=[];
-function npcsOf(sc){return(sc.npcs||[]).filter(n=>!n.show||n.show())}
+function npcsOf(sc){return[...(sc.npcs||[]).filter(n=>!n.show||n.show()),...(typeof ContainerSystem!=='undefined'?ContainerSystem.nodes(sc):[])]}
 function exitsOf(sc){return(sc.exits||[]).filter(n=>!n.show||n.show())}
 const inR=(c,r,R)=>c>=R[0]&&c<=R[2]&&r>=R[1]&&r<=R[3];
 // 精细碰撞（可选）：sc.mask = {w,h,d:base64 位图}，每位 = (WW/w) 世界像素见方（1 可走）；有 mask 时 walk/block 只用于出口等格判定
@@ -27,7 +27,7 @@ function buildGrid(sc){setDims(sc);if(sc.grid)return;sc.grid=[];for(let r=0;r<GH
     for(let r=0;r<GH;r++)for(let c=0;c<GW;c++)sc.grid[r*GW+c]=mOk(sc,c*TS+TS/2,r*TS+TS/2)}}
 function mOk(sc,x,y){const s=sc._ms,c=Math.floor(x/s),r=Math.floor(y/s),w=sc.mask.w;return c>=0&&r>=0&&c<w&&r<sc.mask.h&&sc._m[r*w+c]===1}
 const cellOk=(c,r)=>c>=0&&r>=0&&c<GW&&r<GH&&cur.grid[r*GW+c];
-const ptOk=(x,y)=>cur._m?mOk(cur,x,y):cellOk(Math.floor(x/TS),Math.floor(y/TS));
+const ptOk=(x,y)=>(cur._m?mOk(cur,x,y):cellOk(Math.floor(x/TS),Math.floor(y/TS)))&&!(typeof ContainerSystem!=='undefined'&&ContainerSystem.blocks(cur,x,y));
 // 脚底碰撞盒：左右各 7px，前后 3/5px（宽松：宁可略微贴边重叠，也不要空气墙）
 const FOOT_X=7;
 function standOk(x,y){return ptOk(x,y)&&ptOk(x-FOOT_X,y)&&ptOk(x+FOOT_X,y)&&ptOk(x,y+3)&&ptOk(x,y-5)}
@@ -116,7 +116,7 @@ async function goScene(id,at,dir){let enter=null;
   placeName(cur.name);hud();if(cur.enter){busy=true;await cur.enter();busy=false;hud()}}
 let busy=false;
 const faceTo=(dx,dy)=>Math.abs(dx)>Math.abs(dy)?(dx>0?'r':'l'):(dy>0?'d':'u');
-async function interact(target){if(busy||dlgBusy||mode!=='scene')return;const n=target?{type:'npc',o:target}:nearest();if(!n)return;
+async function interact(target){if(busy||dlgBusy||mode!=='scene')return;const n=target?{type:'npc',o:target}:nearest();if(!n)return;if(n.o.loot){ContainerSystem.claim(n.o);return}
   if(n.type==='comp'){const f=n.o;busy=true;$('prompt').hidden=true;player.path=null;player.goal=null;player.talkTo=null;player.dir=faceTo(f.x-player.x,f.y-player.y);f.dir=faceTo(player.x-f.x,player.y-f.y);f.talk=1;
     try{await window.onCompanionTalk?.(f.m)}finally{busy=false;f.talk=0;hud()}return}
   busy=true;$('prompt').hidden=true;player.path=null;player.goal=null;player.talkTo=null;
@@ -333,7 +333,7 @@ function drawMarker(t){const gl=player.goal;if(!gl)return;const a=Math.min(1,gl.
   g.beginPath();g.ellipse(gl.x,gl.y,14-p*6,5.5-p*2.3,0,0,7);g.stroke();
   g.globalAlpha=(1-p)*.6*a;g.beginPath();g.ellipse(gl.x,gl.y,8+p*14,3+p*5.5,0,0,7);g.stroke();
   const b=Math.sin(t/160)*3;g.globalAlpha=.9*a;g.fillStyle='#ffe2a0';g.beginPath();g.moveTo(gl.x-6,gl.y-22+b);g.lineTo(gl.x+6,gl.y-22+b);g.lineTo(gl.x,gl.y-13+b);g.closePath();g.fill();g.restore()}
-function drawNpc(n,t,near){const x=n.x*TS,y=n.y*TS;
+function drawNpc(n,t,near){if(n.loot){ContainerSystem.draw(n,t,near);return}const x=n.x*TS,y=n.y*TS;
   if(n.sp){const h=npcH(n),id=typeof npcIdle==='function'?npcIdle(n,t,near):null;   // 待机活动见 js/idle.js
     drawChar(n.sp,x+(id?id.dx:0),y+(id?id.dy:0),id?id.dir:(n.dir||'d'),id?id.walk:0,t,{h,moving:!!(id&&id.moving),ph:n.x*1.7});if(id)npcIdleFx(n,t,x,y,h,near,id);const ty=y-(spKey(n.sp)==='zhou'?h*.42:h)-8;
     if(near&&near.o===n)label(n.name,x,ty);else if(n.mark&&n.mark()){const b=Math.sin(t/200)*2;g.fillStyle='#e9a23b';g.beginPath();g.arc(x,ty-6+b,10,0,7);g.fill();g.strokeStyle='#2a1a0a';g.lineWidth=2;g.stroke();g.fillStyle='#2a1a0a';g.font='bold 16px serif';g.textAlign='center';g.fillText('!',x,ty+b)}

@@ -2,12 +2,14 @@
 // ───────────────────────── 输入 ─────────────────────────
 function toLocal(e){const r=cv.getBoundingClientRect();return[(e.clientX-r.left)*W/r.width,(e.clientY-r.top)*H/r.height]}
 cv.addEventListener('pointermove',e=>{const[x,y]=toLocal(e);if(mode==='battle'&&B)B.hover=cellAt(x,y);
+  if(mode==='scene'&&!busy&&!dlgBusy&&$('panel').hidden)ContainerSystem.setHover(x/ZOOM+cam.x,y/ZOOM+cam.y);
   if(mode==='map'){mapHover=NODES.find(n=>S.unlocked[n.id]&&Math.hypot(n.x*W-x,n.y*H-y)<40)||null;cv.style.cursor=mapHover?'pointer':''}});
 cv.addEventListener('pointerdown',e=>{const[x,y]=toLocal(e),sx=x,sy=y;
   if(mode==='battle'&&B&&B.click){const c=cellAt(x,y);if(c)B.click(...c);return}
   if(mode==='map'&&mapPick){const n=NODES.find(n=>S.unlocked[n.id]&&Math.hypot(n.x*W-x,n.y*H-y)<30);if(n){mapSel=n;mapUI()}return}
   if(mode==='scene'&&!busy&&!dlgBusy&&$('panel').hidden){const x=sx/ZOOM+cam.x,y=sy/ZOOM+cam.y;
-    const hit=npcsOf(cur).find(n=>{const p=npcPos(n),h=n.sp?npcH(n):30,hw=n.sp?Math.max(20,h*.28):24;return Math.abs(p.x-x)<hw&&y<p.y+10&&y>p.y-h});
+    const loot=ContainerSystem.targetAt(x,y);if(loot){ContainerSystem.click(loot);return}
+    const hit=npcsOf(cur).filter(n=>!n.loot).find(n=>{const p=npcPos(n),h=n.sp?npcH(n):30,hw=n.sp?Math.max(20,h*.28):24;return Math.abs(p.x-x)<hw&&y<p.y+10&&y>p.y-h});
     if(hit){const p=npcPos(hit);if(Math.hypot(p.x-player.x,p.y-player.y)<80){interact(hit);return}
       // 走到 NPC 身旁（优先靠近主角的一侧），到达后自动交谈
       const side=player.x<p.x?-1:1,off=hit.sp?Math.max(34,npcH(hit)*.4):20;
