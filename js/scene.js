@@ -287,6 +287,26 @@ function drawChar(sp,x,y,dir='d',walk=0,t=0,opts={}){const k=spKey(sp),h=opts.h|
   if(moving){if(n<=1&&!wk){const ph=walk/(h*.1);bob=Math.abs(Math.sin(ph))*h*.035;sy=1+Math.sin(ph*2)*.015;sx=1/sy}}
   else if(!IDLE[k]){const b=Math.sin(t/650+(opts.ph||0));sy=1+b*.012;sx=1-b*.005}
   if(CHAR_GRADE_OK&&!BRIGHT)im=graded(im,(cur&&cur.grade)||CHAR_GRADE);g.save();g.translate(x,y);if(flip)sx=-sx;g.scale(sx,sy);
+  // 长裙移动帧的鞋大多被裙摆遮没：从裙下连续画出承重小腿，再由原精灵盖住上半段。
+  // 这段与人物共用脚点及缩放；不能另画一只孤立的「地面鞋」。
+  if(moving&&(k==='suzhi'||k==='ye')){
+    const phase=Math.floor(walk/(h*.23))&1,leg=h/92,side=dir==='l'||dir==='r';
+    const cloth=k==='suzhi'?'#46443f':'#514b47',boot='#302d2e';
+    g.save();g.scale(leg,leg);
+    if(side){
+      const lead=(dir==='l'?-1:1)*(phase?-1:1);
+      g.fillStyle=cloth;
+      g.fillRect(lead*3-4,-18,8,8);g.fillRect(lead*7-3,-12,7,6);g.fillRect(lead*8-3,-8,6,6);
+      g.fillRect(-lead*3-4,-17,8,7);g.fillRect(-lead*8-3,-12,7,5);
+      g.fillStyle=boot;g.fillRect(lead*8-4,-4,8,4);g.fillRect(lead*8-6,-3,12,3);
+      g.fillRect(-lead*11-4,-9,9,3);
+    }else{
+      const lead=phase?-1:1;g.fillStyle=cloth;
+      g.fillRect(lead*6-4,-18,8,18);g.fillRect(-lead*6-4,-17,8,10);
+      g.fillStyle=boot;g.fillRect(lead*6-5,-4,10,4);g.fillRect(-lead*6-5,-9,10,3);
+    }
+    g.restore();
+  }
   const footPad=box?(ih-box.bottom)*drawH/ih:0;g.drawImage(im,-w/2,-drawH+footPad-bob,w,drawH);g.restore()}
 // 角色调色：略压亮度/饱和、微暖，让干净的精灵融入地图（场景可用 grade 覆盖）
 // 调色结果按 (帧,调色) 缓存成离屏画布：逐帧逐角色走 ctx.filter 很贵（软件渲染下人多的场景掉帧一半）

@@ -104,6 +104,16 @@ Create a wide 16:9 illustrated story-event still for a premium Chinese wuxia RPG
 
 ## 验收记录
 
+### 2026-09-30 老周倒地探索精灵重做
+
+旧 `s_zhou.webp` 采用与街市人物不同的平滑写实笔触，放大后仍难认出头脸和手脚，不能仅以长度达标判通过。本次使用内置 imagegen，以 `s_hero_bright.webp` 为**画风基准**、旧 `s_zhou.webp` 仅为**身份与姿势参考**，生成透明的单人横卧像素稿；第二次定点编辑去掉模型附带的矩形地面色块。最终源图存 `art_sources/zhou_prone_20260930.png`，`tools_bright/pack_zhou_prone.py` 裁切并以最近邻缩至 105×34，打包为 4×4 静态 `assets/s_zhou.webp`。核心提示词：
+
+~~~text
+One single left-to-right horizontal full-body prone Old Zhou, head right, feet left, body resting on the ground. Match the hero sprite's chunky square pixel clusters, dark stepped outline, limited muted palette and simple readable face. Preserve the older laborer's head wrap, worn gray-brown tunic, trousers and boots from the old Zhou identity reference. Simplify painterly folds to blocky 2–4 color clusters. Transparent background, no smooth illustration brushwork, gradients, antialiasing, baked shadow, floor patch, text, props or sprite grid.
+~~~
+
+验收必须在街市同屏与萧白、叶蘅、苏芷并排看正常游戏尺寸与放大近景；既量倒地长轴，也看头脸、撑地手、腿、像素笔触和透明边缘。
+
 | 项目 | 结果与复用条件 |
 | --- | --- |
 | 画面 | 四张立绘、四张精灵、四枚证物图标和一张街心救治事件画已接入；叶蘅/浪里鳅品红底由脚本抠图。重生时须查头发、袖口边缘残色。 |
