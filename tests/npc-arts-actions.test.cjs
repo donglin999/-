@@ -1,6 +1,6 @@
 const assert=require('node:assert/strict'),path=require('node:path'),{chromium}=require('/private/tmp/claude-501/pw/node_modules/playwright');
 (async()=>{const b=await chromium.launch({executablePath:'/Users/wuxiuxiang/Library/Caches/ms-playwright/chromium_headless_shell-1228/chrome-headless-shell-mac-arm64/chrome-headless-shell'}),p=await b.newPage();try{await p.goto('file://'+path.resolve('index.html')+'#xiangyang');await p.waitForFunction(()=>mode==='scene');
- await p.evaluate(()=>{window.played=[];const play=HTMLMediaElement.prototype.play;HTMLMediaElement.prototype.play=function(){played.push(this.src);return play.call(this)}});await p.locator('#npc-arts-button').click();await p.keyboard.press('Escape');
+ await p.evaluate(()=>{window.played=[];const play=HTMLMediaElement.prototype.play;HTMLMediaElement.prototype.play=function(){played.push(this.src);return play.call(this)}});await p.locator('#npc-arts-button').click();await p.keyboard.press('Escape');await p.waitForFunction(()=>!busy&&!dlgBusy);await p.evaluate(()=>{busy=true});
  for(const id of ['inquire','persuade','steal','inspect','spar'])for(const dir of ['l','r','u','d']){
  await p.evaluate(({id,dir})=>{const n={x:player.x/TS+(dir==='r'?1:dir==='l'?-1:0),y:player.y/TS+(dir==='d'?1:dir==='u'?-1:0)};window.actionP=NPCGesture.play(id,n)}, {id,dir});await p.waitForTimeout(350);await p.screenshot({path:`/tmp/npc-action-${id}-${dir}.png`});await p.evaluate(()=>actionP)
  }
