@@ -4,7 +4,7 @@
 
 方向稿：`review/blackwind_ground_concept_v1.png`（只供草土层次与细节密度参考，**不允许直接替换地图**；生成图重绘了门楼、树石和比例，且日间鲜亮色调不符合现行夜景，需回到原场景资产逐层制作并按夜景光源调色）。本地纯程序地面样张 `/tmp/blackwind-ground-v2-prototype-2.png` 仅修了直边与细点，视觉改善不足，未纳入正式版本。
 
-实装图集 `raw_scene/cut/bgate_ground_atlas.png` 为生成的 4×3 透明候选；第一版缩小时成为深褐斑块，已退稿，现用第二版明显的低分辨率草叶和碎石形体。`bgate_ground_edges()` 只打散草土交界；`bgate_ground_decals()` 按西坡、东坡、营地边缘和山道四组确定性坐标摆放，`fp='none'`、`sort='flat'`，不参与碰撞与人物遮挡。正常 1280×720 本地游戏镜头见 `review/blackwind_ground_v2_gameplay.png`。这一轮改善地面形状与静态细节；高草交互动态仍属后续制作，不将其冒称完成。
+实装图集 `raw_scene/cut/bgate_ground_atlas.png` 为生成的 4×3 透明候选；第一版缩小时成为深褐斑块，已退稿，现用第二版明显的低分辨率草叶和碎石形体。`bgate_ground_edges()` 只打散草土交界；`bgate_ground_decals()` 按西坡、东坡、营地边缘和山道四组确定性坐标摆放，`fp='none'`、`sort='flat'`，不参与碰撞与人物遮挡。正常 1280×720 本地游戏镜头见 `review/blackwind_ground_v2_gameplay.png`，上线后从正式域名重跑游戏流程所截的同视口画面见 `review/blackwind_ground_v2_production.png`；线上实走 `fails=0`、`errors=[]`。这一轮改善地面形状与静态细节；高草交互动态仍属后续制作，不将其冒称完成。
 
 ## 问题
 
