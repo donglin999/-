@@ -401,14 +401,18 @@ function porFill(el,u){const f=BUI.face(u,52);if(!f)return;const c=document.crea
 function hint(html){const h=$('bt-hint');if(!h)return;if(!html){h.hidden=true;return}h.hidden=false;if(h._h!==html){h._h=html;h.innerHTML=html}}
 
 // ───────── 我方回合（规则同 battle.js，仅表现） ─────────
-function allyTurn(u){return new Promise(res=>{B.bpUse=0;const cmd=$('bt-cmd');
+function allyTurn(u){return new Promise((res,reject)=>{B.bpUse=0;let committed=false;const cmd=$('bt-cmd');
   // 菜单挂在队伍面板上方（右对齐），不遮挡我方站位
   const place=()=>{const cs=$('bt-cards'),pc=cs&&cs.querySelector('.bt-card.cur');const h=cmd.offsetHeight||200;
     const left=cs?cs.offsetLeft-20:730,top=pc?cs.offsetTop+pc.offsetTop:380,bot=pc?top+pc.offsetHeight:520;
     if(BUI.dock==='above'&&cs){cmd.style.left=(cs.offsetLeft+cs.offsetWidth-cmd.offsetWidth-(BUI.theme==='scroll'?16:0))+'px';cmd.style.bottom='';cmd.style.top=Math.max(84,cs.offsetTop-h-(BUI.theme==='scroll'?14:4))+'px';return}
     // 参照《八方旅人》：菜单贴在当前行动者状态条左侧，顶端与该条对齐
     cmd.style.left=(left-4-cmd.offsetWidth)+'px';cmd.style.bottom='';cmd.style.top=clamp(top-4,84,540-6-h)+'px'};
-  const done=async(fn,nob)=>{cmd.hidden=true;B.key=null;hint('');if(nob)B.bpUse=0;const use=B.bpUse;if(use){u.bp-=use;u.boosted=true}B.bpUse=use;renderCards();const r=await fn(use);B.bpUse=0;res(r)};
+  const done=async(fn,nob)=>{if(committed)return;committed=true;
+    if(typeof BattleAuto!=='undefined')BattleAuto.clear();
+    cmd.hidden=true;B.key=null;B.click=null;B.pickCard=null;B.redraw=null;B.tgtList=null;B.pv=null;hint('');
+    if(nob)B.bpUse=0;const use=clamp(B.bpUse,0,Math.min(3,u.bp));
+    try{if(use){u.bp-=use;u.boosted=true}B.bpUse=use;renderCards();const r=await fn(use);B.bpUse=0;res(r)}catch(e){reject(e)}};
   const boostCtl=()=>`<div class="ft" style="--sw:${(window.__buiRowSw||[])[4]||'none'}"><span class="lb">蓄势</span><button data-b="-1" title="Q / ←">Q</button><span class="pips">${pips(u.bp,B.bpUse)}</span><button data-b="1" title="E / →">E</button><span class="n">投入 <b>${B.bpUse}</b></span></div>`;
   const setBp=d=>{const n=clamp(B.bpUse+d,0,Math.min(3,u.bp));if(n!==B.bpUse){B.bpUse=n;bsfx('select',.6,1+n*.15);renderCards();B.redraw&&B.redraw()}};
   const ptr=()=>BUI.tag(BUI.pointer(BUI.theme==='scroll'?'#f6e6c8':'#e0402a',16,'r'),'cur');
@@ -466,7 +470,8 @@ function allyTurn(u){return new Promise(res=>{B.bpUse=0;const cmd=$('bt-cmd');
       if(tg==='self')go([u]);else target(tg==='foe'||tg==='foes'?'foe':'ally',tg==='foes'||tg==='allies',skills,go,SKILLS[k].name)})};
   const items=inv=>{menu('道具',inv.map(([k,n])=>({label:ITEMS[k].name,val:k,ico:buiItem(k,22),right:'×'+n,desc:ITEMS[k].desc})),main,k=>target('ally',false,()=>items(inv),t=>done(async()=>{
       const it=ITEMS[k];S.bag[k]--;const x=t[0];await lunge(u,x,.3);if(it.heal){heal(x,it.heal)}if(it.mp){x.mp=Math.min(x.mmp,x.mp+it.mp);floatTxt(x,'内力+'+it.mp,'#8cf',22)}renderCards();await wait(500)},1),ITEMS[k].name))};
-  main()})}
+  main();if(typeof BattleAuto!=='undefined')BattleAuto.bind(u,a=>{B.bpUse=a.bp;
+    return done(bp=>a.kind==='skill'?doSkill(u,a.skill,a.targets,bp):doAttack(u,a.targets[0],bp))},reject)})}
 // 道具图标：ART.icons 图集（96px = 32 像素 ×3），缺失回落「药」字徽
 function buiItem(k,s=24){const r=window.ART&&ART.icons&&ART.icons[k];if(!r)return BUI.img('药',20);const[x,y,w,h]=r,f=s/w;
   return`<i class="pxi" style="width:${s}px;height:${s}px;background:url(assets/i_icons.webp) ${-x*f}px ${-y*f}px/${576*f}px auto no-repeat;image-rendering:pixelated"></i>`}

@@ -68,6 +68,15 @@ async function trial(profileName,fightName,seed){
       await doAttack(u,target,bp)
     };
   `,ctx);
+  if(process.env.BATTLE_AUTO==='1'){
+    vm.runInContext(fs.readFileSync(path.join(base,'battle-auto.js'),'utf8'),ctx,{filename:'battle-auto.js'});
+    vm.runInContext(`allyTurn=async function(u){const a=BattleAuto.choose(u);if(!a)return;
+      assertAction(a,u);if(a.bp){u.bp-=a.bp;u.boosted=true}
+      if(a.kind==='skill')await doSkill(u,a.skill,a.targets,a.bp);else await doAttack(u,a.targets[0],a.bp)
+    }`,ctx);
+    ctx.assertAction=(a,u)=>{assert.ok(a.bp>=0&&a.bp<=Math.min(3,u.bp));assert.ok(a.targets.every(t=>t.hp>0));
+      if(a.skill){const sk=vm.runInContext('SKILLS',ctx)[a.skill];assert.ok(u.mp>=(sk.mp||0))}};
+  }
   const result=await Promise.race([
     vm.runInContext('battleLoop()',ctx),
     new Promise((_,reject)=>setTimeout(()=>reject(new Error('battle timeout')),2000)),

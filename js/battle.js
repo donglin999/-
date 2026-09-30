@@ -167,6 +167,7 @@ async function battle(opt={}){
     await say('','每回合积攒一点「蓄势」（菱形）。出招前按 E / → 或点「＋」投入蓄势：普攻变为连击，武学威力大增。')}
   let result;try{result=await battleLoop()}catch(e){
     console.error('战斗循环异常，已中止结算：',e);
+    if(typeof BattleAuto!=='undefined')BattleAuto.finish();
     // 异常可能发生在任意行动中。恢复入场状态，且不执行胜负结算，避免误发奖励或推进任务。
     S.hp=hpBefore;S.mp=mpBefore;S.bag=bagBefore;
     B.key=null;B.click=null;B.pickCard=null;B.redraw=null;
@@ -175,6 +176,7 @@ async function battle(opt={}){
     hud();await toast('战斗发生错误，请重试');
     throw e;
   }
+  if(typeof BattleAuto!=='undefined')BattleAuto.finish();
   // 结算
   const hero=B.allies[0],d=derived();
   S.hp=clamp(hero.hp,1,d.mhp);S.mp=clamp(hero.mp,0,d.mmp);
