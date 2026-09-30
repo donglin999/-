@@ -965,6 +965,47 @@ def gate():
     return S
 
 
+def bgate_ground_edges(S):
+    """Grass and packed earth interlock in small organic shapes; collision is separate."""
+    original = S.mat.copy()
+    earth = np.isin(original, (0, 6))
+    available = earth | (original == 4)
+    signed = ndi.distance_transform_edt(earth) - ndi.distance_transform_edt(~earth)
+    variation = (value_noise(S.w, S.h, 18, 531) - .5) * 11 + (value_noise(S.w, S.h, 6, 532) - .5) * 3
+    new_earth = (signed + variation > 0) & available
+    nearest = ndi.distance_transform_edt(~earth, return_indices=True)[1]
+    S.mat[available & ~new_earth] = 4
+    added = available & new_earth & ~earth
+    S.mat[added] = original[nearest[0][added], nearest[1][added]]
+
+
+def bgate_ground_decals(S):
+    """Authored plant and wear clusters, all below characters and without footprints."""
+    # atlas 4×3: meadow, moss / rooted borders, trampled grass / pebbles, leaves, scuffs, scrub
+    placements = (
+        # Western slope and dead tree
+        (0, 98, 249, 33), (1, 148, 268, 31), (2, 76, 321, 36), (0, 117, 354, 34),
+        (1, 178, 307, 28), (2, 280, 351, 31), (0, 292, 289, 26), (3, 57, 270, 29),
+        (3, 148, 378, 25), (9, 121, 307, 20), (9, 180, 358, 19), (11, 86, 373, 19),
+        # Eastern slope and rock bases
+        (2, 480, 283, 30), (0, 533, 294, 32), (1, 619, 277, 38), (2, 651, 329, 32),
+        (0, 517, 359, 32), (1, 580, 365, 30), (2, 454, 378, 28), (3, 670, 251, 27),
+        (3, 554, 342, 24), (3, 484, 328, 23), (11, 636, 374, 19), (9, 548, 313, 17),
+        # Camp edge: vegetation grows into the packed ground
+        (4, 169, 242, 32), (5, 236, 256, 28), (6, 298, 269, 29), (4, 422, 272, 28),
+        (5, 486, 256, 32), (6, 570, 253, 28), (5, 188, 191, 23), (6, 564, 190, 24),
+        # Road shoulders and use-worn centre
+        (4, 307, 304, 28), (6, 269, 342, 27), (5, 243, 374, 26),
+        (7, 238, 229, 28), (7, 520, 233, 30), (7, 377, 262, 26),
+        (8, 349, 241, 19), (8, 323, 291, 18), (8, 216, 363, 19),
+        (10, 287, 307, 30), (10, 477, 223, 26), (10, 190, 226, 24),
+    )
+    for i, (tile, x, base, width) in enumerate(placements):
+        col, row = tile % 4, tile // 4
+        S.place('bgate_ground_atlas', x, base, width, cx=True, crop=(col / 4, row / 3, (col + 1) / 4, (row + 1) / 3),
+                flip=bool(i % 3 == 0), fp='none', sort='flat', shadow='none', key='ground_detail%d' % i, ncol=28)
+
+
 def bgate():
     """黑风寨 · 寨门（54×30 格 = 720×400）：城西南山中，夜。上：木寨墙横贯 + 寨门（两座望楼夹门），门前夯土场（火盆、拒马、守寨喽啰）；
     山道从寨门折向左下出图（下山 · 大地图）；场东：值夜草棚 + 酒坛（喽啰偷喝酒），场西：晾兽皮架；两侧山石松林；西侧枯树下埋着喽啰偷藏的酒（挖掘点）。"""
@@ -973,7 +1014,9 @@ def bgate():
     S.region([(170, 170), (560, 170), (590, 250), (430, 262), (300, 262), (150, 240)], 0)   # 寨门前夯土场
     S.region([(344, 172), (378, 172), (384, 232), (358, 282), (298, 330), (236, 400), (182, 400), (250, 318), (316, 268), (344, 226)], 6)   # 山道
     S.rect(346, 60, 374, 176, 6)                  # 山道穿过寨门继续上山（门洞里看得见）
+    bgate_ground_edges(S)
     S.paint_ground()
+    bgate_ground_decals(S)
     # ── 远景：寨墙后的山林（不可达） ──
     for i, x in enumerate(range(-10, 740, 46)):
         S.place('sheet_bandit_5' if i % 3 else 'sheet_mount_0', x, 70 + (i * 13) % 22, 40 if i % 3 else 70, cx=True, fp='none', shadow='none', sort='flat', key='far%d' % i)
@@ -1009,7 +1052,7 @@ def bgate():
                                             ('sheet_mount_6', 380, 404, 64, 'rect:0,0.3,1,1'), ('sheet_bandit_5', 300, 404, 40, 'trunk'), ('sheet_mount_7', 470, 290, 22, 'rect:0,0.4,1,1'),
                                             ('sheet_bandit_5', 590, 408, 44, 'trunk'), ('sheet_mount_7', 60, 404, 26, 'rect:0,0.4,1,1'))):
         S.place(k, x, b, w_, cx=True, fp=fp_, shadow='tree' if fp_ == 'trunk' else 'small', key='edge%d' % i)
-    S.tufts(260, (0, 170, S.w, 400))
+    S.tufts(80, (0, 170, S.w, 400))
     # 两侧陡石坡连续收边；足迹贴石体，避免开放草坡后从左右画面外走出。
     for side, edge in (('w', 0), ('e', 720)):
         for i, (base, width, inset) in enumerate(((230, 76, 8), (286, 86, 12), (342, 70, 6), (398, 92, 14))):
