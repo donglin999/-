@@ -1,10 +1,67 @@
 # 美术管线
 
+状态：现行　最后核对：2026-10-19
+
+<!-- map-standard: entry -->
+
+> 地图开发统一入口（2026-10-04）：[现行地图开发规范](design/map-development-standard.md)。地图制作流程、硬参数、分区拼接与验收按此执行；本文旧地图尺寸、旧生成/重建方案和旧通过记录仅供对应版本追溯，不得用于新地图生产。人物等其他专项规则继续有效。
+
+新建与重做场景遵循[现行地图开发规范](design/map-development-standard.md)：功能设计、参数草图与灰盒、完整预览、分区生成及拼接、空间同步和逐项验收。2026-10-01透明单体批及下文世界/3底图是历史管线；需要动态淡化或拆换的物件仍须干净底层与独立alpha，不能直接重跑旧脚本覆盖新地图。
+
+新增角色先读[角色类型与必需素材](design/role-assets.md)、[质量规格](design/character-asset-quality.md)和[素材需求规范](design/asset-requirements.md)。本页描述处理方法，不自动扩大生成清单；普通 NPC 专属剧情动作数为 0，任务优先对白或单张 CG。
+
+栖河现行人物动作（2026-10-19 按 8792 实际运行核对）：萧白用蓝灰 C 包（[采用合同](../../xiaojianghu-legacy-prologue/docs/design/qihe-map/hero-blue-adoption.md)：四向，单元 96×116，步行 12 帧、跑 10 帧，可见身高约 83）；叶蘅与开始部分其他人物用像素统一表（`xiaojianghu-legacy-prologue/art_sources/character-pixel-fix-20261007/`，成人可见高约 80）。OC.4 grid94 与 OC.11 走跑是主库原型开篇的规格，已归档，只供追溯，不再作为标准。
+
+养成剧情中同时出场的静态Q版人物，新增[跨人物姿态差异门槛](design/cultivation-q-pose-diversity.md)：先分配行为与白模、逐人实传本人身份和姿态参考，采用前同时通过单人和整组验收；不能只换名字、衣服后复用同一默认摊掌动作。
+
 ## 当前出图接口约定
 
-襄阳体验章节本轮按用户最新决定使用 Codex 内置 `image_gen` 直接生成；全部采用稿、身份参考、提示词和后处理记录在[襄阳生图记录](design/xiangyang-art-prompts.md)。此前 `tools_common/flatimg.py` 是旧素材和接口对照稿的制作路径，历史来源按各自记录保留，不倒写成同一模型。后续其他章节的出图接口按该章节用户要求确定。
+**默认生图模型（2026-10-07 用户确定）：`gpt-image-2.5`。** 生图源按规则 R-生图-01 用登记表当前源；不论哪个源，提示词都必须带上下面这一行（R-生图-02）：
 
-美术资源有不同批次：早期整图与角色素材使用 HY-Image-V3.0；当前街市单体管线 `tools_scene/gen_props.py` 使用 `tools_common/flatimg.py`，模型与参数以该脚本的 `PARAMS` 为准，再经本仓库的 Python（Pillow + numpy，部分用 scipy）脚本抠图、像素化、切帧、排布和打包。运行时读取 `assets/` 下的 webp。**所有脚本都以仓库根目录为工作目录运行**（路径写死为相对路径）。襄阳的设定与审图标准见[城设定](design/xiangyang-city.md)、[素材规范](design/xiangyang-art.md)；本页描述技术管线。
+```text
+Model: gpt-image-2.5（使用 gpt-image-2.5 生图模型）
+```
+
+- 内置 `image_gen` 由服务端选模型，没有模型参数，生成文件的 C2PA 元数据也只记录 `gpt-image`。这一行只是提示词里的要求，不能保证实际版本，也无法事后核实；生图记录里不能把它写成“已确认由 gpt-image-2.5 生成”。
+- FlatRouter 脚本按 `PARAMS` 选模型，下文默认 `gpt-image-2.5-sunburst` 与此一致；提示词同样要带这一行。
+- 内置生图不可用时，报告原因，不要自动改用需要 `OPENAI_API_KEY` 的付费 API（`$imagegen` 的 `scripts/image_gen.py`）。
+
+### 生图源登记与切换（2026-10-17 用户确定）
+
+- 生图源登记在 `tools_common/imgsources.json`：`current` 是当前默认源，旧源一律保留不删。用户说切到哪个源就改 `current`（`python3 tools_common/imggen.py --use <源id>`）；用户加了新源，就登记一条并设为当前源。
+- 统一入口：`tools_common/imggen.py`，支持三类源：codex exec、FlatRouter 异步接口、OpenAI 兼容接口。用 `--list` 查看全部源。
+- 密钥放在 `tools_por/.env`（已被 git 忽略）。
+- 2026-10-17 当前源为 `302ai-sunburst`（302.AI，gpt-image-2.5-sunburst）。实测文生图、带参考图编辑都正常，单张约 40 秒；人物 alpha 最高只到 254，入库时加 `--opaque-fix`。同提示词与 codex 的对比见 `xiaojianghu-legacy-prologue/art_sources/imagegen-302-test-20261017/`。
+- 2026-10-17 前“默认走 codex”的旧做法已废止，以 R-生图-01 为准。
+
+技能特效的生图（概念图、单体素材）另有专门流程：[技能特效生成流程](design/skill-vfx-pipeline.md)。
+
+### 人物原生透明输出（2026-10-13 用户要求纳入开发规范）
+
+人物立绘、表情差分、独立战斗角色与道具切图默认通过内置`image_gen`生成真实透明PNG，并设置`transparent_background: true`。在保留上方模型请求行的同时，提示词必须明确包含：
+
+```text
+真正的透明背景！actual RGBA alpha=0 outside the character and inside empty hair gaps.
+Do not paint white, black, colored backgrounds or a checkerboard.
+NO opaque white islands, NO matte halo, NO ground shadow.
+眼白、牙齿、衣服、真实缎带保留不透明，头发间背景空隙完全透明。
+画面只有所需人物或物件，无文字、水印、框、UI。
+```
+
+构图另写完整头顶、发梢、手、袖子与必要道具都在画布内，左右留安全边距。透明输出不得用白色阈值抠图替代；原生alpha保留到最终PNG/lossless WebP，仅允许按实际alpha边界裁切和统一缩放。检查须包含文件模式与alpha范围、深浅彩色叠底、发丝空隙、眼白/浅衣未被抠穿及完整轮廓；只有alpha通道不算验收完成。
+
+### 精灵与道具后期（2026-10-16 用户确定）
+
+1. **角色行走/战斗精灵：整张采用 Codex 重画结果。** 现行产图路径不支持“只修轮廓、其余保留原帧”，`character-pixel-fix-20261007/merge.py` 那种保守替换路线停用。后期必须做：锁定原表调色板（不锁会混入原表没有的颜色）、按原帧位置拼表、透明度二值、无杂点与底色残边；并检查每帧头顶行与脚底行和原表一致（引擎按可见包围盒缩放，头脚行一变人物大小就变）、轮廓与原帧重合度过低的帧标出人工复核。
+2. **道具与菜单图标：统一采用 forge 像素后期风格**——缩到目标原生尺寸、OKLab 调色板、选择性 1px 深色描边、轻度对比与饱和提亮、透明度二值，再按整数倍放大。实测适用于原生高度约 12 像素以上的物件；10 像素及以下或细长物件（账册 9×10、绳子 12×5）会丢结构或断开，加描边的 5 像素绳子会被整件当碎屑清掉——这类物件脚本会报错或须人工逐件核对，必要时加大原生尺寸，不得直接登记。
+3. 工具：栖河工作区 `tools_assets/sprite_finish.py`（角色）与 `tools_assets/prop_finish.py`（道具），底层为 MIT 许可的 [agent-sprite-forge](https://github.com/0x0funky/agent-sprite-forge)，锁定版本副本放在 `tools_assets/vendor/agent_sprite_forge/`。输入优先用上节的原生透明 PNG；旧的纯色底原图也可处理（指定底色）。forge 的网格缩回只认整数放大倍数，非整数倍（如 10.5）的道具原图走像素后期，不走网格缩回。
+4. 两个脚本只写入批次目录（`art_sources/<批次>/`），不改正式素材；采用仍按正式登记流程人工核对后登记。对比依据：[2026-10-16 后期工具对比与采用](../../xiaojianghu-legacy-prologue/docs/updates/2026-10-16-sprite-prop-finish.md)。
+
+已实证来源：[归云谷透明整改制作记录](../../xiaojianghu-legacy-prologue/art_sources/guiyun-performance-fix-20261012/README.md)，采用23张原生透明PNG；[原提示词](../../xiaojianghu-legacy-prologue/art_sources/guiyun-performance-fix-20261012/prompts/pei.txt)。该批次实际后端型号未披露，继续只记录`gpt-image-2.5`为请求值。下文白底洪泛/品红抠图属于对应旧接口的历史流程，不是当前人物生产默认方式；不透明地图/背景仍按各自用途生成。
+
+旧襄阳体验章节（2026-10-19 已撤除）当时按用户决定使用 Codex 内置 `image_gen` 直接生成；全部采用稿、身份参考、提示词和后处理记录在[襄阳生图记录](archive/design/xiangyang-art-prompts.md)。此前 `tools_common/flatimg.py` 是旧素材和接口对照稿的制作路径，历史来源按各自记录保留，不倒写成同一模型。后续其他章节的出图接口按该章节用户要求确定。
+
+美术资源有不同批次：早期整图与角色素材使用 HY-Image-V3.0；当前街市单体管线 `tools_scene/gen_props.py` 使用 `tools_common/flatimg.py`，模型与参数以该脚本的 `PARAMS` 为准，再经本仓库的 Python（Pillow + numpy，部分用 scipy）脚本抠图、像素化、切帧、排布和打包。运行时读取 `assets/` 下的 webp。**所有脚本都以仓库根目录为工作目录运行**（路径写死为相对路径）。襄阳的设定与审图标准见城设定（已删除）、素材规范（已删除）；本页描述技术管线。
 
 江湖菜单专用图标 v2 单独使用精细手绘管线，规范见[江湖图标](design/jianghu-icons.md)。`tools_scene/menu_icons_v2_manifest.json` 逐件列出 65 个物品、招式、心法的主体描述；`tools_scene/gen_menu_icons_v2.py` 经现有 FlatRouter 异步接口生成缺失的高分辨率原稿，保存在本地忽略目录 `raw_menu_icons/` 并记录参数；`tools_scene/build_menu_icons_v2.py` 对不透明白底图执行透明化、平滑缩小并打包为 `assets/i_jianghu.webp`，同步生成 `js/menu-icons.js` 坐标。构建器遇到缺图会直接失败，不会混入旧的像素图标。游戏旧图集 `assets/i_icons.webp` 仍供其他既有用途使用。
 
@@ -13,7 +70,7 @@
 | 命名 | 尺寸 | 用途 | 生成 |
 |---|---|---|---|
 | `m_{scene}.webp` | 640×360（现存 `m_world` 为 1280×720） | 场景地图，运行时最近邻绘制到 1920×1080 世界；`m_world` 为大地图，拉伸到画布 960×540 | `pixmaps.py`（注意：重跑会把 `m_world` 也输出为 640×360） |
-| `m_{scene}_v2.webp` | 源像素 = 世界/3（街市 880×520、偏巷/渡口 800×440、南门 800×480、庙外/寨门/山洞 720×400、庙内 640×360） | **v2 程序排布地图**（第一章全部 8 个探索场景）：程序化地面 + 投影 + 全部单体素材已烘焙；运行时绘制到 `WW×WH` 世界 | `tools_scene/build_scene.py`（见 §场景管线 v2） |
+| `m_{scene}_v2.webp` | 源像素 = 世界/3（街市 880×520、偏巷/渡口 800×440、南门 800×480、庙外/寨门/山洞 720×400、庙内 640×360） | **v2 程序排布地图**（旧襄阳演示全部 8 个探索场景）：程序化地面 + 投影 + 全部单体素材已烘焙；运行时绘制到 `WW×WH` 世界 | `tools_scene/build_scene.py`（见 §场景管线 v2） |
 | `m_{scene}_v2_props.webp` | 宽 1024 的图集 | v2 地图的单体素材图集（建筑/树/摊位…），运行时按底边 y 与角色深度排序重画（屋檐/树冠遮挡），条目在 `SC.{scene}.props` | 同上 |
 | `m_street.webp` `m_street_bright.webp` `m_street_fg.webp` `m_alley.webp` `m_ferry.webp` | 640×360 | 旧版街市 / 偏巷 / 渡口地图，**运行时已不再加载**，保留作前后对比（`review/scene_v2/street_before.png`） | `pixmaps.py` / `pix_bright.py` / `street_layers.py` |
 | `s_{char}.webp` | 4 列 × 4 行 | 角色精灵表：行 `d,l,r,u`，列 = 帧 0..3（0 站立，1 迈步 A，2 过渡，3 迈步 B）；单元格尺寸在 `ART.sheet[char]=[w,h]`（高均为 141 = 47 像素 ×3） | `pack.py`（苏芷：`tools_bright/suzhi_sheet.py`） |
@@ -48,13 +105,13 @@ ART.idle[c]={frames:6, cell:[w,141],rows:'dlru',file:'s_hero_idle',bright:'s_her
 
 `walkSpec()` 还接受简写：`ART.walk[c]=N` 或 `[order...]`，以及 `n|frames`、`cell|size`、`order|seq`、`stride`（步幅系数，缺省 walk .16 / run .24 × 身高）。`fps` 字段当前未被读取（帧按走过的距离推进）。主角/苏芷的 `s_{c}(_bright).webp`（4×4）也由 `explore.py build` 输出：列 0 = 待机基帧（站立），列 1..3 = 新行走表的帧 0/3/6，单元 hero 90×141、suzhi 72×141；脚底基线在单元底边上 3 像素（与行走/奔跑表一致）。
 
-### 像素密度约定
+### 历史像素密度约定（旧3×资源，不用于新地图）
 
 角色像素化为 44（后续补边后 47）像素高 ×3 最近邻放大；地图 640×360 ×3 到世界。故角色与地图的像素网格同密度。绘制像素图时一律 `imageSmoothingEnabled=false`。
 
 ## 2. 早期出图：HY-Image
 
-本节记录旧批次出图方法，不适用于当前 `tools_scene/gen_props.py` 的街市单体。新单体的提示词、参考图和参数记录见该脚本及[襄阳素材规范](design/xiangyang-art.md)。
+本节记录旧批次出图方法，不适用于当前 `tools_scene/gen_props.py` 的街市单体。新单体的提示词、参考图和参数记录见该脚本及襄阳素材规范（已删除）。
 
 客户端：`/home/user/juesheng/tools/hy_image.py`（仓库外，参数实测见 `/home/user/juesheng/tools/HY_API_参数实测.md`）。
 
@@ -122,7 +179,7 @@ python3 /home/user/juesheng/tools/hy_image.py query <job_id>
 
 本仓库的脚本**均未使用 rembg**（去背全部是洪泛法）；环境中也未安装 rembg。姊妹项目 `/home/user/juesheng/tools/process-sprites.py` 使用 rembg（`pip install rembg`，可 `REMBG_MODEL=birefnet-general`）。若重出的角色/立绘底色不纯白、洪泛去背吃掉浅色衣物，可先用 rembg 抠图得到透明 PNG，再进入本管线（`split.py` 的白色洪泛对透明底无副作用）。
 
-## 4. 完整重建顺序
+## 4. 历史完整重建顺序（禁止直接重建新地图）
 
 ```bash
 cd /home/user/xiaojianghu
@@ -181,7 +238,7 @@ v1 厚涂立绘 AI 感重、构图不一，已全部替换。新管线：
 - **统一参数**：`gpt-image-2.5-sunburst`、`1024x1536`、`quality=high`、`background=opaque`、`png`。flare 画风相近但慢约 2.5 倍。该模型的 `background=transparent` 不生效，会画出假透明棋盘格，所以用纯白底。
 - **画风**：国画工笔白描 + 淡彩平涂（矿物色、墨线顿挫），明确禁止厚涂/轮廓光/CG 光泽；构图为腰部以上 3/4 侧身、左右留白、手臂不裁切。
 - **后处理**：`python3 tools_por/post_por.py [角色...]` → `assets/p_*.webp`。从上/左/右边缘洪泛近白像素去背（墨线闭合，不会吃白衣），另把大面积、纯白、无起伏的封闭留白（臂弯等）判为背景；边缘 3px 按与白混合反推 alpha 并反预乘去白晕；裁切缩放到 ≤480×640。
-- **新增角色**：在 `CHARS` 里加一行描述，依次跑两个脚本即可。
+- **新增角色**：先完成角色分类、阶段与必需素材卡，再按清单使用管线。只有确需对话立绘的角色才在 `CHARS` 增加对应描述；两个脚本只生成、处理立绘，不代表该角色的探索、战斗、表情和静态姿态包已经完整。
 
 ### FlatRouter 生图客户端（`tools_common/flatimg.py`，异步接口）
 
@@ -203,7 +260,7 @@ v1 厚涂立绘 AI 感重、构图不一，已全部替换。新管线：
 - 苏芷 v2 基准图重做过（药囊改为宽布背带斜挎、贴腰胯承重），旧基准原图在 `raw_por/suzhi_v1/`。
 
 
-## 场景管线 v2（`tools_scene/`，2026-09）
+## 历史场景管线 v2（`tools_scene/`，2026-09）
 
 「程序定结构、生图给外观」（与 [anim-pipeline.md](anim-pipeline.md) 同一原则）：建筑、树、摊位、杂物用生图模型**单独**生成为素材，程序按布局表拼成底图，并由素材的「占地」自动算出**精确碰撞 mask**；地面（石板、泥地、草地、水面、木栈桥、院墙）全部程序绘制。整图生成的地图碰撞只能手标、总有「走到屋顶/墙里」的漏网之处，且改布局就得重画——这是改用拼装的原因。
 
@@ -238,9 +295,13 @@ v1 厚涂立绘 AI 感重、构图不一，已全部替换。新管线：
   - `build_scene.py` 新增：地面材质 7 洞内岩地、8 殿内方砖、9 岩体/暗处、10 墙顶；`S.rock_rim()` 岩脚；`place(..., h=)` 非等比缩放（柱身、吊桥）；`pillar()` 柱础等比 + 柱身拉伸。
   - 场景可写 `mapIn`（大地图入场落点，`scene.js goScene` 替换 NODES 的 at）与 `intro`（开场运镜，`scene.js snapCam/updateCam`）。
 
-### 新增 / 修改一个 v2 场景
+### 历史v2维护方法（非新地图开发流程）
 
 1. 缺素材就在 `gen_props.py` 的 `PROPS` 加一行描述 → `gen_props.py key` → `cut_props.py key`（表格类看 `_index.png` 确认编号）。
 2. 在 `build_scene.py` 写/改场景函数（地面 → 素材 → 可走区 → `S.exits`/`S.anchor`），跑 `build_scene.py <id>`，看 `review/scene_v3/<id>_layout_dbg.png`。
 3. `js/story.js` 里该场景：`bg:'m_<id>_v2'`、`gw/gh`、`start/startDir`、NPC/出口/路人坐标（用 anchors.json 的格坐标）；出口写明 `dir`（与相邻场景方向一致，02 §3）；**改版时把 `mapv` 加 1 并写 `migrate(x,y,旧版本)`**（旧存档坐标换算，见 architecture.md §5）；`js/core.js` 的 `ASSETS` 加 `m_<id>_v2`、`m_<id>_v2_props`。
 4. `node tools_scene/audit.cjs review/scene_v4/audit <id>` 复查（见 testing.md §2），`node tools_scene/exit_frames.cjs review/scene_v3/exits <id>` 看出口切换连续帧。
+
+## 养成 Q 版人物入口
+
+新增人物对白图按[统一生成与验收标准](design/cultivation-q-generation-standard.md)执行；历史生成提示词只作溯源，不能覆盖新标准。

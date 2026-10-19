@@ -1,0 +1,386 @@
+{
+ "说明": "规则登记表（单一来源，2026-10-19 起）。开发、系统、流程、边界类规则只在这里写正文；其他文档引用编号（如 R-生图-01），不再复述。新增、修改、废止条目须用户批准：改完运行 python3 tools_docs/check_docs.py --approve-rules 登记指纹，否则检查失败。stale 是“已废止的旧说法”正则，检查脚本会在现行文档里找它们。规则登记表.md 由脚本生成，不手改。",
+ "rules": [
+  {
+   "id": "R-语言-01",
+   "area": "协作",
+   "rule": "全程用中文交流：回复、进度说明、表格、提问、文档与更新记录、工具调用里给用户看的说明都用中文；代码标识符、路径、命令、日志原文保持原样。",
+   "scope": "全部",
+   "source": {
+    "date": "早于 2026-10-07",
+    "quote": "全程中文交流",
+    "doc": "CLAUDE.md"
+   },
+   "status": "现行"
+  },
+  {
+   "id": "R-工作区-01",
+   "area": "协作",
+   "rule": "两个独立工作区：xiaojianghu（文档库、设计权威、养成与旧原型）与 xiaojianghu-legacy-prologue（栖河试玩版，本地 8792，线上 luotuo-36x.pages.dev）。改动前先确认属于哪一个。",
+   "scope": "全部",
+   "source": {
+    "date": "早于 2026-10-07",
+    "quote": "先确认改动属于哪一个",
+    "doc": "CLAUDE.md"
+   },
+   "status": "现行"
+  },
+  {
+   "id": "R-git-01",
+   "area": "协作",
+   "rule": "不主动提交 git；用户要求时才提交。",
+   "scope": "全部",
+   "source": {
+    "date": "2026-10-16 前后",
+    "quote": "不提交 git",
+    "doc": "会话约定"
+   },
+   "status": "现行"
+  },
+  {
+   "id": "R-生图-01",
+   "area": "生图",
+   "rule": "生图用 xiaojianghu/tools_common/imgsources.json 的当前源（current），统一入口 tools_common/imggen.py。当前源为 302ai-sunburst（302.AI，gpt-image-2.5-sunburst）。用户说切到哪个源就改 current 并记 history；旧源（codex exec、FlatRouter）一律保留不删。",
+   "scope": "所有出图",
+   "source": {
+    "date": "2026-10-17",
+    "quote": "暂时先用这个作为生图源……每次我说要切都会告诉你，然后你就用最新的，旧的源也不要删",
+    "doc": "xiaojianghu/docs/art-pipeline.md#生图源登记与切换"
+   },
+   "status": "现行",
+   "supersedes": [
+    "R-生图-旧-codex优先"
+   ],
+   "stale": [
+    "默认(通道|走|用|经)[^。\\n]{0,12}codex",
+    "生图(默认|约定)走\\s*`?codex",
+    "尽量用\\s*codex",
+    "FlatRouter[^。\\n]{0,16}(只|仅)(在|用于|限)[^。\\n]{0,8}codex"
+   ]
+  },
+  {
+   "id": "R-生图-02",
+   "area": "生图",
+   "rule": "每次生图提示词首行带：Model: gpt-image-2.5（使用 gpt-image-2.5 生图模型）。记录里只写“提示词请求 gpt-image-2.5”，不得写成已确认由 gpt-image-2.5 生成。",
+   "scope": "所有出图",
+   "source": {
+    "date": "2026-10-07",
+    "quote": "默认生图模型为 gpt-image-2.5",
+    "doc": "xiaojianghu/docs/art-pipeline.md#当前出图接口约定"
+   },
+   "status": "现行",
+   "stale": [
+    "已确认由\\s*gpt-image-2\\.5\\s*生成"
+   ]
+  },
+  {
+   "id": "R-生图-03",
+   "area": "生图",
+   "rule": "生图密钥只放 xiaojianghu/tools_por/.env（git 已忽略），按各源 key_env 读取，不写进仓库、文档或聊天记录以外的地方。",
+   "scope": "所有出图",
+   "source": {
+    "date": "2026-10-17",
+    "quote": "（主会话按安全要求定）",
+    "doc": "CLAUDE.md#生图源"
+   },
+   "status": "现行"
+  },
+  {
+   "id": "R-生图-04",
+   "area": "生图",
+   "rule": "人物立绘、表情差分、独立战斗角色与道具切图要原生透明 PNG；提示词带透明背景要求段落。302 源出图人物 alpha 最高 254，入库加 --opaque-fix。",
+   "scope": "人物与道具出图",
+   "source": {
+    "date": "2026-10-13",
+    "quote": "人物原生透明输出纳入开发规范",
+    "doc": "xiaojianghu/docs/art-pipeline.md#人物原生透明输出"
+   },
+   "status": "现行"
+  },
+  {
+   "id": "R-画风-01",
+   "area": "画风",
+   "rule": "出场景图按 xiaojianghu/docs/design/map-development-standard.md 与正式素材清单取参考；scene-pixel-*、90 格 Q 版扁平像素批次是未采用的测试，不得当画风或规格参考。",
+   "scope": "场景与地图出图",
+   "source": {
+    "date": "2026-10-10",
+    "quote": "那是测试用的，正式版有自己的生成流程",
+    "doc": "xiaojianghu/docs/design/map-development-standard.md"
+   },
+   "status": "现行"
+  },
+  {
+   "id": "R-画风-02",
+   "area": "画风",
+   "rule": "角色精灵整张采用重画结果并锁调色板把关；道具与图标统一走 forge pixel 后期（选择性 1px 描边、轻度提亮、透明度二值）。",
+   "scope": "精灵与道具",
+   "source": {
+    "date": "2026-10-16",
+    "quote": "现在的产图路径不支持我们只修轮廓",
+    "doc": "记忆 sprite-prop-postprocess"
+   },
+   "status": "现行"
+  },
+  {
+   "id": "R-画风-03",
+   "area": "画风",
+   "rule": "对话立绘：960×1280 高清半身像，透明背景；按“眼睛到下巴”统一大小、眼线对齐（女性略低），不再按头顶对齐；表情只换脸不换姿势。",
+   "scope": "对话立绘",
+   "source": {
+    "date": "2026-10-17",
+    "quote": "对话的人还是比主角高一截……是分辨率不够的问题吗",
+    "doc": "xiaojianghu-legacy-prologue/docs/updates/2026-10-17-portrait-hd.md"
+   },
+   "status": "现行"
+  },
+  {
+   "id": "R-画风-04",
+   "area": "画风",
+   "rule": "Q 版立绘按需生成表情，不逐句换；停用咬牙冒汗那张主角表情；同屏立绘大小与水平线对齐；选项图标要专门做，不拿背景图凑。",
+   "scope": "养成模式 Q 版演出",
+   "source": {
+    "date": "2026-10-11",
+    "quote": "我很讨厌这个表情",
+    "doc": "记忆 q-portrait-staging"
+   },
+   "status": "现行"
+  },
+  {
+   "id": "R-地图-01",
+   "area": "地图",
+   "rule": "地图尺寸按内容定：先列内容取能装下的最小尺寸，每屏至少一个看点，空区域裁掉，用有剧情的人和事填充；不为凑倍数放大。",
+   "scope": "地图设计",
+   "source": {
+    "date": "2026-10-11",
+    "quote": "多而没有内容是没有意义的",
+    "doc": "记忆 map-size-by-content"
+   },
+   "status": "现行"
+  },
+  {
+   "id": "R-特效-01",
+   "area": "特效",
+   "rule": "新做或重做技能特效必须走 xiaojianghu/docs/design/skill-vfx-pipeline.md：定关键帧 → 参考场景 → 概念图（用户确认）→ 拆单体素材 → 整理 → 编排 → 评审页对照概念图（用户确认）→ 才能接入战斗与发布。",
+   "scope": "技能特效",
+   "source": {
+    "date": "2026-10-07；2026-10-18 重申",
+    "quote": "太垃圾了，之前不是有过评审的文档吗？",
+    "doc": "xiaojianghu/docs/design/skill-vfx-pipeline.md"
+   },
+   "status": "现行"
+  },
+  {
+   "id": "R-特效-02",
+   "area": "特效",
+   "rule": "特效主形来自生图素材，程序只负责运动、节奏、点缀和镜头；不得“程序绘制优先、少生图”。",
+   "scope": "技能特效",
+   "source": {
+    "date": "2026-10-18",
+    "quote": "（前两轮程序绘制被否，第三轮生图定概念才被认可）",
+    "doc": "xiaojianghu/docs/design/skill-vfx-pipeline.md#为什么是这个流程"
+   },
+   "status": "现行",
+   "stale": [
+    "程序绘制优先",
+    "优先程序绘制",
+    "少生图"
+   ]
+  },
+  {
+   "id": "R-剧情-01",
+   "area": "剧情",
+   "rule": "剧情台词按“剧情三道关”：戏眼卡（含每人知道什么）→ 演员法起草（默认 MiniMax，tools_story/minimax_actors.py）→ 冷读审读（子代理只看路线全文），查出的问题记进反例库 story-ai-patterns.md。",
+   "scope": "所有剧情台词",
+   "source": {
+    "date": "2026-10-19",
+    "quote": "现在还是有剧情对话很 ai 化，没有逻辑……开始吧",
+    "doc": ".claude/skills/story-writing/SKILL.md"
+   },
+   "status": "现行"
+  },
+  {
+   "id": "R-剧情-02",
+   "area": "剧情",
+   "rule": "剧情只分开始、培养、游历、终局四部分，不说“第几章”；培养期用“第一年 X 月”，游历只说前段／中段／后段。",
+   "scope": "剧情与设计文档",
+   "source": {
+    "date": "2026-10-10",
+    "quote": "不分章，只分四部分",
+    "doc": "记忆 four-parts-not-chapters"
+   },
+   "status": "现行"
+  },
+  {
+   "id": "R-剧情-03",
+   "area": "剧情",
+   "rule": "剧情不用旁白；不写需要人物动画才看得懂的动作，用对白、静态表情、字幕卡或结果画面表现，要打就走真实战斗。",
+   "scope": "所有剧情台词",
+   "source": {
+    "date": "2026-10-08；2026-10-16",
+    "quote": "剧情不用旁白；当前技术做不了剧情动画",
+    "doc": "xiaojianghu/docs/design/story-writing.md"
+   },
+   "status": "现行"
+  },
+  {
+   "id": "R-剧情-04",
+   "area": "剧情",
+   "rule": "台词单一来源是 ink 剧本（xiaojianghu-legacy-prologue/story/）；JS 里不写台词；一场戏要么整场在 ink、要么整场在 JS。改动已批准的剧本，构建会停下，须用户确认后 --approve。",
+   "scope": "已迁移的剧情",
+   "source": {
+    "date": "2026-10-18",
+    "quote": "批准，开始做第 2 期",
+    "doc": "xiaojianghu/docs/design/story-source-migration.md"
+   },
+   "status": "现行"
+  },
+  {
+   "id": "R-剧情-05",
+   "area": "剧情",
+   "rule": "设定以 xiaojianghu/bible/ 为单一来源；定稿事实表里锁定的条目只有用户同意才能改；不自编新人物、门派、身世，需要时先列给用户拍板（用户授权代定的除外，并记入事实表）。",
+   "scope": "设定与剧情",
+   "source": {
+    "date": "2026-10-18",
+    "quote": "需要考虑 ai 是否可以在生成新内容的时候不会去推翻旧的内容",
+    "doc": "xiaojianghu/docs/design/story-source-migration.md#8"
+   },
+   "status": "现行"
+  },
+  {
+   "id": "R-剧情-06",
+   "area": "剧情",
+   "rule": "单句搭话也要按人写：不同的人不说同一句话，随从、路人按所属拉开口吻，反复搭话要有轮换。",
+   "scope": "所有剧情台词",
+   "source": {
+    "date": "2026-10-19",
+    "quote": "那三个女主的小弟台词也还是一模一样的",
+    "doc": "xiaojianghu/docs/design/story-ai-patterns.md"
+   },
+   "status": "现行"
+  },
+  {
+   "id": "R-时间-01",
+   "area": "系统",
+   "rule": "时间方案 A（逸剑式）：主线推进时间，活动不耗时，无全局昼夜交替，夜晚只做特殊剧情或场景；培养模式（36 月、时段、体力）另算。",
+   "scope": "城镇、大地图、支线设计",
+   "source": {
+    "date": "2026-10-10",
+    "quote": "（对照逸剑风云决后选定方案 A）",
+    "doc": "记忆 story-driven-time"
+   },
+   "status": "现行",
+   "stale": [
+    "耗一个时段",
+    "扣几日"
+   ]
+  },
+  {
+   "id": "R-主线-01",
+   "area": "系统",
+   "rule": "主线由任务推动（找对应的人、对方先开口、选【主线】确认），不靠睡觉推进时间。",
+   "scope": "栖河与后续主线",
+   "source": {
+    "date": "2026-10-17",
+    "quote": "主线任务驱动而非睡觉推进",
+    "doc": "xiaojianghu-legacy-prologue/docs/updates/2026-10-17-playtest-rework.md"
+   },
+   "status": "现行"
+  },
+  {
+   "id": "R-素材-01",
+   "area": "素材",
+   "rule": "正式素材必须登记在 docs/assets/production-assets.json/.md 并同步 js/production-assets.js；python3 tools_assets/check_production.py 必须 pass。旧文件不覆盖，新版另起文件名。",
+   "scope": "栖河素材",
+   "source": {
+    "date": "早于 2026-10-07",
+    "quote": "（导入引导）",
+    "doc": "xiaojianghu/docs/ai-onboarding.md"
+   },
+   "status": "现行"
+  },
+  {
+   "id": "R-清理-01",
+   "area": "素材",
+   "rule": "旧的、被否定的素材与剧情稿不再复用；只保留硬依赖；清理由 Claude 代为决策，不把长清单丢给用户逐条勾选；移动到 _attic/<日期>/ 并写 manifest.json 与 restore.sh，不真正删除。",
+   "scope": "清理",
+   "source": {
+    "date": "2026-10-08；2026-10-18 重申",
+    "quote": "还是你去帮我做决策吧；把不合适的剔除点",
+    "doc": "记忆 discard-old-assets"
+   },
+   "status": "现行"
+  },
+  {
+   "id": "R-清理-02",
+   "area": "素材",
+   "rule": "被弃用的功能不得留在运行代码里（含加后缀能进的演示、测试画风预览）；评审工具留在本地，不进发布包，新增评审脚本或 URL 开关要登记到 scripts/build-pages.cjs 的 REVIEW_SCRIPTS／REVIEW_PARAMS。",
+   "scope": "栖河运行代码与发布",
+   "source": {
+    "date": "2026-10-19",
+    "quote": "这种被弃用的不应该还放在一起污染代码",
+    "doc": "xiaojianghu-legacy-prologue/docs/updates/2026-10-19-deprecated-entries.md"
+   },
+   "status": "现行"
+  },
+  {
+   "id": "R-发布-01",
+   "area": "发布",
+   "rule": "发布到线上须得到用户本轮许可；用 node scripts/build-pages.cjs 构建（含素材检查、剧本检查、文档检查），再 wrangler 部署 main 与 qihe 两个分支，发布后 curl 核对。",
+   "scope": "栖河发布",
+   "source": {
+    "date": "2026-10-16 前后",
+    "quote": "发布须得到用户本轮许可",
+    "doc": "xiaojianghu-legacy-prologue/DEPLOY.md"
+   },
+   "status": "现行"
+  },
+  {
+   "id": "R-测试-01",
+   "area": "验证",
+   "rule": "改动后跑相关测试，结果不得比改动前差（原本失败的保持同样失败点）；可在浏览器看到的改动要实机验证并给出证据。",
+   "scope": "全部开发",
+   "source": {
+    "date": "早于 2026-10-07",
+    "quote": "（导入引导与会话约定）",
+    "doc": "xiaojianghu/docs/ai-onboarding.md"
+   },
+   "status": "现行"
+  },
+  {
+   "id": "R-文档-01",
+   "area": "文档",
+   "rule": "每次改动在对应工作区 docs/updates/ 写更新记录：需求原话、改了什么、验证结果、未做与待拍板。",
+   "scope": "全部开发",
+   "source": {
+    "date": "早于 2026-10-07",
+    "quote": "（导入引导）",
+    "doc": "xiaojianghu/docs/ai-onboarding.md"
+   },
+   "status": "现行"
+  },
+  {
+   "id": "R-文档-02",
+   "area": "文档",
+   "rule": "开发、系统、流程、边界类规则只在本登记表写正文，其他文档引用编号；规则的新增、修改、废止须用户批准。现行文档页首写状态（现行／历史／草稿）与最后核对日期，历史文档移入 archive。",
+   "scope": "全部文档",
+   "source": {
+    "date": "2026-10-19",
+    "quote": "开始吧，按这个顺序做",
+    "doc": "xiaojianghu/docs/rules/README.md"
+   },
+   "status": "现行"
+  },
+  {
+   "id": "R-子任务-01",
+   "area": "协作",
+   "rule": "派子任务（后台代理）时，按任务类型从本登记表挑出相关规则附进任务说明；子任务汇报里出现“没走流程”“偏离规则”的，不得放行、接线或发布。",
+   "scope": "主会话",
+   "source": {
+    "date": "2026-10-19",
+    "quote": "（由特效未走评审流程的教训得出，用户确认方案）",
+    "doc": "xiaojianghu/docs/rules/README.md"
+   },
+   "status": "现行"
+  }
+ ]
+}

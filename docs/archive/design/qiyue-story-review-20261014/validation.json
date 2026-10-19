@@ -1,0 +1,33 @@
+{
+  "status": "pass",
+  "scope": "draft schema, dependency DAG, speaking-cast presence, independent recruitment ancestors, explicit notice and illustrative arithmetic; NOT runtime or full calendar validation",
+  "scenes": 24,
+  "mainLines": 192,
+  "branchLines": 152,
+  "variantCount": 3,
+  "liuDependencyPath": [
+    "L01",
+    "L02",
+    "L03",
+    "L04",
+    "L05",
+    "L06",
+    "L06B",
+    "L07",
+    "QY01",
+    "QY03"
+  ],
+  "qinDependencyPath": [
+    "QF02",
+    "QF03",
+    "QF04A",
+    "QF04B",
+    "QF05",
+    "QF06A",
+    "QF06B",
+    "QF06C",
+    "QY01",
+    "QY02"
+  ],
+  "errors": []
+}

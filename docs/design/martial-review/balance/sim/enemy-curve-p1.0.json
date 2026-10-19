@@ -1,0 +1,257 @@
+{
+ "version": "ENEMY-CURVE-1",
+ "note": "由 combat_sim.cjs --calibrate 生成：按目标回合数与每回合承伤反推的敌人血量、攻击系数（乘在阶段锚点与敌人模板之上）。",
+ "target": {
+  "normal": {
+   "rounds": 4
+  },
+  "elite": {
+   "rounds": 6
+  },
+  "boss": {
+   "rounds": 8.5
+  }
+ },
+ "curve": {
+  "first_courses": {
+   "normal": {
+    "hp": 1.399,
+    "atk": 1.327,
+    "observedTaken": 0.109,
+    "observedRounds": 3.98
+   },
+   "elite": {
+    "hp": 1.861,
+    "atk": 1.254,
+    "observedTaken": 0.065,
+    "observedRounds": 5.89
+   },
+   "boss": {
+    "hp": 0.908,
+    "atk": 0.994,
+    "observedTaken": 0.074,
+    "observedRounds": 8.71
+   }
+  },
+  "xiangyang": {
+   "normal": {
+    "hp": 1.547,
+    "atk": 1.366,
+    "observedTaken": 0.072,
+    "observedRounds": 3.96
+   },
+   "elite": {
+    "hp": 2.005,
+    "atk": 1.291,
+    "observedTaken": 0.042,
+    "observedRounds": 6
+   },
+   "boss": {
+    "hp": 0.985,
+    "atk": 1.023,
+    "observedTaken": 0.053,
+    "observedRounds": 8.5
+   }
+  },
+  "year1_end": {
+   "normal": {
+    "hp": 1.582,
+    "atk": 1.408,
+    "observedTaken": 0.073,
+    "observedRounds": 3.98
+   },
+   "elite": {
+    "hp": 2.086,
+    "atk": 1.332,
+    "observedTaken": 0.04,
+    "observedRounds": 6
+   },
+   "boss": {
+    "hp": 1.048,
+    "atk": 1.055,
+    "observedTaken": 0.053,
+    "observedRounds": 8.52
+   }
+  },
+  "year2_mid": {
+   "normal": {
+    "hp": 1.669,
+    "atk": 1.482,
+    "observedTaken": 0.058,
+    "observedRounds": 3.97
+   },
+   "elite": {
+    "hp": 2.177,
+    "atk": 1.401,
+    "observedTaken": 0.03,
+    "observedRounds": 5.98
+   },
+   "boss": {
+    "hp": 1.15,
+    "atk": 1.11,
+    "observedTaken": 0.039,
+    "observedRounds": 8.51
+   }
+  },
+  "year2_end": {
+   "normal": {
+    "hp": 1.736,
+    "atk": 1.541,
+    "observedTaken": 0.056,
+    "observedRounds": 3.96
+   },
+   "elite": {
+    "hp": 2.236,
+    "atk": 1.458,
+    "observedTaken": 0.03,
+    "observedRounds": 5.99
+   },
+   "boss": {
+    "hp": 1.203,
+    "atk": 1.155,
+    "observedTaken": 0.038,
+    "observedRounds": 8.52
+   }
+  },
+  "graduation": {
+   "normal": {
+    "hp": 1.73,
+    "atk": 1.626,
+    "observedTaken": 0.055,
+    "observedRounds": 3.96
+   },
+   "elite": {
+    "hp": 2.218,
+    "atk": 1.538,
+    "observedTaken": 0.029,
+    "observedRounds": 5.98
+   },
+   "boss": {
+    "hp": 1.203,
+    "atk": 1.219,
+    "observedTaken": 0.037,
+    "observedRounds": 8.47
+   }
+  },
+  "travel_entry": {
+   "normal": {
+    "hp": 2.084,
+    "atk": 1.64,
+    "observedTaken": 0.053,
+    "observedRounds": 3.87
+   },
+   "elite": {
+    "hp": 2.294,
+    "atk": 1.551,
+    "observedTaken": 0.029,
+    "observedRounds": 5.97
+   },
+   "boss": {
+    "hp": 1.206,
+    "atk": 1.229,
+    "observedTaken": 0.035,
+    "observedRounds": 8.5
+   }
+  },
+  "travel_mid": {
+   "normal": {
+    "hp": 2.077,
+    "atk": 1.778,
+    "observedTaken": 0.051,
+    "observedRounds": 3.92
+   },
+   "elite": {
+    "hp": 2.207,
+    "atk": 1.681,
+    "observedTaken": 0.029,
+    "observedRounds": 5.97
+   },
+   "boss": {
+    "hp": 1.175,
+    "atk": 1.332,
+    "observedTaken": 0.035,
+    "observedRounds": 8.53
+   }
+  },
+  "chapter14": {
+   "normal": {
+    "hp": 2.147,
+    "atk": 1.842,
+    "observedTaken": 0.051,
+    "observedRounds": 3.96
+   },
+   "elite": {
+    "hp": 2.242,
+    "atk": 1.742,
+    "observedTaken": 0.032,
+    "observedRounds": 5.95
+   },
+   "boss": {
+    "hp": 1.205,
+    "atk": 1.381,
+    "observedTaken": 0.034,
+    "observedRounds": 8.5
+   }
+  },
+  "chapter17": {
+   "normal": {
+    "hp": 1.998,
+    "atk": 1.921,
+    "observedTaken": 0.055,
+    "observedRounds": 4
+   },
+   "elite": {
+    "hp": 2.192,
+    "atk": 1.816,
+    "observedTaken": 0.033,
+    "observedRounds": 6.01
+   },
+   "boss": {
+    "hp": 1.162,
+    "atk": 1.439,
+    "observedTaken": 0.037,
+    "observedRounds": 8.44
+   }
+  },
+  "chapter18": {
+   "normal": {
+    "hp": 2.117,
+    "atk": 1.953,
+    "observedTaken": 0.056,
+    "observedRounds": 3.98
+   },
+   "elite": {
+    "hp": 2.253,
+    "atk": 1.846,
+    "observedTaken": 0.031,
+    "observedRounds": 6
+   },
+   "boss": {
+    "hp": 1.176,
+    "atk": 1.463,
+    "observedTaken": 0.036,
+    "observedRounds": 8.45
+   }
+  },
+  "finale": {
+   "normal": {
+    "hp": 2.29,
+    "atk": 1.985,
+    "observedTaken": 0.055,
+    "observedRounds": 4
+   },
+   "elite": {
+    "hp": 2.324,
+    "atk": 1.877,
+    "observedTaken": 0.03,
+    "observedRounds": 6.02
+   },
+   "boss": {
+    "hp": 1.205,
+    "atk": 1.487,
+    "observedTaken": 0.035,
+    "observedRounds": 8.43
+   }
+  }
+ }
+}

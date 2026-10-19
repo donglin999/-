@@ -1,0 +1,167 @@
+{
+  "version": "STORY-2026-10-16.1",
+  "scope": "设计与登记核对，不是游戏/美术/完整平衡验收",
+  "contract": {
+    "status": "pass",
+    "errors": [],
+    "companions": 19,
+    "characters": 47,
+    "maps": 24,
+    "nodes": 25,
+    "loops": 6,
+    "publicPaths": [
+      {
+        "regions": [
+          "NORTH",
+          "RIVER"
+        ],
+        "route": "END-ACT-ALLIANCE",
+        "passed": true
+      },
+      {
+        "regions": [
+          "NORTH",
+          "RIVER"
+        ],
+        "route": "END-ACT-GUIJIN",
+        "passed": true
+      },
+      {
+        "regions": [
+          "NORTH",
+          "RIVER"
+        ],
+        "route": "END-ACT-COURT",
+        "passed": true
+      },
+      {
+        "regions": [
+          "NORTH",
+          "RIVER"
+        ],
+        "route": "END-ACT-FREE",
+        "passed": true
+      },
+      {
+        "regions": [
+          "NORTH",
+          "SECT"
+        ],
+        "route": "END-ACT-ALLIANCE",
+        "passed": true
+      },
+      {
+        "regions": [
+          "NORTH",
+          "SECT"
+        ],
+        "route": "END-ACT-GUIJIN",
+        "passed": true
+      },
+      {
+        "regions": [
+          "NORTH",
+          "SECT"
+        ],
+        "route": "END-ACT-COURT",
+        "passed": true
+      },
+      {
+        "regions": [
+          "NORTH",
+          "SECT"
+        ],
+        "route": "END-ACT-FREE",
+        "passed": true
+      },
+      {
+        "regions": [
+          "RIVER",
+          "SECT"
+        ],
+        "route": "END-ACT-ALLIANCE",
+        "passed": true
+      },
+      {
+        "regions": [
+          "RIVER",
+          "SECT"
+        ],
+        "route": "END-ACT-GUIJIN",
+        "passed": true
+      },
+      {
+        "regions": [
+          "RIVER",
+          "SECT"
+        ],
+        "route": "END-ACT-COURT",
+        "passed": true
+      },
+      {
+        "regions": [
+          "RIVER",
+          "SECT"
+        ],
+        "route": "END-ACT-FREE",
+        "passed": true
+      }
+    ],
+    "scope": "静态设计结构核对；假定培养外部前提和公开筹备已完成，不是游戏执行或数值验证",
+    "negativeCases": {
+      "missing_scene_rejected": true,
+      "dependency_cycle_rejected": true
+    }
+  },
+  "consistency": {
+    "baselineTotal": 221,
+    "baselineWarn": 0,
+    "finalTotal": 204,
+    "finalWarn": 0,
+    "summary": {
+      "age": {
+        "warn": 0,
+        "info": 11,
+        "files": 4
+      },
+      "four-parts-not-chapters": {
+        "warn": 0,
+        "info": 174,
+        "files": 174
+      },
+      "gamemaker-terms": {
+        "warn": 0,
+        "info": 18,
+        "files": 15
+      },
+      "hero-guiyun-look": {
+        "warn": 0,
+        "info": 1,
+        "files": 1
+      }
+    },
+    "remainingInfoPolicy": "旧技术章节引用、美术版本及历史记录保留；当前目标负责文档逐项改正，不用清空规则掩盖提示"
+  },
+  "atlas": {
+    "automaticPassed": 21,
+    "failures": [],
+    "pending": [
+      "新增人物六轴图谱登记待补",
+      "具体行程待排期",
+      "参考立绘待评审",
+      "吃醋数值与前辈细节待评审"
+    ],
+    "generatedFiles": 7
+  },
+  "generatedJavaScriptSyntax": "node --check passed",
+  "sourceHashes": {
+    "story-atlas.json": "265c717ac41fe58778ab3e02416c76b233a96db1aa6b895cb6328718b5b6f69d",
+    "faction-attire.json": "50220cc46a7baa330322efdd960f244829b40ec20f62f8ae71baf018de3eaaa2",
+    "story-framework-review.md": "0c54b491bf8d9bd09a9c68fee79da3aae8ee73c26412e284900511a2af64700f",
+    "story-travel-review.md": "6b0d281b2f5fdac0332eba98e4321462ea5edbb336d3b6ea7594141da2cb35c9",
+    "story-endgame-review.md": "8e859a6ec44ceb0097a657496718bd33cf40236cc6ad732045d3350c3004319c",
+    "story-rework-20261016/regions.json": "13ac402e5f875810989d2e2f8d70a6bd69789cb2677ec88fe9aa742b66bc2c85",
+    "story-rework-20261016/companion-atlas-delta.json": "e42bde95db1883a600383cc19d5e2c3adea0de63238c20016f408bafda3be1ec",
+    "story-rework-20261016/faction-atlas-delta.json": "5ced267c08fdfd56d52ea3e0d40a6ad4eedfc2699e22619e5ce14e5ec7ebd88a"
+  }
+}

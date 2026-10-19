@@ -1,0 +1,1129 @@
+{
+  "version": 1,
+  "date": "2026-10-05",
+  "source_catalog": "art_sources/voice_sync_20261005/system-voice-catalog.json",
+  "characters": [
+    {
+      "id": "ye",
+      "name": "叶蘅",
+      "group": "可加入同伴",
+      "voice_mode": "full",
+      "gender": "女",
+      "age": 22,
+      "por": "",
+      "persona": "22岁成年；关心具体，担忧时会多问药和行程，后来学会直接表达。",
+      "voice_direction": "清亮利落的成年女声；关心落到具体问题，担忧会多问，认真时直说，不演幼童或甜腻撒娇。",
+      "cands": [
+        {
+          "slug": "sync_1",
+          "voice_id": "Chinese (Mandarin)_Gentle_Senior",
+          "name": "温柔学姐 · 叶蘅候选",
+          "pitch": 0,
+          "speed": 1.0,
+          "generation_mode": "system",
+          "casting_rationale": "清亮利落的成年女声；关心落到具体问题，担忧会多问，认真时直说，不演幼童或甜腻撒娇。"
+        }
+      ],
+      "preserve_existing_candidates": true,
+      "preview_priority": 2
+    },
+    {
+      "id": "suzhi",
+      "name": "苏芷",
+      "group": "可加入同伴",
+      "voice_mode": "full",
+      "gender": "女",
+      "age": 27,
+      "por": "",
+      "persona": "27岁成年；短句、温和但明确，解释疗程时有耐心。",
+      "voice_direction": "温和明确的成年女医；短句指令清楚，解释疗程有耐心，笑意克制，避免冷漠机械播报。",
+      "cands": [
+        {
+          "slug": "sync_1",
+          "voice_id": "danya_xuejie",
+          "name": "淡雅学姐 · 苏芷候选",
+          "pitch": 0,
+          "speed": 1.0,
+          "generation_mode": "system",
+          "casting_rationale": "温和明确的成年女医；短句指令清楚，解释疗程有耐心，笑意克制，避免冷漠机械播报。"
+        }
+      ],
+      "preserve_existing_candidates": true,
+      "preview_priority": 2
+    },
+    {
+      "id": "tang-zhaoxue",
+      "name": "唐照雪",
+      "group": "可加入同伴",
+      "voice_mode": "full",
+      "gender": "女",
+      "age": 23,
+      "por": "",
+      "persona": "23岁成年；快而清楚，夸剑招直截了当，受挫时嘴硬。",
+      "voice_direction": "明亮清楚的成年女声；利落直说，夸招不拐弯，受挫嘴硬有短顿，不全程喊叫。",
+      "cands": [
+        {
+          "slug": "sync_1",
+          "voice_id": "Chinese (Mandarin)_Crisp_Girl",
+          "name": "清脆少女 · 唐照雪候选",
+          "pitch": 0,
+          "speed": 1.02,
+          "generation_mode": "system",
+          "casting_rationale": "明亮清楚的成年女声；利落直说，夸招不拐弯，受挫嘴硬有短顿，不全程喊叫。"
+        },
+        {
+          "slug": "sync_2",
+          "voice_id": "female-shaonv",
+          "name": "少女音色 · 唐照雪候选",
+          "pitch": 0,
+          "speed": 1.02,
+          "generation_mode": "system",
+          "casting_rationale": "明亮清楚的成年女声；利落直说，夸招不拐弯，受挫嘴硬有短顿，不全程喊叫。"
+        },
+        {
+          "slug": "sync_3",
+          "voice_id": "female-yujie",
+          "name": "御姐音色 · 唐照雪候选",
+          "pitch": 0,
+          "speed": 1.02,
+          "generation_mode": "system",
+          "casting_rationale": "明亮清楚的成年女声；利落直说，夸招不拐弯，受挫嘴硬有短顿，不全程喊叫。"
+        }
+      ],
+      "preserve_existing_candidates": false,
+      "preview_priority": 2
+    },
+    {
+      "id": "duan-mingtang",
+      "name": "段明棠",
+      "group": "可加入同伴",
+      "voice_mode": "full",
+      "gender": "女",
+      "age": 25,
+      "por": "",
+      "persona": "25岁成年；笑声开朗、说话实在，算账时意外仔细。",
+      "voice_direction": "扎实开朗的成年女声；笑声痛快，工钱问题咬字认真，带爽直气息，避免娇嗲。",
+      "cands": [
+        {
+          "slug": "sync_1",
+          "voice_id": "female-yujie",
+          "name": "御姐音色 · 段明棠候选",
+          "pitch": 0,
+          "speed": 1.02,
+          "generation_mode": "system",
+          "casting_rationale": "扎实开朗的成年女声；笑声痛快，工钱问题咬字认真，带爽直气息，避免娇嗲。"
+        },
+        {
+          "slug": "sync_2",
+          "voice_id": "female-chengshu",
+          "name": "成熟女性音色 · 段明棠候选",
+          "pitch": 0,
+          "speed": 1.02,
+          "generation_mode": "system",
+          "casting_rationale": "扎实开朗的成年女声；笑声痛快，工钱问题咬字认真，带爽直气息，避免娇嗲。"
+        },
+        {
+          "slug": "sync_3",
+          "voice_id": "Chinese (Mandarin)_Crisp_Girl",
+          "name": "清脆少女 · 段明棠候选",
+          "pitch": 0,
+          "speed": 1.02,
+          "generation_mode": "system",
+          "casting_rationale": "扎实开朗的成年女声；笑声痛快，工钱问题咬字认真，带爽直气息，避免娇嗲。"
+        }
+      ],
+      "preserve_existing_candidates": false,
+      "preview_priority": 2
+    },
+    {
+      "id": "wen-shutong",
+      "name": "闻疏桐",
+      "group": "可加入同伴",
+      "voice_mode": "full",
+      "gender": "女",
+      "age": 22,
+      "por": "",
+      "persona": "22岁成年；轻声慢句，观察具体，偶尔一句冷幽默。",
+      "voice_direction": "沉静略低的清晰成年女声；轻声慢句，核路时具体，拒交避难地图时有界限，避免气声魅惑。",
+      "cands": [
+        {
+          "slug": "sync_1",
+          "voice_id": "female-shaonv",
+          "name": "少女音色 · 闻疏桐候选",
+          "pitch": 0,
+          "speed": 0.93,
+          "generation_mode": "system",
+          "casting_rationale": "沉静略低的清晰成年女声；轻声慢句，核路时具体，拒交避难地图时有界限，避免气声魅惑。"
+        },
+        {
+          "slug": "sync_2",
+          "voice_id": "female-chengshu",
+          "name": "成熟女性音色 · 闻疏桐候选",
+          "pitch": 0,
+          "speed": 0.93,
+          "generation_mode": "system",
+          "casting_rationale": "沉静略低的清晰成年女声；轻声慢句，核路时具体，拒交避难地图时有界限，避免气声魅惑。"
+        },
+        {
+          "slug": "sync_3",
+          "voice_id": "Chinese (Mandarin)_Soft_Girl",
+          "name": "软软女孩 · 闻疏桐候选",
+          "pitch": 0,
+          "speed": 0.93,
+          "generation_mode": "system",
+          "casting_rationale": "沉静略低的清晰成年女声；轻声慢句，核路时具体，拒交避难地图时有界限，避免气声魅惑。"
+        }
+      ],
+      "preserve_existing_candidates": false,
+      "preview_priority": 1
+    },
+    {
+      "id": "cen-shuang",
+      "name": "岑霜",
+      "group": "可加入同伴",
+      "voice_mode": "full",
+      "gender": "女",
+      "age": 29,
+      "por": "",
+      "persona": "29岁成年；语速从容，会靠近半步、停顿和调笑控制谈话，但对明确拒绝收住。",
+      "voice_direction": "成熟从容的成年女声；调笑用停顿与笑意，算账不含糊，承担责任时收住笑，不持续喘息。",
+      "cands": [
+        {
+          "slug": "sync_1",
+          "voice_id": "wumei_yujie",
+          "name": "妩媚御姐 · 岑霜候选",
+          "pitch": 0,
+          "speed": 0.96,
+          "generation_mode": "system",
+          "casting_rationale": "成熟从容的成年女声；调笑用停顿与笑意，算账不含糊，承担责任时收住笑，不持续喘息。"
+        },
+        {
+          "slug": "sync_2",
+          "voice_id": "Chinese (Mandarin)_Wise_Women",
+          "name": "阅历姐姐 · 岑霜候选",
+          "pitch": 0,
+          "speed": 0.96,
+          "generation_mode": "system",
+          "casting_rationale": "成熟从容的成年女声；调笑用停顿与笑意，算账不含糊，承担责任时收住笑，不持续喘息。"
+        },
+        {
+          "slug": "sync_3",
+          "voice_id": "female-chengshu-jingpin",
+          "name": "成熟女性音色-beta · 岑霜候选",
+          "pitch": 0,
+          "speed": 0.96,
+          "generation_mode": "system",
+          "casting_rationale": "成熟从容的成年女声；调笑用停顿与笑意，算账不含糊，承担责任时收住笑，不持续喘息。"
+        }
+      ],
+      "preserve_existing_candidates": false,
+      "preview_priority": 2
+    },
+    {
+      "id": "xu-lingyi",
+      "name": "徐令仪",
+      "group": "可加入同伴",
+      "voice_mode": "full",
+      "gender": "女",
+      "age": 26,
+      "por": "",
+      "persona": "26岁成年；措辞整齐，紧张时过于客气；放松后会自嘲。",
+      "voice_direction": "端整清晰的成年女声；措辞有层次，紧张时过于客气，放松后有自嘲；去掉持续播报腔。",
+      "cands": [
+        {
+          "slug": "sync_1",
+          "voice_id": "Chinese (Mandarin)_News_Anchor",
+          "name": "新闻女声 · 徐令仪候选",
+          "pitch": 0,
+          "speed": 0.98,
+          "generation_mode": "system",
+          "casting_rationale": "端整清晰的成年女声；措辞有层次，紧张时过于客气，放松后有自嘲；去掉持续播报腔。"
+        },
+        {
+          "slug": "sync_2",
+          "voice_id": "Chinese (Mandarin)_Wise_Women",
+          "name": "阅历姐姐 · 徐令仪候选",
+          "pitch": 0,
+          "speed": 0.98,
+          "generation_mode": "system",
+          "casting_rationale": "端整清晰的成年女声；措辞有层次，紧张时过于客气，放松后有自嘲；去掉持续播报腔。"
+        },
+        {
+          "slug": "sync_3",
+          "voice_id": "female-yujie-jingpin",
+          "name": "御姐音色-beta · 徐令仪候选",
+          "pitch": 0,
+          "speed": 0.98,
+          "generation_mode": "system",
+          "casting_rationale": "端整清晰的成年女声；措辞有层次，紧张时过于客气，放松后有自嘲；去掉持续播报腔。"
+        }
+      ],
+      "preserve_existing_candidates": false,
+      "preview_priority": 2
+    },
+    {
+      "id": "shen-yanhui",
+      "name": "沈雁回",
+      "group": "可加入同伴",
+      "voice_mode": "full",
+      "gender": "女",
+      "age": 24,
+      "por": "",
+      "persona": "24岁成年；问话到具体时辰，休值会学街头叫卖。",
+      "voice_direction": "紧凑干练的成年女声；问话落到时辰，守界限短句有分量，休值才轻快，避免全程怒吼。",
+      "cands": [
+        {
+          "slug": "sync_1",
+          "voice_id": "female-yujie-jingpin",
+          "name": "御姐音色-beta · 沈雁回候选",
+          "pitch": 0,
+          "speed": 1.0,
+          "generation_mode": "system",
+          "casting_rationale": "紧凑干练的成年女声；问话落到时辰，守界限短句有分量，休值才轻快，避免全程怒吼。"
+        },
+        {
+          "slug": "sync_2",
+          "voice_id": "Chinese (Mandarin)_Crisp_Girl",
+          "name": "清脆少女 · 沈雁回候选",
+          "pitch": 0,
+          "speed": 1.0,
+          "generation_mode": "system",
+          "casting_rationale": "紧凑干练的成年女声；问话落到时辰，守界限短句有分量，休值才轻快，避免全程怒吼。"
+        },
+        {
+          "slug": "sync_3",
+          "voice_id": "Chinese (Mandarin)_News_Anchor",
+          "name": "新闻女声 · 沈雁回候选",
+          "pitch": 0,
+          "speed": 1.0,
+          "generation_mode": "system",
+          "casting_rationale": "紧凑干练的成年女声；问话落到时辰，守界限短句有分量，休值才轻快，避免全程怒吼。"
+        }
+      ],
+      "preserve_existing_candidates": false,
+      "preview_priority": 2
+    },
+    {
+      "id": "yan-xiaolou",
+      "name": "晏小楼",
+      "group": "可加入同伴",
+      "voice_mode": "full",
+      "gender": "女",
+      "age": 23,
+      "por": "",
+      "persona": "23岁成年；接话快、会接梗，卸妆后声音低平；能认真听别人。",
+      "voice_direction": "接话快、有节奏的成年女声；台前会接梗，台下低平认真，创作署名被夺时收笑，避免幼态嬉闹。",
+      "cands": [
+        {
+          "slug": "sync_1",
+          "voice_id": "female-tianmei-jingpin",
+          "name": "甜美女性音色-beta · 晏小楼候选",
+          "pitch": 0,
+          "speed": 1.05,
+          "generation_mode": "system",
+          "casting_rationale": "接话快、有节奏的成年女声；台前会接梗，台下低平认真，创作署名被夺时收笑，避免幼态嬉闹。"
+        },
+        {
+          "slug": "sync_2",
+          "voice_id": "female-shaonv-jingpin",
+          "name": "少女音色-beta · 晏小楼候选",
+          "pitch": 0,
+          "speed": 1.05,
+          "generation_mode": "system",
+          "casting_rationale": "接话快、有节奏的成年女声；台前会接梗，台下低平认真，创作署名被夺时收笑，避免幼态嬉闹。"
+        },
+        {
+          "slug": "sync_3",
+          "voice_id": "Chinese (Mandarin)_Crisp_Girl",
+          "name": "清脆少女 · 晏小楼候选",
+          "pitch": 0,
+          "speed": 1.05,
+          "generation_mode": "system",
+          "casting_rationale": "接话快、有节奏的成年女声；台前会接梗，台下低平认真，创作署名被夺时收笑，避免幼态嬉闹。"
+        }
+      ],
+      "preserve_existing_candidates": false,
+      "preview_priority": 2
+    },
+    {
+      "id": "qiao-xingzhou",
+      "name": "乔行舟",
+      "group": "可加入同伴",
+      "voice_mode": "full",
+      "gender": "女",
+      "age": 27,
+      "por": "",
+      "persona": "27岁成年；话直接，承认不懂很坦然，生气会先收好工具。",
+      "voice_direction": "中低区稳实的成年女声；话直接，承认不懂坦然，超载拒绝果断，干完活笑得放松。",
+      "cands": [
+        {
+          "slug": "sync_1",
+          "voice_id": "female-chengshu-jingpin",
+          "name": "成熟女性音色-beta · 乔行舟候选",
+          "pitch": 0,
+          "speed": 1.0,
+          "generation_mode": "system",
+          "casting_rationale": "中低区稳实的成年女声；话直接，承认不懂坦然，超载拒绝果断，干完活笑得放松。"
+        },
+        {
+          "slug": "sync_2",
+          "voice_id": "female-chengshu",
+          "name": "成熟女性音色 · 乔行舟候选",
+          "pitch": 0,
+          "speed": 1.0,
+          "generation_mode": "system",
+          "casting_rationale": "中低区稳实的成年女声；话直接，承认不懂坦然，超载拒绝果断，干完活笑得放松。"
+        },
+        {
+          "slug": "sync_3",
+          "voice_id": "female-yujie",
+          "name": "御姐音色 · 乔行舟候选",
+          "pitch": 0,
+          "speed": 1.0,
+          "generation_mode": "system",
+          "casting_rationale": "中低区稳实的成年女声；话直接，承认不懂坦然，超载拒绝果断，干完活笑得放松。"
+        }
+      ],
+      "preserve_existing_candidates": false,
+      "preview_priority": 2
+    },
+    {
+      "id": "liu-hanyan",
+      "name": "柳含烟",
+      "group": "可加入同伴",
+      "voice_mode": "full",
+      "gender": "女",
+      "age": 24,
+      "por": "",
+      "persona": "24岁成年；声音轻，拒绝却完整明确；遇到真诚关心会迟疑片刻再回答。",
+      "voice_direction": "轻柔但吐字完整的成年女声；拒绝明确，不气若游丝；遇真心关心迟疑后再答，避免统一媚音。",
+      "cands": [
+        {
+          "slug": "sync_1",
+          "voice_id": "Chinese (Mandarin)_Soft_Girl",
+          "name": "软软女孩 · 柳含烟候选",
+          "pitch": 0,
+          "speed": 0.94,
+          "generation_mode": "system",
+          "casting_rationale": "轻柔但吐字完整的成年女声；拒绝明确，不气若游丝；遇真心关心迟疑后再答，避免统一媚音。"
+        },
+        {
+          "slug": "sync_2",
+          "voice_id": "Chinese (Mandarin)_Warm_Girl",
+          "name": "温暖少女 · 柳含烟候选",
+          "pitch": 0,
+          "speed": 0.94,
+          "generation_mode": "system",
+          "casting_rationale": "轻柔但吐字完整的成年女声；拒绝明确，不气若游丝；遇真心关心迟疑后再答，避免统一媚音。"
+        },
+        {
+          "slug": "sync_3",
+          "voice_id": "female-tianmei",
+          "name": "甜美女性音色 · 柳含烟候选",
+          "pitch": 0,
+          "speed": 0.94,
+          "generation_mode": "system",
+          "casting_rationale": "轻柔但吐字完整的成年女声；拒绝明确，不气若游丝；遇真心关心迟疑后再答，避免统一媚音。"
+        }
+      ],
+      "preserve_existing_candidates": false,
+      "preview_priority": 2
+    },
+    {
+      "id": "qin-feiyuan",
+      "name": "秦绯鸢",
+      "group": "可加入同伴",
+      "voice_mode": "full",
+      "gender": "女",
+      "age": 28,
+      "por": "",
+      "persona": "28岁成年；接话快、带笑、故意轻佻；说真话时收住玩笑，直视对方。",
+      "voice_direction": "明艳外放的成熟成年女声；接话快且带笑，轻佻是试探，保护人或说真话时笑意立即收住。",
+      "cands": [
+        {
+          "slug": "sync_1",
+          "voice_id": "Chinese (Mandarin)_Mature_Woman",
+          "name": "傲娇御姐 · 秦绯鸢候选",
+          "pitch": 0,
+          "speed": 1.04,
+          "generation_mode": "system",
+          "casting_rationale": "明艳外放的成熟成年女声；接话快且带笑，轻佻是试探，保护人或说真话时笑意立即收住。"
+        },
+        {
+          "slug": "sync_2",
+          "voice_id": "wumei_yujie",
+          "name": "妩媚御姐 · 秦绯鸢候选",
+          "pitch": 0,
+          "speed": 1.04,
+          "generation_mode": "system",
+          "casting_rationale": "明艳外放的成熟成年女声；接话快且带笑，轻佻是试探，保护人或说真话时笑意立即收住。"
+        },
+        {
+          "slug": "sync_3",
+          "voice_id": "female-yujie-jingpin",
+          "name": "御姐音色-beta · 秦绯鸢候选",
+          "pitch": 0,
+          "speed": 1.04,
+          "generation_mode": "system",
+          "casting_rationale": "明艳外放的成熟成年女声；接话快且带笑，轻佻是试探，保护人或说真话时笑意立即收住。"
+        }
+      ],
+      "preserve_existing_candidates": false,
+      "preview_priority": 2
+    },
+    {
+      "id": "ruan-qingque",
+      "name": "阮青雀",
+      "group": "可加入同伴",
+      "voice_mode": "full",
+      "gender": "女",
+      "age": 24,
+      "por": "",
+      "persona": "24岁成年；短句接话快，以半句玩笑试探；认真时直说，不装幼态。",
+      "voice_direction": "敏捷清亮的成年女声；半句玩笑试探，短句利落，认真直接承认，不能演成小女孩。",
+      "cands": [
+        {
+          "slug": "sync_1",
+          "voice_id": "female-shaonv-jingpin",
+          "name": "少女音色-beta · 阮青雀候选",
+          "pitch": 0,
+          "speed": 1.06,
+          "generation_mode": "system",
+          "casting_rationale": "敏捷清亮的成年女声；半句玩笑试探，短句利落，认真直接承认，不能演成小女孩。"
+        },
+        {
+          "slug": "sync_2",
+          "voice_id": "Chinese (Mandarin)_Crisp_Girl",
+          "name": "清脆少女 · 阮青雀候选",
+          "pitch": 0,
+          "speed": 1.06,
+          "generation_mode": "system",
+          "casting_rationale": "敏捷清亮的成年女声；半句玩笑试探，短句利落，认真直接承认，不能演成小女孩。"
+        },
+        {
+          "slug": "sync_3",
+          "voice_id": "female-tianmei-jingpin",
+          "name": "甜美女性音色-beta · 阮青雀候选",
+          "pitch": 0,
+          "speed": 1.06,
+          "generation_mode": "system",
+          "casting_rationale": "敏捷清亮的成年女声；半句玩笑试探，短句利落，认真直接承认，不能演成小女孩。"
+        }
+      ],
+      "preserve_existing_candidates": false,
+      "preview_priority": 2
+    },
+    {
+      "id": "shi-changgeng",
+      "name": "石长庚",
+      "group": "可加入同伴",
+      "voice_mode": "full",
+      "gender": "男",
+      "age": 26,
+      "por": "",
+      "persona": "26岁成年；职业与日常相一致，具体短篇条件沿用男性招募表。",
+      "voice_direction": "爽直可靠的成年男声；有生活气，记得饭钱，挺身时响亮但不粗暴，不演老头。",
+      "cands": [
+        {
+          "slug": "sync_1",
+          "voice_id": "Chinese (Mandarin)_Sincere_Adult",
+          "name": "真诚青年 · 石长庚候选",
+          "pitch": 0,
+          "speed": 1.02,
+          "generation_mode": "system",
+          "casting_rationale": "爽直可靠的成年男声；有生活气，记得饭钱，挺身时响亮但不粗暴，不演老头。"
+        },
+        {
+          "slug": "sync_2",
+          "voice_id": "Chinese (Mandarin)_Unrestrained_Young_Man",
+          "name": "不羁青年 · 石长庚候选",
+          "pitch": 0,
+          "speed": 1.02,
+          "generation_mode": "system",
+          "casting_rationale": "爽直可靠的成年男声；有生活气，记得饭钱，挺身时响亮但不粗暴，不演老头。"
+        },
+        {
+          "slug": "sync_3",
+          "voice_id": "male-qn-badao-jingpin",
+          "name": "霸道青年音色-beta · 石长庚候选",
+          "pitch": 0,
+          "speed": 1.02,
+          "generation_mode": "system",
+          "casting_rationale": "爽直可靠的成年男声；有生活气，记得饭钱，挺身时响亮但不粗暴，不演老头。"
+        }
+      ],
+      "preserve_existing_candidates": false,
+      "preview_priority": 2
+    },
+    {
+      "id": "qi-zheng",
+      "name": "戚铮",
+      "group": "可加入同伴",
+      "voice_mode": "full",
+      "gender": "男",
+      "age": 28,
+      "por": "",
+      "persona": "28岁成年；职业与日常相一致，具体短篇条件沿用男性招募表。",
+      "voice_direction": "低平克制的成年男声；报酬时限分开讲，算风险有停顿，难过不煽情，不用反派嘶哑音。",
+      "cands": [
+        {
+          "slug": "sync_1",
+          "voice_id": "Chinese (Mandarin)_Radio_Host",
+          "name": "电台男主播 · 戚铮候选",
+          "pitch": 0,
+          "speed": 0.94,
+          "generation_mode": "system",
+          "casting_rationale": "低平克制的成年男声；报酬时限分开讲，算风险有停顿，难过不煽情，不用反派嘶哑音。"
+        },
+        {
+          "slug": "sync_2",
+          "voice_id": "male-qn-jingying-jingpin",
+          "name": "精英青年音色-beta · 戚铮候选",
+          "pitch": 0,
+          "speed": 0.94,
+          "generation_mode": "system",
+          "casting_rationale": "低平克制的成年男声；报酬时限分开讲，算风险有停顿，难过不煽情，不用反派嘶哑音。"
+        },
+        {
+          "slug": "sync_3",
+          "voice_id": "Chinese (Mandarin)_Reliable_Executive",
+          "name": "沉稳高管 · 戚铮候选",
+          "pitch": 0,
+          "speed": 0.94,
+          "generation_mode": "system",
+          "casting_rationale": "低平克制的成年男声；报酬时限分开讲，算风险有停顿，难过不煽情，不用反派嘶哑音。"
+        }
+      ],
+      "preserve_existing_candidates": false,
+      "preview_priority": 2
+    },
+    {
+      "id": "lu-heng",
+      "name": "陆衡",
+      "group": "可加入同伴",
+      "voice_mode": "full",
+      "gender": "男",
+      "age": 30,
+      "por": "",
+      "persona": "30岁成年；职业与日常相一致，具体短篇条件沿用男性招募表。",
+      "voice_direction": "稳健温厚的成年男声；护送指令短而清楚，先确认同行安全，轻松时能开朴实玩笑。",
+      "cands": [
+        {
+          "slug": "sync_1",
+          "voice_id": "Chinese (Mandarin)_Reliable_Executive",
+          "name": "沉稳高管 · 陆衡候选",
+          "pitch": 0,
+          "speed": 0.98,
+          "generation_mode": "system",
+          "casting_rationale": "稳健温厚的成年男声；护送指令短而清楚，先确认同行安全，轻松时能开朴实玩笑。"
+        },
+        {
+          "slug": "sync_2",
+          "voice_id": "Chinese (Mandarin)_Sincere_Adult",
+          "name": "真诚青年 · 陆衡候选",
+          "pitch": 0,
+          "speed": 0.98,
+          "generation_mode": "system",
+          "casting_rationale": "稳健温厚的成年男声；护送指令短而清楚，先确认同行安全，轻松时能开朴实玩笑。"
+        },
+        {
+          "slug": "sync_3",
+          "voice_id": "Chinese (Mandarin)_Gentle_Youth",
+          "name": "温润青年 · 陆衡候选",
+          "pitch": 0,
+          "speed": 0.98,
+          "generation_mode": "system",
+          "casting_rationale": "稳健温厚的成年男声；护送指令短而清楚，先确认同行安全，轻松时能开朴实玩笑。"
+        }
+      ],
+      "preserve_existing_candidates": false,
+      "preview_priority": 2
+    },
+    {
+      "id": "huo-zhuchen",
+      "name": "霍逐尘",
+      "group": "可加入同伴",
+      "voice_mode": "full",
+      "gender": "男",
+      "age": 28,
+      "por": "",
+      "persona": "28岁成年；职业与日常相一致，具体短篇条件沿用男性招募表。",
+      "voice_direction": "自然略粗的成年男声；爱拆解会多说两句，检修判断具体，对自己修过的器具认真负责。",
+      "cands": [
+        {
+          "slug": "sync_1",
+          "voice_id": "Chinese (Mandarin)_Unrestrained_Young_Man",
+          "name": "不羁青年 · 霍逐尘候选",
+          "pitch": 0,
+          "speed": 1.03,
+          "generation_mode": "system",
+          "casting_rationale": "自然略粗的成年男声；爱拆解会多说两句，检修判断具体，对自己修过的器具认真负责。"
+        },
+        {
+          "slug": "sync_2",
+          "voice_id": "Chinese (Mandarin)_Stubborn_Friend",
+          "name": "嘴硬竹马 · 霍逐尘候选",
+          "pitch": 0,
+          "speed": 1.03,
+          "generation_mode": "system",
+          "casting_rationale": "自然略粗的成年男声；爱拆解会多说两句，检修判断具体，对自己修过的器具认真负责。"
+        },
+        {
+          "slug": "sync_3",
+          "voice_id": "male-qn-jingying-jingpin",
+          "name": "精英青年音色-beta · 霍逐尘候选",
+          "pitch": 0,
+          "speed": 1.03,
+          "generation_mode": "system",
+          "casting_rationale": "自然略粗的成年男声；爱拆解会多说两句，检修判断具体，对自己修过的器具认真负责。"
+        }
+      ],
+      "preserve_existing_candidates": false,
+      "preview_priority": 2
+    },
+    {
+      "id": "pei-zhigu",
+      "name": "裴知古",
+      "group": "可加入同伴",
+      "voice_mode": "full",
+      "gender": "女",
+      "age": 25,
+      "por": "",
+      "persona": "25岁成年；平时慢半拍，提起碑刻史料便连说具体观察；回神直白承认没听清，不撒娇媚笑。",
+      "voice_direction": "自然松缓的成年女声；日常慢半拍、回神直白，发现史料会兴奋连说具体事实，不娇嗲、不半眯魅惑腔。",
+      "cands": [
+        {
+          "slug": "sync_1",
+          "voice_id": "Chinese (Mandarin)_Sweet_Lady",
+          "name": "甜美女声 · 裴知古候选",
+          "pitch": 0,
+          "speed": 0.97,
+          "generation_mode": "system",
+          "casting_rationale": "自然松缓的成年女声；日常慢半拍、回神直白，发现史料会兴奋连说具体事实，不娇嗲、不半眯魅惑腔。"
+        },
+        {
+          "slug": "sync_2",
+          "voice_id": "female-tianmei",
+          "name": "甜美女性音色 · 裴知古候选",
+          "pitch": 0,
+          "speed": 0.97,
+          "generation_mode": "system",
+          "casting_rationale": "自然松缓的成年女声；日常慢半拍、回神直白，发现史料会兴奋连说具体事实，不娇嗲、不半眯魅惑腔。"
+        },
+        {
+          "slug": "sync_3",
+          "voice_id": "Chinese (Mandarin)_Soft_Girl",
+          "name": "软软女孩 · 裴知古候选",
+          "pitch": 0,
+          "speed": 0.97,
+          "generation_mode": "system",
+          "casting_rationale": "自然松缓的成年女声；日常慢半拍、回神直白，发现史料会兴奋连说具体事实，不娇嗲、不半眯魅惑腔。"
+        }
+      ],
+      "preserve_existing_candidates": false,
+      "preview_priority": 0
+    },
+    {
+      "id": "zhouyan",
+      "name": "周砚",
+      "group": "开篇重要角色",
+      "voice_mode": "full",
+      "gender": "男",
+      "age": 44,
+      "age_basis": "canon",
+      "por": "p_opening_zhouyan",
+      "persona": "温厚有界限，不替他人决定的独立游侠；救援短促，收留饭桌回到日常。",
+      "voice_direction": "温厚有界限，不替他人决定的独立游侠；救援短促，收留饭桌回到日常。",
+      "cands": [
+        {
+          "slug": "sync_1",
+          "voice_id": "Chinese (Mandarin)_Gentle_Youth",
+          "name": "温润青年 · 周砚候选",
+          "pitch": 0,
+          "speed": 0.98
+        },
+        {
+          "slug": "sync_2",
+          "voice_id": "Chinese (Mandarin)_Reliable_Executive",
+          "name": "沉稳高管 · 周砚候选",
+          "pitch": 0,
+          "speed": 0.98
+        },
+        {
+          "slug": "sync_3",
+          "voice_id": "Chinese (Mandarin)_Radio_Host",
+          "name": "电台男主播 · 周砚候选",
+          "pitch": 0,
+          "speed": 0.98
+        }
+      ],
+      "preview_priority": 3,
+      "auditions": [
+        {
+          "text": "不用。我给住处，不收你家的东西。",
+          "emotion": "说明",
+          "emotion_api": "calm",
+          "delivery_notes": "温厚有界限，不替他人决定的独立游侠；救援短促，收留饭桌回到日常。；保持吐字和句间停顿，不朗读说明。",
+          "revision": 1
+        },
+        {
+          "text": "趁热吃。吃完碗放着，今晚别争谁洗。",
+          "emotion": "说明",
+          "emotion_api": "calm",
+          "delivery_notes": "温厚有界限，不替他人决定的独立游侠；救援短促，收留饭桌回到日常。；保持吐字和句间停顿，不朗读说明。",
+          "revision": 1
+        },
+        {
+          "text": "收剑，救人！",
+          "emotion": "紧急断喝",
+          "emotion_api": "angry",
+          "delivery_notes": "温厚有界限，不替他人决定的独立游侠；救援短促，收留饭桌回到日常。；保持吐字和句间停顿，不朗读说明。",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "id": "chengduo",
+      "name": "程铎",
+      "group": "开篇重要角色",
+      "voice_mode": "full",
+      "gender": "男",
+      "age": 40,
+      "age_basis": "canon",
+      "por": "p_opening_chengduo",
+      "persona": "成熟利落的巡江司带队人；先救人再固定证据，承认自己的权限有限。",
+      "voice_direction": "成熟利落的巡江司带队人；先救人再固定证据，承认自己的权限有限。",
+      "cands": [
+        {
+          "slug": "sync_1",
+          "voice_id": "male-qn-jingying-jingpin",
+          "name": "精英青年音色-beta · 程铎候选",
+          "pitch": 0,
+          "speed": 0.98
+        },
+        {
+          "slug": "sync_2",
+          "voice_id": "Chinese (Mandarin)_Reliable_Executive",
+          "name": "沉稳高管 · 程铎候选",
+          "pitch": 0,
+          "speed": 0.98
+        },
+        {
+          "slug": "sync_3",
+          "voice_id": "Chinese (Mandarin)_Radio_Host",
+          "name": "电台男主播 · 程铎候选",
+          "pitch": 0,
+          "speed": 0.98
+        }
+      ],
+      "preview_priority": 3,
+      "auditions": [
+        {
+          "text": "征的是药，没让你扣她整个家。列药名、列数目，病人手上的先留着。",
+          "emotion": "说明",
+          "emotion_api": "calm",
+          "delivery_notes": "成熟利落的巡江司带队人；先救人再固定证据，承认自己的权限有限。；保持吐字和句间停顿，不朗读说明。",
+          "revision": 1
+        },
+        {
+          "text": "这次先拦住了。后头怎么查，得看证人和公文。我不能说一句就算办完。",
+          "emotion": "说明",
+          "emotion_api": "calm",
+          "delivery_notes": "成熟利落的巡江司带队人；先救人再固定证据，承认自己的权限有限。；保持吐字和句间停顿，不朗读说明。",
+          "revision": 1
+        },
+        {
+          "text": "人还在里面！",
+          "emotion": "紧急断喝",
+          "emotion_api": "angry",
+          "delivery_notes": "成熟利落的巡江司带队人；先救人再固定证据，承认自己的权限有限。；保持吐字和句间停顿，不朗读说明。",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "id": "wukui",
+      "name": "乌魁",
+      "group": "开篇重要角色",
+      "voice_mode": "full",
+      "gender": "男",
+      "age": 32,
+      "age_basis": "casting_range_not_story_canon",
+      "por": "p_opening_wukui",
+      "persona": "急躁强硬的归烬堂抢匣者；逞凶和慌张有差别，不演妖魔怪物。",
+      "voice_direction": "急躁强硬的归烬堂抢匣者；逞凶和慌张有差别，不演妖魔怪物。",
+      "cands": [
+        {
+          "slug": "sync_1",
+          "voice_id": "male-qn-badao",
+          "name": "霸道青年音色 · 乌魁候选",
+          "pitch": 0,
+          "speed": 0.98
+        },
+        {
+          "slug": "sync_2",
+          "voice_id": "Chinese (Mandarin)_Stubborn_Friend",
+          "name": "嘴硬竹马 · 乌魁候选",
+          "pitch": 0,
+          "speed": 0.98
+        },
+        {
+          "slug": "sync_3",
+          "voice_id": "Chinese (Mandarin)_Unrestrained_Young_Man",
+          "name": "不羁青年 · 乌魁候选",
+          "pitch": 0,
+          "speed": 0.98
+        }
+      ],
+      "preview_priority": 3,
+      "auditions": [
+        {
+          "text": "叶家的？玉匣在哪儿？",
+          "emotion": "说明",
+          "emotion_api": "calm",
+          "delivery_notes": "急躁强硬的归烬堂抢匣者；逞凶和慌张有差别，不演妖魔怪物。；保持吐字和句间停顿，不朗读说明。",
+          "revision": 1
+        },
+        {
+          "text": "谁跟你说买了？那匣子本来就该回归烬堂。",
+          "emotion": "说明",
+          "emotion_api": "calm",
+          "delivery_notes": "急躁强硬的归烬堂抢匣者；逞凶和慌张有差别，不演妖魔怪物。；保持吐字和句间停顿，不朗读说明。",
+          "revision": 1
+        },
+        {
+          "text": "岑霜！他们要带匣子跑！",
+          "emotion": "紧急断喝",
+          "emotion_api": "fearful",
+          "delivery_notes": "急躁强硬的归烬堂抢匣者；逞凶和慌张有差别，不演妖魔怪物。；保持吐字和句间停顿，不朗读说明。",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "id": "aunt",
+      "name": "周婶",
+      "group": "开篇配角",
+      "voice_mode": "single",
+      "gender": "女",
+      "age": 50,
+      "age_basis": "casting_range_not_story_canon",
+      "por": "a_opening_aunt",
+      "persona": "朴实利落的中年村民，照应吃穿，关心实际，不演成高人。",
+      "voice_direction": "朴实利落的中年村民，照应吃穿，关心实际，不演成高人。",
+      "cands": [
+        {
+          "slug": "sync_1",
+          "voice_id": "Chinese (Mandarin)_Kind-hearted_Antie",
+          "name": "热心大婶 · 周婶候选",
+          "pitch": 0,
+          "speed": 0.98
+        },
+        {
+          "slug": "sync_2",
+          "voice_id": "Chinese (Mandarin)_Wise_Women",
+          "name": "阅历姐姐 · 周婶候选",
+          "pitch": 0,
+          "speed": 0.98
+        },
+        {
+          "slug": "sync_3",
+          "voice_id": "female-chengshu",
+          "name": "成熟女性音色 · 周婶候选",
+          "pitch": 0,
+          "speed": 0.98
+        }
+      ],
+      "preview_priority": 3,
+      "auditions": [
+        {
+          "text": "先坐，杵在门口风大。陈伯，把那张榻腾出来。",
+          "emotion": "说明",
+          "emotion_api": "calm",
+          "delivery_notes": "朴实利落的中年村民，照应吃穿，关心实际，不演成高人。；保持吐字和句间停顿，不朗读说明。",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "id": "chen",
+      "name": "陈伯",
+      "group": "开篇配角",
+      "voice_mode": "single",
+      "gender": "男",
+      "age": 61,
+      "age_basis": "casting_range_not_story_canon",
+      "por": "a_opening_chen",
+      "persona": "朴实沉稳的老木匠，说话具体，有生活气，不神秘说教。",
+      "voice_direction": "朴实沉稳的老木匠，说话具体，有生活气，不神秘说教。",
+      "cands": [
+        {
+          "slug": "sync_1",
+          "voice_id": "Chinese (Mandarin)_Humorous_Elder",
+          "name": "搞笑大爷 · 陈伯候选",
+          "pitch": 0,
+          "speed": 0.98
+        },
+        {
+          "slug": "sync_2",
+          "voice_id": "Chinese (Mandarin)_Male_Announcer",
+          "name": "播报男声 · 陈伯候选",
+          "pitch": 0,
+          "speed": 0.98
+        },
+        {
+          "slug": "sync_3",
+          "voice_id": "Chinese (Mandarin)_Reliable_Executive",
+          "name": "沉稳高管 · 陈伯候选",
+          "pitch": 0,
+          "speed": 0.98
+        }
+      ],
+      "preview_priority": 3,
+      "auditions": [
+        {
+          "text": "就两捆绳，我搬走。",
+          "emotion": "说明",
+          "emotion_api": "calm",
+          "delivery_notes": "朴实沉稳的老木匠，说话具体，有生活气，不神秘说教。；保持吐字和句间停顿，不朗读说明。",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "id": "apothecary",
+      "name": "药商",
+      "group": "开篇配角",
+      "voice_mode": "single",
+      "gender": "男",
+      "age": 42,
+      "age_basis": "casting_range_not_story_canon",
+      "por": "a_opening_apothecary",
+      "persona": "略带心虚的药商，澄清传话时躲闪，但不夸张奸笑。",
+      "voice_direction": "略带心虚的药商，澄清传话时躲闪，但不夸张奸笑。",
+      "cands": [
+        {
+          "slug": "sync_1",
+          "voice_id": "Chinese (Mandarin)_Radio_Host",
+          "name": "电台男主播 · 药商候选",
+          "pitch": 0,
+          "speed": 0.98
+        },
+        {
+          "slug": "sync_2",
+          "voice_id": "male-qn-jingying",
+          "name": "精英青年音色 · 药商候选",
+          "pitch": 0,
+          "speed": 0.98
+        },
+        {
+          "slug": "sync_3",
+          "voice_id": "Chinese (Mandarin)_Southern_Young_Man",
+          "name": "南方小哥 · 药商候选",
+          "pitch": 0,
+          "speed": 0.98
+        }
+      ],
+      "preview_priority": 3,
+      "auditions": [
+        {
+          "text": "那几件药具是我收的。有人问，我就说了……箱子我没见过。",
+          "emotion": "说明",
+          "emotion_api": "calm",
+          "delivery_notes": "略带心虚的药商，澄清传话时躲闪，但不夸张奸笑。；保持吐字和句间停顿，不朗读说明。",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "id": "steward",
+      "name": "管事",
+      "group": "开篇配角",
+      "voice_mode": "single",
+      "gender": "男",
+      "age": 46,
+      "age_basis": "casting_range_not_story_canon",
+      "por": "a_opening_steward",
+      "persona": "正道盟索谱管事；客气话里施压，措辞从容，不暴露幕后身份。",
+      "voice_direction": "正道盟索谱管事；客气话里施压，措辞从容，不暴露幕后身份。",
+      "cands": [
+        {
+          "slug": "sync_1",
+          "voice_id": "Chinese (Mandarin)_Reliable_Executive",
+          "name": "沉稳高管 · 管事候选",
+          "pitch": 0,
+          "speed": 0.98
+        },
+        {
+          "slug": "sync_2",
+          "voice_id": "male-qn-jingying",
+          "name": "精英青年音色 · 管事候选",
+          "pitch": 0,
+          "speed": 0.98
+        },
+        {
+          "slug": "sync_3",
+          "voice_id": "Chinese (Mandarin)_Male_Announcer",
+          "name": "播报男声 · 管事候选",
+          "pitch": 0,
+          "speed": 0.98
+        }
+      ],
+      "preview_priority": 3,
+      "auditions": [
+        {
+          "text": "听说令尊留下一部医武功法，外头已经有人打它的主意。姑娘没练过，留在手里反而危险。",
+          "emotion": "说明",
+          "emotion_api": "calm",
+          "delivery_notes": "正道盟索谱管事；客气话里施压，措辞从容，不暴露幕后身份。；保持吐字和句间停顿，不朗读说明。",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "id": "procurement",
+      "name": "采办使",
+      "group": "开篇配角",
+      "voice_mode": "single",
+      "gender": "男",
+      "age": 43,
+      "age_basis": "casting_range_not_story_canon",
+      "por": "a_opening_procurement",
+      "persona": "急于交差的征药采办使，催逼中带公事腔，不和管事共用角色身份。",
+      "voice_direction": "急于交差的征药采办使，催逼中带公事腔，不和管事共用角色身份。",
+      "cands": [
+        {
+          "slug": "sync_1",
+          "voice_id": "Chinese (Mandarin)_Male_Announcer",
+          "name": "播报男声 · 采办使候选",
+          "pitch": 0,
+          "speed": 0.98
+        },
+        {
+          "slug": "sync_2",
+          "voice_id": "male-qn-jingying",
+          "name": "精英青年音色 · 采办使候选",
+          "pitch": 0,
+          "speed": 0.98
+        },
+        {
+          "slug": "sync_3",
+          "voice_id": "Chinese (Mandarin)_Stubborn_Friend",
+          "name": "嘴硬竹马 · 采办使候选",
+          "pitch": 0,
+          "speed": 0.98
+        }
+      ],
+      "preview_priority": 3,
+      "auditions": [
+        {
+          "text": "既然人找到了，把药箱一并带走验。",
+          "emotion": "说明",
+          "emotion_api": "calm",
+          "delivery_notes": "急于交差的征药采办使，催逼中带公事腔，不和管事共用角色身份。；保持吐字和句间停顿，不朗读说明。",
+          "revision": 1
+        }
+      ]
+    }
+  ]
+}

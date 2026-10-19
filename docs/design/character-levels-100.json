@@ -1,0 +1,324 @@
+{
+  "version": "LEVEL-100-DRAFT-2",
+  "level_cap": 100,
+  "cap_status": "user_confirmed",
+  "roster_status": "design_proposal_not_runtime",
+  "source": "character-levels-100.md",
+  "companions": [
+    {
+      "name": "萧白",
+      "first_level": 1,
+      "join_level": 1,
+      "join_window": "开始",
+      "note": "主角，从无武学起步"
+    },
+    {
+      "name": "叶蘅",
+      "first_level": 3,
+      "join_level": 3,
+      "join_window": "开始同行",
+      "note": "基础行医和野外经验高于初来乍到的萧白；独立升级"
+    },
+    {
+      "name": "裴知古",
+      "first_level": 1,
+      "join_level": 3,
+      "join_window": "第一年5月",
+      "note": "进城前两次已完成见闻节点升到3级；此后只累计个人见闻"
+    },
+    {
+      "name": "殷红缨",
+      "first_level": 54,
+      "join_level": 54,
+      "join_window": "第一年8月／除夕／游历补招",
+      "note": "长辈，旧伤限制出力；见专条，不降级假装新人"
+    },
+    {
+      "name": "陆衡",
+      "first_level": 16,
+      "join_level": 22,
+      "join_window": "第二年3月起",
+      "note": "护送经验较多；先于主角具备实战基础"
+    },
+    {
+      "name": "石长庚",
+      "first_level": 14,
+      "join_level": 24,
+      "join_window": "第二年4月起",
+      "note": "拳门护运弟子，攻守稳定"
+    },
+    {
+      "name": "霍逐尘",
+      "first_level": 8,
+      "join_level": 18,
+      "join_window": "第二年6月起",
+      "note": "修械本领不换算成高武力；靠器械与场外专长"
+    },
+    {
+      "name": "戚铮",
+      "first_level": 16,
+      "join_level": 25,
+      "join_window": "第二年6月起",
+      "note": "普通堂众中的熟手，刀路强攻"
+    },
+    {
+      "name": "阮青雀",
+      "first_level": 10,
+      "join_level": 30,
+      "join_window": "游历前段",
+      "note": "身法与拆解特长，正面对攻弱"
+    },
+    {
+      "name": "苏芷",
+      "first_level": 12,
+      "join_level": 32,
+      "join_window": "游历前段",
+      "note": "医疗支援；不能因医术高就给宗师战斗等级"
+    },
+    {
+      "name": "晏小楼",
+      "first_level": 12,
+      "join_level": 34,
+      "join_window": "游历前段",
+      "note": "机动与暗器，后台保护比拼伤害重要"
+    },
+    {
+      "name": "乔行舟",
+      "first_level": 12,
+      "join_level": 32,
+      "join_window": "游历前段",
+      "note": "水路、撑篙与护送，起步输出"
+    },
+    {
+      "name": "徐令仪",
+      "first_level": 22,
+      "join_level": 36,
+      "join_window": "游历前段",
+      "note": "剑路协同、BP支援，输出低于纯剑客"
+    },
+    {
+      "name": "闻疏桐",
+      "first_level": 20,
+      "join_level": 36,
+      "join_window": "游历前段",
+      "note": "身法与阵势支援，单人输出中等"
+    },
+    {
+      "name": "段明棠",
+      "first_level": 26,
+      "join_level": 38,
+      "join_window": "游历前段",
+      "note": "拳掌承压、护卫，既有拳馆经历"
+    },
+    {
+      "name": "沈雁回",
+      "first_level": 24,
+      "join_level": 38,
+      "join_window": "游历前段至中段",
+      "note": "棍路控制；民间委办身份不等于高阶官职"
+    },
+    {
+      "name": "唐照雪",
+      "first_level": 24,
+      "join_level": 40,
+      "join_window": "游历前段至中段",
+      "note": "同辈剑手，绝学留到个人篇以后"
+    },
+    {
+      "name": "岑霜",
+      "first_level": 38,
+      "join_level": 58,
+      "join_window": "游历中段",
+      "note": "独门软鞭；本轮确认的兵器方向，压制与护退路"
+    },
+    {
+      "name": "柳含烟",
+      "first_level": 8,
+      "join_level": 46,
+      "join_window": "游历中段",
+      "note": "较晚入队的支援位；两年基本功和护身训练需剧情交代"
+    },
+    {
+      "name": "秦绯鸢",
+      "first_level": 14,
+      "join_level": 48,
+      "join_window": "游历中段",
+      "note": "铁骨扇护卫牵引；需有护身训练成长记录"
+    }
+  ],
+  "mentors": [
+    {
+      "name": "周砚",
+      "first_level": 88,
+      "note": "宗师导师，旧伤影响持续作战，不因教学把真实等级写成5"
+    },
+    {
+      "name": "江采薇",
+      "first_level": 70,
+      "note": "走镖出身、绣针强手，医务家务不等于不会武功"
+    },
+    {
+      "name": "钟拙",
+      "first_level": 80,
+      "note": "拳掌与机关前辈"
+    },
+    {
+      "name": "方迟",
+      "first_level": 36,
+      "note": "大师兄有多年基础，不自动入队"
+    },
+    {
+      "name": "卢小豆",
+      "first_level": 10,
+      "note": "14岁、早入门三年；灵巧且基础有限，不用成人高手配置"
+    },
+    {
+      "name": "周小满",
+      "first_level": 3,
+      "note": "未正式拜师，不安排战斗挑战"
+    }
+  ],
+  "others": [
+    {
+      "name": "何素问",
+      "first_level": 78,
+      "note": "白鹇谷谷主；等级只表达武学，医术另计"
+    },
+    {
+      "name": "孟知微",
+      "first_level": 48,
+      "note": "医案执事，针术自保"
+    },
+    {
+      "name": "许知衡",
+      "first_level": 20,
+      "note": "药房与会诊联系人，不可招募"
+    },
+    {
+      "name": "顾行简",
+      "first_level": 88,
+      "note": "照川掌门"
+    },
+    {
+      "name": "梁照庭",
+      "first_level": 66,
+      "note": "照川教习"
+    },
+    {
+      "name": "裴砚秋",
+      "first_level": 26,
+      "note": "同辈考校对手，不可招募"
+    },
+    {
+      "name": "杜敬山",
+      "first_level": 82,
+      "note": "合川门主"
+    },
+    {
+      "name": "罗绣娘",
+      "first_level": 52,
+      "note": "账房兼师叔"
+    },
+    {
+      "name": "静笃",
+      "first_level": 86,
+      "note": "松风观主"
+    },
+    {
+      "name": "明谦",
+      "first_level": 60,
+      "note": "监院"
+    },
+    {
+      "name": "莫松年",
+      "first_level": 28,
+      "note": "行脚道人，不可招募"
+    },
+    {
+      "name": "韩烬川",
+      "first_level": 76,
+      "note": "归烬堂堂主，不等于玄烛会最高首领"
+    },
+    {
+      "name": "邢守夜",
+      "first_level": 58,
+      "note": "刑务管事"
+    },
+    {
+      "name": "蒋闻礼",
+      "first_level": 56,
+      "note": "事务总管，职务不自动换算成顶尖武力"
+    },
+    {
+      "name": "赵闻达",
+      "first_level": 18,
+      "note": "办事联络，不可招募"
+    },
+    {
+      "name": "裴嵩",
+      "first_level": 72,
+      "note": "个人武学与阴谋势力分开；伪装时不向玩家展示真实等级"
+    },
+    {
+      "name": "程铎",
+      "first_level": 58,
+      "note": "巡检，有实务与武学经验"
+    },
+    {
+      "name": "周敬实",
+      "first_level": 12,
+      "note": "典吏，以文书为专长"
+    },
+    {
+      "name": "高守诚",
+      "first_level": 26,
+      "note": "地方差役与巡查协作"
+    },
+    {
+      "name": "乌魁",
+      "first_level": 12,
+      "note": "底层头目，明显弱于岑霜"
+    },
+    {
+      "name": "周婶",
+      "first_level": 3,
+      "note": "非战斗民众，等级不显示、不开放攻击"
+    },
+    {
+      "name": "陈伯",
+      "first_level": 3,
+      "note": "非战斗木工，等级不显示"
+    },
+    {
+      "name": "药商",
+      "first_level": 4,
+      "note": "非战斗商人，等级不显示"
+    },
+    {
+      "name": "栖月楼掌事（待命名）",
+      "first_level": 6,
+      "note": "经营者，等级不显示；不因职业写成高手"
+    },
+    {
+      "name": "店家",
+      "first_level": 3,
+      "note": "普通服务NPC，不参战"
+    },
+    {
+      "name": "村口老人",
+      "first_level": 2,
+      "note": "普通民众，不参战"
+    },
+    {
+      "name": "大黄",
+      "first_level": 3,
+      "note": "宠物单独成长，不能从主人等级自动派生"
+    },
+    {
+      "name": "大白鹅“将军”",
+      "first_level": 2,
+      "note": "谷内趣味角色，追咬不是高等级Boss"
+    }
+  ],
+  "world_npc_max_level": 90
+}

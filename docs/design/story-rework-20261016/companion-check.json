@@ -1,0 +1,60 @@
+{
+  "date": "2026-10-16",
+  "scope": "十九人文档覆盖与负责链接；不是运行验收",
+  "count": 19,
+  "uniqueIds": 19,
+  "requiredFields": [
+    "fourPartArc",
+    "personalGameplay",
+    "recruitment",
+    "fallback",
+    "endStance",
+    "identityAction",
+    "relations",
+    "goal",
+    "flaw",
+    "voice"
+  ],
+  "missing": [],
+  "consistencyReport": "/tmp/xjh-companions-check-20261016-battle-boundary/report.md",
+  "limits": [
+    "新增CP任务未进正式日历",
+    "未制作新动作素材",
+    "未测试19人游戏招募或终局",
+    "全局历史/美术提示仍单列"
+  ],
+  "battleBoundaryReview": {
+    "revisedCharacters": [
+      "ye-heng",
+      "tang-zhaoxue",
+      "cen-shuang",
+      "xu-lingyi",
+      "shen-yanhui",
+      "yan-xiaolou",
+      "qiao-xingzhou",
+      "qin-feiyuan",
+      "ruan-qingque",
+      "yin-hongying",
+      "qi-zheng",
+      "huo-zhuchen"
+    ],
+    "reviewedCharacters": 19,
+    "supportedResults": [
+      "win",
+      "lose",
+      "flee"
+    ],
+    "rejectedImplicitFeatures": [
+      "survive-N-turns",
+      "escort-NPC-health",
+      "mid-battle-switch",
+      "real-time-boat-simulation",
+      "real-time-chase"
+    ],
+    "mapReuse": [
+      "rg_fc_wharf仓街与工坊交互区",
+      "rg_jd_yard侧栈"
+    ],
+    "status": "逐人文档语义复核，未运行游戏"
+  }
+}

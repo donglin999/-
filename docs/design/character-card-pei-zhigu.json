@@ -1,0 +1,577 @@
+{
+  "version": 1,
+  "date": "2026-10-16",
+  "status": "confirmed_character_partial_runtime",
+  "character_id": "pei-zhigu",
+  "name": "裴知古",
+  "species": "human",
+  "gender": "女",
+  "first_meeting_age": 20,
+  "role_type": "companion",
+  "joinability": "recruitable",
+  "availability": "current",
+  "combat": true,
+  "combat_side": "ally",
+  "controls_available": true,
+  "recruitment_availability": "current",
+  "exploration_motion": "fixed",
+  "exploration_presence": "none",
+  "story_importance": "recurring",
+  "services": [
+    "planned_history_source_comparison"
+  ],
+  "current_stage": "guiyun_valley_witness_cultivation",
+  "planned_stages": [
+    "cultivation_recruited_witness",
+    "travel_personal_story",
+    "ending_independent_authorship"
+  ],
+  "chapter_scope": [
+    "cultivation_pre_hangao"
+  ],
+  "planned_chapter_scope": [],
+  "opening_adaptation_status": "not_in_prologue_or_chapter1",
+  "identity_refs": [
+    "../../art_sources/pei_zhigu_20261005/native/menu-r2.png",
+    "../../review/story-atlas/portraits/pei-zhigu-v1.png"
+  ],
+  "costume_and_ability_limits": [
+    "20岁成年，栗黑两条低松辫与耳侧木笔、细铜金古式圆椭圆眼镜透明镜片细链，暖肤圆润鼻尖，自然睁眼史痴呆然或核字专注，不傻或幼态。",
+    "燕麦白松垮露肩短衫、茶金不透明承托内搭、栗褐不透明斜裹短裙与安全内衬、短靴，六图沿r2锁定衣装，不再混用短裤或未选围布。",
+    "丰腴成年胸腰和腰胯曲线，胸部视觉比秦绯鸢当前图再丰盈两个美术档；相对图像目标，不填写真实杯码测量。",
+    "非门派，无官职或考据法术；绑定册子作兵器，五项独享人物能力，可装内功不能学其他外功。谷内初识与入队后参战分阶段，旧短棍方案归历史。",
+    "书册、拓本与布囊有明确抓握、底部承托及完整固定，耳侧木笔与眼镜细链连接清楚；不悬空贴背，不以纸册代替额外肢体。"
+  ],
+  "expression_map": {},
+  "pose_definitions": [],
+  "needs_story_poses": false,
+  "needs_dedicated_run": false,
+  "package_scope": "existing_identity_and_partial_current_runtime",
+  "base_package_status": "identity_preserved_current_runtime_packages_separately_recorded",
+  "outfit_profile": "independent",
+  "membership_at_stage": "非门派，归云谷溪东半亩书屋裴家之女；居住不等于拜师。",
+  "uniform_variant": "civilian",
+  "visible_outfit_features": [
+    "燕麦白松垮露肩短衫与茶金不透明承托内搭",
+    "栗褐不透明斜裹短裙、安全内衬与短靴",
+    "细铜金古式圆椭圆镜框透明镜片细链、栗黑低松双辫和耳侧木笔",
+    "纸本书签／折拓／布囊，无门派徽记"
+  ],
+  "identifier_allowed": false,
+  "face_identity": {
+    "face_shape": "成年柔和丰润鹅蛋脸，圆润下颌与有体积面颊，避免统一尖下巴",
+    "brows": "自然松缓偏低眉，专业专注时眉位稍收",
+    "eyes": "自然睁开的成年横向眼形，走神时视线短暂失焦、回话时重新聚焦，发现新证据才抬眼；去除默认半眯魅惑目光。",
+    "nose": "清楚短柔鼻梁与圆润鼻尖，暖肤有自然明暗",
+    "mouth": "柔和成年丰满唇，平时轻合，兴致起来有松弛笑意",
+    "expression": "史痴走神的自然呆然与专业核字的专注，翻页会停半途；去媚笑，认真判断不幼态。",
+    "glasses": "细铜金古式圆椭圆镜框，透明镜片与细链；眼神须透镜可读。"
+  },
+  "dialogue_package_status": "six_complete_states_art_accepted_display_verified_game_mapping_pending",
+  "dialogue_package_source": "pei-zhigu-assets.md",
+  "dialogue_package_contract": {
+    "count": 6,
+    "separate_expression_count": 0,
+    "switch": "whole_image",
+    "emotion_pose_gate_required": true,
+    "personality_specific_body_briefs_required": true,
+    "prop_support_gate_required": true,
+    "source": "character-personality-performance.md"
+  },
+  "dialogue_state_definitions": [
+    {
+      "key": "neutral",
+      "label": "走神后倾听",
+      "body_and_emotion": "单脚自然承重、肩颈松，头侧向来人，透过古式细铜眼镜自然睁眼认真听，回神稍迟、嘴轻合；左手托半合抄校册在腰侧，右指夹书签停住页。",
+      "semantic_family": "侧身夹签听述",
+      "prop_support": "左掌与前臂承托书底，右指夹在页边固定书签；布囊由完整腰带系绳悬挂。",
+      "sample_line": "嗯，我听着。这页先不翻。",
+      "status": "internally_accepted_display_verified_game_mapping_pending"
+    },
+    {
+      "key": "happy",
+      "label": "查实欣喜",
+      "body_and_emotion": "左手将合册收至肋侧，右手轻举沾墨拇指展示核验成功，肩身舒展、向来人点头而笑，不挥手招呼。",
+      "semantic_family": "举墨指报喜",
+      "prop_support": "左手与前臂持续托住合册底边，右手空置，仅展示本人拇指；不让书浮贴肋侧。",
+      "sample_line": "找着了！这回是能对上的，不是我猜的。",
+      "status": "internally_accepted_display_verified_game_mapping_pending"
+    },
+    {
+      "key": "sad",
+      "label": "为人惜字",
+      "body_and_emotion": "左手托开册，右指缓慢抚过被划去的姓名，头偏低看页、右肩落下，眼神柔沉，嘴角收住，心疼资料中的人。",
+      "semantic_family": "抚页惜字",
+      "prop_support": "左掌托开放书册下缘，右指只轻触册页，不承担琴形或巨大书轴；纸与手指接触清楚。",
+      "sample_line": "这页若只剩一个大姓，他们就又没了。",
+      "status": "internally_accepted_display_verified_game_mapping_pending"
+    },
+    {
+      "key": "angry",
+      "label": "据理护证",
+      "body_and_emotion": "左前臂将证据夹稳贴肋，右食指点在册页证据处，身体侧转护住资料、抬下巴直视，不悦据理争论，不推掌或拔棍。",
+      "semantic_family": "侧身护册据理",
+      "prop_support": "左掌与前臂夹持有底部承托的证据册，右食指明确落在朝外页边；书不透手，不悬空。",
+      "sample_line": "旧本还在，你不能替他们改名字。",
+      "status": "internally_accepted_display_verified_game_mapping_pending"
+    },
+    {
+      "key": "surprise",
+      "label": "停页确认",
+      "body_and_emotion": "左手把册抬到胸上稳托，右指停在翻到一半的纸边，颈向前确认、眉眼骤抬、嘴轻分，是看到新证据而非后退贴胸。",
+      "semantic_family": "抬册停页确认",
+      "prop_support": "左掌托书脊与底边，右指捏页边停翻，纸页自然弯曲，书高于常态但不遮住整张脸。",
+      "sample_line": "等一下，这一行……之前的本子里没有。",
+      "status": "internally_accepted_display_verified_game_mapping_pending"
+    },
+    {
+      "key": "engrossed",
+      "label": "入迷考据",
+      "body_and_emotion": "双手将折叠拓本展开到胸下，左手托底、右手捏纸角，身体半侧前倾、前脚探出、视线沉入细纹，忘记看谈话者但非嬉笑。",
+      "semantic_family": "展拓前倾入迷",
+      "prop_support": "左掌托拓本折叠下缘，右手捏侧纸角，两边可见抓握；折页自然垂落，不变悬空卷轴。",
+      "sample_line": "先让我把这处缺口对上……啊，你还在等我。",
+      "status": "internally_accepted_display_verified_game_mapping_pending"
+    }
+  ],
+  "assets": [
+    {
+      "id": "pei_first_meeting_identity",
+      "group": "identity",
+      "quality": "identity",
+      "status": "internally_accepted_reference_user_confirmation_pending",
+      "candidates": [
+        "review/story-atlas/portraits/pei-zhigu-v1.png"
+      ],
+      "native_target": [
+        1024,
+        1536
+      ],
+      "native_size": [
+        1024,
+        1536
+      ],
+      "source_record": "../../art_sources/pei_zhigu_20261005/pei-menu-r2-record.json"
+    },
+    {
+      "id": "pei_first_meeting_menu",
+      "group": "menu_portrait",
+      "quality": "menu_portrait",
+      "status": "internally_accepted_reference_user_confirmation_pending",
+      "candidates": [
+        "review/story-atlas/portraits/pei-zhigu-v1.png"
+      ],
+      "native_target": [
+        1024,
+        1536
+      ],
+      "setting": "淡雅旧书铺或拓房",
+      "native_size": [
+        1024,
+        1536
+      ],
+      "source_record": "../../art_sources/pei_zhigu_20261005/pei-menu-r2-record.json"
+    },
+    {
+      "id": "pei_avatar",
+      "group": "avatar",
+      "quality": "avatar",
+      "status": "derive_after_identity_confirmation",
+      "candidates": []
+    },
+    {
+      "id": "pei-zhigu/state-neutral",
+      "group": "dialogue_states",
+      "semantic": "neutral",
+      "quality": "dialogue_state_portrait",
+      "status": "internally_accepted_display_verified_game_mapping_pending",
+      "candidates": [
+        "art_sources/companion_dialogue_states_20261004/native/pei-zhigu/state-neutral-r1.png"
+      ],
+      "native_target": [
+        1024,
+        1536
+      ],
+      "runtime_target": [
+        512,
+        768
+      ],
+      "background": "transparent_alpha_only",
+      "native_sha256": "867c99f21cc6bfcb717490ec13d176a73e37955f1a5270e6c984dbe21c6fbb8e"
+    },
+    {
+      "id": "pei-zhigu/state-happy",
+      "group": "dialogue_states",
+      "semantic": "happy",
+      "quality": "dialogue_state_portrait",
+      "status": "internally_accepted_display_verified_game_mapping_pending",
+      "candidates": [
+        "art_sources/companion_dialogue_states_20261004/native/pei-zhigu/state-happy-r1.png"
+      ],
+      "native_target": [
+        1024,
+        1536
+      ],
+      "runtime_target": [
+        512,
+        768
+      ],
+      "background": "transparent_alpha_only",
+      "native_sha256": "202206da3b0122c8d6d52fc79e9eebf994c0cf55bd98ca7472132b7129e7e473"
+    },
+    {
+      "id": "pei-zhigu/state-sad",
+      "group": "dialogue_states",
+      "semantic": "sad",
+      "quality": "dialogue_state_portrait",
+      "status": "internally_accepted_display_verified_game_mapping_pending",
+      "candidates": [
+        "art_sources/companion_dialogue_states_20261004/native/pei-zhigu/state-sad-r1.png"
+      ],
+      "native_target": [
+        1024,
+        1536
+      ],
+      "runtime_target": [
+        512,
+        768
+      ],
+      "background": "transparent_alpha_only",
+      "native_sha256": "e6b1bf9f6c85a80ea191aea61e7d09736651f283b361c1ece1862086f9655347"
+    },
+    {
+      "id": "pei-zhigu/state-angry",
+      "group": "dialogue_states",
+      "semantic": "angry",
+      "quality": "dialogue_state_portrait",
+      "status": "internally_accepted_display_verified_game_mapping_pending",
+      "candidates": [
+        "art_sources/companion_dialogue_states_20261004/native/pei-zhigu/state-angry-r1.png"
+      ],
+      "native_target": [
+        1024,
+        1536
+      ],
+      "runtime_target": [
+        512,
+        768
+      ],
+      "background": "transparent_alpha_only",
+      "native_sha256": "c2fae84b3beda2325a2b19e02f3c651fc2652d28aec70129a76f090c15d64b14"
+    },
+    {
+      "id": "pei-zhigu/state-surprise",
+      "group": "dialogue_states",
+      "semantic": "surprise",
+      "quality": "dialogue_state_portrait",
+      "status": "internally_accepted_display_verified_game_mapping_pending",
+      "candidates": [
+        "art_sources/companion_dialogue_states_20261004/native/pei-zhigu/state-surprise-r1.png"
+      ],
+      "native_target": [
+        1024,
+        1536
+      ],
+      "runtime_target": [
+        512,
+        768
+      ],
+      "background": "transparent_alpha_only",
+      "native_sha256": "c066d5d687162fbdc62a845b897c6e5b9b8570a58dd6cd2a917360ef97a6a8c5"
+    },
+    {
+      "id": "pei-zhigu/state-engrossed",
+      "group": "dialogue_states",
+      "semantic": "engrossed",
+      "quality": "dialogue_state_portrait",
+      "status": "internally_accepted_display_verified_game_mapping_pending",
+      "candidates": [
+        "art_sources/companion_dialogue_states_20261004/native/pei-zhigu/state-engrossed-r1.png"
+      ],
+      "native_target": [
+        1024,
+        1536
+      ],
+      "runtime_target": [
+        512,
+        768
+      ],
+      "background": "transparent_alpha_only",
+      "native_sha256": "90aa2140a47aa3feb1adafecb595951e9e33f13c2b2556113b2d3994f3c9787b"
+    },
+    {
+      "id": "pei_exploration",
+      "group": "exploration",
+      "quality": "exploration",
+      "status": "future_pending_not_generated",
+      "candidates": [],
+      "spec": "character-walk-quality.md"
+    },
+    {
+      "id": "pei_party_battle",
+      "group": "party_battle",
+      "quality": "party_battle",
+      "status": "current_runtime_package_recorded_separately",
+      "candidates": [],
+      "runtime_scope_ref": "runtime_scope"
+    },
+    {
+      "id": "pei_voice",
+      "group": "voice",
+      "quality": "voice",
+      "status": "current_runtime_package_recorded_separately",
+      "candidates": [],
+      "runtime_scope_ref": "runtime_scope"
+    }
+  ],
+  "generation_plan": [
+    {
+      "action": "generate_and_select_identity",
+      "groups": [
+        "identity",
+        "menu_portrait"
+      ],
+      "scope": "first_meeting_old_bookshop_or_rubbing_studio"
+    },
+    {
+      "action": "derive_after_identity_confirmation",
+      "groups": [
+        "avatar"
+      ]
+    },
+    {
+      "action": "generate_complete_personality_states_then_review",
+      "groups": [
+        "dialogue_states"
+      ],
+      "count": 6,
+      "separate_expression_count": 0,
+      "source": "pei-zhigu-assets.md"
+    },
+    {
+      "action": "audit_current_runtime_and_complete_future_scope",
+      "groups": [
+        "exploration",
+        "party_battle",
+        "voice"
+      ],
+      "reason": "谷内剧情、参战和部分语音已在当前工作区接入；后期篇及完整成长另行制作，不再把整包标为未来未生成。"
+    }
+  ],
+  "quality_evidence": [
+    "art_sources/pei_zhigu_20261005/pei-menu-r2-record.json",
+    "art_sources/companion_dialogue_states_20261004/manifest.json",
+    "art_sources/companion_personality_revision_20261005/qa/browser-verification.json",
+    "art_sources/companion_personality_revision_20261005/qa/cross-character-reviews.json"
+  ],
+  "future_packages": [
+    {
+      "stage": "travel_personal_story",
+      "status": "pending_story_and_growth_completion",
+      "combat_design": "继续使用绑定册子与见证者独享能力；按已确认负责页制作后期篇，不恢复短棍。",
+      "source": "companions/pei-zhigu-valley.md"
+    }
+  ],
+  "story_source": "companions/pei-zhigu-valley.md",
+  "assets_source": "pei-zhigu-assets.md",
+  "recruitment": {
+    "story_id": "谷中书屋与见证者",
+    "required_nodes": [
+      "gn_depart"
+    ],
+    "earlier_optional_nodes_required": false,
+    "required_outcomes": [
+      "本人同意同行",
+      "由PeiCompanion.recruit登记名册；随队或候补按玩家选择与队伍空位"
+    ],
+    "romance_required": false,
+    "rare_item_or_random_skill_gate": false,
+    "recovery": "前三段可错过，不阻出发同行；满队进名册。城中补初识为已确认设计方向，当前完整城市流程未接入。",
+    "runtime_api": "PeiCompanion.recruit",
+    "runtime_event": "gn_depart",
+    "source": "companions/pei-zhigu-valley.md"
+  },
+  "romance": {
+    "optional": true,
+    "friendship_recruitment_complete": true,
+    "adult_player_required": true,
+    "personal_story_required": true,
+    "events": [],
+    "event_schedule_status": "旧PG-R1至PG-R3保留历史字段，待按谷中设定重排；未标为当前已完成剧情",
+    "keeps_independent_career": true
+  },
+  "identity_revision": {
+    "version": "r2-glasses",
+    "source_record": "../../art_sources/pei_zhigu_20261005/pei-menu-r2-record.json",
+    "status": "internally_selected_pending_user_confirmation",
+    "native_sha256": "e9104a41386d7ee8d2fcf5f28cf497f2f964af3cba735b5dfe6ee98342d8c205",
+    "frame": "细铜金古式圆椭圆镜框、透明镜片、细链",
+    "hair": "栗黑两条低松辫与耳侧木笔",
+    "eyes": "自然睁眼，走神时短暂失焦，核字时专注；无默认半眯媚笑",
+    "outfit": "燕麦白松垮露肩短衫、茶金不透明承托内搭、栗褐不透明斜裹短裙与安全内衬、短靴"
+  },
+  "historical_design_20261005": {
+    "status": "design_not_runtime",
+    "availability": "future",
+    "combat": false,
+    "combat_side": "none",
+    "controls_available": false,
+    "recruitment_availability": "future",
+    "current_stage": "first_meeting_independent_historical_researcher",
+    "planned_stages": [
+      "xiangyang_pre_recruitment_npc",
+      "travel_recruited_companion"
+    ],
+    "planned_chapter_scope": [
+      "PG-01",
+      "PG-02",
+      "PG-03",
+      "PG-04",
+      "PG-05",
+      "PG-06"
+    ],
+    "recruitment": {
+      "story_id": "纸上也有人",
+      "required_nodes": [
+        "PG-01",
+        "PG-02",
+        "PG-03",
+        "PG-04",
+        "PG-05",
+        "PG-06"
+      ],
+      "required_outcomes": [
+        "保存原本与修改留痕",
+        "经许可公开核验或匿名来源说明",
+        "更正本人未证旁注",
+        "售册勘误与委托交接",
+        "本人提出同行约定"
+      ],
+      "romance_required": false,
+      "rare_item_or_random_skill_gate": false,
+      "recovery": "错过窗口可下山逐节点补写，误判可补查勘误，损失需偿付，满队可候补。"
+    },
+    "romance": {
+      "optional": true,
+      "friendship_recruitment_complete": true,
+      "events": [
+        {
+          "id": "PG-R1",
+          "title": "这页先合上",
+          "after": "PG-02",
+          "fallback": "下山重逢与共同调查后"
+        },
+        {
+          "id": "PG-R2",
+          "title": "这一句我没有旁注",
+          "after": "PG-04",
+          "fallback": "安全休整重约时辰"
+        },
+        {
+          "id": "PG-R3",
+          "title": "把明年的空页留着",
+          "after": "PG-06 and PG-R1 and PG-R2",
+          "fallback": "拓房交接或安全营地回谈"
+        }
+      ],
+      "keeps_independent_career": true
+    },
+    "future_packages": [
+      {
+        "stage": "xiangyang_pre_recruitment_npc",
+        "combat": false,
+        "combat_side": "none",
+        "exploration_presence": "on_map",
+        "exploration_motion": "fixed",
+        "required": [
+          "identity",
+          "avatar",
+          "menu_portrait",
+          "dialogue_states",
+          "required_standing_directions"
+        ],
+        "status": "planned_not_runtime"
+      },
+      {
+        "stage": "travel_recruited_companion",
+        "combat": true,
+        "combat_side": "ally",
+        "exploration_presence": "on_map",
+        "exploration_motion": "walk",
+        "required": [
+          "identity",
+          "avatar",
+          "menu_portrait",
+          "dialogue_states",
+          "exploration",
+          "party_battle",
+          "voice"
+        ],
+        "dialogue_state_keys": [
+          "neutral",
+          "happy",
+          "sad",
+          "angry",
+          "surprise",
+          "engrossed"
+        ],
+        "battle_actions": [
+          "idle",
+          "dash",
+          "atk",
+          "atk2",
+          "hurt",
+          "cast",
+          "brk",
+          "dead",
+          "win"
+        ],
+        "combat_design": "谨慎短棍格挡、撤离接应与实有地形辅助；cast仅为既有动作槽，不表示历史法术。",
+        "exploration_spec": "character-walk-quality.md",
+        "status": "pending_implementation_and_assets"
+      }
+    ],
+    "story_source": "companions/pei-zhigu.md"
+  },
+  "runtime_scope": {
+    "workspace": "xiaojianghu-legacy-prologue",
+    "status": "partial_local",
+    "implemented": [
+      "谷内初识与串门",
+      "出发登记名册及五月同行",
+      "素笺绑定",
+      "实际在队见闻",
+      "册脊轻触与部分辅助调用"
+    ],
+    "not_implemented": [
+      "完整五阶册子流程",
+      "后期个人篇",
+      "重排后的完整感情篇",
+      "完整城市漏看补初识路线"
+    ],
+    "sources": [
+      "../../../xiaojianghu-legacy-prologue/js/pei-companion.js",
+      "../../../xiaojianghu-legacy-prologue/js/pei-companion-runtime.js",
+      "../../../xiaojianghu-legacy-prologue/js/qh-pre-hangao.js",
+      "../../../xiaojianghu-legacy-prologue/docs/updates/2026-10-16-character-actions-completion.md"
+    ]
+  },
+  "character_icons": [
+    {
+      "stage_id": "guiyun_valley_witness_cultivation",
+      "required": true,
+      "performance_plan": {
+        "personality_basis": "待设计",
+        "expression": "待设计",
+        "pose": "待设计",
+        "props": "待设计"
+      },
+      "reference_portraits": [],
+      "facing": "画面左",
+      "status": "未生成",
+      "source_batch": null,
+      "candidate_ids": [],
+      "note": "按 character-icons.md 第 3.1 节先写演出方案，再参考同阶段正式立绘生成"
+    }
+  ]
+}

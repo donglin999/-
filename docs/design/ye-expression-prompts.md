@@ -1,6 +1,6 @@
 # 叶蘅表情差分：提示词与使用
 
-状态：襄阳体验章节已接入。基准图为[叶蘅初始立绘](xiangyang-art-prompts.md)，只对**初始朴素装**制作表情；三年后的两套服饰须另用该路线定稿图重新生成差分。七张运行图均为 306×640 透明 WebP，源 PNG 存于本机 raw_scene/xiangyang_source/ye_expr_*.png，打包函数为 tools_scene/build_xiangyang_chapter_assets.py 中的 ye_expressions()。
+状态：现行　最后核对：2026-10-19（原记：襄阳体验章节已接入。基准图为[叶蘅初始立绘](../archive/design/xiangyang-art-prompts.md)，只对**初始朴素装**制作表情；后续两条成长路线的服饰须另用该路线定稿图重新生成差分，不限定三年结束后才换装。七张运行图均为 306×640 透明 WebP，源 PNG 存于本机 raw_scene/xiangyang_source/ye_expr_*.png，打包函数为 tools_scene/build_xiangyang_chapter_assets.py 中的 ye_expressions()。新章节复用须按[角色类型](role-assets.md)与[质量规格](character-asset-quality.md)检查阶段。）
 
 ## 锁脸规则
 
@@ -23,7 +23,7 @@ Edit the supplied Ye Heng game dialogue portrait into her SMILE expression varia
 Identity-sensitive edit of the supplied Ye Heng portrait. SAME 22-year-old adult woman, exact same face and facial proportions, tied dark hair with plain cloth ribbon, off-white and gray Southern Song rural-healer clothes, narrow sleeves, needle case, medicine bag, folded bandage in hands, same body and hand position, same camera angle, centered vertical framing, crisp gongbi ink linework and restrained mineral watercolor, soft upper-left light. Change ONLY the facial expression and tiny natural head nuance. Clean fully transparent background and clean silhouette; no backdrop, text, logo, watermark, extra people, photorealism, anime exaggeration, new accessories, new clothes or changed hairstyle. Premium polished 2D Chinese wuxia RPG dialogue portrait.
 ~~~
 
-| 文件后缀 | 原始补充句 | 襄阳使用位置 |
+| 文件后缀 | 原始补充句 | 旧襄阳演示使用位置（已撤除） |
 | --- | --- | --- |
 | shy | SHY: Su Zhi has praised her diagnostic skill and offered to pass along her medical case. A restrained bashful smile, slightly lowered eyes, a trace of warmth at her cheeks, but adult composure and independent spirit; no exaggerated blush or childish embarrassment. | 苏芷提出转交医案后，叶蘅保留选择 |
 | worry | WORRY: Old Zhou's poisoned breathing is unstable. Brows gently knit, eyes focused with concern and concentration, closed mouth, ready to act rather than panic or cry. | 街心初见、病情未稳、战败后关照 |
@@ -35,7 +35,7 @@ Identity-sensitive edit of the supplied Ye Heng portrait. SAME 22-year-old adult
 Identity-sensitive edit of the supplied Ye Heng dialogue portrait. SAME 22-year-old adult woman; preserve exact facial structure and adult proportions, tied dark hair and cloth ribbon, plain off-white and gray rural-healer travel robe, narrow sleeves, needle case and medicine bag, centered vertical crop, upper-left soft light, fine gongbi ink contours and restrained mineral watercolor. The variant should be instantly recognizable as the same woman and garment. Clean fully transparent background with crisp alpha edges. Premium polished 2D Chinese wuxia RPG art. No text, watermark, backdrop, photorealism, anime exaggeration, new hairstyle, new armor or extra people.
 ~~~
 
-| 文件后缀 | 原始补充句 | 襄阳使用位置 |
+| 文件后缀 | 原始补充句 | 旧襄阳演示使用位置（已撤除） |
 | --- | --- | --- |
 | angry | ANGRY expression: she has heard a gang member threaten a sick porter. Brows lower, eyes sharpen, mouth firm with controlled indignation. She is brave and protective, not snarling or cruel. Maintain same body pose and folded bandage. | 疤脸刘勒索、过度拿走药费 |
 | battle | BATTLE expression: focused, decisive readiness in front of danger; eyes lock toward an unseen opponent's pressure point, brows set, lips firmly closed. She may raise one hand slightly with a slender medical acupuncture needle poised between fingers, but preserve same clothing, body identity and medical tool kit. No sword, poison, magic effects or assassin styling. | 茶棚与黑风寨对峙、战斗常态头像 |

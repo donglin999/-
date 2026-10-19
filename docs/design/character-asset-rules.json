@@ -1,0 +1,571 @@
+{
+  "version": 2,
+  "status": "design_rules_not_runtime_generator",
+  "date": "2026-10-04",
+  "docs": {
+    "classification": "role-assets.md",
+    "quality": "character-asset-quality.md",
+    "performance": "character-performance.md",
+    "production": "asset-requirements.md",
+    "walk_quality": "character-walk-quality.md",
+    "attire": "faction-attire.md",
+    "face_identity": "character-face-identity.md",
+    "dialogue_staging": "dialogue-staging.md",
+    "opening_override": "opening-correction-20261004-oc4.md",
+    "companion_performance": "companion-performance.md",
+    "character_icons": "../../../xiaojianghu-legacy-prologue/docs/design/character-icons.md"
+  },
+  "card_template": {
+    "character_id": "REQUIRED",
+    "name": "REQUIRED",
+    "species": "REQUIRED",
+    "role_type": "REQUIRED",
+    "joinability": "REQUIRED",
+    "availability": "current_or_future",
+    "combat": false,
+    "exploration_motion": "fixed_or_walk_or_walk_run",
+    "story_importance": "core_or_recurring_or_ordinary",
+    "services": [],
+    "current_stage": "REQUIRED",
+    "planned_stages": [],
+    "chapter_scope": [],
+    "identity_refs": [],
+    "costume_and_ability_limits": [],
+    "expression_map": {},
+    "pose_definitions": [],
+    "assets": [],
+    "generation_plan": [],
+    "quality_evidence": [],
+    "combat_side": "none_or_ally_or_enemy_or_both",
+    "exploration_presence": "on_map_or_none",
+    "needs_story_poses": false,
+    "needs_dedicated_run": false,
+    "recruitment_availability": "current_or_future_or_none",
+    "controls_available": false,
+    "package_scope": "active_stage_or_appearance_before_recruitment",
+    "outfit_profile": "REQUIRED_FOR_HUMAN_APPEARANCE",
+    "membership_at_stage": "REQUIRED_FOR_HUMAN_APPEARANCE",
+    "uniform_variant": "daily_or_training_or_travel_or_formal_or_civilian",
+    "visible_outfit_features": [],
+    "identifier_allowed": false,
+    "face_identity": {
+      "face_shape": "REQUIRED_FOR_NAMED_HUMAN",
+      "brows": "REQUIRED_FOR_NAMED_HUMAN",
+      "eyes": "REQUIRED_FOR_NAMED_HUMAN",
+      "nose": "REQUIRED_FOR_NAMED_HUMAN",
+      "mouth": "REQUIRED_FOR_NAMED_HUMAN",
+      "expression": "REQUIRED_FOR_NAMED_HUMAN"
+    },
+    "dialogue_package_status": "required_6_complete_states_for_companion",
+    "dialogue_state_definitions": [],
+    "character_icons": []
+  },
+  "roles": {
+    "player": {
+      "joinability": "player",
+      "required": [
+        "identity",
+        "avatar",
+        "menu_portrait",
+        "dialogue"
+      ],
+      "dialogue_semantics": [
+        "neutral",
+        "smile",
+        "worry",
+        "firm",
+        "surprise",
+        "hurt"
+      ],
+      "story_pose_count": 0,
+      "conditional": [
+        {
+          "field": "combat",
+          "equals": true,
+          "requires": [
+            "party_battle"
+          ]
+        },
+        {
+          "field": "needs_story_poses",
+          "equals": true,
+          "requires": [
+            "story_poses"
+          ]
+        }
+      ],
+      "exploration_motion_when_on_map": [
+        "walk",
+        "walk_run"
+      ],
+      "optional": [
+        "dialogue_extra"
+      ]
+    },
+    "companion": {
+      "joinability": "recruitable",
+      "species": "human",
+      "required": [
+        "identity",
+        "avatar",
+        "menu_portrait",
+        "dialogue_states"
+      ],
+      "dialogue_semantics": [
+        "neutral",
+        "happy",
+        "sad",
+        "angry",
+        "surprise",
+        "personal"
+      ],
+      "story_pose_count": 0,
+      "conditional": [
+        {
+          "field": "combat",
+          "equals": true,
+          "requires": [
+            "party_battle"
+          ]
+        },
+        {
+          "field": "needs_story_poses",
+          "equals": true,
+          "requires": [
+            "story_poses"
+          ]
+        }
+      ],
+      "exploration_motion_when_on_map": [
+        "walk",
+        "walk_run"
+      ],
+      "optional": [
+        "dialogue_extra"
+      ],
+      "dialogue_state_count": 6,
+      "separate_expression_count": 0,
+      "emotion_pose_gate_required": true,
+      "dialogue_switch": "whole_image"
+    },
+    "important_npc": {
+      "joinability": "none",
+      "required": [
+        "identity",
+        "avatar",
+        "dialogue"
+      ],
+      "dialogue_semantics": [
+        "neutral",
+        "firm",
+        "worry"
+      ],
+      "story_pose_count": 0,
+      "conditional": [
+        {
+          "field": "combat",
+          "equals": true,
+          "requires": [
+            "npc_battle"
+          ]
+        },
+        {
+          "field": "needs_story_poses",
+          "equals": true,
+          "requires": [
+            "story_poses"
+          ]
+        }
+      ],
+      "optional": [
+        "dialogue_extra"
+      ]
+    },
+    "service_npc": {
+      "joinability": "none",
+      "required": [
+        "appearance_card"
+      ],
+      "dialogue_semantics": [],
+      "story_pose_count": 0,
+      "forbidden": [
+        "story_poses",
+        "story_animation"
+      ],
+      "conditional": [
+        {
+          "field": "combat",
+          "equals": true,
+          "requires": [
+            "npc_battle"
+          ]
+        }
+      ],
+      "optional": [
+        "avatar",
+        "quest_cg"
+      ]
+    },
+    "ordinary_npc": {
+      "joinability": "none",
+      "required": [
+        "appearance_card"
+      ],
+      "dialogue_semantics": [],
+      "story_pose_count": 0,
+      "forbidden": [
+        "story_poses",
+        "story_animation"
+      ],
+      "conditional": [
+        {
+          "field": "combat",
+          "equals": true,
+          "requires": [
+            "npc_battle"
+          ]
+        }
+      ],
+      "optional": [
+        "avatar",
+        "quest_cg"
+      ]
+    },
+    "enemy": {
+      "joinability": "none",
+      "required": [
+        "identity",
+        "enemy_battle"
+      ],
+      "dialogue_semantics": [],
+      "story_pose_count": 0,
+      "optional": [
+        "exploration",
+        "avatar"
+      ],
+      "combat": true,
+      "combat_side": "enemy"
+    },
+    "pet": {
+      "joinability": "pet",
+      "required": [
+        "identity",
+        "avatar",
+        "pet_portrait",
+        "pet_battle"
+      ],
+      "dialogue_semantics": [],
+      "story_pose_count": 0,
+      "details": "pets.md",
+      "combat": true,
+      "combat_side": "ally",
+      "exploration_motion_when_on_map": [
+        "walk",
+        "walk_run"
+      ]
+    }
+  },
+  "groups": {
+    "identity": {
+      "quality": "identity",
+      "count": 1
+    },
+    "appearance_card": {
+      "output": "text_description_and_reference_not_new_full_portrait"
+    },
+    "avatar": {
+      "quality": "avatar",
+      "count": 1,
+      "preferred_source": "crop_approved_current_stage_portrait"
+    },
+    "menu_portrait": {
+      "quality": "menu_portrait",
+      "count": 1
+    },
+    "dialogue": {
+      "quality": "dialogue_portrait",
+      "count_from": "role.dialogue_semantics"
+    },
+    "story_poses": {
+      "quality": "story_pose",
+      "count_from": "card.pose_definitions_with_needs_separate_image_true",
+      "requires": "named_pose_definitions_with_hands_gaze_props_and_scene_ids",
+      "default_count": 0
+    },
+    "exploration": {
+      "quality": "exploration",
+      "fixed": "only_required_stand_views",
+      "walk": "d_l_r_u_stand_and_walk",
+      "walk_run": "existing_walk_cycle_with_runtime_speed_and_stride_adjustment; dedicated_run_only_when_explicitly_requested",
+      "details": "character-walk-quality.md",
+      "resolution": {
+        "generation_target": [
+          1536,
+          1024
+        ],
+        "generation_layout": "384px_reference_column_plus_2x2_pose_cells_576x512; max_4_poses_per_request",
+        "actual_generation_dimensions": "record_native_output_dimensions",
+        "logical_cell_height": 47,
+        "pack_integer_scale": 3,
+        "runtime_cell_height": 141,
+        "runtime_cell_width": "character_and_action_specific_multiple_of_3",
+        "rows": 4,
+        "row_order": "dlru",
+        "atlas_height": 564,
+        "atlas_width": "runtime_cell_width_times_declared_columns",
+        "formats": [
+          "transparent_png",
+          "lossless_webp"
+        ],
+        "world_visible_adult_reference": 92,
+        "display_check_viewports": [
+          [
+            1280,
+            720
+          ],
+          [
+            1920,
+            1080
+          ]
+        ]
+      }
+    },
+    "exploration_run": {
+      "quality": "exploration",
+      "requires": "d_l_r_u_real_run_cycles"
+    },
+    "party_battle": {
+      "quality": "party_battle",
+      "actions": [
+        "idle",
+        "dash",
+        "atk",
+        "atk2",
+        "hurt",
+        "cast",
+        "brk",
+        "dead",
+        "win"
+      ]
+    },
+    "npc_battle": {
+      "requires": "actual_species_allegiance_and_actions; allied_npc_includes_win; animal_uses_species_actions",
+      "allow_reuse": "only_if_identity_and_weapon_match_and_quality_passes",
+      "quality_by_combat_side": {
+        "ally": [
+          "party_battle"
+        ],
+        "enemy": [
+          "enemy_battle"
+        ],
+        "both": [
+          "party_battle",
+          "enemy_battle"
+        ]
+      }
+    },
+    "enemy_battle": {
+      "quality": "enemy_battle",
+      "details": "../battle-sprite-spec.md"
+    },
+    "pet_portrait": {
+      "quality": "pet",
+      "count": 1
+    },
+    "pet_battle": {
+      "quality": "pet",
+      "details": "pets.md"
+    },
+    "quest_cg": {
+      "quality": "cg",
+      "max_per_ordinary_quest": 1,
+      "default_count": 0
+    },
+    "dialogue_extra": {
+      "quality": "dialogue_portrait",
+      "count_from": "actual_additional_scene_semantics",
+      "default_count": 0
+    },
+    "dialogue_states": {
+      "quality": "complete_dialogue_state_portrait",
+      "count": 6,
+      "requires": "per_character_body_and_face_emotion_briefs",
+      "switch": "whole_image",
+      "emotion_pose_gate_required": true,
+      "source": "companion-performance.md"
+    },
+    "character_icon": {
+      "quality": "character_icon",
+      "count": 1,
+      "count_scope": "per_stage",
+      "preferred_source": "dedicated_design_not_crop",
+      "forbidden_source": [
+        "crop_portrait",
+        "crop_battle_sprite"
+      ],
+      "uses": [
+        "map_status_bar_avatar",
+        "party_menu_mini",
+        "battle_turn_order"
+      ],
+      "background": "transparent_no_frame",
+      "exports": {
+        "master": "1024x1024_png",
+        "L": "256x256_webp",
+        "M": "128x128_webp",
+        "S": "64x64_webp_tight_head"
+      },
+      "card_field": "character_icons",
+      "status_values": [
+        "未生成",
+        "候选，未采用",
+        "已采用"
+      ],
+      "adoption": "已采用 only after user review and production registration",
+      "details": "../../../xiaojianghu-legacy-prologue/docs/design/character-icons.md",
+      "added": "2026-10-20"
+    }
+  },
+  "planning": {
+    "future_stage_or_out_of_scope": "defer",
+    "existing_matching_candidate": "review_reuse",
+    "missing_image_in_scope": "generate",
+    "crop_or_pack_from_approved_sources": "derive_or_pack",
+    "missing_motion_in_scope": "generate_keyposes_and_pack",
+    "unrequested_optional_asset": "omit",
+    "runtime_fallback": "do_not_mark_complete",
+    "quality_checks": [
+      "identity",
+      "stage",
+      "structure",
+      "medium",
+      "display"
+    ],
+    "ordinary_story_action_frames": 0,
+    "story_animation_default": "not_requested",
+    "expansion_order": [
+      "validate_classification_fields",
+      "role_required",
+      "common_conditional",
+      "role_conditional",
+      "stage_and_scope_filter",
+      "reuse_or_generate_or_derive",
+      "quality_acceptance"
+    ],
+    "card_scope": "one_character_current_stage; any_map_appearance_in_chapter_scope_requires_on_map",
+    "existing_integrated_character": "retain_old_acceptance; new_5_pose_6_difference_package_has_separate_completion_state",
+    "story_pose_quota": "additional_event_specific_poses_only; recruitable_dialogue_poses_mandatory_5_in_separate_group",
+    "dedicated_run_default": "optional_quality_upgrade_not_chapter_blocker",
+    "visual_design_contracts": {
+      "attire": "at_least_two_non_color_features_including_one_construction_feature",
+      "face_identity": "named_humans_at_least_three_structure_axes_including_bone_shape_and_brow_eye_geometry",
+      "current_artwork_status": "metadata_complete_is_not_visual_pass",
+      "ordinary_npc": "occupation_appearance_card_only_no_extra_portrait_or_story_animation_quota"
+    }
+  },
+  "field_constraints": {
+    "combat_false": "combat_side_must_be_none",
+    "combat_true": "combat_side_must_be_ally_enemy_or_both",
+    "exploration_presence_none": "exploration_motion_must_be_fixed_and_no_exploration_asset_required",
+    "future": "record_required_package_but_defer_production_until_chapter_scope_is_active",
+    "needs_story_poses_true": "at_least_one_named_pose_with_scene_gap_and_separate_image_requirement",
+    "combat_true_icon": "character_icons_must_have_one_entry_for_current_stage"
+  },
+  "common_conditional": [
+    {
+      "field": "exploration_presence",
+      "equals": "on_map",
+      "requires": [
+        "exploration"
+      ]
+    },
+    {
+      "field": "needs_dedicated_run",
+      "equals": true,
+      "requires": [
+        "exploration_run"
+      ]
+    },
+    {
+      "field": "combat",
+      "equals": true,
+      "requires": [
+        "character_icon"
+      ],
+      "applies_to": "all_role_types_including_player_companion_pet_temporary_ally_sparring_enemy",
+      "note": "敌人至少每种一张，同种敌人可共用"
+    }
+  ],
+  "pre_recruitment_stage": {
+    "role_type": "companion",
+    "recruitment_availability": "future",
+    "controls_available": false,
+    "package_scope": "appearance_before_recruitment",
+    "current_appearance_uses": "important_npc",
+    "future_controlled_package_uses": "companion",
+    "temporary_ally_requires": "party_battle",
+    "forbid_complete_companion_claim": true
+  },
+  "opening_exploration_override": {
+    "contract": "OC-2026-10-04.4",
+    "actors": [
+      "hero_modern",
+      "hero_village",
+      "ye"
+    ],
+    "logical_cell_height": 94,
+    "logical_body_height": 82,
+    "integer_export": 3,
+    "runtime_cell_height": 282,
+    "footY": 264,
+    "world_body_height": 92,
+    "modern_motion": "fixed",
+    "village_and_ye_motion": {
+      "walk": 8,
+      "run": 8,
+      "rows": "dlru",
+      "independent_sources": true
+    },
+    "QA_distance_unit": "47 equivalent; 94 distances /2",
+    "QA_thresholds": "unchanged",
+    "sampler": "source RGB; no forced palette/gamma",
+    "production_smoothing": false,
+    "movement": {
+      "scenes": "prologue_* and chapter1_* when both complete hero_village OC4 tables are registered",
+      "horizontal_walk_world_per_second": 75,
+      "vertical_projection": 0.5,
+      "run_multiplier": 1.7,
+      "walk_stride": 0.04464285714285714,
+      "run_stride": 0.06097560975609756,
+      "strideDir": {
+        "d": 0.5,
+        "l": 1,
+        "r": 1,
+        "u": 0.5
+      },
+      "selection": "actual world distance; stand on stop",
+      "pixel_contact_gate": "measure real controller and rendered source feet; theoretical stance speed alone is not acceptance"
+    }
+  },
+  "character_icon_entry_template": {
+    "stage_id": "REQUIRED（卡片的 current_stage 或 stage_id；一张卡一个阶段，换装、长发等新阶段另建卡另配图标）",
+    "required": "combat=true 时为 true",
+    "performance_plan": {
+      "personality_basis": "REQUIRED（人物登记的性格依据）",
+      "expression": "REQUIRED",
+      "pose": "REQUIRED",
+      "props": "REQUIRED（只用设定内道具；无则写“无”）",
+      "variants": "可选：评审阶段多版时改用 [{expression,pose,props}]"
+    },
+    "reference_portraits": [
+      "同阶段正式对话立绘；动物用正式战斗精灵首帧放大（路径相对项目根，带工作区前缀）"
+    ],
+    "facing": "画面左（我方）／画面右（敌方）",
+    "status": "未生成／候选，未采用／已采用",
+    "source_batch": "生成批次目录（相对项目根）；未生成时为 null",
+    "candidate_ids": [
+      "批次 manifest.json 里的候选编号"
+    ],
+    "note": ""
+  }
+}

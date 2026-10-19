@@ -1,0 +1,189 @@
+{
+  "date": "2026-10-16",
+  "status": "static_source_integrity_and_existing_condition_pure_module_only",
+  "sources": [
+    {
+      "path": "xiaojianghu-legacy-prologue/js/character-growth-state.js",
+      "sha256": "34b4f0c0290d8333aaa592dcc73260ebf28cbea9deb12a890b2db7e869a9738c"
+    },
+    {
+      "path": "xiaojianghu/docs/design/traits-20261013/catalog.json",
+      "sha256": "d28426a27fedcf00408a408ebd4616e0faf3403af2638f5e3aeaab52dfbb902e"
+    },
+    {
+      "path": "xiaojianghu/docs/design/traits-20261013/routes.json",
+      "sha256": "6bb698236dd621b7e40d2773ffc449a32abf5b910b2392b66467cd9d4eb6dc0a"
+    }
+  ],
+  "counts": {
+    "traits": 20,
+    "routes": 7,
+    "rewardChoices": 9
+  },
+  "routes": [
+    {
+      "routeId": "route_escort",
+      "stepCount": 5,
+      "closureId": "tr_escort_closure",
+      "closureCost": 4,
+      "rewards": [
+        "steady_in_crisis"
+      ],
+      "rewardReferencesExist": true,
+      "stepIdsUnique": true,
+      "sourceStatus": "planned_not_runtime"
+    },
+    {
+      "routeId": "route_evidence",
+      "stepCount": 5,
+      "closureId": "tr_evidence_closure",
+      "closureCost": 4,
+      "rewards": [
+        "verified_record"
+      ],
+      "rewardReferencesExist": true,
+      "stepIdsUnique": true,
+      "sourceStatus": "planned_not_runtime"
+    },
+    {
+      "routeId": "route_practice",
+      "stepCount": 5,
+      "closureId": "tr_practice_closure",
+      "closureCost": 0,
+      "rewards": [
+        "ask_before_practice",
+        "measured_guard"
+      ],
+      "rewardReferencesExist": true,
+      "stepIdsUnique": true,
+      "sourceStatus": "planned_not_runtime"
+    },
+    {
+      "routeId": "route_accounts",
+      "stepCount": 5,
+      "closureId": "tr_accounts_closure",
+      "closureCost": 4,
+      "rewards": [
+        "careful_accounts"
+      ],
+      "rewardReferencesExist": true,
+      "stepIdsUnique": true,
+      "sourceStatus": "planned_not_runtime"
+    },
+    {
+      "routeId": "route_footwork",
+      "stepCount": 5,
+      "closureId": "tr_footwork_closure",
+      "closureCost": 4,
+      "rewards": [
+        "circle_step",
+        "face_step"
+      ],
+      "rewardReferencesExist": true,
+      "stepIdsUnique": true,
+      "sourceStatus": "planned_not_runtime"
+    },
+    {
+      "routeId": "route_care",
+      "stepCount": 5,
+      "closureId": "tr_care_closure",
+      "closureCost": 4,
+      "rewards": [
+        "bandage_practice"
+      ],
+      "rewardReferencesExist": true,
+      "stepIdsUnique": true,
+      "sourceStatus": "planned_not_runtime"
+    },
+    {
+      "routeId": "route_scholar",
+      "stepCount": 5,
+      "closureId": "tr_scholar_closure",
+      "closureCost": 4,
+      "rewards": [
+        "pei_crosscheck"
+      ],
+      "rewardReferencesExist": true,
+      "stepIdsUnique": true,
+      "sourceStatus": "planned_not_runtime"
+    }
+  ],
+  "conditionCalculation": {
+    "healthy": {
+      "mhp": 820,
+      "mmp": 378,
+      "atk": 143,
+      "spd": 13,
+      "def": 50
+    },
+    "initialStage": {
+      "mhp": 369,
+      "mmp": 132,
+      "atk": 57,
+      "spd": 10,
+      "def": 50
+    },
+    "withFatigue": {
+      "mhp": 369,
+      "mmp": 132,
+      "atk": 57,
+      "spd": 10,
+      "def": 50
+    },
+    "afterOrdinaryRest": {
+      "mhp": 369,
+      "mmp": 132,
+      "atk": 57,
+      "spd": 10,
+      "def": 50
+    },
+    "stage1": {
+      "stats": {
+        "mhp": 533,
+        "mmp": 227,
+        "atk": 93,
+        "spd": 12,
+        "def": 50
+      },
+      "hp": 369,
+      "mp": 132
+    },
+    "healed": {
+      "stats": {
+        "mhp": 820,
+        "mmp": 378,
+        "atk": 143,
+        "spd": 13,
+        "def": 50
+      },
+      "hp": 369,
+      "mp": 132
+    },
+    "levelPreserved": 54
+  },
+  "blockers": [
+    {
+      "id": "C02-1",
+      "trait": "yin_wine",
+      "missingConsumer": "accuracy_add on normal player strikes",
+      "policy": "retain candidate, do not enable positive half alone"
+    },
+    {
+      "id": "C02-2",
+      "scope": "new route events/closures",
+      "missing": "legal actor schedule, culture-vs-town clock and cost variants"
+    },
+    {
+      "id": "C02-3",
+      "scope": "story injury recovery",
+      "missing": "full authored playable treatment route"
+    }
+  ],
+  "validation": {
+    "staticReferencesPassed": true,
+    "existingConditionAssertionsPassed": true,
+    "newRoutesExecuted": false,
+    "browserTested": false,
+    "traitAwardsImplemented": false
+  }
+}

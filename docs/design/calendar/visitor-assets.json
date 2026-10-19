@@ -1,0 +1,797 @@
+{
+  "version": "QVIS-2026-10-05.1",
+  "status": "integrated-local",
+  "script": "docs/archive/design/scripts/pre-xiangyang-visitors.md",
+  "schedule": "docs/design/calendar/mountain-events.json",
+  "spec": "docs/design/cultivation-q-generation-standard.md",
+  "counts": {
+    "new_runtime_rasters": 4,
+    "new_identity_references_max": 3,
+    "existing_portrait_reuse_candidates": 3,
+    "new_animation_frames": 0,
+    "new_cg": 0,
+    "new_map_sprites": 0
+  },
+  "assets": [
+    {
+      "asset_id": "QVIS-MO-IDENTITY",
+      "version": "QVIS-2026-10-05.1",
+      "scene_ids": [
+        "V01"
+      ],
+      "narrative_purpose": "锁定本人五官、年龄、门派衣装；仅生产参考",
+      "presentation": "identity-reference",
+      "characters": [
+        {
+          "id": "mo_songnian",
+          "age": 26,
+          "stage": "year1-pre-xiangyang"
+        }
+      ],
+      "status": "adopted-reference",
+      "file": "art_sources/cultivation_visitors_v1/identities/mo_songnian.png",
+      "planned_file": "art_sources/cultivation_visitors_v1/identities/mo_songnian.png",
+      "identity_refs": [
+        "docs/design/cast-visuals.md#莫松年--行脚弟子不可招募"
+      ],
+      "pose_and_props": {},
+      "canvas": {
+        "requested": [
+          1024,
+          1536
+        ],
+        "framing": "full-body-reference",
+        "actual": [
+          1024,
+          1536
+        ]
+      },
+      "reuse": {
+        "policy": "本人已采用合法基准优先；未登记不等于全仓库没有"
+      },
+      "fallback": "真实角色名和对白文本，缺图不替换身份",
+      "prompt_record": {
+        "status": "generated",
+        "prompt": "art_sources/cultivation_visitors_v1/prompts/mo_songnian-identity.txt",
+        "tool": "image_gen.imagegen",
+        "references": [
+          {
+            "file": "assets/cultivation/portraits/hero_listen_v2.png",
+            "sha256": "eceabdc48b8e474c688629d5ad393bf8ba7cc352f3a7cb3e77fc09a479e9107f"
+          },
+          {
+            "file": "assets/cultivation/portraits/ye_tidy_v2.png",
+            "sha256": "51bcc02f20e2446e03a10128ebe284a51886025706a9f51eb586d7dd4376330e"
+          }
+        ]
+      },
+      "evidence": {
+        "fileExists": true,
+        "sha256": "96b2b9846cb9a398ea50a9b80bd8679a78e260616327df8e3f856e1bb4e415d0",
+        "visualAcceptance": "docs/archive/design/pre-xiangyang-visitor-acceptance.md"
+      }
+    },
+    {
+      "asset_id": "QVIS-MO-01",
+      "version": "QVIS-2026-10-05.1",
+      "scene_ids": [
+        "V01"
+      ],
+      "narrative_purpose": "与实际对白一致的独立来客形象",
+      "presentation": "static-q-portrait",
+      "characters": [
+        {
+          "id": "mo_songnian",
+          "age": 26,
+          "stage": "year1-pre-xiangyang"
+        }
+      ],
+      "status": "integrated-local",
+      "file": "assets/cultivation/visitors-v1/mo_songnian.png",
+      "planned_file": "assets/cultivation/visitors-v1/mo_songnian.png",
+      "identity_refs": [
+        "QVIS-MO-IDENTITY"
+      ],
+      "pose_and_props": {
+        "family": "折图交谈",
+        "left_hand": "托图下缘",
+        "right_hand": "食指接触图面",
+        "prop": "本人折图与肩带连接的行囊",
+        "freeze_record": "art_sources/cultivation_visitors_v1/frozen-poses.json"
+      },
+      "canvas": {
+        "requested": [
+          1024,
+          1536
+        ],
+        "alpha": true,
+        "framing": "hair-to-mid-thigh",
+        "top_safe_fraction": 0.03,
+        "actual": [
+          1024,
+          1536
+        ]
+      },
+      "reuse": {},
+      "fallback": "真实角色名和对白文本，缺图不替换身份",
+      "prompt_record": {
+        "status": "generated",
+        "prompt": "art_sources/cultivation_visitors_v1/prompts/mo_songnian-pose.txt",
+        "tool": "image_gen.imagegen",
+        "references": [
+          {
+            "file": "art_sources/cultivation_visitors_v1/identities/mo_songnian.png",
+            "sha256": "96b2b9846cb9a398ea50a9b80bd8679a78e260616327df8e3f856e1bb4e415d0"
+          },
+          {
+            "file": "art_sources/cultivation_visitors_v1/mannequins/mo_songnian-pose.png",
+            "sha256": "cf6ac989b7939546f80b24d9371d8b407361f59e3f64567d62f98f423e02c3af"
+          }
+        ]
+      },
+      "evidence": {
+        "fileExists": true,
+        "sha256": "439acadbdfe2a7e8c38e29a4c4db25095fac7f9af015c0fa615ddbe1e8285346",
+        "visualAcceptance": "docs/archive/design/pre-xiangyang-visitor-acceptance.md"
+      }
+    },
+    {
+      "asset_id": "QVIS-MENG-IDENTITY",
+      "version": "QVIS-2026-10-05.1",
+      "scene_ids": [
+        "V02"
+      ],
+      "narrative_purpose": "锁定本人五官、年龄、门派衣装；仅生产参考",
+      "presentation": "identity-reference",
+      "characters": [
+        {
+          "id": "meng_zhiwei",
+          "age": 38,
+          "stage": "year1-pre-xiangyang"
+        }
+      ],
+      "status": "adopted-reference",
+      "file": "art_sources/cultivation_visitors_v1/identities/meng_zhiwei.png",
+      "planned_file": "art_sources/cultivation_visitors_v1/identities/meng_zhiwei.png",
+      "identity_refs": [
+        "docs/design/cast-visuals.md#孟知微--医案执事"
+      ],
+      "pose_and_props": {},
+      "canvas": {
+        "requested": [
+          1024,
+          1536
+        ],
+        "framing": "full-body-reference",
+        "actual": [
+          1024,
+          1536
+        ]
+      },
+      "reuse": {
+        "policy": "本人已采用合法基准优先；未登记不等于全仓库没有"
+      },
+      "fallback": "真实角色名和对白文本，缺图不替换身份",
+      "prompt_record": {
+        "status": "generated",
+        "prompt": "art_sources/cultivation_visitors_v1/prompts/meng_zhiwei-identity.txt",
+        "tool": "image_gen.imagegen",
+        "references": [
+          {
+            "file": "assets/cultivation/portraits/hero_listen_v2.png",
+            "sha256": "eceabdc48b8e474c688629d5ad393bf8ba7cc352f3a7cb3e77fc09a479e9107f"
+          },
+          {
+            "file": "assets/cultivation/portraits/ye_tidy_v2.png",
+            "sha256": "51bcc02f20e2446e03a10128ebe284a51886025706a9f51eb586d7dd4376330e"
+          }
+        ]
+      },
+      "evidence": {
+        "fileExists": true,
+        "sha256": "c3ce3850625971c4b117193571fbc4fe513a331d846a4c8eefe9016adaa8b323",
+        "visualAcceptance": "docs/archive/design/pre-xiangyang-visitor-acceptance.md"
+      }
+    },
+    {
+      "asset_id": "QVIS-MENG-01",
+      "version": "QVIS-2026-10-05.1",
+      "scene_ids": [
+        "V02"
+      ],
+      "narrative_purpose": "与实际对白一致的独立来客形象",
+      "presentation": "static-q-portrait",
+      "characters": [
+        {
+          "id": "meng_zhiwei",
+          "age": 38,
+          "stage": "year1-pre-xiangyang"
+        }
+      ],
+      "status": "integrated-local",
+      "file": "assets/cultivation/visitors-v1/meng_zhiwei.png",
+      "planned_file": "assets/cultivation/visitors-v1/meng_zhiwei.png",
+      "identity_refs": [
+        "QVIS-MENG-IDENTITY"
+      ],
+      "pose_and_props": {
+        "family": "托夹核对",
+        "left_hand": "托文夹底部",
+        "right_hand": "压页边",
+        "prop": "公用普通文夹，不含家传遗物",
+        "freeze_record": "art_sources/cultivation_visitors_v1/frozen-poses.json"
+      },
+      "canvas": {
+        "requested": [
+          1024,
+          1536
+        ],
+        "alpha": true,
+        "framing": "hair-to-mid-thigh",
+        "top_safe_fraction": 0.03,
+        "actual": [
+          1024,
+          1536
+        ]
+      },
+      "reuse": {},
+      "fallback": "真实角色名和对白文本，缺图不替换身份",
+      "prompt_record": {
+        "status": "generated",
+        "prompt": "art_sources/cultivation_visitors_v1/prompts/meng_zhiwei-pose.txt",
+        "tool": "image_gen.imagegen",
+        "references": [
+          {
+            "file": "art_sources/cultivation_visitors_v1/identities/meng_zhiwei.png",
+            "sha256": "c3ce3850625971c4b117193571fbc4fe513a331d846a4c8eefe9016adaa8b323"
+          },
+          {
+            "file": "art_sources/cultivation_visitors_v1/mannequins/meng_zhiwei-pose.png",
+            "sha256": "0de10e5039aa5b14e2274a93116a4a7cb1baa8bff1c949060535315bebdbcc18"
+          }
+        ]
+      },
+      "evidence": {
+        "fileExists": true,
+        "sha256": "c9da525034a5540d2bf9d0ab5fab26c36df3073b7bb7a01f406d7a3fd6895521",
+        "visualAcceptance": "docs/archive/design/pre-xiangyang-visitor-acceptance.md"
+      }
+    },
+    {
+      "asset_id": "QVIS-ZC-IDENTITY",
+      "version": "QVIS-2026-10-05.1",
+      "scene_ids": [
+        "V03"
+      ],
+      "narrative_purpose": "锁定本人五官、年龄、门派衣装；仅生产参考",
+      "presentation": "identity-reference",
+      "characters": [
+        {
+          "id": "zhaochuan_courier",
+          "age": 24,
+          "stage": "year1-pre-xiangyang"
+        }
+      ],
+      "status": "adopted-reference",
+      "file": "art_sources/cultivation_visitors_v1/identities/zhaochuan_courier.png",
+      "planned_file": "art_sources/cultivation_visitors_v1/identities/zhaochuan_courier.png",
+      "identity_refs": [
+        "docs/archive/design/pre-xiangyang-visitor-assets.md#qvis-zc-01照川送帖弟子合帖问候"
+      ],
+      "pose_and_props": {},
+      "canvas": {
+        "requested": [
+          1024,
+          1536
+        ],
+        "framing": "full-body-reference",
+        "actual": [
+          1024,
+          1536
+        ]
+      },
+      "reuse": {
+        "policy": "本人已采用合法基准优先；未登记不等于全仓库没有"
+      },
+      "fallback": "真实角色名和对白文本，缺图不替换身份",
+      "prompt_record": {
+        "status": "generated",
+        "prompt": "art_sources/cultivation_visitors_v1/prompts/zhaochuan_courier-identity.txt",
+        "tool": "image_gen.imagegen",
+        "references": [
+          {
+            "file": "assets/cultivation/portraits/hero_listen_v2.png",
+            "sha256": "eceabdc48b8e474c688629d5ad393bf8ba7cc352f3a7cb3e77fc09a479e9107f"
+          },
+          {
+            "file": "assets/cultivation/portraits/ye_tidy_v2.png",
+            "sha256": "51bcc02f20e2446e03a10128ebe284a51886025706a9f51eb586d7dd4376330e"
+          }
+        ]
+      },
+      "evidence": {
+        "fileExists": true,
+        "sha256": "fa7ca4786ac6749c2a9493b105640aa91d245de8c57374d373ca09814feadbdf",
+        "visualAcceptance": "docs/archive/design/pre-xiangyang-visitor-acceptance.md"
+      }
+    },
+    {
+      "asset_id": "QVIS-ZC-01",
+      "version": "QVIS-2026-10-05.1",
+      "scene_ids": [
+        "V03"
+      ],
+      "narrative_purpose": "与实际对白一致的独立来客形象",
+      "presentation": "static-q-portrait",
+      "characters": [
+        {
+          "id": "zhaochuan_courier",
+          "age": 24,
+          "stage": "year1-pre-xiangyang"
+        }
+      ],
+      "status": "integrated-local",
+      "file": "assets/cultivation/visitors-v1/zhaochuan_courier.png",
+      "planned_file": "assets/cultivation/visitors-v1/zhaochuan_courier.png",
+      "identity_refs": [
+        "QVIS-ZC-IDENTITY"
+      ],
+      "pose_and_props": {
+        "family": "合帖问候",
+        "left_hand": "持信帖左边",
+        "right_hand": "持信帖右边",
+        "prop": "普通公开帖子，剑在鞘内固定",
+        "freeze_record": "art_sources/cultivation_visitors_v1/frozen-poses.json"
+      },
+      "canvas": {
+        "requested": [
+          1024,
+          1536
+        ],
+        "alpha": true,
+        "framing": "hair-to-mid-thigh",
+        "top_safe_fraction": 0.03,
+        "actual": [
+          1024,
+          1536
+        ]
+      },
+      "reuse": {},
+      "fallback": "真实角色名和对白文本，缺图不替换身份",
+      "prompt_record": {
+        "status": "generated",
+        "prompt": "art_sources/cultivation_visitors_v1/prompts/zhaochuan_courier-pose.txt",
+        "tool": "image_gen.imagegen",
+        "references": [
+          {
+            "file": "art_sources/cultivation_visitors_v1/identities/zhaochuan_courier.png",
+            "sha256": "fa7ca4786ac6749c2a9493b105640aa91d245de8c57374d373ca09814feadbdf"
+          },
+          {
+            "file": "art_sources/cultivation_visitors_v1/mannequins/zhaochuan_courier-pose.png",
+            "sha256": "98bfb232952483d9091d14956b76eab15846158c29d906821d440d68952ce6cb"
+          }
+        ]
+      },
+      "evidence": {
+        "fileExists": true,
+        "sha256": "dae32631fe87d752acb0c12992361ea40b010c73306e49c5c0af4e7172e94b28",
+        "visualAcceptance": "docs/archive/design/pre-xiangyang-visitor-acceptance.md"
+      }
+    },
+    {
+      "asset_id": "QVIS-HERO-REUSE",
+      "version": "QVIS-2026-10-05.1",
+      "scene_ids": [
+        "V01",
+        "V02",
+        "V03"
+      ],
+      "narrative_purpose": "已有本人同阶段形象复用，不新增动作帧",
+      "presentation": "static-q-portrait",
+      "characters": [
+        {
+          "id": "hero",
+          "stage": "year1-pre-xiangyang"
+        }
+      ],
+      "status": "adopted-reuse",
+      "file": "assets/cultivation/portraits/hero_listen_v2.png",
+      "planned_file": null,
+      "identity_refs": [],
+      "pose_and_props": {},
+      "canvas": {
+        "actual": [
+          1145,
+          1374
+        ],
+        "mode": "RGBA"
+      },
+      "reuse": {
+        "condition": "新来客组头部锚点与动作检查通过后采用"
+      },
+      "fallback": "真实角色名和对白文本，缺图不替换身份",
+      "prompt_record": {
+        "status": "existing-resource",
+        "prompt": null,
+        "references": [],
+        "tool": null
+      },
+      "evidence": {
+        "fileExists": true,
+        "sha256": "eceabdc48b8e474c688629d5ad393bf8ba7cc352f3a7cb3e77fc09a479e9107f",
+        "visualAcceptance": "docs/archive/design/pre-xiangyang-visitor-acceptance.md"
+      }
+    },
+    {
+      "asset_id": "QVIS-YE-REUSE",
+      "version": "QVIS-2026-10-05.1",
+      "scene_ids": [
+        "V02"
+      ],
+      "narrative_purpose": "已有本人同阶段形象复用，不新增动作帧",
+      "presentation": "static-q-portrait",
+      "characters": [
+        {
+          "id": "ye",
+          "stage": "year1-pre-xiangyang"
+        }
+      ],
+      "status": "adopted-reuse",
+      "file": "assets/cultivation/portraits/ye_tidy_v2.png",
+      "planned_file": null,
+      "identity_refs": [],
+      "pose_and_props": {},
+      "canvas": {
+        "actual": [
+          1145,
+          1374
+        ],
+        "mode": "RGBA"
+      },
+      "reuse": {
+        "condition": "新来客组头部锚点与动作检查通过后采用"
+      },
+      "fallback": "真实角色名和对白文本，缺图不替换身份",
+      "prompt_record": {
+        "status": "existing-resource",
+        "prompt": null,
+        "references": [],
+        "tool": null
+      },
+      "evidence": {
+        "fileExists": true,
+        "sha256": "51bcc02f20e2446e03a10128ebe284a51886025706a9f51eb586d7dd4376330e",
+        "visualAcceptance": "docs/archive/design/pre-xiangyang-visitor-acceptance.md"
+      }
+    },
+    {
+      "asset_id": "QVIS-ZHOU-REUSE",
+      "version": "QVIS-2026-10-05.1",
+      "scene_ids": [
+        "V01",
+        "V03"
+      ],
+      "narrative_purpose": "已有本人同阶段形象复用，不新增动作帧",
+      "presentation": "static-q-portrait",
+      "characters": [
+        {
+          "id": "zhou",
+          "stage": "year1-pre-xiangyang"
+        }
+      ],
+      "status": "adopted-reuse",
+      "file": "assets/cultivation/story-v6/zhou.png",
+      "planned_file": null,
+      "identity_refs": [],
+      "pose_and_props": {},
+      "canvas": {
+        "actual": [
+          1024,
+          1536
+        ],
+        "mode": "RGBA"
+      },
+      "reuse": {
+        "condition": "新来客组头部锚点与动作检查通过后采用"
+      },
+      "fallback": "真实角色名和对白文本，缺图不替换身份",
+      "prompt_record": {
+        "status": "existing-resource",
+        "prompt": null,
+        "references": [],
+        "tool": null
+      },
+      "evidence": {
+        "fileExists": true,
+        "sha256": "8c61ee550b980e9b2744493ecdaa02c8bfc0fe36d2a02c3a050cbf3267cc0dc6",
+        "visualAcceptance": "docs/archive/design/pre-xiangyang-visitor-acceptance.md"
+      }
+    },
+    {
+      "asset_id": "QVIS-BG-01",
+      "version": "QVIS-2026-10-05.1",
+      "scene_ids": [
+        "V01",
+        "V02",
+        "V03"
+      ],
+      "narrative_purpose": "同一接待廊承接来访，与已有色彩和合理公共空间一致",
+      "presentation": "scene-background",
+      "characters": [],
+      "status": "integrated-local",
+      "file": "assets/cultivation/visitors-v1/reception-porch.png",
+      "planned_file": "assets/cultivation/visitors-v1/reception-porch.png",
+      "identity_refs": [
+        "QVIS-BG-REF"
+      ],
+      "pose_and_props": {},
+      "canvas": {
+        "requested": [
+          1920,
+          1080
+        ],
+        "alpha": false,
+        "actual": [
+          1672,
+          941
+        ],
+        "speech_safe_y_fraction": [
+          0.04,
+          0.3
+        ],
+        "actor_region_y_fraction": [
+          0.3,
+          0.83
+        ]
+      },
+      "reuse": {},
+      "fallback": "既有背景仅标测试回退，不当已验收接待廊",
+      "prompt_record": {
+        "status": "generated",
+        "prompt": "art_sources/cultivation_visitors_v1/prompts/reception-porch.txt",
+        "tool": "image_gen.imagegen",
+        "references": [
+          {
+            "file": "assets/cultivation/scenes/training_ground_v4.png",
+            "sha256": "36a54183b27f13d709018c4aa1ea926a95535bb4852b39a29b4c6ac22113fd02"
+          },
+          {
+            "file": "art_sources/cultivation_visitors_v1/mannequins/reception-layout.png",
+            "sha256": "187c1a327316cf355e6cdfbc620e2f86322347994897963d8ba2100c9a95a2ae"
+          }
+        ]
+      },
+      "evidence": {
+        "fileExists": true,
+        "sha256": "ca1c58a00af59d7b9d27272e757b7b03b44602abcacb1332c092c24efdfa6181",
+        "visualAcceptance": "docs/archive/design/pre-xiangyang-visitor-acceptance.md"
+      }
+    },
+    {
+      "asset_id": "QVIS-BG-REF",
+      "version": "QVIS-2026-10-05.1",
+      "scene_ids": [
+        "V01",
+        "V02",
+        "V03"
+      ],
+      "narrative_purpose": "旧背景只约束画风、光线，不代表接待廊已完成",
+      "presentation": "style-reference",
+      "characters": [],
+      "status": "reference-only",
+      "file": "assets/cultivation/scenes/training_ground_v4.png",
+      "planned_file": null,
+      "identity_refs": [],
+      "pose_and_props": {},
+      "canvas": {
+        "actual": [
+          1672,
+          941
+        ],
+        "mode": "RGB"
+      },
+      "reuse": {},
+      "fallback": "真实角色名和对白文本，缺图不替换身份",
+      "prompt_record": {
+        "status": "existing-resource",
+        "prompt": null,
+        "references": [],
+        "tool": null
+      },
+      "evidence": {
+        "fileExists": true,
+        "sha256": "36a54183b27f13d709018c4aa1ea926a95535bb4852b39a29b4c6ac22113fd02",
+        "visualAcceptance": "pending-new-cast-group-review"
+      }
+    },
+    {
+      "asset_id": "QVIS-UI-NOTICE",
+      "version": "QVIS-2026-10-05.1",
+      "scene_ids": [
+        "V01",
+        "V02",
+        "V03"
+      ],
+      "narrative_purpose": "来访预告、3点确认与离开状态",
+      "presentation": "code-ui",
+      "characters": [],
+      "status": "integrated-local",
+      "file": null,
+      "planned_file": null,
+      "identity_refs": [],
+      "pose_and_props": {},
+      "canvas": {},
+      "reuse": {
+        "existing_components": [
+          "js/cultivation-story.js",
+          "js/cultivation-story.css"
+        ],
+        "new_bitmap_count": 0
+      },
+      "fallback": "真实角色名和对白文本，缺图不替换身份",
+      "prompt_record": {
+        "status": "not-generated",
+        "prompt": null,
+        "references": [],
+        "tool": null
+      },
+      "evidence": {
+        "runtime": "js/cultivation-visitors.js",
+        "browser": "review/cultivation-visitors-v1/browser-report.json"
+      }
+    },
+    {
+      "asset_id": "QVIS-UI-DIALOGUE",
+      "version": "QVIS-2026-10-05.1",
+      "scene_ids": [
+        "V01",
+        "V02",
+        "V03"
+      ],
+      "narrative_purpose": "复用CultivationStory.render真实姓名、文字、选项；保存阶段",
+      "presentation": "code-ui",
+      "characters": [],
+      "status": "integrated-local",
+      "file": null,
+      "planned_file": null,
+      "identity_refs": [],
+      "pose_and_props": {},
+      "canvas": {},
+      "reuse": {
+        "existing_components": [
+          "js/cultivation-story.js",
+          "js/cultivation-story.css"
+        ],
+        "new_bitmap_count": 0
+      },
+      "fallback": "真实角色名和对白文本，缺图不替换身份",
+      "prompt_record": {
+        "status": "not-generated",
+        "prompt": null,
+        "references": [],
+        "tool": null
+      },
+      "evidence": {
+        "runtime": "js/cultivation-visitors.js",
+        "browser": "review/cultivation-visitors-v1/browser-report.json"
+      }
+    },
+    {
+      "asset_id": "QVIS-UI-RESULT",
+      "version": "QVIS-2026-10-05.1",
+      "scene_ids": [
+        "V01",
+        "V02",
+        "V03"
+      ],
+      "narrative_purpose": "记录＋2进度、首次相遇事实、完成与过期",
+      "presentation": "code-ui",
+      "characters": [],
+      "status": "integrated-local",
+      "file": null,
+      "planned_file": null,
+      "identity_refs": [],
+      "pose_and_props": {},
+      "canvas": {},
+      "reuse": {
+        "existing_components": [
+          "js/cultivation-story.js",
+          "js/cultivation-story.css"
+        ],
+        "new_bitmap_count": 0
+      },
+      "fallback": "真实角色名和对白文本，缺图不替换身份",
+      "prompt_record": {
+        "status": "not-generated",
+        "prompt": null,
+        "references": [],
+        "tool": null
+      },
+      "evidence": {
+        "runtime": "js/cultivation-visitors.js",
+        "browser": "review/cultivation-visitors-v1/browser-report.json"
+      }
+    },
+    {
+      "asset_id": "QVIS-PROPS-TEXT",
+      "version": "QVIS-2026-10-05.1",
+      "scene_ids": [
+        "V01",
+        "V02",
+        "V03"
+      ],
+      "narrative_purpose": "折图、夹页与帖子与手接触画入人物；关键内容用程序文本",
+      "presentation": "embedded-props-and-text",
+      "characters": [],
+      "status": "integrated-local",
+      "file": null,
+      "planned_file": null,
+      "identity_refs": [],
+      "pose_and_props": {
+        "owners": {
+          "折图": "mo_songnian",
+          "文夹": "本次公用交接",
+          "信帖": "照川公开来访说明"
+        },
+        "independent_bitmap_count": 0,
+        "readable_text_baked": false
+      },
+      "canvas": {},
+      "reuse": {},
+      "fallback": "真实角色名和对白文本，缺图不替换身份",
+      "prompt_record": {
+        "status": "not-generated",
+        "prompt": null,
+        "references": [],
+        "tool": null
+      },
+      "evidence": {
+        "runtime": "js/cultivation-visitors.js",
+        "browser": "review/cultivation-visitors-v1/browser-report.json"
+      }
+    }
+  ],
+  "excluded_pending_characters": [
+    "归云谷师叔：身份卡未定",
+    "先入门同门：身份卡未定"
+  ],
+  "acceptance": [
+    "identity baseline",
+    "frozen own mannequin",
+    "single and group art review",
+    "desktop dialogue screenshots",
+    "runtime transaction and cost tests"
+  ],
+  "event_scene_map": {
+    "visitor_songfeng_route": "V01",
+    "visitor_whiteheron_records": "V02",
+    "visitor_zhaochuan_greeting": "V03"
+  },
+  "pending_expansion": [
+    {
+      "scene_id": "D01",
+      "role": "归云谷师叔",
+      "status": "identity-and-schedule-pending",
+      "requirements": [
+        "角色卡",
+        "本人身份基准",
+        "1张Q基础图"
+      ],
+      "runtime_counted": false
+    },
+    {
+      "scene_id": "D02",
+      "role": "先入门同门",
+      "status": "identity-and-schedule-pending",
+      "requirements": [
+        "角色卡",
+        "本人身份基准",
+        "1张Q基础图"
+      ],
+      "runtime_counted": false
+    }
+  ],
+  "generation_record": "art_sources/cultivation_visitors_v1/generation.json",
+  "acceptance_report": "docs/archive/design/pre-xiangyang-visitor-acceptance.md"
+}

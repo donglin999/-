@@ -1,0 +1,105 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 800" width="2000" height="1600" font-family="PingFang SC, Songti SC, serif">
+  <!-- 汉皋城分区拓扑 HG-2026-10-08.1：每块按世界尺寸 1/10 绘制；各块是独立加载场景，经出入口切换，不是拼成一张图 -->
+  <rect width="1000" height="800" fill="#efe4c8"/>
+  <!-- 汉水 -->
+  <path d="M0,40 C250,20 500,60 1000,30 L1000,85 C600,110 300,80 0,95 z" fill="#8fb2c6"/>
+  <text x="20" y="70" font-size="18" fill="#2f5a75">汉水（北）→ 渡船：芦花渡／合川镇／北岸草市（预留）</text>
+  <!-- 城墙 -->
+  <rect x="40" y="110" width="900" height="610" fill="none" stroke="#6b5636" stroke-width="7"/>
+  <!-- 区块 -->
+  <g stroke="#5a4528" stroke-width="2" font-size="15" fill="#2b2016">
+    <rect x="80" y="125" width="192" height="128" fill="#c9cfdb"/>
+    <rect x="365" y="118" width="307" height="154" fill="#b9cbd3"/>
+    <rect x="720" y="125" width="192" height="128" fill="#d8c9a8"/>
+    <rect x="60" y="300" width="240" height="160" fill="#e3c9a6"/>
+    <rect x="365" y="290" width="307" height="205" fill="#e8d6a0"/>
+    <rect x="700" y="300" width="240" height="160" fill="#dcc29a"/>
+    <rect x="45" y="510" width="307" height="205" fill="#d6d0b6"/>
+    <rect x="400" y="560" width="240" height="160" fill="#e2c69c"/>
+    <rect x="720" y="545" width="192" height="128" fill="#e6bfc0"/>
+  </g>
+  <g font-size="17" font-weight="bold" fill="#2b2016">
+    <text x="88" y="148">⑧ 衙前街 1920×1280</text>
+    <text x="373" y="142">⑤ 码头河街 3072×1536</text>
+    <text x="728" y="148">⑥ 虹桥夜市 1920×1280</text>
+    <text x="68" y="323">④ 西市瓦子 2400×1600</text>
+    <text x="373" y="313">② 鼓楼十字街 3072×2048</text>
+    <text x="708" y="323">③ 东市 2400×1600</text>
+    <text x="53" y="533">⑨ 坊巷·城隍庙 3072×2048</text>
+    <text x="408" y="583">① 南关·南门 2400×1600</text>
+    <text x="728" y="568">⑦ 花巷 1920×1280</text>
+  </g>
+  <g font-size="12.5" fill="#3b2c1a">
+    <text x="88" y="168">府衙 · 巡江司汉皋分署</text>
+    <text x="88" y="184">正道盟联络院 · 书肆碑亭</text>
+    <text x="88" y="200">誊写铺（主线证物）</text>
+    <text x="88" y="236" fill="#8a6d3b">▢ 预留驻点院×1</text>
+    <text x="373" y="162">水门 · 漕船泊位 · 货栈（归烬堂）</text>
+    <text x="373" y="178">合川拳门护运棚 · 乔行舟船坞</text>
+    <text x="373" y="194">鱼市 · 脚夫行 · 渡口</text>
+    <text x="373" y="256" fill="#8a6d3b">▢ 招租铺面×1</text>
+    <text x="728" y="168">虹桥（跨城内运河）</text>
+    <text x="728" y="184">夜市小吃 · 花鸟市（宠物）</text>
+    <text x="728" y="200">长明坊赌坊（归烬堂）</text>
+    <text x="728" y="236" fill="#8a6d3b">▢ 招租铺面×1</text>
+    <text x="68" y="343">瓦子勾栏（晏小楼戏班）</text>
+    <text x="68" y="359">擂台 · 照川试艺场</text>
+    <text x="68" y="375">说书茶坊 · 杂耍</text>
+    <text x="68" y="391">松风观客舍（闻疏桐/莫松年）</text>
+    <text x="68" y="440" fill="#8a6d3b">▢ 招租铺面×1</text>
+    <text x="373" y="333">鼓楼（地标）· 告示墙／悬赏榜</text>
+    <text x="373" y="349">远山镖局（寿宴主院，陆衡）</text>
+    <text x="373" y="365">正店酒楼「望江楼」· 钱庄</text>
+    <text x="373" y="381">白鹇医寓义诊棚（苏芷/许知衡）</text>
+    <text x="373" y="397">车马行（大地图快速往返）</text>
+    <text x="373" y="413">端阳药市（5月临时摊区）</text>
+    <text x="373" y="478" fill="#8a6d3b">▢ 招租铺面×1 · ▢ 预留驻点院×1</text>
+    <text x="708" y="343">铁匠铺 · 霍逐尘修械工坊</text>
+    <text x="708" y="359">翠钿饰品铺 · 胭脂水粉铺</text>
+    <text x="708" y="375">博古斋（鉴定）· 解库当铺</text>
+    <text x="708" y="391">成衣铺 · 药铺 · 杂货</text>
+    <text x="708" y="440" fill="#8a6d3b">▢ 招租铺面×2</text>
+    <text x="53" y="553">城隍庙 · 庙前广场（庙会）</text>
+    <text x="53" y="569">公井 · 民居 · 小学塾</text>
+    <text x="53" y="585">贫民窝棚 · 阮青雀出没的货棚侧巷</text>
+    <text x="53" y="601">香水行（澡堂）· 裁缝</text>
+    <text x="53" y="695" fill="#8a6d3b">▢ 预留驻点院×1</text>
+    <text x="408" y="603">瓮城 · 盘查 · 城门外草市</text>
+    <text x="408" y="619">脚店客栈「迎客店」（住宿教学）</text>
+    <text x="408" y="635">茶棚 · 驿递 · 官道出口</text>
+    <text x="728" y="588">栖月楼（艺楼）</text>
+    <text x="728" y="604">酒肆 · 乐坊（清徽阁授课）</text>
+    <text x="728" y="620">柳含烟 / 秦绯鸢</text>
+  </g>
+  <!-- 连接 -->
+  <g stroke="#a33a2a" stroke-width="4" fill="none">
+    <line x1="272" y1="190" x2="365" y2="195"/>
+    <line x1="672" y1="195" x2="720" y2="190"/>
+    <line x1="518" y1="272" x2="518" y2="290"/>
+    <line x1="300" y1="380" x2="365" y2="390"/>
+    <line x1="672" y1="390" x2="700" y2="380"/>
+    <line x1="518" y1="495" x2="518" y2="560"/>
+    <line x1="176" y1="253" x2="176" y2="300"/>
+    <line x1="816" y1="253" x2="816" y2="300"/>
+    <line x1="180" y1="460" x2="180" y2="510"/>
+    <line x1="352" y1="640" x2="400" y2="640"/>
+    <line x1="820" y1="460" x2="820" y2="545"/>
+    <line x1="640" y1="610" x2="720" y2="610"/>
+  </g>
+  <!-- 出口 -->
+  <g font-size="15" font-weight="bold" fill="#a33a2a">
+    <path d="M520,720 l-14,0 l14,40 l14,-40 z"/>
+    <text x="540" y="755">南门 → 官道 → 大地图（归云谷／栖河／巡江司）</text>
+    <path d="M940,380 l0,-14 l40,14 l-40,14 z"/>
+    <text x="800" y="490">东门 → 芦花渡／归烬堂</text>
+    <path d="M520,118 l-14,0 l14,-30 l14,30 z"/>
+  </g>
+  <rect x="610" y="680" width="380" height="110" fill="#f6eed8" stroke="#8a6d3b" stroke-width="1.5"/>
+  <g font-size="13" fill="#2b2016">
+    <text x="620" y="700">九块室外合计 36.2M 世界像素²，约为第一章栖河</text>
+    <text x="620" y="717">（中央 2400×1600 + 五外区 1536×1024 = 11.7M）的 3.1 倍</text>
+    <text x="620" y="734">红线＝场景出入口；▢＝预留铺面／驻点院</text>
+    <text x="620" y="751">拓扑示意，非坐标合同。HG-2026-10-08.1</text>
+    <text x="620" y="768">室内（店铺、酒楼、赌坊等）另计，不计入 3 倍面积</text>
+  </g>
+</svg>

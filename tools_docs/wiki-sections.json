@@ -1,0 +1,84 @@
+{
+  "wiki_world": [
+    "world",
+    "story-framework-review",
+    "story-travel-review",
+    "story-endgame-review",
+    "story-payoffs-review"
+  ],
+  "wiki_story": [
+    "story",
+    "story-scripts",
+    "timeline",
+    "cast-timeline",
+    "prologue-arrival",
+    "prologue-village",
+    "chapter1-village",
+    "chapter1-pressure",
+    "chapter1-fire",
+    "chapter1-mountain",
+    "chapter1-activities",
+    "opening-routes",
+    "xiangyang-case",
+    "xiangyang-chapter",
+    "xiangyang-gathering-review",
+    "jianghu-stroll-review",
+    "mountain-cultivation-events",
+    "romance-stories"
+  ],
+  "wiki_cast": [
+    "cast",
+    "cast-visuals",
+    "companions",
+    "companion-men",
+    "companion-women",
+    "ye-routes",
+    "ye-appearance",
+    "ambient-npc-design"
+  ],
+  "wiki_factions": [
+    "factions",
+    "faction-styles",
+    "faction-attire",
+    "protagonist-sect"
+  ],
+  "wiki_systems": [
+    "cultivation",
+    "cultivation-routes",
+    "cultivation-activities",
+    "mountain-cultivation-curriculum",
+    "world-map-journeys",
+    "life",
+    "life-skills",
+    "npc-interaction",
+    "party-pets",
+    "pets",
+    "companion-recruitment",
+    "romance",
+    "romance-jealousy-review"
+  ],
+  "wiki_martial": [
+    "growth-combat",
+    "martial-review/rules",
+    "martial-review/builds",
+    "martial-review/identity",
+    "martial-review/hearts",
+    "martial-review/guiyun",
+    "martial-review/white-heron",
+    "martial-review/zhaochuan",
+    "martial-review/hechuan",
+    "martial-review/songfeng",
+    "martial-review/guijintang",
+    "martial-review/alliance",
+    "martial-review/patrol",
+    "martial-review/ye",
+    "martial-review/independent",
+    "martial-review/equipment",
+    "martial-review/weapon",
+    "martial-review/armor",
+    "martial-review/acc"
+  ],
+  "wiki_places": [
+    "xiangyang-city"
+  ]
+}

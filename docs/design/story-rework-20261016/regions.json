@@ -1,0 +1,2081 @@
+{
+  "schema": "xjh.regions-gameplay.design.v1",
+  "version": "2026-10-16.1",
+  "status": "current_design_not_implemented",
+  "owner": "regions-gameplay.md",
+  "parts": [
+    "开始",
+    "培养",
+    "游历",
+    "终局"
+  ],
+  "scope": "第三、第四部分的可开发地图与行动合同；不改运行代码，不声明历史地图已采用",
+  "revision20261019": "2026-10-19 用户拍板：襄阳是以后开放的新城市，所有剧情都没有设计，需要重新设计；本合同中襄阳（RG-NORTH 的襄阳部分、襄阳南关／襄阳埠／襄阳客店等）的剧情、事件与人物安排作废，待重新设计，地区与地点ID保留。汉皋城保留城市与系统，城内现有剧情（含游历期汉皋公开交接、三地邀请等）同样作废，待重新设计。",
+  "time": {
+    "cityActionCost": 0,
+    "travelTimeCost": 0,
+    "restAdvancesTime": false,
+    "globalDayNightCycle": false,
+    "progression": "explicit_story_beats",
+    "cultivation": "独立36个月、月内五期规则；不在本合同追加占期"
+  },
+  "locations": [
+    {
+      "id": "wm_hangao",
+      "name": "汉皋城",
+      "regionId": "RG-HG",
+      "opening": "培养第一年五月首访；游历回访",
+      "entrance": "南关/东门/码头",
+      "source": "汉皋既有空间合同"
+    },
+    {
+      "id": "wm_xiangyang",
+      "name": "襄阳",
+      "regionId": "RG-NORTH",
+      "opening": "以后开放的新城市，剧情未设计（原：培养年二有限；游历完整）",
+      "entrance": "南关/襄阳埠",
+      "source": "本合同"
+    },
+    {
+      "id": "wm_fancheng",
+      "name": "樊城",
+      "regionId": "RG-NORTH",
+      "opening": "培养年二有限；游历完整",
+      "entrance": "樊城埠/营地",
+      "source": "本合同"
+    },
+    {
+      "id": "wm_hechuan",
+      "name": "合川镇",
+      "regionId": "RG-RIVER",
+      "opening": "培养期按原日历；游历完整",
+      "entrance": "合川码头",
+      "source": "本合同"
+    },
+    {
+      "id": "wm_luhua",
+      "name": "芦花渡",
+      "regionId": "RG-RIVER",
+      "opening": "培养期按原日历；游历完整",
+      "entrance": "西岸/渡船",
+      "source": "本合同"
+    },
+    {
+      "id": "wm_jindu",
+      "name": "烬渡",
+      "regionId": "RG-RIVER",
+      "opening": "培养期按邀约；游历完整",
+      "entrance": "陆路/烬渡埠",
+      "source": "本合同"
+    },
+    {
+      "id": "wm_lumen",
+      "name": "鹿门公议院",
+      "regionId": "RG-SECT",
+      "opening": "培养期按邀约；游历完整",
+      "entrance": "外院正门",
+      "source": "本合同"
+    },
+    {
+      "id": "wm_zhaochuan",
+      "name": "照川剑派",
+      "regionId": "RG-SECT",
+      "opening": "培养年二按日历；游历支院完整",
+      "entrance": "支院/山门",
+      "source": "本合同仅支院"
+    },
+    {
+      "id": "wm_songfeng",
+      "name": "松风观",
+      "regionId": "RG-SECT",
+      "opening": "培养年二按日历",
+      "entrance": "松风山路",
+      "source": "门派原合同，本合同仅山岔"
+    },
+    {
+      "id": "wm_guiyun",
+      "name": "归云谷",
+      "regionId": "RG-HOME",
+      "opening": "培养与持续回访",
+      "entrance": "谷口",
+      "source": "原本门合同"
+    },
+    {
+      "id": "wm_whiteheron",
+      "name": "白鹇谷",
+      "regionId": "RG-HOME",
+      "opening": "培养年二起叶蘅路线/邀约",
+      "entrance": "谷口",
+      "source": "医门原合同"
+    },
+    {
+      "id": "wm_qinghui",
+      "name": "清徽阁",
+      "regionId": "RG-HOME",
+      "opening": "游历中段起个人线",
+      "entrance": "阁前",
+      "source": "清徽阁原合同"
+    },
+    {
+      "id": "wm_qihe",
+      "name": "栖河村",
+      "regionId": "RG-HOME",
+      "opening": "开始与后续返乡",
+      "entrance": "村口",
+      "source": "现行栖河及返乡合同"
+    }
+  ],
+  "deferredLocations": [
+    {
+      "id": "wm_r2",
+      "direction": "江夏大港",
+      "reason": "港口功能重复，本轮不启用新城；保留外环预留位置"
+    }
+  ],
+  "regions": [
+    {
+      "id": "RG-HG",
+      "name": "汉皋枢纽",
+      "locationIds": [
+        "wm_hangao"
+      ],
+      "sceneDependency": "../hangao-city-spaces.md",
+      "mainNodes": [
+        "TRV-START",
+        "TRV-COMMON",
+        "TRV-CLOSE",
+        "END-CHOICE",
+        "END-RESOLVE"
+      ],
+      "coreLoops": [
+        "LOOP-PUBLIC",
+        "LOOP-LIFE",
+        "LOOP-MARTIAL",
+        "LOOP-REPAIR"
+      ],
+      "publicFallback": "南关/鼓楼/书肆始终提供当前可用约见点；管制前公示替代入口",
+      "states": [
+        "open",
+        "restricted_access",
+        "relief_hub",
+        "settled"
+      ]
+    },
+    {
+      "id": "RG-NORTH",
+      "name": "襄樊北线",
+      "locationIds": [
+        "wm_xiangyang",
+        "wm_fancheng"
+      ],
+      "mainNodes": [
+        "TRV-NORTH-01",
+        "TRV-NORTH-02",
+        "TRV-NORTH-03",
+        "TRV-NORTH-DONE"
+      ],
+      "coreLoops": [
+        "LOOP-ALLOCATION",
+        "LOOP-REPAIR",
+        "LOOP-EXPLORE"
+      ],
+      "publicFallback": "营地接待→严奉钧本人说明授权→樊城埠现场查验→梁定川于02救援归营→公开工院修复与断援口/河岸",
+      "states": [
+        "bounded_requisition",
+        "expanded_requisition",
+        "costly_relief"
+      ]
+    },
+    {
+      "id": "RG-RIVER",
+      "name": "合川烬渡水路",
+      "locationIds": [
+        "wm_hechuan",
+        "wm_luhua",
+        "wm_jindu"
+      ],
+      "mainNodes": [
+        "TRV-RIVER-01",
+        "TRV-RIVER-02",
+        "TRV-RIVER-03",
+        "TRV-RIVER-DONE"
+      ],
+      "coreLoops": [
+        "LOOP-REPAIR",
+        "LOOP-MARTIAL",
+        "LOOP-ALLOCATION",
+        "LOOP-LIFE"
+      ],
+      "publicFallback": "拳门院接当事人→韩烬川受理→修造工院公开准备→放行或换押；烬渡陆路可返",
+      "states": [
+        "local_compact",
+        "unified_control",
+        "coercive_expansion"
+      ]
+    },
+    {
+      "id": "RG-SECT",
+      "name": "鹿门照川山门",
+      "locationIds": [
+        "wm_lumen",
+        "wm_zhaochuan",
+        "wm_songfeng"
+      ],
+      "mainNodes": [
+        "TRV-SECT-01",
+        "TRV-SECT-02",
+        "TRV-SECT-03",
+        "TRV-SECT-DONE"
+      ],
+      "coreLoops": [
+        "LOOP-MARTIAL",
+        "LOOP-EXPLORE",
+        "LOOP-PUBLIC"
+      ],
+      "publicFallback": "代表公开名册→校场试艺或修道实务→弟子自主决定→离院交接",
+      "states": [
+        "voluntary_rotation",
+        "forced_levy",
+        "split_relocation"
+      ]
+    }
+  ],
+  "scenes": [
+    {
+      "id": "rg_xy_gate",
+      "name": "襄阳南关",
+      "locationId": "wm_xiangyang",
+      "kind": "outdoor",
+      "proposedWorldSize": [
+        1600,
+        1120
+      ],
+      "geometryStatus": "A阶段预算，B阶段量尺后冻结",
+      "runtimeSceneId": null,
+      "productionStatus": "未实装，未生成",
+      "features": [
+        "补给",
+        "任务公示"
+      ]
+    },
+    {
+      "id": "rg_xy_wharf",
+      "name": "襄阳埠",
+      "locationId": "wm_xiangyang",
+      "kind": "outdoor",
+      "proposedWorldSize": [
+        1792,
+        1152
+      ],
+      "geometryStatus": "A阶段预算，B阶段量尺后冻结",
+      "runtimeSceneId": null,
+      "productionStatus": "未实装，未生成",
+      "features": [
+        "物资安排",
+        "征船查验"
+      ]
+    },
+    {
+      "id": "rg_fc_wharf",
+      "name": "樊城埠",
+      "locationId": "wm_fancheng",
+      "kind": "outdoor",
+      "proposedWorldSize": [
+        1792,
+        1152
+      ],
+      "geometryStatus": "A阶段预算，B阶段量尺后冻结",
+      "runtimeSceneId": null,
+      "productionStatus": "未实装，未生成",
+      "features": [
+        "归船交接",
+        "器械修复",
+        "樊城仓街货棚交互区(CP-RQ)",
+        "作业棚交互区(CP-HZ)，不新增独立地图"
+      ]
+    },
+    {
+      "id": "rg_fc_camp",
+      "name": "本营外院",
+      "locationId": "wm_fancheng",
+      "kind": "outdoor",
+      "proposedWorldSize": [
+        1280,
+        960
+      ],
+      "geometryStatus": "A阶段预算，B阶段量尺后冻结",
+      "runtimeSceneId": null,
+      "productionStatus": "未实装，未生成",
+      "features": [
+        "接洽",
+        "比试",
+        "战后回营"
+      ]
+    },
+    {
+      "id": "rg_north_pass",
+      "name": "断援口",
+      "locationId": "wm_fancheng",
+      "kind": "outdoor",
+      "proposedWorldSize": [
+        1536,
+        1024
+      ],
+      "geometryStatus": "A阶段预算，B阶段量尺后冻结",
+      "runtimeSceneId": null,
+      "productionStatus": "未实装，未生成",
+      "features": [
+        "小队突围",
+        "替代通道"
+      ]
+    },
+    {
+      "id": "rg_north_shore",
+      "name": "旧堤河岸",
+      "locationId": "wm_fancheng",
+      "kind": "outdoor",
+      "proposedWorldSize": [
+        1280,
+        896
+      ],
+      "geometryStatus": "A阶段预算，B阶段量尺后冻结",
+      "runtimeSceneId": null,
+      "productionStatus": "未实装，未生成",
+      "features": [
+        "踏勘",
+        "救援"
+      ]
+    },
+    {
+      "id": "rg_xy_inn",
+      "name": "襄阳客店",
+      "locationId": "wm_xiangyang",
+      "kind": "indoor",
+      "proposedWorldSize": [
+        960,
+        640
+      ],
+      "geometryStatus": "A阶段预算，B阶段量尺后冻结",
+      "runtimeSceneId": null,
+      "productionStatus": "未实装，未生成",
+      "features": [
+        "休息",
+        "编队"
+      ]
+    },
+    {
+      "id": "rg_xy_supply",
+      "name": "转运库",
+      "locationId": "wm_xiangyang",
+      "kind": "indoor",
+      "proposedWorldSize": [
+        960,
+        640
+      ],
+      "geometryStatus": "A阶段预算，B阶段量尺后冻结",
+      "runtimeSceneId": null,
+      "productionStatus": "未实装，未生成",
+      "features": [
+        "任务交付"
+      ]
+    },
+    {
+      "id": "rg_fc_command",
+      "name": "营地议事房",
+      "locationId": "wm_fancheng",
+      "kind": "indoor",
+      "proposedWorldSize": [
+        960,
+        640
+      ],
+      "geometryStatus": "A阶段预算，B阶段量尺后冻结",
+      "runtimeSceneId": null,
+      "productionStatus": "未实装，未生成",
+      "features": [
+        "限定授权",
+        "改令申请"
+      ]
+    },
+    {
+      "id": "rg_fc_clinic",
+      "name": "营地医棚",
+      "locationId": "wm_fancheng",
+      "kind": "indoor",
+      "proposedWorldSize": [
+        960,
+        640
+      ],
+      "geometryStatus": "A阶段预算，B阶段量尺后冻结",
+      "runtimeSceneId": null,
+      "productionStatus": "未实装，未生成",
+      "features": [
+        "治疗",
+        "复盘"
+      ]
+    },
+    {
+      "id": "rg_hc_dock",
+      "name": "合川码头",
+      "locationId": "wm_hechuan",
+      "kind": "outdoor",
+      "proposedWorldSize": [
+        1792,
+        1152
+      ],
+      "geometryStatus": "A阶段预算，B阶段量尺后冻结",
+      "runtimeSceneId": null,
+      "productionStatus": "未实装，未生成",
+      "features": [
+        "护运",
+        "交接",
+        "有限零工"
+      ]
+    },
+    {
+      "id": "rg_hc_workyard",
+      "name": "修造工院",
+      "locationId": "wm_hechuan",
+      "kind": "outdoor",
+      "proposedWorldSize": [
+        1536,
+        1024
+      ],
+      "geometryStatus": "A阶段预算，B阶段量尺后冻结",
+      "runtimeSceneId": null,
+      "productionStatus": "未实装，未生成",
+      "features": [
+        "修造",
+        "工伤善后"
+      ]
+    },
+    {
+      "id": "rg_hc_school",
+      "name": "拳门院",
+      "locationId": "wm_hechuan",
+      "kind": "outdoor",
+      "proposedWorldSize": [
+        1280,
+        960
+      ],
+      "geometryStatus": "A阶段预算，B阶段量尺后冻结",
+      "runtimeSceneId": null,
+      "productionStatus": "未实装，未生成",
+      "features": [
+        "试艺",
+        "轮值交接"
+      ]
+    },
+    {
+      "id": "rg_luhua",
+      "name": "芦花渡",
+      "locationId": "wm_luhua",
+      "kind": "outdoor",
+      "proposedWorldSize": [
+        1280,
+        960
+      ],
+      "geometryStatus": "A阶段预算，B阶段量尺后冻结",
+      "runtimeSceneId": null,
+      "productionStatus": "未实装，未生成",
+      "features": [
+        "船渡",
+        "人员交接"
+      ]
+    },
+    {
+      "id": "rg_jd_pier",
+      "name": "烬渡埠",
+      "locationId": "wm_jindu",
+      "kind": "outdoor",
+      "proposedWorldSize": [
+        1536,
+        1024
+      ],
+      "geometryStatus": "A阶段预算，B阶段量尺后冻结",
+      "runtimeSceneId": null,
+      "productionStatus": "未实装，未生成",
+      "features": [
+        "渡头归属",
+        "撤离行动"
+      ]
+    },
+    {
+      "id": "rg_jd_yard",
+      "name": "归烬堂院",
+      "locationId": "wm_jindu",
+      "kind": "outdoor",
+      "proposedWorldSize": [
+        1280,
+        960
+      ],
+      "geometryStatus": "A阶段预算，B阶段量尺后冻结",
+      "runtimeSceneId": null,
+      "productionStatus": "未实装，未生成",
+      "features": [
+        "点名",
+        "求见",
+        "侧栈交互区(CP-CS)，不新增独立地图"
+      ]
+    },
+    {
+      "id": "rg_hc_accounts",
+      "name": "护运账房",
+      "locationId": "wm_hechuan",
+      "kind": "indoor",
+      "proposedWorldSize": [
+        960,
+        640
+      ],
+      "geometryStatus": "A阶段预算，B阶段量尺后冻结",
+      "runtimeSceneId": null,
+      "productionStatus": "未实装，未生成",
+      "features": [
+        "合同",
+        "归还"
+      ]
+    },
+    {
+      "id": "rg_jd_hall",
+      "name": "堂屋",
+      "locationId": "wm_jindu",
+      "kind": "indoor",
+      "proposedWorldSize": [
+        960,
+        640
+      ],
+      "geometryStatus": "A阶段预算，B阶段量尺后冻结",
+      "runtimeSceneId": null,
+      "productionStatus": "未实装，未生成",
+      "features": [
+        "统合交涉"
+      ]
+    },
+    {
+      "id": "rg_jd_hold",
+      "name": "扣押房",
+      "locationId": "wm_jindu",
+      "kind": "indoor",
+      "proposedWorldSize": [
+        768,
+        640
+      ],
+      "geometryStatus": "A阶段预算，B阶段量尺后冻结",
+      "runtimeSceneId": null,
+      "productionStatus": "未实装，未生成",
+      "features": [
+        "放人",
+        "换押"
+      ]
+    },
+    {
+      "id": "rg_lumen_court",
+      "name": "鹿门外院",
+      "locationId": "wm_lumen",
+      "kind": "outdoor",
+      "proposedWorldSize": [
+        1280,
+        960
+      ],
+      "geometryStatus": "A阶段预算，B阶段量尺后冻结",
+      "runtimeSceneId": null,
+      "productionStatus": "未实装，未生成",
+      "features": [
+        "接洽",
+        "名册"
+      ]
+    },
+    {
+      "id": "rg_zc_annex",
+      "name": "照川支院",
+      "locationId": "wm_zhaochuan",
+      "kind": "outdoor",
+      "proposedWorldSize": [
+        1280,
+        960
+      ],
+      "geometryStatus": "A阶段预算，B阶段量尺后冻结",
+      "runtimeSceneId": null,
+      "productionStatus": "未实装，未生成",
+      "features": [
+        "试艺",
+        "自愿轮值"
+      ]
+    },
+    {
+      "id": "rg_mountain_fork",
+      "name": "松风山岔",
+      "locationId": "wm_songfeng",
+      "kind": "outdoor",
+      "proposedWorldSize": [
+        1280,
+        960
+      ],
+      "geometryStatus": "A阶段预算，B阶段量尺后冻结",
+      "runtimeSceneId": null,
+      "productionStatus": "未实装，未生成",
+      "features": [
+        "踏勘",
+        "撤离"
+      ]
+    },
+    {
+      "id": "rg_lumen_hall",
+      "name": "公议堂",
+      "locationId": "wm_lumen",
+      "kind": "indoor",
+      "proposedWorldSize": [
+        960,
+        640
+      ],
+      "geometryStatus": "A阶段预算，B阶段量尺后冻结",
+      "runtimeSceneId": null,
+      "productionStatus": "未实装，未生成",
+      "features": [
+        "代表议事",
+        "承诺"
+      ]
+    },
+    {
+      "id": "rg_zc_dorm",
+      "name": "弟子住处",
+      "locationId": "wm_zhaochuan",
+      "kind": "indoor",
+      "proposedWorldSize": [
+        768,
+        640
+      ],
+      "geometryStatus": "A阶段预算，B阶段量尺后冻结",
+      "runtimeSceneId": null,
+      "productionStatus": "未实装，未生成",
+      "features": [
+        "弟子意愿",
+        "交接"
+      ]
+    }
+  ],
+  "worldEntryScenes": [
+    "rg_xy_gate",
+    "rg_hc_dock",
+    "rg_luhua",
+    "rg_jd_pier",
+    "rg_lumen_court",
+    "rg_zc_annex",
+    "rg_mountain_fork"
+  ],
+  "connections": [
+    {
+      "id": "rg_xy_gate__rg_xy_wharf",
+      "fromScene": "rg_xy_gate",
+      "toScene": "rg_xy_wharf",
+      "mode": "walk",
+      "bidirectional": true,
+      "contract": "双向；灰盒登记接近点、目标出生点、回程点及门禁状态"
+    },
+    {
+      "id": "rg_fc_wharf__rg_fc_camp",
+      "fromScene": "rg_fc_wharf",
+      "toScene": "rg_fc_camp",
+      "mode": "walk",
+      "bidirectional": true,
+      "contract": "双向；灰盒登记接近点、目标出生点、回程点及门禁状态"
+    },
+    {
+      "id": "rg_fc_wharf__rg_north_shore",
+      "fromScene": "rg_fc_wharf",
+      "toScene": "rg_north_shore",
+      "mode": "walk",
+      "bidirectional": true,
+      "contract": "双向；灰盒登记接近点、目标出生点、回程点及门禁状态"
+    },
+    {
+      "id": "rg_fc_camp__rg_north_pass",
+      "fromScene": "rg_fc_camp",
+      "toScene": "rg_north_pass",
+      "mode": "walk",
+      "bidirectional": true,
+      "contract": "双向；灰盒登记接近点、目标出生点、回程点及门禁状态"
+    },
+    {
+      "id": "rg_north_pass__rg_north_shore",
+      "fromScene": "rg_north_pass",
+      "toScene": "rg_north_shore",
+      "mode": "walk",
+      "bidirectional": true,
+      "contract": "双向；灰盒登记接近点、目标出生点、回程点及门禁状态"
+    },
+    {
+      "id": "rg_hc_dock__rg_hc_workyard",
+      "fromScene": "rg_hc_dock",
+      "toScene": "rg_hc_workyard",
+      "mode": "walk",
+      "bidirectional": true,
+      "contract": "双向；灰盒登记接近点、目标出生点、回程点及门禁状态"
+    },
+    {
+      "id": "rg_hc_dock__rg_hc_school",
+      "fromScene": "rg_hc_dock",
+      "toScene": "rg_hc_school",
+      "mode": "walk",
+      "bidirectional": true,
+      "contract": "双向；灰盒登记接近点、目标出生点、回程点及门禁状态"
+    },
+    {
+      "id": "rg_jd_pier__rg_jd_yard",
+      "fromScene": "rg_jd_pier",
+      "toScene": "rg_jd_yard",
+      "mode": "walk",
+      "bidirectional": true,
+      "contract": "双向；灰盒登记接近点、目标出生点、回程点及门禁状态"
+    },
+    {
+      "id": "rg_zc_annex__rg_mountain_fork",
+      "fromScene": "rg_zc_annex",
+      "toScene": "rg_mountain_fork",
+      "mode": "walk",
+      "bidirectional": true,
+      "contract": "双向；灰盒登记接近点、目标出生点、回程点及门禁状态"
+    },
+    {
+      "id": "rg_xy_gate__rg_xy_inn",
+      "fromScene": "rg_xy_gate",
+      "toScene": "rg_xy_inn",
+      "mode": "door_transition",
+      "bidirectional": true,
+      "contract": "双向；灰盒登记接近点、目标出生点、回程点及门禁状态"
+    },
+    {
+      "id": "rg_xy_wharf__rg_xy_supply",
+      "fromScene": "rg_xy_wharf",
+      "toScene": "rg_xy_supply",
+      "mode": "door_transition",
+      "bidirectional": true,
+      "contract": "双向；灰盒登记接近点、目标出生点、回程点及门禁状态"
+    },
+    {
+      "id": "rg_fc_camp__rg_fc_command",
+      "fromScene": "rg_fc_camp",
+      "toScene": "rg_fc_command",
+      "mode": "door_transition",
+      "bidirectional": true,
+      "contract": "双向；灰盒登记接近点、目标出生点、回程点及门禁状态"
+    },
+    {
+      "id": "rg_fc_camp__rg_fc_clinic",
+      "fromScene": "rg_fc_camp",
+      "toScene": "rg_fc_clinic",
+      "mode": "door_transition",
+      "bidirectional": true,
+      "contract": "双向；灰盒登记接近点、目标出生点、回程点及门禁状态"
+    },
+    {
+      "id": "rg_hc_workyard__rg_hc_accounts",
+      "fromScene": "rg_hc_workyard",
+      "toScene": "rg_hc_accounts",
+      "mode": "door_transition",
+      "bidirectional": true,
+      "contract": "双向；灰盒登记接近点、目标出生点、回程点及门禁状态"
+    },
+    {
+      "id": "rg_jd_yard__rg_jd_hall",
+      "fromScene": "rg_jd_yard",
+      "toScene": "rg_jd_hall",
+      "mode": "door_transition",
+      "bidirectional": true,
+      "contract": "双向；灰盒登记接近点、目标出生点、回程点及门禁状态"
+    },
+    {
+      "id": "rg_jd_yard__rg_jd_hold",
+      "fromScene": "rg_jd_yard",
+      "toScene": "rg_jd_hold",
+      "mode": "door_transition",
+      "bidirectional": true,
+      "contract": "双向；灰盒登记接近点、目标出生点、回程点及门禁状态"
+    },
+    {
+      "id": "rg_lumen_court__rg_lumen_hall",
+      "fromScene": "rg_lumen_court",
+      "toScene": "rg_lumen_hall",
+      "mode": "door_transition",
+      "bidirectional": true,
+      "contract": "双向；灰盒登记接近点、目标出生点、回程点及门禁状态"
+    },
+    {
+      "id": "rg_zc_annex__rg_zc_dorm",
+      "fromScene": "rg_zc_annex",
+      "toScene": "rg_zc_dorm",
+      "mode": "door_transition",
+      "bidirectional": true,
+      "contract": "双向；灰盒登记接近点、目标出生点、回程点及门禁状态"
+    },
+    {
+      "id": "rg_xy_wharf__rg_fc_wharf",
+      "fromScene": "rg_xy_wharf",
+      "toScene": "rg_fc_wharf",
+      "mode": "ferry_transition",
+      "bidirectional": true,
+      "contract": "买票快行或剧情通行；淡出跳转，不模拟船体移动；失去船权时陆路返回仍存在"
+    },
+    {
+      "id": "rg_hc_dock__rg_luhua",
+      "fromScene": "rg_hc_dock",
+      "toScene": "rg_luhua",
+      "mode": "ferry_transition",
+      "bidirectional": true,
+      "contract": "买票快行或剧情通行；淡出跳转，不模拟船体移动；失去船权时陆路返回仍存在"
+    },
+    {
+      "id": "rg_luhua__rg_jd_pier",
+      "fromScene": "rg_luhua",
+      "toScene": "rg_jd_pier",
+      "mode": "ferry_transition",
+      "bidirectional": true,
+      "contract": "买票快行或剧情通行；淡出跳转，不模拟船体移动；失去船权时陆路返回仍存在"
+    }
+  ],
+  "entryGeometry": {
+    "ordinaryPassageMin": 56,
+    "publicEntryMin": 84,
+    "doorOpeningHeightMin": 100,
+    "adultRulerBodyHeight": 92,
+    "units": "world_pixels",
+    "coordinates": "B阶段实走后冻结，当前未提供可直接接入的spawn坐标"
+  },
+  "loops": [
+    {
+      "id": "LOOP-MARTIAL",
+      "name": "武学试艺与配装",
+      "action": "对手预告→调整已学功法→回合战→复盘",
+      "boundary": "首胜一次；师承映射目录；失败可继续实务"
+    },
+    {
+      "id": "LOOP-REPAIR",
+      "name": "修造与路线恢复",
+      "action": "观察破损→物料/匠人→可跳过修复→走新入口",
+      "boundary": "既有修械设计；不要求船体或桥梁物理模拟"
+    },
+    {
+      "id": "LOOP-ALLOCATION",
+      "name": "物资安排与善后",
+      "action": "公开需求→固定批次装载→交付→补缺口",
+      "boundary": "任务载额不等于背包重量；无隐藏倒计时"
+    },
+    {
+      "id": "LOOP-PUBLIC",
+      "name": "公开演出与交涉",
+      "action": "选择内容/公开范围→当事人回应→实际履约",
+      "boundary": "无艺人可用书肆公开说明；没有全城民心操纵"
+    },
+    {
+      "id": "LOOP-EXPLORE",
+      "name": "踏勘与探索",
+      "action": "选择明示路线→实走节点→风险判断→返程点",
+      "boundary": "普通行走可达；专长改善信息而非唯一钥匙"
+    },
+    {
+      "id": "LOOP-LIFE",
+      "name": "回访与共同生活",
+      "action": "找到人物→参与其工作→商量同行范围→登记下一约见",
+      "boundary": "遵守所在位置；不自动完成个人线"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "TRV-START",
+      "name": "下山重整行装",
+      "part": "游历",
+      "regionId": "RG-HG",
+      "sceneIds": [],
+      "requires": {
+        "externalFacts": [
+          "培养结束",
+          "叶家真相完整结案",
+          "正常出谷交接"
+        ]
+      },
+      "loops": [
+        "LOOP-LIFE"
+      ],
+      "castPolicy": {
+        "onsiteOnly": true,
+        "optionalCompanions": [],
+        "absentFallback": "公开接待/当事人陈述；不把缺席同伴写进现场台词"
+      },
+      "actions": [
+        "汉皋选择三条公开地区邀请",
+        "查看未完成个人篇与当前可约见地点"
+      ],
+      "outcomes": [],
+      "timePolicy": "剧情节点推进；活动、走路、休息不耗时",
+      "implementation": "design_only",
+      "instancePolicy": "一次结算，取消不写事实，重载恢复原事务"
+    },
+    {
+      "id": "TRV-NORTH-01",
+      "name": "征船有据",
+      "part": "游历",
+      "regionId": "RG-NORTH",
+      "sceneIds": [
+        "rg_fc_command",
+        "rg_fc_wharf"
+      ],
+      "requires": {
+        "all": [
+          "TRV-START"
+        ]
+      },
+      "loops": [
+        "LOOP-PUBLIC"
+      ],
+      "castPolicy": {
+        "onsiteOnly": true,
+        "optionalCompanions": [
+          "沈雁回"
+        ],
+        "absentFallback": "公开接待/当事人陈述；不把缺席同伴写进现场台词"
+      },
+      "actions": [
+        "营地接待引见严奉钧，由其说明有效征令",
+        "樊城埠现场见被留船户；梁定川尚在外救援，不登场"
+      ],
+      "outcomes": [
+        "resolved",
+        "resolved_with_cost"
+      ],
+      "timePolicy": "剧情节点推进；活动、走路、休息不耗时",
+      "implementation": "design_only",
+      "instancePolicy": "一次结算，取消不写事实，重载恢复原事务"
+    },
+    {
+      "id": "TRV-NORTH-02",
+      "name": "一船三用",
+      "part": "游历",
+      "regionId": "RG-NORTH",
+      "sceneIds": [
+        "rg_fc_camp",
+        "rg_xy_supply",
+        "rg_xy_wharf",
+        "rg_north_shore"
+      ],
+      "requires": {
+        "all": [
+          "TRV-NORTH-01"
+        ]
+      },
+      "loops": [
+        "LOOP-ALLOCATION",
+        "LOOP-REPAIR",
+        "LOOP-EXPLORE"
+      ],
+      "castPolicy": {
+        "onsiteOnly": true,
+        "optionalCompanions": [
+          "乔行舟",
+          "霍逐尘",
+          "闻疏桐",
+          "叶蘅",
+          "苏芷"
+        ],
+        "absentFallback": "公开接待/当事人陈述；不把缺席同伴写进现场台词"
+      },
+      "actions": [
+        "梁定川前出救援后归营，说明实际缺援通道，首次本人登场",
+        "6格首批：粮3/伤员2/修路器具2",
+        "任选两类后有明确任务补剩余需求"
+      ],
+      "outcomes": [
+        "resolved",
+        "resolved_with_cost"
+      ],
+      "timePolicy": "剧情节点推进；活动、走路、休息不耗时",
+      "implementation": "design_only",
+      "instancePolicy": "一次结算，取消不写事实，重载恢复原事务"
+    },
+    {
+      "id": "TRV-NORTH-03",
+      "name": "断援口",
+      "part": "游历",
+      "regionId": "RG-NORTH",
+      "sceneIds": [
+        "rg_north_pass",
+        "rg_north_shore",
+        "rg_fc_clinic"
+      ],
+      "requires": {
+        "all": [
+          "TRV-NORTH-02"
+        ]
+      },
+      "loops": [
+        "LOOP-EXPLORE",
+        "LOOP-MARTIAL"
+      ],
+      "castPolicy": {
+        "onsiteOnly": true,
+        "optionalCompanions": [
+          "陆衡",
+          "沈雁回"
+        ],
+        "absentFallback": "公开接待/当事人陈述；不把缺席同伴写进现场台词"
+      },
+      "actions": [
+        "正路突破或河岸接回斥候后绕行",
+        "败后回营；先说明代价再允许接受失利"
+      ],
+      "outcomes": [
+        "resolved",
+        "resolved_with_cost"
+      ],
+      "timePolicy": "剧情节点推进；活动、走路、休息不耗时",
+      "implementation": "design_only",
+      "instancePolicy": "一次结算，取消不写事实，重载恢复原事务"
+    },
+    {
+      "id": "TRV-NORTH-DONE",
+      "name": "到粮之后",
+      "part": "游历",
+      "regionId": "RG-NORTH",
+      "sceneIds": [
+        "rg_fc_command",
+        "rg_fc_wharf"
+      ],
+      "requires": {
+        "all": [
+          "TRV-NORTH-03"
+        ]
+      },
+      "loops": [
+        "LOOP-PUBLIC"
+      ],
+      "castPolicy": {
+        "onsiteOnly": true,
+        "optionalCompanions": [
+          "沈雁回",
+          "裴知古"
+        ],
+        "absentFallback": "公开接待/当事人陈述；不把缺席同伴写进现场台词"
+      },
+      "actions": [
+        "严奉钧回应征调边界",
+        "梁定川提交可执行替代",
+        "分别结算供给、伤员、船只归还"
+      ],
+      "outcomes": [
+        "bounded_requisition",
+        "expanded_requisition",
+        "costly_relief"
+      ],
+      "timePolicy": "剧情节点推进；活动、走路、休息不耗时",
+      "implementation": "design_only",
+      "instancePolicy": "一次结算，取消不写事实，重载恢复原事务"
+    },
+    {
+      "id": "TRV-RIVER-01",
+      "name": "工钱与人头",
+      "part": "游历",
+      "regionId": "RG-RIVER",
+      "sceneIds": [
+        "rg_hc_dock",
+        "rg_hc_school",
+        "rg_hc_accounts"
+      ],
+      "requires": {
+        "all": [
+          "TRV-START"
+        ]
+      },
+      "loops": [
+        "LOOP-LIFE",
+        "LOOP-PUBLIC"
+      ],
+      "castPolicy": {
+        "onsiteOnly": true,
+        "optionalCompanions": [
+          "段明棠",
+          "石长庚"
+        ],
+        "absentFallback": "公开接待/当事人陈述；不把缺席同伴写进现场台词"
+      },
+      "actions": [
+        "看见被列入统合的护运人",
+        "核对合同与本人意愿"
+      ],
+      "outcomes": [
+        "resolved",
+        "resolved_with_cost"
+      ],
+      "timePolicy": "剧情节点推进；活动、走路、休息不耗时",
+      "implementation": "design_only",
+      "instancePolicy": "一次结算，取消不写事实，重载恢复原事务"
+    },
+    {
+      "id": "TRV-RIVER-02",
+      "name": "谁要留下",
+      "part": "游历",
+      "regionId": "RG-RIVER",
+      "sceneIds": [
+        "rg_jd_yard",
+        "rg_jd_hall"
+      ],
+      "requires": {
+        "all": [
+          "TRV-RIVER-01"
+        ]
+      },
+      "loops": [
+        "LOOP-PUBLIC"
+      ],
+      "castPolicy": {
+        "onsiteOnly": true,
+        "optionalCompanions": [
+          "岑霜",
+          "戚铮"
+        ],
+        "absentFallback": "公开接待/当事人陈述；不把缺席同伴写进现场台词"
+      },
+      "actions": [
+        "面对庄照尘真实强征",
+        "向韩烬川提出有限放行或换押方案"
+      ],
+      "outcomes": [
+        "resolved",
+        "resolved_with_cost"
+      ],
+      "timePolicy": "剧情节点推进；活动、走路、休息不耗时",
+      "implementation": "design_only",
+      "instancePolicy": "一次结算，取消不写事实，重载恢复原事务"
+    },
+    {
+      "id": "TRV-RIVER-03",
+      "name": "开渡",
+      "part": "游历",
+      "regionId": "RG-RIVER",
+      "sceneIds": [
+        "rg_hc_workyard",
+        "rg_jd_hold",
+        "rg_jd_pier"
+      ],
+      "requires": {
+        "all": [
+          "TRV-RIVER-02"
+        ]
+      },
+      "loops": [
+        "LOOP-REPAIR",
+        "LOOP-MARTIAL"
+      ],
+      "castPolicy": {
+        "onsiteOnly": true,
+        "optionalCompanions": [
+          "乔行舟",
+          "霍逐尘",
+          "阮青雀",
+          "秦绯鸢"
+        ],
+        "absentFallback": "公开接待/当事人陈述；不把缺席同伴写进现场台词"
+      },
+      "actions": [
+        "修牵引/拿放行/准备接应任选一项",
+        "夺渡或守撤离；失败后陆路换押继续"
+      ],
+      "outcomes": [
+        "resolved",
+        "resolved_with_cost"
+      ],
+      "timePolicy": "剧情节点推进；活动、走路、休息不耗时",
+      "implementation": "design_only",
+      "instancePolicy": "一次结算，取消不写事实，重载恢复原事务"
+    },
+    {
+      "id": "TRV-RIVER-DONE",
+      "name": "谁守渡口",
+      "part": "游历",
+      "regionId": "RG-RIVER",
+      "sceneIds": [
+        "rg_jd_pier",
+        "rg_hc_accounts"
+      ],
+      "requires": {
+        "all": [
+          "TRV-RIVER-03"
+        ]
+      },
+      "loops": [
+        "LOOP-LIFE",
+        "LOOP-PUBLIC"
+      ],
+      "castPolicy": {
+        "onsiteOnly": true,
+        "optionalCompanions": [
+          "岑霜",
+          "戚铮",
+          "段明棠"
+        ],
+        "absentFallback": "公开接待/当事人陈述；不把缺席同伴写进现场台词"
+      },
+      "actions": [
+        "确定地方自主/统合/扩张",
+        "实际释放、还船与工钱分别处理"
+      ],
+      "outcomes": [
+        "local_compact",
+        "unified_control",
+        "coercive_expansion"
+      ],
+      "timePolicy": "剧情节点推进；活动、走路、休息不耗时",
+      "implementation": "design_only",
+      "instancePolicy": "一次结算，取消不写事实，重载恢复原事务"
+    },
+    {
+      "id": "TRV-SECT-01",
+      "name": "借兵请帖",
+      "part": "游历",
+      "regionId": "RG-SECT",
+      "sceneIds": [
+        "rg_zc_annex",
+        "rg_zc_dorm"
+      ],
+      "requires": {
+        "all": [
+          "TRV-START"
+        ]
+      },
+      "loops": [
+        "LOOP-PUBLIC",
+        "LOOP-LIFE"
+      ],
+      "castPolicy": {
+        "onsiteOnly": true,
+        "optionalCompanions": [
+          "唐照雪",
+          "徐令仪"
+        ],
+        "absentFallback": "公开接待/当事人陈述；不把缺席同伴写进现场台词"
+      },
+      "actions": [
+        "亲见谢承岳按代表授权提出调人",
+        "逐名询问弟子意愿"
+      ],
+      "outcomes": [
+        "resolved",
+        "resolved_with_cost"
+      ],
+      "timePolicy": "剧情节点推进；活动、走路、休息不耗时",
+      "implementation": "design_only",
+      "instancePolicy": "一次结算，取消不写事实，重载恢复原事务"
+    },
+    {
+      "id": "TRV-SECT-02",
+      "name": "校场定约",
+      "part": "游历",
+      "regionId": "RG-SECT",
+      "sceneIds": [
+        "rg_zc_annex",
+        "rg_mountain_fork"
+      ],
+      "requires": {
+        "all": [
+          "TRV-SECT-01"
+        ]
+      },
+      "loops": [
+        "LOOP-MARTIAL",
+        "LOOP-EXPLORE",
+        "LOOP-REPAIR"
+      ],
+      "castPolicy": {
+        "onsiteOnly": true,
+        "optionalCompanions": [
+          "唐照雪",
+          "闻疏桐",
+          "陆衡"
+        ],
+        "absentFallback": "公开接待/当事人陈述；不把缺席同伴写进现场台词"
+      },
+      "actions": [
+        "点到为止检验方案",
+        "试艺失败仍可改修道或护送实务"
+      ],
+      "outcomes": [
+        "resolved",
+        "resolved_with_cost"
+      ],
+      "timePolicy": "剧情节点推进；活动、走路、休息不耗时",
+      "implementation": "design_only",
+      "instancePolicy": "一次结算，取消不写事实，重载恢复原事务"
+    },
+    {
+      "id": "TRV-SECT-03",
+      "name": "离院或留守",
+      "part": "游历",
+      "regionId": "RG-SECT",
+      "sceneIds": [
+        "rg_zc_dorm",
+        "rg_zc_annex",
+        "rg_mountain_fork"
+      ],
+      "requires": {
+        "all": [
+          "TRV-SECT-02"
+        ]
+      },
+      "loops": [
+        "LOOP-LIFE",
+        "LOOP-MARTIAL"
+      ],
+      "castPolicy": {
+        "onsiteOnly": true,
+        "optionalCompanions": [
+          "徐令仪",
+          "殷红缨"
+        ],
+        "absentFallback": "公开接待/当事人陈述；不把缺席同伴写进现场台词"
+      },
+      "actions": [
+        "按自愿名册落实轮值或护离",
+        "无强拦时不强造战斗"
+      ],
+      "outcomes": [
+        "resolved",
+        "resolved_with_cost"
+      ],
+      "timePolicy": "剧情节点推进；活动、走路、休息不耗时",
+      "implementation": "design_only",
+      "instancePolicy": "一次结算，取消不写事实，重载恢复原事务"
+    },
+    {
+      "id": "TRV-SECT-DONE",
+      "name": "签下谁的名字",
+      "part": "游历",
+      "regionId": "RG-SECT",
+      "sceneIds": [
+        "rg_lumen_hall",
+        "rg_zc_annex"
+      ],
+      "requires": {
+        "all": [
+          "TRV-SECT-03"
+        ]
+      },
+      "loops": [
+        "LOOP-PUBLIC"
+      ],
+      "castPolicy": {
+        "onsiteOnly": true,
+        "optionalCompanions": [
+          "徐令仪",
+          "唐照雪"
+        ],
+        "absentFallback": "公开接待/当事人陈述；不把缺席同伴写进现场台词"
+      },
+      "actions": [
+        "代表签署与弟子同意分别结算",
+        "留下联防持续责任"
+      ],
+      "outcomes": [
+        "voluntary_rotation",
+        "forced_levy",
+        "split_relocation"
+      ],
+      "timePolicy": "剧情节点推进；活动、走路、休息不耗时",
+      "implementation": "design_only",
+      "instancePolicy": "一次结算，取消不写事实，重载恢复原事务"
+    },
+    {
+      "id": "TRV-COMMON",
+      "name": "汉皋公开交接",
+      "part": "游历",
+      "regionId": "RG-HG",
+      "sceneIds": [],
+      "requires": {
+        "all": [
+          "TRV-START"
+        ],
+        "atLeast": {
+          "count": 2,
+          "of": [
+            "TRV-NORTH-DONE",
+            "TRV-RIVER-DONE",
+            "TRV-SECT-DONE"
+          ]
+        }
+      },
+      "loops": [
+        "LOOP-PUBLIC",
+        "LOOP-LIFE"
+      ],
+      "castPolicy": {
+        "onsiteOnly": true,
+        "optionalCompanions": [],
+        "absentFallback": "公开接待/当事人陈述；不把缺席同伴写进现场台词"
+      },
+      "actions": [
+        "根据未完成地区选择真实征船/点人/联防接收版本",
+        "完成实际释放、担保、改运或拒绝交人选择",
+        "全三地区完成使用汇总版本"
+      ],
+      "outcomes": [
+        "release",
+        "guarantee",
+        "reroute",
+        "refuse_handover"
+      ],
+      "timePolicy": "剧情节点推进；活动、走路、休息不耗时",
+      "implementation": "design_only",
+      "instancePolicy": "一次结算，取消不写事实，重载恢复原事务"
+    },
+    {
+      "id": "TRV-CLOSE",
+      "name": "三方公开下一步行动",
+      "part": "游历",
+      "regionId": "RG-HG",
+      "sceneIds": [],
+      "requires": {
+        "all": [
+          "TRV-COMMON"
+        ]
+      },
+      "loops": [
+        "LOOP-LIFE"
+      ],
+      "castPolicy": {
+        "onsiteOnly": true,
+        "optionalCompanions": [],
+        "absentFallback": "公开接待/当事人陈述；不把缺席同伴写进现场台词"
+      },
+      "actions": [
+        "显示地区成果改变的管制与报复范围",
+        "记录未完第三地区为继续/改写/补救，明确通知"
+      ],
+      "outcomes": [],
+      "timePolicy": "剧情节点推进；活动、走路、休息不耗时",
+      "implementation": "design_only",
+      "instancePolicy": "一次结算，取消不写事实，重载恢复原事务"
+    },
+    {
+      "id": "END-CHOICE",
+      "name": "选择承担的责任",
+      "part": "终局",
+      "regionId": "RG-HG",
+      "sceneIds": [],
+      "requires": {
+        "all": [
+          "TRV-CLOSE"
+        ]
+      },
+      "loops": [
+        "LOOP-PUBLIC"
+      ],
+      "castPolicy": {
+        "onsiteOnly": true,
+        "optionalCompanions": [],
+        "absentFallback": "公开接待/当事人陈述；不把缺席同伴写进现场台词"
+      },
+      "actions": [
+        "显示四种可办行动和代价",
+        "不以培养路线或隐藏好感封死选项",
+        "行动前允许保留原状态继续准备"
+      ],
+      "outcomes": [],
+      "timePolicy": "剧情节点推进；活动、走路、休息不耗时",
+      "implementation": "design_only",
+      "instancePolicy": "一次结算，取消不写事实，重载恢复原事务"
+    },
+    {
+      "id": "END-COURT-SUPPLY",
+      "name": "实交本批军需",
+      "part": "终局",
+      "regionId": "RG-NORTH",
+      "sceneIds": [
+        "rg_xy_supply",
+        "rg_xy_wharf",
+        "rg_fc_wharf",
+        "rg_fc_camp"
+      ],
+      "requires": {
+        "all": [
+          "END-CHOICE"
+        ]
+      },
+      "loops": [
+        "LOOP-PUBLIC"
+      ],
+      "castPolicy": {
+        "onsiteOnly": true,
+        "optionalCompanions": [],
+        "absentFallback": "公开接待、任务物资和普通工院可完成；不要求沈/乔/霍/闻在队"
+      },
+      "actions": [
+        "领封存任务军需，非玩家自费购买",
+        "走普通船渡或正路，交到本营",
+        "交付与接收一次结算"
+      ],
+      "outcomes": [
+        "supply_delivered"
+      ],
+      "timePolicy": "剧情节点推进；活动、走路、休息不耗时",
+      "implementation": "design_only",
+      "instancePolicy": "一次结算，取消不写事实，重载恢复原事务"
+    },
+    {
+      "id": "END-COURT-ALTROUTE",
+      "name": "完成替代通道",
+      "part": "终局",
+      "regionId": "RG-NORTH",
+      "sceneIds": [
+        "rg_fc_wharf",
+        "rg_north_shore",
+        "rg_north_pass"
+      ],
+      "requires": {
+        "all": [
+          "END-CHOICE"
+        ]
+      },
+      "loops": [
+        "LOOP-PUBLIC"
+      ],
+      "castPolicy": {
+        "onsiteOnly": true,
+        "optionalCompanions": [],
+        "absentFallback": "公开接待、任务物资和普通工院可完成；不要求沈/乔/霍/闻在队"
+      },
+      "actions": [
+        "修复绞盘或人力搬运",
+        "实际接应一组自愿民户",
+        "梁仅承诺本营通道；无同伴可用普通工院与路标"
+      ],
+      "outcomes": [
+        "alternative_verified"
+      ],
+      "timePolicy": "剧情节点推进；活动、走路、休息不耗时",
+      "implementation": "design_only",
+      "instancePolicy": "一次结算，取消不写事实，重载恢复原事务"
+    },
+    {
+      "id": "END-COURT-REVIEW",
+      "name": "严奉钧当面复核",
+      "part": "终局",
+      "regionId": "RG-NORTH",
+      "sceneIds": [
+        "rg_fc_command"
+      ],
+      "requires": {
+        "all": [
+          "END-COURT-SUPPLY",
+          "END-COURT-ALTROUTE"
+        ]
+      },
+      "loops": [
+        "LOOP-PUBLIC"
+      ],
+      "castPolicy": {
+        "onsiteOnly": true,
+        "optionalCompanions": [],
+        "absentFallback": "公开接待、任务物资和普通工院可完成；不要求沈/乔/霍/闻在队"
+      },
+      "actions": [
+        "主动触发本次复核，无现实等候",
+        "严可自改受授权范围内额度与期限",
+        "若拒绝：按原额执行，或最终承诺前公开拒命转FREE；保留交粮勘路与原有责任"
+      ],
+      "outcomes": [
+        "review_reduced",
+        "review_refused"
+      ],
+      "timePolicy": "剧情节点推进；活动、走路、休息不耗时",
+      "implementation": "design_only",
+      "instancePolicy": "一次结算，取消不写事实，重载恢复原事务"
+    },
+    {
+      "id": "END-COMMIT",
+      "name": "最终行动确认",
+      "part": "终局",
+      "regionId": "RG-HG",
+      "sceneIds": [],
+      "requires": {
+        "all": [
+          "END-CHOICE"
+        ],
+        "requiredPreparationCount": 2,
+        "bySelectedRoute": {
+          "END-ACT-COURT": {
+            "all": [
+              "END-COURT-REVIEW"
+            ]
+          }
+        }
+      },
+      "loops": [],
+      "castPolicy": {
+        "onsiteOnly": true,
+        "optionalCompanions": [],
+        "absentFallback": "公开接待/当事人陈述；不把缺席同伴写进现场台词"
+      },
+      "actions": [
+        "显示两项准备来源与未结任务",
+        "确认暂时限行范围",
+        "取消不扣物不改状态；确认只提交一次"
+      ],
+      "outcomes": [],
+      "timePolicy": "剧情节点推进；活动、走路、休息不耗时",
+      "implementation": "design_only",
+      "instancePolicy": "一次结算，取消不写事实，重载恢复原事务"
+    },
+    {
+      "id": "END-ACT-ALLIANCE",
+      "name": "有限联防",
+      "part": "终局",
+      "regionId": "RG-SECT",
+      "sceneIds": [
+        "rg_lumen_hall",
+        "rg_zc_annex",
+        "rg_mountain_fork"
+      ],
+      "requires": {
+        "all": [
+          "END-COMMIT"
+        ],
+        "routeEquals": "END-ACT-ALLIANCE"
+      },
+      "loops": [
+        "LOOP-PUBLIC",
+        "LOOP-MARTIAL",
+        "LOOP-LIFE"
+      ],
+      "castPolicy": {
+        "onsiteOnly": true,
+        "optionalCompanions": [],
+        "absentFallback": "公开接待/当事人陈述；不把缺席同伴写进现场台词"
+      },
+      "actions": [
+        "履行两项公开准备",
+        "主行动2—3场小队战以内，允许替代其中一场",
+        "兑现本线承诺与代价"
+      ],
+      "outcomes": [
+        "bounded_alliance",
+        "command_alliance"
+      ],
+      "timePolicy": "剧情节点推进；活动、走路、休息不耗时",
+      "implementation": "design_only",
+      "instancePolicy": "一次结算，取消不写事实，重载恢复原事务"
+    },
+    {
+      "id": "END-ACT-GUIJIN",
+      "name": "烬渡自主或扩张",
+      "part": "终局",
+      "regionId": "RG-RIVER",
+      "sceneIds": [
+        "rg_jd_hall",
+        "rg_jd_hold",
+        "rg_jd_pier",
+        "rg_hc_accounts",
+        "rg_hc_dock"
+      ],
+      "requires": {
+        "all": [
+          "END-COMMIT"
+        ],
+        "routeEquals": "END-ACT-GUIJIN"
+      },
+      "loops": [
+        "LOOP-PUBLIC",
+        "LOOP-MARTIAL",
+        "LOOP-LIFE"
+      ],
+      "castPolicy": {
+        "onsiteOnly": true,
+        "optionalCompanions": [],
+        "absentFallback": "公开接待/当事人陈述；不把缺席同伴写进现场台词"
+      },
+      "actions": [
+        "明确选择自主或扩张分支并展示受害者与同伴拒参",
+        "自主：救出被强征者、守烬渡撤离、还船",
+        "扩张：送达接管条件、夺合川限定护运点、兑现接管/赔偿，庄为盟友而非必打敌人"
+      ],
+      "outcomes": [
+        "autonomous_compact",
+        "coercive_expansion"
+      ],
+      "timePolicy": "剧情节点推进；活动、走路、休息不耗时",
+      "implementation": "design_only",
+      "instancePolicy": "一次结算，取消不写事实，重载恢复原事务"
+    },
+    {
+      "id": "END-ACT-COURT",
+      "name": "受委办事与追责",
+      "part": "终局",
+      "regionId": "RG-NORTH",
+      "sceneIds": [
+        "rg_north_pass",
+        "rg_fc_command",
+        "rg_fc_wharf"
+      ],
+      "requires": {
+        "all": [
+          "END-COMMIT",
+          "END-COURT-REVIEW"
+        ],
+        "routeEquals": "END-ACT-COURT"
+      },
+      "loops": [
+        "LOOP-PUBLIC",
+        "LOOP-MARTIAL",
+        "LOOP-LIFE"
+      ],
+      "castPolicy": {
+        "onsiteOnly": true,
+        "optionalCompanions": [],
+        "absentFallback": "公开接待/当事人陈述；不把缺席同伴写进现场台词"
+      },
+      "actions": [
+        "按本次复核后的限定额或接受的原额执行",
+        "护运、阻止当前截路小队、当面交接",
+        "不借程/梁撤上令；保留民生代价与已发生责任"
+      ],
+      "outcomes": [
+        "limited_commission",
+        "continued_coercion"
+      ],
+      "timePolicy": "剧情节点推进；活动、走路、休息不耗时",
+      "implementation": "design_only",
+      "instancePolicy": "一次结算，取消不写事实，重载恢复原事务"
+    },
+    {
+      "id": "END-ACT-FREE",
+      "name": "独立护人",
+      "part": "终局",
+      "regionId": "RG-HG",
+      "sceneIds": [
+        "rg_luhua",
+        "rg_mountain_fork"
+      ],
+      "requires": {
+        "all": [
+          "END-COMMIT"
+        ],
+        "routeEquals": "END-ACT-FREE"
+      },
+      "loops": [
+        "LOOP-PUBLIC",
+        "LOOP-MARTIAL",
+        "LOOP-LIFE"
+      ],
+      "castPolicy": {
+        "onsiteOnly": true,
+        "optionalCompanions": [],
+        "absentFallback": "公开接待/当事人陈述；不把缺席同伴写进现场台词"
+      },
+      "actions": [
+        "履行两项公开准备",
+        "主行动2—3场小队战以内，允许替代其中一场",
+        "兑现本线承诺与代价"
+      ],
+      "outcomes": [
+        "river_refuge",
+        "mountain_refuge"
+      ],
+      "timePolicy": "剧情节点推进；活动、走路、休息不耗时",
+      "implementation": "design_only",
+      "instancePolicy": "一次结算，取消不写事实，重载恢复原事务"
+    },
+    {
+      "id": "END-RESOLVE",
+      "name": "履约与地方回访",
+      "part": "终局",
+      "regionId": "RG-HG",
+      "sceneIds": [],
+      "requires": {
+        "any": [
+          "END-ACT-ALLIANCE",
+          "END-ACT-GUIJIN",
+          "END-ACT-COURT",
+          "END-ACT-FREE"
+        ]
+      },
+      "loops": [
+        "LOOP-LIFE"
+      ],
+      "castPolicy": {
+        "onsiteOnly": true,
+        "optionalCompanions": [],
+        "absentFallback": "公开接待/当事人陈述；不把缺席同伴写进现场台词"
+      },
+      "actions": [
+        "逐一核对实际放人、还船、安置或护路",
+        "更新当地对白、入口与服务",
+        "交代未参与地区后续；不伪造全世界问题解决"
+      ],
+      "outcomes": [],
+      "timePolicy": "剧情节点推进；活动、走路、休息不耗时",
+      "implementation": "design_only",
+      "instancePolicy": "一次结算，取消不写事实，重载恢复原事务"
+    }
+  ],
+  "finalRoutes": [
+    {
+      "id": "END-ACT-ALLIANCE",
+      "name": "有限联防",
+      "regionId": "RG-SECT",
+      "scenes": [
+        "rg_lumen_hall",
+        "rg_zc_annex",
+        "rg_mountain_fork"
+      ],
+      "preparations": [
+        {
+          "id": "PREP-A-VOLUNTEERS",
+          "need": "自愿轮值名单",
+          "publicTask": "公开询问弟子并由代表签署，不需徐/唐在队"
+        },
+        {
+          "id": "PREP-A-SUPPLY",
+          "need": "地方供给",
+          "publicTask": "完成限定护运或供给交接，不要求先刷金钱"
+        }
+      ],
+      "antagonist": "谢承岳拒绝停令时为本人及越权队；已接受限制则处理仍抗令的队伍",
+      "cost": "承担长期护路轮值与供给；强势号令方案保留被征人反感",
+      "outcomes": [
+        "bounded_alliance",
+        "command_alliance"
+      ]
+    },
+    {
+      "id": "END-ACT-GUIJIN",
+      "name": "烬渡自主或扩张",
+      "regionId": "RG-RIVER",
+      "scenes": [
+        "rg_jd_hall",
+        "rg_jd_hold",
+        "rg_jd_pier",
+        "rg_hc_accounts",
+        "rg_hc_dock"
+      ],
+      "preparations": [
+        {
+          "id": "PREP-G-MANDATE",
+          "need": "分支授权与实际参与者名单",
+          "publicTask": "自主由韩/当事人接洽放人；扩张由庄说明限定接管目标。无需岑/戚在队"
+        },
+        {
+          "id": "PREP-G-BOATS",
+          "need": "船具和事后承担",
+          "publicTask": "公开修造工院备自有船具；自主落实归还，扩张明确接管后经营与赔偿。不能偷偷挪用无辜船户"
+        }
+      ],
+      "antagonist": "按variant区分：自主反庄的强制执行；扩张支持庄，对手为拒绝交出合川限定护运点的本地守队",
+      "cost": "自主须履行赔偿与禁掠；扩张失去受害船户和部分伙伴支持",
+      "outcomes": [
+        "autonomous_compact",
+        "coercive_expansion"
+      ],
+      "variants": [
+        {
+          "id": "GUIJIN-AUTONOMY",
+          "objective": "放人、保分堂自主、还船赔付",
+          "scenes": [
+            "rg_jd_hall",
+            "rg_jd_hold",
+            "rg_jd_pier"
+          ],
+          "ally": "韩烬川的有限行动许可",
+          "opponent": "庄照尘拒撤时其直属队；庄退让时为仍抗令扣人队",
+          "optionalCompanions": [
+            "岑霜",
+            "戚铮"
+          ],
+          "absentFallback": "公开堂口交接与萧白完成任务",
+          "outcome": "autonomous_compact"
+        },
+        {
+          "id": "GUIJIN-EXPANSION",
+          "objective": "取得合川码头限定护运与收费点控制",
+          "scenes": [
+            "rg_jd_hall",
+            "rg_hc_accounts",
+            "rg_hc_dock"
+          ],
+          "ally": "庄照尘及场外总堂队伍",
+          "opponent": "拒绝接管的地方护运守队，现有普通模板，不临时改成隐藏罪犯",
+          "victims": [
+            "失业或失通行权的船户",
+            "合川拳门学徒"
+          ],
+          "companionRefusals": [
+            {
+              "names": [
+                "段明棠",
+                "石长庚"
+              ],
+              "when": "攻击本门护运",
+              "handling": "提前提示、保留装备成长、转个人约见点"
+            },
+            {
+              "names": [
+                "岑霜"
+              ],
+              "when": "要求扣无辜人为担保",
+              "handling": "本人拒参；不可用好感抹掉底线"
+            }
+          ],
+          "absentFallback": "萧白和自愿同行者；总堂场外接应不加入永久名册",
+          "outcome": "coercive_expansion"
+        }
+      ]
+    },
+    {
+      "id": "END-ACT-COURT",
+      "name": "受委办事与追责",
+      "regionId": "RG-NORTH",
+      "scenes": [
+        "rg_north_pass",
+        "rg_fc_command",
+        "rg_fc_wharf"
+      ],
+      "preparations": [
+        {
+          "id": "PREP-C-SUPPLY",
+          "need": "实际本批军需到营",
+          "publicTask": "END-COURT-SUPPLY，任务物不自费；普通渡船/路线可达"
+        },
+        {
+          "id": "PREP-C-ALTROUTE",
+          "need": "替代运路实际完成",
+          "publicTask": "END-COURT-ALTROUTE，公开工院和路标，无指定同伴"
+        }
+      ],
+      "antagonist": "劫运武装；严的额度分歧由本人当面复核，只限其授权；不存在必得神秘上级新令",
+      "cost": "严拒绝后的原额执行承担民船与居民损失；承诺前公开拒命可转独立路线，已强制过线责任不能清除",
+      "outcomes": [
+        "limited_commission",
+        "continued_coercion"
+      ],
+      "reviewNode": "END-COURT-REVIEW",
+      "refusalAlternative": {
+        "before": "END-COMMIT",
+        "route": "END-ACT-FREE",
+        "preserveFacts": [
+          "本批供给",
+          "替代运路",
+          "已发生伤害与强制责任"
+        ],
+        "newRouteStillRequires": "独立护人落脚许可与医食准备，不能自动完成",
+        "forfeit": "官府委任奖励"
+      }
+    },
+    {
+      "id": "END-ACT-FREE",
+      "name": "独立护人",
+      "regionId": "RG-HG",
+      "scenes": [
+        "rg_luhua",
+        "rg_mountain_fork"
+      ],
+      "preparations": [
+        {
+          "id": "PREP-F-PATH",
+          "need": "通道与落脚点",
+          "publicTask": "公开踏勘芦花渡/山岔并获收留许可，不需闻/乔在队"
+        },
+        {
+          "id": "PREP-F-CARE",
+          "need": "医食和接应",
+          "publicTask": "有限医棚交接及居民自愿帮助，不需叶/苏/柳/秦在队"
+        }
+      ],
+      "antagonist": "由既有地区结果决定的追索队，不能所有存档固定谢承岳",
+      "cost": "只能保住约定一批人和一处通路，放弃同时争全部地盘并承担安置",
+      "outcomes": [
+        "river_refuge",
+        "mountain_refuge"
+      ]
+    }
+  ],
+  "party": {
+    "humanMaxIncludingHero": 4,
+    "pet": "沿现行额外名额，不占人类位",
+    "recruitRequiredForMainline": false,
+    "allNineteenRequired": false,
+    "hiddenAffectionGate": false
+  },
+  "absencePolicy": {
+    "speech": "只有present集合能现场说话",
+    "placement": "同行与常驻互斥；跨城需接受同行/过场迁移",
+    "fallback": "每条地区与终局都有公开筹备，不以匿名信伪装缺席同伴",
+    "personalArc": "未参与个人事件不能自动标完成"
+  },
+  "battle": {
+    "engine": "existing_turn_based_weakness_break_bp",
+    "resultVocabulary": [
+      "win",
+      "lose",
+      "flee"
+    ],
+    "chainMax": 3,
+    "specialObjectivesNotImplemented": [
+      "survive_n_rounds",
+      "escort_unit_target",
+      "realtime_siege",
+      "naval_combat"
+    ],
+    "fallback": "守撤离通过探索交接+击败追击小队；人质不伪装战斗单位",
+    "skillMotion": "原位cast/idle，目标特效命中；普攻按现行接触规则",
+    "failure": "比试重试；地区接受明示代价或重试；最终行动回检查点，技术错误事务回滚"
+  },
+  "persistence": {
+    "designOnly": true,
+    "regionFields": [
+      "ruler",
+      "access",
+      "detainees",
+      "supply",
+      "localPromises",
+      "unresolved"
+    ],
+    "transaction": "nodeId+instanceId+txId，完成一次；旧beat重载不重复结算",
+    "currency": "文，沿现有S.silver不转换",
+    "rewardGate": "所有永久数值与功法ID须映射既有目录；未映射禁止接入"
+  },
+  "budget": {
+    "newOutdoorMaps": 15,
+    "newIndoorMaps": 9,
+    "totalNewMapsMax": 24,
+    "localStateVariantsMax": 8,
+    "hangao": "原定9街区及原室内合同复用，不算已交付",
+    "dependencies": [
+      "归云谷",
+      "白鹇谷",
+      "清徽阁",
+      "松风观本部",
+      "照川本部",
+      "汉皋既有9街区与栖月楼"
+    ],
+    "firstSlice": [
+      "rg_hc_dock",
+      "rg_hc_workyard",
+      "rg_jd_pier",
+      "rg_jd_yard",
+      "rg_jd_hall"
+    ],
+    "notIncluded": [
+      "江夏新城",
+      "皇城",
+      "海战",
+      "实时万人攻城",
+      "实时爬楼"
+    ]
+  },
+  "verification": {
+    "documentGraph": "由本轮静态核对；非实机证据",
+    "requiredLater": [
+      "三种任选两地区组合",
+      "全无招募的公开路径",
+      "缺席/在队/拒绝同行说话者",
+      "失利与逃跑返回",
+      "最终确认取消及幂等",
+      "全入口真实行走",
+      "最低队伍真实战斗数值快照"
+    ]
+  }
+}

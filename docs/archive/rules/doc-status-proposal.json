@@ -1,0 +1,3542 @@
+[
+ {
+  "path": "CLAUDE.md",
+  "建议": "现行",
+  "理由": "根目录项目入口，规则登记表与生图约定的引用入口",
+  "依据": "CLAUDE.md 页首“## 规则登记表（先读）”"
+ },
+ {
+  "path": "AGENTS.md",
+  "建议": "现行",
+  "理由": "根目录项目入口",
+  "依据": "AGENTS.md"
+ },
+ {
+  "path": "xiaojianghu/DEPLOY.md",
+  "建议": "现行",
+  "理由": "导入引导第 9 节链接的发布说明，写明本目录只做历史原型构建",
+  "依据": "页首“2026-10-07入口整改：本目录是文档库与历史原型”"
+ },
+ {
+  "path": "xiaojianghu/AGENTS.md",
+  "建议": "现行",
+  "理由": "本工作区入口",
+  "依据": "xiaojianghu/AGENTS.md"
+ },
+ {
+  "path": "xiaojianghu/bible/定稿事实.md",
+  "建议": "现行",
+  "理由": "设定锁定事实表，R-剧情-05 指定的单一来源",
+  "依据": "R-剧情-05；页首“锁定的条目只有用户同意才能改”"
+ },
+ {
+  "path": "xiaojianghu/bible/README.md",
+  "建议": "现行",
+  "理由": "设定圣经入口，R-剧情-05 单一来源",
+  "依据": "页首“本目录是设定的单一来源”"
+ },
+ {
+  "path": "xiaojianghu/bible/人物/管事.md",
+  "建议": "现行",
+  "理由": "设定圣经人物页（R-剧情-05 单一来源）",
+  "依据": "R-剧情-05"
+ },
+ {
+  "path": "xiaojianghu/bible/人物/差役.md",
+  "建议": "现行",
+  "理由": "设定圣经人物页（R-剧情-05 单一来源）",
+  "依据": "R-剧情-05"
+ },
+ {
+  "path": "xiaojianghu/bible/人物/陆衡.md",
+  "建议": "现行",
+  "理由": "设定圣经人物页（R-剧情-05 单一来源）",
+  "依据": "R-剧情-05"
+ },
+ {
+  "path": "xiaojianghu/bible/人物/采办随从.md",
+  "建议": "现行",
+  "理由": "设定圣经人物页（R-剧情-05 单一来源）",
+  "依据": "R-剧情-05"
+ },
+ {
+  "path": "xiaojianghu/bible/人物/帮众.md",
+  "建议": "现行",
+  "理由": "设定圣经人物页（R-剧情-05 单一来源）",
+  "依据": "R-剧情-05"
+ },
+ {
+  "path": "xiaojianghu/bible/人物/陈伯.md",
+  "建议": "现行",
+  "理由": "设定圣经人物页（R-剧情-05 单一来源）",
+  "依据": "R-剧情-05"
+ },
+ {
+  "path": "xiaojianghu/bible/人物/乌魁.md",
+  "建议": "现行",
+  "理由": "设定圣经人物页（R-剧情-05 单一来源）",
+  "依据": "R-剧情-05"
+ },
+ {
+  "path": "xiaojianghu/bible/人物/萧白.md",
+  "建议": "现行",
+  "理由": "设定圣经人物页（R-剧情-05 单一来源）",
+  "依据": "R-剧情-05"
+ },
+ {
+  "path": "xiaojianghu/bible/人物/宋先生.md",
+  "建议": "现行",
+  "理由": "设定圣经人物页（R-剧情-05 单一来源）",
+  "依据": "R-剧情-05"
+ },
+ {
+  "path": "xiaojianghu/bible/人物/药商.md",
+  "建议": "现行",
+  "理由": "设定圣经人物页（R-剧情-05 单一来源）",
+  "依据": "R-剧情-05"
+ },
+ {
+  "path": "xiaojianghu/bible/人物/沈雁回.md",
+  "建议": "现行",
+  "理由": "设定圣经人物页（R-剧情-05 单一来源）",
+  "依据": "R-剧情-05"
+ },
+ {
+  "path": "xiaojianghu/bible/人物/周婶.md",
+  "建议": "现行",
+  "理由": "设定圣经人物页（R-剧情-05 单一来源）",
+  "依据": "R-剧情-05"
+ },
+ {
+  "path": "xiaojianghu/bible/人物/采办使.md",
+  "建议": "现行",
+  "理由": "设定圣经人物页（R-剧情-05 单一来源）",
+  "依据": "R-剧情-05"
+ },
+ {
+  "path": "xiaojianghu/bible/人物/店家.md",
+  "建议": "现行",
+  "理由": "设定圣经人物页（R-剧情-05 单一来源）",
+  "依据": "R-剧情-05"
+ },
+ {
+  "path": "xiaojianghu/bible/人物/护院.md",
+  "建议": "现行",
+  "理由": "设定圣经人物页（R-剧情-05 单一来源）",
+  "依据": "R-剧情-05"
+ },
+ {
+  "path": "xiaojianghu/bible/人物/徐令仪.md",
+  "建议": "现行",
+  "理由": "设定圣经人物页（R-剧情-05 单一来源）",
+  "依据": "R-剧情-05"
+ },
+ {
+  "path": "xiaojianghu/bible/人物/村口老人.md",
+  "建议": "现行",
+  "理由": "设定圣经人物页（R-剧情-05 单一来源）",
+  "依据": "R-剧情-05"
+ },
+ {
+  "path": "xiaojianghu/bible/人物/岑霜.md",
+  "建议": "现行",
+  "理由": "设定圣经人物页（R-剧情-05 单一来源）",
+  "依据": "R-剧情-05"
+ },
+ {
+  "path": "xiaojianghu/bible/人物/周砚.md",
+  "建议": "现行",
+  "理由": "设定圣经人物页（R-剧情-05 单一来源）",
+  "依据": "R-剧情-05"
+ },
+ {
+  "path": "xiaojianghu/bible/人物/叶蘅.md",
+  "建议": "现行",
+  "理由": "设定圣经人物页（R-剧情-05 单一来源）",
+  "依据": "R-剧情-05"
+ },
+ {
+  "path": "xiaojianghu/bible/物品/栖河村路牌.md",
+  "建议": "现行",
+  "理由": "设定圣经物品页（R-剧情-05 单一来源）",
+  "依据": "R-剧情-05"
+ },
+ {
+  "path": "xiaojianghu/docs/ai-onboarding.md",
+  "建议": "现行",
+  "理由": "AI 开发导入引导，CLAUDE.md 指定的开工必读",
+  "依据": "CLAUDE.md“开工前先读 AI 开发导入引导”"
+ },
+ {
+  "path": "xiaojianghu/docs/archive/architecture.md",
+  "建议": "待定",
+  "理由": "描述本目录历史原型的模块结构，导入引导第 4 节仍把它当“内容扩展”现行入口；兄弟工作区另有一份已分叉的同名文档",
+  "依据": "ai-onboarding.md 第 4 节；xiaojianghu-legacy-prologue/docs/architecture.md"
+ },
+ {
+  "path": "xiaojianghu/docs/art-pipeline.md",
+  "建议": "现行",
+  "理由": "美术管线，R-生图-01/02/04 的详细出处",
+  "依据": "规则登记表 R-生图-01“xiaojianghu/docs/art-pipeline.md#生图源登记与切换”"
+ },
+ {
+  "path": "xiaojianghu/docs/archive/content-guide.md",
+  "建议": "待定",
+  "理由": "本目录历史原型（js/story.js、襄阳）的内容编写指南，导入引导仍当现行入口；兄弟工作区有分叉副本",
+  "依据": "ai-onboarding.md 第 4 节；页首“所有剧情内容在 js/story.js”"
+ },
+ {
+  "path": "xiaojianghu/docs/archive/pets.md",
+  "建议": "待定",
+  "理由": "本目录原型宠物的实现核查（2026-09-30），宠物设计页仍链接它作“现行实现”，但原型已非当前游戏",
+  "依据": "页首“核对日期：2026-09-30。本篇来自静态代码核查”"
+ },
+ {
+  "path": "xiaojianghu/docs/archive/vfx.md",
+  "建议": "待定",
+  "理由": "原型 js/vfx.js 的 T0–T3 实现记录；设计 README 链为“当前特效”，与栖河分叉副本并存",
+  "依据": "页首“本页主要记录现行 T0–T3 规则……尚未实装”"
+ },
+ {
+  "path": "xiaojianghu/docs/anim-pipeline.md",
+  "建议": "现行",
+  "理由": "帧动画管线，设计 README 多处当现行入口",
+  "依据": "design/README.md“制作与验收四向站立／行走”行"
+ },
+ {
+  "path": "xiaojianghu/docs/battle.md",
+  "建议": "现行",
+  "理由": "战斗系统技术文档，导入引导战斗入口，10-14 已按现行表现边界更新",
+  "依据": "页首“当前表现规则（2026-10-14用户明确）”"
+ },
+ {
+  "path": "xiaojianghu/docs/archive/audio.md",
+  "建议": "待定",
+  "理由": "原型音频与襄阳语音装配说明；与栖河副本差异大，不确定以哪份为准",
+  "依据": "页首“角色配音制作入口见[襄阳语音清单]”"
+ },
+ {
+  "path": "xiaojianghu/docs/testing.md",
+  "建议": "现行",
+  "理由": "【需改措辞】测试总说明，导入引导第 8 节入口（文中有 4 处“第X章”，R-剧情-02）",
+  "依据": "ai-onboarding.md 第 8 节"
+ },
+ {
+  "path": "xiaojianghu/docs/README.md",
+  "建议": "现行",
+  "理由": "本工作区技术文档首页",
+  "依据": "页首“当前游戏：[栖河试玩 · 四向地图版]”"
+ },
+ {
+  "path": "xiaojianghu/docs/archive/battle-v3.md",
+  "建议": "待定",
+  "理由": "战斗表现 v3（09-28），导入引导仍写“再读 battle.md 及 v2/v3”，但战斗精灵规格已到 v4、表现边界 10-14 另定",
+  "依据": "ai-onboarding.md 第 4 节“battle.md及v2/v3”；battle-sprite-spec.md 标题“battle v4”"
+ },
+ {
+  "path": "xiaojianghu/docs/particle-fx.md",
+  "建议": "现行",
+  "理由": "通用粒子驱动，设计 README 当现行入口",
+  "依据": "页首“现行实现：[模拟与绘制]”"
+ },
+ {
+  "path": "xiaojianghu/docs/archive/battle-v2.md",
+  "建议": "待定",
+  "理由": "战斗表现 v2 分工契约（09-30），同上：导入引导仍指向，但已被 v3/v4 接续",
+  "依据": "ai-onboarding.md 第 4 节；battle-v3.md“在 v2 基础上的第二轮评审改造”"
+ },
+ {
+  "path": "xiaojianghu/docs/document-library.md",
+  "建议": "现行",
+  "理由": "文档书阁说明，导入引导链接",
+  "依据": "ai-onboarding.md 第 2 节"
+ },
+ {
+  "path": "xiaojianghu/docs/battle-sprite-spec.md",
+  "建议": "现行",
+  "理由": "战斗精灵规格 v4，10-14 按现行表现边界更新",
+  "依据": "页首“2026-10-14当前表现边界……下文基础九态和像素规格仍有效”"
+ },
+ {
+  "path": "xiaojianghu/docs/archive/containers.md",
+  "建议": "历史",
+  "理由": "原型襄阳 10 张地图容器的实现与发布记录；襄阳演示与 containers.js 已于 10-19 归档",
+  "依据": "xiaojianghu-legacy-prologue/docs/README.md“containers.js 已移入 _attic/2026-10-19-deprecated/”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/cultivation-activities.md",
+  "建议": "现行",
+  "理由": "培养活动目录，设计 README 当负责页",
+  "依据": "design/README.md“编写具体课程、生产与交游项目”行"
+ },
+ {
+  "path": "xiaojianghu/docs/design/character-asset-quality.md",
+  "建议": "现行",
+  "理由": "【需改措辞】角色素材质量规格，导入引导第 4 节现行入口（文中有 3 处“第X章”，R-剧情-02）",
+  "依据": "ai-onboarding.md 第 4 节"
+ },
+ {
+  "path": "xiaojianghu/docs/design/cultivation-simple-approved.md",
+  "建议": "现行",
+  "理由": "养成界面 V5 确认需求，设计 README 当现行入口（费用以体力规则覆盖）",
+  "依据": "页首“2026-10-04 用户确认简化预览并授权完成开发”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/opening-routes.md",
+  "建议": "待定",
+  "理由": "【R-剧情-02】“第一章末三选一”；10-16 完整流程开始部分写“随周砚离开”、未见三选一，是否仍保留三条去向待定",
+  "依据": "fullflow-story-20261016/story.md“萧白和叶蘅随周砚离开”"
+ },
+ {
+  "path": "xiaojianghu/docs/archive/design/pre-xiangyang-visitor-acceptance.md",
+  "建议": "历史",
+  "理由": "襄阳前来访的接入验收记录（10-05，本目录原型）",
+  "依据": "规则第 6 条：验收记录；页首“三场可选来访已接入本地游戏的闲逛页”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/skill-vfx-reference.md",
+  "建议": "现行",
+  "理由": "技能特效质量基准，用户确认的视觉方向",
+  "依据": "页首“状态：用户确认的视觉方向”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/pets-acceptance.md",
+  "建议": "现行",
+  "理由": "宠物验收合同（目标合同，非一次性记录）",
+  "依据": "页首“状态：目标验收合同”"
+ },
+ {
+  "path": "xiaojianghu/docs/archive/design/life-skills-verification.md",
+  "建议": "历史",
+  "理由": "生活技能一次性验收记录（09-30），生活技能已暂缓",
+  "依据": "标题“生活技能本轮验收记录（2026-09-30）”；life.md“生活技能暂缓上线”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/wilderness-encounter-research.md",
+  "建议": "现行",
+  "理由": "野外遇敌调研，设计 README 仍以它为该任务“先读”",
+  "依据": "design/README.md“设计野外敌群、警戒、避战和刷新”行"
+ },
+ {
+  "path": "xiaojianghu/docs/design/world-map-layout.md",
+  "建议": "现行",
+  "理由": "大地图方位与门派布局，10-16 当前设计方案",
+  "依据": "页首“版本 WM-2026-10-16.1。状态：当前设计方案”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/cultivation-redraw.md",
+  "建议": "现行",
+  "理由": "养成动作整套重画，设计 README 标为最新评审（取代 cultivation-action-loops）",
+  "依据": "design/README.md“养成动作最新评审”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/npc-interaction.md",
+  "建议": "现行",
+  "理由": "NPC 交互设计方案，设计 README 当负责页",
+  "依据": "页首“状态：设计方案”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/ambient-npc-design.md",
+  "建议": "现行",
+  "理由": "普通 NPC 模板，fullflow-20261016.3 生成",
+  "依据": "页首“状态：fullflow-20261016.3”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/voice-runtime.md",
+  "建议": "现行",
+  "理由": "角色语音装配与播放，设计 README 链接",
+  "依据": "design/README.md 文档状态用语节"
+ },
+ {
+  "path": "xiaojianghu/docs/design/portrait-review.md",
+  "建议": "现行",
+  "理由": "人物参考立绘进度表，设计 README 链接，指向现行 v5 标准",
+  "依据": "页首“当前逐人标准 female-visual-v5.md”"
+ },
+ {
+  "path": "xiaojianghu/docs/archive/design/opening-polish.md",
+  "建议": "历史",
+  "理由": "10-02 序章与第一章精修说明，之后被 OC.4、三位主事人修订接续",
+  "依据": "页首“序章与第一章 · 2026-10-02 精修说明”"
+ },
+ {
+  "path": "xiaojianghu/docs/archive/design/cultivation-interface.md",
+  "建议": "历史",
+  "理由": "养成界面 V3，页首自称保留旧设计追溯",
+  "依据": "页首“本文保留旧设计追溯；当前画面和操作以[已确认简化需求]”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/jianghu-portraits.md",
+  "建议": "现行",
+  "理由": "江湖菜单三人立绘，用户确认的风格基准",
+  "依据": "页首“用户已确认本套风格，作为后续菜单立绘基准”"
+ },
+ {
+  "path": "xiaojianghu/docs/archive/design/hangao-qiyue-building-v3.md",
+  "建议": "历史",
+  "理由": "栖月楼 V3，页首自称历史方案，被 V4 取代",
+  "依据": "标题“栖月楼 V3：建筑关系历史方案”；hangao-qiyue-scenes-v4.md"
+ },
+ {
+  "path": "xiaojianghu/docs/design/pre-xiangyang-story.md",
+  "建议": "待定",
+  "理由": "入谷后第 1～4 月剧情（目的地仍写襄阳）；汉皋已取代襄阳、10-16 完整流程重排培养部分，是否仍为培养前段现行设计待定",
+  "依据": "hangao-story.md“取代旧襄阳新手村剧情”；fullflow-story-20261016/README.md"
+ },
+ {
+  "path": "xiaojianghu/docs/design/presentation.md",
+  "建议": "现行",
+  "理由": "画面、界面与素材表现规范",
+  "依据": "页首“状态：桌面版设计基准”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/hangao-city.md",
+  "建议": "草稿",
+  "理由": "汉皋城空间与店铺，页首写待用户审定",
+  "依据": "页首“状态：设计方案，待用户审定，未实装”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/secret-manuals.md",
+  "建议": "现行",
+  "理由": "秘籍规则，已确认并接入",
+  "依据": "页首“状态：已确认并接入运行时，2026-10-08”"
+ },
+ {
+  "path": "xiaojianghu/docs/archive/design/cultivation-home-approved.md",
+  "建议": "历史",
+  "理由": "归云谷养成首页需求，页首自称保留旧设计追溯",
+  "依据": "页首“本文保留旧设计追溯”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/growth-combat.md",
+  "建议": "现行",
+  "理由": "成长与战斗设计",
+  "依据": "页首“状态：保留现行游戏已做的战斗体验作为基础”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/skill-polish.md",
+  "建议": "现行",
+  "理由": "现有技能表现基线，用户确认",
+  "依据": "页首“状态：用户确认以原有技能版为基础”"
+ },
+ {
+  "path": "xiaojianghu/docs/archive/design/opening-delivery-20261006.md",
+  "建议": "历史",
+  "理由": "10-06 开篇素材与空间交付记录（本目录原型）",
+  "依据": "规则第 6 条：交付记录；页首“实际尚未同步至8792”"
+ },
+ {
+  "path": "xiaojianghu/docs/archive/design/female-visual-v3.md",
+  "建议": "历史",
+  "理由": "女性形象第三版，页首自称历史方案",
+  "依据": "页首“> 历史方案。当前……见[第五版]”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/xiangyang-gathering-review.md",
+  "建议": "待定",
+  "理由": "襄阳公共相会提案；汉皋已取代襄阳作为年一5月城市，但设计 README 现行任务表仍链接它",
+  "依据": "design/README.md“评审襄阳公共初识”行；hangao-story.md"
+ },
+ {
+  "path": "xiaojianghu/docs/design/martial-structure.md",
+  "建议": "现行",
+  "理由": "功法结构规范 v3，导入引导现行入口",
+  "依据": "ai-onboarding.md 第 4 节"
+ },
+ {
+  "path": "xiaojianghu/docs/archive/design/story-scripts.md",
+  "建议": "历史",
+  "理由": "【R-剧情-02】序章与第一章对白总目录（本目录原型）；开始部分台词已全部迁入 ink 剧本",
+  "依据": "R-剧情-04；xiaojianghu-legacy-prologue/story/01-开始/；prologue-village.md“本稿台词已不是现行版本”"
+ },
+ {
+  "path": "xiaojianghu/docs/archive/design/opening-correction-acceptance.md",
+  "建议": "历史",
+  "理由": "OC.3 验收记录，页首自称历史，被 OC.4 替代",
+  "依据": "页首“> 历史 OC.3 记录……当前被 OC.4整改替代”"
+ },
+ {
+  "path": "xiaojianghu/docs/archive/design/wilderness-encounter-assets.md",
+  "建议": "历史",
+  "理由": "野外遇敌首批素材清单与交付验收（原型襄阳地图）",
+  "依据": "规则第 6 条；页首“首批素材已制作、接入并完成图像与功能验收”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/voice-npc.md",
+  "建议": "现行",
+  "理由": "普通 NPC 单句配音规则，设计 README 链接",
+  "依据": "design/README.md 文档状态用语节"
+ },
+ {
+  "path": "xiaojianghu/docs/design/cultivation-q-generation-standard.md",
+  "建议": "现行",
+  "理由": "养成 Q 版统一生成标准，导入引导现行入口",
+  "依据": "ai-onboarding.md 第 4 节"
+ },
+ {
+  "path": "xiaojianghu/docs/design/map-development-standard.md",
+  "建议": "现行",
+  "理由": "现行地图开发规范",
+  "依据": "页首“地图开发规范（现行唯一入口）”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/life.md",
+  "建议": "现行",
+  "理由": "生活、资源与外出设计方案",
+  "依据": "页首“状态：设计方案；生活技能暂缓上线”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/wen-visual-revision.md",
+  "建议": "现行",
+  "理由": "闻疏桐当前定妆 r5",
+  "依据": "页首“当前定妆 r5”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/exploration-containers.md",
+  "建议": "现行",
+  "理由": "探索容器规范，用户已确认方案（具体点位为原型襄阳地图）",
+  "依据": "页首“状态：用户已确认方案一”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/party-pets.md",
+  "建议": "现行",
+  "理由": "队伍与宠物，已确认方向",
+  "依据": "页首“状态：队友、宠物分离……来自已确认方向”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/character-portrait-style.md",
+  "建议": "现行",
+  "理由": "人物立绘固定风格，用户确认",
+  "依据": "页首“状态：用户于 2026-09-30 确认”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/cultivation-story-approved-v6.md",
+  "建议": "现行",
+  "理由": "养成剧情 Q 版对白，用户确认并接入",
+  "依据": "页首“用户已确认……授权开发”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/pets.md",
+  "建议": "现行",
+  "理由": "宠物系统设计规范",
+  "依据": "页首“本篇是宠物玩法的维护入口”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/manual-placement.md",
+  "建议": "现行",
+  "理由": "【需改措辞】秘籍投放表 v1 设计定稿（文中有 3 处“第X章”，R-剧情-02）",
+  "依据": "页首“状态：设计定稿，2026-10-08”"
+ },
+ {
+  "path": "xiaojianghu/docs/archive/design/xiangyang-art-prompts.md",
+  "建议": "历史",
+  "理由": "襄阳体验章节生图提示词制作记录",
+  "依据": "页首“状态：本轮内置图像生成的制作记录”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/character-personality-performance.md",
+  "建议": "现行",
+  "理由": "人设驱动对白动作验收规范",
+  "依据": "页首“状态：2026-10-05整改规范”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/battle-voice-lines.md",
+  "建议": "现行",
+  "理由": "战斗逐句台本",
+  "依据": "设计 README 链接 battle-voice.md"
+ },
+ {
+  "path": "xiaojianghu/docs/archive/design/prologue-arrival-acceptance.md",
+  "建议": "历史",
+  "理由": "序章前段 OC.3 时期接入记录",
+  "依据": "页首“当前按OC.3 整改合同（已删除）修正”"
+ },
+ {
+  "path": "xiaojianghu/docs/archive/design/cultivation-action-loops.md",
+  "建议": "历史",
+  "理由": "养成局部手势旧版，页首自称历史版本",
+  "依据": "页首“> 历史版本：用户已明确退回”"
+ },
+ {
+  "path": "xiaojianghu/docs/archive/design/chen-yard-preview-r3.3.md",
+  "建议": "历史",
+  "理由": "陈伯院 r3.3 已替代",
+  "依据": "页首“陈伯院r3.3历史整改（已替代）”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/cast-visuals.md",
+  "建议": "现行",
+  "理由": "人物形象总览，fullflow-20261016.3 生成",
+  "依据": "页首“状态：fullflow-20261016.3”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/voice-backend.md",
+  "建议": "现行",
+  "理由": "角色语音管理后台说明",
+  "依据": "设计 README 链接"
+ },
+ {
+  "path": "xiaojianghu/docs/archive/design/map-resolution-experiments.md",
+  "建议": "历史",
+  "理由": "清晰度与 4K 请求实验，已替代",
+  "依据": "页首“清晰度与4K请求实验（已替代）”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/jianghu-icons.md",
+  "建议": "现行",
+  "理由": "江湖行卷图标规范，用户批准 v3 画风",
+  "依据": "页首“2026-09-30 用户已批准 v3 静态画风”"
+ },
+ {
+  "path": "xiaojianghu/docs/archive/design/chapter1-road-minigame.md",
+  "建议": "历史",
+  "理由": "第一章临时守路小游戏（原型 #chapter1）的交付参数记录",
+  "依据": "页首“状态：已接入独立 #chapter1 预览……本次交付参数”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/story-atlas-audit.md",
+  "建议": "现行",
+  "理由": "人设矛盾审核，fullflow-20261016.3 生成",
+  "依据": "页首“状态：fullflow-20261016.3”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/combat-action-contracts.md",
+  "建议": "现行",
+  "理由": "角色出手动作合同，已按 10-14 表现边界加注",
+  "依据": "页首“2026-10-14现阶段边界”"
+ },
+ {
+  "path": "xiaojianghu/docs/archive/design/prologue-scene.md",
+  "建议": "历史",
+  "理由": "本目录原型序章村落场景（药棚前院）；导入引导写明本目录 opening 地图不是当前地图",
+  "依据": "ai-onboarding.md“本目录的 opening-v4……不是当前地图”"
+ },
+ {
+  "path": "xiaojianghu/docs/archive/design/pre-xiangyang-scripts.md",
+  "建议": "历史",
+  "理由": "襄阳前剧本旧目录，页首自称旧目录，被入汉皋前补全接续",
+  "依据": "页首“本页为旧目录。首次目的地已转为汉皋”；pre-hangao-completion-20261013/README.md"
+ },
+ {
+  "path": "xiaojianghu/docs/design/battle-voice.md",
+  "建议": "现行",
+  "理由": "战斗语音制作与表演规则",
+  "依据": "页首“本页负责制作与表演规则”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/story-endgame-review.md",
+  "建议": "现行",
+  "理由": "叶家真相与白石终局，10-16 全流程版",
+  "依据": "页首“2026-10-16全流程创作版”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/companion-women.md",
+  "建议": "现行",
+  "理由": "女性同伴人物篇目录",
+  "依据": "页首“状态：设计方案，剧情接入逐人记录”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/pre-xiangyang-visitors.md",
+  "建议": "待定",
+  "理由": "襄阳前谷中来访设计（前四月）；前四月现行基础已转到 8792 数据与入汉皋前补全，本稿是否仍负责来访设计待定",
+  "依据": "pre-hangao-completion-20261013/README.md“现行基础来自chapter-two-dialogue.json与8792事件定义”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/hangao-systems.md",
+  "建议": "草稿",
+  "理由": "汉皋城系统设计，页首写待用户审定",
+  "依据": "页首“状态：系统设计方案，待用户审定”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/shop-ui-standard.md",
+  "建议": "现行",
+  "理由": "挂轴式店铺界面，用户确认的界面方向",
+  "依据": "页首“状态：用户 2026-10-09 确认的界面方向”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/cultivation-acceptance.md",
+  "建议": "现行",
+  "理由": "养成界面 V5 验收合同与回归入口",
+  "依据": "design/README.md“验收合同与测试入口”"
+ },
+ {
+  "path": "xiaojianghu/docs/archive/design/preview-first-map-development.md",
+  "建议": "历史",
+  "理由": "预览先行试验历程，已替代",
+  "依据": "页首“预览先行试验历程（已替代）”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/local-game-entry.md",
+  "建议": "现行",
+  "理由": "本机游戏入口与工作区",
+  "依据": "导入引导第 1 节链接"
+ },
+ {
+  "path": "xiaojianghu/docs/design/story-source-migration.md",
+  "建议": "现行",
+  "理由": "【需改措辞】剧情与设定迁移方案，用户确认（R-剧情-04/05 出处）（文中有 3 处“第X章”，R-剧情-02）",
+  "依据": "页首“状态：2026-10-18 用户确认”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/skill-vfx-pipeline.md",
+  "建议": "现行",
+  "理由": "技能特效生成流程，R-特效-01 指定",
+  "依据": "R-特效-01"
+ },
+ {
+  "path": "xiaojianghu/docs/archive/design/xiangyang-chapter.md",
+  "建议": "历史",
+  "理由": "襄阳体验章节脚本；襄阳新手村剧情已由汉皋取代，#xiangyang 演示 10-19 撤除",
+  "依据": "hangao-story.md“舍弃旧测试 demo 的襄阳新手村剧情”；updates/2026-10-19-deprecated-entries.md"
+ },
+ {
+  "path": "xiaojianghu/docs/archive/design/chapter1-pressure.md",
+  "建议": "历史",
+  "理由": "第一章来者与旧物对白（本目录原型），台词已迁入 ink",
+  "依据": "R-剧情-04；story/01-开始/三方-*.ink"
+ },
+ {
+  "path": "xiaojianghu/docs/archive/design/opening-assets.md",
+  "建议": "历史",
+  "理由": "原型序章与第一章逐场素材需求；当前栖河素材以正式登记为准",
+  "依据": "R-素材-01；页首“三位主事人新稿已本地接入”（本目录原型）"
+ },
+ {
+  "path": "xiaojianghu/docs/design/romance-rules.md",
+  "建议": "现行",
+  "理由": "关系、入队与结缘细则，已确认方向",
+  "依据": "页首“状态：已确认方向（2026-10-09 用户）”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/weakness-system.md",
+  "建议": "现行",
+  "理由": "弱点、护盾与破势系统，已接入运行战斗",
+  "依据": "页首“状态：已接入离线战斗模拟与运行战斗”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/sword-vfx-xianxia.md",
+  "建议": "草稿",
+  "理由": "剑法东方剑侠方向第二轮样例，页首待用户评审",
+  "依据": "页首“状态：第二轮样例，待用户评审（2026-10-07）”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/map-size-review.md",
+  "建议": "现行",
+  "理由": "地图分级与分区验收，现行地图规范的配套页",
+  "依据": "页首“map-standard: supporting”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/factions.md",
+  "建议": "现行",
+  "理由": "门派与组织目录",
+  "依据": "页首“下列各派原有性质与人员继续有效”"
+ },
+ {
+  "path": "xiaojianghu/docs/archive/design/sword-vfx-direction.md",
+  "建议": "历史",
+  "理由": "剑法分级第一轮方向，已调整为东方剑侠方向",
+  "依据": "页首“2026-10-07 方向调整……见[剑法特效 · 东方剑侠方向]”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/life-skills.md",
+  "建议": "现行",
+  "理由": "生活技能规范（发布暂缓，设计保留）",
+  "依据": "页首“设计与原型保留”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/story-decisions.md",
+  "建议": "现行",
+  "理由": "【需改措辞】故事方案决定记录，设计 README 用作采用范围核对入口（文中有 4 处“第X章”，R-剧情-02）",
+  "依据": "design/README.md“核对故事方案采用范围”行"
+ },
+ {
+  "path": "xiaojianghu/docs/design/dialogue-staging.md",
+  "建议": "现行",
+  "理由": "对话立绘站位（OC.4 采用）；需对照 R-画风-03 的新对齐规则",
+  "依据": "页首“状态：OC-2026-10-04.4……采用”；R-画风-03"
+ },
+ {
+  "path": "xiaojianghu/docs/design/romance-jealousy-review.md",
+  "建议": "草稿",
+  "理由": "吃醋与感情磨合，触发与数值仍待评审",
+  "依据": "页首“以下触发、强度、数值、频率与角色情节仍待评审”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/faction-attire.md",
+  "建议": "现行",
+  "理由": "门派衣装规则",
+  "依据": "页首“当前图鉴的服装整改规则”"
+ },
+ {
+  "path": "xiaojianghu/docs/archive/design/cultivation-local-motion.md",
+  "建议": "历史",
+  "理由": "养成局部微动，页首自称历史版本",
+  "依据": "页首“人物局部微动修订（历史版本）”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/voice-expansion.md",
+  "建议": "现行",
+  "理由": "按描述扩充音色",
+  "依据": "设计 README 链接"
+ },
+ {
+  "path": "xiaojianghu/docs/design/jianghu-portrait-prompts.md",
+  "建议": "现行",
+  "理由": "江湖菜单立绘提示词，是用户确认风格基准的出处",
+  "依据": "jianghu-portraits.md“完整提示词见[制作记录]”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/ye-routes.md",
+  "建议": "现行",
+  "理由": "叶蘅两条路线，已确认方向",
+  "依据": "页首“两条方向及不同立绘、能力是已确认”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/cultivation-minigames.md",
+  "建议": "草稿",
+  "理由": "养成小游戏候选，等待用户选择",
+  "依据": "页首“状态为 awaiting_user_selection”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/companion-recruitment.md",
+  "建议": "现行",
+  "理由": "同伴招募系统合同",
+  "依据": "页首“状态：招募设计合同”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/cultivation-implementation.md",
+  "建议": "现行",
+  "理由": "归云谷养成界面实现说明，设计 README 当本地实现入口",
+  "依据": "design/README.md“运行和检查养成界面”行"
+ },
+ {
+  "path": "xiaojianghu/docs/design/character-condition-growth.md",
+  "建议": "现行",
+  "理由": "人物持久状态与同队成长，用户确认",
+  "依据": "页首“用户确认：世界顶尖战力不超过90级”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/asset-requirements.md",
+  "建议": "现行",
+  "理由": "素材需求总规范",
+  "依据": "页首“状态：开发与生产规范”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/v4-vfx-batch1.md",
+  "建议": "草稿",
+  "理由": "技能特效 v4 第一批，页首写评审中",
+  "依据": "页首“状态：评审中，2026-10-08”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/voice-villains.md",
+  "建议": "现行",
+  "理由": "反派音色候选",
+  "依据": "设计 README 链接"
+ },
+ {
+  "path": "xiaojianghu/docs/design/cultivation-design.md",
+  "建议": "现行",
+  "理由": "培养阶段体验设计入口",
+  "依据": "页首“状态：设计阅读入口”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/cultivation-q-portraits.md",
+  "建议": "现行",
+  "理由": "Q 版人物情绪与动作规范（公共规格以统一标准为准）",
+  "依据": "design/README.md“制作培养Q版人物”行"
+ },
+ {
+  "path": "xiaojianghu/docs/archive/design/chapter1-delivery.md",
+  "建议": "历史",
+  "理由": "第一章场景交付记录（原型 v1/v2）",
+  "依据": "规则第 6 条；页首“旧 v1/v2 记录只对应历史版本”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/cultivation-gift-portrait-selection.md",
+  "建议": "现行",
+  "理由": "送物人物选择，用户通过并接入",
+  "依据": "页首“用户已通过古典纸面整套预览，已接入本地游戏”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/opening-state.md",
+  "建议": "待定",
+  "理由": "【R-剧情-02】两章交接与演出边界（本目录原型开篇）；开始部分已在栖河另行实现，是否仍为设计依据待定",
+  "依据": "页首“本版未同步运行存档、正式语音或CG”"
+ },
+ {
+  "path": "xiaojianghu/docs/archive/design/sword-shape-research.md",
+  "建议": "历史",
+  "理由": "剑技形态复核调研，高阶样例判不通过",
+  "依据": "页首“高阶锋刃组暂列为不通过的探索样例”"
+ },
+ {
+  "path": "xiaojianghu/docs/archive/design/story-faction-rework-20261016.md",
+  "建议": "历史",
+  "理由": "全作主线与三方势力整改方向，页首自称历史方案",
+  "依据": "页首“历史方案：……已由当前四部分总纲及逐项调整接续”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/qihe-hidden-rewards.md",
+  "建议": "草稿",
+  "理由": "栖河隐藏奇遇设计提案，待用户拍板",
+  "依据": "页首“状态：设计提案，2026-10-18，待用户拍板”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/scene-spatial-contract.md",
+  "建议": "现行",
+  "理由": "场景画板与空间合同，现行地图规范配套",
+  "依据": "页首“map-standard: supporting”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/companion-power.md",
+  "建议": "现行",
+  "理由": "同伴武力与入队配置（逐人）",
+  "依据": "页首“状态：设计方案，未实装”；design/README.md 任务表"
+ },
+ {
+  "path": "xiaojianghu/docs/archive/design/character-assets-audit.md",
+  "建议": "历史",
+  "理由": "10-02 襄阳角色素材验收记录",
+  "依据": "规则第 6 条；标题“当前襄阳角色素材验收”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/shared-insight-pool.md",
+  "建议": "现行",
+  "理由": "江湖历练共享池",
+  "依据": "页首“实施对象为8792当前游戏”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/README.md",
+  "建议": "现行",
+  "理由": "【需改措辞】设计短链入口；页首仍写“当前第二章”",
+  "依据": "页首“2026-10-12 当前第二章数值与传承”；R-剧情-02"
+ },
+ {
+  "path": "xiaojianghu/docs/archive/design/opening-spatial-delivery.md",
+  "建议": "历史",
+  "理由": "原型开篇任务与场景落地（10-06 交付）",
+  "依据": "页首“2026-10-06。适用于[序章村落]与[第一章]”"
+ },
+ {
+  "path": "xiaojianghu/docs/archive/design/pre-xiangyang-overview.md",
+  "建议": "历史",
+  "理由": "入襄阳前剧情概览（目的地仍写襄阳），前四月已由入汉皋前补全收录",
+  "依据": "pre-hangao-completion-20261013/README.md“40个前四月窗口事件完整收录”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/story-payoffs-review.md",
+  "建议": "现行",
+  "理由": "人物铺垫与回收，10-16 当前设计",
+  "依据": "页首“2026-10-16当前设计”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/village-layout-research.md",
+  "建议": "现行",
+  "理由": "村落生活空间调研，现行地图规范要求先读",
+  "依据": "map-development-standard.md“开发地图先读本文，再读[生活空间设计]”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/jianghu-stroll-review.md",
+  "建议": "待定",
+  "理由": "10-02 门派群像与三年闲逛评审提案；之后总纲与完整流程多次重排，是否仍有效待定",
+  "依据": "页首“门派群像与三年闲逛 · 评审提案”；story-framework-review.md"
+ },
+ {
+  "path": "xiaojianghu/docs/design/companion-men.md",
+  "建议": "现行",
+  "理由": "男性同伴短篇招募表",
+  "依据": "页首“状态：精简版设计方案”"
+ },
+ {
+  "path": "xiaojianghu/docs/archive/design/xiangyang-alley.md",
+  "建议": "历史",
+  "理由": "襄阳偏巷（原型地图与剧情），襄阳演示已撤除",
+  "依据": "updates/2026-10-19-deprecated-entries.md；hangao-story.md"
+ },
+ {
+  "path": "xiaojianghu/docs/design/timeline.md",
+  "建议": "现行",
+  "理由": "三年事件表",
+  "依据": "design/README.md“写主线、核对因果”行"
+ },
+ {
+  "path": "xiaojianghu/docs/design/hangao-story.md",
+  "建议": "草稿",
+  "理由": "汉皋城剧情，页首待用户审定、未排期",
+  "依据": "页首“状态：剧情设计方案，待用户审定，未实装，未排期”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/opening-pei-disguise.md",
+  "建议": "现行",
+  "理由": "乔装账房与遗物修订，用户确认（设定圣经宋先生条目依据）",
+  "依据": "页首“用户确认两项改动”"
+ },
+ {
+  "path": "xiaojianghu/docs/archive/design/game-town-layout-research.md",
+  "建议": "历史",
+  "理由": "襄阳城镇布局调研，襄阳已不再作主城",
+  "依据": "规则第 6 条；hangao-city.md“年一5月的城市不再用襄阳”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/story-travel-review.md",
+  "建议": "现行",
+  "理由": "游历与终局推进，10-16 当前设计",
+  "依据": "页首“2026-10-16。当前设计”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/damage-numbers.md",
+  "建议": "现行",
+  "理由": "伤害数字与战斗浮字规范",
+  "依据": "页首“状态：设计规范……运行战斗按本页接入”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/wilderness-encounters.md",
+  "建议": "现行",
+  "理由": "野外可见遇敌实施合同",
+  "依据": "页首“第一版实施合同”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/status-effects.md",
+  "建议": "现行",
+  "理由": "异常状态 v1，已接入",
+  "依据": "页首“状态：已接入离线战斗模拟与运行战斗”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/story-presentation.md",
+  "建议": "现行",
+  "理由": "剧情表现规则",
+  "依据": "页首“2026-09-30 用户要求的开发限制”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/pei-zhigu-assets.md",
+  "建议": "现行",
+  "理由": "裴知古素材与动作",
+  "依据": "设计 README 链接"
+ },
+ {
+  "path": "xiaojianghu/docs/design/martial-lineage.md",
+  "建议": "现行",
+  "理由": "门派功法传承 v3，规则已确认",
+  "依据": "页首“状态：规则已确认并已落地数据与运行代码”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/pre-xiangyang-character-arcs.md",
+  "建议": "待定",
+  "理由": "入谷至首次襄阳人物深化（前四月）；前四月现行基础已转到 8792 与入汉皋前补全，是否仍负责人物线待定",
+  "依据": "pre-hangao-completion-20261013/README.md"
+ },
+ {
+  "path": "xiaojianghu/docs/archive/design/xiangyang-alley-art-prompt.md",
+  "建议": "历史",
+  "理由": "偏巷战斗背景生图记录（09-29）",
+  "依据": "规则第 6 条：制作记录"
+ },
+ {
+  "path": "xiaojianghu/docs/design/item-naming-standard.md",
+  "建议": "现行",
+  "理由": "物品与装备命名规范",
+  "依据": "导入引导第 4 节"
+ },
+ {
+  "path": "xiaojianghu/docs/design/cast-timeline.md",
+  "建议": "现行",
+  "理由": "【需改措辞】人物剧情时间窗口，fullflow-20261016.3 生成（文中有 3 处“第X章”，R-剧情-02）",
+  "依据": "页首“状态：fullflow-20261016.3”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/mountain-cultivation-events.md",
+  "建议": "现行",
+  "理由": "【需改措辞】正派山居三年养成事件（文中有“第几章”）",
+  "依据": "design/README.md“设计正派山居养成的事件”行；R-剧情-02"
+ },
+ {
+  "path": "xiaojianghu/docs/design/cultivation.md",
+  "建议": "现行",
+  "理由": "三年体力制养成通用机制",
+  "依据": "页首“已获用户确认并接入本地游戏”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/romance.md",
+  "建议": "现行",
+  "理由": "结缘系统现行口径",
+  "依据": "页首“本页是现行设计口径”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/runtime-moves.md",
+  "建议": "现行",
+  "理由": "功法 v3 招式运行登记（本目录原型实现记录，招式数据仍现行）",
+  "依据": "页首“状态：现行实现（2026-10-08……）”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/ye-appearance.md",
+  "建议": "现行",
+  "理由": "叶蘅三阶段形象",
+  "依据": "页首“状态：三阶段形象方案”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/delivery.md",
+  "建议": "现行",
+  "理由": "文档与实现边界，导入引导与两份 README 入口；正文“先以襄阳片段测试”已过时需更新",
+  "依据": "ai-onboarding.md 第 2 节；页首“当前执行范围：先以襄阳片段（已删除）”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/hangao-shops.md",
+  "建议": "草稿",
+  "理由": "汉皋城店铺功能，待用户审定",
+  "依据": "页首“状态：设计方案，待用户审定”"
+ },
+ {
+  "path": "xiaojianghu/docs/archive/design/chapter1-fire-audio.md",
+  "建议": "历史",
+  "理由": "第一章局部火声，页首说实测是历史证据",
+  "依据": "页首“下方WebAudio实测是历史证据”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/hangao-qiyue-scenes-v4.md",
+  "建议": "现行",
+  "理由": "栖月楼 V4 分场景（取代 V3）",
+  "依据": "页首“用户明确指定……否定V3”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/romance-stories.md",
+  "建议": "现行",
+  "理由": "十四位女性结缘篇",
+  "依据": "页首“全部具备结缘路线为已确认方向”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/faction-styles.md",
+  "建议": "现行",
+  "理由": "门派风格，fullflow-20261016.3 生成",
+  "依据": "页首“状态：fullflow-20261016.3”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/voice-emotion.md",
+  "建议": "现行",
+  "理由": "台词情绪与语音合成",
+  "依据": "设计 README 链接"
+ },
+ {
+  "path": "xiaojianghu/docs/design/v4-vfx-kit.md",
+  "建议": "待定",
+  "理由": "特效组件库与自动编排（10-08 已实装）；与 10-18 起 R-特效-02“主形来自生图、不得程序绘制优先”可能冲突，是否仍作现行做法待定",
+  "依据": "R-特效-02；页首“其余招式用一套中性组件素材 + 按规格自动编排”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/cultivation-assets.md",
+  "建议": "现行",
+  "理由": "养成素材合同与台账 V8",
+  "依据": "设计 README 链接"
+ },
+ {
+  "path": "xiaojianghu/docs/design/event-scheduling-system.md",
+  "建议": "现行",
+  "理由": "事件排期系统，导入引导现行入口",
+  "依据": "ai-onboarding.md 第 4 节"
+ },
+ {
+  "path": "xiaojianghu/docs/design/companion-performance.md",
+  "建议": "现行",
+  "理由": "可加入角色六个对白状态，用户确认",
+  "依据": "页首“状态：2026-10-04，用户确认每人6张”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/guiyun-household.md",
+  "建议": "现行",
+  "理由": "归云谷师门人物，用户已确认",
+  "依据": "页首“状态：已确认（2026-10-07 用户确认……）”"
+ },
+ {
+  "path": "xiaojianghu/docs/archive/design/prologue-arrival.md",
+  "建议": "历史",
+  "理由": "序章后山初遇对白（本目录原型）；开始部分台词已全部迁入 ink",
+  "依据": "R-剧情-04；xiaojianghu-legacy-prologue/story/01-开始/序章-后山相遇.ink"
+ },
+ {
+  "path": "xiaojianghu/docs/archive/design/chapter1-clash-20261012.md",
+  "建议": "历史",
+  "理由": "侧口交锋旧版，页首说已更新为双甲级群攻、下文为历史记录",
+  "依据": "页首“当前8792已更新为[双甲级群攻]……下文……为历史记录”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/grades-and-skill-vfx.md",
+  "建议": "现行",
+  "理由": "【需改措辞】品阶与技能特效规范 v1（文中有 4 处“第X章”，R-剧情-02）",
+  "依据": "页首“静态图标第二版画风已获用户确认”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/story-framework-review.md",
+  "建议": "现行",
+  "理由": "四部分完整主线，当前设计入口",
+  "依据": "页首“当前设计入口”"
+ },
+ {
+  "path": "xiaojianghu/docs/archive/design/pre-xiangyang-voice.md",
+  "建议": "历史",
+  "理由": "入襄阳前逐句语音规划，依附已自称旧目录的襄阳前剧本，台词已转入 ink 与入汉皋前补全",
+  "依据": "pre-xiangyang-scripts.md“本页为旧目录”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/cast.md",
+  "建议": "现行",
+  "理由": "【需改措辞】主要人物（文中有 3 处“第X章”，R-剧情-02）",
+  "依据": "design/README.md“写萧白、叶蘅、苏芷”行"
+ },
+ {
+  "path": "xiaojianghu/docs/archive/design/map-character-motion-plan.md",
+  "建议": "历史",
+  "理由": "地图与角色移动 GIF 评审，页首说下文 OC.4／OC.5 参数为历史、当前实现见 OC.11",
+  "依据": "页首“下文 OC.4／OC.5 参数为问题诊断历史，不是当前运行值”"
+ },
+ {
+  "path": "xiaojianghu/docs/archive/design/cultivation-q-prompts.md",
+  "建议": "历史",
+  "理由": "培养 Q 版实际生成提示词记录，公共规格已改由统一标准负责",
+  "依据": "页首“本文保留历史生成记录”；cultivation-q-generation-standard.md"
+ },
+ {
+  "path": "xiaojianghu/docs/design/story.md",
+  "建议": "现行",
+  "理由": "故事主线",
+  "依据": "页首“状态：已确认方向 + 设计方案”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/world.md",
+  "建议": "现行",
+  "理由": "势力与世界",
+  "依据": "页首“状态：……属于设计方案”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/cultivation-animation.md",
+  "建议": "现行",
+  "理由": "养成微动 V5，当前采用",
+  "依据": "页首“当前采用[简化需求]”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/opening-correction-20261004-oc4.md",
+  "建议": "待定",
+  "理由": "原型开篇 OC.4 整改合同；其中 grid94 等人物规格仍被质量规格当“当前标准”引用，开篇本身已在栖河另行实现",
+  "依据": "character-asset-quality.md“开篇当前执行OC.4采用标准”；ai-onboarding.md“本目录的 opening-v4……不是当前地图”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/v4-vfx-per-skill.md",
+  "建议": "现行",
+  "理由": "逐招专属特效规范，执行中，取代组件库为主方案",
+  "依据": "页首“状态：执行中……本页取代[组件库模板]”"
+ },
+ {
+  "path": "xiaojianghu/docs/archive/design/opening-functional-delivery.md",
+  "建议": "历史",
+  "理由": "原型序章与第一章可玩测试版交付记录",
+  "依据": "页首“本页记录 2026-10-04 的功能实现与阶段例外”"
+ },
+ {
+  "path": "xiaojianghu/docs/archive/design/cultivation-interaction.md",
+  "建议": "历史",
+  "理由": "培养交互旧设计，页首自称保留旧设计追溯",
+  "依据": "页首“本文保留旧设计追溯……不再作为开发标准”"
+ },
+ {
+  "path": "xiaojianghu/docs/archive/design/sword-grade-ultimate.md",
+  "建议": "历史",
+  "理由": "绝等剑法第一轮脚本，已被打击感调研与东方剑侠方向替代",
+  "依据": "sword-impact-research.md“本页优先于原甲绝脚本”；sword-vfx-xianxia.md"
+ },
+ {
+  "path": "xiaojianghu/docs/design/character-levels-100.md",
+  "建议": "现行",
+  "理由": "100 级上限，用户确认",
+  "依据": "页首“用户确认：角色满级100级”"
+ },
+ {
+  "path": "xiaojianghu/docs/archive/design/opening-character-assets.md",
+  "建议": "历史",
+  "理由": "开篇人物需求卡，页首自称旧运行版交付记录",
+  "依据": "页首“下方角色表及生成台账为旧运行版交付记录”"
+ },
+ {
+  "path": "xiaojianghu/docs/archive/design/pre-xiangyang-visitor-assets.md",
+  "建议": "历史",
+  "理由": "襄阳前来访素材清单，已交付的一次性清单",
+  "依据": "规则第 6 条；页首“已交付并接入本地游戏”"
+ },
+ {
+  "path": "xiaojianghu/docs/archive/design/chapter1-fire.md",
+  "建议": "历史",
+  "理由": "第一章灯火与撤离对白（本目录原型），台词已迁入 ink",
+  "依据": "R-剧情-04；story/01-开始/风起-起火.ink"
+ },
+ {
+  "path": "xiaojianghu/docs/design/voice-management.md",
+  "建议": "现行",
+  "理由": "角色语音管理",
+  "依据": "设计 README 链接"
+ },
+ {
+  "path": "xiaojianghu/docs/design/bond-banter.md",
+  "建议": "现行",
+  "理由": "羁绊与闲话，用户已拍板",
+  "依据": "页首“状态：用户已拍板（2026-10-10）”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/map-preflight.md",
+  "建议": "现行",
+  "理由": "地图生产前置设计，现行地图规范配套",
+  "依据": "页首“map-standard: supporting”；design/README.md 任务表"
+ },
+ {
+  "path": "xiaojianghu/docs/design/opening-three-representatives.md",
+  "建议": "现行",
+  "理由": "三位主事人剧情修订，已在 8792 接入，设定圣经依据",
+  "依据": "xiaojianghu-legacy-prologue/docs/design/README.md“三位主事人的剧情……已在当前8792接入”"
+ },
+ {
+  "path": "xiaojianghu/docs/archive/design/sword-studies.md",
+  "建议": "历史",
+  "理由": "剑法粒子表现第一轮评审，方向已调整为东方剑侠",
+  "依据": "sword-vfx-direction.md“2026-10-07 方向调整”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/companion-support.md",
+  "建议": "现行",
+  "理由": "辅助同伴战斗设计",
+  "依据": "页首“状态：设计方案，未实装”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/combat-presentation-boundary.md",
+  "建议": "现行",
+  "理由": "当前战斗表现边界",
+  "依据": "页首“2026-10-14用户再次明确的现阶段规则”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/xiangyang-icons-v3.md",
+  "建议": "现行",
+  "理由": "【需改措辞】襄阳图标 v3 已批准画风（图标画风通用，名称沿用）（文中有 7 处“第X章”，R-剧情-02）",
+  "依据": "页首“用户已确认第二版评审图的静态画风”"
+ },
+ {
+  "path": "xiaojianghu/docs/archive/design/cultivation-jianghu-entry.md",
+  "建议": "历史",
+  "理由": "养成头像接入新版江湖的一次性修复记录（10-06）",
+  "依据": "规则第 6 条；页首“2026-10-06：用户指出头像打开了旧江湖”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/hangao-city-spaces.md",
+  "建议": "草稿",
+  "理由": "汉皋城空间切分，待用户审定",
+  "依据": "页首“状态：设计方案，待用户审定，未实装”"
+ },
+ {
+  "path": "xiaojianghu/docs/archive/design/ye-walk-regeneration.md",
+  "建议": "历史",
+  "理由": "叶蘅四向重生成（10-02）完成并采用的记录",
+  "依据": "页首“状态：已完成重生成……并采用”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/companions.md",
+  "建议": "现行",
+  "理由": "可招募同伴总名册",
+  "依据": "页首“状态：19人招募资格登记”"
+ },
+ {
+  "path": "xiaojianghu/docs/archive/design/prologue-village.md",
+  "建议": "历史",
+  "理由": "序章村中第一夜对白，页首说台词已不是现行版本",
+  "依据": "页首“2026-10-19：本稿台词已不是现行版本”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/visual-acceptance.md",
+  "建议": "现行",
+  "理由": "视觉与交互验收合同，导入引导链接",
+  "依据": "ai-onboarding.md 第 8 节"
+ },
+ {
+  "path": "xiaojianghu/docs/archive/design/sword-grade-a.md",
+  "建议": "历史",
+  "理由": "甲等剑法第一轮脚本，已被替代",
+  "依据": "sword-impact-research.md；sword-vfx-xianxia.md"
+ },
+ {
+  "path": "xiaojianghu/docs/archive/design/prologue-water-prompt.md",
+  "建议": "历史",
+  "理由": "后山递水 CG 提示词记录",
+  "依据": "规则第 6 条：制作记录"
+ },
+ {
+  "path": "xiaojianghu/docs/archive/design/prologue-battle-teaching.md",
+  "建议": "历史",
+  "理由": "原型后山教学战合同（OC.4）；序章已迁入 ink 并在栖河另行实现",
+  "依据": "story/01-开始/序章-遇狼.ink；ai-onboarding.md"
+ },
+ {
+  "path": "xiaojianghu/docs/archive/design/village-functional-boundaries.md",
+  "建议": "历史",
+  "理由": "原型村落边界整改，无现行入口链接",
+  "依据": "页首“本文保留专项规则或局部整改证据”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/cultivation-formal-martial.md",
+  "建议": "现行",
+  "理由": "归云谷基础功法与上乘传承（10-12 已更新）",
+  "依据": "页首“2026-10-12 当前8792已接入初阶及高阶授课”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/numeric-reference.md",
+  "建议": "现行",
+  "理由": "数值参考与采用边界",
+  "依据": "页首“2026-10-16按现行实现复核”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/world-map-journeys.md",
+  "建议": "现行",
+  "理由": "整月大地图历练",
+  "依据": "页首“整月占用与多路线预留要求已确认”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/story-writing.md",
+  "建议": "现行",
+  "理由": "剧情文案规范，R-剧情-03 出处",
+  "依据": "R-剧情-03"
+ },
+ {
+  "path": "xiaojianghu/docs/archive/design/female-visual-v4.md",
+  "建议": "历史",
+  "理由": "女性形象第四版，不再作为当前方案",
+  "依据": "页首“本页不再作为当前生成方案，采用[第五版]”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/chapter1-clash-jia-20261014.md",
+  "建议": "现行",
+  "理由": "【需改措辞】8792 当前侧口双甲级群攻；标题写“第一章尾声”",
+  "依据": "页首“2026-10-14最新表现修订”；R-剧情-02"
+ },
+ {
+  "path": "xiaojianghu/docs/archive/design/sword-impact-research.md",
+  "建议": "历史",
+  "理由": "剑气打击感调研（10-01），之后方向转东方剑侠",
+  "依据": "sword-vfx-xianxia.md“剑法改为东方剑侠语汇”"
+ },
+ {
+  "path": "xiaojianghu/docs/archive/design/chapter1-activities.md",
+  "建议": "历史",
+  "理由": "第一章六项村中活动对白（原型），台词已迁入 ink",
+  "依据": "R-剧情-04；story/01-开始/"
+ },
+ {
+  "path": "xiaojianghu/docs/design/character-face-identity.md",
+  "建议": "现行",
+  "理由": "人物五官区分",
+  "依据": "design/README.md 衣装与五官整改入口"
+ },
+ {
+  "path": "xiaojianghu/docs/archive/design/chapter1-mountain.md",
+  "建议": "历史",
+  "理由": "第一章山居安身对白（原型），台词已迁入 ink",
+  "依据": "R-剧情-04；story/01-开始/风起-山居.ink"
+ },
+ {
+  "path": "xiaojianghu/docs/design/pre-xiangyang-training.md",
+  "建议": "待定",
+  "理由": "襄阳前基础培养（第 1～4 月）；前四月现行基础已转到 8792 数据与入汉皋前补全，本稿是否仍负责培养节奏待定",
+  "依据": "pre-hangao-completion-20261013/README.md"
+ },
+ {
+  "path": "xiaojianghu/docs/archive/design/opening-character-acceptance.md",
+  "建议": "历史",
+  "理由": "开篇人物素材验收（10-03）",
+  "依据": "规则第 6 条：验收记录"
+ },
+ {
+  "path": "xiaojianghu/docs/design/motion-oc11.md",
+  "建议": "待定",
+  "理由": "OC.11 萧白便衣走跑（原型开篇）；四向行走质量页仍称其为当前开篇动作",
+  "依据": "character-walk-quality.md“当前开篇萧白便衣使用 OC.11”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/cultivation-q-pose-diversity.md",
+  "建议": "现行",
+  "理由": "Q 版姿态差异方案，导入引导现行入口",
+  "依据": "ai-onboarding.md“姿态差异门槛”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/voice-current-cast.md",
+  "建议": "现行",
+  "理由": "当前人物语音同步，设计 README 语音入口",
+  "依据": "design/README.md“制作角色语音与确认音色”行"
+ },
+ {
+  "path": "xiaojianghu/docs/design/duan-hotpants.md",
+  "建议": "现行",
+  "理由": "段明棠衣装修订",
+  "依据": "页首“按用户要求改服装”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/story-ai-patterns.md",
+  "建议": "现行",
+  "理由": "台词反例库，R-剧情-01/06 出处",
+  "依据": "R-剧情-06"
+ },
+ {
+  "path": "xiaojianghu/docs/archive/design/chapter1-village.md",
+  "建议": "历史",
+  "理由": "第一章村中三日对白（原型），台词已迁入 ink",
+  "依据": "R-剧情-04；story/01-开始/"
+ },
+ {
+  "path": "xiaojianghu/docs/design/mountain-cultivation-curriculum.md",
+  "建议": "现行",
+  "理由": "山居首季课程",
+  "依据": "design/README.md“编写具体课程”行"
+ },
+ {
+  "path": "xiaojianghu/docs/design/role-assets.md",
+  "建议": "现行",
+  "理由": "角色类型与必需素材",
+  "依据": "导入引导第 4 节"
+ },
+ {
+  "path": "xiaojianghu/docs/design/cultivation-routes.md",
+  "建议": "现行",
+  "理由": "三条培养路线框架，已确认",
+  "依据": "页首“多路线可能性与提前纳入设计已确认”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/character-walk-quality.md",
+  "建议": "现行",
+  "理由": "四向探索行走质量",
+  "依据": "design/README.md 任务表"
+ },
+ {
+  "path": "xiaojianghu/docs/design/female-visual-v5.md",
+  "建议": "现行",
+  "理由": "女性立绘第五版，当前标准",
+  "依据": "页首“当前选择与画面标准”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/hangao-qiyue-complete-preview.md",
+  "建议": "草稿",
+  "理由": "栖月楼完整比例预览（进行中），原拼装图暂停定稿",
+  "依据": "页首“原拼装图暂停作为视觉定稿”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/ye-expression-prompts.md",
+  "建议": "现行",
+  "理由": "叶蘅表情差分（初始装）",
+  "依据": "design/README.md“写萧白、叶蘅、苏芷”行"
+ },
+ {
+  "path": "xiaojianghu/docs/archive/design/cultivation-story-trigger-audit.md",
+  "建议": "历史",
+  "理由": "养成剧情触发一次性核对（10-06）",
+  "依据": "规则第 6 条；页首“2026-10-06，用户询问……”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/protagonist-sect.md",
+  "建议": "现行",
+  "理由": "【需改措辞】萧白的门派与三年成长（文中有 3 处“第X章”，R-剧情-02）",
+  "依据": "页首“用户接受本版归云谷安排”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/hangao-architecture.md",
+  "建议": "草稿",
+  "理由": "汉皋建筑与街市，待用户审定",
+  "依据": "页首“状态：设计方案，待用户审定，未实装”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/character-performance.md",
+  "建议": "现行",
+  "理由": "主角与重要角色表现设计",
+  "依据": "页首“状态：开发与美术设计规范”"
+ },
+ {
+  "path": "xiaojianghu/docs/archive/design/xiangyang-voice.md",
+  "建议": "历史",
+  "理由": "襄阳 #xiangyang 角色语音，襄阳演示已撤除",
+  "依据": "updates/2026-10-19-deprecated-entries.md；页首“范围：当前 #xiangyang 体验章节”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/cultivation-energy-rebalance.md",
+  "建议": "现行",
+  "理由": "养成体力与费用，当前规则",
+  "依据": "页首“此稿是当前费用规则”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/cultivation-reference.md",
+  "建议": "现行",
+  "理由": "侠客风云传养成机制调研，设计 README 仍以它为体力与日历机制“先读”",
+  "依据": "design/README.md“核对侠客风云传的体力与日历机制”行"
+ },
+ {
+  "path": "xiaojianghu/docs/archive/design/cultivation-plot-and-stance-sample.md",
+  "建议": "历史",
+  "理由": "剧情触发修正与站桩样片（10-05 一次性评审）",
+  "依据": "规则第 6 条；页首“本轮修正触发与动画调用，同时生成一个独立站桩样片供评审”"
+ },
+ {
+  "path": "xiaojianghu/docs/archive/design/prologue-exploration/minimap.md",
+  "建议": "历史",
+  "理由": "原型序章小地图独立预览，未接入；开始部分已在栖河另行实现",
+  "依据": "页首“用户评审前只存在于独立review页面”"
+ },
+ {
+  "path": "xiaojianghu/docs/archive/design/prologue-exploration/npc-audit.md",
+  "建议": "历史",
+  "理由": "原型序章 NPC 核对（独立预览）",
+  "依据": "prologue-exploration/README.md“本轮检查和独立预览，未修改游戏入口”"
+ },
+ {
+  "path": "xiaojianghu/docs/archive/design/prologue-exploration/README.md",
+  "建议": "历史",
+  "理由": "原型序章人物、路人与小地图评审包，未接入",
+  "依据": "页首“预览待评审……未修改游戏入口”"
+ },
+ {
+  "path": "xiaojianghu/docs/archive/design/prologue-exploration/ambient.md",
+  "建议": "历史",
+  "理由": "原型序章生活路人（仅独立预览）",
+  "依据": "页首“状态：仅在独立预览实现；未接入正式序章”"
+ },
+ {
+  "path": "xiaojianghu/docs/archive/design/story-overview/chapter1.md",
+  "建议": "历史",
+  "理由": "【R-剧情-02】第一章概览，依附旧襄阳前剧本目录，台词已迁入 ink",
+  "依据": "pre-xiangyang-scripts.md“本页为旧目录”；R-剧情-04"
+ },
+ {
+  "path": "xiaojianghu/docs/archive/design/story-overview/prologue.md",
+  "建议": "历史",
+  "理由": "序章概览，依附旧襄阳前剧本目录，台词已迁入 ink",
+  "依据": "pre-xiangyang-scripts.md“本页为旧目录”"
+ },
+ {
+  "path": "xiaojianghu/docs/archive/design/story-overview/mountain-stories.md",
+  "建议": "历史",
+  "理由": "培养段人物故事概览（旧襄阳前目录），前四月已由入汉皋前补全收录",
+  "依据": "pre-hangao-completion-20261013/README.md“40个前四月窗口事件完整收录”"
+ },
+ {
+  "path": "xiaojianghu/docs/archive/design/story-overview/mountain-main.md",
+  "建议": "历史",
+  "理由": "培养段必要剧情概览（旧襄阳前目录）",
+  "依据": "pre-hangao-completion-20261013/README.md"
+ },
+ {
+  "path": "xiaojianghu/docs/archive/design/story-overview/daily.md",
+  "建议": "历史",
+  "理由": "培养段生活片段概览（旧襄阳前目录）",
+  "依据": "pre-hangao-completion-20261013/README.md"
+ },
+ {
+  "path": "xiaojianghu/docs/archive/design/story-overview/reserved.md",
+  "建议": "历史",
+  "理由": "待定师门扩展概览；师叔、师母等已在归云谷一家中确认",
+  "依据": "guiyun-household.md“状态：已确认”"
+ },
+ {
+  "path": "xiaojianghu/docs/archive/design/story-overview/lessons.md",
+  "建议": "历史",
+  "理由": "培养段课程小剧情概览（旧襄阳前目录）",
+  "依据": "pre-hangao-completion-20261013/README.md"
+ },
+ {
+  "path": "xiaojianghu/docs/archive/design/story-overview/village-life.md",
+  "建议": "历史",
+  "理由": "【R-剧情-02】第一章可选活动概览，台词已迁入 ink",
+  "依据": "R-剧情-04"
+ },
+ {
+  "path": "xiaojianghu/docs/design/traits-20261013/implementation.md",
+  "建议": "现行",
+  "理由": "特征与状态开发接入合同（V2 路线版）",
+  "依据": "页首“catalog.acquisition和routes.json是当前权威”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/traits-20261013/routes.md",
+  "建议": "现行",
+  "理由": "正向永久特性获取路线（V2）",
+  "依据": "页首“2026-10-13修订”"
+ },
+ {
+  "path": "xiaojianghu/docs/archive/design/traits-20261013/review-notes.md",
+  "建议": "历史",
+  "理由": "V2 路线版核对说明，修订内容已落到 routes.md",
+  "依据": "规则第 6 条；页首“本版已撤下该授予方式”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/traits-20261013/triggers.md",
+  "建议": "现行",
+  "理由": "特性触发与授予规则（路线版）",
+  "依据": "页首“版本2……原单事件触发稿已归档”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/traits-20261013/README.md",
+  "建议": "现行",
+  "理由": "特征与状态设计包入口（路线版，未采用到正式存档）；异常状态页把它当现行负责页",
+  "依据": "status-effects.md“现有剧情新增的永久特征和持久状态见[特征状态设计包]”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/traits-20261013/numbers.md",
+  "建议": "现行",
+  "理由": "特性数值与叠加合同",
+  "依据": "页首“JSON是逐项数据唯一源”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/traits-20261013/ui.md",
+  "建议": "现行",
+  "理由": "特征与状态 UI 设计",
+  "依据": "traits-20261013/README.md"
+ },
+ {
+  "path": "xiaojianghu/docs/design/cultivation-rework-20261012/dialogue.md",
+  "建议": "现行",
+  "理由": "【需改措辞】培养部分逐句对白与演出设计（8792 已接入关系与授课）；标题写“第二章”",
+  "依据": "xiaojianghu-legacy-prologue/docs/design/README.md“2026-10-12 当前第二章”；R-剧情-02"
+ },
+ {
+  "path": "xiaojianghu/docs/design/cultivation-rework-20261012/README.md",
+  "建议": "现行",
+  "理由": "【需改措辞】培养、人物往来整改入口（入链 96）；标题写“第二章”",
+  "依据": "页首“正式游戏实施位置：xiaojianghu-legacy-prologue / 8792”；R-剧情-02"
+ },
+ {
+  "path": "xiaojianghu/docs/archive/design/cultivation-rework-20261012/martial-mapping.md",
+  "建议": "历史",
+  "理由": "首轮功法映射，页首说现以培养实装表为准",
+  "依据": "页首“下文是首轮映射与目标美术审计，保留来源”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/cultivation-balance-20261012/activity-table.md",
+  "建议": "现行",
+  "理由": "活动收益全表，由正式游戏规则生成",
+  "依据": "页首“由正式游戏规则生成”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/cultivation-balance-20261012/martial-table.md",
+  "建议": "现行",
+  "理由": "功法、进度与练习次数",
+  "依据": "cultivation-balance-20261012/README.md"
+ },
+ {
+  "path": "xiaojianghu/docs/design/cultivation-balance-20261012/README.md",
+  "建议": "现行",
+  "理由": "【需改措辞】培养数值现行规则，取代首轮临时换算；标题写“第二章”",
+  "依据": "页首“本页取代 20261012 首轮整改中临时换算”；R-剧情-02"
+ },
+ {
+  "path": "xiaojianghu/docs/design/cultivation-balance-20261012/balance-report.md",
+  "建议": "现行",
+  "理由": "【需改措辞】36 个月预算与现行战斗核对（由测试证据生成，配套现行数值）（文中有 3 处“第X章”，R-剧情-02）",
+  "依据": "页首“本页由测试证据生成”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/fullflow-story-20261016/companion-weight-and-vignettes.md",
+  "建议": "现行",
+  "理由": "十九位同伴分量与十六则短篇（10-16 全流程）",
+  "依据": "fullflow-story-20261016/README.md"
+ },
+ {
+  "path": "xiaojianghu/docs/design/fullflow-story-20261016/validation.md",
+  "建议": "现行",
+  "理由": "全流程本轮核对（fullflow-20261016.3 版本配套）",
+  "依据": "页首“fullflow-20261016.3”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/fullflow-story-20261016/characters.md",
+  "建议": "现行",
+  "理由": "全流程人物负责页",
+  "依据": "页首“当前全流程设计的人物负责页”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/fullflow-story-20261016/README.md",
+  "建议": "现行",
+  "理由": "全流程剧情入口",
+  "依据": "design/README.md“2026-10-16当前”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/fullflow-story-20261016/implementation-plan.md",
+  "建议": "现行",
+  "理由": "全流程落地矩阵",
+  "依据": "fullflow-story-20261016/README.md"
+ },
+ {
+  "path": "xiaojianghu/docs/design/fullflow-story-20261016/migration-and-calendar.md",
+  "建议": "现行",
+  "理由": "三年排期承接与旧稿迁移",
+  "依据": "fullflow-story-20261016/README.md"
+ },
+ {
+  "path": "xiaojianghu/docs/design/fullflow-story-20261016/hangao-calendar-audit.md",
+  "建议": "现行",
+  "理由": "汉皋群像排期核查",
+  "依据": "fullflow-story-20261016/README.md"
+ },
+ {
+  "path": "xiaojianghu/docs/design/fullflow-story-20261016/story.md",
+  "建议": "现行",
+  "理由": "全流程剧情正文",
+  "依据": "story-framework-review.md“唯一全程叙事入口”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/fullflow-story-20261016/hangao-year2.md",
+  "建议": "现行",
+  "理由": "第二年正月汉皋群像",
+  "依据": "fullflow-story-20261016/README.md"
+ },
+ {
+  "path": "xiaojianghu/docs/design/fullflow-story-20261016/feasibility.md",
+  "建议": "现行",
+  "理由": "全流程实现承载力核查",
+  "依据": "fullflow-story-20261016/README.md"
+ },
+ {
+  "path": "xiaojianghu/docs/design/fullflow-story-20261016/companions-and-side-stories.md",
+  "建议": "现行",
+  "理由": "十九位同伴与地方故事嵌入稿",
+  "依据": "story-payoffs-review.md“完整负责稿见”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/martial-review/icon-tiers.md",
+  "建议": "现行",
+  "理由": "功法与心法图标五档标准，用户确认",
+  "依据": "页首“用户已确认第二批五档10张样稿，作为扩展基准”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/martial-review/icon-production.md",
+  "建议": "现行",
+  "理由": "功法图标生成流程",
+  "依据": "martial-review/README.md"
+ },
+ {
+  "path": "xiaojianghu/docs/design/martial-review/icon-style-v4.md",
+  "建议": "待定",
+  "理由": "技能图标风格 v4 试样：用户认可方向但未批量重画；与五档标准 icon-tiers 哪个是现行出图依据待定",
+  "依据": "页首“用户认可 C 版‘精绘’方向……尚未批量重画”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/martial-review/attack-expansion-v1.md",
+  "建议": "现行",
+  "理由": "攻击招式扩充 v1",
+  "依据": "design/README.md 功法入口"
+ },
+ {
+  "path": "xiaojianghu/docs/design/martial-review/assets.md",
+  "建议": "现行",
+  "理由": "技能、心法与装备素材制作合同",
+  "依据": "页首“五档10张已批准为风格基准”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/martial-review/hechuan.md",
+  "建议": "现行",
+  "理由": "合川拳门招式（顶部 v3 自动生成部分现行，下文 V2 方案保留）",
+  "依据": "页首“v3 招式总览（自动生成）”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/martial-review/armor-acc-stats.md",
+  "建议": "现行",
+  "理由": "护具与佩饰数值，已定稿",
+  "依据": "页首“状态：已定稿并接入模拟”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/martial-review/weapon.md",
+  "建议": "草稿",
+  "理由": "兵器 24 件素材方案 V2，待评审",
+  "依据": "页首“状态：待评审，未生成图片”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/martial-review/literary-grade-matching.md",
+  "建议": "草稿",
+  "理由": "金庸／古龙品阶比对，设计复审提案",
+  "依据": "页首“设计复审提案”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/martial-review/patrol.md",
+  "建议": "现行",
+  "理由": "巡江司招式（顶部 v3 自动生成部分现行）",
+  "依据": "页首“v3 招式总览（自动生成）”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/martial-review/guiyun.md",
+  "建议": "现行",
+  "理由": "归云谷招式（顶部 v3 自动生成部分现行）",
+  "依据": "页首“v3 招式总览（自动生成）”"
+ },
+ {
+  "path": "xiaojianghu/docs/archive/design/martial-review/v2-changes.md",
+  "建议": "历史",
+  "理由": "武学第二版变更表（10-04 待评审）；招式已由 v3 传承接续，装备数值另行定稿",
+  "依据": "martial-lineage.md；martial-review/weapon-stats.md“已定稿”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/martial-review/identity.md",
+  "建议": "草稿",
+  "理由": "人物专长 V2 候选",
+  "依据": "页首“状态：V2候选”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/martial-review/alliance.md",
+  "建议": "现行",
+  "理由": "正道盟招式（顶部 v3 自动生成部分现行）",
+  "依据": "页首“v3 招式总览（自动生成）”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/martial-review/acc.md",
+  "建议": "草稿",
+  "理由": "佩饰 9 件素材方案 V2，待评审",
+  "依据": "页首“状态：待评审，未生成图片”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/martial-review/martial-systems.md",
+  "建议": "现行",
+  "理由": "门派功法清单 v3，名称已定稿",
+  "依据": "页首“规则已确认，名称已定稿（2026-10-08）”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/martial-review/hearts.md",
+  "建议": "现行",
+  "理由": "心法 18 项方案（按结构规范解释）",
+  "依据": "页首“结构更新（2026-10-06）”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/martial-review/octopath-research.md",
+  "建议": "现行",
+  "理由": "八方旅人调研与取舍，武学评审多页以它为依据",
+  "依据": "martial-review/README.md；design/README.md 武学评审节"
+ },
+ {
+  "path": "xiaojianghu/docs/design/martial-review/skill-text-v4.md",
+  "建议": "现行",
+  "理由": "技能描述与特效分镜 v4，由数据生成",
+  "依据": "页首“由 tools_docs/build_skill_docs.py 从 skill-text-v4.json 生成”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/martial-review/README.md",
+  "建议": "现行",
+  "理由": "武学评审入口",
+  "依据": "design/README.md 武学与装备评审节"
+ },
+ {
+  "path": "xiaojianghu/docs/archive/design/martial-review/audit.md",
+  "建议": "历史",
+  "理由": "10-04 武学设定复核一次性报告",
+  "依据": "规则第 6 条；页首“状态：2026-10-04 本轮文档核对”"
+ },
+ {
+  "path": "xiaojianghu/docs/archive/design/martial-review/references.md",
+  "建议": "历史",
+  "理由": "武侠参考与本作转化，已由金庸／古龙比对接续",
+  "依据": "页首“当前文学品阶复审：[金庸／古龙比对]”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/martial-review/hearts-numbers.md",
+  "建议": "现行",
+  "理由": "内功数值 v1",
+  "依据": "页首“设计数值，已接入离线战斗模拟”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/martial-review/weapon-stats.md",
+  "建议": "现行",
+  "理由": "武器数值 v1，已定稿",
+  "依据": "页首“状态：已定稿并接入模拟”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/martial-review/hearts-runtime.md",
+  "建议": "现行",
+  "理由": "内功接入运行时（本目录原型实现记录，数据链现行）",
+  "依据": "页首“状态：现行实现记录”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/martial-review/ye.md",
+  "建议": "草稿",
+  "理由": "叶蘅双线招式方案 V2，待评审",
+  "依据": "页首“状态：2026-10-04 待评审，未开发、未生图”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/martial-review/armor.md",
+  "建议": "草稿",
+  "理由": "护具 8 件素材方案 V2，待评审",
+  "依据": "页首“状态：待评审，未生成图片”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/martial-review/equipment.md",
+  "建议": "现行",
+  "理由": "装备与素材总体设计",
+  "依据": "martial-review/README.md"
+ },
+ {
+  "path": "xiaojianghu/docs/design/martial-review/hearts-naming.md",
+  "建议": "现行",
+  "理由": "内功命名，用户已审定",
+  "依据": "页首“状态：用户已审定（2026-10-07）”"
+ },
+ {
+  "path": "xiaojianghu/docs/archive/design/martial-review/attack-ratio-diagnosis.md",
+  "建议": "历史",
+  "理由": "攻击招式占比诊断，结论已落实为扩充 v1",
+  "依据": "页首“扩充已按‘加路数＋加江湖散学’落地，见[攻击招式扩充 v1]”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/martial-review/independent.md",
+  "建议": "草稿",
+  "理由": "散人与人物专长招式方案 V2，待评审",
+  "依据": "页首“状态：2026-10-04 待评审，未开发、未生图”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/martial-review/rules.md",
+  "建议": "现行",
+  "理由": "武学、心法与装备规则（按结构规范解释）",
+  "依据": "页首“结构更新（2026-10-06）”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/martial-review/lineage-v3-naming.md",
+  "建议": "现行",
+  "理由": "门派功法 v3 命名审定表，已定稿",
+  "依据": "页首“状态：定稿（2026-10-08……由 Claude 代为定稿）”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/martial-review/builds.md",
+  "建议": "草稿",
+  "理由": "人物打法与配装 V2，待评审",
+  "依据": "页首“状态：待评审”"
+ },
+ {
+  "path": "xiaojianghu/docs/archive/design/martial-review/icon-sample-revision.md",
+  "建议": "历史",
+  "理由": "首批五图品阶整改单（10-04 一次性）",
+  "依据": "规则第 6 条；页首“五张原稿保留对照”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/martial-review/guijintang.md",
+  "建议": "现行",
+  "理由": "归烬堂招式（顶部 v3 自动生成部分现行）",
+  "依据": "页首“v3 招式总览（自动生成）”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/martial-review/zhaochuan.md",
+  "建议": "现行",
+  "理由": "照川剑派招式（顶部 v3 自动生成部分现行）",
+  "依据": "页首“v3 招式总览（自动生成）”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/martial-review/move-contracts.md",
+  "建议": "现行",
+  "理由": "全招式命名与数值合同 v3，导入引导现行入口",
+  "依据": "ai-onboarding.md 第 4 节“64 项招式合同 v3”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/martial-review/qinghui.md",
+  "建议": "现行",
+  "理由": "清徽阁招式方案 v3",
+  "依据": "页首“v3 招式总览（自动生成）”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/martial-review/white-heron.md",
+  "建议": "现行",
+  "理由": "白鹇谷招式（顶部 v3 自动生成部分现行）",
+  "依据": "页首“v3 招式总览（自动生成）”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/martial-review/songfeng.md",
+  "建议": "现行",
+  "理由": "松风观招式（顶部 v3 自动生成部分现行）",
+  "依据": "页首“v3 招式总览（自动生成）”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/martial-review/balance/validation.md",
+  "建议": "草稿",
+  "理由": "防难度跳变验证门槛，所列矩阵尚未运行（属 10-04 数值评审提案）",
+  "依据": "页首“以下完整矩阵尚未运行”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/martial-review/balance/README.md",
+  "建议": "草稿",
+  "理由": "数值与难度曲线评审入口，设计提案",
+  "依据": "页首“设计提案，尚未完成全流程平衡验证”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/martial-review/balance/research.md",
+  "建议": "现行",
+  "理由": "数值研究依据与采用边界（10-12 补充）",
+  "依据": "页首“2026-10-12补充”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/martial-review/balance/formula.md",
+  "建议": "草稿",
+  "理由": "公式与能力预算候选，待评审",
+  "依据": "页首“状态：待评审的新数值提案”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/martial-review/balance/sim-report.md",
+  "建议": "草稿",
+  "理由": "数值战斗模拟报告 v2，待用户审定",
+  "依据": "页首“状态：离线模拟结论与数值调整，待用户审定”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/martial-review/balance/progression.md",
+  "建议": "草稿",
+  "理由": "成长、经济与地区难度（10-04 数值评审提案的一部分）",
+  "依据": "martial-review/balance/README.md“设计提案”"
+ },
+ {
+  "path": "xiaojianghu/docs/archive/design/martial-review/balance/current.md",
+  "建议": "历史",
+  "理由": "10-04 现行数值与简化测试审计快照，之后数值多轮调整",
+  "依据": "规则第 6 条；页首“2026-10-04本地读取”"
+ },
+ {
+  "path": "xiaojianghu/docs/archive/design/martial-review/balance/sim/tables-r5.md",
+  "建议": "历史",
+  "理由": "模拟中间轮次 r5 数据表，最终主结果为 r6",
+  "依据": "sim-report.md“sim/tables-r6.md（最终主结果）”"
+ },
+ {
+  "path": "xiaojianghu/docs/archive/design/martial-review/balance/sim/tables-r5-ramp.md",
+  "建议": "历史",
+  "理由": "模拟中间轮次 r5-ramp 数据表",
+  "依据": "sim-report.md“sim/tables-r6.md（最终主结果）”"
+ },
+ {
+  "path": "xiaojianghu/docs/archive/design/martial-review/balance/sim/tables-r7.md",
+  "建议": "历史",
+  "理由": "模拟 r7 数据表，报告指定 r6 为最终主结果",
+  "依据": "sim-report.md“sim/tables-r6.md（最终主结果）”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/martial-review/balance/sim/tables-r6.md",
+  "建议": "草稿",
+  "理由": "模拟最终主结果数据表 r6（随模拟报告待审定）",
+  "依据": "sim-report.md“sim/tables-r6.md（最终主结果）”"
+ },
+ {
+  "path": "xiaojianghu/docs/archive/design/martial-review/balance/sim/tables-r3-ramp.md",
+  "建议": "历史",
+  "理由": "模拟中间轮次 r3-ramp 数据表",
+  "依据": "sim-report.md"
+ },
+ {
+  "path": "xiaojianghu/docs/archive/design/martial-review/balance/sim/tables-r3-p1.0.md",
+  "建议": "历史",
+  "理由": "模拟中间轮次 r3-p1.0 数据表",
+  "依据": "sim-report.md"
+ },
+ {
+  "path": "xiaojianghu/docs/archive/design/martial-review/balance/sim/tables-r2-p1.0.md",
+  "建议": "历史",
+  "理由": "模拟中间轮次 r2-p1.0 数据表",
+  "依据": "sim-report.md"
+ },
+ {
+  "path": "xiaojianghu/docs/archive/design/martial-review/vfx/hechuan.md",
+  "建议": "历史",
+  "理由": "合川拳门旧特效分镜（VFX-SCRIPT-1，64 招时期），已由 vfx_v4 与 vfx/hc.md 接续",
+  "依据": "martial-review/vfx/README.md“VFX-SCRIPT-1 · 2026-10-04”；v4-vfx-batch1.md“分镜来自 skill-text-v4.json 的 vfx_v4”"
+ },
+ {
+  "path": "xiaojianghu/docs/archive/design/martial-review/vfx/patrol.md",
+  "建议": "历史",
+  "理由": "巡江司旧特效分镜（VFX-SCRIPT-1），已由 vfx/pj.md 接续",
+  "依据": "同上"
+ },
+ {
+  "path": "xiaojianghu/docs/archive/design/martial-review/vfx/guiyun.md",
+  "建议": "历史",
+  "理由": "归云谷旧特效分镜（VFX-SCRIPT-1），已由 vfx/gy.md 接续",
+  "依据": "同上"
+ },
+ {
+  "path": "xiaojianghu/docs/archive/design/martial-review/vfx/alliance.md",
+  "建议": "历史",
+  "理由": "正道盟旧特效分镜（VFX-SCRIPT-1），已由 vfx/am.md 接续",
+  "依据": "同上"
+ },
+ {
+  "path": "xiaojianghu/docs/archive/design/martial-review/vfx/README.md",
+  "建议": "历史",
+  "理由": "全功法特效脚本 VFX-SCRIPT-1 入口（64 招＋18 心法），已由 skill-text-v4 与 vfx/ 逐招设计表接续",
+  "依据": "页首“VFX-SCRIPT-1 · 2026-10-04”；v4-vfx-per-skill.md"
+ },
+ {
+  "path": "xiaojianghu/docs/archive/design/martial-review/vfx/ye.md",
+  "建议": "历史",
+  "理由": "叶蘅旧特效分镜（VFX-SCRIPT-1）",
+  "依据": "同上"
+ },
+ {
+  "path": "xiaojianghu/docs/archive/design/martial-review/vfx/independent.md",
+  "建议": "历史",
+  "理由": "散人旧特效分镜（VFX-SCRIPT-1），已由 vfx/ren.md 接续",
+  "依据": "同上"
+ },
+ {
+  "path": "xiaojianghu/docs/archive/design/martial-review/vfx/guijintang.md",
+  "建议": "历史",
+  "理由": "归烬堂旧特效分镜（VFX-SCRIPT-1），已由 vfx/gj.md 接续",
+  "依据": "同上"
+ },
+ {
+  "path": "xiaojianghu/docs/archive/design/martial-review/vfx/zhaochuan.md",
+  "建议": "历史",
+  "理由": "照川旧特效分镜（VFX-SCRIPT-1），已由 vfx/zc.md 接续",
+  "依据": "同上"
+ },
+ {
+  "path": "xiaojianghu/docs/archive/design/martial-review/vfx/white-heron.md",
+  "建议": "历史",
+  "理由": "白鹇谷旧特效分镜（VFX-SCRIPT-1），已由 vfx/bh.md 接续",
+  "依据": "同上"
+ },
+ {
+  "path": "xiaojianghu/docs/archive/design/martial-review/vfx/songfeng.md",
+  "建议": "历史",
+  "理由": "松风观旧特效分镜（VFX-SCRIPT-1），已由 vfx/sf.md 接续",
+  "依据": "同上"
+ },
+ {
+  "path": "xiaojianghu/docs/design/qiyue-story-review-20261016/dialogue.md",
+  "建议": "草稿",
+  "理由": "栖月楼第二稿逐场对白，R2 提案未采用",
+  "依据": "页首“状态：R2设计提案，未采用、未实装”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/qiyue-story-review-20261016/README.md",
+  "建议": "草稿",
+  "理由": "栖月楼第二稿入口，待用户审稿",
+  "依据": "页首“待用户审稿；未采用、未接入正式剧情”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/pre-hangao-completion-20261013/implementation.md",
+  "建议": "现行",
+  "理由": "入汉皋前接入顺序与验收合同（已在 8792 执行）",
+  "依据": "xiaojianghu-legacy-prologue/docs/design/README.md“正式入城前流程已接入并验证至南门”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/pre-hangao-completion-20261013/dialogue.md",
+  "建议": "现行",
+  "理由": "入汉皋前全量逐句稿（已接入 8792）",
+  "依据": "同上；production-progress.md"
+ },
+ {
+  "path": "xiaojianghu/docs/design/pre-hangao-completion-20261013/staging.md",
+  "建议": "现行",
+  "理由": "入汉皋前演出与素材方案",
+  "依据": "同上"
+ },
+ {
+  "path": "xiaojianghu/docs/design/pre-hangao-completion-20261013/README.md",
+  "建议": "现行",
+  "理由": "入汉皋前补全设计入口（已接入 8792）",
+  "依据": "xiaojianghu-legacy-prologue/docs/design/README.md“2026-10-16：[入汉皋前剧情补全]”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/pre-hangao-completion-20261013/production-progress.md",
+  "建议": "现行",
+  "理由": "入汉皋前正式接入执行记录，栖河 README 指定的当前进度页",
+  "依据": "xiaojianghu-legacy-prologue/docs/design/README.md“当前进度与证据见[执行记录]”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/pre-hangao-completion-20261013/pei-and-handoff.md",
+  "建议": "现行",
+  "理由": "知古同行与汉皋交接合同",
+  "依据": "pre-hangao-completion-20261013/README.md"
+ },
+ {
+  "path": "xiaojianghu/docs/design/combat-characters/xiaobai-multiweapon.md",
+  "建议": "现行",
+  "理由": "萧白多武器动作，已制作并接入",
+  "依据": "页首“已制作并本地接入”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/combat-characters/lu-xiaodou.md",
+  "建议": "现行",
+  "理由": "卢小豆数值与精灵，用户确认",
+  "依据": "页首“用户确认：默认剑”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/system-completion-20261016/growth-combat.md",
+  "建议": "现行",
+  "理由": "百级成长与多武器补充（系统补充 26 项之一）",
+  "依据": "system-completion-20261016/README.md"
+ },
+ {
+  "path": "xiaojianghu/docs/design/system-completion-20261016/characters-factions.md",
+  "建议": "现行",
+  "理由": "同伴、组织身份与传承补充合同",
+  "依据": "system-completion-20261016/README.md"
+ },
+ {
+  "path": "xiaojianghu/docs/design/system-completion-20261016/exploration-endgame.md",
+  "建议": "草稿",
+  "理由": "探索接入与通关后边界，新产品取舍为本轮提案",
+  "依据": "页首“新产品取舍是本轮提案”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/system-completion-20261016/world-events-save.md",
+  "建议": "现行",
+  "理由": "世界事件与长期保存补充合同",
+  "依据": "system-completion-20261016/README.md"
+ },
+ {
+  "path": "xiaojianghu/docs/design/system-completion-20261016/decisions-needed.md",
+  "建议": "现行",
+  "理由": "本轮已确认的三项口径（R1–R3）",
+  "依据": "页首“用户已在本轮逐项选择”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/system-completion-20261016/README.md",
+  "建议": "现行",
+  "理由": "系统设计补充入口",
+  "依据": "design/README.md“2026-10-16：[系统设计补充与一致性校正]”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/system-completion-20261016/traits-integration.md",
+  "建议": "现行",
+  "理由": "后天特征与伤病接入补充",
+  "依据": "system-completion-20261016/README.md"
+ },
+ {
+  "path": "xiaojianghu/docs/design/system-completion-20261016/city-time-economy.md",
+  "建议": "草稿",
+  "理由": "城市时间、经济与制作链，新增数值与取舍待评审",
+  "依据": "页首“新增数值与取舍待评审”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/system-completion-20261016/city-integration.md",
+  "建议": "草稿",
+  "理由": "汉皋主旅程接入与局部追责，详细设计候选",
+  "依据": "页首“状态：详细设计候选”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/system-completion-20261016/build-recovery-accessibility.md",
+  "建议": "草稿",
+  "理由": "重配、失败恢复、难度与可访问性，新增产品方案未采用",
+  "依据": "页首“新增产品方案，尚未采用或实现”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/system-completion-20261016/endings-relationship-integration.md",
+  "建议": "现行",
+  "理由": "人物关系、补救线路与结局组合合同",
+  "依据": "system-completion-20261016/README.md"
+ },
+ {
+  "path": "xiaojianghu/docs/archive/design/system-completion-20261016/consistency-review.md",
+  "建议": "历史",
+  "理由": "10-16 一致性复核记录（一次性）",
+  "依据": "规则第 6 条；页首“本页记录人工判定”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/system-completion-20261016/system-status.md",
+  "建议": "现行",
+  "理由": "当前系统规则与接入状态（D01/D02 负责页）",
+  "依据": "页首“本表负责定位权威与区分状态”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/vfx/jh-b.md",
+  "建议": "草稿",
+  "理由": "江湖散学专属特效（二），执行中待评审",
+  "依据": "页首“状态：执行中，2026-10-11”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/vfx/gj.md",
+  "建议": "草稿",
+  "理由": "归烬堂逐招特效设计表，评审中",
+  "依据": "页首“状态：评审中”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/vfx/pj.md",
+  "建议": "草稿",
+  "理由": "巡江司逐招特效设计表，评审中",
+  "依据": "页首“状态：评审中”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/vfx/jh-c.md",
+  "建议": "草稿",
+  "理由": "江湖散学（三）专属特效，评审中",
+  "依据": "页首“状态：评审中”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/vfx/gy.md",
+  "建议": "草稿",
+  "理由": "归云谷逐招特效设计表，评审中",
+  "依据": "页首“状态：评审中”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/vfx/zc.md",
+  "建议": "草稿",
+  "理由": "照川剑派逐招特效设计表，执行中",
+  "依据": "页首“状态：执行中”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/vfx/xf.md",
+  "建议": "草稿",
+  "理由": "内功主动逐招特效设计表，评审中",
+  "依据": "页首“状态：评审中”"
+ },
+ {
+  "path": "xiaojianghu/docs/archive/design/vfx/review-20261008.md",
+  "建议": "历史",
+  "理由": "10-08 技能特效实战逐招评审报告（在已撤除的 #street 上进行）",
+  "依据": "规则第 6 条；页首“方法：在 index.html?runtimePrototype=1#street 开战”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/vfx/hc.md",
+  "建议": "草稿",
+  "理由": "合川拳门逐招特效设计表，执行中",
+  "依据": "页首“状态：执行中”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/vfx/ren.md",
+  "建议": "草稿",
+  "理由": "人物个人技逐招特效设计表，评审中",
+  "依据": "页首“状态：评审中”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/vfx/hui.md",
+  "建议": "草稿",
+  "理由": "清徽阁逐招特效设计表，执行中",
+  "依据": "页首“状态：执行中”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/vfx/sf.md",
+  "建议": "草稿",
+  "理由": "松风观逐招特效设计表，评审中",
+  "依据": "页首“状态：评审中”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/vfx/upgrade-20261011.md",
+  "建议": "草稿",
+  "理由": "特效按标杆升级任务说明，执行中",
+  "依据": "页首“状态：执行中”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/vfx/bh.md",
+  "建议": "草稿",
+  "理由": "白鹇谷逐招特效设计表，评审中",
+  "依据": "页首“状态：评审中，2026-10-08”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/vfx/am.md",
+  "建议": "草稿",
+  "理由": "正道盟逐招特效设计表，评审中",
+  "依据": "页首“状态：评审中”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/vfx/jh-a.md",
+  "建议": "草稿",
+  "理由": "江湖散学（一）专属特效，执行中",
+  "依据": "页首“状态：执行中，2026-10-11”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/vfx/xfo.md",
+  "建议": "草稿",
+  "理由": "旧原型心法主动 12 门特效设计表，评审中",
+  "依据": "页首“状态：评审中，2026-10-08”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/vfx/metrics/fx-grades.md",
+  "建议": "现行",
+  "理由": "特效等级量化实测结果，由脚本生成",
+  "依据": "页首“状态：实测结果。由 tools_fx/fx_measure.sh 生成”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/companion-performance/duan-mingtang.md",
+  "建议": "现行",
+  "理由": "可加入角色六个对白状态逐人页，按统一规格维护",
+  "依据": "companion-performance/index.md；companion-performance.md“用户确认每人6张”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/companion-performance/ruan-qingque.md",
+  "建议": "现行",
+  "理由": "可加入角色六个对白状态逐人页，按统一规格维护",
+  "依据": "companion-performance/index.md；companion-performance.md“用户确认每人6张”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/companion-performance/liu-hanyan.md",
+  "建议": "现行",
+  "理由": "可加入角色六个对白状态逐人页，按统一规格维护",
+  "依据": "companion-performance/index.md；companion-performance.md“用户确认每人6张”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/companion-performance/cen-shuang.md",
+  "建议": "现行",
+  "理由": "可加入角色六个对白状态逐人页，按统一规格维护",
+  "依据": "companion-performance/index.md；companion-performance.md“用户确认每人6张”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/companion-performance/qiao-xingzhou.md",
+  "建议": "现行",
+  "理由": "可加入角色六个对白状态逐人页，按统一规格维护",
+  "依据": "companion-performance/index.md；companion-performance.md“用户确认每人6张”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/companion-performance/pei-zhigu.md",
+  "建议": "现行",
+  "理由": "可加入角色六个对白状态逐人页，按统一规格维护",
+  "依据": "companion-performance/index.md；companion-performance.md“用户确认每人6张”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/companion-performance/xu-lingyi.md",
+  "建议": "现行",
+  "理由": "可加入角色六个对白状态逐人页，按统一规格维护",
+  "依据": "companion-performance/index.md；companion-performance.md“用户确认每人6张”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/companion-performance/wen-shutong.md",
+  "建议": "现行",
+  "理由": "可加入角色六个对白状态逐人页，按统一规格维护",
+  "依据": "companion-performance/index.md；companion-performance.md“用户确认每人6张”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/companion-performance/ye-heng.md",
+  "建议": "现行",
+  "理由": "可加入角色六个对白状态逐人页，按统一规格维护",
+  "依据": "companion-performance/index.md；companion-performance.md“用户确认每人6张”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/companion-performance/index.md",
+  "建议": "现行",
+  "理由": "可加入角色对白状态目录",
+  "依据": "design/README.md 人物与对白整改入口"
+ },
+ {
+  "path": "xiaojianghu/docs/design/companion-performance/lu-heng.md",
+  "建议": "现行",
+  "理由": "可加入角色六个对白状态逐人页，按统一规格维护",
+  "依据": "companion-performance/index.md；companion-performance.md“用户确认每人6张”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/companion-performance/qi-zheng.md",
+  "建议": "现行",
+  "理由": "可加入角色六个对白状态逐人页，按统一规格维护",
+  "依据": "companion-performance/index.md；companion-performance.md“用户确认每人6张”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/companion-performance/tang-zhaoxue.md",
+  "建议": "现行",
+  "理由": "可加入角色六个对白状态逐人页，按统一规格维护",
+  "依据": "companion-performance/index.md；companion-performance.md“用户确认每人6张”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/companion-performance/su-zhi.md",
+  "建议": "现行",
+  "理由": "可加入角色六个对白状态逐人页，按统一规格维护",
+  "依据": "companion-performance/index.md；companion-performance.md“用户确认每人6张”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/companion-performance/huo-zhuchen.md",
+  "建议": "现行",
+  "理由": "可加入角色六个对白状态逐人页，按统一规格维护",
+  "依据": "companion-performance/index.md；companion-performance.md“用户确认每人6张”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/companion-performance/yan-xiaolou.md",
+  "建议": "现行",
+  "理由": "可加入角色六个对白状态逐人页，按统一规格维护",
+  "依据": "companion-performance/index.md；companion-performance.md“用户确认每人6张”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/companion-performance/shen-yanhui.md",
+  "建议": "现行",
+  "理由": "可加入角色六个对白状态逐人页，按统一规格维护",
+  "依据": "companion-performance/index.md；companion-performance.md“用户确认每人6张”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/companion-performance/qin-feiyuan.md",
+  "建议": "现行",
+  "理由": "可加入角色六个对白状态逐人页，按统一规格维护",
+  "依据": "companion-performance/index.md；companion-performance.md“用户确认每人6张”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/companion-performance/shi-changgeng.md",
+  "建议": "现行",
+  "理由": "可加入角色六个对白状态逐人页，按统一规格维护",
+  "依据": "companion-performance/index.md；companion-performance.md“用户确认每人6张”"
+ },
+ {
+  "path": "xiaojianghu/docs/archive/design/cultivation-minimax-compare-20261012/README.md",
+  "建议": "历史",
+  "理由": "培养对白 MiniMax 对照试写（候选），演员法已写入 R-剧情-01",
+  "依据": "页首“状态：候选试写，不代表正式采用”；R-剧情-01"
+ },
+ {
+  "path": "xiaojianghu/docs/archive/design/systems-benchmark-20261016/sources.md",
+  "建议": "历史",
+  "理由": "三款游戏系统对照的资料来源，调研结论已落到系统设计补充",
+  "依据": "规则第 6 条；system-completion-20261016/README.md“承接三款武侠游戏对照报告的26项事项”"
+ },
+ {
+  "path": "xiaojianghu/docs/archive/design/systems-benchmark-20261016/report.md",
+  "建议": "历史",
+  "理由": "系统对照调研报告，页首说后续已由设计补充接续",
+  "依据": "页首“后续：用户已授权[设计补充与一致性校正]……本页保留”"
+ },
+ {
+  "path": "xiaojianghu/docs/archive/design/systems-benchmark-20261016/gap-register.md",
+  "建议": "历史",
+  "理由": "系统差距明细（调研建议），26 项已在系统设计补充中逐项落实",
+  "依据": "页首“以下为调研建议”；system-completion-20261016/README.md"
+ },
+ {
+  "path": "xiaojianghu/docs/archive/design/scripts/pre-xiangyang-life.md",
+  "建议": "历史",
+  "理由": "襄阳前日常、生产与通信对白审阅稿（10-05）；前四月台词已由入汉皋前补全收录，权威在 8792 的 chapter-two-dialogue.json",
+  "依据": "pre-hangao-completion-20261013/implementation.md“将本稿审定台词映射回权威chapter-two-dialogue.json”；pre-xiangyang-scripts.md“本页为旧目录”"
+ },
+ {
+  "path": "xiaojianghu/docs/archive/design/scripts/opening-voice-plan.md",
+  "建议": "历史",
+  "理由": "序章与第一章配音标注；开始部分台词已迁入 ink",
+  "依据": "R-剧情-04；xiaojianghu-legacy-prologue/story/01-开始/"
+ },
+ {
+  "path": "xiaojianghu/docs/archive/design/scripts/pre-xiangyang-main.md",
+  "建议": "历史",
+  "理由": "襄阳前必达消息与入城前转场对白审阅稿（10-05）；前四月台词已由入汉皋前补全收录，权威在 8792 的 chapter-two-dialogue.json",
+  "依据": "pre-hangao-completion-20261013/implementation.md“将本稿审定台词映射回权威chapter-two-dialogue.json”；pre-xiangyang-scripts.md“本页为旧目录”"
+ },
+ {
+  "path": "xiaojianghu/docs/archive/design/scripts/pre-xiangyang-visitors.md",
+  "建议": "历史",
+  "理由": "襄阳前来访制作剧本 V1（已接入原型），前四月已由入汉皋前补全收录",
+  "依据": "pre-hangao-completion-20261013/README.md“40个前四月窗口事件完整收录”"
+ },
+ {
+  "path": "xiaojianghu/docs/archive/design/scripts/hangao-qiyue.md",
+  "建议": "历史",
+  "理由": "栖月楼篇启动旧设计，页首说保留旧设计对照",
+  "依据": "页首“本文件保留旧设计对照”"
+ },
+ {
+  "path": "xiaojianghu/docs/archive/design/scripts/pre-xiangyang-escort.md",
+  "建议": "历史",
+  "理由": "襄阳前首季护送对白审阅稿（10-05）；前四月台词已由入汉皋前补全收录，权威在 8792 的 chapter-two-dialogue.json",
+  "依据": "pre-hangao-completion-20261013/implementation.md“将本稿审定台词映射回权威chapter-two-dialogue.json”；pre-xiangyang-scripts.md“本页为旧目录”"
+ },
+ {
+  "path": "xiaojianghu/docs/archive/design/scripts/pre-xiangyang-lu.md",
+  "建议": "历史",
+  "理由": "襄阳前陆衡承诺与交接对白审阅稿（10-05）；前四月台词已由入汉皋前补全收录，权威在 8792 的 chapter-two-dialogue.json",
+  "依据": "pre-hangao-completion-20261013/implementation.md“将本稿审定台词映射回权威chapter-two-dialogue.json”；pre-xiangyang-scripts.md“本页为旧目录”"
+ },
+ {
+  "path": "xiaojianghu/docs/archive/design/scripts/pre-xiangyang-letters.md",
+  "建议": "历史",
+  "理由": "襄阳前乡邻来信对白审阅稿（10-05）；前四月台词已由入汉皋前补全收录，权威在 8792 的 chapter-two-dialogue.json",
+  "依据": "pre-hangao-completion-20261013/implementation.md“将本稿审定台词映射回权威chapter-two-dialogue.json”；pre-xiangyang-scripts.md“本页为旧目录”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/scripts/hangao-side.md",
+  "建议": "草稿",
+  "理由": "汉皋初识事件与支线逐步设计，草稿待审定",
+  "依据": "页首“状态：设计草稿，待用户审定，未排期、未实装”"
+ },
+ {
+  "path": "xiaojianghu/docs/archive/design/scripts/pre-xiangyang-lessons.md",
+  "建议": "历史",
+  "理由": "襄阳前课程首次教学与复习对白审阅稿（10-05）；前四月台词已由入汉皋前补全收录，权威在 8792 的 chapter-two-dialogue.json",
+  "依据": "pre-hangao-completion-20261013/implementation.md“将本稿审定台词映射回权威chapter-two-dialogue.json”；pre-xiangyang-scripts.md“本页为旧目录”"
+ },
+ {
+  "path": "xiaojianghu/docs/archive/design/scripts/pre-xiangyang-reserved.md",
+  "建议": "历史",
+  "理由": "待定师门人员对白提案；师门人物已在归云谷一家中确认",
+  "依据": "guiyun-household.md“状态：已确认”"
+ },
+ {
+  "path": "xiaojianghu/docs/archive/design/scripts/pre-xiangyang-zhou.md",
+  "建议": "历史",
+  "理由": "襄阳前周砚练习与师承对白审阅稿（10-05）；前四月台词已由入汉皋前补全收录，权威在 8792 的 chapter-two-dialogue.json",
+  "依据": "pre-hangao-completion-20261013/implementation.md“将本稿审定台词映射回权威chapter-two-dialogue.json”；pre-xiangyang-scripts.md“本页为旧目录”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/scripts/hangao-main.md",
+  "建议": "草稿",
+  "理由": "汉皋主线逐场稿，剧本草稿待审定",
+  "依据": "页首“状态：剧本草稿，待用户审定，未排期、未配音、未实装”"
+ },
+ {
+  "path": "xiaojianghu/docs/archive/design/scripts/pre-xiangyang-ye.md",
+  "建议": "历史",
+  "理由": "襄阳前叶蘅帮助与目标对白审阅稿（10-05）；前四月台词已由入汉皋前补全收录，权威在 8792 的 chapter-two-dialogue.json",
+  "依据": "pre-hangao-completion-20261013/implementation.md“将本稿审定台词映射回权威chapter-two-dialogue.json”；pre-xiangyang-scripts.md“本页为旧目录”"
+ },
+ {
+  "path": "xiaojianghu/docs/archive/design/registry/story-lint-opening-20261016.md",
+  "建议": "历史",
+  "理由": "10-16 开篇台词自动检查报告（一次性输出）",
+  "依据": "规则第 6 条；页首“检查台词 559 条”"
+ },
+ {
+  "path": "xiaojianghu/docs/archive/design/registry/story-lint-baseline-20261016.md",
+  "建议": "历史",
+  "理由": "10-16 全量台词自动检查基线报告（一次性输出）",
+  "依据": "规则第 6 条；页首“检查台词 3506 条”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/factions/hechuan.md",
+  "建议": "现行",
+  "理由": "门派负责页，按 10-16 全流程标注新旧职责",
+  "依据": "factions.md；页首（门派状态行）"
+ },
+ {
+  "path": "xiaojianghu/docs/design/factions/patrol.md",
+  "建议": "现行",
+  "理由": "门派负责页，按 10-16 全流程标注新旧职责",
+  "依据": "factions.md；页首（门派状态行）"
+ },
+ {
+  "path": "xiaojianghu/docs/design/factions/xuanzhuhui.md",
+  "建议": "现行",
+  "理由": "门派负责页，按 10-16 全流程标注新旧职责",
+  "依据": "factions.md；页首（门派状态行）"
+ },
+ {
+  "path": "xiaojianghu/docs/design/factions/alliance.md",
+  "建议": "现行",
+  "理由": "门派负责页，按 10-16 全流程标注新旧职责",
+  "依据": "factions.md；页首（门派状态行）"
+ },
+ {
+  "path": "xiaojianghu/docs/design/factions/court.md",
+  "建议": "现行",
+  "理由": "门派负责页，按 10-16 全流程标注新旧职责",
+  "依据": "factions.md；页首（门派状态行）"
+ },
+ {
+  "path": "xiaojianghu/docs/design/factions/guijintang.md",
+  "建议": "现行",
+  "理由": "门派负责页，按 10-16 全流程标注新旧职责",
+  "依据": "factions.md；页首（门派状态行）"
+ },
+ {
+  "path": "xiaojianghu/docs/design/factions/zhaochuan.md",
+  "建议": "现行",
+  "理由": "门派负责页，按 10-16 全流程标注新旧职责",
+  "依据": "factions.md；页首（门派状态行）"
+ },
+ {
+  "path": "xiaojianghu/docs/design/factions/qinghui.md",
+  "建议": "现行",
+  "理由": "门派负责页，按 10-16 全流程标注新旧职责",
+  "依据": "factions.md；页首（门派状态行）"
+ },
+ {
+  "path": "xiaojianghu/docs/design/factions/white-heron.md",
+  "建议": "现行",
+  "理由": "门派负责页，按 10-16 全流程标注新旧职责",
+  "依据": "factions.md；页首（门派状态行）"
+ },
+ {
+  "path": "xiaojianghu/docs/design/factions/songfeng.md",
+  "建议": "现行",
+  "理由": "门派负责页，按 10-16 全流程标注新旧职责",
+  "依据": "factions.md；页首（门派状态行）"
+ },
+ {
+  "path": "xiaojianghu/docs/design/companions/duan-mingtang.md",
+  "建议": "现行",
+  "理由": "同伴人物负责页，形象、年龄、武学与招募约束继续有效",
+  "依据": "页首“本页已有形象、年龄、武学与招募约束继续有效”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/companions/ruan-qingque-story.md",
+  "建议": "草稿",
+  "理由": "阮青雀人物篇对白稿（10-04 设计稿，未接入）",
+  "依据": "页首“状态：2026-10-04 设计稿，未接入游戏”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/companions/ruan-qingque.md",
+  "建议": "现行",
+  "理由": "同伴人物负责页，形象、年龄、武学与招募约束继续有效",
+  "依据": "页首“本页已有形象、年龄、武学与招募约束继续有效”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/companions/qin-feiyuan-assets.md",
+  "建议": "现行",
+  "理由": "秦绯鸢素材与静态演出卡",
+  "依据": "页首“当前交付设计、对白和图鉴定妆参考”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/companions/liu-hanyan.md",
+  "建议": "现行",
+  "理由": "同伴人物负责页，形象、年龄、武学与招募约束继续有效",
+  "依据": "页首“本页已有形象、年龄、武学与招募约束继续有效”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/companions/cen-shuang.md",
+  "建议": "现行",
+  "理由": "【需改措辞】同伴人物负责页，形象、年龄、武学与招募约束继续有效（文中有 5 处“第X章”，R-剧情-02）",
+  "依据": "页首“本页已有形象、年龄、武学与招募约束继续有效”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/companions/qiao-xingzhou.md",
+  "建议": "现行",
+  "理由": "同伴人物负责页，形象、年龄、武学与招募约束继续有效",
+  "依据": "页首“本页已有形象、年龄、武学与招募约束继续有效”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/companions/pei-zhigu-valley.md",
+  "建议": "现行",
+  "理由": "同伴人物负责页，形象、年龄、武学与招募约束继续有效",
+  "依据": "页首“本页已有形象、年龄、武学与招募约束继续有效”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/companions/pei-zhigu.md",
+  "建议": "现行",
+  "理由": "同伴人物负责页，形象、年龄、武学与招募约束继续有效",
+  "依据": "页首“本页已有形象、年龄、武学与招募约束继续有效”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/companions/xu-lingyi.md",
+  "建议": "现行",
+  "理由": "同伴人物负责页，形象、年龄、武学与招募约束继续有效",
+  "依据": "页首“本页已有形象、年龄、武学与招募约束继续有效”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/companions/yan-xiaolou-costume.md",
+  "建议": "现行",
+  "理由": "晏小楼演出衣短裙修正（当前衣装）",
+  "依据": "页首“## 当前衣装”；portrait-review.md"
+ },
+ {
+  "path": "xiaojianghu/docs/design/companions/wen-shutong.md",
+  "建议": "现行",
+  "理由": "同伴人物负责页，形象、年龄、武学与招募约束继续有效",
+  "依据": "页首“本页已有形象、年龄、武学与招募约束继续有效”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/companions/ye-heng.md",
+  "建议": "现行",
+  "理由": "同伴人物负责页，形象、年龄、武学与招募约束继续有效",
+  "依据": "页首“本页已有形象、年龄、武学与招募约束继续有效”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/companions/ruan-qingque-assets.md",
+  "建议": "现行",
+  "理由": "阮青雀素材卡",
+  "依据": "页首“本轮交付人物图鉴参考与剧情设计”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/companions/tang-zhaoxue.md",
+  "建议": "现行",
+  "理由": "同伴人物负责页，形象、年龄、武学与招募约束继续有效",
+  "依据": "页首“本页已有形象、年龄、武学与招募约束继续有效”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/companions/su-zhi.md",
+  "建议": "现行",
+  "理由": "同伴人物负责页，形象、年龄、武学与招募约束继续有效",
+  "依据": "页首“本页已有形象、年龄、武学与招募约束继续有效”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/companions/yan-xiaolou.md",
+  "建议": "现行",
+  "理由": "同伴人物负责页，形象、年龄、武学与招募约束继续有效",
+  "依据": "页首“本页已有形象、年龄、武学与招募约束继续有效”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/companions/shen-yanhui.md",
+  "建议": "现行",
+  "理由": "【需改措辞】同伴人物负责页，形象、年龄、武学与招募约束继续有效（文中有 3 处“第X章”，R-剧情-02）",
+  "依据": "页首“本页已有形象、年龄、武学与招募约束继续有效”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/companions/qin-feiyuan.md",
+  "建议": "现行",
+  "理由": "同伴人物负责页，形象、年龄、武学与招募约束继续有效",
+  "依据": "页首“本页已有形象、年龄、武学与招募约束继续有效”"
+ },
+ {
+  "path": "xiaojianghu/docs/archive/design/companions/qin-feiyuan-story.md",
+  "建议": "历史",
+  "理由": "秦绯鸢旧对白稿，页首说保留旧设计对照，已由栖月楼审稿接续",
+  "依据": "页首“本文件保留旧设计对照”；qiyue-story-review-20261014/README.md"
+ },
+ {
+  "path": "xiaojianghu/docs/archive/design/story-rework-20261016/validation.md",
+  "建议": "历史",
+  "理由": "10-16 前一轮剧情整改的核对记录",
+  "依据": "规则第 6 条；story-rework-20261016/README.md“前一轮设计记录”"
+ },
+ {
+  "path": "xiaojianghu/docs/archive/design/story-rework-20261016/README.md",
+  "建议": "历史",
+  "理由": "四部分主线前一轮整改入口，页首自称前一轮设计记录，主干由全流程接续",
+  "依据": "页首“前一轮设计记录：主干及新人物出场由[全流程创作版]接续”"
+ },
+ {
+  "path": "xiaojianghu/docs/archive/design/story-rework-20261016/faction-cast.md",
+  "建议": "待定",
+  "理由": "三方行动与剧情人物调整（自称“新的负责设计”），但所在整组已被全流程接续、全流程人物页写明谢庄严旧草案部分被替换；哪些仍有效待定",
+  "依据": "页首“这是新的负责设计”；fullflow-story-20261016/README.md“谢、庄、严旧草案哪些地方被替换”"
+ },
+ {
+  "path": "xiaojianghu/docs/design/story-rework-20261016/companions.md",
+  "建议": "待定",
+  "理由": "十九名同伴四部分剧情（入链 24），所在整组已被全流程接续；同伴各页改指全流程人物稿，本页形象部分是否仍负责待定",
+  "依据": "companions/cen-shuang.md“全程剧情……按[完整流程人物稿]维护”；story-rework-20261016/README.md"
+ },
+ {
+  "path": "xiaojianghu/docs/archive/design/story-rework-20261016/regions-gameplay.md",
+  "建议": "待定",
+  "理由": "【R-剧情-02】第三、第四部分城市与地区玩法（10-16 当前设计方案）；全流程改为冒名、护棺、白石主干，旧地区估算是否保留待定",
+  "依据": "story-travel-review.md“旧‘三地区任选二……’的草案不再是本作唯一主干”"
+ },
+ {
+  "path": "xiaojianghu/docs/archive/design/qiyue-story-review-20261014/dialogue.md",
+  "建议": "历史",
+  "理由": "栖月楼首稿逐场对白，已被 10-16 第二稿（36 场全量）接续",
+  "依据": "qiyue-story-review-20261016/dialogue.md“旧生活场保留，6场重写、12场新增”"
+ },
+ {
+  "path": "xiaojianghu/docs/archive/design/qiyue-story-review-20261014/README.md",
+  "建议": "历史",
+  "理由": "栖月楼首稿审稿入口，已被 10-16 第二稿接续",
+  "依据": "design/README.md“2026-10-16：[栖月楼第二稿]”"
+ },
+ {
+  "path": "xiaojianghu/docs/rules/README.md",
+  "建议": "现行",
+  "理由": "规则管理说明，已写状态",
+  "依据": "页首“状态：现行　最后核对：2026-10-19”"
+ },
+ {
+  "path": "xiaojianghu-legacy-prologue/DEPLOY.md",
+  "建议": "现行",
+  "理由": "栖河工作区发布说明，R-发布-01 出处",
+  "依据": "R-发布-01"
+ },
+ {
+  "path": "xiaojianghu-legacy-prologue/AGENTS.md",
+  "建议": "现行",
+  "理由": "栖河工作区协作规则",
+  "依据": "CLAUDE.md“另有自己的 AGENTS.md”"
+ },
+ {
+  "path": "xiaojianghu-legacy-prologue/tools_assets/vendor/agent_sprite_forge/VERSION.md",
+  "建议": "现行",
+  "理由": "第三方工具锁定副本版本说明",
+  "依据": "页首“agent-sprite-forge 锁定副本”"
+ },
+ {
+  "path": "xiaojianghu-legacy-prologue/docs/architecture.md",
+  "建议": "现行",
+  "理由": "栖河工作区架构（10-19 已更新）",
+  "依据": "页首“2026-10-19：……襄阳演示入口……已撤除”"
+ },
+ {
+  "path": "xiaojianghu-legacy-prologue/docs/art-pipeline.md",
+  "建议": "现行",
+  "理由": "栖河工作区美术管线",
+  "依据": "页首“现行原生透明规范见[文档库·当前出图接口约定]”"
+ },
+ {
+  "path": "xiaojianghu-legacy-prologue/docs/content-guide.md",
+  "建议": "现行",
+  "理由": "栖河工作区内容编写指南（10-19 已更新）",
+  "依据": "页首“2026-10-19”说明"
+ },
+ {
+  "path": "xiaojianghu-legacy-prologue/docs/vfx.md",
+  "建议": "现行",
+  "理由": "栖河工作区 js/vfx.js 特效规范",
+  "依据": "xiaojianghu-legacy-prologue/docs/README.md"
+ },
+ {
+  "path": "xiaojianghu-legacy-prologue/docs/anim-pipeline.md",
+  "建议": "现行",
+  "理由": "栖河工作区帧动画管线（已按表现边界加注）",
+  "依据": "页首“当前制作范围遵守[普攻接触、功法特效命中]”"
+ },
+ {
+  "path": "xiaojianghu-legacy-prologue/docs/archive/battle.md",
+  "建议": "待定",
+  "理由": "栖河工作区战斗技术文档（10-04），未含主库 10-14 表现边界更新；两份同名文档分叉，以哪份为准待定",
+  "依据": "xiaojianghu/docs/battle.md 页首“当前表现规则（2026-10-14用户明确）”"
+ },
+ {
+  "path": "xiaojianghu-legacy-prologue/docs/audio.md",
+  "建议": "现行",
+  "理由": "栖河工作区音频现状",
+  "依据": "页首“当前栖河分支已装配V2日常与战斗BGM”"
+ },
+ {
+  "path": "xiaojianghu-legacy-prologue/docs/testing.md",
+  "建议": "现行",
+  "理由": "栖河工作区测试与评审",
+  "依据": "页首“2026-10-19”说明"
+ },
+ {
+  "path": "xiaojianghu-legacy-prologue/docs/README.md",
+  "建议": "现行",
+  "理由": "栖河工作区技术文档首页（注明下文是继承的襄阳原型说明）",
+  "依据": "页首“本页以下内容是从主库继承的襄阳原型说明”"
+ },
+ {
+  "path": "xiaojianghu-legacy-prologue/docs/archive/battle-v3.md",
+  "建议": "历史",
+  "理由": "与主库同名文档逐字相同的战斗表现 v3 副本，无入链",
+  "依据": "diff 结果为 0；xiaojianghu/docs/archive/battle-v3.md"
+ },
+ {
+  "path": "xiaojianghu-legacy-prologue/docs/archive/battle-v2.md",
+  "建议": "历史",
+  "理由": "与主库同名文档逐字相同的战斗表现 v2 副本，无入链",
+  "依据": "diff 结果为 0；xiaojianghu/docs/archive/battle-v2.md"
+ },
+ {
+  "path": "xiaojianghu-legacy-prologue/docs/update-workflow.md",
+  "建议": "现行",
+  "理由": "每次更新的文档核对流程",
+  "依据": "xiaojianghu-legacy-prologue/AGENTS.md“开发核对流程：docs/update-workflow.md”"
+ },
+ {
+  "path": "xiaojianghu-legacy-prologue/docs/battle-sprite-spec.md",
+  "建议": "现行",
+  "理由": "栖河工作区战斗精灵规格（已按表现边界加注）",
+  "依据": "页首“2026-10-14当前规则”"
+ },
+ {
+  "path": "xiaojianghu-legacy-prologue/docs/archive/containers.md",
+  "建议": "历史",
+  "理由": "场景容器实现记录，containers.js 已于 10-19 归档",
+  "依据": "页首“containers.js 已移入 _attic/2026-10-19-deprecated/”"
+ },
+ {
+  "path": "xiaojianghu-legacy-prologue/docs/design/runtime-entry.md",
+  "建议": "现行",
+  "理由": "当前游戏入口与防误入规则",
+  "依据": "ai-onboarding.md“完整规则只维护在[当前工作区入口合同]”"
+ },
+ {
+  "path": "xiaojianghu-legacy-prologue/docs/archive/design/npc-interaction.md",
+  "建议": "历史",
+  "理由": "主库 NPC 交互的旧分叉副本；襄阳原型实现已归档，栖河文档说剧情与设定以主库为准",
+  "依据": "页首“江湖手段的襄阳原型实现……已随襄阳演示归档”；xiaojianghu-legacy-prologue/docs/README.md“剧情与设定类文档以主库为准”"
+ },
+ {
+  "path": "xiaojianghu-legacy-prologue/docs/archive/design/life.md",
+  "建议": "历史",
+  "理由": "主库生活与资源的旧分叉副本（10-08）",
+  "依据": "xiaojianghu-legacy-prologue/docs/README.md“剧情与设定类文档以主库为准”；xiaojianghu/docs/design/life.md"
+ },
+ {
+  "path": "xiaojianghu-legacy-prologue/docs/archive/design/xiangyang-art-prompts.md",
+  "建议": "历史",
+  "理由": "襄阳生图提示词制作记录（副本）",
+  "依据": "页首“状态：本轮内置图像生成的制作记录”"
+ },
+ {
+  "path": "xiaojianghu-legacy-prologue/docs/design/battle-voice.md",
+  "建议": "现行",
+  "理由": "栖河战斗语音接线（本工作区独有）",
+  "依据": "页首“栖河战斗语音接线”"
+ },
+ {
+  "path": "xiaojianghu-legacy-prologue/docs/archive/design/xiangyang-chapter.md",
+  "建议": "历史",
+  "理由": "襄阳体验章节脚本副本，襄阳演示 10-19 撤除",
+  "依据": "页首“2026-10-19：……襄阳演示入口……已撤除”"
+ },
+ {
+  "path": "xiaojianghu-legacy-prologue/docs/archive/design/ye-routes.md",
+  "建议": "历史",
+  "理由": "主库叶蘅路线的旧分叉副本（10-08）",
+  "依据": "xiaojianghu-legacy-prologue/docs/README.md“剧情与设定类文档以主库为准”；xiaojianghu/docs/design/ye-routes.md"
+ },
+ {
+  "path": "xiaojianghu-legacy-prologue/docs/design/README.md",
+  "建议": "现行",
+  "理由": "【需改措辞】栖河工作区设计短链入口；页首仍写“当前第二章”",
+  "依据": "页首“2026-10-12 当前第二章”；R-剧情-02"
+ },
+ {
+  "path": "xiaojianghu-legacy-prologue/docs/archive/design/xiangyang-alley.md",
+  "建议": "历史",
+  "理由": "襄阳偏巷副本，襄阳演示已撤除",
+  "依据": "updates/2026-10-19-deprecated-entries.md"
+ },
+ {
+  "path": "xiaojianghu-legacy-prologue/docs/archive/design/xiangyang-alley-art-prompt.md",
+  "建议": "历史",
+  "理由": "偏巷战斗背景生图记录（与主库同文）",
+  "依据": "规则第 6 条：制作记录"
+ },
+ {
+  "path": "xiaojianghu-legacy-prologue/docs/design/cultivation.md",
+  "建议": "待定",
+  "理由": "【R-剧情-02】栖河版三年休闲培养（10-12 带 8792 现行说明），与主库 cultivation.md 差异约 140 行，以哪份为准待定",
+  "依据": "页首“2026-10-12 当前第二章”；xiaojianghu/docs/design/cultivation.md"
+ },
+ {
+  "path": "xiaojianghu-legacy-prologue/docs/archive/design/xiangyang-city.md",
+  "建议": "历史",
+  "理由": "襄阳城设定基准（主库已删除），襄阳演示已撤除",
+  "依据": "页首“2026-10-19：……已撤除”；hangao-city.md“不再用襄阳”"
+ },
+ {
+  "path": "xiaojianghu-legacy-prologue/docs/archive/design/world.md",
+  "建议": "历史",
+  "理由": "主库势力与世界的旧分叉副本（10-08）",
+  "依据": "xiaojianghu-legacy-prologue/docs/README.md“剧情与设定类文档以主库为准”"
+ },
+ {
+  "path": "xiaojianghu-legacy-prologue/docs/archive/design/qihe-map/assets.md",
+  "建议": "历史",
+  "理由": "栖河旧素材说明，页首说不得作选图依据",
+  "依据": "页首“本页历史素材说明不得作为选图依据”"
+ },
+ {
+  "path": "xiaojianghu-legacy-prologue/docs/design/qihe-map/three-representatives.md",
+  "建议": "现行",
+  "理由": "【需改措辞】三位主事人当前游戏接入合同（文中有 3 处“第X章”，R-剧情-02）",
+  "依据": "页首“状态：2026-10-07本地已接入”"
+ },
+ {
+  "path": "xiaojianghu-legacy-prologue/docs/archive/design/qihe-map/hero-battle-pose-preview.md",
+  "建议": "历史",
+  "理由": "萧白战斗动作独立预览，已由端握采用与棍法连击接续",
+  "依据": "qihe-map/hero-staff-combo.md；design/README.md（栖河）“此前首次端握采用为历史记录”"
+ },
+ {
+  "path": "xiaojianghu-legacy-prologue/docs/design/qihe-map/hero-staff-combo.md",
+  "建议": "现行",
+  "理由": "萧白棍法连击，当前本地采用",
+  "依据": "xiaojianghu-legacy-prologue/docs/design/README.md“2026-10-10当前本地采用”"
+ },
+ {
+  "path": "xiaojianghu-legacy-prologue/docs/archive/design/qihe-map/night-script.md",
+  "建议": "历史",
+  "理由": "药箱与第一夜旧脚本，页首说台词已不是现行版本",
+  "依据": "页首“2026-10-19：本稿台词已不是现行版本”"
+ },
+ {
+  "path": "xiaojianghu-legacy-prologue/docs/archive/design/qihe-map/prologue.md",
+  "建议": "历史",
+  "理由": "扩展前序章背景，页首说最新实现见扩展实施记录",
+  "依据": "页首“下文保留扩展前序章背景”"
+ },
+ {
+  "path": "xiaojianghu-legacy-prologue/docs/archive/design/qihe-map/hero-staff-grip-adoption.md",
+  "建议": "历史",
+  "理由": "萧白端握首次采用，栖河 README 标为历史记录",
+  "依据": "xiaojianghu-legacy-prologue/docs/design/README.md“[此前首次端握采用]为历史记录”"
+ },
+ {
+  "path": "xiaojianghu-legacy-prologue/docs/archive/design/qihe-map/errands-script.md",
+  "建议": "历史",
+  "理由": "跑腿旧脚本，页首说台词已不是现行版本",
+  "依据": "页首“2026-10-19：本稿台词已不是现行版本”"
+ },
+ {
+  "path": "xiaojianghu-legacy-prologue/docs/design/qihe-map/npc-pixel-refresh.md",
+  "建议": "现行",
+  "理由": "栖河 NPC 场景小人统一重制，用户确认采用",
+  "依据": "页首“用户确认采用现行蓝灰萧白……栖河全部 NPC 的场景小人”"
+ },
+ {
+  "path": "xiaojianghu-legacy-prologue/docs/archive/design/qihe-map/lodging-script.md",
+  "建议": "历史",
+  "理由": "入村安顿旧脚本，扩展前序章背景；台词已迁入 ink",
+  "依据": "页首“下文保留扩展前序章背景”；R-剧情-04"
+ },
+ {
+  "path": "xiaojianghu-legacy-prologue/docs/design/qihe-map/ye-needle-battle.md",
+  "建议": "现行",
+  "理由": "叶蘅针法战斗包，本地已采用",
+  "依据": "页首“本地已接入、已验收”"
+ },
+ {
+  "path": "xiaojianghu-legacy-prologue/docs/design/qihe-map/cg-direction.md",
+  "建议": "现行",
+  "理由": "CG 分镜合同",
+  "依据": "xiaojianghu-legacy-prologue/docs/design/README.md“CG逐镜作用……合同”"
+ },
+ {
+  "path": "xiaojianghu-legacy-prologue/docs/design/qihe-map/README.md",
+  "建议": "现行",
+  "理由": "【需改措辞】栖河地图目录（文中有 4 处“第X章”，R-剧情-02）",
+  "依据": "xiaojianghu-legacy-prologue/docs/README.md“栖河地图目录”"
+ },
+ {
+  "path": "xiaojianghu-legacy-prologue/docs/archive/design/qihe-map/arrival-script.md",
+  "建议": "历史",
+  "理由": "后山初遇旧脚本，扩展前序章背景；台词已迁入 ink",
+  "依据": "页首“下文保留扩展前序章背景”；R-剧情-04"
+ },
+ {
+  "path": "xiaojianghu-legacy-prologue/docs/design/qihe-map/hero-blue-adoption.md",
+  "建议": "现行",
+  "理由": "蓝灰萧白正式采用，用户定稿",
+  "依据": "页首“主角当前 C 完整包定稿”"
+ },
+ {
+  "path": "xiaojianghu-legacy-prologue/docs/design/qihe-map/startup.md",
+  "建议": "现行",
+  "理由": "【需改措辞】游戏启动与继续进度（文中有 6 处“第X章”，R-剧情-02）",
+  "依据": "runtime-entry.md 链接"
+ },
+ {
+  "path": "xiaojianghu-legacy-prologue/docs/design/qihe-map/cg-three-heroines.md",
+  "建议": "现行",
+  "理由": "三位主事人 CG，已正式采用",
+  "依据": "页首“正式采用到当前8792”"
+ },
+ {
+  "path": "xiaojianghu-legacy-prologue/docs/design/qihe-map/expansion/implementation.md",
+  "建议": "现行",
+  "理由": "【需改措辞】栖河扩展实施记录（QH-EXP-01 最新实现，多页指向）",
+  "依据": "qihe-map/prologue.md“QH-EXP-01最新实现见[扩展实施记录]”；R-剧情-02"
+ },
+ {
+  "path": "xiaojianghu-legacy-prologue/docs/design/qihe-map/expansion/battle-assets.md",
+  "建议": "现行",
+  "理由": "【需改措辞】栖河战斗素材（标题“第一章战斗素材”）",
+  "依据": "页首“两场战斗使用新生成的专用背景”；R-剧情-02"
+ },
+ {
+  "path": "xiaojianghu-legacy-prologue/docs/design/qihe-map/expansion/resources.md",
+  "建议": "现行",
+  "理由": "栖河野外资源，已接入",
+  "依据": "页首“状态：已接入 QH-RES-01”"
+ },
+ {
+  "path": "xiaojianghu-legacy-prologue/docs/design/qihe-map/expansion/inventory-ui-v3.md",
+  "建议": "现行",
+  "理由": "【需改措辞】独立行囊（库存与事务规则仍有效，视觉以 V4 为准）（文中有 4 处“第X章”，R-剧情-02）",
+  "依据": "页首“本页库存、事务、候补可用性与验收规则……”"
+ },
+ {
+  "path": "xiaojianghu-legacy-prologue/docs/design/qihe-map/expansion/bgm-production.md",
+  "建议": "现行",
+  "理由": "栖河 BGM 制作与验收（V1 已否决，现行依据在本页）",
+  "依据": "页首“V1两首样段已被用户否决，保留追溯、禁止采用”"
+ },
+ {
+  "path": "xiaojianghu-legacy-prologue/docs/archive/design/qihe-map/expansion/production.md",
+  "建议": "历史",
+  "理由": "10-05 冻结的扩展规则摘要；现行规则以规则登记表与地图规范为准",
+  "依据": "页首“本页冻结本分支扩展使用的规则摘要”；R-文档-02"
+ },
+ {
+  "path": "xiaojianghu-legacy-prologue/docs/design/qihe-map/expansion/training.md",
+  "建议": "现行",
+  "理由": "【需改措辞】功法学习与培养交接（当前正式实现）；标题写“带入第二章培养”",
+  "依据": "页首“当前正式实现（2026-10-12）”；R-剧情-02"
+ },
+ {
+  "path": "xiaojianghu-legacy-prologue/docs/design/qihe-map/expansion/chapter-presentation.md",
+  "建议": "现行",
+  "理由": "【需改措辞】开始部分引导与火灾演出，栖河 README 本轮实施；标题写“第一章”",
+  "依据": "xiaojianghu-legacy-prologue/docs/design/README.md“本轮实施”；R-剧情-02"
+ },
+ {
+  "path": "xiaojianghu-legacy-prologue/docs/design/qihe-map/expansion/outsider-quests.md",
+  "建议": "现行",
+  "理由": "三路来客支线，用户确认并接入",
+  "依据": "页首“用户确认三方当前委托改由徐令仪、岑霜、沈雁回直接对接”"
+ },
+ {
+  "path": "xiaojianghu-legacy-prologue/docs/design/qihe-map/expansion/relationships.md",
+  "建议": "现行",
+  "理由": "关系、送物与回信，用户确认方向",
+  "依据": "页首“2026-10-06 用户确认方向”"
+ },
+ {
+  "path": "xiaojianghu-legacy-prologue/docs/design/qihe-map/expansion/jianghu-ui-v3.md",
+  "建议": "现行",
+  "理由": "江湖界面 V3（编成与机制仍有效，视觉以 V4 为准）",
+  "依据": "页首“最新视觉见[V4图像交互与悬停详情]”"
+ },
+ {
+  "path": "xiaojianghu-legacy-prologue/docs/archive/design/qihe-map/expansion/characters.md",
+  "建议": "历史",
+  "理由": "10-05 人物素材部署状态快照；现行以正式素材清单为准",
+  "依据": "R-素材-01；页首“2026-10-05部署状态”"
+ },
+ {
+  "path": "xiaojianghu-legacy-prologue/docs/design/qihe-map/expansion/party-ui-v3.md",
+  "建议": "待定",
+  "理由": "四人出战界面 V3，页首仍写“设计待评审，未修改游戏实现”，但界面流程包 party.md 以它为数据依据，是否已被流程包取代待定",
+  "依据": "页首“设计待评审，未修改游戏实现”；ui-flow/party.md“[数据方案依据](../party-ui-v3.md)”"
+ },
+ {
+  "path": "xiaojianghu-legacy-prologue/docs/design/qihe-map/expansion/README.md",
+  "建议": "现行",
+  "理由": "【需改措辞】栖河扩展总目录（QH-EXP-01，入链 19）；文中按“第一章／第二章”组织",
+  "依据": "页首“版本 QH-EXP-01……已接入村外地图、初始角色、第一章与第二章首期”；R-剧情-02"
+ },
+ {
+  "path": "xiaojianghu-legacy-prologue/docs/design/qihe-map/expansion/jianghu-ui-v4.md",
+  "建议": "现行",
+  "理由": "江湖 V4 图像交互，已整理为流程包",
+  "依据": "页首“用户已认可四人同屏方向”"
+ },
+ {
+  "path": "xiaojianghu-legacy-prologue/docs/design/qihe-map/expansion/central-hd.md",
+  "建议": "现行",
+  "理由": "四向中央地图高清化合同",
+  "依据": "页首“参考只用用户确认的 qihe-expansion-v1/central.png”"
+ },
+ {
+  "path": "xiaojianghu-legacy-prologue/docs/design/qihe-map/expansion/cultivation-bgm.md",
+  "建议": "现行",
+  "理由": "【需改措辞】培养配乐（V5 现行目标）（文中有 3 处“第X章”，R-剧情-02）",
+  "依据": "页首“当前目标改为V5”"
+ },
+ {
+  "path": "xiaojianghu-legacy-prologue/docs/design/qihe-map/expansion/guiyun-household.md",
+  "建议": "现行",
+  "理由": "【需改措辞】归云谷一家接入合同（10-19 更新）；标题写“第二章师门剧情”",
+  "依据": "页首“归云谷一家：第二章师门剧情接入合同”；R-剧情-02"
+ },
+ {
+  "path": "xiaojianghu-legacy-prologue/docs/design/qihe-map/expansion/story.md",
+  "建议": "现行",
+  "理由": "【需改措辞】栖河开始部分剧情因果（台词在 ink），文中多处“第一章”",
+  "依据": "chapter-presentation.md“剧情因果由 story.md 管理”；R-剧情-02"
+ },
+ {
+  "path": "xiaojianghu-legacy-prologue/docs/design/qihe-map/expansion/martial-ui-v3.md",
+  "建议": "现行",
+  "理由": "【需改措辞】武学界面 V3 机制（视觉以 V4 为准）（文中有 9 处“第X章”，R-剧情-02）",
+  "依据": "页首“视觉布局以[V4]为最新”"
+ },
+ {
+  "path": "xiaojianghu-legacy-prologue/docs/design/qihe-map/expansion/grade-balance.md",
+  "建议": "现行",
+  "理由": "【需改措辞】栖河品阶、命名、特效与初期数值（文中有 5 处“第X章”，R-剧情-02）",
+  "依据": "页首“2026-10-06 本地实施规范”"
+ },
+ {
+  "path": "xiaojianghu-legacy-prologue/docs/design/qihe-map/expansion/starter-equipment.md",
+  "建议": "现行",
+  "理由": "【需改措辞】栖河初始装备获取；标题写“第一章初始装备”",
+  "依据": "页首“本页负责当前8792栖河的获取设计”；R-剧情-02"
+ },
+ {
+  "path": "xiaojianghu-legacy-prologue/docs/design/qihe-map/expansion/bgm.md",
+  "建议": "现行",
+  "理由": "栖河 BGM V2",
+  "依据": "页首“V1被用户否决，V2两首新版样段已……”"
+ },
+ {
+  "path": "xiaojianghu-legacy-prologue/docs/design/qihe-map/expansion/layout.md",
+  "建议": "现行",
+  "理由": "【需改措辞】栖河地图与人物分布（采用的拓扑）（文中有 4 处“第X章”，R-剧情-02）",
+  "依据": "页首“此页是采用的拓扑和分时站位设计”"
+ },
+ {
+  "path": "xiaojianghu-legacy-prologue/docs/design/qihe-map/expansion/ui-flow/model-implementation.md",
+  "建议": "现行",
+  "理由": "江湖 UI 数据层实现（江湖界面流程包）",
+  "依据": "ui-flow/README.md“本包是设计合同”"
+ },
+ {
+  "path": "xiaojianghu-legacy-prologue/docs/design/qihe-map/expansion/ui-flow/implementation.md",
+  "建议": "现行",
+  "理由": "【需改措辞】江湖 UI 开发记录（江湖界面流程包）（文中有 4 处“第X章”，R-剧情-02）",
+  "依据": "ui-flow/README.md“本包是设计合同”"
+ },
+ {
+  "path": "xiaojianghu-legacy-prologue/docs/design/qihe-map/expansion/ui-flow/settings.md",
+  "建议": "现行",
+  "理由": "设置与存档管理（江湖界面流程包）",
+  "依据": "ui-flow/README.md“本包是设计合同”"
+ },
+ {
+  "path": "xiaojianghu-legacy-prologue/docs/design/qihe-map/expansion/ui-flow/contracts.md",
+  "建议": "现行",
+  "理由": "状态与接口合同（江湖界面流程包）",
+  "依据": "ui-flow/README.md“本包是设计合同”"
+ },
+ {
+  "path": "xiaojianghu-legacy-prologue/docs/design/qihe-map/expansion/ui-flow/party.md",
+  "建议": "现行",
+  "理由": "人物与四人编成（江湖界面流程包）",
+  "依据": "ui-flow/README.md“本包是设计合同”"
+ },
+ {
+  "path": "xiaojianghu-legacy-prologue/docs/design/qihe-map/expansion/ui-flow/inventory.md",
+  "建议": "现行",
+  "理由": "装备、行囊与物品使用（江湖界面流程包）",
+  "依据": "ui-flow/README.md“本包是设计合同”"
+ },
+ {
+  "path": "xiaojianghu-legacy-prologue/docs/design/qihe-map/expansion/ui-flow/art-acceptance.md",
+  "建议": "现行",
+  "理由": "江湖界面美术交付（现行 V6）（江湖界面流程包）",
+  "依据": "ui-flow/README.md“本包是设计合同”"
+ },
+ {
+  "path": "xiaojianghu-legacy-prologue/docs/design/qihe-map/expansion/ui-flow/navigation.md",
+  "建议": "现行",
+  "理由": "入口、页面与输入（江湖界面流程包）",
+  "依据": "ui-flow/README.md“本包是设计合同”"
+ },
+ {
+  "path": "xiaojianghu-legacy-prologue/docs/design/qihe-map/expansion/ui-flow/README.md",
+  "建议": "现行",
+  "理由": "江湖界面开发流程包入口（江湖界面流程包）",
+  "依据": "ui-flow/README.md“本包是设计合同”"
+ },
+ {
+  "path": "xiaojianghu-legacy-prologue/docs/design/qihe-map/expansion/ui-flow/interaction-v7.md",
+  "建议": "现行",
+  "理由": "V7 江湖各页交互，用户确认（江湖界面流程包）",
+  "依据": "ui-flow/README.md“本包是设计合同”"
+ },
+ {
+  "path": "xiaojianghu-legacy-prologue/docs/design/qihe-map/expansion/ui-flow/delivery.md",
+  "建议": "现行",
+  "理由": "素材、开发顺序与验收（江湖界面流程包）",
+  "依据": "ui-flow/README.md“本包是设计合同”"
+ },
+ {
+  "path": "xiaojianghu-legacy-prologue/docs/design/qihe-map/expansion/ui-flow/martial-preview-v9.md",
+  "建议": "现行",
+  "理由": "【需改措辞】武学 V9，已接入 8792（江湖界面流程包）（文中有 7 处“第X章”，R-剧情-02）",
+  "依据": "ui-flow/README.md“本包是设计合同”"
+ },
+ {
+  "path": "xiaojianghu-legacy-prologue/docs/design/qihe-map/expansion/ui-flow/growth.md",
+  "建议": "现行",
+  "理由": "【需改措辞】属性、武学、内功与被动（江湖界面流程包）（文中有 3 处“第X章”，R-剧情-02）",
+  "依据": "ui-flow/README.md“本包是设计合同”"
+ },
+ {
+  "path": "xiaojianghu-legacy-prologue/docs/design/qihe-map/expansion/ui-flow/other-pages.md",
+  "建议": "现行",
+  "理由": "宠物、任务、行程与设置（江湖界面流程包）",
+  "依据": "ui-flow/README.md“本包是设计合同”"
+ },
+ {
+  "path": "xiaojianghu-legacy-prologue/docs/design/qihe-map/expansion/ui-flow/quest-codex-refresh-20261010.md",
+  "建议": "现行",
+  "理由": "【需改措辞】江湖行记窄目录与图鉴，已接入（江湖界面流程包）（文中有 4 处“第X章”，R-剧情-02）",
+  "依据": "ui-flow/README.md“本包是设计合同”"
+ },
+ {
+  "path": "xiaojianghu-legacy-prologue/docs/design/qihe-map/expansion/ui-flow/ultimate-v10.md",
+  "建议": "草稿",
+  "理由": "绝式与战意 V10，名称数值等为待审提案",
+  "依据": "页首“名称、数值、习得来源与交互为本轮待审提案，未接入战斗”"
+ },
+ {
+  "path": "xiaojianghu-legacy-prologue/docs/design/qihe-map/expansion/ui-flow/art-v6.md",
+  "建议": "现行",
+  "理由": "V6 细线分区，用户确认方向（江湖界面流程包）",
+  "依据": "ui-flow/README.md“本包是设计合同”"
+ },
+ {
+  "path": "xiaojianghu-legacy-prologue/docs/design/qihe-map/expansion/ui-flow/quest-journal-v10.md",
+  "建议": "现行",
+  "理由": "任务日志 V10（已由 10-10 窄目录接续细化）（江湖界面流程包）",
+  "依据": "ui-flow/README.md“本包是设计合同”"
+ },
+ {
+  "path": "xiaojianghu-legacy-prologue/docs/archive/design/qihe-map/expansion/standards/character-asset-quality.md",
+  "建议": "历史",
+  "理由": "2026-10-05 制作输入快照（主库规范的冻结副本），现行规范以主库原文为准",
+  "依据": "页首“2026-10-05 制作输入快照，源文件 SHA 见 source-sha.json”"
+ },
+ {
+  "path": "xiaojianghu-legacy-prologue/docs/archive/design/qihe-map/expansion/standards/map-development-standard.md",
+  "建议": "历史",
+  "理由": "2026-10-05 制作输入快照（主库规范的冻结副本），现行规范以主库原文为准",
+  "依据": "页首“2026-10-05 制作输入快照，源文件 SHA 见 source-sha.json”"
+ },
+ {
+  "path": "xiaojianghu-legacy-prologue/docs/archive/design/qihe-map/expansion/standards/anim-pipeline.md",
+  "建议": "历史",
+  "理由": "2026-10-05 制作输入快照（主库规范的冻结副本），现行规范以主库原文为准",
+  "依据": "页首“2026-10-05 制作输入快照，源文件 SHA 见 source-sha.json”"
+ },
+ {
+  "path": "xiaojianghu-legacy-prologue/docs/archive/design/qihe-map/expansion/standards/map-size-review.md",
+  "建议": "历史",
+  "理由": "2026-10-05 制作输入快照（主库规范的冻结副本），现行规范以主库原文为准",
+  "依据": "页首“2026-10-05 制作输入快照，源文件 SHA 见 source-sha.json”"
+ },
+ {
+  "path": "xiaojianghu-legacy-prologue/docs/archive/design/qihe-map/expansion/standards/scene-spatial-contract.md",
+  "建议": "历史",
+  "理由": "2026-10-05 制作输入快照（主库规范的冻结副本），现行规范以主库原文为准",
+  "依据": "页首“2026-10-05 制作输入快照，源文件 SHA 见 source-sha.json”"
+ },
+ {
+  "path": "xiaojianghu-legacy-prologue/docs/archive/design/qihe-map/expansion/standards/village-layout-research.md",
+  "建议": "历史",
+  "理由": "2026-10-05 制作输入快照（主库规范的冻结副本），现行规范以主库原文为准",
+  "依据": "页首“2026-10-05 制作输入快照，源文件 SHA 见 source-sha.json”"
+ },
+ {
+  "path": "xiaojianghu-legacy-prologue/docs/archive/design/qihe-map/expansion/standards/map-preflight.md",
+  "建议": "历史",
+  "理由": "2026-10-05 制作输入快照（主库规范的冻结副本），现行规范以主库原文为准",
+  "依据": "页首“2026-10-05 制作输入快照，源文件 SHA 见 source-sha.json”"
+ },
+ {
+  "path": "xiaojianghu-legacy-prologue/docs/archive/design/qihe-map/expansion/standards/role-assets.md",
+  "建议": "历史",
+  "理由": "2026-10-05 制作输入快照（主库规范的冻结副本），现行规范以主库原文为准",
+  "依据": "页首“2026-10-05 制作输入快照，源文件 SHA 见 source-sha.json”"
+ },
+ {
+  "path": "xiaojianghu-legacy-prologue/docs/archive/design/qihe-map/expansion/standards/character-walk-quality.md",
+  "建议": "历史",
+  "理由": "2026-10-05 制作输入快照（主库规范的冻结副本），现行规范以主库原文为准",
+  "依据": "页首“2026-10-05 制作输入快照，源文件 SHA 见 source-sha.json”"
+ },
+ {
+  "path": "xiaojianghu-legacy-prologue/docs/archive/design/qihe-map/expansion/standards/character-performance.md",
+  "建议": "历史",
+  "理由": "2026-10-05 制作输入快照（主库规范的冻结副本），现行规范以主库原文为准",
+  "依据": "页首“2026-10-05 制作输入快照，源文件 SHA 见 source-sha.json”"
+ },
+ {
+  "path": "xiaojianghu-legacy-prologue/docs/design/qihe-map/scripts/clash-voice-plan.md",
+  "建议": "现行",
+  "理由": "侧口交锋新增台词待配音清单",
+  "依据": "页首“文字已接入8792”"
+ },
+ {
+  "path": "xiaojianghu-legacy-prologue/docs/design/qihe-map/scripts/representatives-voice-plan.md",
+  "建议": "现行",
+  "理由": "三位主事人实际台词与拟配音（由 8792 导出）",
+  "依据": "页首“由当前8792实际加载的……导出”"
+ },
+ {
+  "path": "xiaojianghu-legacy-prologue/docs/assets/deprecated-tests.md",
+  "建议": "现行",
+  "理由": "弃用／不启用测试方法清单，导入引导要求出图前先查",
+  "依据": "ai-onboarding.md 第 4 节"
+ },
+ {
+  "path": "xiaojianghu-legacy-prologue/docs/assets/production-assets.md",
+  "建议": "现行",
+  "理由": "当前版本正式素材清单，R-素材-01 指定",
+  "依据": "R-素材-01"
+ },
+ {
+  "path": "xiaojianghu-legacy-prologue/docs/assets/README.md",
+  "建议": "现行",
+  "理由": "【需改措辞】栖河素材目录说明，AGENTS.md 要求阅读（文中有 4 处“第X章”，R-剧情-02）",
+  "依据": "xiaojianghu-legacy-prologue/AGENTS.md“阅读……docs/assets/README.md”"
+ },
+ {
+  "path": "xiaojianghu-legacy-prologue/docs/archive/assets/audit.md",
+  "建议": "历史",
+  "理由": "10-12 全量素材盘点快照（一次性生成）",
+  "依据": "规则第 6 条；页首“共检查 16168 份媒体文件”"
+ },
+ {
+  "path": ".claude/skills/story-writing/SKILL.md",
+  "建议": "现行",
+  "理由": "剧情文案项目技能，R-剧情-01 出处",
+  "依据": "R-剧情-01"
+ },
+ {
+  "path": ".claude/skills/consistency-check/SKILL.md",
+  "建议": "现行",
+  "理由": "一致性检查项目技能",
+  "依据": "ai-onboarding.md 第 4 节“流程见项目技能 consistency-check”"
+ }
+]

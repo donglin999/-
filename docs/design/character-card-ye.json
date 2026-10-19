@@ -1,0 +1,470 @@
+{
+  "version": 1,
+  "status": "existing_base_package_complete_chapter_adaptation_pending",
+  "character_id": "ye",
+  "name": "叶蘅",
+  "species": "human",
+  "role_type": "companion",
+  "joinability": "recruitable",
+  "availability": "current",
+  "combat": true,
+  "exploration_motion": "walk_run",
+  "story_importance": "core",
+  "services": [],
+  "current_stage": "rural_healer_opening",
+  "planned_stages": [
+    "travel_needle_offense",
+    "valley_medical_support"
+  ],
+  "chapter_scope": [
+    "P-01",
+    "P-02",
+    "P-03",
+    "P-04",
+    "P-05",
+    "C1-00",
+    "C1-01",
+    "C1-02",
+    "C1-03",
+    "C1-04",
+    "C1-05",
+    "C1-06",
+    "C1-07",
+    "C1-08",
+    "C1-09",
+    "C1-10",
+    "C1-11",
+    "C1-12"
+  ],
+  "identity_refs": [
+    "../../assets/p_ye.webp",
+    "../../art_sources/menu_portraits_20260930/ye.png"
+  ],
+  "costume_and_ability_limits": [
+    "18岁成人，同脸、束发、偏瘦体型，乡村便衣与普通药具",
+    "开篇只有基础照护，守路不能提前使用后续攻击针法、归息或归元诀",
+    "当前三选一只确认山居去向，不选择叶蘅两条成长路线",
+    "已有襄阳素材是复用候选，必须再核对开篇服饰、动作与能力"
+  ],
+  "expression_map": {
+    "neutral": "base",
+    "smile": "smile",
+    "worry": "worry",
+    "firm": "angry",
+    "surprise": "surprise",
+    "hurt": "hurt"
+  },
+  "pose_definitions": [
+    {
+      "key": "hold_box",
+      "purpose": "独立保管与护住家传药箱",
+      "hands": "双手接触箱带和箱侧",
+      "gaze": "索物者或通路",
+      "props": "叶蘅自己的药箱",
+      "scenes": [
+        "C1-01",
+        "C1-03",
+        "C1-05"
+      ],
+      "needs_separate_image": false,
+      "presentation": "章节遗物／争夺／救援 CG 表现；CG 是章节需求，不另派独立抱箱立绘"
+    },
+    {
+      "key": "prepare_medicine",
+      "purpose": "整理普通药布，体现乡村医者专长",
+      "hands": "一手扶普通药包，一手拢好干净布",
+      "gaze": "手边药具",
+      "props": "普通药包和布带，不是续脉散样品",
+      "scenes": [
+        "C1-A1",
+        "C1-07"
+      ],
+      "needs_separate_image": false,
+      "presentation": "复用已采用 p_ye.webp 整理布带姿势"
+    },
+    {
+      "key": "stop_request",
+      "purpose": "拒绝抢物或示意同伴等一下",
+      "hands": "一手平伸示停，另一手收在身侧",
+      "gaze": "正在交涉的人",
+      "props": "不加剑与进攻针",
+      "scenes": [
+        "C1-01",
+        "C1-02"
+      ],
+      "needs_separate_image": false,
+      "presentation": "复用 p_ye_angry.webp 的坚定表情与对白"
+    }
+  ],
+  "assets": [
+    {
+      "id": "ye_rural_identity",
+      "group": "identity",
+      "quality": "identity",
+      "status": "integrated_reuse",
+      "candidates": [
+        "../../art_sources/menu_portraits_20260930/ye.png"
+      ],
+      "checks": "既有初始形象为身份参照，无需另画定妆；第一章保持同脸同装"
+    },
+    {
+      "id": "ye_rural_avatar",
+      "group": "avatar",
+      "quality": "avatar",
+      "status": "integrated_reuse",
+      "derive_from": "ye_rural_dialogue_neutral",
+      "candidates": [
+        "../../assets/p_ye.webp"
+      ],
+      "checks": "现有角色栏与战斗使用同源立绘／表情，按界面裁切；无需新生头像"
+    },
+    {
+      "id": "ye_rural_menu",
+      "group": "menu_portrait",
+      "quality": "menu_portrait",
+      "status": "integrated_reuse",
+      "candidates": [
+        "../../assets/p_menu_ye_v1.webp"
+      ],
+      "checks": "现有菜单图已采用并接入；城门茶棚背景属于襄阳。第一章若实际启用严格地点对应菜单，再安排背景适配，不默认重画人物",
+      "source_dimensions": [
+        1024,
+        1536
+      ],
+      "source_dimensions_note": "已读取候选文件尺寸；原生生成尺寸需由对应生成记录确认"
+    },
+    {
+      "id": "ye_rural_dialogue_neutral",
+      "group": "dialogue",
+      "semantic": "neutral",
+      "quality": "dialogue_portrait",
+      "status": "integrated_reuse",
+      "candidates": [
+        "../../assets/p_ye.webp"
+      ],
+      "runtime_size": [
+        306,
+        640
+      ]
+    },
+    {
+      "id": "ye_rural_dialogue_smile",
+      "group": "dialogue",
+      "semantic": "smile",
+      "quality": "dialogue_portrait",
+      "status": "integrated_reuse",
+      "candidates": [
+        "../../assets/p_ye_smile.webp"
+      ],
+      "runtime_size": [
+        306,
+        640
+      ]
+    },
+    {
+      "id": "ye_rural_dialogue_worry",
+      "group": "dialogue",
+      "semantic": "worry",
+      "quality": "dialogue_portrait",
+      "status": "integrated_reuse",
+      "candidates": [
+        "../../assets/p_ye_worry.webp"
+      ],
+      "runtime_size": [
+        306,
+        640
+      ]
+    },
+    {
+      "id": "ye_rural_dialogue_firm",
+      "group": "dialogue",
+      "semantic": "firm",
+      "quality": "dialogue_portrait",
+      "status": "integrated_reuse",
+      "candidates": [
+        "../../assets/p_ye_angry.webp"
+      ],
+      "runtime_size": [
+        306,
+        640
+      ]
+    },
+    {
+      "id": "ye_rural_dialogue_surprise",
+      "group": "dialogue",
+      "semantic": "surprise",
+      "quality": "dialogue_portrait",
+      "status": "integrated_reuse",
+      "candidates": [
+        "../../assets/p_ye_surprise.webp"
+      ],
+      "runtime_size": [
+        306,
+        640
+      ]
+    },
+    {
+      "id": "ye_rural_dialogue_hurt",
+      "group": "dialogue",
+      "semantic": "hurt",
+      "quality": "dialogue_portrait",
+      "status": "integrated_reuse",
+      "candidates": [
+        "../../assets/p_ye_hurt.webp"
+      ],
+      "runtime_size": [
+        306,
+        640
+      ]
+    },
+    {
+      "id": "ye_rural_pose_hold_box",
+      "group": "story_poses",
+      "pose_key": "hold_box",
+      "quality": "story_pose",
+      "status": "not_requested_separate_asset",
+      "checks": "章节遗物／争夺／救援 CG 表现；CG 是章节需求，不另派独立抱箱立绘"
+    },
+    {
+      "id": "ye_rural_pose_prepare_medicine",
+      "group": "story_poses",
+      "pose_key": "prepare_medicine",
+      "quality": "story_pose",
+      "status": "not_requested_separate_asset",
+      "checks": "复用已采用 p_ye.webp 整理布带姿势"
+    },
+    {
+      "id": "ye_rural_pose_stop_request",
+      "group": "story_poses",
+      "pose_key": "stop_request",
+      "quality": "story_pose",
+      "status": "not_requested_separate_asset",
+      "checks": "复用 p_ye_angry.webp 的坚定表情与对白"
+    },
+    {
+      "id": "ye_rural_exploration",
+      "group": "exploration",
+      "quality": "exploration",
+      "status": "integrated_verified_2026_10_02",
+      "candidates": [
+        "../../assets/s_ye.webp",
+        "../../assets/s_ye_walk_v2.webp"
+      ],
+      "runtime_size": [
+        336,
+        564
+      ],
+      "coverage": "四向站姿／备用步行合表＋每向8帧专用步行；加速跟随使用同表调整步频，无独立跑步表",
+      "walk_runtime_size": [
+        672,
+        564
+      ],
+      "cell": [
+        84,
+        141
+      ],
+      "rows": "dlru",
+      "walk_frames_per_direction": 8,
+      "checks": "32帧姿势QA通过；1280×720、1920×1080道路场景四向步行与加速跟随16组及连续转向通过。证据见ye-walk-regeneration.md；不代表全部地形、第一章适配或线上发布通过。"
+    },
+    {
+      "id": "ye_rural_exploration_run",
+      "group": "exploration_run",
+      "quality": "exploration",
+      "status": "optional_upgrade_deferred",
+      "checks": "没有独立跑步表；现有站立／行走及加速跟随已可用，专用跑步作为后续品质提升，不阻塞第一章"
+    },
+    {
+      "id": "ye_rural_battle",
+      "group": "party_battle",
+      "quality": "party_battle",
+      "status": "integrated_reuse",
+      "candidates": [
+        "../../assets/b_ye.webp"
+      ],
+      "runtime_size": [
+        7920,
+        210
+      ],
+      "checks": "20帧含idle/dash/atk/atk2/hurt/cast/brk/dead/win已映射；第一章限制为基础照护和自保，需核对技能与攻击姿势，不默认重做全表"
+    },
+    {
+      "id": "ye_rural_dialogue_shy",
+      "group": "dialogue_extra",
+      "semantic": "shy",
+      "quality": "dialogue_portrait",
+      "status": "integrated_reuse",
+      "candidates": [
+        "../../assets/p_ye_shy.webp"
+      ],
+      "runtime_size": [
+        306,
+        640
+      ]
+    },
+    {
+      "id": "ye_rural_dialogue_battle",
+      "group": "dialogue_extra",
+      "semantic": "battle",
+      "quality": "dialogue_portrait",
+      "status": "integrated_reuse",
+      "candidates": [
+        "../../assets/p_ye_battle.webp"
+      ],
+      "runtime_size": [
+        306,
+        640
+      ]
+    }
+  ],
+  "generation_plan": [
+    {
+      "action": "reuse",
+      "groups": [
+        "identity",
+        "avatar",
+        "menu_portrait",
+        "dialogue",
+        "dialogue_extra",
+        "exploration",
+        "party_battle"
+      ],
+      "reason": "已有角色基础包齐备并接入，第一章优先复用"
+    },
+    {
+      "action": "review_chapter_adaptation",
+      "groups": [
+        "menu_portrait",
+        "party_battle"
+      ],
+      "reason": "核对实际菜单使用地点与开篇基础能力；只有明确不适配时另列局部修改"
+    },
+    {
+      "action": "defer",
+      "groups": [
+        "story_poses",
+        "exploration_run"
+      ],
+      "reason": "不为固定数量派独立姿态，专用跑步暂作可选提升"
+    },
+    {
+      "action": "defer",
+      "stages": [
+        "travel_needle_offense",
+        "valley_medical_support"
+      ],
+      "reason": "成长路线服饰与能力尚未进入本章"
+    }
+  ],
+  "quality_evidence": [
+    {
+      "check": "current_integration",
+      "result": "confirmed_existing_files_and_runtime_mappings_2026_09_30",
+      "scope": "基础立绘＋七张差分；菜单引用；ART.sheet四向4列；BART.ye二十帧动作；已有角色语音文件"
+    },
+    {
+      "check": "menu_visual",
+      "result": "existing_acceptance_record",
+      "scope": "jianghu-portraits.md及review/menu-portraits；本次查看菜单图与基础立绘"
+    },
+    {
+      "check": "chapter_stage",
+      "result": "pending",
+      "scope": "第一章战斗能力、姿态与菜单背景匹配，不撤销现有基础包完成状态"
+    },
+    {
+      "check": "chapter_display",
+      "result": "pending",
+      "scope": "第一章尚未完整接入，章节CG与新台词另行验收"
+    },
+    {
+      "check": "exploration_regeneration",
+      "result": "passed_and_integrated_2026_10_02",
+      "scope": "四向站姿、每向8帧原生步行；姿势QA32/32；道路场景两视口16组、连续转向与停止。独立跑步和其他地形未覆盖。",
+      "evidence": [
+        "ye-walk-regeneration.md",
+        "../../art_sources/ye_walk_20261002/corrected/packed/qa.json",
+        "../../review/character-walk-20261002/README.md"
+      ]
+    }
+  ],
+  "combat_side": "ally",
+  "exploration_presence": "on_map",
+  "base_package_status": "complete_and_integrated_in_current_runtime",
+  "opening_adaptation_status": "pending_chapter_integration_not_missing_base_assets",
+  "needs_story_poses": false,
+  "needs_dedicated_run": false,
+  "dialogue_package_status": "6_unified_states_production_in_progress",
+  "dialogue_package_source": "companion-performance/ye-heng.md",
+  "dialogue_package_contract": {
+    "count": 6,
+    "separate_expression_count": 0,
+    "switch": "whole_image",
+    "emotion_pose_gate_required": true,
+    "source": "companion-performance.md"
+  },
+  "dialogue_state_definitions": [
+    {
+      "key": "neutral",
+      "label": "常态倾听",
+      "body_and_emotion": "身体轻侧，双手收拢在腹前，不把药布举到脸前；肩颈自然松弛，头正常抬起，看向说话人，眉眼平静，嘴唇轻合，不欢迎挥手，也不做忧伤缩肩。道具：腰侧普通药囊"
+    },
+    {
+      "key": "happy",
+      "label": "开心认可",
+      "body_and_emotion": "右手抬至肩下轻招，左手扶腰侧药囊，双脚自然站稳；肩背舒展，头略抬，身体向来人轻侧，眼神温暖，眉眼舒展、自然真实的小笑。道具：自己的药囊"
+    },
+    {
+      "key": "sad",
+      "label": "伤心担忧",
+      "body_and_emotion": "两臂收近身体，两手在腰前偏低握住本人随身物或衣缘，肩部明显低落内收，头微低、躯干轻侧、重心偏后；内眉收起、眼神低垂、嘴角轻落，成人忧心而非惊恐；绝不挥手、欢迎或微笑。本人随身道具仍稳妥挂腰/背负，不凭空换装。"
+    },
+    {
+      "key": "angry",
+      "label": "愤怒拒绝",
+      "body_and_emotion": "左臂将小药箱收在身侧，右手掌朝外示停，重心前移一点；肩背稳直，身体稍向前，重心前移，头正直、不低头；眉位压低、目光直接有力、唇线紧抿、绝不微笑，是明确的愤怒与拒绝。示停掌在胸下，不像抬高欢迎。道具：本人小药箱。长棍/篙必须改为竖直置于身侧或贴身短斜角，两端完整留在画内，不横跨边缘。"
+    },
+    {
+      "key": "surprise",
+      "label": "惊讶发现",
+      "body_and_emotion": "躯干小幅后仰、肩轻提、重心后移，头稍向前确认；一手靠近胸骨，另一手稳住本人腰侧/背负道具，肘贴近身体；眉轻抬、眼睛自然睁大、嘴唇小幅分开，成人吃惊。绝不挥手或欢快招呼，恰有两臂两腿。"
+    },
+    {
+      "key": "shy",
+      "label": "含蓄亲近",
+      "body_and_emotion": "两手轻握腰前药袋的肩带，上臂收近身体，肩微内收，上身轻侧、头稍低后回看；浅淡脸红、眼神含蓄，柔软闭唇小笑；不是抬手欢迎。"
+    }
+  ],
+  "character_icons": [
+    {
+      "stage_id": "rural_healer_opening",
+      "required": true,
+      "performance_plan": {
+        "personality_basis": "朴素清秀、亲近坚韧、警醒；针具、布带、药袋",
+        "variants": [
+          {
+            "expression": "眼神专注清亮",
+            "pose": "两指拈银针举到颊边",
+            "props": "银针"
+          },
+          {
+            "expression": "侧头微笑",
+            "pose": "手里缠着一段布带，发带被风扬起",
+            "props": "布带"
+          }
+        ]
+      },
+      "reference_portraits": [
+        "xiaojianghu-legacy-prologue/assets/production/portraits/p_ye_hd_20261017.webp"
+      ],
+      "facing": "画面左",
+      "status": "候选，未采用",
+      "source_batch": "xiaojianghu-legacy-prologue/art_sources/char-icons-20261019/",
+      "candidate_ids": [
+        "R2_ye_a",
+        "R2_ye_b"
+      ],
+      "note": "第二轮试生成，待用户评审选定；未登记正式素材、未接入游戏；参考立绘为栖河试玩版 2026-10-17 高清立绘；本卡阶段复验时以本阶段正式立绘为准"
+    }
+  ]
+}

@@ -1,0 +1,491 @@
+{
+ "rows": [
+  {
+   "stage": "first_courses",
+   "party": "稳定入门",
+   "clear": 0,
+   "hpEnd": 0,
+   "mpEnd": 0.42808433433433435
+  },
+  {
+   "stage": "first_courses",
+   "party": "破势爆发",
+   "clear": 0,
+   "hpEnd": 0,
+   "mpEnd": 0.6727352352352353
+  },
+  {
+   "stage": "first_courses",
+   "party": "稳守游历",
+   "clear": 0,
+   "hpEnd": 0,
+   "mpEnd": 0.883101851851852
+  },
+  {
+   "stage": "first_courses",
+   "party": "松风接应",
+   "clear": 0,
+   "hpEnd": 0,
+   "mpEnd": 0.8243243243243249
+  },
+  {
+   "stage": "first_courses",
+   "party": "归烬强攻",
+   "clear": 0,
+   "hpEnd": 0,
+   "mpEnd": 0.5891203703703703
+  },
+  {
+   "stage": "xiangyang",
+   "party": "稳定入门",
+   "clear": 0.7083333333333334,
+   "hpEnd": 0.10031838446190296,
+   "mpEnd": 0.3530643738977071
+  },
+  {
+   "stage": "xiangyang",
+   "party": "破势爆发",
+   "clear": 0.625,
+   "hpEnd": 0.10441657502093521,
+   "mpEnd": 0.39087301587301587
+  },
+  {
+   "stage": "xiangyang",
+   "party": "稳守游历",
+   "clear": 0.6666666666666666,
+   "hpEnd": 0.08682863775456368,
+   "mpEnd": 0.5296080964685617
+  },
+  {
+   "stage": "xiangyang",
+   "party": "松风接应",
+   "clear": 0.875,
+   "hpEnd": 0.1906540326100511,
+   "mpEnd": 0.34126984126984117
+  },
+  {
+   "stage": "xiangyang",
+   "party": "归烬强攻",
+   "clear": 0.2916666666666667,
+   "hpEnd": 0.04645252036516656,
+   "mpEnd": 0.3442460317460318
+  },
+  {
+   "stage": "year1_end",
+   "party": "稳定入门",
+   "clear": 0.8333333333333334,
+   "hpEnd": 0.21516771158133574,
+   "mpEnd": 0.3487373737373738
+  },
+  {
+   "stage": "year1_end",
+   "party": "破势爆发",
+   "clear": 0.7916666666666666,
+   "hpEnd": 0.1646871475611498,
+   "mpEnd": 0.45
+  },
+  {
+   "stage": "year1_end",
+   "party": "稳守游历",
+   "clear": 0.625,
+   "hpEnd": 0.17319530851276885,
+   "mpEnd": 0.5486425576519918
+  },
+  {
+   "stage": "year1_end",
+   "party": "松风接应",
+   "clear": 1,
+   "hpEnd": 0.3259848019425428,
+   "mpEnd": 0.34555555555555556
+  },
+  {
+   "stage": "year1_end",
+   "party": "归烬强攻",
+   "clear": 0.5,
+   "hpEnd": 0.04892276150343477,
+   "mpEnd": 0.405
+  },
+  {
+   "stage": "year2_mid",
+   "party": "稳定入门",
+   "clear": 1,
+   "hpEnd": 0.6248056577988119,
+   "mpEnd": 0.29641909814323614
+  },
+  {
+   "stage": "year2_mid",
+   "party": "破势爆发",
+   "clear": 1,
+   "hpEnd": 0.5179193404211485,
+   "mpEnd": 0.2363201812555261
+  },
+  {
+   "stage": "year2_mid",
+   "party": "稳守游历",
+   "clear": 0.9583333333333334,
+   "hpEnd": 0.32798054358660417,
+   "mpEnd": 0.3263290229885058
+  },
+  {
+   "stage": "year2_mid",
+   "party": "松风接应",
+   "clear": 1,
+   "hpEnd": 0.4963025257400257,
+   "mpEnd": 0.32698589548551515
+  },
+  {
+   "stage": "year2_mid",
+   "party": "归烬强攻",
+   "clear": 1,
+   "hpEnd": 0.700052675800621,
+   "mpEnd": 0.1206896551724138
+  },
+  {
+   "stage": "year2_end",
+   "party": "稳定入门",
+   "clear": 1,
+   "hpEnd": 0.9334873053500011,
+   "mpEnd": 0.2959114167995747
+  },
+  {
+   "stage": "year2_end",
+   "party": "破势爆发",
+   "clear": 1,
+   "hpEnd": 0.5681494541525399,
+   "mpEnd": 0.28617175039872406
+  },
+  {
+   "stage": "year2_end",
+   "party": "稳守游历",
+   "clear": 1,
+   "hpEnd": 0.36008729302667014,
+   "mpEnd": 0.36190025252525243
+  },
+  {
+   "stage": "year2_end",
+   "party": "松风接应",
+   "clear": 1,
+   "hpEnd": 0.7358400871368523,
+   "mpEnd": 0.3375772730514386
+  },
+  {
+   "stage": "year2_end",
+   "party": "归烬强攻",
+   "clear": 1,
+   "hpEnd": 0.8530733147936084,
+   "mpEnd": 0.18008207070707072
+  },
+  {
+   "stage": "graduation",
+   "party": "稳定入门",
+   "clear": 1,
+   "hpEnd": 0.9458290224360636,
+   "mpEnd": 0.30385366984631684
+  },
+  {
+   "stage": "graduation",
+   "party": "破势爆发",
+   "clear": 1,
+   "hpEnd": 0.6321851453553237,
+   "mpEnd": 0.29962738473767886
+  },
+  {
+   "stage": "graduation",
+   "party": "稳守游历",
+   "clear": 1,
+   "hpEnd": 0.4565660225049985,
+   "mpEnd": 0.3407939189189189
+  },
+  {
+   "stage": "graduation",
+   "party": "松风接应",
+   "clear": 1,
+   "hpEnd": 0.7521824204000257,
+   "mpEnd": 0.3336983805437315
+  },
+  {
+   "stage": "graduation",
+   "party": "归烬强攻",
+   "clear": 1,
+   "hpEnd": 0.8618739604553065,
+   "mpEnd": 0.1956644144144144
+  },
+  {
+   "stage": "travel_entry",
+   "party": "稳定入门",
+   "clear": 1,
+   "hpEnd": 0.7711040160747656,
+   "mpEnd": 0.2557029518835074
+  },
+  {
+   "stage": "travel_entry",
+   "party": "破势爆发",
+   "clear": 1,
+   "hpEnd": 0.4571634448503669,
+   "mpEnd": 0.09481342988287433
+  },
+  {
+   "stage": "travel_entry",
+   "party": "稳守游历",
+   "clear": 1,
+   "hpEnd": 0.4575363245405737,
+   "mpEnd": 0.19594313865147198
+  },
+  {
+   "stage": "travel_entry",
+   "party": "松风接应",
+   "clear": 1,
+   "hpEnd": 0.7020848978374109,
+   "mpEnd": 0.09543803418803422
+  },
+  {
+   "stage": "travel_entry",
+   "party": "归烬强攻",
+   "clear": 1,
+   "hpEnd": 0.8253271644456377,
+   "mpEnd": 0.0328525641025641
+  },
+  {
+   "stage": "travel_mid",
+   "party": "稳定入门",
+   "clear": 1,
+   "hpEnd": 0.8404936493001053,
+   "mpEnd": 0.27177119129438715
+  },
+  {
+   "stage": "travel_mid",
+   "party": "破势爆发",
+   "clear": 1,
+   "hpEnd": 0.44856314850234336,
+   "mpEnd": 0.1730300210003818
+  },
+  {
+   "stage": "travel_mid",
+   "party": "稳守游历",
+   "clear": 1,
+   "hpEnd": 0.4092971398259859,
+   "mpEnd": 0.23956543528064148
+  },
+  {
+   "stage": "travel_mid",
+   "party": "松风接应",
+   "clear": 1,
+   "hpEnd": 0.7762413761801018,
+   "mpEnd": 0.11083416313998838
+  },
+  {
+   "stage": "travel_mid",
+   "party": "归烬强攻",
+   "clear": 1,
+   "hpEnd": 0.9085433149868134,
+   "mpEnd": 0.024768518518518523
+  },
+  {
+   "stage": "chapter14",
+   "party": "稳定入门",
+   "clear": 1,
+   "hpEnd": 0.8606522393953874,
+   "mpEnd": 0.26956741898148145
+  },
+  {
+   "stage": "chapter14",
+   "party": "破势爆发",
+   "clear": 1,
+   "hpEnd": 0.5041836862060518,
+   "mpEnd": 0.18232783564814814
+  },
+  {
+   "stage": "chapter14",
+   "party": "稳守游历",
+   "clear": 1,
+   "hpEnd": 0.40152616300099403,
+   "mpEnd": 0.25730613425925924
+  },
+  {
+   "stage": "chapter14",
+   "party": "松风接应",
+   "clear": 1,
+   "hpEnd": 0.7637752496737931,
+   "mpEnd": 0.08402927714646467
+  },
+  {
+   "stage": "chapter14",
+   "party": "归烬强攻",
+   "clear": 1,
+   "hpEnd": 0.9277569862347802,
+   "mpEnd": 0.02224392361111111
+  },
+  {
+   "stage": "chapter17",
+   "party": "稳定入门",
+   "clear": 1,
+   "hpEnd": 0.8329901491002797,
+   "mpEnd": 0.28603859942804294
+  },
+  {
+   "stage": "chapter17",
+   "party": "破势爆发",
+   "clear": 1,
+   "hpEnd": 0.3643674498106206,
+   "mpEnd": 0.18381507422766982
+  },
+  {
+   "stage": "chapter17",
+   "party": "稳守游历",
+   "clear": 0.9166666666666666,
+   "hpEnd": 0.30040150426009943,
+   "mpEnd": 0.28932338702610044
+  },
+  {
+   "stage": "chapter17",
+   "party": "松风接应",
+   "clear": 1,
+   "hpEnd": 0.7708367274483073,
+   "mpEnd": 0.015996393814734933
+  },
+  {
+   "stage": "chapter17",
+   "party": "归烬强攻",
+   "clear": 1,
+   "hpEnd": 0.8872355778676413,
+   "mpEnd": 0.030175383417205843
+  },
+  {
+   "stage": "chapter18",
+   "party": "稳定入门",
+   "clear": 1,
+   "hpEnd": 0.6009250115166145,
+   "mpEnd": 0.254438758934373
+  },
+  {
+   "stage": "chapter18",
+   "party": "破势爆发",
+   "clear": 1,
+   "hpEnd": 0.3575554394463846,
+   "mpEnd": 0.14140613285350132
+  },
+  {
+   "stage": "chapter18",
+   "party": "稳守游历",
+   "clear": 0.9583333333333334,
+   "hpEnd": 0.3362417414311845,
+   "mpEnd": 0.2783129810816215
+  },
+  {
+   "stage": "chapter18",
+   "party": "松风接应",
+   "clear": 1,
+   "hpEnd": 0.5874608873773951,
+   "mpEnd": 0.004412361923326836
+  },
+  {
+   "stage": "chapter18",
+   "party": "归烬强攻",
+   "clear": 1,
+   "hpEnd": 0.7194896037170796,
+   "mpEnd": 0.02314814814814814
+  },
+  {
+   "stage": "finale",
+   "party": "稳定入门",
+   "clear": 0.9583333333333334,
+   "hpEnd": 0.5229474807350355,
+   "mpEnd": 0.2573793242691739
+  },
+  {
+   "stage": "finale",
+   "party": "破势爆发",
+   "clear": 1,
+   "hpEnd": 0.37272224396991155,
+   "mpEnd": 0.1066309261654258
+  },
+  {
+   "stage": "finale",
+   "party": "稳守游历",
+   "clear": 0.9583333333333334,
+   "hpEnd": 0.33661583245253696,
+   "mpEnd": 0.2638418207921167
+  },
+  {
+   "stage": "finale",
+   "party": "松风接应",
+   "clear": 1,
+   "hpEnd": 0.49437042803752557,
+   "mpEnd": 0.011169110511372751
+  },
+  {
+   "stage": "finale",
+   "party": "归烬强攻",
+   "clear": 1,
+   "hpEnd": 0.6326196851081819,
+   "mpEnd": 0.0234893393832943
+  }
+ ],
+ "inner": {
+  "xf_panshi": 25,
+  "xf_baicao": 283,
+  "xf_tongdan": 36,
+  "xf_xunliu": 4,
+  "xf_tingfeng": 5,
+  "xf_songxi": 9,
+  "xf_tuna": 1,
+  "xf_guiyun": 4,
+  "xf_guixi": 462,
+  "xf_hemai": 10,
+  "xf_wanhe": 137
+ },
+ "skillUse": {
+  "gy_s1": 3735,
+  "basic": 29502,
+  "bh_s1": 4420,
+  "bh_s2": 2362,
+  "hc_s1": 5874,
+  "gy_p1": 3769,
+  "gj_s1": 1776,
+  "gj_s2": 1614,
+  "gy_s2": 2534,
+  "lhg_s1": 107,
+  "zc_s1": 633,
+  "zc_s2": 588,
+  "yh_s0": 2210,
+  "hc_s2": 69,
+  "bh_s0": 48,
+  "yh_n2": 4242,
+  "yh_n1": 318,
+  "gy_s3": 2211,
+  "hc_s3": 1483,
+  "zc_s3": 613,
+  "am_s1": 1356,
+  "yh_m1": 853,
+  "gy_p3": 710,
+  "pj_s2": 2052,
+  "pj_s3": 316,
+  "pj_s1": 457,
+  "sf_s3": 28,
+  "gj_s3": 1907,
+  "bh_s3": 2,
+  "gy_s4": 2533,
+  "bh_s4": 1192,
+  "yh_n3": 887,
+  "zc_s4": 687,
+  "am_s3": 902,
+  "hc_s4": 45,
+  "sf_s4": 995,
+  "pj_s4": 23,
+  "gj_s4": 795,
+  "bh_s4b": 19,
+  "gy_p4b": 631,
+  "sf_s4b": 233,
+  "pj_s4b": 596,
+  "gj_s4b": 114,
+  "gy_s5a": 125,
+  "bh_s5a": 556,
+  "sf_s5a": 28,
+  "hc_s4b": 39,
+  "gy_s5b": 428,
+  "bh_s5b": 57,
+  "zc_s5b": 98,
+  "hc_s5b": 30,
+  "yh_m3": 1
+ }
+}

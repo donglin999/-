@@ -1,0 +1,45 @@
+{
+  "positive_global_styles": [
+    "Purely instrumental Chinese acoustic ensemble score for a populated daytime market in a Southern Song wuxia RPG, warm and welcoming, bright major pentatonic, steady 108 BPM 4/4",
+    "Rich layered folk orchestration with ten instrument roles, broad low middle and high registers, energetic everyday commerce, melodic counterpoint and active accompaniment",
+    "Continuous rounded daruan plucked bass ostinato and lower bowed zhonghu pulses underpinning the whole piece",
+    "Pipa rhythmic chords and syncopated yangqin hammered arpeggios interlock with guzheng rolling inner figures",
+    "Audible sheng sustained warm chord voicings and a small erhu section playing rhythmic inner harmony rather than a sorrowful solo",
+    "Dizi carries a memorable bright motif, answered by short lively gaohu countermelody, with occasional contrasting xiao phrases over the full ensemble",
+    "Wooden clappers, small tanggu drum and quiet shaker maintain a clearly audible walking groove, sparse tiny bronze accents",
+    "Bass, rhythm, harmonic middle and melodic reply all play simultaneously from the opening and remain present; no empty solo passages",
+    "Natural acoustic timbres, distinct instrument articulation, warm full-bodied mix, lively restrained dynamics suitable for dialogue",
+    "Continuous exploration loop with consistent pulse and tonic; start in the full ensemble and finish in the same active texture"
+  ],
+  "negative_global_styles": [
+    "vocals, singing, choir, spoken words, crowd recordings",
+    "sparse chamber duet, minimalist arrangement, flute over empty accompaniment, long solo breaks, meditative ambience, hollow midrange",
+    "sad lament, melancholy minor drone, mournful erhu bends, funeral, tragic slow flute",
+    "loud celebratory cymbals, festival march, grand triumph, military battle drums, cinematic climax",
+    "synthesizers, electric guitar, pop drum kit, electronic dance beat",
+    "long intro, empty breakdown, ending cadence flourish, fade to silence"
+  ],
+  "sections": [
+    {
+      "section_name": "Busy street main theme full ensemble",
+      "duration_ms": 30000,
+      "positive_local_styles": ["Start immediately with bass, light drum and clappers, pipa chord rhythm, yangqin figures, guzheng inner motion, sheng warm chords and bowed-string inner harmony together", "Dizi memorable eight-bar motif with gaohu answering counterline; retain the full accompaniment under every phrase"],
+      "negative_local_styles": ["solo introduction", "thin duet", "delayed entry of bass or harmony"],
+      "lines": []
+    },
+    {
+      "section_name": "Trading street interwoven variations",
+      "duration_ms": 30000,
+      "positive_local_styles": ["Continue the same tempo and full ensemble; trade the motif between dizi and gaohu while xiao supplies short lower-register replies", "Pipa and yangqin exchange syncopated figures, bowed strings and sheng sustain a substantial middle register, daruan bass and light percussion stay active"],
+      "negative_local_styles": ["stripping away accompaniment", "ambient interlude", "solo flute", "huge crescendo"],
+      "lines": []
+    },
+    {
+      "section_name": "Market motif return for continuous loop",
+      "duration_ms": 30000,
+      "positive_local_styles": ["Return to the opening dizi motif with gaohu counterpoint and all accompaniment layers continuously audible", "Keep the same tonic, pulse, bass figure and ensemble density to the final instant, letting the runtime crossfade back into the opening"],
+      "negative_local_styles": ["outro fade", "dramatic final chord", "percussion stopping", "solo ending"],
+      "lines": []
+    }
+  ]
+}

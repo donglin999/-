@@ -1,0 +1,462 @@
+{
+  "schema_version": 1,
+  "version": "OPENING-PEI-2026-10-08.1",
+  "status": "opening-runtime-adopted-new-audio-pending",
+  "source": "docs/design/opening-three-representatives.md",
+  "catalog_changes": [
+    {
+      "line_id": "C1-01-11",
+      "old_catalog_id": "opening.C1-01-11",
+      "old_character_id": "zhouyan",
+      "old_text": "先跨进人家的门，再问她怕不怕，算什么谈法？退回去。",
+      "new_speaker": "周砚",
+      "new_text": "负责之前，先问是不是她托你的。纸上写叶家，站在你面前的也是叶家。退回门外，听她说。",
+      "disposition": "replace",
+      "reason": "Authored revision and spatial implementation adopted locally; changed speaker/text cannot reuse old audio."
+    },
+    {
+      "line_id": "C1-05-A02",
+      "old_catalog_id": "opening.C1-05-A02",
+      "old_character_id": "lu-heng",
+      "old_text": "接到人就往后门来。",
+      "new_speaker": "陆衡",
+      "new_text": "接到人就往装卸侧口来。",
+      "disposition": "replace",
+      "reason": "Authored revision and spatial implementation adopted locally; changed speaker/text cannot reuse old audio."
+    },
+    {
+      "line_id": "C1-05-A11",
+      "old_catalog_id": "opening.C1-05-A11",
+      "old_character_id": "aunt",
+      "old_text": "这边齐了，往后门走！",
+      "new_speaker": "周婶",
+      "new_text": "这边齐了，往装卸侧口走！",
+      "disposition": "replace",
+      "reason": "Authored revision and spatial implementation adopted locally; changed speaker/text cannot reuse old audio."
+    },
+    {
+      "line_id": "C1-02-09",
+      "old_catalog_id": "opening.C1-02-09",
+      "old_character_id": "chengduo",
+      "old_text": "手收回去。找人说事，不是堵路抢。",
+      "new_speaker": "沈雁回",
+      "new_text": "手收回去。谁让你在路中间翻人的东西？",
+      "disposition": "replace",
+      "reason": "Authored revision and spatial implementation adopted locally; changed speaker/text cannot reuse old audio."
+    },
+    {
+      "line_id": "C1-02-13",
+      "old_catalog_id": "opening.C1-02-13",
+      "old_character_id": "chengduo",
+      "old_text": "征的是药，没让你扣她整个家。列药名、列数目，病人手上的先留着。",
+      "new_speaker": "叶蘅",
+      "new_text": "同意的是谁？母亲留下的箱子，没人替我作过主。",
+      "disposition": "replace",
+      "reason": "Authored revision and spatial implementation adopted locally; changed speaker/text cannot reuse old audio."
+    },
+    {
+      "line_id": "C1-02-18",
+      "old_catalog_id": "opening.C1-02-18",
+      "old_character_id": "chengduo",
+      "old_text": "后边让一条路出来。她去送药，你们有话找我。",
+      "new_speaker": "沈雁回",
+      "new_text": "差役，把侧路让出来。她去送药，查验的事来找我，不许扣她的人。",
+      "disposition": "replace",
+      "reason": "Authored revision and spatial implementation adopted locally; changed speaker/text cannot reuse old audio."
+    },
+    {
+      "line_id": "C1-04-11",
+      "old_catalog_id": "opening.C1-04-11",
+      "old_character_id": "chengduo",
+      "old_text": "开路！让人先出去！",
+      "new_speaker": "沈雁回",
+      "new_text": "查验停下！开路，让人先出去！",
+      "disposition": "replace",
+      "reason": "Authored revision and spatial implementation adopted locally; changed speaker/text cannot reuse old audio."
+    },
+    {
+      "line_id": "C1-04-13",
+      "old_catalog_id": "opening.C1-04-13",
+      "old_character_id": "chengduo",
+      "old_text": "人还在里面！",
+      "new_speaker": "沈雁回",
+      "new_text": "我让你开门！药毁了能记，人困在里面等不得！",
+      "disposition": "replace",
+      "reason": "Authored revision and spatial implementation adopted locally; changed speaker/text cannot reuse old audio."
+    },
+    {
+      "line_id": "C1-08-14",
+      "old_catalog_id": "opening.C1-08-14",
+      "old_character_id": "chengduo",
+      "old_text": "这次先拦住了。后头怎么查，得看证人和公文。我不能说一句就算办完。",
+      "new_speaker": "沈雁回",
+      "new_text": "原差事要由程巡检复核，我不能把它撕了就算撤销。但这次限制是我下的，我先撤；回报不把自己的名字漏掉。",
+      "disposition": "replace",
+      "reason": "Authored revision and spatial implementation adopted locally; changed speaker/text cannot reuse old audio."
+    },
+    {
+      "line_id": "C1-02-02",
+      "old_catalog_id": "opening.C1-02-02",
+      "old_character_id": "wukui",
+      "old_text": "叶家的？玉匣在哪儿？",
+      "new_speaker": "岑霜",
+      "new_text": "叶姑娘？归烬堂岑霜。我是来接玄曜玉匣的，不必劳烦你再找别人传话。",
+      "disposition": "replace",
+      "reason": "Authored revision and spatial implementation adopted locally; changed speaker/text cannot reuse old audio."
+    },
+    {
+      "line_id": "C1-02-06",
+      "old_catalog_id": "opening.C1-02-06",
+      "old_character_id": "wukui",
+      "old_text": "谁跟你说买了？那匣子本来就该回归烬堂。",
+      "new_speaker": "岑霜",
+      "new_text": "传讯写的是归还堂中旧物。卖不卖可以先放下，匣子为什么在你家，总得说清楚。",
+      "disposition": "replace",
+      "reason": "Authored revision and spatial implementation adopted locally; changed speaker/text cannot reuse old audio."
+    },
+    {
+      "line_id": "C1-04-15",
+      "old_catalog_id": "opening.C1-04-15",
+      "old_character_id": "wukui",
+      "old_text": "岑霜！他们要带匣子跑！",
+      "new_speaker": "乌魁",
+      "new_text": "岑姑娘！不是你让看住箱子的吗？",
+      "disposition": "replace",
+      "reason": "Authored revision and spatial implementation adopted locally; changed speaker/text cannot reuse old audio."
+    },
+    {
+      "line_id": "C1-04-16",
+      "old_catalog_id": "opening.C1-04-16",
+      "old_character_id": "cen-shuang",
+      "old_text": "谁准你对村民动手的？",
+      "new_speaker": "岑霜",
+      "new_text": "我让你报我，谁让你上手抢？先把人放开！",
+      "disposition": "replace",
+      "reason": "Authored revision and spatial implementation adopted locally; changed speaker/text cannot reuse old audio."
+    },
+    {
+      "line_id": "C1-08-06",
+      "old_catalog_id": "opening.C1-08-06",
+      "old_character_id": "cen-shuang",
+      "old_text": "乌魁和抢包袱的人，我带回去问。人名、伤情和损物留一份给我，周婶再留一份。我不让他们自己报一个数就了事。",
+      "new_speaker": "岑霜",
+      "new_text": "乌魁和抢包袱的人，我带回去问。人名、伤情和损物留两份，我签一份，周婶留一份。那张引我来索匣的传讯，也从我这里往回查。",
+      "disposition": "replace",
+      "reason": "Authored revision and spatial implementation adopted locally; changed speaker/text cannot reuse old audio."
+    },
+    {
+      "line_id": "C1-01-04",
+      "old_catalog_id": "opening.C1-01-04",
+      "old_character_id": "steward",
+      "old_text": "听说令尊留下一部医武功法，外头已经有人打它的主意。姑娘没练过，留在手里反而危险。",
+      "new_speaker": "徐令仪",
+      "new_text": "转来的委托说，令尊留下的医武谱拟交盟中保管，免得流入争抢它的人手中。我已带了封存凭据。",
+      "disposition": "replace",
+      "reason": "Authored revision and spatial implementation adopted locally; changed speaker/text cannot reuse old audio."
+    },
+    {
+      "line_id": "C1-01-06",
+      "old_catalog_id": "opening.C1-01-06",
+      "old_character_id": "steward",
+      "old_text": "客栈、药市都有这话。盟中替你担风险，你也该替我们省些周折。先交出来。",
+      "new_speaker": "徐令仪",
+      "new_text": "叶家旧物收货单附页，经联络院转来。卷号、交接日期都有登记。既然已有委托，先封存，再核清流言，比较稳妥。",
+      "disposition": "replace",
+      "reason": "Authored revision and spatial implementation adopted locally; changed speaker/text cannot reuse old audio."
+    },
+    {
+      "line_id": "C1-01-14",
+      "old_catalog_id": "opening.C1-01-14",
+      "old_character_id": "steward",
+      "old_text": "话我带到了。外头的人再来，可未必这么客气。",
+      "new_speaker": "徐令仪",
+      "new_text": "你的拒绝我记了。我去核转件。在查清前，我的人看住前路，免得有人趁夜夺走；你若离村，请先来找我。",
+      "disposition": "replace",
+      "reason": "Authored revision and spatial implementation adopted locally; changed speaker/text cannot reuse old audio."
+    },
+    {
+      "line_id": "C1-02-12",
+      "old_catalog_id": "opening.C1-02-12",
+      "old_character_id": "procurement",
+      "old_text": "既然人找到了，把药箱一并带走验。",
+      "new_speaker": "沈雁回",
+      "new_text": "采办转件说叶家同意交样，我得当面核药名、数目。你手里的普通药先送，家传药箱核清前先留在村中。",
+      "disposition": "replace",
+      "reason": "Authored revision and spatial implementation adopted locally; changed speaker/text cannot reuse old audio."
+    },
+    {
+      "line_id": "C1-02-16",
+      "old_catalog_id": "opening.C1-02-16",
+      "old_character_id": "procurement",
+      "old_text": "验过再说。你说没用，便没用了？",
+      "new_speaker": "沈雁回",
+      "new_text": "药签请你留好。我先核原记录，不在街上拆药。可在回话前，查验队仍看住运药的出口。",
+      "disposition": "replace",
+      "reason": "Authored revision and spatial implementation adopted locally; changed speaker/text cannot reuse old audio."
+    },
+    {
+      "line_id": "C1-08-10",
+      "old_catalog_id": "opening.C1-08-10",
+      "old_character_id": "cen-shuang",
+      "old_text": "好。送东西的人留姓名，少了就来找我。玉匣的旧账，我仍要查；你们愿意，归烬堂可以暂住。住下不算答应交匣。",
+      "new_speaker": "岑霜",
+      "new_text": "好。送东西的人留姓名，少了就来找我。匣子不在你那儿，那它去了哪儿、是谁先知道它该在那儿，我仍要查。你们愿意，归烬堂可以暂住，住下不算欠我什么。",
+      "disposition": "replace",
+      "reason": "2026-10-08 disguised-Pei / relics-not-held revision (opening-pei-disguise.md); changed text cannot reuse old audio."
+    }
+  ],
+  "voice_decisions": [
+    {
+      "line_id": "C1-01-02",
+      "speaker": "徐令仪",
+      "character_id": "xu-lingyi",
+      "text": "正道盟文议执事徐令仪。这次叶家的委托，由我来核办。叶姑娘，方便说几句？",
+      "voice_planned": true,
+      "emotion_api": "calm",
+      "delivery_notes": "端整清楚，自报主事身份；不以冷傲反派口吻念。"
+    },
+    {
+      "line_id": "C1-01-04",
+      "speaker": "徐令仪",
+      "character_id": "xu-lingyi",
+      "text": "转来的委托说，令尊留下的医武谱拟交盟中保管，免得流入争抢它的人手中。我已带了封存凭据。",
+      "voice_planned": true,
+      "emotion_api": "calm",
+      "delivery_notes": "把委托当作事实，有依据感，也带未察觉的施压。"
+    },
+    {
+      "line_id": "C1-01-14",
+      "speaker": "徐令仪",
+      "character_id": "xu-lingyi",
+      "text": "你的拒绝我记了。我去核转件。在查清前，我的人看住前路，免得有人趁夜夺走；你若离村，请先来找我。",
+      "voice_planned": true,
+      "emotion_api": "calm",
+      "delivery_notes": "先记录拒绝，仍认定看路合理；不能演成已经醒悟。"
+    },
+    {
+      "line_id": "C1-01-11",
+      "speaker": "周砚",
+      "character_id": "zhouyan",
+      "text": "负责之前，先问是不是她托你的。纸上写叶家，站在你面前的也是叶家。退回门外，听她说。",
+      "voice_planned": true,
+      "emotion_api": "calm",
+      "delivery_notes": "坚定制止，重音落在人与当面意愿；不是喝骂。"
+    },
+    {
+      "line_id": "C1-01-19",
+      "speaker": "周砚",
+      "character_id": "zhouyan",
+      "text": "路上听见温行舟的名字，说他家在出让旧物。我与他多年失联，想回来问问他是不是有消息，也问是谁传的话。今早先找了陈伯。",
+      "voice_planned": true,
+      "emotion_api": "calm",
+      "delivery_notes": "多年旧友的消息牵动，说明来村原因，平实而关切。"
+    },
+    {
+      "line_id": "C1-02-02",
+      "speaker": "岑霜",
+      "character_id": "cen-shuang",
+      "text": "叶姑娘？归烬堂岑霜。我是来接玄曜玉匣的，不必劳烦你再找别人传话。",
+      "voice_planned": true,
+      "emotion_api": "calm",
+      "delivery_notes": "成熟从容，交涉带轻巧笑意；不是软弱恳求。"
+    },
+    {
+      "line_id": "C1-02-06",
+      "speaker": "岑霜",
+      "character_id": "cen-shuang",
+      "text": "传讯写的是归还堂中旧物。卖不卖可以先放下，匣子为什么在你家，总得说清楚。",
+      "voice_planned": true,
+      "emotion_api": "calm",
+      "delivery_notes": "语气锋利，转向归属，不能认定旧主已证实。"
+    },
+    {
+      "line_id": "C1-02-09",
+      "speaker": "沈雁回",
+      "character_id": "shen-yanhui",
+      "text": "手收回去。谁让你在路中间翻人的东西？",
+      "voice_planned": true,
+      "emotion_api": "calm",
+      "delivery_notes": "短促清晰地止手，不整句怒吼。"
+    },
+    {
+      "line_id": "C1-02-11",
+      "speaker": "沈雁回",
+      "character_id": "shen-yanhui",
+      "text": "沈雁回，受巡江司程巡检委办，这次药物查验由我负责。先把路让开。",
+      "voice_planned": true,
+      "emotion_api": "calm",
+      "delivery_notes": "利落自报委办职责；不演官老爷宣读命令。"
+    },
+    {
+      "line_id": "C1-02-12",
+      "speaker": "沈雁回",
+      "character_id": "shen-yanhui",
+      "text": "采办转件说叶家同意交样，我得当面核药名、数目。你手里的普通药先送，家传药箱核清前先留在村中。",
+      "voice_planned": true,
+      "emotion_api": "calm",
+      "delivery_notes": "放行普通药而错误限制整箱，两个层次清楚。"
+    },
+    {
+      "line_id": "C1-02-N07",
+      "speaker": "叶蘅",
+      "character_id": "ye",
+      "text": "没有谁要交给正道盟。我说的话，你们到底听了没有？",
+      "voice_planned": true,
+      "emotion_api": "angry",
+      "delivery_notes": "压住怒气的反问，强调自己已否认；不是撒娇。"
+    },
+    {
+      "line_id": "C1-02-N09",
+      "speaker": "岑霜",
+      "character_id": "cen-shuang",
+      "text": "乌魁，药让她送。箱子一旦出村，先来报我；别伤人，也别再把人家的药包掀了。谁家的眼睛在看，先弄清楚再说。",
+      "voice_planned": true,
+      "emotion_api": "calm",
+      "delivery_notes": "点名下属、叮嘱与控制并存。"
+    },
+    {
+      "line_id": "C1-04-N04",
+      "speaker": "叶蘅",
+      "character_id": "ye",
+      "text": "车是送病人的。我带自己的东西走，不是交给你们哪一家！",
+      "voice_planned": true,
+      "emotion_api": "angry",
+      "delivery_notes": "被三方截住的坚定拒绝，短促投声、无尖叫。"
+    },
+    {
+      "line_id": "C1-04-11",
+      "speaker": "沈雁回",
+      "character_id": "shen-yanhui",
+      "text": "查验停下！开路，让人先出去！",
+      "voice_planned": true,
+      "emotion_api": "calm",
+      "delivery_notes": "救援紧急呼喊，先喊停查验，指令分明。"
+    },
+    {
+      "line_id": "C1-04-13",
+      "speaker": "沈雁回",
+      "character_id": "shen-yanhui",
+      "text": "我让你开门！药毁了能记，人困在里面等不得！",
+      "voice_planned": true,
+      "emotion_api": "angry",
+      "delivery_notes": "急切纠正下属，重音在开门与人命，不持续怒吼。"
+    },
+    {
+      "line_id": "C1-04-16",
+      "speaker": "岑霜",
+      "character_id": "cen-shuang",
+      "text": "我让你报我，谁让你上手抢？先把人放开！",
+      "voice_planned": true,
+      "emotion_api": "angry",
+      "delivery_notes": "危险中的斥令，承认自己曾叫看路而拒绝抢夺。"
+    },
+    {
+      "line_id": "C1-04-N05",
+      "speaker": "徐令仪",
+      "character_id": "xu-lingyi",
+      "text": "剑收起来，撑住这根梁！外头的人往空地站，别挤回来！",
+      "voice_planned": true,
+      "emotion_api": "calm",
+      "delivery_notes": "扛住局面时的短促号令，不能平静播报。"
+    },
+    {
+      "line_id": "C1-07-N04",
+      "speaker": "沈雁回",
+      "character_id": "shen-yanhui",
+      "text": "你们两份来件，约的也是第三日戌时、药棚装卸侧口？",
+      "voice_planned": true,
+      "emotion_api": "calm",
+      "delivery_notes": "停笔后的警觉，开始逐项对照，音量克制。"
+    },
+    {
+      "line_id": "C1-07-N12",
+      "speaker": "叶蘅",
+      "character_id": "ye",
+      "text": "我只卖过罐子。没交书，没答应还匣子，更没有请人验药。",
+      "voice_planned": true,
+      "emotion_api": "calm",
+      "delivery_notes": "疲惫却清楚地否认三种授权，不委屈讨饶。"
+    },
+    {
+      "line_id": "C1-07-N15",
+      "speaker": "沈雁回",
+      "character_id": "shen-yanhui",
+      "text": "采办正文只是查药名、数目；已验和同意交样都在附页。我没找到原医者签记，却让人看了整只箱子。这里是我核错了。",
+      "voice_planned": true,
+      "emotion_api": "calm",
+      "delivery_notes": "核出空缺记录后的停顿，承认本人核错，不能轻快结案。"
+    },
+    {
+      "line_id": "C1-07-N16",
+      "speaker": "岑霜",
+      "character_id": "cen-shuang",
+      "text": "有人挑我们各自想听的话，约到一道窄门前，再等我们动手。算盘打得真好。",
+      "voice_planned": true,
+      "emotion_api": "angry",
+      "delivery_notes": "笑意已收，被当作棋子的恼怒，低声有锋芒。"
+    },
+    {
+      "line_id": "C1-07-N19",
+      "speaker": "徐令仪",
+      "character_id": "xu-lingyi",
+      "text": "叶姑娘当面拒绝，我仍让人看路。这一笔不能说成只是别人骗了我。封存要求撤回，我署名交复核。",
+      "voice_planned": true,
+      "emotion_api": "calm",
+      "delivery_notes": "难以启齿仍说全本人签批，停顿后承担，不端官腔。"
+    },
+    {
+      "line_id": "C1-07-N20",
+      "speaker": "岑霜",
+      "character_id": "cen-shuang",
+      "text": "乌魁动手记他名，路是我让看住的，也记我。别拿一句被骗，替我把那栏空着。",
+      "voice_planned": true,
+      "emotion_api": "calm",
+      "delivery_notes": "直说自己的责任，干脆坚定，不靠调笑带过。"
+    },
+    {
+      "line_id": "C1-07-N21",
+      "speaker": "叶蘅",
+      "character_id": "ye",
+      "text": "传话是谁改的，你们去查。昨夜谁抢、谁拔剑、谁堵门，也都得记。不能查出另一个人，就把这些抹了。",
+      "voice_planned": true,
+      "emotion_api": "calm",
+      "delivery_notes": "有怒意但疲惫，守住问责与物件边界，不喊口号。"
+    },
+    {
+      "line_id": "C1-08-N02",
+      "speaker": "徐令仪",
+      "character_id": "xu-lingyi",
+      "text": "我已让护院撤开，联络院会收到原来件和我的签批。回查结果先送周婶，再给你一份。若迟了，可按这个名字来问，不必求人替你递话。",
+      "voice_planned": true,
+      "emotion_api": "calm",
+      "delivery_notes": "署名留下后交代回访，让当事人能够直接找她。"
+    },
+    {
+      "line_id": "C1-08-06",
+      "speaker": "岑霜",
+      "character_id": "cen-shuang",
+      "text": "乌魁和抢包袱的人，我带回去问。人名、伤情和损物留两份，我签一份，周婶留一份。那张引我来索匣的传讯，也从我这里往回查。",
+      "voice_planned": true,
+      "emotion_api": "calm",
+      "delivery_notes": "承担实务，签名与回查的承诺具体清楚。"
+    },
+    {
+      "line_id": "C1-08-14",
+      "speaker": "沈雁回",
+      "character_id": "shen-yanhui",
+      "text": "原差事要由程巡检复核，我不能把它撕了就算撤销。但这次限制是我下的，我先撤；回报不把自己的名字漏掉。",
+      "voice_planned": true,
+      "emotion_api": "calm",
+      "delivery_notes": "承认上级权限与本人的决定分开，言简而负责。"
+    },
+    {
+      "line_id": "C1-08-16",
+      "speaker": "沈雁回",
+      "character_id": "shen-yanhui",
+      "text": "已经写了。药样既然不在你手里，我就从药物流向查起。你们若愿意，我接洽巡江司的安置和程巡检许可。原药签留好，下一次我先问你。",
+      "voice_planned": true,
+      "emotion_api": "calm",
+      "delivery_notes": "提出合作安置，尊重不交样的选择。"
+    }
+  ]
+}

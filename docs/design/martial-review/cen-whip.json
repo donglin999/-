@@ -1,0 +1,373 @@
+{
+  "version": "CEN-WHIP-JIA-2",
+  "status": "authored_jia_scene_ready_without_vfx",
+  "scope": "岑霜独门甲级功法，不进入公共64招/主角学习菜单；用户要求装配，本轮不生成特效",
+  "skills": [
+    {
+      "id": "cs_whip_s1",
+      "name": "缠腕短打",
+      "group": "guijintang",
+      "kind": "skill",
+      "grade": "乙",
+      "phase": "C1",
+      "weapon": "鞭",
+      "weak_class": "鞭",
+      "element": null,
+      "system_id": "art_cs_whip_jia",
+      "art_unlock_level": 1,
+      "character_skill": true,
+      "allowed_users": [
+        "cen-shuang"
+      ],
+      "access": "character_exclusive",
+      "effect": "单体一击；命中者下一次行动全部伤害段减10%，行动结束失效。",
+      "effect_v3": "单体一击；命中者下一次行动全部伤害段减10%，行动结束失效。",
+      "desc_v4": "《回影鞭诀》一重开启。耗6内力，单体一击；命中者下一次行动全部伤害段减10%，行动结束失效。每名目标基础威力1.05，BP只增加威力，不增加段数或状态强度。",
+      "visual": "施者原位蓄势，目标腕侧出现墨紫短鞭形气劲；实体软鞭不接触敌人。",
+      "combat": {
+        "version": "MOVE-CONTRACT-3",
+        "status": "scene_rules_ready_without_vfx",
+        "mp": 6,
+        "action_cost": 1,
+        "total_power": 1.05,
+        "base_hits": 1,
+        "hit_weights": [
+          1.0
+        ],
+        "accuracy": 1,
+        "target": "specified",
+        "target_count": 1,
+        "cooldown_self_actions": 0,
+        "cooldown_clock": "caster_action_start",
+        "duration_recipient_actions": 1,
+        "max_level": 10,
+        "mastery_per_level": 0.04,
+        "effects": [
+          {
+            "type": "next_action_damage_down",
+            "value": 0.1,
+            "expires": "after_next_recipient_action",
+            "on_hit": true
+          }
+        ],
+        "bp": [
+          {
+            "spent": 0,
+            "available": true,
+            "total_power": 1.05,
+            "hits": 1,
+            "shield_cap": 1,
+            "effects": [
+              {
+                "type": "next_action_damage_down",
+                "value": 0.1,
+                "expires": "after_next_recipient_action",
+                "on_hit": true
+              }
+            ]
+          },
+          {
+            "spent": 1,
+            "available": true,
+            "total_power": 1.4175,
+            "hits": 1,
+            "shield_cap": 1,
+            "effects": [
+              {
+                "type": "next_action_damage_down",
+                "value": 0.1,
+                "expires": "after_next_recipient_action",
+                "on_hit": true
+              }
+            ]
+          },
+          {
+            "spent": 2,
+            "available": true,
+            "total_power": 1.785,
+            "hits": 1,
+            "shield_cap": 1,
+            "effects": [
+              {
+                "type": "next_action_damage_down",
+                "value": 0.1,
+                "expires": "after_next_recipient_action",
+                "on_hit": true
+              }
+            ]
+          },
+          {
+            "spent": 3,
+            "available": true,
+            "total_power": 2.205,
+            "hits": 1,
+            "shield_cap": 1,
+            "effects": [
+              {
+                "type": "next_action_damage_down",
+                "value": 0.1,
+                "expires": "after_next_recipient_action",
+                "on_hit": true
+              }
+            ]
+          }
+        ],
+        "mastery_bonus": {
+          "mp": -1
+        },
+        "runtime_id": "cs_whip_s1",
+        "runtime_note": "第一章旁观交锋专属；不开放主角学习。"
+      },
+      "status": "scene_rules_ready_without_vfx",
+      "asset_status": "vfx_not_created",
+      "runtime_id": "cs_whip_s1",
+      "usage": "active",
+      "base_hits": 1,
+      "target_mode": "specified",
+      "boost_mode": "damage",
+      "shield_budget_by_bp": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "icon_id": null,
+      "vfx_script_ref": "../chapter1-clash-jia-20261014.md",
+      "presentation_ref": "../combat-presentation-boundary.md"
+    },
+    {
+      "id": "cs_whip_s2",
+      "name": "回身掠影",
+      "group": "guijintang",
+      "kind": "skill",
+      "grade": "甲",
+      "phase": "C1",
+      "weapon": "鞭",
+      "weak_class": "鞭",
+      "element": null,
+      "system_id": "art_cs_whip_jia",
+      "art_unlock_level": 5,
+      "character_skill": true,
+      "allowed_users": [
+        "cen-shuang"
+      ],
+      "access": "character_exclusive",
+      "effect": "全体存活敌人各一击；施者下一次受击伤害+10%，最迟本人下次行动前失效。",
+      "effect_v3": "全体存活敌人各一击；施者下一次受击伤害+10%，最迟本人下次行动前失效。",
+      "desc_v4": "《回影鞭诀》五重开启。耗14内力，全体存活敌人各一击；施者下一次受击伤害+10%，最迟本人下次行动前失效。每名目标基础威力1.1，BP只增加威力，不增加段数或状态强度。",
+      "visual": "施者原位蓄势，墨紫鞭形气劲与暗红残影在敌阵横展；实体软鞭留在身侧。",
+      "combat": {
+        "version": "MOVE-CONTRACT-3",
+        "status": "scene_rules_ready_without_vfx",
+        "mp": 14,
+        "action_cost": 1,
+        "total_power": 1.1,
+        "base_hits": 1,
+        "hit_weights": [
+          1.0
+        ],
+        "accuracy": 1,
+        "target": "all_foes",
+        "target_count": "all_alive",
+        "cooldown_self_actions": 0,
+        "cooldown_clock": "caster_action_start",
+        "duration_recipient_actions": 0,
+        "max_level": 10,
+        "mastery_per_level": 0.04,
+        "effects": [
+          {
+            "type": "self_exposure",
+            "value": 0.1,
+            "expires": "before_next_caster_action",
+            "consume": "next_received_hit"
+          }
+        ],
+        "bp": [
+          {
+            "spent": 0,
+            "available": true,
+            "total_power": 1.1,
+            "hits": 1,
+            "shield_cap": 1,
+            "effects": [
+              {
+                "type": "self_exposure",
+                "value": 0.1,
+                "expires": "before_next_caster_action",
+                "consume": "next_received_hit"
+              }
+            ]
+          },
+          {
+            "spent": 1,
+            "available": true,
+            "total_power": 1.485,
+            "hits": 1,
+            "shield_cap": 1,
+            "effects": [
+              {
+                "type": "self_exposure",
+                "value": 0.1,
+                "expires": "before_next_caster_action",
+                "consume": "next_received_hit"
+              }
+            ]
+          },
+          {
+            "spent": 2,
+            "available": true,
+            "total_power": 1.87,
+            "hits": 1,
+            "shield_cap": 1,
+            "effects": [
+              {
+                "type": "self_exposure",
+                "value": 0.1,
+                "expires": "before_next_caster_action",
+                "consume": "next_received_hit"
+              }
+            ]
+          },
+          {
+            "spent": 3,
+            "available": true,
+            "total_power": 2.31,
+            "hits": 1,
+            "shield_cap": 1,
+            "effects": [
+              {
+                "type": "self_exposure",
+                "value": 0.1,
+                "expires": "before_next_caster_action",
+                "consume": "next_received_hit"
+              }
+            ]
+          }
+        ],
+        "mastery_bonus": {
+          "damage": 0.05
+        },
+        "runtime_id": "cs_whip_s2",
+        "runtime_note": "第一章旁观交锋专属；不开放主角学习。"
+      },
+      "status": "scene_rules_ready_without_vfx",
+      "asset_status": "vfx_not_created",
+      "runtime_id": "cs_whip_s2",
+      "usage": "active",
+      "base_hits": 1,
+      "target_mode": "all_foes",
+      "boost_mode": "damage",
+      "shield_budget_by_bp": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "icon_id": null,
+      "vfx_script_ref": "../chapter1-clash-jia-20261014.md",
+      "presentation_ref": "../combat-presentation-boundary.md"
+    }
+  ],
+  "systems": [
+    {
+      "id": "art_cs_whip_jia",
+      "name": "回影鞭诀",
+      "kind": "external_art",
+      "category": "external",
+      "group": "guijintang",
+      "group_name": "玄烛会·岑霜独门",
+      "path": "鞭",
+      "grade": "甲",
+      "tier": "上乘",
+      "move_count": 2,
+      "moves": [
+        {
+          "id": "cs_whip_s1",
+          "name": "缠腕短打",
+          "grade": "乙",
+          "unlock_level": 1,
+          "status": "authored_scene_contract"
+        },
+        {
+          "id": "cs_whip_s2",
+          "name": "回身掠影",
+          "grade": "甲",
+          "unlock_level": 5,
+          "status": "authored_scene_contract"
+        }
+      ],
+      "skill_ids": [
+        "cs_whip_s1",
+        "cs_whip_s2"
+      ],
+      "new_move_ids": [
+        "cs_whip_s1",
+        "cs_whip_s2"
+      ],
+      "principle": "短鞭截腕牵制、转腰横掠敌阵；以收放节奏换取群体压制，收势留破绽。",
+      "obtain": "岑霜初见前已掌握的个人传承，第一章以五重出场；主角不可学习",
+      "reference_phase": "C1",
+      "access": "character_exclusive",
+      "allowed_users": [
+        "cen-shuang"
+      ],
+      "learn_req": {},
+      "learn_req_text": "岑霜专属",
+      "prerequisite": null,
+      "mastery": {
+        "level": 10,
+        "effect": {
+          "per_move": {
+            "cs_whip_s1": {
+              "mp": -1
+            },
+            "cs_whip_s2": {
+              "damage": 0.05
+            }
+          }
+        },
+        "description": "缠腕耗内力减1；掠影伤害+5%",
+        "move_ids": [
+          "cs_whip_s1",
+          "cs_whip_s2"
+        ]
+      },
+      "status": "scene_rules_ready_without_vfx",
+      "runtime_status": "scene_only",
+      "source": "../companions/cen-shuang.md"
+    }
+  ],
+  "equipment": [
+    {
+      "id": "eq_cen_soft_whip",
+      "name": "乌藤软鞭",
+      "kind": "equipment",
+      "grade": "丙",
+      "phase": "C1",
+      "slot": "weapon",
+      "weapon": "鞭",
+      "weapon_class": "鞭",
+      "kind_runtime": "鞭",
+      "users": "岑霜",
+      "allowed_users": [
+        "cen-shuang"
+      ],
+      "access": "character_exclusive",
+      "stats": {
+        "atk": 12,
+        "crit": 5
+      },
+      "effect": "攻击+12，暴击率+5个百分点；岑霜独门兵器",
+      "obtain": "岑霜第一章自带",
+      "visual": "短柄、暗色编皮软索、单一渐细鞭梢，无刃无链",
+      "status": "authored_scene_contract_pending_art",
+      "asset_status": "in_progress",
+      "runtime_id": "eq_cen_soft_whip"
+    }
+  ],
+  "supersedes": [
+    "art_cs_whip_s1",
+    "art_cs_whip_s2"
+  ],
+  "presentation_policy": "stationary_cast_effect_hit"
+}

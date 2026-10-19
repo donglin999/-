@@ -1,0 +1,91 @@
+{
+  "status": "proposal_arithmetic_not_balance_certification",
+  "formula_sensitivity": {
+    "old_50_atk_80_def": 10.0,
+    "old_60_atk_80_def": 20.0,
+    "old_increase_pct": 100.0,
+    "new_50_atk_80_def": 21.429,
+    "new_60_atk_80_def": 25.714,
+    "new_increase_pct": 20.0
+  },
+  "multihit_defense": {
+    "old_atk50_power1_def40_one_hit": 30,
+    "old_split_three_equal_hits_total_before_rounding": 3,
+    "proposed_total_before_distributing": 30.0
+  },
+  "shield_break_actions": {
+    "shields_4_5_6_7": [
+      2,
+      2,
+      2,
+      3
+    ],
+    "note": "3 shield hits per action, no BP or interactions; 6->7 increases actions 2->3"
+  },
+  "unannounced_extra_action": {
+    "before": 30,
+    "two_same_attacks": 60,
+    "increase_pct": 100,
+    "proposed_split_attack_total_cap": 37.5
+  },
+  "party_two_to_three_equal_attackers_pct": 50,
+  "wilson_95_interval_5_of_5": [
+    0.5655,
+    1.0
+  ],
+  "wilson_95_interval_0_of_5": [
+    0.0,
+    0.4345
+  ],
+  "sustained_damage_before_skill_power_max_factors": 8.0405,
+  "anchor_warnings": [
+    {
+      "id": "xiangyang",
+      "largest_step_pct": 25.0,
+      "minimum_segments": 4
+    },
+    {
+      "id": "year1_end",
+      "largest_step_pct": 20.0,
+      "minimum_segments": 3
+    },
+    {
+      "id": "year2_mid",
+      "largest_step_pct": 19.05,
+      "minimum_segments": 3
+    },
+    {
+      "id": "year2_end",
+      "largest_step_pct": 19.05,
+      "minimum_segments": 3
+    },
+    {
+      "id": "graduation",
+      "largest_step_pct": 17.24,
+      "minimum_segments": 3
+    },
+    {
+      "id": "travel_mid",
+      "largest_step_pct": 20.0,
+      "minimum_segments": 3
+    },
+    {
+      "id": "chapter14",
+      "largest_step_pct": 11.11,
+      "minimum_segments": 2
+    },
+    {
+      "id": "chapter17",
+      "largest_step_pct": 12.5,
+      "minimum_segments": 2
+    }
+  ],
+  "unvalidated": [
+    "All 64 skills interaction simulation",
+    "Actual mandatory recruit and date ledger",
+    "Actual economy and XP from all routes",
+    "UI telegraphs and human playtests",
+    "Confidence intervals from 1000-seed real-runtime profiles",
+    "No assumed DPR used as proof of actual battle duration"
+  ]
+}

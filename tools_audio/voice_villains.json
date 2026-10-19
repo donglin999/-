@@ -1,0 +1,122 @@
+{
+  "roles": [
+    "liu",
+    "langli",
+    "chief",
+    "pipi"
+  ],
+  "candidates": [
+    {
+      "slug": "villain_brutal_badao",
+      "voice_id": "male-qn-badao-jingpin",
+      "name": "凶狠 · 暴烈恶汉",
+      "style": "凶狠",
+      "pitch": -2,
+      "speed": 1.04,
+      "emotion_api_override": "angry",
+      "voice_modify": {
+        "pitch": -25,
+        "intensity": -45,
+        "timbre": -20
+      }
+    },
+    {
+      "slug": "villain_brutal_stubborn",
+      "voice_id": "Chinese (Mandarin)_Stubborn_Friend",
+      "name": "凶狠 · 横蛮打手",
+      "style": "凶狠",
+      "pitch": -1,
+      "speed": 1.08,
+      "emotion_api_override": "angry",
+      "voice_modify": {
+        "pitch": -10,
+        "intensity": -35,
+        "timbre": 5
+      }
+    },
+    {
+      "slug": "villain_brutal_announcer",
+      "voice_id": "Chinese (Mandarin)_Male_Announcer",
+      "name": "凶狠 · 重压寨主",
+      "style": "凶狠",
+      "pitch": -3,
+      "speed": 0.94,
+      "emotion_api_override": "angry",
+      "voice_modify": {
+        "pitch": -30,
+        "intensity": -40,
+        "timbre": -25
+      }
+    },
+    {
+      "slug": "villain_brutal_armor",
+      "voice_id": "Robot_Armor",
+      "name": "凶狠 · 铁喉悍匪",
+      "style": "凶狠",
+      "pitch": -1,
+      "speed": 0.98,
+      "emotion_api_override": "angry",
+      "voice_modify": {
+        "pitch": -15,
+        "intensity": -30,
+        "timbre": -15
+      }
+    },
+    {
+      "slug": "villain_sinister_brother",
+      "voice_id": "lengdan_xiongzhang",
+      "name": "阴险 · 冷面毒计",
+      "style": "阴险",
+      "pitch": -2,
+      "speed": 0.9,
+      "emotion_api_override": "calm",
+      "voice_modify": {
+        "pitch": -15,
+        "intensity": 10,
+        "timbre": -10
+      }
+    },
+    {
+      "slug": "villain_sinister_elite",
+      "voice_id": "male-qn-jingying-jingpin",
+      "name": "阴险 · 笑里藏刀",
+      "style": "阴险",
+      "pitch": -1,
+      "speed": 0.93,
+      "emotion_api_override": "disgusted",
+      "voice_modify": {
+        "pitch": -10,
+        "intensity": 15,
+        "timbre": 10
+      }
+    },
+    {
+      "slug": "villain_sinister_exec",
+      "voice_id": "Chinese (Mandarin)_Reliable_Executive",
+      "name": "阴险 · 老谋深算",
+      "style": "阴险",
+      "pitch": -2,
+      "speed": 0.88,
+      "emotion_api_override": "calm",
+      "voice_modify": {
+        "pitch": -20,
+        "intensity": 5,
+        "timbre": -25
+      }
+    },
+    {
+      "slug": "villain_sinister_radio",
+      "voice_id": "Chinese (Mandarin)_Radio_Host",
+      "name": "阴险 · 低声威胁",
+      "style": "阴险",
+      "pitch": -3,
+      "speed": 0.9,
+      "emotion_api_override": "disgusted",
+      "voice_modify": {
+        "pitch": -20,
+        "intensity": -10,
+        "timbre": -15
+      }
+    }
+  ]
+}

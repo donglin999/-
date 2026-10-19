@@ -1,0 +1,29 @@
+{
+  "revision": "balance-proposal-v1",
+  "status": "unapproved_reference_not_runtime",
+  "ordinary_hits": 2.5,
+  "anchors": [
+    {"id":"first_courses","stage":"首季基础课后","hp":150,"mp":36,"attack":28,"defense":12,"enemy_defense":12,"party_reference":2},
+    {"id":"xiangyang","stage":"年一夏汉皋","hp":180,"mp":42,"attack":34,"defense":15,"enemy_defense":15,"party_reference":3},
+    {"id":"year1_end","stage":"第12月","hp":210,"mp":50,"attack":40,"defense":18,"enemy_defense":18,"party_reference":3},
+    {"id":"year2_mid","stage":"第18月","hp":250,"mp":58,"attack":47,"defense":21,"enemy_defense":21,"party_reference":4},
+    {"id":"year2_end","stage":"第24月","hp":290,"mp":66,"attack":55,"defense":25,"enemy_defense":25,"party_reference":4},
+    {"id":"graduation","stage":"第36月出师","hp":340,"mp":74,"attack":64,"defense":29,"enemy_defense":29,"party_reference":4},
+    {"id":"travel_entry","stage":"初到游历","hp":355,"mp":78,"attack":67,"defense":30,"enemy_defense":30,"party_reference":4},
+    {"id":"travel_mid","stage":"区域游历中段","hp":420,"mp":90,"attack":78,"defense":36,"enemy_defense":36,"party_reference":4},
+    {"id":"chapter14","stage":"锚点9","hp":450,"mp":96,"attack":84,"defense":40,"enemy_defense":40,"party_reference":4},
+    {"id":"chapter17","stage":"锚点10","hp":500,"mp":104,"attack":94,"defense":45,"enemy_defense":45,"party_reference":4},
+    {"id":"chapter18","stage":"锚点11","hp":520,"mp":108,"attack":98,"defense":47,"enemy_defense":47,"party_reference":4},
+    {"id":"finale","stage":"锚点12","hp":540,"mp":112,"attack":102,"defense":49,"enemy_defense":49,"party_reference":4}
+  ],
+  "target_windows": {
+    "normal_rounds":[3,5], "elite_rounds":[5,7], "boss_rounds":[7,10],
+    "adjacent_normal_dpr_change_alert":0.15, "adjacent_normal_duration_change_alert":0.25,
+    "same_profile_adjacent_win_rate_change_pp_alert":10,
+    "normal_hit_fraction_reference_hp":[0.10,0.16],
+    "normal_total_enemy_round_fraction_team_hp":[0.12,0.22],
+    "critical_path_untelegraphed_focus_fraction_vulnerable_hp_max":0.65
+  },
+  "candidate_formula":{"defense_K":60,"weakness":1.1,"break":1.5,"critical":1.25,"critical_chance_cap":0.35,"variance":[0.95,1.05],"mastery_max":1.36,"additive_bonus_cap":0.30},
+  "note":"所有锚点与阈值均为本作提案；序章照应没有套用成熟战斗数值；中间各期需按真实培养收支生成，不随玩家实时变强而自动调怪。参考人数不是已经保证的队伍人数。"
+}

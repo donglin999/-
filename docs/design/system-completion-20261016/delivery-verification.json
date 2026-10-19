@@ -1,0 +1,144 @@
+{
+  "status": "design_delivery_verified",
+  "kind": "design_contract_validation_not_game_test",
+  "coverage": 26,
+  "scenarios": [
+    {
+      "id": "purchase_keeps_story_time",
+      "pass": true,
+      "expected_valid": true,
+      "diagnostics": []
+    },
+    {
+      "id": "ordinary_activity_cannot_advance",
+      "pass": true,
+      "expected_valid": false,
+      "diagnostics": [
+        "ordinary town action advanced time"
+      ]
+    },
+    {
+      "id": "repeat_receipt_no_changes",
+      "pass": true,
+      "expected_valid": true,
+      "diagnostics": []
+    },
+    {
+      "id": "repeat_receipt_cannot_award_again",
+      "pass": true,
+      "expected_valid": false,
+      "diagnostics": [
+        "retry or failed persistence mutated state"
+      ]
+    },
+    {
+      "id": "storage_failure_preserves_state",
+      "pass": true,
+      "expected_valid": true,
+      "diagnostics": []
+    },
+    {
+      "id": "storage_failure_cannot_charge",
+      "pass": true,
+      "expected_valid": false,
+      "diagnostics": [
+        "retry or failed persistence mutated state"
+      ]
+    },
+    {
+      "id": "visible_fastforward",
+      "pass": true,
+      "expected_valid": true,
+      "diagnostics": []
+    },
+    {
+      "id": "fastforward_requires_expiry_notice",
+      "pass": true,
+      "expected_valid": false,
+      "diagnostics": [
+        "advance lacks confirmation or expiry preview"
+      ]
+    },
+    {
+      "id": "party_member_cannot_remain_remote",
+      "pass": true,
+      "expected_valid": false,
+      "diagnostics": [
+        "party actor has conflicting location"
+      ]
+    },
+    {
+      "id": "party_presence_consistent",
+      "pass": true,
+      "expected_valid": true,
+      "diagnostics": []
+    },
+    {
+      "id": "cultivation_action_charged_once",
+      "pass": true,
+      "expected_valid": true,
+      "diagnostics": []
+    },
+    {
+      "id": "overcharge_rejected",
+      "pass": true,
+      "expected_valid": false,
+      "diagnostics": [
+        "energy charge differs"
+      ]
+    },
+    {
+      "id": "rumor_retains_source",
+      "pass": true,
+      "expected_valid": true,
+      "diagnostics": []
+    },
+    {
+      "id": "verified_claim_requires_evidence",
+      "pass": true,
+      "expected_valid": false,
+      "diagnostics": [
+        "verification evidence missing"
+      ]
+    }
+  ],
+  "errors": [],
+  "documents": {
+    "README.md": "cfe51d80c279ca9e0aee253dd8a39691437b5c81b5b0ce5a02dca9f6beef904a",
+    "build-recovery-accessibility.md": "5d3e2639352e4aa9b393b386810958762345b3348eab0e717a11c77c1e8b75e8",
+    "characters-factions.md": "54eb0a970048efe2aedfd6fd1846d03a94508fbe7dec1eeb32d7b58030ec8898",
+    "city-integration.md": "eba65e720994627f0b27d1dac1dd063e553d5bd7d1a1661fd8ef7d4e4a5be6c7",
+    "city-time-economy.md": "e93e889631df908b00d01c401cd33ff27986e81df4e80be2420d3dff085d8588",
+    "consistency-review.md": "e62c93d9c578c0c846890451b8733d56454c660a0a0e9fed122a32ffc17499c6",
+    "decisions-needed.md": "c2db979c88716c920ee266d05558884244ec11b593fdaccdc0d4f84852916f65",
+    "endings-relationship-integration.md": "bc7783c94a907c0c435318ec886525162842c468dcfa561354aac721e10037c6",
+    "exploration-endgame.md": "3334f6ab03cbc6581863352570027163fbc2c9a0a2eccc330c3c67a649da7497",
+    "growth-combat.md": "efbd6909a7122399ffd9d63f718e14265b4ecf61ea598109b77fcfd311d0180b",
+    "system-status.md": "e5a35b039bc9b1081fe13c8ba4420d5ff78c565333ef0e003508acc7ca901324",
+    "traits-integration.md": "4ef5282937d77db05602aece6449f4709efcb5ae7ffc446714cebb95d6bd9b5f",
+    "world-events-save.md": "777c1411284e002fc22f75852aa7a056a416383aac184c9b4c5f9a16a3204494"
+  },
+  "ephemeral_report": "/tmp/xjh-system-contract-check-20261016/report.json",
+  "consistency": {
+    "warn": 0,
+    "info": 219
+  },
+  "atlas": {
+    "characters": 43,
+    "companions": 19,
+    "female_companions": 15,
+    "male_companions": 4,
+    "checks": 34,
+    "failed": 0,
+    "pending_categories": 4
+  },
+  "currency": {
+    "display": "文",
+    "conversion": false,
+    "town_core_tests": 16,
+    "native_game_win": true,
+    "native_town_ui": false,
+    "native_town_ui_reason": "file protocol blocked by browser security policy; no workaround attempted"
+  },
+  "runtime_new_systems_implemented": false
+}

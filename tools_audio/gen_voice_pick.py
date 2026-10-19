@@ -1,17 +1,7 @@
-# 角色音色候选：python3 tools_audio/gen_voice_pick.py [char ...] [--force]
-# 读 .env 或环境变量 MiniMax_APIKEY。已存在的 mp3 跳过；--force 重生成所指定角色。
-# 输出 assets/audio/voice_pick/{char}/{cand}_{n}.mp3 + assets/audio/voice_pick/manifest.js（review/voice_pick.html 用）
-# 新增角色：在 CHARS 里加一条（cands 用 V() 描述：系统 voice_id + 可选 pitch/speed 微调），再跑本脚本。
-# 注：当前 Token Plan 不支持 /v1/voice_design（音色设计）与自定义音色合成；需按量余额后才能加"定制"候选。
-import os,sys,json,re,time,urllib.request
-ROOT=os.path.join(os.path.dirname(os.path.abspath(__file__)),'..')
-def key():
-  k=os.environ.get('MiniMax_APIKEY')
-  if k:return k
-  m=re.search(r'^MiniMax_APIKEY=(.+)$',open(os.path.join(ROOT,'.env')).read(),re.M);return m.group(1).strip()
-K=key();API='https://api.minimaxi.com/v1';MODEL='speech-2.8-hd'
-BASE=os.path.join(ROOT,'assets','audio','voice_pick')
-
+# 角色音色候选定义；由 voice_server.py 读取，不在此文件执行付费生成。
+# 唯一制作入口：python3 tools_audio/voice_server.py
+# 台词与实际情绪参数见 voice_auditions.json，正式对白见 voice_lines.json。
+M='Chinese (Mandarin)_'
 def V(slug,vid,name,pitch=0,speed=1.0):return {'slug':slug,'voice_id':vid,'name':name,'pitch':pitch,'speed':speed}
 M='Chinese (Mandarin)_'
 # 常用候选组
@@ -102,37 +92,5 @@ CHARS=[
            V('unrestrained_low',M+'Unrestrained_Young_Man','不羁青年·粗',-4,0.95),V('elder_low',M+'Humorous_Elder','搞笑大爷·粗',-3,1.0)]},
 ]
 
-def post(path,body,tries=6):
-  r=urllib.request.Request(API+path,json.dumps(body).encode(),{'Authorization':'Bearer '+K,'Content-Type':'application/json'})
-  for n in range(tries):
-    try:d=json.loads(urllib.request.urlopen(r,timeout=180).read())
-    except OSError as e:
-      if n==tries-1:raise
-      print('retry',path,e);time.sleep(2+3*n);continue
-    c=d.get('base_resp',{}).get('status_code')
-    if c in (1002,1039) and n<tries-1:print('rate limit, wait');time.sleep(20);continue
-    if c:raise RuntimeError(f"{path} {d['base_resp']}")
-    return d
-
-def tts(c,text,f):
-  d=post('/t2a_v2',{'model':MODEL,'text':text,'stream':False,
-    'voice_setting':{'voice_id':c['voice_id'],'speed':c['speed'],'vol':1,'pitch':c['pitch']},
-    'audio_setting':{'sample_rate':32000,'bitrate':128000,'format':'mp3','channel':1}})
-  open(f,'wb').write(bytes.fromhex(d['data']['audio']))
-
-args=[a for a in sys.argv[1:] if not a.startswith('--')];force='--force' in sys.argv
-man={'model':MODEL,'chars':[]}
-for ch in CHARS:
-  out=f"{BASE}/{ch['id']}";os.makedirs(out,exist_ok=True)
-  if not args or ch['id'] in args:
-    for c in ch['cands']:
-      for i,(t,_) in enumerate(ch['lines']):
-        f=f"{out}/{c['slug']}_{i}.mp3"
-        if os.path.exists(f) and not force:continue
-        try:tts(c,t,f);print('ok',ch['id'],c['slug'],i,flush=True)
-        except Exception as e:print('FAIL',ch['id'],c['slug'],i,e,flush=True)
-  ok=[c for c in ch['cands'] if all(os.path.exists(f"{out}/{c['slug']}_{i}.mp3") for i in range(len(ch['lines'])))]
-  man['chars'].append({**{k:ch[k] for k in ('id','name','por','group','persona')},
-    'lines':[{'text':t,'tag':g} for t,g in ch['lines']],'cands':ok})
-open(f'{BASE}/manifest.js','w').write('window.PICK='+json.dumps(man,ensure_ascii=False,indent=1)+';\n')
-print('manifest',sum(len(c['cands']) for c in man['chars']),'cands')
+if __name__ == '__main__':
+    raise SystemExit('请运行 python3 tools_audio/voice_server.py；旧脚本不再生成无情绪试听。')

@@ -1,0 +1,104 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720" role="img" aria-labelledby="title desc"><title id="title">培养主画面线框</title><desc id="desc">1280乘720布局。上方日期与体力，中间山居场景，右侧近况，底部七类活动与独立结束本期。所有场景和数值为示意。</desc><g font-family="PingFang SC, Noto Sans CJK SC, Microsoft YaHei, sans-serif">
+<rect x="0" y="0" width="1280" height="720" rx="0" fill="#f2e9d7" stroke="#f2e9d7"/>
+<rect x="24" y="20" width="1232" height="76" rx="8" fill="#faf5e9" stroke="#bcaa8d"/>
+<circle cx="65" cy="57" r="26" fill="#e4d7bd" stroke="#bcaa8d"/>
+<text x="65" y="64" font-size="22" fill="#3f352c" font-weight="400" text-anchor="middle">萧</text>
+<text x="106" y="49" font-size="23" fill="#3f352c" font-weight="600" text-anchor="start">萧白</text>
+<text x="106" y="78" font-size="18" fill="#3f352c" font-weight="400" text-anchor="start">心情：平和</text>
+<text x="298" y="49" font-size="22" fill="#3f352c" font-weight="600" text-anchor="start">第一年 · 一月 · 月初</text>
+<text x="298" y="78" font-size="17" fill="#9b4534" font-weight="400" text-anchor="start">月初</text>
+<text x="354" y="78" font-size="17" fill="#796b5b" font-weight="400" text-anchor="start">上旬</text>
+<text x="410" y="78" font-size="17" fill="#796b5b" font-weight="400" text-anchor="start">中旬</text>
+<text x="466" y="78" font-size="17" fill="#796b5b" font-weight="400" text-anchor="start">下旬</text>
+<text x="522" y="78" font-size="17" fill="#796b5b" font-weight="400" text-anchor="start">月底</text>
+<text x="596" y="49" font-size="22" fill="#3f352c" font-weight="600" text-anchor="start">体力 10 / 10</text>
+<rect x="596" y="63" width="13" height="14" rx="2" fill="#9b4534" stroke="#9b4534"/>
+<rect x="614" y="63" width="13" height="14" rx="2" fill="#9b4534" stroke="#9b4534"/>
+<rect x="632" y="63" width="13" height="14" rx="2" fill="#9b4534" stroke="#9b4534"/>
+<rect x="650" y="63" width="13" height="14" rx="2" fill="#9b4534" stroke="#9b4534"/>
+<rect x="668" y="63" width="13" height="14" rx="2" fill="#9b4534" stroke="#9b4534"/>
+<rect x="686" y="63" width="13" height="14" rx="2" fill="#9b4534" stroke="#9b4534"/>
+<rect x="704" y="63" width="13" height="14" rx="2" fill="#9b4534" stroke="#9b4534"/>
+<rect x="722" y="63" width="13" height="14" rx="2" fill="#9b4534" stroke="#9b4534"/>
+<rect x="740" y="63" width="13" height="14" rx="2" fill="#9b4534" stroke="#9b4534"/>
+<rect x="758" y="63" width="13" height="14" rx="2" fill="#9b4534" stroke="#9b4534"/>
+<text x="808" y="49" font-size="22" fill="#3f352c" font-weight="600" text-anchor="start">周砚山居</text>
+<text x="808" y="78" font-size="18" fill="#3f352c" font-weight="400" text-anchor="start">身份：客居</text>
+<text x="956" y="78" font-size="18" fill="#3f352c" font-weight="400" text-anchor="start">银两：—</text>
+<rect x="1100" y="31" width="132" height="52" rx="8" fill="#e4d7bd" stroke="#bcaa8d"/>
+<text x="1166" y="64" font-size="20" fill="#3f352c" font-weight="600" text-anchor="middle">江湖行卷</text>
+<rect x="24" y="108" width="844" height="456" rx="8" fill="#e8e0cc" stroke="#bcaa8d"/>
+<text x="48" y="142" font-size="22" fill="#3f352c" font-weight="600" text-anchor="start">山居庭院 · 春</text>
+<text x="844" y="141" font-size="18" fill="#796b5b" font-weight="400" text-anchor="end">场景占位</text>
+<path d="M42 286 Q185 178 310 267 Q449 172 612 269 Q747 200 850 253" stroke="#bcaa8d" stroke-width="2" fill="none"/>
+<rect x="64" y="306" width="244" height="149" rx="8" fill="#ddd0b4" stroke="#bcaa8d"/>
+<path d="M48 308 L186 232 L324 308 Z" fill="#e4d7bd" stroke="#bcaa8d"/>
+<rect x="160" y="350" width="48" height="105" rx="8" fill="#cbbd9e" stroke="#bcaa8d"/>
+<text x="186" y="330" font-size="20" fill="#3f352c" font-weight="400" text-anchor="middle">居所／书案</text>
+<rect x="370" y="302" width="197" height="94" rx="8" fill="#ddd0b4" stroke="#bcaa8d"/>
+<text x="468" y="336" font-size="20" fill="#3f352c" font-weight="600" text-anchor="middle">练武场</text>
+<text x="468" y="368" font-size="18" fill="#3f352c" font-weight="400" text-anchor="middle">点击查看已学课题</text>
+<rect x="621" y="305" width="208" height="123" rx="8" fill="#d8d9bd" stroke="#bcaa8d"/>
+<text x="725" y="340" font-size="20" fill="#3f352c" font-weight="600" text-anchor="middle">药圃与晾架</text>
+<text x="725" y="373" font-size="18" fill="#3f352c" font-weight="400" text-anchor="middle">点人物查看近况</text>
+<circle cx="420" cy="408" r="14" fill="#796b5b" opacity=".65"/>
+<path d="M401 461 L408 430 Q420 422 432 430 L439 461 Z" fill="#796b5b" opacity=".55"/>
+<text x="420" y="490" font-size="18" fill="#3f352c" font-weight="400" text-anchor="middle">萧白</text>
+<circle cx="523" cy="403" r="14" fill="#796b5b" opacity=".65"/>
+<path d="M504 456 L511 425 Q523 417 535 425 L542 456 Z" fill="#796b5b" opacity=".55"/>
+<text x="523" y="485" font-size="18" fill="#3f352c" font-weight="400" text-anchor="middle">周砚</text>
+<circle cx="702" cy="423" r="14" fill="#796b5b" opacity=".65"/>
+<path d="M683 476 L690 445 Q702 437 714 445 L721 476 Z" fill="#796b5b" opacity=".55"/>
+<text x="702" y="505" font-size="18" fill="#3f352c" font-weight="400" text-anchor="middle">叶蘅</text>
+<rect x="48" y="510" width="796" height="36" rx="8" fill="#faf5e9" stroke="#bcaa8d"/>
+<text x="64" y="535" font-size="18" fill="#3f352c" font-weight="400" text-anchor="start">短闲谈免费；正式活动先展示内容与体力。</text>
+<rect x="884" y="108" width="372" height="456" rx="8" fill="#faf5e9" stroke="#bcaa8d"/>
+<text x="908" y="145" font-size="23" fill="#3f352c" font-weight="600" text-anchor="start">本期近况</text>
+<text x="908" y="176" font-size="18" fill="#796b5b" font-weight="400" text-anchor="start">只展示已知消息与机会</text>
+<rect x="902" y="193" width="336" height="102" rx="8" fill="#faf5e9" stroke="#bcaa8d"/>
+<text x="916" y="222" font-size="20" fill="#3f352c" font-weight="600" text-anchor="start">周砚 · 基础教学</text>
+<text x="916" y="250" font-size="18" fill="#3f352c" font-weight="400" text-anchor="start">先学站位与发力，再独练。</text>
+<text x="916" y="278" font-size="18" fill="#9b4534" font-weight="400" text-anchor="start">前往基本功 · 5点</text>
+<rect x="902" y="307" width="336" height="102" rx="8" fill="#faf5e9" stroke="#bcaa8d"/>
+<text x="916" y="336" font-size="20" fill="#3f352c" font-weight="600" text-anchor="start">叶蘅 · 医案与普通药材</text>
+<text x="916" y="364" font-size="18" fill="#3f352c" font-weight="400" text-anchor="start">愿意指导记录与辨药。</text>
+<text x="916" y="392" font-size="18" fill="#9b4534" font-weight="400" text-anchor="start">前往学艺 · 3点</text>
+<rect x="902" y="421" width="336" height="102" rx="8" fill="#faf5e9" stroke="#bcaa8d"/>
+<text x="916" y="450" font-size="20" fill="#3f352c" font-weight="600" text-anchor="start">接下来的行程</text>
+<text x="916" y="478" font-size="18" fill="#3f352c" font-weight="400" text-anchor="start">三月中旬 · 同行送药</text>
+<text x="916" y="506" font-size="18" fill="#9b4534" font-weight="400" text-anchor="start">短篇占一期，提前告知</text>
+<rect x="24" y="580" width="1060" height="116" rx="8" fill="#faf5e9" stroke="#bcaa8d"/>
+<rect x="1100" y="580" width="156" height="116" rx="8" fill="#e4d7bd" stroke="#bcaa8d"/>
+<rect x="34" y="589" width="140" height="99" rx="8" fill="#faf5e9" stroke="#bcaa8d"/>
+<path d="M85 629 L104 598 L123 629 M81 614 L127 614" stroke="#3f352c" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="104" y="654" font-size="20" fill="#3f352c" font-weight="600" text-anchor="middle">基本功</text>
+<text x="104" y="679" font-size="18" fill="#3f352c" font-weight="400" text-anchor="middle">5点体力</text>
+<rect x="184" y="589" width="140" height="99" rx="8" fill="#faf5e9" stroke="#bcaa8d"/>
+<path d="M236 632 L272 596 M234 618 L250 634 M262 592 L276 606" stroke="#3f352c" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="254" y="654" font-size="20" fill="#3f352c" font-weight="600" text-anchor="middle">招式</text>
+<text x="254" y="679" font-size="18" fill="#3f352c" font-weight="400" text-anchor="middle">5点体力</text>
+<rect x="334" y="589" width="140" height="99" rx="8" fill="#faf5e9" stroke="#bcaa8d"/>
+<path d="M381 605 L427 605 L418 633 L390 633 Z M389 605 Q404 580 419 605" stroke="#3f352c" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="404" y="654" font-size="20" fill="#3f352c" font-weight="600" text-anchor="middle">生产</text>
+<text x="404" y="679" font-size="18" fill="#3f352c" font-weight="400" text-anchor="middle">3点体力</text>
+<rect x="484" y="589" width="140" height="99" rx="8" fill="#faf5e9" stroke="#bcaa8d"/>
+<path d="M554 597 Q542 589 529 596 L529 628 Q542 622 554 632 Q566 622 579 628 L579 596 Q566 589 554 597 L554 632" stroke="#3f352c" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="554" y="654" font-size="20" fill="#3f352c" font-weight="600" text-anchor="middle">学艺</text>
+<text x="554" y="679" font-size="18" fill="#3f352c" font-weight="400" text-anchor="middle">3点体力</text>
+<rect x="634" y="589" width="140" height="99" rx="8" fill="#faf5e9" stroke="#bcaa8d"/>
+<path d="M718 592 L699 617 M699 617 L681 628 L696 638 L707 622 Z" stroke="#3f352c" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="704" y="654" font-size="20" fill="#3f352c" font-weight="600" text-anchor="middle">打杂</text>
+<text x="704" y="679" font-size="18" fill="#3f352c" font-weight="400" text-anchor="middle">2点体力</text>
+<rect x="784" y="589" width="140" height="99" rx="8" fill="#faf5e9" stroke="#bcaa8d"/>
+<path d="M830 599 L878 599 L878 631 L830 631 Z M830 599 L854 617 L878 599" stroke="#3f352c" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="854" y="654" font-size="20" fill="#3f352c" font-weight="600" text-anchor="middle">通信</text>
+<text x="854" y="679" font-size="18" fill="#3f352c" font-weight="400" text-anchor="middle">4点体力</text>
+<rect x="934" y="589" width="140" height="99" rx="8" fill="#faf5e9" stroke="#bcaa8d"/>
+<path d="M977 632 L992 604 L1004 624 L1020 594 L1034 632 M1000 632 Q1013 616 1020 632" stroke="#3f352c" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="1004" y="654" font-size="20" fill="#3f352c" font-weight="600" text-anchor="middle">闲逛</text>
+<text x="1004" y="679" font-size="18" fill="#3f352c" font-weight="400" text-anchor="middle">6点体力</text>
+<text x="1178" y="621" font-size="22" fill="#3f352c" font-weight="600" text-anchor="middle">结束本期</text>
+<text x="1178" y="651" font-size="18" fill="#3f352c" font-weight="400" text-anchor="middle">余力 10点</text>
+<text x="1178" y="678" font-size="17" fill="#3f352c" font-weight="400" text-anchor="middle">下一期：上旬</text>
+<text x="24" y="715" font-size="17" fill="#796b5b" font-weight="400" text-anchor="start">布局线框 · 非正式美术 · 示例阶段与数据</text>
+</g></svg>

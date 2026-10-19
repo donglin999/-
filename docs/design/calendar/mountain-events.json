@@ -1,0 +1,1759 @@
+{
+  "version": "CAL-2026-10-16.1",
+  "status": "planning-catalog-with-local-implemented-subset",
+  "calendar": {
+    "months": 36,
+    "phases": [
+      "月初",
+      "上旬",
+      "中旬",
+      "下旬",
+      "月底"
+    ],
+    "energyPerSlot": 12
+  },
+  "hubs": [
+    "mountain",
+    "away",
+    "baihe",
+    "journey",
+    "escort_road",
+    "hangao"
+  ],
+  "actors": [
+    "hero",
+    "ye",
+    "zhou",
+    "lu",
+    "mo_songnian",
+    "meng_zhiwei",
+    "zhaochuan_courier"
+  ],
+  "profiles": {
+    "mountain_ye_stays": {
+      "presence": {
+        "hero": [
+          [
+            0,
+            179,
+            "mountain"
+          ]
+        ],
+        "zhou": [
+          [
+            0,
+            179,
+            "mountain"
+          ]
+        ],
+        "lu": [
+          [
+            0,
+            7,
+            "away"
+          ],
+          [
+            8,
+            11,
+            "mountain"
+          ],
+          [
+            12,
+            179,
+            "away"
+          ]
+        ],
+        "ye": [
+          [
+            0,
+            59,
+            "mountain"
+          ],
+          [
+            60,
+            64,
+            "hangao"
+          ],
+          [
+            65,
+            179,
+            "mountain"
+          ]
+        ],
+        "mo_songnian": [
+          [
+            0,
+            7,
+            "away"
+          ],
+          [
+            8,
+            9,
+            "mountain"
+          ],
+          [
+            10,
+            179,
+            "away"
+          ]
+        ],
+        "meng_zhiwei": [
+          [
+            0,
+            12,
+            "away"
+          ],
+          [
+            13,
+            14,
+            "mountain"
+          ],
+          [
+            15,
+            179,
+            "away"
+          ]
+        ],
+        "zhaochuan_courier": [
+          [
+            0,
+            14,
+            "away"
+          ],
+          [
+            15,
+            17,
+            "mountain"
+          ],
+          [
+            18,
+            179,
+            "away"
+          ]
+        ]
+      },
+      "goals": [
+        "first_zhou_talk",
+        "first_ye_work",
+        "lu_visit"
+      ]
+    },
+    "mountain_ye_studies": {
+      "presence": {
+        "hero": [
+          [
+            0,
+            179,
+            "mountain"
+          ]
+        ],
+        "zhou": [
+          [
+            0,
+            179,
+            "mountain"
+          ]
+        ],
+        "lu": [
+          [
+            0,
+            7,
+            "away"
+          ],
+          [
+            8,
+            11,
+            "mountain"
+          ],
+          [
+            12,
+            179,
+            "away"
+          ]
+        ],
+        "ye": [
+          [
+            0,
+            59,
+            "mountain"
+          ],
+          [
+            60,
+            64,
+            "hangao"
+          ],
+          [
+            65,
+            179,
+            "baihe"
+          ]
+        ],
+        "mo_songnian": [
+          [
+            0,
+            7,
+            "away"
+          ],
+          [
+            8,
+            9,
+            "mountain"
+          ],
+          [
+            10,
+            179,
+            "away"
+          ]
+        ],
+        "meng_zhiwei": [
+          [
+            0,
+            12,
+            "away"
+          ],
+          [
+            13,
+            14,
+            "mountain"
+          ],
+          [
+            15,
+            179,
+            "away"
+          ]
+        ],
+        "zhaochuan_courier": [
+          [
+            0,
+            14,
+            "away"
+          ],
+          [
+            15,
+            17,
+            "mountain"
+          ],
+          [
+            18,
+            179,
+            "away"
+          ]
+        ]
+      },
+      "goals": [
+        "first_zhou_talk",
+        "first_ye_work",
+        "lu_visit"
+      ]
+    }
+  },
+  "events": [
+    {
+      "id": "journey_m5",
+      "title": "5月整月历练",
+      "source": "docs/design/timeline.md",
+      "status": "draft",
+      "profiles": [
+        "mountain_ye_stays",
+        "mountain_ye_studies"
+      ],
+      "kind": "block",
+      "window": [
+        20,
+        24
+      ],
+      "duration": 5,
+      "cost": 0,
+      "hub": "journey",
+      "actors": [
+        "hero"
+      ],
+      "requires": [
+        "xiangyang_departure"
+      ],
+      "required": true,
+      "group": null
+    },
+    {
+      "id": "journey_m10",
+      "title": "10月整月历练",
+      "source": "docs/design/timeline.md",
+      "status": "draft",
+      "profiles": [
+        "mountain_ye_stays",
+        "mountain_ye_studies"
+      ],
+      "kind": "block",
+      "window": [
+        45,
+        49
+      ],
+      "duration": 5,
+      "cost": 0,
+      "hub": "journey",
+      "actors": [
+        "hero"
+      ],
+      "requires": [],
+      "required": true,
+      "group": null
+    },
+    {
+      "id": "journey_m16",
+      "title": "13月汉皋岁首群像历练（保留旧ID journey_m16）",
+      "source": "docs/design/fullflow-story-20261016/hangao-calendar-audit.md",
+      "status": "draft",
+      "profiles": [
+        "mountain_ye_stays",
+        "mountain_ye_studies"
+      ],
+      "kind": "block",
+      "window": [
+        60,
+        64
+      ],
+      "duration": 5,
+      "cost": 0,
+      "hub": "hangao",
+      "actors": [
+        "hero",
+        "ye"
+      ],
+      "requires": [
+        "ye_future"
+      ],
+      "required": true,
+      "group": null,
+      "scheduleRevision": {
+        "fromVersion": "CAL-2026-10-05.4",
+        "previousWindow": [
+          75,
+          79
+        ],
+        "displayAbsoluteMonth": 13,
+        "stableId": "journey_m16",
+        "reason": "用户要求第一年末或第二年初插入汉皋群像与萧白实际扬名；原第16月预算前移，非新增一月"
+      },
+      "announcement": {
+        "noticeWindow": [
+          55,
+          58
+        ],
+        "channel": "一年十二月的师门行程说明；先说明正月外出，不预选叶蘅方向"
+      },
+      "conditions": [
+        {
+          "instruction": "叶蘅第12月月底自行选路后进入该行程；医路先到苏芷汉皋接诊点入门临诊，针攻路按归云外出安排"
+        }
+      ],
+      "effects": [
+        {
+          "instruction": "只提交城内实际完成节点、见面与可验证的扬名事迹；不自动招募、补交支线或代领练功成果"
+        }
+      ],
+      "expiry": {
+        "policy": "固定主线已在一年十二月预告；未做可选支线保留真实回访入口，不自动补成已见人物",
+        "followup": "14月月初主角返谷；医路叶蘅赴白鹇，针攻路叶蘅返谷"
+      },
+      "repeat": {
+        "once": true
+      },
+      "priority": "required_journey",
+      "migration": "旧ID仅作身份兼容，不代表旧16月行程已完成汉皋群像。未开始且尚未到13月的旧档改期并通知；已开始行程按旧快照完成；已越过13月的旧档进入单独补玩入口，不倒拨日期、不重复占5期或发奖励、不自动补扬名。正式存档迁移尚未实现。",
+      "preDeparture": {
+        "runtimeEventId": "gy_new_year_dawn",
+        "source": "docs/design/cultivation-rework-20261012/dialogue.md#gy_new_year_dawn",
+        "location": "归云庭院",
+        "timing": "slot60正月初一，实际离谷之前；与HG2-01抵达为同一行程中的顺序子阶段",
+        "requiredForDeparture": false,
+        "calendarAccounting": "不增加独立plot/action，不额外占期或发据点体力；父行程开始时先保存origin阶段，确认离谷再进入route阶段",
+        "adultGate": "萧白按第二年正月初一成年，不依是否观看生日；殷的心意分支另验本人篇、正式资格、托付80及双方意愿",
+        "fallback": "未做可在14月返谷后真实与殷/师母相遇时补谈，字幕改为返谷时日，不重播正月初一；同一事件成果和心意结算只提交一次",
+        "status": "design_only_not_calendar_solver_verified"
+      }
+    },
+    {
+      "id": "journey_m22",
+      "title": "22月整月历练",
+      "source": "docs/design/timeline.md",
+      "status": "draft",
+      "profiles": [
+        "mountain_ye_stays",
+        "mountain_ye_studies"
+      ],
+      "kind": "block",
+      "window": [
+        105,
+        109
+      ],
+      "duration": 5,
+      "cost": 0,
+      "hub": "journey",
+      "actors": [
+        "hero"
+      ],
+      "requires": [],
+      "required": true,
+      "group": null
+    },
+    {
+      "id": "journey_m28",
+      "title": "28月整月历练",
+      "source": "docs/design/timeline.md",
+      "status": "draft",
+      "profiles": [
+        "mountain_ye_stays",
+        "mountain_ye_studies"
+      ],
+      "kind": "block",
+      "window": [
+        135,
+        139
+      ],
+      "duration": 5,
+      "cost": 0,
+      "hub": "journey",
+      "actors": [
+        "hero"
+      ],
+      "requires": [],
+      "required": true,
+      "group": null
+    },
+    {
+      "id": "journey_m33",
+      "title": "33月整月历练",
+      "source": "docs/design/timeline.md",
+      "status": "draft",
+      "profiles": [
+        "mountain_ye_stays",
+        "mountain_ye_studies"
+      ],
+      "kind": "block",
+      "window": [
+        160,
+        164
+      ],
+      "duration": 5,
+      "cost": 0,
+      "hub": "journey",
+      "actors": [
+        "hero"
+      ],
+      "requires": [],
+      "required": true,
+      "group": null
+    },
+    {
+      "id": "spring_escort",
+      "title": "首季中旬整期护送",
+      "source": "docs/design/timeline.md",
+      "status": "draft",
+      "profiles": [
+        "mountain_ye_stays",
+        "mountain_ye_studies"
+      ],
+      "kind": "block",
+      "window": [
+        12,
+        12
+      ],
+      "duration": 1,
+      "cost": 0,
+      "hub": "escort_road",
+      "actors": [
+        "hero",
+        "ye",
+        "lu"
+      ],
+      "requires": [
+        "escort_notice"
+      ],
+      "required": true,
+      "group": null
+    },
+    {
+      "id": "year1_assessment",
+      "title": "年一冬年度检验预留",
+      "source": "docs/design/timeline.md",
+      "status": "draft",
+      "profiles": [
+        "mountain_ye_stays",
+        "mountain_ye_studies"
+      ],
+      "kind": "block",
+      "window": [
+        50,
+        58
+      ],
+      "duration": 1,
+      "cost": 0,
+      "hub": "mountain",
+      "actors": [
+        "hero",
+        "zhou"
+      ],
+      "requires": [],
+      "required": true,
+      "group": null
+    },
+    {
+      "id": "ye_future",
+      "title": "第12月月底未来长谈",
+      "source": "docs/design/timeline.md",
+      "status": "draft",
+      "profiles": [
+        "mountain_ye_stays",
+        "mountain_ye_studies"
+      ],
+      "kind": "block",
+      "window": [
+        59,
+        59
+      ],
+      "duration": 1,
+      "cost": 0,
+      "hub": "mountain",
+      "actors": [
+        "hero",
+        "ye"
+      ],
+      "requires": [],
+      "required": true,
+      "group": null
+    },
+    {
+      "id": "old_visitor",
+      "title": "汉皋返程后旧人来访（14—16月）",
+      "source": "docs/design/timeline.md",
+      "status": "draft",
+      "profiles": [
+        "mountain_ye_stays",
+        "mountain_ye_studies"
+      ],
+      "kind": "block",
+      "window": [
+        65,
+        79
+      ],
+      "duration": 1,
+      "cost": 0,
+      "hub": "mountain",
+      "actors": [
+        "hero"
+      ],
+      "requires": [
+        "journey_m16"
+      ],
+      "required": true,
+      "group": null,
+      "scheduleRevision": {
+        "fromVersion": "CAL-2026-10-05.4",
+        "previousWindow": [
+          60,
+          74
+        ],
+        "witnessSlot": 65,
+        "reason": "避开13月汉皋独占行程；仍占原九期短篇中的一期，不新增外地历练"
+      },
+      "migration": "保持旧人事件身份与已结算事实；未开始窗口顺延到汉皋返程后，进行中使用旧快照；叶蘅医路不自动被拉回谷中，通信或后续约诊另记。"
+    },
+    {
+      "id": "pressure",
+      "title": "年二秋三方施压预留",
+      "source": "docs/design/timeline.md",
+      "status": "draft",
+      "profiles": [
+        "mountain_ye_stays",
+        "mountain_ye_studies"
+      ],
+      "kind": "block",
+      "window": [
+        90,
+        104
+      ],
+      "duration": 1,
+      "cost": 0,
+      "hub": "mountain",
+      "actors": [
+        "hero"
+      ],
+      "requires": [],
+      "required": true,
+      "group": null
+    },
+    {
+      "id": "truth_a",
+      "title": "年三春事实核实一期预留",
+      "source": "docs/design/timeline.md",
+      "status": "draft",
+      "profiles": [
+        "mountain_ye_stays",
+        "mountain_ye_studies"
+      ],
+      "kind": "block",
+      "window": [
+        120,
+        134
+      ],
+      "duration": 1,
+      "cost": 0,
+      "hub": "mountain",
+      "actors": [
+        "hero"
+      ],
+      "requires": [],
+      "required": true,
+      "group": null
+    },
+    {
+      "id": "truth_b",
+      "title": "年三春事实核实二期预留",
+      "source": "docs/design/timeline.md",
+      "status": "draft",
+      "profiles": [
+        "mountain_ye_stays",
+        "mountain_ye_studies"
+      ],
+      "kind": "block",
+      "window": [
+        120,
+        134
+      ],
+      "duration": 1,
+      "cost": 0,
+      "hub": "mountain",
+      "actors": [
+        "hero"
+      ],
+      "requires": [
+        "truth_a"
+      ],
+      "required": true,
+      "group": null
+    },
+    {
+      "id": "ending_a",
+      "title": "年三冬遗产回响一期预留",
+      "source": "docs/design/timeline.md",
+      "status": "draft",
+      "profiles": [
+        "mountain_ye_stays",
+        "mountain_ye_studies"
+      ],
+      "kind": "block",
+      "window": [
+        165,
+        179
+      ],
+      "duration": 1,
+      "cost": 0,
+      "hub": "mountain",
+      "actors": [
+        "hero"
+      ],
+      "requires": [],
+      "required": true,
+      "group": null
+    },
+    {
+      "id": "ending_b",
+      "title": "年三冬出山交接一期预留",
+      "source": "docs/design/timeline.md",
+      "status": "draft",
+      "profiles": [
+        "mountain_ye_stays",
+        "mountain_ye_studies"
+      ],
+      "kind": "block",
+      "window": [
+        165,
+        179
+      ],
+      "duration": 1,
+      "cost": 0,
+      "hub": "mountain",
+      "actors": [
+        "hero"
+      ],
+      "requires": [
+        "ending_a"
+      ],
+      "required": true,
+      "group": null
+    },
+    {
+      "id": "first_zhou_talk",
+      "title": "记住了，还是站不稳",
+      "source": "docs/design/pre-xiangyang-story.md",
+      "status": "draft",
+      "profiles": [
+        "mountain_ye_stays",
+        "mountain_ye_studies"
+      ],
+      "kind": "action",
+      "window": [
+        0,
+        9
+      ],
+      "duration": 1,
+      "cost": 4,
+      "hub": "mountain",
+      "actors": [
+        "hero",
+        "zhou"
+      ],
+      "requires": [
+        "first_foundation_lesson"
+      ],
+      "required": false,
+      "group": null,
+      "announcement": {
+        "leadAvailableSlots": 2,
+        "channel": "人物邀约"
+      },
+      "conditions": [],
+      "effects": [
+        {
+          "fact": "first_zhou_talk_seen",
+          "once": true
+        }
+      ],
+      "expiry": {
+        "policy": "保留必要主线；不补发未参与经历"
+      },
+      "repeat": {
+        "once": true
+      },
+      "priority": "known_invitation",
+      "migration": "原ID保留；已见旧样例不得无说明重放新剧情，接入时另做迁移"
+    },
+    {
+      "id": "first_ye_work",
+      "title": "药签上留着的空白",
+      "source": "docs/design/pre-xiangyang-story.md",
+      "status": "draft",
+      "profiles": [
+        "mountain_ye_stays",
+        "mountain_ye_studies"
+      ],
+      "kind": "action",
+      "window": [
+        1,
+        9
+      ],
+      "duration": 1,
+      "cost": 4,
+      "hub": "mountain",
+      "actors": [
+        "hero",
+        "ye"
+      ],
+      "requires": [],
+      "required": false,
+      "group": null,
+      "announcement": {
+        "leadAvailableSlots": 2,
+        "channel": "人物邀约"
+      },
+      "conditions": [],
+      "effects": [
+        {
+          "fact": "first_ye_work_seen",
+          "once": true
+        }
+      ],
+      "expiry": {
+        "policy": "保留必要主线；不补发未参与经历"
+      },
+      "repeat": {
+        "once": true
+      },
+      "priority": "known_invitation",
+      "migration": "原ID保留；已见旧样例不得无说明重放新剧情，接入时另做迁移"
+    },
+    {
+      "id": "lu_visit",
+      "title": "话别说得太满",
+      "source": "docs/design/pre-xiangyang-story.md",
+      "status": "draft",
+      "profiles": [
+        "mountain_ye_stays",
+        "mountain_ye_studies"
+      ],
+      "kind": "plot",
+      "window": [
+        8,
+        11
+      ],
+      "duration": 1,
+      "cost": 0,
+      "hub": "mountain",
+      "actors": [
+        "hero",
+        "lu"
+      ],
+      "requires": [],
+      "required": true,
+      "group": null,
+      "announcement": {
+        "leadAvailableSlots": 2,
+        "channel": "人物邀约"
+      },
+      "conditions": [],
+      "effects": [
+        {
+          "fact": "lu_visit_seen",
+          "once": true
+        }
+      ],
+      "expiry": {
+        "policy": "保留必要主线；不补发未参与经历"
+      },
+      "repeat": {
+        "once": true
+      },
+      "priority": "known_invitation",
+      "migration": "原ID保留；已见旧样例不得无说明重放新剧情，接入时另做迁移",
+      "runtimeAction": "W05",
+      "trigger": "进入对应窗口且前置事实成立后自动对白；当前活动、消息、月结优先完成"
+    },
+    {
+      "id": "ye_stay_followup",
+      "title": "第14月返谷后留谷修习后续",
+      "source": "docs/design/ye-routes.md",
+      "status": "draft",
+      "profiles": [
+        "mountain_ye_stays"
+      ],
+      "kind": "action",
+      "window": [
+        65,
+        69
+      ],
+      "duration": 1,
+      "cost": 4,
+      "hub": "mountain",
+      "actors": [
+        "hero",
+        "ye"
+      ],
+      "requires": [
+        "ye_future",
+        "journey_m16"
+      ],
+      "required": false,
+      "group": null,
+      "scheduleRevision": {
+        "fromVersion": "CAL-2026-10-05.4",
+        "previousWindow": [
+          60,
+          64
+        ],
+        "reason": "原窗口与正月整月行程重叠，延至14月保留一次性资格及原费用"
+      },
+      "migration": "已完成旧后续不重复收费或发奖；尚未完成按14月新窗口提示。通信只预订萧白，不将白鹇的叶蘅画进归云场景。"
+    },
+    {
+      "id": "ye_study_mail",
+      "title": "第14月返谷后学医通信",
+      "source": "docs/design/ye-routes.md",
+      "status": "draft",
+      "profiles": [
+        "mountain_ye_studies"
+      ],
+      "kind": "action",
+      "window": [
+        65,
+        69
+      ],
+      "duration": 1,
+      "cost": 1,
+      "hub": "mountain",
+      "actors": [
+        "hero"
+      ],
+      "requires": [
+        "ye_future",
+        "journey_m16"
+      ],
+      "required": false,
+      "group": null,
+      "scheduleRevision": {
+        "fromVersion": "CAL-2026-10-05.4",
+        "previousWindow": [
+          60,
+          64
+        ],
+        "reason": "原窗口与正月整月行程重叠，延至14月保留一次性资格及原费用"
+      },
+      "migration": "已完成旧后续不重复收费或发奖；尚未完成按14月新窗口提示。通信只预订萧白，不将白鹇的叶蘅画进归云场景。"
+    },
+    {
+      "id": "entry_join",
+      "title": "首月萧白自愿拜师",
+      "source": "docs/design/pre-xiangyang-story.md",
+      "status": "draft",
+      "profiles": [
+        "mountain_ye_stays",
+        "mountain_ye_studies"
+      ],
+      "kind": "notice",
+      "window": [
+        0,
+        0
+      ],
+      "duration": 1,
+      "cost": 0,
+      "hub": "mountain",
+      "actors": [],
+      "requires": [],
+      "required": true,
+      "group": null,
+      "announcement": {
+        "leadAvailableSlots": 2,
+        "channel": "明确剧情或人物邀约"
+      },
+      "conditions": [],
+      "effects": [
+        {
+          "fact": "entry_join_seen",
+          "once": true
+        }
+      ],
+      "expiry": {
+        "policy": "不关闭主线；未参与不补发个人经历",
+        "followup": null
+      },
+      "repeat": {
+        "once": true
+      },
+      "priority": "required_notice",
+      "migration": "设计稿；实际存档键及幂等结算接入时另验"
+    },
+    {
+      "id": "village_news",
+      "title": "乡邻已完成日常交接的消息",
+      "source": "docs/design/pre-xiangyang-story.md",
+      "status": "draft",
+      "profiles": [
+        "mountain_ye_stays",
+        "mountain_ye_studies"
+      ],
+      "kind": "notice",
+      "window": [
+        2,
+        2
+      ],
+      "duration": 1,
+      "cost": 0,
+      "hub": "mountain",
+      "actors": [],
+      "requires": [],
+      "required": true,
+      "group": null,
+      "announcement": {
+        "leadAvailableSlots": 2,
+        "channel": "明确剧情或人物邀约"
+      },
+      "conditions": [],
+      "effects": [
+        {
+          "fact": "village_news_seen",
+          "once": true
+        }
+      ],
+      "expiry": {
+        "policy": "不关闭主线；未参与不补发个人经历",
+        "followup": null
+      },
+      "repeat": {
+        "once": true
+      },
+      "priority": "required_notice",
+      "migration": "设计稿；实际存档键及幂等结算接入时另验"
+    },
+    {
+      "id": "old_friend_letter",
+      "title": "旧识回信，待核实方向",
+      "source": "docs/design/pre-xiangyang-story.md",
+      "status": "draft",
+      "profiles": [
+        "mountain_ye_stays",
+        "mountain_ye_studies"
+      ],
+      "kind": "notice",
+      "window": [
+        5,
+        5
+      ],
+      "duration": 1,
+      "cost": 0,
+      "hub": "mountain",
+      "actors": [],
+      "requires": [],
+      "required": true,
+      "group": null,
+      "announcement": {
+        "leadAvailableSlots": 2,
+        "channel": "明确剧情或人物邀约"
+      },
+      "conditions": [],
+      "effects": [
+        {
+          "fact": "old_friend_letter_seen",
+          "once": true
+        }
+      ],
+      "expiry": {
+        "policy": "不关闭主线；未参与不补发个人经历",
+        "followup": null
+      },
+      "repeat": {
+        "once": true
+      },
+      "priority": "required_notice",
+      "migration": "设计稿；实际存档键及幂等结算接入时另验"
+    },
+    {
+      "id": "escort_notice",
+      "title": "护送计划与占期预告",
+      "source": "docs/design/pre-xiangyang-story.md",
+      "status": "draft",
+      "profiles": [
+        "mountain_ye_stays",
+        "mountain_ye_studies"
+      ],
+      "kind": "notice",
+      "window": [
+        10,
+        10
+      ],
+      "duration": 1,
+      "cost": 0,
+      "hub": "mountain",
+      "actors": [],
+      "requires": [],
+      "required": true,
+      "group": null,
+      "announcement": {
+        "leadAvailableSlots": 2,
+        "channel": "明确剧情或人物邀约"
+      },
+      "conditions": [],
+      "effects": [
+        {
+          "fact": "escort_notice_seen",
+          "once": true
+        }
+      ],
+      "expiry": {
+        "policy": "不关闭主线；未参与不补发个人经历",
+        "followup": null
+      },
+      "repeat": {
+        "once": true
+      },
+      "priority": "required_notice",
+      "migration": "设计稿；实际存档键及幂等结算接入时另验"
+    },
+    {
+      "id": "escort_return",
+      "title": "护送基础结果与返程交代",
+      "source": "docs/design/pre-xiangyang-story.md",
+      "status": "draft",
+      "profiles": [
+        "mountain_ye_stays",
+        "mountain_ye_studies"
+      ],
+      "kind": "notice",
+      "window": [
+        13,
+        13
+      ],
+      "duration": 1,
+      "cost": 0,
+      "hub": "mountain",
+      "actors": [],
+      "requires": [
+        "spring_escort"
+      ],
+      "required": true,
+      "group": null,
+      "announcement": {
+        "leadAvailableSlots": 2,
+        "channel": "明确剧情或人物邀约"
+      },
+      "conditions": [],
+      "effects": [
+        {
+          "fact": "escort_return_seen",
+          "once": true
+        }
+      ],
+      "expiry": {
+        "policy": "不关闭主线；未参与不补发个人经历",
+        "followup": null
+      },
+      "repeat": {
+        "once": true
+      },
+      "priority": "required_notice",
+      "migration": "设计稿；实际存档键及幂等结算接入时另验"
+    },
+    {
+      "id": "xiangyang_invitation",
+      "title": "襄阳邀请与公开事务说明",
+      "source": "docs/design/pre-xiangyang-story.md",
+      "status": "draft",
+      "profiles": [
+        "mountain_ye_stays",
+        "mountain_ye_studies"
+      ],
+      "kind": "notice",
+      "window": [
+        15,
+        15
+      ],
+      "duration": 1,
+      "cost": 0,
+      "hub": "mountain",
+      "actors": [],
+      "requires": [],
+      "required": true,
+      "group": null,
+      "announcement": {
+        "leadAvailableSlots": 2,
+        "channel": "明确剧情或人物邀约"
+      },
+      "conditions": [],
+      "effects": [
+        {
+          "fact": "xiangyang_invitation_seen",
+          "once": true
+        }
+      ],
+      "expiry": {
+        "policy": "不关闭主线；未参与不补发个人经历",
+        "followup": null
+      },
+      "repeat": {
+        "once": true
+      },
+      "priority": "required_notice",
+      "migration": "设计稿；实际存档键及幂等结算接入时另验"
+    },
+    {
+      "id": "xiangyang_departure",
+      "title": "第5月行程与遗物边界交接",
+      "source": "docs/design/pre-xiangyang-story.md",
+      "status": "draft",
+      "profiles": [
+        "mountain_ye_stays",
+        "mountain_ye_studies"
+      ],
+      "kind": "notice",
+      "window": [
+        19,
+        19
+      ],
+      "duration": 1,
+      "cost": 0,
+      "hub": "mountain",
+      "actors": [],
+      "requires": [
+        "xiangyang_invitation"
+      ],
+      "required": true,
+      "group": null,
+      "announcement": {
+        "leadAvailableSlots": 2,
+        "channel": "明确剧情或人物邀约"
+      },
+      "conditions": [],
+      "effects": [
+        {
+          "fact": "xiangyang_departure_seen",
+          "once": true
+        }
+      ],
+      "expiry": {
+        "policy": "不关闭主线；未参与不补发个人经历",
+        "followup": null
+      },
+      "repeat": {
+        "once": true
+      },
+      "priority": "required_notice",
+      "migration": "设计稿；实际存档键及幂等结算接入时另验"
+    },
+    {
+      "id": "first_foundation_lesson",
+      "title": "首次站位基础课",
+      "source": "docs/design/pre-xiangyang-story.md",
+      "status": "draft",
+      "profiles": [
+        "mountain_ye_stays",
+        "mountain_ye_studies"
+      ],
+      "kind": "action",
+      "window": [
+        0,
+        9
+      ],
+      "duration": 1,
+      "cost": 5,
+      "hub": "mountain",
+      "actors": [
+        "hero",
+        "zhou"
+      ],
+      "requires": [
+        "entry_join"
+      ],
+      "required": false,
+      "group": null,
+      "announcement": {
+        "leadAvailableSlots": 2,
+        "channel": "明确剧情或人物邀约"
+      },
+      "conditions": [
+        {
+          "instruction": "未受过此课，完成后记录教学来源"
+        }
+      ],
+      "effects": [
+        {
+          "fact": "first_foundation_lesson_seen",
+          "once": true
+        }
+      ],
+      "expiry": {
+        "policy": "不关闭主线；未参与不补发个人经历",
+        "followup": null
+      },
+      "repeat": {
+        "once": true
+      },
+      "priority": "training",
+      "migration": "设计稿；实际存档键及幂等结算接入时另验"
+    },
+    {
+      "id": "village_letter",
+      "title": "袋底的木屑",
+      "source": "docs/design/pre-xiangyang-story.md",
+      "status": "draft",
+      "profiles": [
+        "mountain_ye_stays",
+        "mountain_ye_studies"
+      ],
+      "kind": "action",
+      "window": [
+        2,
+        11
+      ],
+      "duration": 1,
+      "cost": 4,
+      "hub": "mountain",
+      "actors": [
+        "hero",
+        "ye"
+      ],
+      "requires": [
+        "village_news"
+      ],
+      "required": false,
+      "group": null,
+      "announcement": {
+        "leadAvailableSlots": 2,
+        "channel": "明确剧情或人物邀约"
+      },
+      "conditions": [],
+      "effects": [
+        {
+          "fact": "village_letter_seen",
+          "once": true
+        }
+      ],
+      "expiry": {
+        "policy": "不关闭主线；未参与不补发个人经历",
+        "followup": null
+      },
+      "repeat": {
+        "once": true
+      },
+      "priority": "known_invitation",
+      "migration": "设计稿；实际存档键及幂等结算接入时另验"
+    },
+    {
+      "id": "ye_meal",
+      "title": "饭还在锅里",
+      "source": "docs/design/pre-xiangyang-story.md",
+      "status": "draft",
+      "profiles": [
+        "mountain_ye_stays",
+        "mountain_ye_studies"
+      ],
+      "kind": "action",
+      "window": [
+        5,
+        11
+      ],
+      "duration": 1,
+      "cost": 4,
+      "hub": "mountain",
+      "actors": [
+        "hero",
+        "ye"
+      ],
+      "requires": [
+        "first_ye_work"
+      ],
+      "required": false,
+      "group": null,
+      "announcement": {
+        "leadAvailableSlots": 2,
+        "channel": "明确剧情或人物邀约"
+      },
+      "conditions": [],
+      "effects": [
+        {
+          "fact": "ye_meal_seen",
+          "once": true
+        }
+      ],
+      "expiry": {
+        "policy": "不关闭主线；未参与不补发个人经历",
+        "followup": null
+      },
+      "repeat": {
+        "once": true
+      },
+      "priority": "known_invitation",
+      "migration": "设计稿；实际存档键及幂等结算接入时另验"
+    },
+    {
+      "id": "lu_extra_halfday",
+      "title": "多出来的半天",
+      "source": "docs/design/pre-xiangyang-story.md",
+      "status": "draft",
+      "profiles": [
+        "mountain_ye_stays",
+        "mountain_ye_studies"
+      ],
+      "kind": "action",
+      "window": [
+        10,
+        11
+      ],
+      "duration": 1,
+      "cost": 4,
+      "hub": "mountain",
+      "actors": [
+        "hero",
+        "lu"
+      ],
+      "requires": [
+        "lu_visit"
+      ],
+      "required": false,
+      "group": null,
+      "announcement": {
+        "leadAvailableSlots": 2,
+        "channel": "明确剧情或人物邀约"
+      },
+      "conditions": [],
+      "effects": [
+        {
+          "fact": "lu_extra_halfday_seen",
+          "once": true
+        }
+      ],
+      "expiry": {
+        "policy": "不关闭主线；未参与不补发个人经历",
+        "followup": null
+      },
+      "repeat": {
+        "once": true
+      },
+      "priority": "known_invitation",
+      "migration": "设计稿；实际存档键及幂等结算接入时另验"
+    },
+    {
+      "id": "zhou_after_escort",
+      "title": "回来再说那半步",
+      "source": "docs/design/pre-xiangyang-story.md",
+      "status": "draft",
+      "profiles": [
+        "mountain_ye_stays",
+        "mountain_ye_studies"
+      ],
+      "kind": "plot",
+      "window": [
+        13,
+        17
+      ],
+      "duration": 1,
+      "cost": 0,
+      "hub": "mountain",
+      "actors": [
+        "hero",
+        "zhou"
+      ],
+      "requires": [
+        "spring_escort"
+      ],
+      "required": true,
+      "group": null,
+      "announcement": {
+        "leadAvailableSlots": 2,
+        "channel": "明确剧情或人物邀约"
+      },
+      "conditions": [],
+      "effects": [
+        {
+          "fact": "zhou_after_escort_seen",
+          "once": true
+        }
+      ],
+      "expiry": {
+        "policy": "不关闭主线；未参与不补发个人经历",
+        "followup": null
+      },
+      "repeat": {
+        "once": true
+      },
+      "priority": "known_invitation",
+      "migration": "设计稿；实际存档键及幂等结算接入时另验",
+      "runtimeAction": "W06",
+      "trigger": "进入对应窗口且前置事实成立后自动对白；当前活动、消息、月结优先完成"
+    },
+    {
+      "id": "ye_own_plan",
+      "title": "清单上也写自己的名字",
+      "source": "docs/design/pre-xiangyang-story.md",
+      "status": "draft",
+      "profiles": [
+        "mountain_ye_stays",
+        "mountain_ye_studies"
+      ],
+      "kind": "action",
+      "window": [
+        13,
+        18
+      ],
+      "duration": 1,
+      "cost": 4,
+      "hub": "mountain",
+      "actors": [
+        "hero",
+        "ye"
+      ],
+      "requires": [
+        "spring_escort",
+        "first_ye_work"
+      ],
+      "required": false,
+      "group": null,
+      "announcement": {
+        "leadAvailableSlots": 2,
+        "channel": "明确剧情或人物邀约"
+      },
+      "conditions": [],
+      "effects": [
+        {
+          "fact": "ye_own_plan_seen",
+          "once": true
+        }
+      ],
+      "expiry": {
+        "policy": "不关闭主线；未参与不补发个人经历",
+        "followup": null
+      },
+      "repeat": {
+        "once": true
+      },
+      "priority": "known_invitation",
+      "migration": "设计稿；实际存档键及幂等结算接入时另验"
+    },
+    {
+      "id": "zhou_invitation",
+      "title": "帖子上的名字",
+      "source": "docs/design/pre-xiangyang-story.md",
+      "status": "draft",
+      "profiles": [
+        "mountain_ye_stays",
+        "mountain_ye_studies"
+      ],
+      "kind": "action",
+      "window": [
+        15,
+        19
+      ],
+      "duration": 1,
+      "cost": 4,
+      "hub": "mountain",
+      "actors": [
+        "hero",
+        "zhou"
+      ],
+      "requires": [
+        "xiangyang_invitation"
+      ],
+      "required": false,
+      "group": null,
+      "announcement": {
+        "leadAvailableSlots": 2,
+        "channel": "明确剧情或人物邀约"
+      },
+      "conditions": [],
+      "effects": [
+        {
+          "fact": "zhou_invitation_seen",
+          "once": true
+        }
+      ],
+      "expiry": {
+        "policy": "不关闭主线；未参与不补发个人经历",
+        "followup": null
+      },
+      "repeat": {
+        "once": true
+      },
+      "priority": "known_invitation",
+      "migration": "设计稿；实际存档键及幂等结算接入时另验"
+    },
+    {
+      "id": "pre_departure_talk",
+      "title": "这趟各自要办的事",
+      "source": "docs/design/pre-xiangyang-story.md",
+      "status": "draft",
+      "profiles": [
+        "mountain_ye_stays",
+        "mountain_ye_studies"
+      ],
+      "kind": "plot",
+      "window": [
+        16,
+        19
+      ],
+      "duration": 1,
+      "cost": 0,
+      "hub": "mountain",
+      "actors": [
+        "hero",
+        "ye"
+      ],
+      "requires": [
+        "xiangyang_invitation"
+      ],
+      "required": true,
+      "group": null,
+      "announcement": {
+        "leadAvailableSlots": 2,
+        "channel": "明确剧情或人物邀约"
+      },
+      "conditions": [],
+      "effects": [
+        {
+          "fact": "pre_departure_talk_seen",
+          "once": true
+        }
+      ],
+      "expiry": {
+        "policy": "不关闭主线；未参与不补发个人经历",
+        "followup": null
+      },
+      "repeat": {
+        "once": true
+      },
+      "priority": "known_invitation",
+      "migration": "设计稿；实际存档键及幂等结算接入时另验",
+      "runtimeAction": "W07",
+      "trigger": "进入对应窗口且前置事实成立后自动对白；当前活动、消息、月结优先完成"
+    },
+    {
+      "id": "visitor_songfeng_route",
+      "title": "近路之外",
+      "source": "docs/design/pre-xiangyang-visitors.md",
+      "status": "draft",
+      "profiles": [
+        "mountain_ye_stays",
+        "mountain_ye_studies"
+      ],
+      "kind": "action",
+      "window": [
+        8,
+        9
+      ],
+      "duration": 1,
+      "cost": 3,
+      "hub": "mountain",
+      "actors": [
+        "hero",
+        "zhou",
+        "mo_songnian"
+      ],
+      "requires": [],
+      "required": false,
+      "group": null,
+      "announcement": {
+        "leadAvailableSlots": 2,
+        "channel": "谷口来访预告"
+      },
+      "conditions": [],
+      "effects": [
+        {
+          "fact": "visitor_songfeng_route_seen",
+          "once": true
+        },
+        {
+          "progress": "observation",
+          "amount": 2
+        }
+      ],
+      "expiry": {
+        "policy": "未参与不补发相遇事实；必要主线消息免费送达",
+        "followup": null
+      },
+      "repeat": {
+        "once": true
+      },
+      "priority": "known_invitation",
+      "migration": "新事件；旧存档不得自动标已见，运行时逐事件3点费用尚未接入",
+      "script_source": "docs/archive/design/scripts/pre-xiangyang-visitors.md",
+      "asset_requirements": "docs/design/calendar/visitor-assets.json"
+    },
+    {
+      "id": "visitor_whiteheron_records",
+      "title": "纸上和送到的",
+      "source": "docs/design/pre-xiangyang-visitors.md",
+      "status": "draft",
+      "profiles": [
+        "mountain_ye_stays",
+        "mountain_ye_studies"
+      ],
+      "kind": "action",
+      "window": [
+        13,
+        14
+      ],
+      "duration": 1,
+      "cost": 3,
+      "hub": "mountain",
+      "actors": [
+        "hero",
+        "ye",
+        "meng_zhiwei"
+      ],
+      "requires": [],
+      "required": false,
+      "group": null,
+      "announcement": {
+        "leadAvailableSlots": 2,
+        "channel": "谷口来访预告"
+      },
+      "conditions": [],
+      "effects": [
+        {
+          "fact": "visitor_whiteheron_records_seen",
+          "once": true
+        },
+        {
+          "progress": "medical_notes",
+          "amount": 2
+        }
+      ],
+      "expiry": {
+        "policy": "未参与不补发相遇事实；必要主线消息免费送达",
+        "followup": null
+      },
+      "repeat": {
+        "once": true
+      },
+      "priority": "known_invitation",
+      "migration": "新事件；旧存档不得自动标已见，运行时逐事件3点费用尚未接入",
+      "script_source": "docs/archive/design/scripts/pre-xiangyang-visitors.md",
+      "asset_requirements": "docs/design/calendar/visitor-assets.json"
+    },
+    {
+      "id": "visitor_zhaochuan_greeting",
+      "title": "礼数之外",
+      "source": "docs/design/pre-xiangyang-visitors.md",
+      "status": "draft",
+      "profiles": [
+        "mountain_ye_stays",
+        "mountain_ye_studies"
+      ],
+      "kind": "action",
+      "window": [
+        15,
+        17
+      ],
+      "duration": 1,
+      "cost": 3,
+      "hub": "mountain",
+      "actors": [
+        "hero",
+        "zhou",
+        "zhaochuan_courier"
+      ],
+      "requires": [
+        "xiangyang_invitation"
+      ],
+      "required": false,
+      "group": null,
+      "announcement": {
+        "leadAvailableSlots": 2,
+        "channel": "谷口来访预告"
+      },
+      "conditions": [],
+      "effects": [
+        {
+          "fact": "visitor_zhaochuan_greeting_seen",
+          "once": true
+        },
+        {
+          "progress": "understanding",
+          "amount": 2
+        }
+      ],
+      "expiry": {
+        "policy": "未参与不补发相遇事实；必要主线消息免费送达",
+        "followup": null
+      },
+      "repeat": {
+        "once": true
+      },
+      "priority": "known_invitation",
+      "migration": "新事件；旧存档不得自动标已见，运行时逐事件3点费用尚未接入",
+      "script_source": "docs/archive/design/scripts/pre-xiangyang-visitors.md",
+      "asset_requirements": "docs/design/calendar/visitor-assets.json"
+    }
+  ],
+  "assumptions": [
+    "除3月中旬和12月月底外，九个短篇的具体槽位未定，检查器给出可行示例，不批准日期。",
+    "第1～4月陆衡明确来访窗口为2月下旬至3月上旬(slot8～11)；3月中旬由护送预订，其他期缺席仍是排期草案。",
+    "叶蘅第12月月底选路；13月两路线均有明确汉皋行程，医路在苏芷接诊点正式开始临诊，14月起白鹇常驻；针攻路14月返谷。通信仅预订写信人。",
+    "除本轮13月汉皋行程明确预订主角和叶蘅外，其他整月地图仍仅预订主角；其他同行者、城内子节点和逐人出席尚未联合迁入，不能称整条新链已通过排期。",
+    "成长、随机抽取、耗材、邀请提醒和全部可选故事的联合目标需扩充后另验。",
+    "2026-10-05补入入谷至襄阳前10个可选节点、基础课与7个必要消息；只有基础课纳入数值成本，不演算实际武艺和医术成长。",
+    "2026-10-05新增三场3点外派来访设计；莫松年与孟知微初识按实际事件记录，照川送帖弟子为独立职务人物。未生成专属Q图、未接入运行时。",
+    "2026-10-05用户确认体力重设：自由期12点、当前正式人物活动4点、近况信1点、送物2点；三场外派交接仍3点。只同步费用，不改变窗口和占期。"
+  ],
+  "implementation": {
+    "visitor_ids": [
+      "visitor_songfeng_route",
+      "visitor_whiteheron_records",
+      "visitor_zhaochuan_greeting"
+    ],
+    "status": "integrated-local",
+    "report": "docs/archive/design/pre-xiangyang-visitor-acceptance.md",
+    "note": "全日历调度器仍为规划；这三场通过既有培养运行时接入，测试核对窗口、角色及费用。"
+  },
+  "notes": [
+    "2026-10-05用户纠正：承诺W05、复盘W06、出行W07由行程自动触发，不作为玩家主动活动、不额外扣体力；窗口、前置和对白选择保留，旧付费待结算剧情按原快照完成。plot为同一期内的零费用短对白，不独占整期。",
+    "2026-10-16用户要求培养早段汉皋群像及真实扬名。将原16月整月预留前移至13月（60—64），保留journey_m16技术ID；旧人来访改65—79，叶两路线后续改65—69。仍为6次整月+9期短篇，141自由期/1692点名义上限；新日程未接入8792。",
+    "2026-10-19：用户决定汉皋城现有剧情设计作废、后面另起炉灶。本目录里第5月、第13月整月外出与“汉皋返程后旧人来访”只保留日历占期；标题与说明里的汉皋群像、苏芷汉皋接诊点等城内剧情已作废，待重新设计。“襄阳邀请”等是旧首城名的历史记录。"
+  ]
+}

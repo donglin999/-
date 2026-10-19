@@ -1,0 +1,77 @@
+{
+  "date": "2026-10-16",
+  "status": "proposed_respec_contract_arithmetic_not_runtime_feature",
+  "sources": [
+    {
+      "path": "xiaojianghu-legacy-prologue/js/qihe-ui-model.js",
+      "sha256": "37862befdf503f150a5c796722b38119a7c1cd4c2b0398920650e3a45fd3bf4d"
+    }
+  ],
+  "input": {
+    "level": 10,
+    "baseline": {
+      "str": 3,
+      "con": 3,
+      "agi": 3,
+      "wil": 3,
+      "wis": 3
+    },
+    "reallocatablePoints": 27,
+    "beforeAllocation": {
+      "str": 9,
+      "con": 9,
+      "agi": 3,
+      "wil": 3,
+      "wis": 3
+    },
+    "afterAllocation": {
+      "str": 9,
+      "con": 0,
+      "agi": 9,
+      "wil": 6,
+      "wis": 3
+    },
+    "currentHp": 300
+  },
+  "output": {
+    "beforeDerived": {
+      "mhp": 348,
+      "mmp": 134,
+      "atk": 64,
+      "def": 24,
+      "spd": 6,
+      "crit": 17,
+      "dodge": 9,
+      "block": 12,
+      "move": 3
+    },
+    "afterDerived": {
+      "mhp": 222,
+      "mmp": 155,
+      "atk": 64,
+      "def": 21,
+      "spd": 12,
+      "crit": 17,
+      "dodge": 18,
+      "block": 3,
+      "move": 4
+    },
+    "hpAfterLowering": 222,
+    "hpAfterRestoringOriginalBuild": 222,
+    "pointTotalBefore": 27,
+    "pointTotalAfter": 27,
+    "proposedSilverCost": 0
+  },
+  "validation": {
+    "pointConservation": true,
+    "noFreeHealing": true,
+    "refundOfInsightEnabled": false,
+    "respecImplemented": false,
+    "saveFailureOrIdempotencyTested": false
+  },
+  "reproduction": {
+    "pointSum": "sum(allocation)",
+    "health": "min(previousHp,newMaxHp)",
+    "formulaSource": "QiheUIModel.calc unmodified base terms; no equipment/inner/cultivation"
+  }
+}

@@ -1,0 +1,703 @@
+{
+  "version": "TRAITS-STORY-DESIGN-2",
+  "status": "design_only_unimplemented_closures",
+  "routes": [
+    {
+      "id": "route_escort",
+      "name": "把人平安带回来",
+      "owner": "hero",
+      "rewards": [
+        "steady_in_crisis"
+      ],
+      "earliest": "第二年起",
+      "rule": "全部阶段形成可验证记录后，完成收官事件才授予；不是累计做满任务数",
+      "steps": [
+        {
+          "id": "crisis",
+          "title": "亲历险情",
+          "events": [
+            "rescue",
+            "arrival"
+          ],
+          "purpose": "救援与撤离结束，只记录经历，不授予永久战力",
+          "kind": "existing",
+          "requirements": []
+        },
+        {
+          "id": "plan",
+          "title": "预先安排",
+          "events": [
+            "gy_m04",
+            "gy_zhong_kit"
+          ],
+          "purpose": "明确货物、人手、返程时限和应急物资；缺少旧事件可走复盘补课",
+          "kind": "existing",
+          "requirements": []
+        },
+        {
+          "id": "road",
+          "title": "实际护送",
+          "events": [
+            "gy_m05",
+            "gy_m06"
+          ],
+          "purpose": "保留首次送药及返程复盘，找出一次真实判断失误",
+          "kind": "existing",
+          "requirements": []
+        },
+        {
+          "id": "independent",
+          "title": "独立承担下一趟",
+          "events": [],
+          "purpose": "新护送事件：选择绕行、求援或组织通过，允许非战斗成功；照护对象/货物/返程都需落实",
+          "kind": "planned",
+          "requirements": [
+            "不得以单场战斗获胜代替保护目标完成"
+          ]
+        },
+        {
+          "id": "aftermath",
+          "title": "交接和复查",
+          "events": [],
+          "purpose": "交给接应人、补齐遗漏并验证所有人安全；不是打完怪立即结算",
+          "kind": "planned",
+          "requirements": []
+        }
+      ],
+      "final_event": {
+        "id": "tr_escort_closure",
+        "status": "planned_not_runtime",
+        "cast": [
+          "hero",
+          "lu"
+        ],
+        "choices": [
+          "complete"
+        ],
+        "kind": "action",
+        "cost": 4,
+        "duration": 1,
+        "place": "依导师与当事人当前合法日程预约",
+        "schedule_status": "需录入日程并核对在场后才可采用",
+        "dialogue": [
+          [
+            "lu",
+            "人到了，药也点清了。路上那处险，你怎么绕开的？"
+          ],
+          [
+            "hero",
+            "先让他们停下，我去看了另一条路。来不及就请人接应。"
+          ],
+          [
+            "lu",
+            "往后带人走，也照这样办。别只顾自己闯过去。"
+          ]
+        ]
+      },
+      "makeup": "首次救援或送药资料缺失时，陆衡安排同难度的现场复盘和补充护送；不要求重玩栖河，不以招募陆衡为前置。",
+      "grant_policy": "所有前置AND收官成功；同路线只授予一项；撤销/失败/中断不授予",
+      "replay": "已完成阶段与选择存档，失败只重做未通过的验证，不刷旧任务重领",
+      "migration": "旧单事件seen只证明对应阶段，不证明路线完成；从缺失阶段继续"
+    },
+    {
+      "id": "route_evidence",
+      "name": "把一份记录查到底",
+      "owner": "hero",
+      "rewards": [
+        "verified_record"
+      ],
+      "earliest": "第二年合法入城行程起",
+      "rule": "全部阶段形成可验证记录后，完成收官事件才授予；不是累计做满任务数",
+      "steps": [
+        {
+          "id": "false_record",
+          "title": "见过误传",
+          "events": [
+            "evidence-v2"
+          ],
+          "purpose": "只知三份来件有矛盾，不提前知道幕后或获得核验特性",
+          "kind": "existing",
+          "requirements": []
+        },
+        {
+          "id": "compare",
+          "title": "比对原件",
+          "events": [],
+          "purpose": "新回查：分别取得当事人允许展示的两份原始凭据，不取走叶蘅遗物",
+          "kind": "planned",
+          "requirements": []
+        },
+        {
+          "id": "witness",
+          "title": "寻找独立证言",
+          "events": [],
+          "purpose": "访问至少两处独立来源，排除同一传闻的重复转述",
+          "kind": "planned",
+          "requirements": []
+        },
+        {
+          "id": "contradiction",
+          "title": "处理不一致",
+          "events": [],
+          "purpose": "发现证言冲突时允许暂记存疑并补查；不能靠猜一个正确选项过关",
+          "kind": "planned",
+          "requirements": []
+        },
+        {
+          "id": "correct",
+          "title": "当面核清并更正",
+          "events": [],
+          "purpose": "把已证实与未证实部分分列，回到受影响者处纠错留底",
+          "kind": "planned",
+          "requirements": []
+        }
+      ],
+      "final_event": {
+        "id": "tr_evidence_closure",
+        "status": "planned_not_runtime",
+        "cast": [
+          "hero",
+          "shenyanhui"
+        ],
+        "choices": [
+          "verified"
+        ],
+        "kind": "action",
+        "cost": 4,
+        "duration": 1,
+        "place": "依导师与当事人当前合法日程预约",
+        "schedule_status": "需录入日程并核对在场后才可采用",
+        "dialogue": [
+          [
+            "shenyanhui",
+            "能对上的留在正文，拿不准的另附一页。"
+          ],
+          [
+            "hero",
+            "这两处我都回去问过了，原话也没有改。"
+          ],
+          [
+            "shenyanhui",
+            "好。副本给当事人一份，别只留在我们手里。"
+          ]
+        ]
+      },
+      "makeup": "不会核验时可以请教和再次走访；错判后有更正支线，不永久锁定。沈不在场则预约下一次合法会面。",
+      "grant_policy": "所有前置AND收官成功；同路线只授予一项；撤销/失败/中断不授予",
+      "replay": "已完成阶段与选择存档，失败只重做未通过的验证，不刷旧任务重领",
+      "migration": "旧单事件seen只证明对应阶段，不证明路线完成；从缺失阶段继续"
+    },
+    {
+      "id": "route_practice",
+      "name": "从会照做到能自查",
+      "owner": "hero",
+      "rewards": [
+        "ask_before_practice",
+        "measured_guard"
+      ],
+      "earliest": "第一年年终考校后",
+      "rule": "全部阶段形成可验证记录后，完成收官事件才授予；不是累计做满任务数",
+      "steps": [
+        {
+          "id": "name_problem",
+          "title": "说出自身问题",
+          "events": [
+            "gy_z01"
+          ],
+          "purpose": "保留问题与纠正方法，不给5%加成",
+          "kind": "existing",
+          "requirements": []
+        },
+        {
+          "id": "practice",
+          "title": "反复验证方法",
+          "events": [],
+          "purpose": "至少6次有效练习，跨至少4个不同日程期，每期最多2次计入；不额外收取完成原练习之外的成本",
+          "kind": "history_requirement",
+          "requirements": [
+            "已学一门基础外功达到三重",
+            "记录练习过的问题与改正结果"
+          ]
+        },
+        {
+          "id": "spar",
+          "title": "实际交手后复盘",
+          "events": [
+            "gy_fang_spar"
+          ],
+          "purpose": "输赢都可；必须完成收势复盘，重复刷同一切磋不计多阶段",
+          "kind": "existing",
+          "requirements": []
+        },
+        {
+          "id": "assessment",
+          "title": "年终综合考校",
+          "events": [
+            "gy_year_exam"
+          ],
+          "purpose": "沿原剧情胜负均通过；特性路线仍须具备前面的训练证据",
+          "kind": "existing",
+          "requirements": []
+        },
+        {
+          "id": "commit",
+          "title": "确定长期修习重点",
+          "events": [],
+          "purpose": "师父复核记录，玩家明确选成长方法或防守控制；两个标签择一",
+          "kind": "planned",
+          "requirements": []
+        }
+      ],
+      "final_event": {
+        "id": "tr_practice_closure",
+        "status": "planned_not_runtime",
+        "cast": [
+          "hero",
+          "zhou"
+        ],
+        "choices": [
+          "learning",
+          "guard"
+        ],
+        "kind": "plot",
+        "cost": 0,
+        "duration": 1,
+        "place": "依导师与当事人当前合法日程预约",
+        "schedule_status": "需录入日程并核对在场后才可采用",
+        "dialogue": [
+          [
+            "zhou",
+            "这一年，哪一步最常出错，你自己说得清了。"
+          ],
+          [
+            "hero",
+            "先记下来，练过再对。还不明白，就来问您。"
+          ],
+          [
+            "zhou",
+            "往后想先把哪一头练深，就按自己的意思来。"
+          ]
+        ],
+        "note": "附着年终考校或等价补考的复盘，不为额外几句对白再收费"
+      },
+      "makeup": "错过可选纠错/陪练时，第二年在导师在场时补等价复盘，不重考整年；收官明确预告二选一，早期对话不暗锁结果。",
+      "grant_policy": "所有前置AND收官成功；同路线只授予一项；撤销/失败/中断不授予",
+      "replay": "已完成阶段与选择存档，失败只重做未通过的验证，不刷旧任务重领",
+      "migration": "旧单事件seen只证明对应阶段，不证明路线完成；从缺失阶段继续"
+    },
+    {
+      "id": "route_accounts",
+      "name": "让一本账有始有终",
+      "owner": "hero",
+      "rewards": [
+        "careful_accounts"
+      ],
+      "earliest": "第二年起",
+      "rule": "全部阶段形成可验证记录后，完成收官事件才授予；不是累计做满任务数",
+      "steps": [
+        {
+          "id": "learn",
+          "title": "学会分清账目",
+          "events": [
+            "gy_ledger"
+          ],
+          "purpose": "小账只给原剧情收益，作为起点",
+          "kind": "existing",
+          "requirements": []
+        },
+        {
+          "id": "check",
+          "title": "听见另一方的账",
+          "events": [
+            "gn_terraces"
+          ],
+          "purpose": "了解收支对应的实际人和物，不能只把数字凑平",
+          "kind": "existing",
+          "requirements": []
+        },
+        {
+          "id": "purchase",
+          "title": "独立筹备采购",
+          "events": [
+            "gs_new_year_goods"
+          ],
+          "purpose": "年货事件作实践线索；须补有预算、询价、验货的独立采购单",
+          "kind": "planned_extension",
+          "requirements": []
+        },
+        {
+          "id": "shortfall",
+          "title": "解决一次差额",
+          "events": [],
+          "purpose": "处理短斤、赊欠或记错来源；可协商补齐，不靠无条件压价",
+          "kind": "planned",
+          "requirements": []
+        },
+        {
+          "id": "return",
+          "title": "归还余款并复核",
+          "events": [],
+          "purpose": "凭据、实物、余款相符，当事人确认结清后收官",
+          "kind": "planned",
+          "requirements": []
+        }
+      ],
+      "final_event": {
+        "id": "tr_accounts_closure",
+        "status": "planned_not_runtime",
+        "cast": [
+          "hero",
+          "shimu"
+        ],
+        "choices": [
+          "balanced"
+        ],
+        "kind": "action",
+        "cost": 4,
+        "duration": 1,
+        "place": "依导师与当事人当前合法日程预约",
+        "schedule_status": "需录入日程并核对在场后才可采用",
+        "dialogue": [
+          [
+            "shimu",
+            "账先放下。米、布、药，咱们照着单子再点一遍。"
+          ],
+          [
+            "hero",
+            "余下的钱在这里，赊着的两笔也单独记了。"
+          ],
+          [
+            "shimu",
+            "这才算交清。往后小宗采买，你可以自己拿主意。"
+          ]
+        ]
+      },
+      "makeup": "漏记可回访商家补凭据，钱数出错先纠正；不以牺牲村民利益或压低别人报酬作最优解。",
+      "grant_policy": "所有前置AND收官成功；同路线只授予一项；撤销/失败/中断不授予",
+      "replay": "已完成阶段与选择存档，失败只重做未通过的验证，不刷旧任务重领",
+      "migration": "旧单事件seen只证明对应阶段，不证明路线完成；从缺失阶段继续"
+    },
+    {
+      "id": "route_footwork",
+      "name": "把步法用在实处",
+      "owner": "hero",
+      "rewards": [
+        "circle_step",
+        "face_step"
+      ],
+      "earliest": "第二年起",
+      "rule": "全部阶段形成可验证记录后，完成收官事件才授予；不是累计做满任务数",
+      "steps": [
+        {
+          "id": "intro",
+          "title": "发现不同的避让办法",
+          "events": [
+            "gy_goose_steps"
+          ],
+          "purpose": "绕桩/站定只记尝试，不直接给闪避/格挡，不锁最终分支",
+          "kind": "existing",
+          "requirements": []
+        },
+        {
+          "id": "field",
+          "title": "在不同地面练习",
+          "events": [],
+          "purpose": "在开阔地与狭窄地各完成一次独立演练，跨至少2期；不以重复刷鹅替代",
+          "kind": "planned",
+          "requirements": []
+        },
+        {
+          "id": "pressure",
+          "title": "面对有人出招的检验",
+          "events": [
+            "gy_spar_yin"
+          ],
+          "purpose": "需复盘被逼入死角的原因；输赢不决定路线断绝",
+          "kind": "existing",
+          "requirements": []
+        },
+        {
+          "id": "application",
+          "title": "带条件完成护人演练",
+          "events": [],
+          "purpose": "既要自己避开/挡开，还要保护指定同伴的位置；有失败重试",
+          "kind": "planned",
+          "requirements": []
+        },
+        {
+          "id": "choose",
+          "title": "选定更适合自己的方法",
+          "events": [],
+          "purpose": "收官才明确选择闪避或格挡；已有不同初试选择也可调整",
+          "kind": "planned",
+          "requirements": []
+        }
+      ],
+      "final_event": {
+        "id": "tr_footwork_closure",
+        "status": "planned_not_runtime",
+        "cast": [
+          "hero",
+          "yin"
+        ],
+        "choices": [
+          "circle",
+          "face_it"
+        ],
+        "kind": "action",
+        "cost": 4,
+        "duration": 1,
+        "place": "依导师与当事人当前合法日程预约",
+        "schedule_status": "需录入日程并核对在场后才可采用",
+        "dialogue": [
+          [
+            "yin",
+            "这回没只顾着自己躲。身后的人呢？"
+          ],
+          [
+            "hero",
+            "还在安全处。我留了能退回去的空当。"
+          ],
+          [
+            "yin",
+            "好。绕开，还是站住挡，你挑一条先练透。"
+          ]
+        ]
+      },
+      "makeup": "错过小师叔窗口可预约她下次回谷，不要求结缘或正式入队；早期鹅步choice只存为经历，不能成为不可改的天赋选择。",
+      "grant_policy": "所有前置AND收官成功；同路线只授予一项；撤销/失败/中断不授予",
+      "replay": "已完成阶段与选择存档，失败只重做未通过的验证，不刷旧任务重领",
+      "migration": "旧单事件seen只证明对应阶段，不证明路线完成；从缺失阶段继续"
+    },
+    {
+      "id": "route_care",
+      "name": "从认药到能独立照护",
+      "owner": "hero",
+      "rewards": [
+        "bandage_practice"
+      ],
+      "earliest": "第二年起",
+      "rule": "全部阶段形成可验证记录后，完成收官事件才授予；不是累计做满任务数",
+      "steps": [
+        {
+          "id": "identify",
+          "title": "辨认与核对",
+          "events": [
+            "gy_man_herbs",
+            "gs_drying_herbs"
+          ],
+          "purpose": "完成其中一项即可作起点；必须实际按药签核对，普通认药不送永久治疗加成",
+          "kind": "existing_alternative",
+          "requirements": []
+        },
+        {
+          "id": "observe",
+          "title": "持续照护伤者",
+          "events": [
+            "gy_brother_hurt",
+            "gs_fang_rehab"
+          ],
+          "purpose": "负伤及复养阶段都参与；没赶上可补一位普通伤者的完整照护流程",
+          "kind": "existing",
+          "requirements": []
+        },
+        {
+          "id": "learn",
+          "title": "跟学后动手",
+          "events": [
+            "gs_bandage"
+          ],
+          "purpose": "保留两选择后的共同实操，但这里只记练习完成",
+          "kind": "existing",
+          "requirements": []
+        },
+        {
+          "id": "independent",
+          "title": "处理一次普通伤情",
+          "events": [],
+          "purpose": "新任务中自行清理、包扎、说明后续照护；医者只监督，不代做",
+          "kind": "planned",
+          "requirements": []
+        },
+        {
+          "id": "followup",
+          "title": "复查实际结果",
+          "events": [],
+          "purpose": "至少隔1个游戏期复查，纠正过紧/漏包等问题后才结业；失败重试不伤害患者作惩罚",
+          "kind": "planned",
+          "requirements": []
+        }
+      ],
+      "final_event": {
+        "id": "tr_care_closure",
+        "status": "planned_not_runtime",
+        "cast": [
+          "hero",
+          "ye"
+        ],
+        "choices": [
+          "qualified"
+        ],
+        "kind": "action",
+        "cost": 4,
+        "duration": 1,
+        "place": "依导师与当事人当前合法日程预约",
+        "schedule_status": "需录入日程并核对在场后才可采用",
+        "dialogue": [
+          [
+            "ye",
+            "解开看看。你上回说要留意的那几处，还记得吗？"
+          ],
+          [
+            "hero",
+            "记得。先问疼不疼，再看肿处，最后查手指能不能动。"
+          ],
+          [
+            "ye",
+            "这回做得稳。简单的伤，你可以先照应着；拿不准的仍要叫大夫。"
+          ]
+        ],
+        "cast_variants": {
+          "valley_ye": {
+            "requires": "叶蘅实际在场并完成相关照护见证",
+            "cast": [
+              "hero",
+              "ye"
+            ],
+            "dialogue": [
+              [
+                "ye",
+                "解开看看。你上回说要留意的那几处，还记得吗？"
+              ],
+              [
+                "hero",
+                "记得。先问疼不疼，再看肿处，最后查手指能不能动。"
+              ],
+              [
+                "ye",
+                "这回做得稳。简单的伤，你可以先照应着；拿不准的仍要叫大夫。"
+              ]
+            ]
+          },
+          "city_suzhi": {
+            "requires": "主角处于合法入城日程，苏芷可在场，照护记录与复查对象已交接",
+            "cast": [
+              "hero",
+              "suzhi"
+            ],
+            "dialogue": [
+              [
+                "suzhi",
+                "先说你上次怎么处理的，再动手拆。"
+              ],
+              [
+                "hero",
+                "先止血，包好以后查过手指。今天再看红肿有没有消。"
+              ],
+              [
+                "suzhi",
+                "处置和记录都清楚。这一回可以；下次拿不准，仍要叫人。"
+              ]
+            ]
+          }
+        }
+      },
+      "makeup": "叶蘅第二年求学路线不强迫留谷：可在合法入城时由苏芷现场复核，使用独立演员版本；不能让不在场的叶蘅远程说话。",
+      "grant_policy": "所有前置AND收官成功；同路线只授予一项；撤销/失败/中断不授予",
+      "replay": "已完成阶段与选择存档，失败只重做未通过的验证，不刷旧任务重领",
+      "migration": "旧单事件seen只证明对应阶段，不证明路线完成；从缺失阶段继续"
+    },
+    {
+      "id": "route_scholar",
+      "name": "留下一卷经得起问的书",
+      "owner": "pei",
+      "rewards": [
+        "pei_crosscheck"
+      ],
+      "earliest": "第二年外出归来后",
+      "rule": "全部阶段形成可验证记录后，完成收官事件才授予；不是累计做满任务数",
+      "steps": [
+        {
+          "id": "standard",
+          "title": "明确记录原则",
+          "events": [
+            "gn_words",
+            "gn_chests"
+          ],
+          "purpose": "认识书稿责任，不因听家史就获得降低耗蓝",
+          "kind": "existing",
+          "requirements": []
+        },
+        {
+          "id": "practice",
+          "title": "完成书内互证",
+          "events": [
+            "gn_winter"
+          ],
+          "purpose": "已有补完卷七只是阶段成果，不立即发永久标签",
+          "kind": "existing",
+          "requirements": []
+        },
+        {
+          "id": "outside",
+          "title": "亲自外出采证",
+          "events": [],
+          "purpose": "裴知古本人参与一次独立访谈与原件比对，主角不能替她做完",
+          "kind": "planned",
+          "requirements": []
+        },
+        {
+          "id": "correction",
+          "title": "修正自己的记录",
+          "events": [],
+          "purpose": "保留原稿改痕，回访材料提供者核实并取得署名/使用许可",
+          "kind": "planned",
+          "requirements": []
+        },
+        {
+          "id": "review",
+          "title": "复核后完成一份新记录",
+          "events": [],
+          "purpose": "父亲或合资格核校者提出追问，她给出来源及不确定部分，完成收官",
+          "kind": "planned",
+          "requirements": []
+        }
+      ],
+      "final_event": {
+        "id": "tr_scholar_closure",
+        "status": "planned_not_runtime",
+        "cast": [
+          "hero",
+          "pei",
+          "peishu"
+        ],
+        "choices": [
+          "reviewed"
+        ],
+        "kind": "action",
+        "cost": 4,
+        "duration": 1,
+        "place": "依导师与当事人当前合法日程预约",
+        "schedule_status": "需录入日程并核对在场后才可采用",
+        "dialogue": [
+          [
+            "peishu",
+            "这处为何改了？"
+          ],
+          [
+            "pei",
+            "原先两个人都听自同一个地方，不算两份证词。我又查了原件。"
+          ],
+          [
+            "peishu",
+            "把这次查过的也记在旁边。以后有人问，你自己答得上来。"
+          ]
+        ]
+      },
+      "makeup": "不要求结缘、不把材料数当收集任务；核校没通过只补证，不抹掉此前见闻。",
+      "grant_policy": "所有前置AND收官成功；同路线只授予一项；撤销/失败/中断不授予",
+      "replay": "已完成阶段与选择存档，失败只重做未通过的验证，不刷旧任务重领",
+      "migration": "旧单事件seen只证明对应阶段，不证明路线完成；从缺失阶段继续"
+    }
+  ]
+}

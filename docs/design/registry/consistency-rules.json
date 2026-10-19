@@ -1,0 +1,88 @@
+{
+  "schema": "xjh.consistency-rules.v1",
+  "note": "设定与剧情一致性检查的规则表。人物年龄、性别、所属势力以 docs/design/story-atlas.json 为唯一登记；本表只放已确认、有出处的跨文档规则。新增规则必须写 source（负责文档或用户确认日期），不得凭推测添加。由 tools_docs/consistency_check.py 读取。 negation：命中前 12 字内或整行出现这些词（否定、作废）时视为在复述规则，不报；aggregate：按文件汇总，不逐行列出。",
+  "scan": {
+    "roots": [
+      "xiaojianghu/docs",
+      "xiaojianghu-legacy-prologue/docs",
+      "xiaojianghu-legacy-prologue/AGENTS.md",
+      "xiaojianghu/AGENTS.md"
+    ],
+    "exclude": [
+      "/updates/",
+      "/archive/",
+      "/_attic/",
+      "/design/registry/"
+    ],
+    "history_markers": [
+      "历史方案",
+      "历史记录",
+      "保留历史",
+      "制作输入快照",
+      "快照，不维护",
+      "已废弃",
+      "已停用",
+      "已被取代",
+      "不属于当前采用"
+    ]
+  },
+  "age": {
+    "source": "docs/design/story-atlas.json（age 为初见基线，满三年按实际日历增长）",
+    "allow_above": 4,
+    "window": 24,
+    "context_exceptions": [
+      {
+        "character": "萧白",
+        "age": 24,
+        "context": "现代|穿越前|穿越时|程序员",
+        "source": "docs/design/cast-visuals.md 第 10 行：2026-10-09 用户改定，萧白现代时 24 岁，穿越后身体回到 17 岁"
+      }
+    ],
+    "art_docs": {
+      "pattern": "portrait|q-generation|q-prompt|q-portrait|visual|-assets|art-|xiangyang-art",
+      "source": "docs/design/story-decisions.md「2026-10-09 萧白年龄与女主年龄」：立绘、Q 版、行走图与描述画像的美术文档描述已画好的形象，当时不改年龄",
+      "severity": "info"
+    }
+  },
+  "rules": [
+    {
+      "id": "four-parts-not-chapters",
+      "severity": "info",
+      "statement": "剧情只分四部分：开始、培养、游历、终局，不用“第几章”。",
+      "source": "docs/design/companion-support.md 第 15 行；用户 2026-10-10 确认",
+      "pattern": "第[一二三四五六七八九十0-9]+章",
+      "advice": "改写为对应的部分（培养期用“第一年 X 月”，游历用前段／中段／后段）。旧文档批量改写须先经用户同意。",
+      "aggregate": true
+    },
+    {
+      "id": "no-day-night-cycle",
+      "severity": "warn",
+      "statement": "没有昼夜交替；时间只由主线时间点推进，活动不耗时，夜晚只来自特殊剧情夜和夜景场所。培养模式另有规则，不受此条约束。",
+      "source": "docs/design/hangao-systems.md 第 2 节；用户 2026-10-10 确认方案 A",
+      "pattern": "昼夜(交替|循环|轮换)|全局昼夜|(耗|消耗|花费)(一|1|两|2)?个?时段|(扣|耗|消耗)\\d+日",
+      "exclude_files": [
+        "cultivation",
+        "hangao-systems.md"
+      ],
+      "advice": "改为按剧情时间点推进；若确属培养模式，请在文中注明。",
+      "negation": "没有|无|不再|不是|不做|不设|不会|不能|禁止|作废|取消|替代"
+    },
+    {
+      "id": "hero-guiyun-look",
+      "severity": "warn",
+      "statement": "萧白不再是白袍、红腰带、高马尾形象；入谷后统一“归云水墨”门派画风，发型按 hero_short → hero_mid → hero_long 分阶段。",
+      "source": "xiaojianghu-legacy-prologue/docs/design/qihe-map/expansion/guiyun-household.md（2026-10-07 用户确认，2026-10-08 改定）",
+      "pattern": "萧白[^。\\n|]{0,30}(白袍|红腰带|赭红腰带|高马尾|赭红发带)|(白袍|红腰带|赭红腰带|高马尾|赭红发带)[^。\\n|]{0,15}萧白",
+      "advice": "核对是否为历史造型；现行造型以归云谷一家合同为准。",
+      "negation": "没有|无|不再|不是|不做|不设|不会|不能|禁止|作废|取消|替代"
+    },
+    {
+      "id": "gamemaker-terms",
+      "severity": "info",
+      "statement": "旧 gamemaker 剧本只是取材来源，其中的姓名、栖灯馆、日期和对白都要按文档库重新审定后才能使用。",
+      "source": "xiaojianghu/docs/ai-onboarding.md 第 3 节第 6 条",
+      "pattern": "栖灯馆",
+      "advice": "确认是否已按文档库重新审定；未审定的请改为现行名称或标明取材来源。"
+    }
+  ]
+}

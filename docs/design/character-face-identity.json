@@ -1,0 +1,247 @@
+{
+  "version": 1,
+  "date": "2026-10-04",
+  "source": "character-face-identity.md",
+  "required_axes": [
+    "face_shape",
+    "brows",
+    "eyes",
+    "nose",
+    "mouth",
+    "expression"
+  ],
+  "revision_targets": [
+    "su-zhi",
+    "wen-shutong",
+    "xu-lingyi",
+    "shen-yanhui",
+    "qiao-xingzhou",
+    "liu-hanyan"
+  ],
+  "protected": [
+    "ye-heng",
+    "tang-zhaoxue",
+    "cen-shuang"
+  ],
+  "profiles": {
+    "su-zhi": {
+      "name": "苏芷",
+      "age": 27,
+      "face_shape": "柔和宽鹅蛋脸，面颊有温润软组织，短而圆的下巴",
+      "brows": "自然低弧眉，眉峰柔和",
+      "eyes": "横向舒展的圆杏眼，眼尾平缓、双眼皮细窄、目光温和",
+      "nose": "偏短的柔直鼻梁，圆润小鼻尖",
+      "mouth": "中等宽度、上唇弓柔和、下唇饱满，闭唇安定浅笑",
+      "expression": "温润从容，医师正在认真倾听",
+      "signature": [
+        "soft_broad_oval_round_chin",
+        "rounded_horizontal_eyes_soft_arch_brows",
+        "short_soft_nose_full_lower_lip"
+      ],
+      "en": "A beautiful soft BROAD oval face with gently rounded full cheeks and a short rounded chin, visibly no sharp V jaw. Naturally low curved brows, horizontally generous rounded almond eyes with level outer corners, subtle narrow double eyelid and attentive kind gaze; slightly shorter softly straight nasal bridge and a rounded tip; medium-width lips with soft upper bow and naturally full lower lip, serene closed-mouth smile. Adult 27, composed nurturing warmth without baby face."
+    },
+    "wen-shutong": {
+      "name": "闻疏桐",
+      "age": 22,
+      "face_shape": "修长窄鹅蛋脸，侧颌平直、圆收下巴",
+      "brows": "细长平眉，眉峰不高",
+      "eyes": "细长内双丹凤眼，眼尾轻提、眼裂清楚",
+      "nose": "稍长纤细直鼻，轮廓清楚",
+      "mouth": "窄而清楚的唇线、下唇适中、嘴角平静",
+      "expression": "沉静清冷，观察而不媚笑",
+      "signature": [
+        "long_narrow_oval_soft_straight_jaw",
+        "slender_upturned_inner_fold_eyes_flat_brows",
+        "long_fine_nose_narrow_defined_lips"
+      ],
+      "en": "A strikingly beautiful ELONGATED NARROW oval face with straight softly defined jaw sides and a rounded chin, not a heart/V doll face. Long fine nearly horizontal eyebrows, markedly SLENDER phoenix-shaped eyes with subtle hidden inner eyelid folds and gently raised outer corners; an elegant slightly longer fine straight nose; narrower but crisply drawn natural lips, level mouth corners, quiet focused gaze without coy smile. Adult 22, cool scholarly elegance, clearly distinct from round-eyed healer or drooping-eyed musician."
+    },
+    "xu-lingyi": {
+      "name": "徐令仪",
+      "age": 26,
+      "face_shape": "额颞略宽的心形脸，清楚颧面、下巴短而钝收",
+      "brows": "平直长眉，眉头有自然密度",
+      "eyes": "中等长的平眼裂，双眼皮清楚、眼尾平稳",
+      "nose": "清楚笔直鼻梁，眉鼻衔接利落",
+      "mouth": "明确唇峰、略薄上唇与适中下唇，唇线端正",
+      "expression": "端正笃定，文职办事者的专注",
+      "signature": [
+        "broad_upper_heart_face_blunt_short_chin",
+        "straight_dense_long_brows_level_double_lid_eyes",
+        "clear_straight_nose_defined_cupid_bow"
+      ],
+      "en": "A beautiful adult HEART-shaped face: visibly broader temples and upper face, gently defined cheekbone plane, shorter BLUNT softly tapered chin, never extreme pointed V. Long straight well-defined brows with natural density at inner ends, medium-length level eyes with a clear double eyelid and steady open gaze, outer corners almost level. A clearly drawn straight refined nasal bridge, defined Cupid's bow with slightly thinner upper and moderate lower lip; upright composed closed mouth, confidently attentive, not flirtatious. Adult 26, polished convincing intellectual beauty. Keep head size natural."
+    },
+    "shen-yanhui": {
+      "name": "沈雁回",
+      "age": 24,
+      "face_shape": "修长利落的软方鹅蛋脸，颧骨与下颌转折清楚",
+      "brows": "略粗直眉，外段轻扬",
+      "eyes": "偏窄长的锐杏眼，上眼线平直，眼尾轻提",
+      "nose": "挺直有骨感的鼻梁，鼻尖利落",
+      "mouth": "较宽唇线、饱满下唇、一侧嘴角微提",
+      "expression": "英气自信，回身看人时目光有定力",
+      "signature": [
+        "long_soft_square_oval_defined_cheek_jaw",
+        "strong_straight_brows_sharp_slender_eyes",
+        "straight_bony_bridge_wide_lips_one_corner_smile"
+      ],
+      "en": "A very attractive ATHLETIC soft-square elongated oval adult face, subtly clear cheekbones and crisp softly angular lower jaw corners, no generic delicate tiny V chin. Slightly thicker confident STRAIGHT brows, subtly lifted outer third; narrower elongated keen almond eyes with strong near-straight upper lash lines and gently raised ends, resolute gaze. Refined but defined straight bony nasal bridge, clean tip, naturally broader lip line with full lower lip and one corner gently lifted. Adult 24, charismatic gallant beauty and direct confident presence, not sultry bedroom gaze. Keep turn-back head angle."
+    },
+    "qiao-xingzhou": {
+      "name": "乔行舟",
+      "age": 27,
+      "face_shape": "圆润偏宽的软圆脸，苹果肌自然、短圆下巴",
+      "brows": "自然柔弯眉，眉毛密度适中",
+      "eyes": "笑时弯起的月牙眼，眼尾圆、下眼睑柔和",
+      "nose": "柔和短鼻梁、圆润鼻尖",
+      "mouth": "比其余角色宽的自然笑唇，左侧浅梨涡",
+      "expression": "明朗亲和，工作间隙看到熟人",
+      "signature": [
+        "wide_soft_round_face_short_round_chin",
+        "crescent_smiling_eyes_soft_curved_brows",
+        "short_rounded_nose_broad_smile_left_dimple"
+      ],
+      "en": "A gorgeous warm distinctly ROUND adult face, fuller apple cheeks, more horizontal cheek width and a SHORT ROUNDED chin, clearly unlike the long slim oval of the input. Adult 27 and sophisticated, not chubby child. Naturally gently curved brows with moderate density; softly crescent-shaped smiling eyes, rounded outer ends and warm lower eyelid curve, NOT cat/fox eyes. A softly short nasal bridge with rounded refined tip; a noticeably broader natural inviting smile, delicate hint of upper teeth, a subtle SINGLE shallow dimple on her anatomical left cheek. Fresh healthy feminine charm with refined hand-drawn features, no orange glamour lipstick. Keep seated head angle and face looking at viewer."
+    },
+    "liu-hanyan": {
+      "name": "柳含烟",
+      "age": 24,
+      "face_shape": "柔菱形脸，颧处最宽、额颞较窄、下巴细圆",
+      "brows": "纤细弯月眉、眉尾柔下垂",
+      "eyes": "清楚双眼皮的长垂眼，眼尾轻落、含蓄目光",
+      "nose": "秀挺窄鼻、鼻尖轻翘",
+      "mouth": "小而清楚的唇弓，轻抿、下唇柔润",
+      "expression": "婉约自持，安静等待听众",
+      "signature": [
+        "soft_diamond_face_cheek_widest_narrow_temple",
+        "long_downturned_double_lid_eyes_curved_brows",
+        "fine_upturned_nose_small_bowed_closed_lips"
+      ],
+      "en": "An exceptionally beautiful soft DIAMOND adult face: widest across refined cheekbones, narrower temples/forehead and a delicate rounded tapered chin, never broad round cheeks or a sharp plastic V. Fine gently curved crescent brows with softly descending tails; clearly longer DOWNWARD-TILTING eyes with visible double eyelid, outer corners subtly lower than inner corners, calm wistful self-possessed gaze, not upward fox eyeliner. Refined narrow nose with gently raised tip, small but clearly shaped lip bow with a softly full lower lip, closed and restrained. Adult 24, classical graceful beauty, not fragile sickly or crying. Distinct from narrow upturned phoenix eyes of Wen Shutong."
+    },
+    "ye-heng": {
+      "name": "叶蘅",
+      "reference": "保留现有版本",
+      "face_shape": "初版稍窄成年清秀脸、轻圆下巴",
+      "brows": "初版纤细自然眉",
+      "eyes": "清亮杏眼、自然上眼睑",
+      "nose": "初版小巧柔直鼻",
+      "mouth": "初版清楚柔唇",
+      "expression": "朴素、警醒，不复制医师成熟神态",
+      "signature": [
+        "original_light_oval",
+        "clear_alert_eyes",
+        "original_soft_nose_lips"
+      ]
+    },
+    "tang-zhaoxue": {
+      "name": "唐照雪",
+      "reference": "保留现有版本",
+      "face_shape": "用户指定的清丽成年鹅蛋骨相",
+      "brows": "指定图自然剑客眉",
+      "eyes": "指定图清亮自持的眼神",
+      "nose": "指定图纤细直鼻",
+      "mouth": "指定图微启柔唇",
+      "expression": "完全沿用户指定整张图",
+      "signature": [
+        "selected_swordswoman_face",
+        "selected_eyes",
+        "selected_nose_lips"
+      ]
+    },
+    "cen-shuang": {
+      "name": "岑霜",
+      "reference": "保留现有版本",
+      "face_shape": "确认稿成熟颧面与清楚下颌",
+      "brows": "确认稿细长弧眉",
+      "eyes": "确认稿长眼与成熟凝视",
+      "nose": "确认稿秀挺鼻梁",
+      "mouth": "确认稿丰润唇形",
+      "expression": "从容、审视和成熟吸引力",
+      "signature": [
+        "approved_mature_planes",
+        "approved_long_eyes",
+        "approved_full_lips"
+      ]
+    },
+    "duan-mingtang": {
+      "name": "段明棠",
+      "reference": "保留现有版本",
+      "face_shape": "较宽健康成年面颊、清楚颧颌",
+      "brows": "自然有密度的舒展眉",
+      "eyes": "舒展杏眼，目光有力量",
+      "nose": "原自然成年鼻型",
+      "mouth": "原有自信笑唇",
+      "expression": "健康开朗，劳动训练的力量感",
+      "signature": [
+        "healthy_wide_cheeks",
+        "broad_open_brows_eyes",
+        "confident_smile"
+      ]
+    },
+    "yan-xiaolou": {
+      "name": "晏小楼",
+      "reference": "保留现有版本",
+      "face_shape": "较短圆的成年面颊",
+      "brows": "扬起的弧眉",
+      "eyes": "明亮弯笑眼",
+      "nose": "原轻巧成年鼻型",
+      "mouth": "清楚笑弧与单侧梨涡",
+      "expression": "活泼而不幼态",
+      "signature": [
+        "short_adult_cheeks",
+        "arched_brows_bright_smiling_eyes",
+        "theatre_dimple_smile"
+      ]
+    },
+    "ruan-qingque": {
+      "name": "阮青雀",
+      "reference": "新角色独立定妆；未借其他角色换脸",
+      "face_shape": "偏短的成人软方脸，颊部略宽、下颌转折柔和，短钝下巴",
+      "brows": "眉头较浓的利落直眉，外端微扬",
+      "eyes": "横向长眼，目光带试探；不用统一圆杏眼",
+      "nose": "鼻梁较短，鼻尖轻翘、有真实体积",
+      "mouth": "略宽的清楚唇线，单侧抿笑",
+      "expression": "故作轻松、警觉机灵；认真时嘴角收平",
+      "signature": [
+        "short_soft_square_blunt_chin",
+        "dense_straight_brows_horizontal_eyes",
+        "short_upturned_nose_asymmetric_closed_smile"
+      ]
+    },
+    "qin-feiyuan": {
+      "name": "秦绯鸢",
+      "age": 28,
+      "reference": "新角色独立定妆；披风修订保留本人面部",
+      "face_shape": "额部舒展的成年软菱形脸，高颧面清楚，下颌圆收、下巴短圆",
+      "brows": "眉峰偏高的舒展长弧眉",
+      "eyes": "细长上挑眼，眼睑略覆，目光直视带笑",
+      "nose": "较高直鼻梁，鼻尖有自然体积",
+      "mouth": "较宽饱满唇形，清楚唇峰，笑时微露上齿",
+      "expression": "明艳张扬、带笑调侃，认真时仍直视对方",
+      "signature": [
+        "open_forehead_high_soft_cheek_round_jaw",
+        "high_arch_brows_upturned_hooded_long_eyes",
+        "higher_nose_wide_plush_lips_open_smile"
+      ]
+    },
+    "pei-zhigu": {
+      "name": "裴知古",
+      "age": 25,
+      "reference": "本人独立眼镜定妆 r2",
+      "face_shape": "柔和偏宽成年鹅蛋脸，颊部有体积、下颌圆收而非尖V脸",
+      "brows": "松缓低平自然眉，认真时眉间略收",
+      "eyes": "自然睁开的温和横长眼，透过细铜圆椭圆镜片看人；回神稍迟，不半眯媚眼",
+      "nose": "短柔鼻梁与圆润鼻尖，暖肤和鼻旁两点淡雀斑",
+      "mouth": "清楚柔和丰满唇，走神时轻分、回神时收合，无挑逗单侧笑",
+      "expression": "生活呆然、注意力被旧字吸走，核证时专注，不幼态",
+      "signature": [
+        "broad_soft_oval_round_cheeks",
+        "copper_oval_glasses_natural_open_eyes",
+        "rounded_short_nose_faint_freckles_low_twin_braids"
+      ],
+      "en": "Adult 25, warm broad soft oval face, rounded cheeks and chin, relaxed low straight brows, naturally OPEN horizontal warm eyes through fine antique copper oval glasses, short soft nose with a rounded tip and two faint freckles, relaxed defined lips, distracted scholarly expression without coy smile or seductive squint."
+    }
+  }
+}

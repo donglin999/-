@@ -1,0 +1,17 @@
+{
+  "status": "pass",
+  "version": "TRAITS-STORY-DESIGN-2",
+  "traits": 20,
+  "routes": 7,
+  "routeResults": 9,
+  "retiredRewards": 4,
+  "catalog_sha256": "d28426a27fedcf00408a408ebd4616e0faf3403af2638f5e3aeaab52dfbb902e",
+  "scope": "existing source/branch/cast references; route gate structure; no single-event positive acquired rewards",
+  "not_verified": [
+    "new route episode implementation",
+    "joint calendar feasibility",
+    "runtime trait grants",
+    "combat balance",
+    "old-save migration implementation"
+  ]
+}

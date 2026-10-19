@@ -1,0 +1,264 @@
+{
+  "date": "2026-10-16",
+  "scope": "重点章节与相关源码静态核对；不表示每个文件逐行全量审计",
+  "files": [
+    {
+      "name": "培养",
+      "path": "xiaojianghu/docs/design/cultivation-balance-20261012/README.md",
+      "sha256": "f9eb5525d352ffbf8836908004258c3d3db175b59b23c8a993c7df684e5f3b76",
+      "lines": 77
+    },
+    {
+      "name": "培养验证",
+      "path": "xiaojianghu/docs/design/cultivation-balance-20261012/balance-report.md",
+      "sha256": "c6e2418b8efd9f66e6550037d789dd2f50ecdbebb1ddfd4fc102809cbe5ff19e",
+      "lines": 179
+    },
+    {
+      "name": "百级",
+      "path": "xiaojianghu/docs/design/character-levels-100.md",
+      "sha256": "c3553381a81460a5caa4ff0fe03087377b41c53aabc62a067243829a175f91f6",
+      "lines": 121
+    },
+    {
+      "name": "状态",
+      "path": "xiaojianghu/docs/design/character-condition-growth.md",
+      "sha256": "0373eb78620a6afd57452371a027e716d1de6531ca3d3c84ebf02d5da249b17e",
+      "lines": 98
+    },
+    {
+      "name": "历练池",
+      "path": "xiaojianghu/docs/design/shared-insight-pool.md",
+      "sha256": "19a5c61176b10b0ad8850cd21805fc85d93088809e303298f315ae10bea822bf",
+      "lines": 50
+    },
+    {
+      "name": "数值评审",
+      "path": "xiaojianghu/docs/design/martial-review/balance/README.md",
+      "sha256": "0b63478bf5e9b69ede17f6623edfee2bfb44ba0f4b659df66ccfa2eb39294702",
+      "lines": 45
+    },
+    {
+      "name": "门派功法",
+      "path": "xiaojianghu/docs/design/martial-lineage.md",
+      "sha256": "e507ea24706235933db7dd6c939290361b7acb8535eeca153c6cbf3aa64235fd",
+      "lines": 289
+    },
+    {
+      "name": "装备",
+      "path": "xiaojianghu/docs/design/martial-review/equipment.md",
+      "sha256": "9e0205a088bf5d2b16a2aeb3e085861a2a67735d7f60e81fa7dd97bf9284f080",
+      "lines": 273
+    },
+    {
+      "name": "武器数值",
+      "path": "xiaojianghu/docs/design/martial-review/weapon-stats.md",
+      "sha256": "9e53c77868475a1a1d363b1727a8874004493186eef88f7e59c905b726193630",
+      "lines": 159
+    },
+    {
+      "name": "城市系统",
+      "path": "xiaojianghu/docs/design/hangao-systems.md",
+      "sha256": "ab3aae3713731abb6f6ecf13e5f3cf166e6520ecaae9698da34cfe4114554546",
+      "lines": 270
+    },
+    {
+      "name": "店铺",
+      "path": "xiaojianghu/docs/design/hangao-shops.md",
+      "sha256": "f8781c93b925809adb3cca9f14d9fa20368808d20dd5dec28b504bad4a4863d7",
+      "lines": 391
+    },
+    {
+      "name": "城市原型",
+      "path": "xiaojianghu/review/hangao-town/README.md",
+      "sha256": "2c716d686b5b8c648a327be85146ee2f28e26dfd8d06b4f668c1879c52068d02",
+      "lines": 49
+    },
+    {
+      "name": "NPC交互",
+      "path": "xiaojianghu/docs/design/npc-interaction.md",
+      "sha256": "63a9cc597f73522d9066d1cddc2a150d322af75ec87a031f7be8aed503284185",
+      "lines": 47
+    },
+    {
+      "name": "生活技能",
+      "path": "xiaojianghu/docs/design/life-skills.md",
+      "sha256": "8644d864f57e3cbbef1f3445c5092246217f2b14a804199b56c80c691f6a77da",
+      "lines": 180
+    },
+    {
+      "name": "日程",
+      "path": "xiaojianghu/docs/design/event-scheduling-system.md",
+      "sha256": "6c064743ca6376306e542f462cfb12912c704b7a3d1d6efde9d66ddbfbb14954",
+      "lines": 124
+    },
+    {
+      "name": "招募",
+      "path": "xiaojianghu/docs/design/companion-recruitment.md",
+      "sha256": "63ba406b5b18c46df490b0227212b180d5bd9c855cd5a4c7df3991707657527e",
+      "lines": 100
+    },
+    {
+      "name": "结缘细则",
+      "path": "xiaojianghu/docs/design/romance-rules.md",
+      "sha256": "753c6ca8770810d554b351364c858dc7e9e15ec79d614752dca50713c674b6ca",
+      "lines": 112
+    },
+    {
+      "name": "吃醋提案",
+      "path": "xiaojianghu/docs/design/romance-jealousy-review.md",
+      "sha256": "8faf2e7a3f09c24e186f86b26ba3411e88c238e72a1748ff6c1ec0ee605d7813",
+      "lines": 81
+    },
+    {
+      "name": "特征",
+      "path": "xiaojianghu/docs/design/traits-20261013/README.md",
+      "sha256": "11cc491e72b6c19f10f2caeac5f2ea9c108531ba5cc9c76071952ba16035296e",
+      "lines": 26
+    },
+    {
+      "name": "野外",
+      "path": "xiaojianghu/docs/design/wilderness-encounters.md",
+      "sha256": "abea0df7bed6aac948a701679f039ce43ce68318dc6afca7dc4043ec32318392",
+      "lines": 83
+    },
+    {
+      "name": "三方提案",
+      "path": "xiaojianghu/docs/archive/design/story-faction-rework-20261016.md",
+      "sha256": "d34f82c94aaeb1c02fef9aa2abddc1e36bfecf03060119aec2f8d5c9373b0041",
+      "lines": 270
+    },
+    {
+      "name": "终局",
+      "path": "xiaojianghu/docs/design/story-endgame-review.md",
+      "sha256": "72eeb5938193037d300f932ca68310b31e83739a1295f055f6fec6af044c5d3e",
+      "lines": 71
+    },
+    {
+      "name": "地图旅行",
+      "path": "xiaojianghu/docs/design/world-map-journeys.md",
+      "sha256": "3ce7c813265a4f6e445ac65e64a1b0bdcb2758df0d871cc5a05af8a31cba7ec1",
+      "lines": 48
+    },
+    {
+      "name": "大地图",
+      "path": "xiaojianghu/docs/design/world-map-layout.md",
+      "sha256": "ea34b8925621198ea7a74f1332788e3d352bb276794536d652867623f01e138f",
+      "lines": 120
+    },
+    {
+      "name": "宠物",
+      "path": "xiaojianghu/docs/design/pets.md",
+      "sha256": "4ace3e5a154c6f4f3cc786bd1b33c820c2955f879a1596d14926285ce2650046",
+      "lines": 213
+    },
+    {
+      "name": "数值参考旧页",
+      "path": "xiaojianghu/docs/design/numeric-reference.md",
+      "sha256": "b0f0c78d07daad8d3b35abc7fe70aa7f1521865c30bc5561110776f35eef242d",
+      "lines": 41
+    },
+    {
+      "name": "角色动作",
+      "path": "xiaojianghu/docs/design/combat-characters/xiaobai-multiweapon.md",
+      "sha256": "fea9b717ae08e049de1010a0ba66c6a3b80f7505e91d12951cc01689575d2ddf",
+      "lines": 76
+    },
+    {
+      "name": "归云关系",
+      "path": "xiaojianghu-legacy-prologue/docs/design/qihe-map/expansion/relationships.md",
+      "sha256": "904a035afc46b9caaff2b053214fc4163997dd6a3add99bba32cf84ec8abdb20",
+      "lines": 82
+    },
+    {
+      "name": "行记",
+      "path": "xiaojianghu-legacy-prologue/docs/design/qihe-map/expansion/ui-flow/quest-journal-v10.md",
+      "sha256": "9ec932c3b8324f2e2e759fc67c5b6fe467ae7236e705cb47995570234e960c60",
+      "lines": 29
+    },
+    {
+      "name": "行记代码",
+      "path": "xiaojianghu-legacy-prologue/js/qihe-journal.js",
+      "sha256": "55972ddbf18d370755ef5dae0ded0e6242dfee6012834a42b66833f984f62aaa",
+      "lines": 168
+    },
+    {
+      "name": "设置存档",
+      "path": "xiaojianghu-legacy-prologue/docs/design/qihe-map/expansion/ui-flow/settings.md",
+      "sha256": "b6f82c14563beb66f989e7cb25a980853a2befbbbff65c14d92d690044f7c0e1",
+      "lines": 30
+    },
+    {
+      "name": "存档代码",
+      "path": "xiaojianghu-legacy-prologue/js/qihe-saves.js",
+      "sha256": "40a9dd9803e25b864d23cacd0a1e21bfe2c894153e2bdb70106e50c6cc0c150e",
+      "lines": 32
+    },
+    {
+      "name": "菜单模型",
+      "path": "xiaojianghu-legacy-prologue/docs/design/qihe-map/expansion/ui-flow/model-implementation.md",
+      "sha256": "509dbc3db80c7d32bbf4e8d693a2ab9628b7b6cb70f6c8887c65dd59288d378a",
+      "lines": 44
+    },
+    {
+      "name": "背包",
+      "path": "xiaojianghu-legacy-prologue/docs/design/qihe-map/expansion/inventory-ui-v3.md",
+      "sha256": "79f1facad53a176394cb3deb140f4957d78db113f4d75420b97d3b3d0c42ddea",
+      "lines": 124
+    },
+    {
+      "name": "成长代码",
+      "path": "xiaojianghu-legacy-prologue/js/character-growth-state.js",
+      "sha256": "34b4f0c0290d8333aaa592dcc73260ebf28cbea9deb12a890b2db7e869a9738c",
+      "lines": 44
+    },
+    {
+      "name": "加点代码",
+      "path": "xiaojianghu-legacy-prologue/js/menu.js",
+      "sha256": "068d06f2fe8d8f824dd5e59c9d36bb321b647220cc8a66dd329ddb81e7f2fe4a",
+      "lines": 1071
+    },
+    {
+      "name": "战斗代码",
+      "path": "xiaojianghu-legacy-prologue/js/battle.js",
+      "sha256": "8a42a319a29abaf24a8e1ff5d26640a706ccdcd8242753f3be7ff7e87f305058",
+      "lines": 552
+    },
+    {
+      "name": "师父考校",
+      "path": "xiaojianghu-legacy-prologue/js/guiyun-combat-runtime.js",
+      "sha256": "8329fa16528a7f306eb53bc4b57ec071cd881be240a1ebe9585bff1c26872acd",
+      "lines": 17
+    },
+    {
+      "name": "入口",
+      "path": "xiaojianghu-legacy-prologue/index.html",
+      "sha256": "43d9666e55ff85d4c687d3c4adca7c4e5b1c11330bd8736c82abf6814a04c337",
+      "lines": 473
+    },
+    {
+      "name": "生活入口",
+      "path": "xiaojianghu-legacy-prologue/js/npc-arts-ui.js",
+      "sha256": "f3faca45220024512130f656c43e79aeff12f26f324bf25e720399ae32ab4e23",
+      "lines": 74
+    },
+    {
+      "name": "知古接入",
+      "path": "xiaojianghu-legacy-prologue/js/pei-companion-runtime.js",
+      "sha256": "59e9bc3010d0fc1f8c83c9f2320b1f70ef89453875f6629973be3e71fe87a327",
+      "lines": 31
+    },
+    {
+      "name": "入城前记录",
+      "path": "xiaojianghu/docs/design/pre-hangao-completion-20261013/production-progress.md",
+      "sha256": "f23a09b966fa6f20aa570f9158ef5720f55bad4d06750bd0f0a783c4f007e906",
+      "lines": 27
+    },
+    {
+      "name": "表现边界",
+      "path": "xiaojianghu/docs/design/combat-presentation-boundary.md",
+      "sha256": "8cb89209e2dec5aa0f0a654a47a76f8cc83f042adbb52db4b7663af1bf3d563e",
+      "lines": 26
+    }
+  ]
+}

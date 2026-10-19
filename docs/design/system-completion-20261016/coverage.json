@@ -1,0 +1,289 @@
+{
+  "version": 1,
+  "date": "2026-10-16",
+  "scope": "design_supplement_and_confirmed_document_corrections",
+  "items": [
+    {
+      "id": "A01",
+      "title": "已投入成长的重配与转流派",
+      "priority": "P1",
+      "contract": "build-recovery-accessibility.md",
+      "design_status": "detailed_contract_prepared",
+      "decisions": [],
+      "runtime_status": "unchanged_not_completed_by_this_design",
+      "decisions_resolved": []
+    },
+    {
+      "id": "A02",
+      "title": "难度与可访问性产品规则",
+      "priority": "P1",
+      "contract": "build-recovery-accessibility.md",
+      "design_status": "detailed_contract_prepared",
+      "decisions": [],
+      "runtime_status": "unchanged_not_completed_by_this_design",
+      "decisions_resolved": []
+    },
+    {
+      "id": "A03",
+      "title": "通关后游历与新周目继承",
+      "priority": "P2",
+      "contract": "exploration-endgame.md",
+      "design_status": "detailed_contract_prepared",
+      "decisions": [],
+      "runtime_status": "unchanged_not_completed_by_this_design",
+      "decisions_resolved": []
+    },
+    {
+      "id": "A04",
+      "title": "城镇违法与追责的通用范围",
+      "priority": "P2",
+      "contract": "city-integration.md",
+      "design_status": "detailed_contract_prepared",
+      "decisions": [],
+      "runtime_status": "unchanged_not_completed_by_this_design",
+      "decisions_resolved": []
+    },
+    {
+      "id": "B01",
+      "title": "世界后果与人物状态的统一解释",
+      "priority": "P0",
+      "contract": "world-events-save.md",
+      "design_status": "detailed_contract_prepared",
+      "decisions": [],
+      "runtime_status": "unchanged_not_completed_by_this_design",
+      "decisions_resolved": []
+    },
+    {
+      "id": "B02",
+      "title": "势力身份的权利职责与转变",
+      "priority": "P1",
+      "contract": "characters-factions.md",
+      "design_status": "detailed_contract_prepared",
+      "decisions": [],
+      "runtime_status": "unchanged_not_completed_by_this_design",
+      "decisions_resolved": []
+    },
+    {
+      "id": "B03",
+      "title": "双模式时间与刷新到期语义",
+      "priority": "P0",
+      "contract": "city-time-economy.md",
+      "design_status": "detailed_contract_prepared",
+      "decisions": [],
+      "runtime_status": "unchanged_not_completed_by_this_design",
+      "decisions_resolved": []
+    },
+    {
+      "id": "B04",
+      "title": "完整资源收支与重复收益",
+      "priority": "P0",
+      "contract": "city-time-economy.md",
+      "design_status": "detailed_contract_prepared",
+      "decisions": [],
+      "runtime_status": "unchanged_not_completed_by_this_design",
+      "decisions_resolved": [
+        "R3"
+      ]
+    },
+    {
+      "id": "B05",
+      "title": "百级成长与全队敌人的统一校准",
+      "priority": "P0",
+      "contract": "growth-combat.md",
+      "design_status": "detailed_contract_prepared",
+      "decisions": [],
+      "runtime_status": "unchanged_not_completed_by_this_design",
+      "decisions_resolved": []
+    },
+    {
+      "id": "B06",
+      "title": "多武器构筑的完整玩法差异",
+      "priority": "P1",
+      "contract": "growth-combat.md",
+      "design_status": "detailed_contract_prepared",
+      "decisions": [],
+      "runtime_status": "unchanged_not_completed_by_this_design",
+      "decisions_resolved": []
+    },
+    {
+      "id": "B07",
+      "title": "战斗目标与敌方机制编排",
+      "priority": "P1",
+      "contract": "growth-combat.md",
+      "design_status": "detailed_contract_prepared",
+      "decisions": [],
+      "runtime_status": "unchanged_not_completed_by_this_design",
+      "decisions_resolved": []
+    },
+    {
+      "id": "B08",
+      "title": "败北逃跑和任务失败后的统一处理",
+      "priority": "P0",
+      "contract": "build-recovery-accessibility.md",
+      "design_status": "detailed_contract_prepared",
+      "decisions": [],
+      "runtime_status": "unchanged_not_completed_by_this_design",
+      "decisions_resolved": []
+    },
+    {
+      "id": "B09",
+      "title": "全同伴生命周期和物品归属",
+      "priority": "P1",
+      "contract": "characters-factions.md",
+      "design_status": "detailed_contract_prepared",
+      "decisions": [],
+      "runtime_status": "unchanged_not_completed_by_this_design",
+      "decisions_resolved": [
+        "R1",
+        "R2"
+      ]
+    },
+    {
+      "id": "B10",
+      "title": "NPC请教与获得途径的可发现性",
+      "priority": "P1",
+      "contract": "characters-factions.md",
+      "design_status": "detailed_contract_prepared",
+      "decisions": [],
+      "runtime_status": "unchanged_not_completed_by_this_design",
+      "decisions_resolved": []
+    },
+    {
+      "id": "B11",
+      "title": "日期成长材料与多人物线联合可达",
+      "priority": "P0",
+      "contract": "world-events-save.md",
+      "design_status": "detailed_contract_prepared",
+      "decisions": [],
+      "runtime_status": "unchanged_not_completed_by_this_design",
+      "decisions_resolved": []
+    },
+    {
+      "id": "B12",
+      "title": "采集制作鉴定与装备消费链",
+      "priority": "P1",
+      "contract": "city-time-economy.md",
+      "design_status": "detailed_contract_prepared",
+      "decisions": [],
+      "runtime_status": "unchanged_not_completed_by_this_design",
+      "decisions_resolved": [
+        "R3"
+      ]
+    },
+    {
+      "id": "B13",
+      "title": "个人信任情意与组织声望的联动",
+      "priority": "P1",
+      "contract": "characters-factions.md",
+      "design_status": "detailed_contract_prepared",
+      "decisions": [],
+      "runtime_status": "unchanged_not_completed_by_this_design",
+      "decisions_resolved": [
+        "R2"
+      ]
+    },
+    {
+      "id": "B14",
+      "title": "结局组合的判定与优先级",
+      "priority": "P1",
+      "contract": "endings-relationship-integration.md",
+      "design_status": "detailed_contract_prepared",
+      "decisions": [],
+      "runtime_status": "unchanged_not_completed_by_this_design",
+      "decisions_resolved": []
+    },
+    {
+      "id": "B15",
+      "title": "任务传闻图鉴的统一反馈",
+      "priority": "P1",
+      "contract": "world-events-save.md",
+      "design_status": "detailed_contract_prepared",
+      "decisions": [],
+      "runtime_status": "unchanged_not_completed_by_this_design",
+      "decisions_resolved": []
+    },
+    {
+      "id": "B16",
+      "title": "长流程存档与版本迁移的交付策略",
+      "priority": "P1",
+      "contract": "world-events-save.md",
+      "design_status": "detailed_contract_prepared",
+      "decisions": [],
+      "runtime_status": "unchanged_not_completed_by_this_design",
+      "decisions_resolved": []
+    },
+    {
+      "id": "C01",
+      "title": "汉皋城市系统接入主旅程",
+      "priority": "P1",
+      "contract": "city-integration.md",
+      "design_status": "detailed_contract_prepared",
+      "decisions": [],
+      "runtime_status": "unchanged_not_completed_by_this_design",
+      "decisions_resolved": [
+        "R3"
+      ]
+    },
+    {
+      "id": "C02",
+      "title": "后天特征与伤病路线接入",
+      "priority": "P1",
+      "contract": "traits-integration.md",
+      "design_status": "detailed_contract_prepared",
+      "decisions": [],
+      "runtime_status": "unchanged_not_completed_by_this_design",
+      "decisions_resolved": []
+    },
+    {
+      "id": "C03",
+      "title": "全人物关系篇和补救线路",
+      "priority": "P1",
+      "contract": "endings-relationship-integration.md",
+      "design_status": "detailed_contract_prepared",
+      "decisions": [],
+      "runtime_status": "unchanged_not_completed_by_this_design",
+      "decisions_resolved": [
+        "R1",
+        "R2"
+      ]
+    },
+    {
+      "id": "C04",
+      "title": "野外明雷从旧试点迁入当前区域",
+      "priority": "P1",
+      "contract": "exploration-endgame.md",
+      "design_status": "detailed_contract_prepared",
+      "decisions": [],
+      "runtime_status": "unchanged_not_completed_by_this_design",
+      "decisions_resolved": []
+    },
+    {
+      "id": "D01",
+      "title": "权威文档与现行版本索引",
+      "priority": "P0",
+      "contract": "system-status.md",
+      "design_status": "detailed_contract_prepared",
+      "decisions": [],
+      "runtime_status": "unchanged_not_completed_by_this_design",
+      "decisions_resolved": [
+        "R1"
+      ]
+    },
+    {
+      "id": "D02",
+      "title": "生活技能暂停决定与实际加载范围",
+      "priority": "P0",
+      "contract": "system-status.md",
+      "design_status": "detailed_contract_prepared",
+      "decisions": [],
+      "runtime_status": "unchanged_not_completed_by_this_design",
+      "decisions_resolved": []
+    }
+  ],
+  "confirmed_decisions": {
+    "R1": "sync_current_character_registry",
+    "R2": "one_relation_axis_with_stage_gates",
+    "R3": "wen_display_no_numeric_conversion"
+  },
+  "runtime_display_change": "currency text aligned with R3 only; the 26 new gameplay contracts are not implemented by this round"
+}

@@ -1,0 +1,371 @@
+{
+  "version": "PRE-HANGAO-CALENDAR-1",
+  "status": "adopted-local",
+  "source": "../scripts/chapter-two-dialogue.json#preHangao",
+  "runtime": "../../../../xiaojianghu-legacy-prologue/js/qh-pre-hangao-data.js",
+  "scenes": [
+    {
+      "id": "gy_noodles",
+      "window": [
+        0,
+        4
+      ],
+      "cast": [
+        "hero_short",
+        "shimu",
+        "dou"
+      ],
+      "cost": 0,
+      "extraGain": null,
+      "insideJourney": false
+    },
+    {
+      "id": "gy_prelude_xinfa",
+      "window": [
+        0,
+        0
+      ],
+      "cast": [
+        "zhou",
+        "hero_mid",
+        "zhong"
+      ],
+      "cost": 0,
+      "extraGain": null,
+      "insideJourney": false
+    },
+    {
+      "id": "gy_m02",
+      "window": [
+        2,
+        4
+      ],
+      "cast": [
+        "ye",
+        "hero",
+        "zhou"
+      ],
+      "cost": 0,
+      "extraGain": null,
+      "insideJourney": false
+    },
+    {
+      "id": "gn_lamp",
+      "window": [
+        4,
+        11
+      ],
+      "cast": [
+        "pei",
+        "hero"
+      ],
+      "cost": 0,
+      "extraGain": null,
+      "insideJourney": false
+    },
+    {
+      "id": "gy_m03",
+      "window": [
+        5,
+        7
+      ],
+      "cast": [
+        "zhou",
+        "ye",
+        "hero"
+      ],
+      "cost": 0,
+      "extraGain": null,
+      "insideJourney": false
+    },
+    {
+      "id": "gn_terraces",
+      "window": [
+        6,
+        11
+      ],
+      "cast": [
+        "shimu",
+        "pei",
+        "hero"
+      ],
+      "cost": 0,
+      "extraGain": null,
+      "insideJourney": false
+    },
+    {
+      "id": "gy_bamboo_wolves",
+      "window": [
+        6,
+        11
+      ],
+      "cast": [
+        "dou",
+        "hero"
+      ],
+      "cost": 0,
+      "extraGain": null,
+      "insideJourney": false
+    },
+    {
+      "id": "hg_aftercare",
+      "window": [
+        8,
+        9
+      ],
+      "cast": [
+        "hero",
+        "ye",
+        "zhou"
+      ],
+      "cost": 0,
+      "extraGain": 0,
+      "insideJourney": false
+    },
+    {
+      "id": "visitor_songfeng_route",
+      "window": [
+        8,
+        9
+      ],
+      "cast": [
+        "hero",
+        "zhou",
+        "mo_songnian"
+      ],
+      "cost": 0,
+      "extraGain": null,
+      "insideJourney": false
+    },
+    {
+      "id": "gn_chests",
+      "window": [
+        13,
+        18
+      ],
+      "cast": [
+        "pei",
+        "hero"
+      ],
+      "cost": 0,
+      "extraGain": null,
+      "insideJourney": false
+    },
+    {
+      "id": "gy_m06",
+      "window": [
+        13,
+        14
+      ],
+      "cast": [
+        "zhou",
+        "hero",
+        "ye"
+      ],
+      "cost": 0,
+      "extraGain": null,
+      "insideJourney": false
+    },
+    {
+      "id": "visitor_whiteheron_records",
+      "window": [
+        13,
+        14
+      ],
+      "cast": [
+        "hero",
+        "ye",
+        "meng_zhiwei"
+      ],
+      "cost": 0,
+      "extraGain": null,
+      "insideJourney": false
+    },
+    {
+      "id": "gy_spar_zhong",
+      "window": [
+        14,
+        16
+      ],
+      "cast": [
+        "zhong",
+        "hero"
+      ],
+      "cost": 0,
+      "extraGain": null,
+      "insideJourney": false
+    },
+    {
+      "id": "hg_trace_reply",
+      "window": [
+        14,
+        16
+      ],
+      "cast": [
+        "zhou",
+        "ye",
+        "hero"
+      ],
+      "cost": 0,
+      "extraGain": 0,
+      "insideJourney": false
+    },
+    {
+      "id": "gy_m07",
+      "window": [
+        15,
+        16
+      ],
+      "cast": [
+        "zhou",
+        "hero",
+        "ye"
+      ],
+      "cost": 0,
+      "extraGain": null,
+      "insideJourney": false
+    },
+    {
+      "id": "visitor_zhaochuan_greeting",
+      "window": [
+        15,
+        17
+      ],
+      "cast": [
+        "hero",
+        "zhou",
+        "zhaochuan_courier"
+      ],
+      "cost": 0,
+      "extraGain": null,
+      "insideJourney": false
+    },
+    {
+      "id": "gy_zhong_kit",
+      "window": [
+        16,
+        19
+      ],
+      "cast": [
+        "zhong",
+        "hero"
+      ],
+      "cost": 0,
+      "extraGain": null,
+      "insideJourney": false
+    },
+    {
+      "id": "hg_pack_review",
+      "window": [
+        17,
+        18
+      ],
+      "cast": [
+        "hero",
+        "zhong"
+      ],
+      "cost": 0,
+      "extraGain": 0,
+      "insideJourney": false
+    },
+    {
+      "id": "gy_zhou_test",
+      "window": [
+        18,
+        18
+      ],
+      "cast": [
+        "zhou",
+        "hero"
+      ],
+      "cost": 0,
+      "extraGain": null,
+      "insideJourney": false
+    },
+    {
+      "id": "gn_depart",
+      "window": [
+        19,
+        19
+      ],
+      "cast": [
+        "zhou",
+        "peishu",
+        "pei",
+        "hero"
+      ],
+      "cost": 0,
+      "extraGain": null,
+      "insideJourney": false
+    },
+    {
+      "id": "gy_m08",
+      "window": [
+        19,
+        19
+      ],
+      "cast": [
+        "zhou",
+        "ye",
+        "pei",
+        "hero",
+        "yin"
+      ],
+      "cost": 0,
+      "extraGain": null,
+      "insideJourney": false
+    },
+    {
+      "id": "hg_farewell",
+      "window": [
+        19,
+        19
+      ],
+      "cast": [
+        "shimu",
+        "dou",
+        "man",
+        "hero",
+        "ye",
+        "pei"
+      ],
+      "cost": 0,
+      "extraGain": 0,
+      "insideJourney": false
+    },
+    {
+      "id": "hg_road",
+      "window": [
+        20,
+        20
+      ],
+      "cast": [
+        "hero",
+        "ye",
+        "pei",
+        "zhou",
+        "yin"
+      ],
+      "cost": 0,
+      "extraGain": 0,
+      "insideJourney": true
+    },
+    {
+      "id": "hg_gate",
+      "window": [
+        20,
+        20
+      ],
+      "cast": [
+        "hero",
+        "ye",
+        "pei",
+        "zhou",
+        "yin"
+      ],
+      "cost": 0,
+      "extraGain": 0,
+      "insideJourney": true
+    }
+  ]
+}

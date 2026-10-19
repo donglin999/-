@@ -1,0 +1,58 @@
+{
+ "绝": {
+  "name": "云开见山",
+  "dur": 3600,
+  "beats": 4,
+  "assets": 10,
+  "parts": 1302,
+  "peak": 633,
+  "covPeak": 43.36,
+  "covMean": 26.61,
+  "shake": 9,
+  "flash": 0.72,
+  "zoom": 0.13,
+  "id": "gy_s5"
+ },
+ "甲": {
+  "name": "推山填壑",
+  "dur": 1600,
+  "beats": 2,
+  "assets": 5,
+  "parts": 188,
+  "peak": 148,
+  "covPeak": 13.18,
+  "covMean": 6.8,
+  "shake": 8,
+  "flash": 0.22,
+  "zoom": 0.08,
+  "id": "gy_p4b"
+ },
+ "乙": {
+  "name": "问隙挑灯",
+  "dur": 1250,
+  "beats": 2,
+  "assets": 4,
+  "parts": 127,
+  "peak": 104,
+  "covPeak": 5.81,
+  "covMean": 3.16,
+  "shake": 1.5,
+  "flash": 0,
+  "zoom": 0,
+  "id": "zc_s3"
+ },
+ "丙": {
+  "name": "燃隙刀",
+  "dur": 900,
+  "beats": 1,
+  "assets": 3,
+  "parts": 87,
+  "peak": 87,
+  "covPeak": 5.75,
+  "covMean": 3.01,
+  "shake": 3,
+  "flash": 0,
+  "zoom": 0,
+  "id": "gj_s2"
+ }
+}

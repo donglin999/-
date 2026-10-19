@@ -1,0 +1,361 @@
+{
+  "character_id": "qin-feiyuan",
+  "name": "秦绯鸢",
+  "species": "human",
+  "role_type": "companion",
+  "joinability": "recruitable",
+  "availability": "future",
+  "combat": false,
+  "exploration_motion": "fixed",
+  "story_importance": "recurring",
+  "services": [
+    "planned_public_performance_collaboration"
+  ],
+  "current_stage": "qiyue_house_first_meeting_dancer",
+  "planned_stages": [
+    "qiyue_house_pre_recruitment_npc",
+    "travel_temporary_ally_optional",
+    "travel_recruited_companion"
+  ],
+  "chapter_scope": [],
+  "identity_refs": [
+    "../../art_sources/story_atlas_portraits_v5/native/qin-feiyuan-sheer-skirt-r5-20261004.png"
+  ],
+  "costume_and_ability_limits": [
+    "23岁成年；上身沿规整舞者覆胸纱、原不透明舞衣；腰胯短内衬不透明，前侧与后侧长裙片均为轻薄半透明红纱，单侧开衩与腰间褶线连贯，后侧单层透背景",
+    "驻楼舞者兼领席，无门派／堂务职级；不借归烬堂徽记或岑霜账签腰铜件",
+    "首遇不参战；未来铁骨折扇与护卫技能需训练和完整动态素材后开放"
+  ],
+  "expression_map": {
+    "neutral": {
+      "planned_key": "p_qin_neutral",
+      "status": "deferred_not_generated"
+    },
+    "smile": {
+      "planned_key": "p_qin_smile",
+      "status": "deferred_not_generated"
+    },
+    "worry": {
+      "planned_key": "p_qin_worry",
+      "status": "deferred_not_generated"
+    },
+    "firm": {
+      "planned_key": "p_qin_firm",
+      "status": "deferred_not_generated"
+    },
+    "surprise": {
+      "planned_key": "p_qin_surprise",
+      "status": "deferred_not_generated"
+    },
+    "hurt": {
+      "planned_key": "p_qin_hurt",
+      "status": "deferred_not_generated"
+    }
+  },
+  "pose_definitions": [],
+  "assets": [
+    {
+      "id": "qin_first_meeting_identity",
+      "group": "identity",
+      "quality": "identity",
+      "status": "reference_internally_reviewed_pending_user_confirmation",
+      "candidates": [
+        "../../art_sources/story_atlas_portraits_v5/native/qin-feiyuan-sheer-skirt-r5-20261004.png"
+      ],
+      "native_size": [
+        1024,
+        1536
+      ]
+    },
+    {
+      "id": "qin_first_meeting_menu",
+      "group": "menu_portrait",
+      "quality": "menu_portrait",
+      "status": "review_website_only_pending_game_integration",
+      "candidates": [
+        "../../review/story-atlas/portraits/qin-feiyuan-v5.png"
+      ],
+      "native_size": [
+        1024,
+        1536
+      ]
+    },
+    {
+      "id": "qin_avatar",
+      "group": "avatar",
+      "quality": "avatar",
+      "status": "derive_after_identity_confirmation",
+      "candidates": []
+    },
+    {
+      "id": "qin_dialogue_neutral",
+      "group": "dialogue",
+      "semantic": "neutral",
+      "quality": "dialogue_portrait",
+      "status": "future_deferred",
+      "candidates": []
+    },
+    {
+      "id": "qin_dialogue_smile",
+      "group": "dialogue",
+      "semantic": "smile",
+      "quality": "dialogue_portrait",
+      "status": "future_deferred",
+      "candidates": []
+    },
+    {
+      "id": "qin_dialogue_worry",
+      "group": "dialogue",
+      "semantic": "worry",
+      "quality": "dialogue_portrait",
+      "status": "future_deferred",
+      "candidates": []
+    },
+    {
+      "id": "qin_dialogue_firm",
+      "group": "dialogue",
+      "semantic": "firm",
+      "quality": "dialogue_portrait",
+      "status": "future_deferred",
+      "candidates": []
+    },
+    {
+      "id": "qin_dialogue_surprise",
+      "group": "dialogue",
+      "semantic": "surprise",
+      "quality": "dialogue_portrait",
+      "status": "future_deferred",
+      "candidates": []
+    },
+    {
+      "id": "qin_dialogue_hurt",
+      "group": "dialogue",
+      "semantic": "hurt",
+      "quality": "dialogue_portrait",
+      "status": "future_deferred",
+      "candidates": []
+    },
+    {
+      "id": "qin_exploration",
+      "group": "exploration",
+      "quality": "exploration",
+      "status": "future_deferred",
+      "candidates": []
+    },
+    {
+      "id": "qin_party_battle",
+      "group": "party_battle",
+      "quality": "party_battle",
+      "status": "future_deferred",
+      "candidates": []
+    }
+  ],
+  "generation_plan": [
+    {
+      "action": "completed_reference_generation",
+      "groups": [
+        "identity",
+        "menu_portrait"
+      ],
+      "scope": "one_native_full_body_portrait_for_story_atlas"
+    },
+    {
+      "action": "derive_after_user_selection",
+      "groups": [
+        "avatar"
+      ]
+    },
+    {
+      "action": "defer_until_stage_enters_production",
+      "groups": [
+        "dialogue",
+        "exploration",
+        "party_battle",
+        "voice"
+      ],
+      "reason": "未来地图、临时援助或正式入队前交付，不冒充当前素材已齐"
+    }
+  ],
+  "quality_evidence": [
+    {
+      "check": "native_file",
+      "result": "passed",
+      "size": [
+        1024,
+        1536
+      ],
+      "sha256": "0040b7295182b871809efe1ca1d19db1747f97138d4c3897c50161302d09d1c9"
+    },
+    {
+      "check": "visual_identity_stage_structure_medium",
+      "result": "internally_reviewed_pending_user_confirmation",
+      "record": "../../art_sources/story_atlas_portraits_v5/records/qin-feiyuan.json"
+    },
+    {
+      "check": "review_website_display",
+      "result": "passed_1920_1080",
+      "evidence": [
+        "../../review/story-atlas/qa-qin-feiyuan-sheer-skirt-r5.json",
+        "../../review/story-atlas/qa-qin-feiyuan-sheer-skirt-r5-1920.png"
+      ],
+      "scope": "前后半透明红纱裙第五稿；只检查图鉴立绘和当前素材入口"
+    },
+    {
+      "check": "game_integration_and_motion",
+      "result": "not_implemented"
+    }
+  ],
+  "combat_side": "none",
+  "exploration_presence": "none",
+  "needs_story_poses": false,
+  "needs_dedicated_run": false,
+  "recruitment_availability": "future",
+  "controls_available": false,
+  "package_scope": "appearance_before_recruitment",
+  "outfit_profile": "independent",
+  "membership_at_stage": "栖月楼舞者兼领席，无门派，尚未独立成班或招募",
+  "uniform_variant": "civilian",
+  "visible_outfit_features": [
+    "半透明绛红舞者披纱按肩点与衣侧固定，连续斜搭覆住领口和胸部上缘，规整褶线、细绣边与均匀疏纹",
+    "合体不透明舞衣与腰胯短内衬；前侧、侧后长裙片统一为半透明红纱裹裙，清楚单侧开衩、连贯腰间褶线和细金绣边；花扇，无门派徽记"
+  ],
+  "identifier_allowed": false,
+  "face_identity": {
+    "face_shape": "额部舒展的成年软菱形脸，高颧面清楚，下颌圆收、下巴短圆",
+    "brows": "眉峰偏高的舒展长弧眉",
+    "eyes": "细长上挑眼，眼睑略覆，目光直视带笑",
+    "nose": "较高直鼻梁，鼻尖有自然体积",
+    "mouth": "较宽饱满唇形，清楚唇峰，笑时微露上齿",
+    "expression": "明艳张扬、带笑调侃，认真时仍直视对方"
+  },
+  "version": 1,
+  "date": "2026-10-04",
+  "status": "design_and_reference_not_runtime",
+  "planned_chapter_scope": [
+    "QF-01",
+    "QF-02",
+    "QF-03",
+    "QF-04",
+    "QF-05",
+    "QF-06"
+  ],
+  "base_package_status": "portrait_reference_only_full_companion_package_pending",
+  "opening_adaptation_status": "not_in_prologue_or_chapter1",
+  "future_packages": [
+    {
+      "stage": "qiyue_house_pre_recruitment_npc",
+      "combat": false,
+      "combat_side": "none",
+      "exploration_presence": "on_map",
+      "exploration_motion": "fixed",
+      "required": [
+        "avatar",
+        "dialogue_neutral_firm_worry",
+        "required_standing_directions"
+      ]
+    },
+    {
+      "stage": "travel_temporary_ally_optional",
+      "combat": true,
+      "combat_side": "ally",
+      "exploration_presence": "on_map",
+      "exploration_motion": "walk",
+      "required": [
+        "avatar",
+        "dialogue",
+        "exploration",
+        "party_battle"
+      ],
+      "battle_actions": [
+        "idle",
+        "dash",
+        "atk",
+        "atk2",
+        "hurt",
+        "cast",
+        "brk",
+        "dead",
+        "win"
+      ]
+    },
+    {
+      "stage": "travel_recruited_companion",
+      "combat": true,
+      "combat_side": "ally",
+      "exploration_presence": "on_map",
+      "exploration_motion": "walk",
+      "required": [
+        "identity",
+        "avatar",
+        "menu_portrait",
+        "dialogue",
+        "exploration",
+        "party_battle"
+      ],
+      "dialogue_semantics": [
+        "neutral",
+        "smile",
+        "worry",
+        "firm",
+        "surprise",
+        "hurt"
+      ],
+      "battle_actions": [
+        "idle",
+        "dash",
+        "atk",
+        "atk2",
+        "hurt",
+        "cast",
+        "brk",
+        "dead",
+        "win"
+      ],
+      "exploration_spec": "character-walk-quality.md"
+    }
+  ],
+  "gender": "女",
+  "first_meeting_age": 23,
+  "dialogue_package_status": "6_unified_states_production_in_progress",
+  "dialogue_package_source": "companion-performance/qin-feiyuan.md",
+  "dialogue_package_contract": {
+    "count": 6,
+    "separate_expression_count": 0,
+    "switch": "whole_image",
+    "emotion_pose_gate_required": true,
+    "source": "companion-performance.md"
+  },
+  "dialogue_state_definitions": [
+    {
+      "key": "neutral",
+      "label": "常态倾听",
+      "body_and_emotion": "合扇横收在两手之间、位于腰前，肩放松、站直；肩颈自然松弛，头正常抬起，看向说话人，眉眼平静，嘴唇轻合，不欢迎挥手，也不做忧伤缩肩。道具：本人花扇"
+    },
+    {
+      "key": "happy",
+      "label": "开心认可",
+      "body_and_emotion": "一手胸侧展花扇，另一手从腰侧向前展开掌心，身体轻转；肩背舒展，头略抬，身体向来人轻侧，眼神温暖，眉眼舒展、自然真实的小笑。道具：本人花扇"
+    },
+    {
+      "key": "sad",
+      "label": "伤心担忧",
+      "body_and_emotion": "两臂收近身体，两手在腰前偏低握住本人随身物或衣缘，肩部明显低落内收，头微低、躯干轻侧、重心偏后；内眉收起、眼神低垂、嘴角轻落，成人忧心而非惊恐；绝不挥手、欢迎或微笑。本人随身道具仍稳妥挂腰/背负，不凭空换装。"
+    },
+    {
+      "key": "angry",
+      "label": "愤怒拒绝",
+      "body_and_emotion": "一手将合扇横在胸下，另一掌向侧后示退，双脚稳定；肩背稳直，身体稍向前，重心前移，头正直、不低头；眉位压低、目光直接有力、唇线紧抿、绝不微笑，是明确的愤怒与拒绝。示停掌在胸下，不像抬高欢迎。道具：本人合扇。长棍/篙必须改为竖直置于身侧或贴身短斜角，两端完整留在画内，不横跨边缘。"
+    },
+    {
+      "key": "surprise",
+      "label": "惊讶发现",
+      "body_and_emotion": "躯干小幅后仰、肩轻提、重心后移，头稍向前确认；一手靠近胸骨，另一手稳住本人腰侧/背负道具，肘贴近身体；眉轻抬、眼睛自然睁大、嘴唇小幅分开，成人吃惊。绝不挥手或欢快招呼，恰有两臂两腿。"
+    },
+    {
+      "key": "tease",
+      "label": "轻佻掩护",
+      "body_and_emotion": "花扇半展置于唇侧但不遮住全部脸，另一手稳扶腰胯，髋部轻侧、头微倾、身体自信舒展；眼尾上扬、单侧唇角含笑，像在调笑又在留意别人，保持本人规则覆胸纱。"
+    }
+  ],
+  "character_icons": []
+}

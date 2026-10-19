@@ -1,0 +1,2297 @@
+{
+  "version": "LITERARY-GRADE-1",
+  "date": "2026-10-06",
+  "scope": "64招式+18心法；非原作官方排名，非已上线平衡",
+  "sources": [
+    {
+      "id": "JY-index",
+      "url": "https://zh.wikipedia.org/wiki/金庸筆下武功列表",
+      "type": "secondary_summary",
+      "scope": "原作武学名和特征检索入口；本轮未逐章核对指定版本原文"
+    },
+    {
+      "id": "GL-index",
+      "url": "https://zh.wikipedia.org/wiki/古龍筆下武功列表",
+      "type": "secondary_summary",
+      "scope": "原作武学身份与特征检索入口；本轮未逐章核对指定版本原文"
+    },
+    {
+      "id": "GL-official",
+      "url": "https://www.gulongworld.com/universe/works.html",
+      "type": "author_official_works_directory",
+      "scope": "作品与系列出处；不能作为武学强弱排名依据"
+    }
+  ],
+  "grade_meanings": {
+    "丁": "单项基础训练",
+    "丙": "成熟实用套路",
+    "乙": "有明确技理的门派或职业专长",
+    "甲": "需专门传承与深厚根基的独门上乘",
+    "绝": "形成独有核心原理、人物传承和长期修习的顶层成果"
+  },
+  "benchmarks": {
+    "basic": {
+      "label": "门派基础拳剑、基础调息",
+      "references": [
+        "武当长拳",
+        "罗汉拳"
+      ],
+      "source_ids": [
+        "JY-index"
+      ],
+      "relation": "仅参照基础训练身份，不把整套拳法等同于一个招式"
+    },
+    "practical": {
+      "label": "成熟套路与常规擒拿点穴",
+      "references": [
+        "分筋错骨手",
+        "常规点穴技法"
+      ],
+      "source_ids": [
+        "JY-index"
+      ],
+      "relation": "对照实用训练和辨认部位的要求，不预设原著官方品阶"
+    },
+    "specialist": {
+      "label": "门派专长与独有进退技理",
+      "references": [
+        "太极拳的借力方向"
+      ],
+      "source_ids": [
+        "JY-index"
+      ],
+      "relation": "只取化力思路，普通卸力招式不等于完整太极拳"
+    },
+    "counter": {
+      "label": "观察、辨隙与集中制敌",
+      "references": [
+        "独孤九剑",
+        "天外飞仙"
+      ],
+      "source_ids": [
+        "JY-index",
+        "GL-index"
+      ],
+      "relation": "仅借鉴观察与出手集中方向，数值和跨兵器覆盖不继承"
+    },
+    "guard": {
+      "label": "化力与精密应对",
+      "references": [
+        "太极拳",
+        "灵犀一指"
+      ],
+      "source_ids": [
+        "JY-index",
+        "GL-index"
+      ],
+      "relation": "一次减伤、护卫不能据此宣称达到宗师防御绝技"
+    },
+    "precision": {
+      "label": "个人精确投掷绝技",
+      "references": [
+        "小李飞刀"
+      ],
+      "source_ids": [
+        "GL-index"
+      ],
+      "relation": "借鉴人物绝技身份；群体撒刀不等于精确制敌，不赋予必中"
+    },
+    "medical": {
+      "label": "医理、针位与救治难度",
+      "references": [],
+      "source_ids": [],
+      "relation": "本轮未取得足够原作医术章节依据，单列医术专业层次；不与攻击绝学判等"
+    },
+    "inner": {
+      "label": "内息整合与修习体系",
+      "references": [
+        "太极功"
+      ],
+      "source_ids": [
+        "JY-index"
+      ],
+      "relation": "对照内息与技理结合的层次，基础属性增益不足以支持绝级"
+    },
+    "craft": {
+      "label": "人物职业专长",
+      "references": [],
+      "source_ids": [],
+      "relation": "文学人物专长方向，不强行将撑篙、伞护、工匠技列为原著著名神功等价物"
+    }
+  },
+  "records": [
+    {
+      "id": "gy_s1",
+      "name": "入门剑式",
+      "kind": "skill",
+      "group": "guiyun",
+      "current_grade": "丁",
+      "proposed_grade": "丁",
+      "benchmark_id": "basic",
+      "benchmark_relation": "仅参照基础训练身份，不把整套拳法等同于一个招式",
+      "scope": "单招或心法条目，不等同于参考小说整套体系",
+      "design_basis": {
+        "effect": "单体一击；命中已知剑弱点时给予明确破势教学反馈",
+        "obtain": "首月B03后K01正式教学，5体力",
+        "visual": "一条上挑竹青剑气，钝起尖收，底部一小段回锋"
+      },
+      "tier_reason": "单项基础训练；该判断只对应本作现有阶段和用途，不意味着与原著武学同等强度。",
+      "decision": "阶段适配，仍需玩法验证",
+      "open_issues": [],
+      "required_evidence": [
+        "明确技理、训练内容及前置",
+        "获得事件通过人物所在地与日历冲突检查",
+        "同阶段玩法比较与代价验证"
+      ],
+      "status": "design_inference_pending_review"
+    },
+    {
+      "id": "gy_s2",
+      "name": "拨云回锋",
+      "kind": "skill",
+      "group": "guiyun",
+      "current_grade": "丙",
+      "proposed_grade": "丙",
+      "benchmark_id": "practical",
+      "benchmark_relation": "对照实用训练和辨认部位的要求，不预设原著官方品阶",
+      "scope": "单招或心法条目，不等同于参考小说整套体系",
+      "design_basis": {
+        "effect": "单体两段；总威力低于同费单击，适合试探与削盾",
+        "obtain": "剑式入门后周砚收势课",
+        "visual": "两条相向折返的短剑气，交点留白"
+      },
+      "tier_reason": "成熟实用套路；该判断只对应本作现有阶段和用途，不意味着与原著武学同等强度。",
+      "decision": "阶段适配，仍需玩法验证",
+      "open_issues": [],
+      "required_evidence": [
+        "明确技理、训练内容及前置",
+        "获得事件通过人物所在地与日历冲突检查",
+        "同阶段玩法比较与代价验证"
+      ],
+      "status": "design_inference_pending_review"
+    },
+    {
+      "id": "gy_s3",
+      "name": "一线开晴",
+      "kind": "skill",
+      "group": "guiyun",
+      "current_grade": "乙",
+      "proposed_grade": "乙",
+      "benchmark_id": "specialist",
+      "benchmark_relation": "只取化力思路，普通卸力招式不等于完整太极拳",
+      "scope": "单招或心法条目，不等同于参考小说整套体系",
+      "design_basis": {
+        "effect": "单体一击；本角色上次主动防御则增强本击，条件用后清除",
+        "obtain": "年二主修剑与护送复盘",
+        "visual": "厚云间一道尖锐直隙，窄金白剑脊贯穿"
+      },
+      "tier_reason": "有明确技理的门派或职业专长；该判断只对应本作现有阶段和用途，不意味着与原著武学同等强度。",
+      "decision": "阶段适配，仍需玩法验证",
+      "open_issues": [],
+      "required_evidence": [
+        "明确技理、训练内容及前置",
+        "获得事件通过人物所在地与日历冲突检查",
+        "同阶段玩法比较与代价验证"
+      ],
+      "status": "design_inference_pending_review"
+    },
+    {
+      "id": "gy_s4",
+      "name": "千岚归一",
+      "kind": "skill",
+      "group": "guiyun",
+      "current_grade": "甲",
+      "proposed_grade": "甲",
+      "benchmark_id": "counter",
+      "benchmark_relation": "仅借鉴观察与出手集中方向，数值和跨兵器覆盖不继承",
+      "scope": "单招或心法条目，不等同于参考小说整套体系",
+      "design_basis": {
+        "effect": "单体三段集中；前两段试锋，末段吃破势增伤；不额外插入行动",
+        "obtain": "下山后回谷切磋与责任事件",
+        "visual": "三层方向不同的云刃汇入一根粗亮剑脊"
+      },
+      "tier_reason": "需专门传承与深厚根基的独门上乘；该判断只对应本作现有阶段和用途，不意味着与原著武学同等强度。",
+      "decision": "保留候选，补齐依据后复审",
+      "open_issues": [],
+      "required_evidence": [
+        "明确技理、训练内容及前置",
+        "获得事件通过人物所在地与日历冲突检查",
+        "同阶段玩法比较与代价验证",
+        "命名字义与具体传承来历",
+        "表现不可只靠增加攻击段数、覆盖目标或光效"
+      ],
+      "status": "design_inference_pending_review"
+    },
+    {
+      "id": "gy_s5",
+      "name": "云开见山",
+      "kind": "skill",
+      "group": "guiyun",
+      "current_grade": "绝",
+      "proposed_grade": "绝",
+      "benchmark_id": "counter",
+      "benchmark_relation": "仅借鉴观察与出手集中方向，数值和跨兵器覆盖不继承",
+      "scope": "单招或心法条目，不等同于参考小说整套体系",
+      "design_basis": {
+        "effect": "单体四段集中，消耗一枚守势强化末击；需要3BP及24MP，施放后下一次自身行动不能再用任何绝级招式",
+        "obtain": "剑路长线实务与导师复盘后个人领悟",
+        "visual": "左右大片云势裂开，四路粗锋聚为中央山形锋面"
+      },
+      "tier_reason": "形成独有核心原理、人物传承和长期修习的顶层成果；该判断只对应本作现有阶段和用途，不意味着与原著武学同等强度。",
+      "decision": "保留候选，补齐依据后复审",
+      "open_issues": [
+        "当前战斗效果和高费用不能证明绝级；须补独有技理、传承兑现和长期修习证据，缺失则降为甲级。"
+      ],
+      "required_evidence": [
+        "明确技理、训练内容及前置",
+        "获得事件通过人物所在地与日历冲突检查",
+        "同阶段玩法比较与代价验证",
+        "命名字义与具体传承来历",
+        "表现不可只靠增加攻击段数、覆盖目标或光效",
+        "独有原则能够形成专精打法",
+        "完整体系与单招层级分别标明",
+        "长期修习或人物传承成果"
+      ],
+      "status": "design_inference_pending_review"
+    },
+    {
+      "id": "gy_p1",
+      "name": "粗浅拳脚",
+      "kind": "skill",
+      "group": "guiyun",
+      "current_grade": "丁",
+      "proposed_grade": "丁",
+      "benchmark_id": "basic",
+      "benchmark_relation": "仅参照基础训练身份，不把整套拳法等同于一个招式",
+      "scope": "单招或心法条目，不等同于参考小说整套体系",
+      "design_basis": {
+        "effect": "单体一击；空手也能使用的低消耗基本攻击",
+        "obtain": "首月B03后K02正式教学，5体力",
+        "visual": "紧凑米白冲击楔形，边缘一圈短促竹青回劲"
+      },
+      "tier_reason": "单项基础训练；该判断只对应本作现有阶段和用途，不意味着与原著武学同等强度。",
+      "decision": "阶段适配，仍需玩法验证",
+      "open_issues": [],
+      "required_evidence": [
+        "明确技理、训练内容及前置",
+        "获得事件通过人物所在地与日历冲突检查",
+        "同阶段玩法比较与代价验证"
+      ],
+      "status": "design_inference_pending_review"
+    },
+    {
+      "id": "gy_p2",
+      "name": "回岚步",
+      "kind": "skill",
+      "group": "guiyun",
+      "current_grade": "丙",
+      "proposed_grade": "丙",
+      "benchmark_id": "specialist",
+      "benchmark_relation": "只取化力思路，普通卸力招式不等于完整太极拳",
+      "scope": "单招或心法条目，不等同于参考小说整套体系",
+      "design_basis": {
+        "effect": "自身卸力一次；持续至下次自身行动开始，不能全队免伤",
+        "obtain": "基础步法熟悉后明确传授",
+        "visual": "两段前后错开的风足迹意象，没有实体鞋子"
+      },
+      "tier_reason": "成熟实用套路；该判断只对应本作现有阶段和用途，不意味着与原著武学同等强度。",
+      "decision": "阶段适配，仍需玩法验证",
+      "open_issues": [],
+      "required_evidence": [
+        "明确技理、训练内容及前置",
+        "获得事件通过人物所在地与日历冲突检查",
+        "同阶段玩法比较与代价验证"
+      ],
+      "status": "design_inference_pending_review"
+    },
+    {
+      "id": "gy_p3",
+      "name": "叠岚掌",
+      "kind": "skill",
+      "group": "guiyun",
+      "current_grade": "乙",
+      "proposed_grade": "乙",
+      "benchmark_id": "specialist",
+      "benchmark_relation": "只取化力思路，普通卸力招式不等于完整太极拳",
+      "scope": "单招或心法条目，不等同于参考小说整套体系",
+      "design_basis": {
+        "effect": "单体两段；本轮护卫实际承伤后末段增强一次",
+        "obtain": "年二拳掌主修与护人实务",
+        "visual": "前小后大的两层方圆气掌，均为气劲而无实体手"
+      },
+      "tier_reason": "有明确技理的门派或职业专长；该判断只对应本作现有阶段和用途，不意味着与原著武学同等强度。",
+      "decision": "阶段适配，仍需玩法验证",
+      "open_issues": [],
+      "required_evidence": [
+        "明确技理、训练内容及前置",
+        "获得事件通过人物所在地与日历冲突检查",
+        "同阶段玩法比较与代价验证"
+      ],
+      "status": "design_inference_pending_review"
+    },
+    {
+      "id": "gy_p4",
+      "name": "抱山还岳",
+      "kind": "skill",
+      "group": "guiyun",
+      "current_grade": "甲",
+      "proposed_grade": "甲",
+      "benchmark_id": "guard",
+      "benchmark_relation": "一次减伤、护卫不能据此宣称达到宗师防御绝技",
+      "scope": "单招或心法条目，不等同于参考小说整套体系",
+      "design_basis": {
+        "effect": "自身援护一次；承伤后自动反击一击，反击不产生BP和反击链",
+        "obtain": "下山后的解围与师叔传授",
+        "visual": "低伏山势托起一道向外反卷的厚重气壁"
+      },
+      "tier_reason": "需专门传承与深厚根基的独门上乘；该判断只对应本作现有阶段和用途，不意味着与原著武学同等强度。",
+      "decision": "保留候选，补齐依据后复审",
+      "open_issues": [],
+      "required_evidence": [
+        "明确技理、训练内容及前置",
+        "获得事件通过人物所在地与日历冲突检查",
+        "同阶段玩法比较与代价验证",
+        "命名字义与具体传承来历",
+        "表现不可只靠增加攻击段数、覆盖目标或光效"
+      ],
+      "status": "design_inference_pending_review"
+    },
+    {
+      "id": "gy_p5",
+      "name": "万壑回响",
+      "kind": "skill",
+      "group": "guiyun",
+      "current_grade": "绝",
+      "proposed_grade": "绝",
+      "benchmark_id": "guard",
+      "benchmark_relation": "一次减伤、护卫不能据此宣称达到宗师防御绝技",
+      "scope": "单招或心法条目，不等同于参考小说整套体系",
+      "design_basis": {
+        "effect": "敌全体两段，先震后合；需要3BP及24MP，单体威力低于剑路绝技，共享绝级调息间隔",
+        "obtain": "拳路长线责任事件与领悟",
+        "visual": "横展峡谷折面，多道短冲击汇成开阔山岳气势"
+      },
+      "tier_reason": "形成独有核心原理、人物传承和长期修习的顶层成果；该判断只对应本作现有阶段和用途，不意味着与原著武学同等强度。",
+      "decision": "保留候选，补齐依据后复审",
+      "open_issues": [
+        "当前战斗效果和高费用不能证明绝级；须补独有技理、传承兑现和长期修习证据，缺失则降为甲级。"
+      ],
+      "required_evidence": [
+        "明确技理、训练内容及前置",
+        "获得事件通过人物所在地与日历冲突检查",
+        "同阶段玩法比较与代价验证",
+        "命名字义与具体传承来历",
+        "表现不可只靠增加攻击段数、覆盖目标或光效",
+        "独有原则能够形成专精打法",
+        "完整体系与单招层级分别标明",
+        "长期修习或人物传承成果"
+      ],
+      "status": "design_inference_pending_review"
+    },
+    {
+      "id": "bh_s1",
+      "name": "金针刺穴",
+      "kind": "skill",
+      "group": "white-heron",
+      "current_grade": "丙",
+      "proposed_grade": "丙",
+      "benchmark_id": "medical",
+      "benchmark_relation": "本轮未取得足够原作医术章节依据，单列医术专业层次；不与攻击绝学判等",
+      "scope": "单招或心法条目，不等同于参考小说整套体系",
+      "design_basis": {
+        "effect": "单体一击并看破一处；已有同名技能，迁移前保留旧数值",
+        "obtain": "苏芷初见任务体验（初见剧情待重新设计）；主角需另经授权学习",
+        "visual": "三束短针气指向一个清楚的穴点，不画针囊"
+      },
+      "tier_reason": "成熟实用套路；该判断只对应本作现有阶段和用途，不意味着与原著武学同等强度。",
+      "decision": "阶段适配，仍需玩法验证",
+      "open_issues": [
+        "医术原作对照尚缺章节依据，本次不作武力等价排名。"
+      ],
+      "required_evidence": [
+        "明确技理、训练内容及前置",
+        "获得事件通过人物所在地与日历冲突检查",
+        "同阶段玩法比较与代价验证"
+      ],
+      "status": "design_inference_pending_review"
+    },
+    {
+      "id": "bh_s2",
+      "name": "回春散",
+      "kind": "skill",
+      "group": "white-heron",
+      "current_grade": "丙",
+      "proposed_grade": "丙",
+      "benchmark_id": "medical",
+      "benchmark_relation": "本轮未取得足够原作医术章节依据，单列医术专业层次；不与攻击绝学判等",
+      "scope": "单招或心法条目，不等同于参考小说整套体系",
+      "design_basis": {
+        "effect": "单体急救；已有技能，以旧恢复量为迁移基线",
+        "obtain": "苏芷随身医术，不因见面授给全队",
+        "visual": "断开的温白生机流被药青短流接续"
+      },
+      "tier_reason": "成熟实用套路；该判断只对应本作现有阶段和用途，不意味着与原著武学同等强度。",
+      "decision": "阶段适配，仍需玩法验证",
+      "open_issues": [
+        "医术原作对照尚缺章节依据，本次不作武力等价排名。"
+      ],
+      "required_evidence": [
+        "明确技理、训练内容及前置",
+        "获得事件通过人物所在地与日历冲突检查",
+        "同阶段玩法比较与代价验证"
+      ],
+      "status": "design_inference_pending_review"
+    },
+    {
+      "id": "bh_s3",
+      "name": "净脉针",
+      "kind": "skill",
+      "group": "white-heron",
+      "current_grade": "乙",
+      "proposed_grade": "乙",
+      "benchmark_id": "medical",
+      "benchmark_relation": "本轮未取得足够原作医术章节依据，单列医术专业层次；不与攻击绝学判等",
+      "scope": "单招或心法条目，不等同于参考小说整套体系",
+      "design_basis": {
+        "effect": "单体小治疗并解除一个可驱散异常；无异常时保留治疗",
+        "obtain": "苏芷巡诊复盘，外学者先修医理与监督实习",
+        "visual": "一束笔直白针气穿过灰绿纠结，出口恢复清绿"
+      },
+      "tier_reason": "有明确技理的门派或职业专长；该判断只对应本作现有阶段和用途，不意味着与原著武学同等强度。",
+      "decision": "阶段适配，仍需玩法验证",
+      "open_issues": [
+        "医术原作对照尚缺章节依据，本次不作武力等价排名。"
+      ],
+      "required_evidence": [
+        "明确技理、训练内容及前置",
+        "获得事件通过人物所在地与日历冲突检查",
+        "同阶段玩法比较与代价验证"
+      ],
+      "status": "design_inference_pending_review"
+    },
+    {
+      "id": "bh_s4",
+      "name": "百草回生",
+      "kind": "skill",
+      "group": "white-heron",
+      "current_grade": "甲",
+      "proposed_grade": "甲",
+      "benchmark_id": "medical",
+      "benchmark_relation": "本轮未取得足够原作医术章节依据，单列医术专业层次；不与攻击绝学判等",
+      "scope": "单招或心法条目，不等同于参考小说整套体系",
+      "design_basis": {
+        "effect": "全队中治疗；不能复活，消耗高并有两行动冷却",
+        "obtain": "未写完的医案完成且巡诊方案可持续",
+        "visual": "一条主叶脉分为四支，末端汇入四个温亮节点"
+      },
+      "tier_reason": "需专门传承与深厚根基的独门上乘；该判断只对应本作现有阶段和用途，不意味着与原著武学同等强度。",
+      "decision": "保留候选，补齐依据后复审",
+      "open_issues": [
+        "医术原作对照尚缺章节依据，本次不作武力等价排名。"
+      ],
+      "required_evidence": [
+        "明确技理、训练内容及前置",
+        "获得事件通过人物所在地与日历冲突检查",
+        "同阶段玩法比较与代价验证",
+        "命名字义与具体传承来历",
+        "表现不可只靠增加攻击段数、覆盖目标或光效"
+      ],
+      "status": "design_inference_pending_review"
+    },
+    {
+      "id": "bh_s5",
+      "name": "一息相续",
+      "kind": "skill",
+      "group": "white-heron",
+      "current_grade": "绝",
+      "proposed_grade": "绝",
+      "benchmark_id": "medical",
+      "benchmark_relation": "本轮未取得足够原作医术章节依据，单列医术专业层次；不与攻击绝学判等",
+      "scope": "单招或心法条目，不等同于参考小说整套体系",
+      "design_basis": {
+        "effect": "指定同伴获得一次濒危保护，致命伤留1HP；需3BP及24MP，同一受益者每战仅能获得本技一次保护；不复活，不叠加其他保命",
+        "obtain": "长期急救案例与教习共同验证",
+        "visual": "将断白色生命流被一根金青细桥接续，外围双层叶脉"
+      },
+      "tier_reason": "形成独有核心原理、人物传承和长期修习的顶层成果；该判断只对应本作现有阶段和用途，不意味着与原著武学同等强度。",
+      "decision": "保留候选，补齐依据后复审",
+      "open_issues": [
+        "当前战斗效果和高费用不能证明绝级；须补独有技理、传承兑现和长期修习证据，缺失则降为甲级。",
+        "医术原作对照尚缺章节依据，本次不作武力等价排名。"
+      ],
+      "required_evidence": [
+        "明确技理、训练内容及前置",
+        "获得事件通过人物所在地与日历冲突检查",
+        "同阶段玩法比较与代价验证",
+        "命名字义与具体传承来历",
+        "表现不可只靠增加攻击段数、覆盖目标或光效",
+        "独有原则能够形成专精打法",
+        "完整体系与单招层级分别标明",
+        "长期修习或人物传承成果"
+      ],
+      "status": "design_inference_pending_review"
+    },
+    {
+      "id": "zc_s1",
+      "name": "照水起锋",
+      "kind": "skill",
+      "group": "zhaochuan",
+      "current_grade": "丁",
+      "proposed_grade": "丁",
+      "benchmark_id": "basic",
+      "benchmark_relation": "仅参照基础训练身份，不把整套拳法等同于一个招式",
+      "scope": "单招或心法条目，不等同于参考小说整套体系",
+      "design_basis": {
+        "effect": "单体一击，低费起手；与归云低阶差异主要是后续剑势联动",
+        "obtain": "唐照雪初见试艺；主角经外派交流另学",
+        "visual": "短直剑光下接一条水平反光，轮廓如锐角"
+      },
+      "tier_reason": "单项基础训练；该判断只对应本作现有阶段和用途，不意味着与原著武学同等强度。",
+      "decision": "阶段适配，仍需玩法验证",
+      "open_issues": [],
+      "required_evidence": [
+        "明确技理、训练内容及前置",
+        "获得事件通过人物所在地与日历冲突检查",
+        "同阶段玩法比较与代价验证"
+      ],
+      "status": "design_inference_pending_review"
+    },
+    {
+      "id": "zc_s2",
+      "name": "折光三叠",
+      "kind": "skill",
+      "group": "zhaochuan",
+      "current_grade": "丙",
+      "proposed_grade": "丙",
+      "benchmark_id": "practical",
+      "benchmark_relation": "对照实用训练和辨认部位的要求，不预设原著官方品阶",
+      "scope": "单招或心法条目，不等同于参考小说整套体系",
+      "design_basis": {
+        "effect": "单体三段，段均弱；削盾总量按统一上限",
+        "obtain": "正式基础考校或公开基础课",
+        "visual": "三条长度递增的折线剑锋，银蓝分层"
+      },
+      "tier_reason": "成熟实用套路；该判断只对应本作现有阶段和用途，不意味着与原著武学同等强度。",
+      "decision": "阶段适配，仍需玩法验证",
+      "open_issues": [],
+      "required_evidence": [
+        "明确技理、训练内容及前置",
+        "获得事件通过人物所在地与日历冲突检查",
+        "同阶段玩法比较与代价验证"
+      ],
+      "status": "design_inference_pending_review"
+    },
+    {
+      "id": "zc_s3",
+      "name": "问隙挑灯",
+      "kind": "skill",
+      "group": "zhaochuan",
+      "current_grade": "乙",
+      "proposed_grade": "乙",
+      "benchmark_id": "specialist",
+      "benchmark_relation": "只取化力思路，普通卸力招式不等于完整太极拳",
+      "scope": "单招或心法条目，不等同于参考小说整套体系",
+      "design_basis": {
+        "effect": "对已看破目标单体加强；未看破仍造成正常伤害",
+        "obtain": "唐照雪因材施教事件，先辨路再施招",
+        "visual": "一道细锋挑开厚重菱形锋隙，核心暖白"
+      },
+      "tier_reason": "有明确技理的门派或职业专长；该判断只对应本作现有阶段和用途，不意味着与原著武学同等强度。",
+      "decision": "阶段适配，仍需玩法验证",
+      "open_issues": [],
+      "required_evidence": [
+        "明确技理、训练内容及前置",
+        "获得事件通过人物所在地与日历冲突检查",
+        "同阶段玩法比较与代价验证"
+      ],
+      "status": "design_inference_pending_review"
+    },
+    {
+      "id": "zc_s4",
+      "name": "照川落日",
+      "kind": "skill",
+      "group": "zhaochuan",
+      "current_grade": "甲",
+      "proposed_grade": "甲",
+      "benchmark_id": "counter",
+      "benchmark_relation": "仅借鉴观察与出手集中方向，数值和跨兵器覆盖不继承",
+      "scope": "单招或心法条目，不等同于参考小说整套体系",
+      "design_basis": {
+        "effect": "单体重击；本次若击破护盾，下回合本人获得一次伤害加成",
+        "obtain": "人物篇完成后自创定式",
+        "visual": "宽阔半圆落照被斜直剑脊贯穿，非太阳法术"
+      },
+      "tier_reason": "需专门传承与深厚根基的独门上乘；该判断只对应本作现有阶段和用途，不意味着与原著武学同等强度。",
+      "decision": "保留候选，补齐依据后复审",
+      "open_issues": [],
+      "required_evidence": [
+        "明确技理、训练内容及前置",
+        "获得事件通过人物所在地与日历冲突检查",
+        "同阶段玩法比较与代价验证",
+        "命名字义与具体传承来历",
+        "表现不可只靠增加攻击段数、覆盖目标或光效"
+      ],
+      "status": "design_inference_pending_review"
+    },
+    {
+      "id": "zc_s5",
+      "name": "一剑澄江",
+      "kind": "skill",
+      "group": "zhaochuan",
+      "current_grade": "绝",
+      "proposed_grade": "绝",
+      "benchmark_id": "counter",
+      "benchmark_relation": "仅借鉴观察与出手集中方向，数值和跨兵器覆盖不继承",
+      "scope": "单招或心法条目，不等同于参考小说整套体系",
+      "design_basis": {
+        "effect": "单体集中爆发，已看破种类越多末击越强，上限明确；需3BP及24MP，共享绝级调息间隔",
+        "obtain": "师门传承争议解决后自证剑路",
+        "visual": "宽阔江纹被中央粗直剑锋截断，两翼碎光向末端汇聚"
+      },
+      "tier_reason": "形成独有核心原理、人物传承和长期修习的顶层成果；该判断只对应本作现有阶段和用途，不意味着与原著武学同等强度。",
+      "decision": "保留候选，补齐依据后复审",
+      "open_issues": [
+        "当前战斗效果和高费用不能证明绝级；须补独有技理、传承兑现和长期修习证据，缺失则降为甲级。"
+      ],
+      "required_evidence": [
+        "明确技理、训练内容及前置",
+        "获得事件通过人物所在地与日历冲突检查",
+        "同阶段玩法比较与代价验证",
+        "命名字义与具体传承来历",
+        "表现不可只靠增加攻击段数、覆盖目标或光效",
+        "独有原则能够形成专精打法",
+        "完整体系与单招层级分别标明",
+        "长期修习或人物传承成果"
+      ],
+      "status": "design_inference_pending_review"
+    },
+    {
+      "id": "hc_s1",
+      "name": "落桩拳",
+      "kind": "skill",
+      "group": "hechuan",
+      "current_grade": "丁",
+      "proposed_grade": "丁",
+      "benchmark_id": "basic",
+      "benchmark_relation": "仅参照基础训练身份，不把整套拳法等同于一个招式",
+      "scope": "单招或心法条目，不等同于参考小说整套体系",
+      "design_basis": {
+        "effect": "单体一击，稳定低费；站桩不增加永久防御",
+        "obtain": "公开基础拳课或段明棠体验",
+        "visual": "下压方形气劲，底部两道承重裂线"
+      },
+      "tier_reason": "单项基础训练；该判断只对应本作现有阶段和用途，不意味着与原著武学同等强度。",
+      "decision": "阶段适配，仍需玩法验证",
+      "open_issues": [],
+      "required_evidence": [
+        "明确技理、训练内容及前置",
+        "获得事件通过人物所在地与日历冲突检查",
+        "同阶段玩法比较与代价验证"
+      ],
+      "status": "design_inference_pending_review"
+    },
+    {
+      "id": "hc_s2",
+      "name": "横肩护人",
+      "kind": "skill",
+      "group": "hechuan",
+      "current_grade": "丙",
+      "proposed_grade": "丙",
+      "benchmark_id": "specialist",
+      "benchmark_relation": "只取化力思路，普通卸力招式不等于完整太极拳",
+      "scope": "单招或心法条目，不等同于参考小说整套体系",
+      "design_basis": {
+        "effect": "替一名同伴承担下一次单体攻击并获得减伤；不拦群攻",
+        "obtain": "石长庚护运体验，另教给认可的同伴",
+        "visual": "粗壮横向气梁托住一枚内侧小亮点"
+      },
+      "tier_reason": "成熟实用套路；该判断只对应本作现有阶段和用途，不意味着与原著武学同等强度。",
+      "decision": "阶段适配，仍需玩法验证",
+      "open_issues": [],
+      "required_evidence": [
+        "明确技理、训练内容及前置",
+        "获得事件通过人物所在地与日历冲突检查",
+        "同阶段玩法比较与代价验证"
+      ],
+      "status": "design_inference_pending_review"
+    },
+    {
+      "id": "hc_s3",
+      "name": "崩石短打",
+      "kind": "skill",
+      "group": "hechuan",
+      "current_grade": "乙",
+      "proposed_grade": "乙",
+      "benchmark_id": "specialist",
+      "benchmark_relation": "只取化力思路，普通卸力招式不等于完整太极拳",
+      "scope": "单招或心法条目，不等同于参考小说整套体系",
+      "design_basis": {
+        "effect": "单体一击，命中拳弱点时额外削盾一次，受总上限约束",
+        "obtain": "段明棠解决工钱纠纷后的训练",
+        "visual": "短粗赭红楔形撞碎一层灰石面"
+      },
+      "tier_reason": "有明确技理的门派或职业专长；该判断只对应本作现有阶段和用途，不意味着与原著武学同等强度。",
+      "decision": "阶段适配，仍需玩法验证",
+      "open_issues": [],
+      "required_evidence": [
+        "明确技理、训练内容及前置",
+        "获得事件通过人物所在地与日历冲突检查",
+        "同阶段玩法比较与代价验证"
+      ],
+      "status": "design_inference_pending_review"
+    },
+    {
+      "id": "hc_s4",
+      "name": "合川撑岳",
+      "kind": "skill",
+      "group": "hechuan",
+      "current_grade": "甲",
+      "proposed_grade": "甲",
+      "benchmark_id": "guard",
+      "benchmark_relation": "一次减伤、护卫不能据此宣称达到宗师防御绝技",
+      "scope": "单招或心法条目，不等同于参考小说整套体系",
+      "design_basis": {
+        "effect": "全队各一次卸力，施者本轮速度降低；不等于无敌",
+        "obtain": "护运体系整改后的守队训练",
+        "visual": "四道承重斜柱撑起一片厚重山形气顶"
+      },
+      "tier_reason": "需专门传承与深厚根基的独门上乘；该判断只对应本作现有阶段和用途，不意味着与原著武学同等强度。",
+      "decision": "保留候选，补齐依据后复审",
+      "open_issues": [],
+      "required_evidence": [
+        "明确技理、训练内容及前置",
+        "获得事件通过人物所在地与日历冲突检查",
+        "同阶段玩法比较与代价验证",
+        "命名字义与具体传承来历",
+        "表现不可只靠增加攻击段数、覆盖目标或光效"
+      ],
+      "status": "design_inference_pending_review"
+    },
+    {
+      "id": "hc_s5",
+      "name": "百步震关",
+      "kind": "skill",
+      "group": "hechuan",
+      "current_grade": "绝",
+      "proposed_grade": "绝",
+      "benchmark_id": "guard",
+      "benchmark_relation": "一次减伤、护卫不能据此宣称达到宗师防御绝技",
+      "scope": "单招或心法条目，不等同于参考小说整套体系",
+      "design_basis": {
+        "effect": "敌全体一段；命中弱点且目标蓄力时额外削盾1点；需3BP及24MP，不直接跳过首领行动",
+        "obtain": "拳门公共护运长线终章",
+        "visual": "三道方形冲击纵深推进，末端形成宽大的断关裂面"
+      },
+      "tier_reason": "形成独有核心原理、人物传承和长期修习的顶层成果；该判断只对应本作现有阶段和用途，不意味着与原著武学同等强度。",
+      "decision": "保留候选，补齐依据后复审",
+      "open_issues": [
+        "当前战斗效果和高费用不能证明绝级；须补独有技理、传承兑现和长期修习证据，缺失则降为甲级。"
+      ],
+      "required_evidence": [
+        "明确技理、训练内容及前置",
+        "获得事件通过人物所在地与日历冲突检查",
+        "同阶段玩法比较与代价验证",
+        "命名字义与具体传承来历",
+        "表现不可只靠增加攻击段数、覆盖目标或光效",
+        "独有原则能够形成专精打法",
+        "完整体系与单招层级分别标明",
+        "长期修习或人物传承成果"
+      ],
+      "status": "design_inference_pending_review"
+    },
+    {
+      "id": "sf_s1",
+      "name": "松间错步",
+      "kind": "skill",
+      "group": "songfeng",
+      "current_grade": "丁",
+      "proposed_grade": "丁",
+      "benchmark_id": "basic",
+      "benchmark_relation": "仅参照基础训练身份，不把整套拳法等同于一个招式",
+      "scope": "单招或心法条目，不等同于参考小说整套体系",
+      "design_basis": {
+        "effect": "自身一次卸力；可供行动慢的队伍争取存活",
+        "obtain": "闻疏桐山路同行；对外基础课",
+        "visual": "两股松绿流风在中央错开而不相交"
+      },
+      "tier_reason": "单项基础训练；该判断只对应本作现有阶段和用途，不意味着与原著武学同等强度。",
+      "decision": "阶段适配，仍需玩法验证",
+      "open_issues": [],
+      "required_evidence": [
+        "明确技理、训练内容及前置",
+        "获得事件通过人物所在地与日历冲突检查",
+        "同阶段玩法比较与代价验证"
+      ],
+      "status": "design_inference_pending_review"
+    },
+    {
+      "id": "sf_s2",
+      "name": "引枝卸锋",
+      "kind": "skill",
+      "group": "songfeng",
+      "current_grade": "丙",
+      "proposed_grade": "丙",
+      "benchmark_id": "specialist",
+      "benchmark_relation": "只取化力思路，普通卸力招式不等于完整太极拳",
+      "scope": "单招或心法条目，不等同于参考小说整套体系",
+      "design_basis": {
+        "effect": "一名同伴一次卸力；不需要移动真实站位",
+        "obtain": "俗家协作练习",
+        "visual": "细长弯枝般气线将一束银锋拨到侧面"
+      },
+      "tier_reason": "成熟实用套路；该判断只对应本作现有阶段和用途，不意味着与原著武学同等强度。",
+      "decision": "阶段适配，仍需玩法验证",
+      "open_issues": [],
+      "required_evidence": [
+        "明确技理、训练内容及前置",
+        "获得事件通过人物所在地与日历冲突检查",
+        "同阶段玩法比较与代价验证"
+      ],
+      "status": "design_inference_pending_review"
+    },
+    {
+      "id": "sf_s3",
+      "name": "三径相援",
+      "kind": "skill",
+      "group": "songfeng",
+      "current_grade": "乙",
+      "proposed_grade": "乙",
+      "benchmark_id": "specialist",
+      "benchmark_relation": "只取化力思路，普通卸力招式不等于完整太极拳",
+      "scope": "单招或心法条目，不等同于参考小说整套体系",
+      "design_basis": {
+        "effect": "选两名同伴各获一次卸力，其中一人下回合前移一位；不新增行动，排序不能越过不可改动的剧情动作",
+        "obtain": "路图保护乡邻事件与两人合练",
+        "visual": "三条小径状气线围成开口三角，一条引路细锋指向前方"
+      },
+      "tier_reason": "有明确技理的门派或职业专长；该判断只对应本作现有阶段和用途，不意味着与原著武学同等强度。",
+      "decision": "阶段适配，仍需玩法验证",
+      "open_issues": [],
+      "required_evidence": [
+        "明确技理、训练内容及前置",
+        "获得事件通过人物所在地与日历冲突检查",
+        "同阶段玩法比较与代价验证"
+      ],
+      "status": "design_inference_pending_review"
+    },
+    {
+      "id": "sf_s4",
+      "name": "松涛合阵",
+      "kind": "skill",
+      "group": "songfeng",
+      "current_grade": "甲",
+      "proposed_grade": "乙",
+      "benchmark_id": "guard",
+      "benchmark_relation": "一次减伤、护卫不能据此宣称达到宗师防御绝技",
+      "scope": "单招或心法条目，不等同于参考小说整套体系",
+      "design_basis": {
+        "effect": "敌全体各一击；本轮有同伴主动护卫则威力增加一次",
+        "obtain": "闻疏桐个人篇及多人演练",
+        "visual": "三层松针剑气错列成宽扇面，中心仍可读"
+      },
+      "tier_reason": "群攻加护卫联动，尚无独门技理与高阶传承证据。",
+      "decision": "建议降档，待玩法与素材联审",
+      "open_issues": [
+        "群攻加护卫联动，尚无独门技理与高阶传承证据。"
+      ],
+      "required_evidence": [
+        "明确技理、训练内容及前置",
+        "获得事件通过人物所在地与日历冲突检查",
+        "同阶段玩法比较与代价验证"
+      ],
+      "status": "design_inference_pending_review"
+    },
+    {
+      "id": "sf_s5",
+      "name": "万籁归松",
+      "kind": "skill",
+      "group": "songfeng",
+      "current_grade": "绝",
+      "proposed_grade": "绝",
+      "benchmark_id": "guard",
+      "benchmark_relation": "一次减伤、护卫不能据此宣称达到宗师防御绝技",
+      "scope": "单招或心法条目，不等同于参考小说整套体系",
+      "design_basis": {
+        "effect": "全队各一次卸力，并免疫一次可驱散迟滞；下回合首名队友前移一位；无反击和整回合冻结",
+        "obtain": "观中入世争议收束与护乡实务",
+        "visual": "宽广静白中心，松涛外缘隔开乱流，一束引导线从前端伸出"
+      },
+      "tier_reason": "形成独有核心原理、人物传承和长期修习的顶层成果；该判断只对应本作现有阶段和用途，不意味着与原著武学同等强度。",
+      "decision": "保留候选，补齐依据后复审",
+      "open_issues": [
+        "当前战斗效果和高费用不能证明绝级；须补独有技理、传承兑现和长期修习证据，缺失则降为甲级。"
+      ],
+      "required_evidence": [
+        "明确技理、训练内容及前置",
+        "获得事件通过人物所在地与日历冲突检查",
+        "同阶段玩法比较与代价验证",
+        "命名字义与具体传承来历",
+        "表现不可只靠增加攻击段数、覆盖目标或光效",
+        "独有原则能够形成专精打法",
+        "完整体系与单招层级分别标明",
+        "长期修习或人物传承成果"
+      ],
+      "status": "design_inference_pending_review"
+    },
+    {
+      "id": "gj_s1",
+      "name": "藏锋短刺",
+      "kind": "skill",
+      "group": "guijintang",
+      "current_grade": "丁",
+      "proposed_grade": "丁",
+      "benchmark_id": "basic",
+      "benchmark_relation": "仅参照基础训练身份，不把整套拳法等同于一个招式",
+      "scope": "单招或心法条目，不等同于参考小说整套体系",
+      "design_basis": {
+        "effect": "单体一击；岑霜使用，贴身出手不等于暗器",
+        "obtain": "货路任务体验或基础教习",
+        "visual": "短而偏置的暗红尖锋从墨紫折角穿出"
+      },
+      "tier_reason": "单项基础训练；该判断只对应本作现有阶段和用途，不意味着与原著武学同等强度。",
+      "decision": "阶段适配，仍需玩法验证",
+      "open_issues": [],
+      "required_evidence": [
+        "明确技理、训练内容及前置",
+        "获得事件通过人物所在地与日历冲突检查",
+        "同阶段玩法比较与代价验证"
+      ],
+      "status": "design_inference_pending_review"
+    },
+    {
+      "id": "gj_s2",
+      "name": "燃隙刀",
+      "kind": "skill",
+      "group": "guijintang",
+      "current_grade": "丙",
+      "proposed_grade": "丙",
+      "benchmark_id": "practical",
+      "benchmark_relation": "对照实用训练和辨认部位的要求，不预设原著官方品阶",
+      "scope": "单招或心法条目，不等同于参考小说整套体系",
+      "design_basis": {
+        "effect": "单体强击，施者下一次受击增加10%伤害",
+        "obtain": "戚铮基础刀路与明确传授",
+        "visual": "一条铜红厚斩弧尾部有两处断裂余烬"
+      },
+      "tier_reason": "成熟实用套路；该判断只对应本作现有阶段和用途，不意味着与原著武学同等强度。",
+      "decision": "阶段适配，仍需玩法验证",
+      "open_issues": [],
+      "required_evidence": [
+        "明确技理、训练内容及前置",
+        "获得事件通过人物所在地与日历冲突检查",
+        "同阶段玩法比较与代价验证"
+      ],
+      "status": "design_inference_pending_review"
+    },
+    {
+      "id": "gj_s3",
+      "name": "断烬回身",
+      "kind": "skill",
+      "group": "guijintang",
+      "current_grade": "乙",
+      "proposed_grade": "乙",
+      "benchmark_id": "specialist",
+      "benchmark_relation": "只取化力思路，普通卸力招式不等于完整太极拳",
+      "scope": "单招或心法条目，不等同于参考小说整套体系",
+      "design_basis": {
+        "effect": "单体两段，随后给自己一次卸力；伤害预算让给退路",
+        "obtain": "岑霜赔偿落实后复盘险情",
+        "visual": "两道背向折刃，中间一条明确撤出的空隙"
+      },
+      "tier_reason": "有明确技理的门派或职业专长；该判断只对应本作现有阶段和用途，不意味着与原著武学同等强度。",
+      "decision": "阶段适配，仍需玩法验证",
+      "open_issues": [],
+      "required_evidence": [
+        "明确技理、训练内容及前置",
+        "获得事件通过人物所在地与日历冲突检查",
+        "同阶段玩法比较与代价验证"
+      ],
+      "status": "design_inference_pending_review"
+    },
+    {
+      "id": "gj_s4",
+      "name": "焚契破阵",
+      "kind": "skill",
+      "group": "guijintang",
+      "current_grade": "甲",
+      "proposed_grade": "甲",
+      "benchmark_id": "counter",
+      "benchmark_relation": "仅借鉴观察与出手集中方向，数值和跨兵器覆盖不继承",
+      "scope": "单招或心法条目，不等同于参考小说整套体系",
+      "design_basis": {
+        "effect": "敌全体各一击；本人获得暴露，不能与强防护同时获全额收益",
+        "obtain": "堂务问责篇后戚铮选择承担断后",
+        "visual": "铜红裂锋横切三段障碍，余烬稀疏而尖锐"
+      },
+      "tier_reason": "需专门传承与深厚根基的独门上乘；该判断只对应本作现有阶段和用途，不意味着与原著武学同等强度。",
+      "decision": "保留候选，补齐依据后复审",
+      "open_issues": [],
+      "required_evidence": [
+        "明确技理、训练内容及前置",
+        "获得事件通过人物所在地与日历冲突检查",
+        "同阶段玩法比较与代价验证",
+        "命名字义与具体传承来历",
+        "表现不可只靠增加攻击段数、覆盖目标或光效"
+      ],
+      "status": "design_inference_pending_review"
+    },
+    {
+      "id": "gj_s5",
+      "name": "余烬留生",
+      "kind": "skill",
+      "group": "guijintang",
+      "current_grade": "绝",
+      "proposed_grade": "绝",
+      "benchmark_id": "counter",
+      "benchmark_relation": "仅借鉴观察与出手集中方向，数值和跨兵器覆盖不继承",
+      "scope": "单招或心法条目，不等同于参考小说整套体系",
+      "design_basis": {
+        "effect": "指定一敌强击，同时为一名同伴援护一次；需3BP及24MP，共享绝级调息间隔；护卫者承伤不触发连续反击",
+        "obtain": "岑霜兑现退路的个人长线",
+        "visual": "朱红裂锋向外切开，内侧一条完整温白归路通向被护小亮点"
+      },
+      "tier_reason": "形成独有核心原理、人物传承和长期修习的顶层成果；该判断只对应本作现有阶段和用途，不意味着与原著武学同等强度。",
+      "decision": "保留候选，补齐依据后复审",
+      "open_issues": [
+        "当前战斗效果和高费用不能证明绝级；须补独有技理、传承兑现和长期修习证据，缺失则降为甲级。"
+      ],
+      "required_evidence": [
+        "明确技理、训练内容及前置",
+        "获得事件通过人物所在地与日历冲突检查",
+        "同阶段玩法比较与代价验证",
+        "命名字义与具体传承来历",
+        "表现不可只靠增加攻击段数、覆盖目标或光效",
+        "独有原则能够形成专精打法",
+        "完整体系与单招层级分别标明",
+        "长期修习或人物传承成果"
+      ],
+      "status": "design_inference_pending_review"
+    },
+    {
+      "id": "am_s1",
+      "name": "短剑照应",
+      "kind": "skill",
+      "group": "alliance",
+      "current_grade": "丙",
+      "proposed_grade": "丙",
+      "benchmark_id": "practical",
+      "benchmark_relation": "对照实用训练和辨认部位的要求，不预设原著官方品阶",
+      "scope": "单招或心法条目，不等同于参考小说整套体系",
+      "design_basis": {
+        "effect": "单体一击后为一名同伴一次轻减伤，伤害较低",
+        "obtain": "徐令仪个人师友传授，公议护送体验",
+        "visual": "一短直锋与一弯护弧互为犄角"
+      },
+      "tier_reason": "成熟实用套路；该判断只对应本作现有阶段和用途，不意味着与原著武学同等强度。",
+      "decision": "阶段适配，仍需玩法验证",
+      "open_issues": [],
+      "required_evidence": [
+        "明确技理、训练内容及前置",
+        "获得事件通过人物所在地与日历冲突检查",
+        "同阶段玩法比较与代价验证"
+      ],
+      "status": "design_inference_pending_review"
+    },
+    {
+      "id": "am_s2",
+      "name": "同担一线",
+      "kind": "skill",
+      "group": "alliance",
+      "current_grade": "乙",
+      "proposed_grade": "乙",
+      "benchmark_id": "specialist",
+      "benchmark_relation": "只取化力思路，普通卸力招式不等于完整太极拳",
+      "scope": "单招或心法条目，不等同于参考小说整套体系",
+      "design_basis": {
+        "effect": "选另一名同伴交予蓄势，按BP档给予1/2/2/3BP；占一次行动及8MP，不能对自己使用；收到本技BP者本回合不能再转赠",
+        "obtain": "赈济裁断失误后护送合练",
+        "visual": "一条绛青劲流将一枚明亮金色力点送往另一道锋线"
+      },
+      "tier_reason": "有明确技理的门派或职业专长；该判断只对应本作现有阶段和用途，不意味着与原著武学同等强度。",
+      "decision": "阶段适配，仍需玩法验证",
+      "open_issues": [],
+      "required_evidence": [
+        "明确技理、训练内容及前置",
+        "获得事件通过人物所在地与日历冲突检查",
+        "同阶段玩法比较与代价验证"
+      ],
+      "status": "design_inference_pending_review"
+    },
+    {
+      "id": "am_s3",
+      "name": "明约合锋",
+      "kind": "skill",
+      "group": "alliance",
+      "current_grade": "甲",
+      "proposed_grade": "乙",
+      "benchmark_id": "counter",
+      "benchmark_relation": "仅借鉴观察与出手集中方向，数值和跨兵器覆盖不继承",
+      "scope": "单招或心法条目，不等同于参考小说整套体系",
+      "design_basis": {
+        "effect": "单体一击，并使下一名友方对同目标的伤害提高一次；持续至下回合末，增幅15/20/25/30%，无立即追加行动",
+        "obtain": "徐令仪个人篇结束与同伴练习",
+        "visual": "两束先后入场的锋线汇于同一金白落点，后一道明显更厚"
+      },
+      "tier_reason": "协同增伤是团队战术，现有设计没有达到独门上乘的辨识。",
+      "decision": "建议降档，待玩法与素材联审",
+      "open_issues": [
+        "协同增伤是团队战术，现有设计没有达到独门上乘的辨识。"
+      ],
+      "required_evidence": [
+        "明确技理、训练内容及前置",
+        "获得事件通过人物所在地与日历冲突检查",
+        "同阶段玩法比较与代价验证"
+      ],
+      "status": "design_inference_pending_review"
+    },
+    {
+      "id": "pj_s1",
+      "name": "横江拦步",
+      "kind": "skill",
+      "group": "patrol",
+      "current_grade": "丁",
+      "proposed_grade": "丁",
+      "benchmark_id": "basic",
+      "benchmark_relation": "仅参照基础训练身份，不把整套拳法等同于一个招式",
+      "scope": "单招或心法条目，不等同于参考小说整套体系",
+      "design_basis": {
+        "effect": "单体一击；展示擒拿路数，低费",
+        "obtain": "沈雁回获准参加的基础自保训练",
+        "visual": "水平深蓝气栏和一条向内钩回的短劲"
+      },
+      "tier_reason": "单项基础训练；该判断只对应本作现有阶段和用途，不意味着与原著武学同等强度。",
+      "decision": "阶段适配，仍需玩法验证",
+      "open_issues": [],
+      "required_evidence": [
+        "明确技理、训练内容及前置",
+        "获得事件通过人物所在地与日历冲突检查",
+        "同阶段玩法比较与代价验证"
+      ],
+      "status": "design_inference_pending_review"
+    },
+    {
+      "id": "pj_s2",
+      "name": "回杆卸势",
+      "kind": "skill",
+      "group": "patrol",
+      "current_grade": "丙",
+      "proposed_grade": "丙",
+      "benchmark_id": "practical",
+      "benchmark_relation": "对照实用训练和辨认部位的要求，不预设原著官方品阶",
+      "scope": "单招或心法条目，不等同于参考小说整套体系",
+      "design_basis": {
+        "effect": "单体一击并降低目标下一击伤害；首领幅度折半",
+        "obtain": "护送实务与教习纠正",
+        "visual": "回钩弧裹住一枚斜向铁灰冲击楔"
+      },
+      "tier_reason": "成熟实用套路；该判断只对应本作现有阶段和用途，不意味着与原著武学同等强度。",
+      "decision": "阶段适配，仍需玩法验证",
+      "open_issues": [],
+      "required_evidence": [
+        "明确技理、训练内容及前置",
+        "获得事件通过人物所在地与日历冲突检查",
+        "同阶段玩法比较与代价验证"
+      ],
+      "status": "design_inference_pending_review"
+    },
+    {
+      "id": "pj_s3",
+      "name": "断渡擒锋",
+      "kind": "skill",
+      "group": "patrol",
+      "current_grade": "乙",
+      "proposed_grade": "乙",
+      "benchmark_id": "specialist",
+      "benchmark_relation": "只取化力思路，普通卸力招式不等于完整太极拳",
+      "scope": "单招或心法条目，不等同于参考小说整套体系",
+      "design_basis": {
+        "effect": "单体两段；命中弱点且敌人可延后时，将其尚未执行的本回合行动移到末尾；首领仅标明可延后的意图有效，不能连续回合延后同一目标",
+        "obtain": "证物护送成功后训练",
+        "visual": "两道交叉气栏拦住前进锋线，末端向后钩回"
+      },
+      "tier_reason": "有明确技理的门派或职业专长；该判断只对应本作现有阶段和用途，不意味着与原著武学同等强度。",
+      "decision": "阶段适配，仍需玩法验证",
+      "open_issues": [],
+      "required_evidence": [
+        "明确技理、训练内容及前置",
+        "获得事件通过人物所在地与日历冲突检查",
+        "同阶段玩法比较与代价验证"
+      ],
+      "status": "design_inference_pending_review"
+    },
+    {
+      "id": "pj_s4",
+      "name": "风雨护归",
+      "kind": "skill",
+      "group": "patrol",
+      "current_grade": "甲",
+      "proposed_grade": "乙",
+      "benchmark_id": "counter",
+      "benchmark_relation": "仅借鉴观察与出手集中方向，数值和跨兵器覆盖不继承",
+      "scope": "单招或心法条目，不等同于参考小说整套体系",
+      "design_basis": {
+        "effect": "解除全队一项可驱散迟滞并各获一次卸力；适合蓄力前稳住行动节奏，不解除剧情封锁",
+        "obtain": "沈雁回个人篇与差务交接后",
+        "visual": "斜雨被横向气梁截住，下方四股被扭曲的回流重新平顺"
+      },
+      "tier_reason": "清除迟滞并卸力属于护送专长，不等于宗师技法。",
+      "decision": "建议降档，待玩法与素材联审",
+      "open_issues": [
+        "清除迟滞并卸力属于护送专长，不等于宗师技法。"
+      ],
+      "required_evidence": [
+        "明确技理、训练内容及前置",
+        "获得事件通过人物所在地与日历冲突检查",
+        "同阶段玩法比较与代价验证"
+      ],
+      "status": "design_inference_pending_review"
+    },
+    {
+      "id": "yh_s0",
+      "name": "随行照护",
+      "kind": "skill",
+      "group": "ye",
+      "current_grade": "丁",
+      "proposed_grade": "丁",
+      "benchmark_id": "medical",
+      "benchmark_relation": "本轮未取得足够原作医术章节依据，单列医术专业层次；不与攻击绝学判等",
+      "scope": "单招或心法条目，不等同于参考小说整套体系",
+      "design_basis": {
+        "effect": "低量单体恢复；独立于序章驱离照应动作，先经正式战斗救护教学",
+        "obtain": "初期家传实践后教学，序章OC.3不提前授予",
+        "visual": "一缕温白回流托住断开的小叶脉"
+      },
+      "tier_reason": "单项基础训练；该判断只对应本作现有阶段和用途，不意味着与原著武学同等强度。",
+      "decision": "阶段适配，仍需玩法验证",
+      "open_issues": [
+        "医术原作对照尚缺章节依据，本次不作武力等价排名。"
+      ],
+      "required_evidence": [
+        "明确技理、训练内容及前置",
+        "获得事件通过人物所在地与日历冲突检查",
+        "同阶段玩法比较与代价验证"
+      ],
+      "status": "design_inference_pending_review"
+    },
+    {
+      "id": "yh_n1",
+      "name": "循隙针",
+      "kind": "skill",
+      "group": "ye",
+      "current_grade": "丙",
+      "proposed_grade": "丙",
+      "benchmark_id": "practical",
+      "benchmark_relation": "对照实用训练和辨认部位的要求，不预设原著官方品阶",
+      "scope": "单招或心法条目，不等同于参考小说整套体系",
+      "design_basis": {
+        "effect": "单体两段；选择已看破目标时降低本次内力消耗",
+        "obtain": "第13月起针攻路线入门课",
+        "visual": "两束细金针路沿一道裂隙并行深入"
+      },
+      "tier_reason": "成熟实用套路；该判断只对应本作现有阶段和用途，不意味着与原著武学同等强度。",
+      "decision": "阶段适配，仍需玩法验证",
+      "open_issues": [],
+      "required_evidence": [
+        "明确技理、训练内容及前置",
+        "获得事件通过人物所在地与日历冲突检查",
+        "同阶段玩法比较与代价验证"
+      ],
+      "status": "design_inference_pending_review"
+    },
+    {
+      "id": "yh_n2",
+      "name": "截脉三针",
+      "kind": "skill",
+      "group": "ye",
+      "current_grade": "乙",
+      "proposed_grade": "乙",
+      "benchmark_id": "specialist",
+      "benchmark_relation": "只取化力思路，普通卸力招式不等于完整太极拳",
+      "scope": "单招或心法条目，不等同于参考小说整套体系",
+      "design_basis": {
+        "effect": "单体三段并削弱下一击；首领减益折半",
+        "obtain": "针攻实务后逐点校准",
+        "visual": "三束不同角度针气准确钉住三枚赭红穴点"
+      },
+      "tier_reason": "有明确技理的门派或职业专长；该判断只对应本作现有阶段和用途，不意味着与原著武学同等强度。",
+      "decision": "阶段适配，仍需玩法验证",
+      "open_issues": [],
+      "required_evidence": [
+        "明确技理、训练内容及前置",
+        "获得事件通过人物所在地与日历冲突检查",
+        "同阶段玩法比较与代价验证"
+      ],
+      "status": "design_inference_pending_review"
+    },
+    {
+      "id": "yh_n3",
+      "name": "归息断潮",
+      "kind": "skill",
+      "group": "ye",
+      "current_grade": "甲",
+      "proposed_grade": "甲",
+      "benchmark_id": "counter",
+      "benchmark_relation": "仅借鉴观察与出手集中方向，数值和跨兵器覆盖不继承",
+      "scope": "单招或心法条目，不等同于参考小说整套体系",
+      "design_basis": {
+        "effect": "单体一击加两束收针；已削弱目标则末段增强一次",
+        "obtain": "身世篇后针攻实践与家传整理",
+        "visual": "三道纤锐金线切断厚潮，后方留一段平稳呼吸线"
+      },
+      "tier_reason": "需专门传承与深厚根基的独门上乘；该判断只对应本作现有阶段和用途，不意味着与原著武学同等强度。",
+      "decision": "保留候选，补齐依据后复审",
+      "open_issues": [],
+      "required_evidence": [
+        "明确技理、训练内容及前置",
+        "获得事件通过人物所在地与日历冲突检查",
+        "同阶段玩法比较与代价验证",
+        "命名字义与具体传承来历",
+        "表现不可只靠增加攻击段数、覆盖目标或光效"
+      ],
+      "status": "design_inference_pending_review"
+    },
+    {
+      "id": "yh_m1",
+      "name": "温络行针",
+      "kind": "skill",
+      "group": "ye",
+      "current_grade": "丙",
+      "proposed_grade": "丙",
+      "benchmark_id": "medical",
+      "benchmark_relation": "本轮未取得足够原作医术章节依据，单列医术专业层次；不与攻击绝学判等",
+      "scope": "单招或心法条目，不等同于参考小说整套体系",
+      "design_basis": {
+        "effect": "单体两回合小持续治疗，满血不转护盾",
+        "obtain": "第13月起白鹇谷监督实习",
+        "visual": "温青叶脉沿两处白色节点连续流转"
+      },
+      "tier_reason": "成熟实用套路；该判断只对应本作现有阶段和用途，不意味着与原著武学同等强度。",
+      "decision": "阶段适配，仍需玩法验证",
+      "open_issues": [
+        "医术原作对照尚缺章节依据，本次不作武力等价排名。"
+      ],
+      "required_evidence": [
+        "明确技理、训练内容及前置",
+        "获得事件通过人物所在地与日历冲突检查",
+        "同阶段玩法比较与代价验证"
+      ],
+      "status": "design_inference_pending_review"
+    },
+    {
+      "id": "yh_m2",
+      "name": "和脉同息",
+      "kind": "skill",
+      "group": "ye",
+      "current_grade": "乙",
+      "proposed_grade": "乙",
+      "benchmark_id": "medical",
+      "benchmark_relation": "本轮未取得足够原作医术章节依据，单列医术专业层次；不与攻击绝学判等",
+      "scope": "单招或心法条目，不等同于参考小说整套体系",
+      "design_basis": {
+        "effect": "单体输出增益两回合；不可与同类最高增伤叠加",
+        "obtain": "医线复诊追踪与教习认可",
+        "visual": "两股等距柔流并行，三处温金交点节律清楚"
+      },
+      "tier_reason": "有明确技理的门派或职业专长；该判断只对应本作现有阶段和用途，不意味着与原著武学同等强度。",
+      "decision": "阶段适配，仍需玩法验证",
+      "open_issues": [
+        "医术原作对照尚缺章节依据，本次不作武力等价排名。"
+      ],
+      "required_evidence": [
+        "明确技理、训练内容及前置",
+        "获得事件通过人物所在地与日历冲突检查",
+        "同阶段玩法比较与代价验证"
+      ],
+      "status": "design_inference_pending_review"
+    },
+    {
+      "id": "yh_m3",
+      "name": "归息续照",
+      "kind": "skill",
+      "group": "ye",
+      "current_grade": "甲",
+      "proposed_grade": "乙",
+      "benchmark_id": "medical",
+      "benchmark_relation": "本轮未取得足够原作医术章节依据，单列医术专业层次；不与攻击绝学判等",
+      "scope": "单招或心法条目，不等同于参考小说整套体系",
+      "design_basis": {
+        "effect": "刷新一名同伴的一项本角色持续增益一次，不能无限延长",
+        "obtain": "身世篇后家传与白鹇医案交叉验证",
+        "visual": "将熄的叶脉环被一段暖白新流接续，保留清楚缺口"
+      },
+      "tier_reason": "延长一项增益是战术维护，缺少复杂医理与诊治门槛。",
+      "decision": "建议降档，待玩法与素材联审",
+      "open_issues": [
+        "延长一项增益是战术维护，缺少复杂医理与诊治门槛。",
+        "医术原作对照尚缺章节依据，本次不作武力等价排名。"
+      ],
+      "required_evidence": [
+        "明确技理、训练内容及前置",
+        "获得事件通过人物所在地与日历冲突检查",
+        "同阶段玩法比较与代价验证"
+      ],
+      "status": "design_inference_pending_review"
+    },
+    {
+      "id": "yl_s1",
+      "name": "飞燕点枝",
+      "kind": "skill",
+      "group": "independent",
+      "current_grade": "丙",
+      "proposed_grade": "丙",
+      "benchmark_id": "precision",
+      "benchmark_relation": "借鉴人物绝技身份；群体撒刀不等于精确制敌，不赋予必中",
+      "scope": "单招或心法条目，不等同于参考小说整套体系",
+      "design_basis": {
+        "effect": "晏小楼单体两次投掷；低单段伤害适合试探",
+        "obtain": "戏班护送任务临时体验",
+        "visual": "两片杏金燕尾状飞锋，前后错位"
+      },
+      "tier_reason": "成熟实用套路；该判断只对应本作现有阶段和用途，不意味着与原著武学同等强度。",
+      "decision": "阶段适配，仍需玩法验证",
+      "open_issues": [],
+      "required_evidence": [
+        "明确技理、训练内容及前置",
+        "获得事件通过人物所在地与日历冲突检查",
+        "同阶段玩法比较与代价验证"
+      ],
+      "status": "design_inference_pending_review"
+    },
+    {
+      "id": "yl_s2",
+      "name": "满场惊鸿",
+      "kind": "skill",
+      "group": "independent",
+      "current_grade": "甲",
+      "proposed_grade": "乙",
+      "benchmark_id": "precision",
+      "benchmark_relation": "借鉴人物绝技身份；群体撒刀不等于精确制敌，不赋予必中",
+      "scope": "单招或心法条目，不等同于参考小说整套体系",
+      "design_basis": {
+        "effect": "晏小楼敌全体各一击后自身卸力；不产生分身单位",
+        "obtain": "署名新戏与巡演交接后练习",
+        "visual": "三条高低不同燕尾轨迹在横幅上依次爆出短亮点"
+      },
+      "tier_reason": "群体投掷加卸力，不能与小李飞刀式精确绝技判等。",
+      "decision": "建议降档，待玩法与素材联审",
+      "open_issues": [
+        "群体投掷加卸力，不能与小李飞刀式精确绝技判等。"
+      ],
+      "required_evidence": [
+        "明确技理、训练内容及前置",
+        "获得事件通过人物所在地与日历冲突检查",
+        "同阶段玩法比较与代价验证"
+      ],
+      "status": "design_inference_pending_review"
+    },
+    {
+      "id": "qx_s1",
+      "name": "撑篙截流",
+      "kind": "skill",
+      "group": "independent",
+      "current_grade": "丙",
+      "proposed_grade": "丙",
+      "benchmark_id": "craft",
+      "benchmark_relation": "文学人物专长方向，不强行将撑篙、伞护、工匠技列为原著著名神功等价物",
+      "scope": "单招或心法条目，不等同于参考小说整套体系",
+      "design_basis": {
+        "effect": "乔行舟援护指定同伴一次；地图站位不变化",
+        "obtain": "渡口救援任务与本人指导",
+        "visual": "长而结实的斜向气柱顶住半圆水势"
+      },
+      "tier_reason": "成熟实用套路；该判断只对应本作现有阶段和用途，不意味着与原著武学同等强度。",
+      "decision": "阶段适配，仍需玩法验证",
+      "open_issues": [],
+      "required_evidence": [
+        "明确技理、训练内容及前置",
+        "获得事件通过人物所在地与日历冲突检查",
+        "同阶段玩法比较与代价验证"
+      ],
+      "status": "design_inference_pending_review"
+    },
+    {
+      "id": "qx_s2",
+      "name": "回舟接客",
+      "kind": "skill",
+      "group": "independent",
+      "current_grade": "甲",
+      "proposed_grade": "乙",
+      "benchmark_id": "craft",
+      "benchmark_relation": "文学人物专长方向，不强行将撑篙、伞护、工匠技列为原著著名神功等价物",
+      "scope": "单招或心法条目，不等同于参考小说整套体系",
+      "design_basis": {
+        "effect": "指定濒危或受迟滞同伴：解除一项迟滞并为其援护一次；对非濒危也可救援，但不提供全队防护",
+        "obtain": "浅滩新船试航与救援训练",
+        "visual": "宽展篙劲弧从外侧托回一枚孤立白点，形成清楚的接应路线"
+      },
+      "tier_reason": "单人救援与护卫目前属于职业专长。",
+      "decision": "建议降档，待玩法与素材联审",
+      "open_issues": [
+        "单人救援与护卫目前属于职业专长。"
+      ],
+      "required_evidence": [
+        "明确技理、训练内容及前置",
+        "获得事件通过人物所在地与日历冲突检查",
+        "同阶段玩法比较与代价验证"
+      ],
+      "status": "design_inference_pending_review"
+    },
+    {
+      "id": "lh_s1",
+      "name": "伞下容身",
+      "kind": "skill",
+      "group": "independent",
+      "current_grade": "丙",
+      "proposed_grade": "丙",
+      "benchmark_id": "craft",
+      "benchmark_relation": "文学人物专长方向，不强行将撑篙、伞护、工匠技列为原著著名神功等价物",
+      "scope": "单招或心法条目，不等同于参考小说整套体系",
+      "design_basis": {
+        "effect": "柳含烟给同伴一次卸力，自身不能同时援护",
+        "obtain": "本人自保练习（获取时点待安排）；琵琶不是音波武器",
+        "visual": "莲粉弧形伞势覆盖一段细白流，不画实体伞"
+      },
+      "tier_reason": "成熟实用套路；该判断只对应本作现有阶段和用途，不意味着与原著武学同等强度。",
+      "decision": "阶段适配，仍需玩法验证",
+      "open_issues": [],
+      "required_evidence": [
+        "明确技理、训练内容及前置",
+        "获得事件通过人物所在地与日历冲突检查",
+        "同阶段玩法比较与代价验证"
+      ],
+      "status": "design_inference_pending_review"
+    },
+    {
+      "id": "lh_s2",
+      "name": "雨住留灯",
+      "kind": "skill",
+      "group": "independent",
+      "current_grade": "甲",
+      "proposed_grade": "乙",
+      "benchmark_id": "craft",
+      "benchmark_relation": "文学人物专长方向，不强行将撑篙、伞护、工匠技列为原著著名神功等价物",
+      "scope": "单招或心法条目，不等同于参考小说整套体系",
+      "design_basis": {
+        "effect": "柳含烟给全队各一次物理卸力，持续至本轮末；本轮已经完成行动的队友同样生效，不再附带解除迟滞",
+        "obtain": "解约同行篇后持续练習",
+        "visual": "数道斜雨止于宽阔粉白护弧，内侧四枚暖白点形成完整避雨区"
+      },
+      "tier_reason": "全队物理卸力增加覆盖面，未显示独门化力原理。",
+      "decision": "建议降档，待玩法与素材联审",
+      "open_issues": [
+        "全队物理卸力增加覆盖面，未显示独门化力原理。"
+      ],
+      "required_evidence": [
+        "明确技理、训练内容及前置",
+        "获得事件通过人物所在地与日历冲突检查",
+        "同阶段玩法比较与代价验证"
+      ],
+      "status": "design_inference_pending_review"
+    },
+    {
+      "id": "qf_s1",
+      "name": "扇骨截招",
+      "kind": "skill",
+      "group": "independent",
+      "current_grade": "丙",
+      "proposed_grade": "丙",
+      "benchmark_id": "specialist",
+      "benchmark_relation": "只取化力思路，普通卸力招式不等于完整太极拳",
+      "scope": "单招或心法条目，不等同于参考小说整套体系",
+      "design_basis": {
+        "effect": "秦绯鸢自身一次卸力；次次招架不叠加反击",
+        "obtain": "守席训练（获取时点待安排），不因初见自动可控",
+        "visual": "一组硬朗红金放射骨线截住斜来锋芒"
+      },
+      "tier_reason": "成熟实用套路；该判断只对应本作现有阶段和用途，不意味着与原著武学同等强度。",
+      "decision": "阶段适配，仍需玩法验证",
+      "open_issues": [],
+      "required_evidence": [
+        "明确技理、训练内容及前置",
+        "获得事件通过人物所在地与日历冲突检查",
+        "同阶段玩法比较与代价验证"
+      ],
+      "status": "design_inference_pending_review"
+    },
+    {
+      "id": "qf_s2",
+      "name": "回袖引步",
+      "kind": "skill",
+      "group": "independent",
+      "current_grade": "乙",
+      "proposed_grade": "乙",
+      "benchmark_id": "specialist",
+      "benchmark_relation": "只取化力思路，普通卸力招式不等于完整太极拳",
+      "scope": "单招或心法条目，不等同于参考小说整套体系",
+      "design_basis": {
+        "effect": "选择本回合尚未行动的另一同伴，将其未执行行动移到秦绯鸢之后；不复制回合、不允许连用改变已锁定顺序；无合法目标时不能施放",
+        "obtain": "共同护送练习与本人同意",
+        "visual": "绯红袖势引出一束向前疾行的白线，后方留出空位"
+      },
+      "tier_reason": "有明确技理的门派或职业专长；该判断只对应本作现有阶段和用途，不意味着与原著武学同等强度。",
+      "decision": "阶段适配，仍需玩法验证",
+      "open_issues": [],
+      "required_evidence": [
+        "明确技理、训练内容及前置",
+        "获得事件通过人物所在地与日历冲突检查",
+        "同阶段玩法比较与代价验证"
+      ],
+      "status": "design_inference_pending_review"
+    },
+    {
+      "id": "qf_s3",
+      "name": "邀锋护席",
+      "kind": "skill",
+      "group": "independent",
+      "current_grade": "甲",
+      "proposed_grade": "乙",
+      "benchmark_id": "guard",
+      "benchmark_relation": "一次减伤、护卫不能据此宣称达到宗师防御绝技",
+      "scope": "单招或心法条目，不等同于参考小说整套体系",
+      "design_basis": {
+        "effect": "秦绯鸢援护一次单体攻击并减伤；群攻不改目标",
+        "obtain": "舞约善后、班务交接后实练",
+        "visual": "开口扇面主动迎向尖锋，后方保留一片清白安全区"
+      },
+      "tier_reason": "一次援护减伤不能类比灵犀一指的个人绝技身份。",
+      "decision": "建议降档，待玩法与素材联审",
+      "open_issues": [
+        "一次援护减伤不能类比灵犀一指的个人绝技身份。"
+      ],
+      "required_evidence": [
+        "明确技理、训练内容及前置",
+        "获得事件通过人物所在地与日历冲突检查",
+        "同阶段玩法比较与代价验证"
+      ],
+      "status": "design_inference_pending_review"
+    },
+    {
+      "id": "rq_s1",
+      "name": "短刀牵制",
+      "kind": "skill",
+      "group": "independent",
+      "current_grade": "丙",
+      "proposed_grade": "丙",
+      "benchmark_id": "practical",
+      "benchmark_relation": "对照实用训练和辨认部位的要求，不预设原著官方品阶",
+      "scope": "单招或心法条目，不等同于参考小说整套体系",
+      "design_basis": {
+        "effect": "阮青雀单体一击，削弱敌方下一击",
+        "obtain": "人物线中的合法自保训练（获取时点待安排）",
+        "visual": "一枚短青锋侧向压住一段灰白攻势"
+      },
+      "tier_reason": "成熟实用套路；该判断只对应本作现有阶段和用途，不意味着与原著武学同等强度。",
+      "decision": "阶段适配，仍需玩法验证",
+      "open_issues": [],
+      "required_evidence": [
+        "明确技理、训练内容及前置",
+        "获得事件通过人物所在地与日历冲突检查",
+        "同阶段玩法比较与代价验证"
+      ],
+      "status": "design_inference_pending_review"
+    },
+    {
+      "id": "rq_s2",
+      "name": "袖手卸势",
+      "kind": "skill",
+      "group": "independent",
+      "current_grade": "乙",
+      "proposed_grade": "乙",
+      "benchmark_id": "specialist",
+      "benchmark_relation": "只取化力思路，普通卸力招式不等于完整太极拳",
+      "scope": "单招或心法条目，不等同于参考小说整套体系",
+      "design_basis": {
+        "effect": "阮青雀自身卸力一次并提高下次攻击看破效率",
+        "obtain": "本人偿还与修锁生计节点后训练",
+        "visual": "短青弧与折回白线勾出一个失衡缺口"
+      },
+      "tier_reason": "有明确技理的门派或职业专长；该判断只对应本作现有阶段和用途，不意味着与原著武学同等强度。",
+      "decision": "阶段适配，仍需玩法验证",
+      "open_issues": [],
+      "required_evidence": [
+        "明确技理、训练内容及前置",
+        "获得事件通过人物所在地与日历冲突检查",
+        "同阶段玩法比较与代价验证"
+      ],
+      "status": "design_inference_pending_review"
+    },
+    {
+      "id": "rq_s3",
+      "name": "雀步换位",
+      "kind": "skill",
+      "group": "independent",
+      "current_grade": "乙",
+      "proposed_grade": "乙",
+      "benchmark_id": "specialist",
+      "benchmark_relation": "只取化力思路，普通卸力招式不等于完整太极拳",
+      "scope": "单招或心法条目，不等同于参考小说整套体系",
+      "design_basis": {
+        "effect": "阮青雀下一回合后移至我方末位，并给一名同伴一次卸力；用于预留断后时机，不把低速一律当作惩罚",
+        "obtain": "断后练习且已有合作经历",
+        "visual": "一前一后的雀尾风痕绕开锋角，后侧风痕托住小亮点"
+      },
+      "tier_reason": "有明确技理的门派或职业专长；该判断只对应本作现有阶段和用途，不意味着与原著武学同等强度。",
+      "decision": "阶段适配，仍需玩法验证",
+      "open_issues": [],
+      "required_evidence": [
+        "明确技理、训练内容及前置",
+        "获得事件通过人物所在地与日历冲突检查",
+        "同阶段玩法比较与代价验证"
+      ],
+      "status": "design_inference_pending_review"
+    },
+    {
+      "id": "rq_s4",
+      "name": "留缝接应",
+      "kind": "skill",
+      "group": "independent",
+      "current_grade": "甲",
+      "proposed_grade": "乙",
+      "benchmark_id": "counter",
+      "benchmark_relation": "仅借鉴观察与出手集中方向，数值和跨兵器覆盖不继承",
+      "scope": "单招或心法条目，不等同于参考小说整套体系",
+      "design_basis": {
+        "effect": "单体低威力短刀攻击；下一名友方在本回合命中该目标已知弱点时额外削盾1点，标记用后消失；不赋予弱点、不产生道具收益",
+        "obtain": "六节点与善后完成后训练",
+        "visual": "青白短锋撬开紧密防线缺口，后一束宽锋沿缺口进入"
+      },
+      "tier_reason": "一次协同削盾标记属于战术配合。",
+      "decision": "建议降档，待玩法与素材联审",
+      "open_issues": [
+        "一次协同削盾标记属于战术配合。"
+      ],
+      "required_evidence": [
+        "明确技理、训练内容及前置",
+        "获得事件通过人物所在地与日历冲突检查",
+        "同阶段玩法比较与代价验证"
+      ],
+      "status": "design_inference_pending_review"
+    },
+    {
+      "id": "lhg_s1",
+      "name": "护路横刀",
+      "kind": "skill",
+      "group": "independent",
+      "current_grade": "丙",
+      "proposed_grade": "丙",
+      "benchmark_id": "craft",
+      "benchmark_relation": "文学人物专长方向，不强行将撑篙、伞护、工匠技列为原著著名神功等价物",
+      "scope": "单招或心法条目，不等同于参考小说整套体系",
+      "design_basis": {
+        "effect": "陆衡援护一名同伴一次；职业护送低费可靠",
+        "obtain": "首季送药体验，主角另学需授课",
+        "visual": "褐金横刀劲护住一道向后的白色归路"
+      },
+      "tier_reason": "成熟实用套路；该判断只对应本作现有阶段和用途，不意味着与原著武学同等强度。",
+      "decision": "阶段适配，仍需玩法验证",
+      "open_issues": [],
+      "required_evidence": [
+        "明确技理、训练内容及前置",
+        "获得事件通过人物所在地与日历冲突检查",
+        "同阶段玩法比较与代价验证"
+      ],
+      "status": "design_inference_pending_review"
+    },
+    {
+      "id": "hzc_s1",
+      "name": "寻隙敲山",
+      "kind": "skill",
+      "group": "independent",
+      "current_grade": "乙",
+      "proposed_grade": "乙",
+      "benchmark_id": "craft",
+      "benchmark_relation": "文学人物专长方向，不强行将撑篙、伞护、工匠技列为原著著名神功等价物",
+      "scope": "单招或心法条目，不等同于参考小说整套体系",
+      "design_basis": {
+        "effect": "霍逐尘单体重击，对已看破目标额外削盾一次",
+        "obtain": "找回工具与修械交付后本人使用",
+        "visual": "短柄锤击般方块劲势撞上有一处缺口的铁灰环"
+      },
+      "tier_reason": "有明确技理的门派或职业专长；该判断只对应本作现有阶段和用途，不意味着与原著武学同等强度。",
+      "decision": "阶段适配，仍需玩法验证",
+      "open_issues": [],
+      "required_evidence": [
+        "明确技理、训练内容及前置",
+        "获得事件通过人物所在地与日历冲突检查",
+        "同阶段玩法比较与代价验证"
+      ],
+      "status": "design_inference_pending_review"
+    },
+    {
+      "id": "xf_tuna",
+      "name": "吐故纳新篇",
+      "kind": "heart",
+      "group": "independent",
+      "current_grade": "丁",
+      "proposed_grade": "丁",
+      "benchmark_id": "basic",
+      "benchmark_relation": "仅参照基础训练身份，不把整套拳法等同于一个招式",
+      "scope": "单招或心法条目，不等同于参考小说整套体系",
+      "design_basis": {
+        "effect": "战后恢复少量内力；战斗内不自动回满",
+        "obtain": "B01正式授课；与现有tuna逐项审核映射",
+        "visual": "两条长短不同的白色呼吸流一收一放"
+      },
+      "tier_reason": "单项基础训练；该判断只对应本作现有阶段和用途，不意味着与原著武学同等强度。",
+      "decision": "阶段适配，仍需玩法验证",
+      "open_issues": [],
+      "required_evidence": [
+        "明确技理、训练内容及前置",
+        "获得事件通过人物所在地与日历冲突检查",
+        "同阶段玩法比较与代价验证"
+      ],
+      "status": "design_inference_pending_review"
+    },
+    {
+      "id": "xf_guiyun",
+      "name": "出岫心经",
+      "kind": "heart",
+      "group": "guiyun",
+      "current_grade": "丙",
+      "proposed_grade": "丙",
+      "benchmark_id": "specialist",
+      "benchmark_relation": "只取化力思路，普通卸力招式不等于完整太极拳",
+      "scope": "单招或心法条目，不等同于参考小说整套体系",
+      "design_basis": {
+        "effect": "防御后获得一次守势，下一次本门技法小幅加强",
+        "obtain": "年一基础吐纳后的正式传功",
+        "visual": "上下往复的竹青云流托住沉静留白"
+      },
+      "tier_reason": "成熟实用套路；该判断只对应本作现有阶段和用途，不意味着与原著武学同等强度。",
+      "decision": "阶段适配，仍需玩法验证",
+      "open_issues": [],
+      "required_evidence": [
+        "明确技理、训练内容及前置",
+        "获得事件通过人物所在地与日历冲突检查",
+        "同阶段玩法比较与代价验证"
+      ],
+      "status": "design_inference_pending_review"
+    },
+    {
+      "id": "xf_guanlan",
+      "name": "观岚诀",
+      "kind": "heart",
+      "group": "guiyun",
+      "current_grade": "乙",
+      "proposed_grade": "乙",
+      "benchmark_id": "specialist",
+      "benchmark_relation": "只取化力思路，普通卸力招式不等于完整太极拳",
+      "scope": "单招或心法条目，不等同于参考小说整套体系",
+      "design_basis": {
+        "effect": "主动防御或援护实际生效后，下次攻击命中提高",
+        "obtain": "年二主修课程，与剑掌都可兼容",
+        "visual": "侧向云片分开露出一枚清晰交会中心"
+      },
+      "tier_reason": "有明确技理的门派或职业专长；该判断只对应本作现有阶段和用途，不意味着与原著武学同等强度。",
+      "decision": "阶段适配，仍需玩法验证",
+      "open_issues": [],
+      "required_evidence": [
+        "明确技理、训练内容及前置",
+        "获得事件通过人物所在地与日历冲突检查",
+        "同阶段玩法比较与代价验证"
+      ],
+      "status": "design_inference_pending_review"
+    },
+    {
+      "id": "xf_wanhe",
+      "name": "万壑归元诀",
+      "kind": "heart",
+      "group": "guiyun",
+      "current_grade": "绝",
+      "proposed_grade": "绝",
+      "benchmark_id": "inner",
+      "benchmark_relation": "对照内息与技理结合的层次，基础属性增益不足以支持绝级",
+      "scope": "单招或心法条目，不等同于参考小说整套体系",
+      "design_basis": {
+        "effect": "守势只存一枚；消耗时在进攻或自守间选一项强化",
+        "obtain": "下山长期实务与师门问答，非主线必需",
+        "visual": "四股谷壑状气流归入低而稳的中心，外展内定"
+      },
+      "tier_reason": "形成独有核心原理、人物传承和长期修习的顶层成果；该判断只对应本作现有阶段和用途，不意味着与原著武学同等强度。",
+      "decision": "保留候选，补齐依据后复审",
+      "open_issues": [
+        "当前战斗效果和高费用不能证明绝级；须补独有技理、传承兑现和长期修习证据，缺失则降为甲级。"
+      ],
+      "required_evidence": [
+        "明确技理、训练内容及前置",
+        "获得事件通过人物所在地与日历冲突检查",
+        "同阶段玩法比较与代价验证",
+        "命名字义与具体传承来历",
+        "表现不可只靠增加攻击段数、覆盖目标或光效",
+        "独有原则能够形成专精打法",
+        "完整体系与单招层级分别标明",
+        "长期修习或人物传承成果"
+      ],
+      "status": "design_inference_pending_review"
+    },
+    {
+      "id": "xf_baicao",
+      "name": "青囊养元经",
+      "kind": "heart",
+      "group": "white-heron",
+      "current_grade": "丙",
+      "proposed_grade": "丙",
+      "benchmark_id": "medical",
+      "benchmark_relation": "本轮未取得足够原作医术章节依据，单列医术专业层次；不与攻击绝学判等",
+      "scope": "单招或心法条目，不等同于参考小说整套体系",
+      "design_basis": {
+        "effect": "治疗效率小幅提高，战后调养",
+        "obtain": "苏芷现有修习；外学者医理实习与师门许可",
+        "visual": "有粗主脉和三条小支脉的生机回流"
+      },
+      "tier_reason": "成熟实用套路；该判断只对应本作现有阶段和用途，不意味着与原著武学同等强度。",
+      "decision": "阶段适配，仍需玩法验证",
+      "open_issues": [
+        "医术原作对照尚缺章节依据，本次不作武力等价排名。"
+      ],
+      "required_evidence": [
+        "明确技理、训练内容及前置",
+        "获得事件通过人物所在地与日历冲突检查",
+        "同阶段玩法比较与代价验证"
+      ],
+      "status": "design_inference_pending_review"
+    },
+    {
+      "id": "xf_hemai",
+      "name": "营卫心经",
+      "kind": "heart",
+      "group": "white-heron",
+      "current_grade": "乙",
+      "proposed_grade": "乙",
+      "benchmark_id": "medical",
+      "benchmark_relation": "本轮未取得足够原作医术章节依据，单列医术专业层次；不与攻击绝学判等",
+      "scope": "单招或心法条目，不等同于参考小说整套体系",
+      "design_basis": {
+        "effect": "本角色施加的持续恢复总量小幅提高",
+        "obtain": "叶蘅医线第13月以后，苏芷也可学习",
+        "visual": "三条等距叶脉环绕同一温白节点，层层连续"
+      },
+      "tier_reason": "有明确技理的门派或职业专长；该判断只对应本作现有阶段和用途，不意味着与原著武学同等强度。",
+      "decision": "阶段适配，仍需玩法验证",
+      "open_issues": [
+        "医术原作对照尚缺章节依据，本次不作武力等价排名。"
+      ],
+      "required_evidence": [
+        "明确技理、训练内容及前置",
+        "获得事件通过人物所在地与日历冲突检查",
+        "同阶段玩法比较与代价验证"
+      ],
+      "status": "design_inference_pending_review"
+    },
+    {
+      "id": "xf_chengjiang",
+      "name": "静练功",
+      "kind": "heart",
+      "group": "zhaochuan",
+      "current_grade": "丙",
+      "proposed_grade": "丙",
+      "benchmark_id": "specialist",
+      "benchmark_relation": "只取化力思路，普通卸力招式不等于完整太极拳",
+      "scope": "单招或心法条目，不等同于参考小说整套体系",
+      "design_basis": {
+        "effect": "本人看破后下一剑小幅增伤",
+        "obtain": "照川基础考校或获准交流",
+        "visual": "一道明亮直轴穿过上下两片平静镜流"
+      },
+      "tier_reason": "成熟实用套路；该判断只对应本作现有阶段和用途，不意味着与原著武学同等强度。",
+      "decision": "阶段适配，仍需玩法验证",
+      "open_issues": [],
+      "required_evidence": [
+        "明确技理、训练内容及前置",
+        "获得事件通过人物所在地与日历冲突检查",
+        "同阶段玩法比较与代价验证"
+      ],
+      "status": "design_inference_pending_review"
+    },
+    {
+      "id": "xf_shouxian",
+      "name": "霜弦真气",
+      "kind": "heart",
+      "group": "zhaochuan",
+      "current_grade": "乙",
+      "proposed_grade": "乙",
+      "benchmark_id": "specialist",
+      "benchmark_relation": "只取化力思路，普通卸力招式不等于完整太极拳",
+      "scope": "单招或心法条目，不等同于参考小说整套体系",
+      "design_basis": {
+        "effect": "未受伤完成一回合时下次单体剑技略增命中，最多一层",
+        "obtain": "年二剑路熟练与定力练习",
+        "visual": "紧绷银色曲线与一端小回流，如弦而非实体琴"
+      },
+      "tier_reason": "有明确技理的门派或职业专长；该判断只对应本作现有阶段和用途，不意味着与原著武学同等强度。",
+      "decision": "阶段适配，仍需玩法验证",
+      "open_issues": [],
+      "required_evidence": [
+        "明确技理、训练内容及前置",
+        "获得事件通过人物所在地与日历冲突检查",
+        "同阶段玩法比较与代价验证"
+      ],
+      "status": "design_inference_pending_review"
+    },
+    {
+      "id": "xf_panshi",
+      "name": "负岳功",
+      "kind": "heart",
+      "group": "hechuan",
+      "current_grade": "丙",
+      "proposed_grade": "丙",
+      "benchmark_id": "specialist",
+      "benchmark_relation": "只取化力思路，普通卸力招式不等于完整太极拳",
+      "scope": "单招或心法条目，不等同于参考小说整套体系",
+      "design_basis": {
+        "effect": "援护实际承伤后下一拳提高伤害，最多一层",
+        "obtain": "护运基本功与教习授业",
+        "visual": "底宽顶窄的赭灰山石气团，内部双层承重线"
+      },
+      "tier_reason": "成熟实用套路；该判断只对应本作现有阶段和用途，不意味着与原著武学同等强度。",
+      "decision": "阶段适配，仍需玩法验证",
+      "open_issues": [],
+      "required_evidence": [
+        "明确技理、训练内容及前置",
+        "获得事件通过人物所在地与日历冲突检查",
+        "同阶段玩法比较与代价验证"
+      ],
+      "status": "design_inference_pending_review"
+    },
+    {
+      "id": "xf_hengliang",
+      "name": "承梁真劲",
+      "kind": "heart",
+      "group": "hechuan",
+      "current_grade": "乙",
+      "proposed_grade": "乙",
+      "benchmark_id": "specialist",
+      "benchmark_relation": "只取化力思路，普通卸力招式不等于完整太极拳",
+      "scope": "单招或心法条目，不等同于参考小说整套体系",
+      "design_basis": {
+        "effect": "降低援护负担，不新增援护次数",
+        "obtain": "护运轮值与稳架复试",
+        "visual": "横向厚梁连结两处下沉劲势，轮廓宽而低"
+      },
+      "tier_reason": "有明确技理的门派或职业专长；该判断只对应本作现有阶段和用途，不意味着与原著武学同等强度。",
+      "decision": "阶段适配，仍需玩法验证",
+      "open_issues": [],
+      "required_evidence": [
+        "明确技理、训练内容及前置",
+        "获得事件通过人物所在地与日历冲突检查",
+        "同阶段玩法比较与代价验证"
+      ],
+      "status": "design_inference_pending_review"
+    },
+    {
+      "id": "xf_songxi",
+      "name": "华阳养真经",
+      "kind": "heart",
+      "group": "songfeng",
+      "current_grade": "丙",
+      "proposed_grade": "丙",
+      "benchmark_id": "specialist",
+      "benchmark_relation": "只取化力思路，普通卸力招式不等于完整太极拳",
+      "scope": "单招或心法条目，不等同于参考小说整套体系",
+      "design_basis": {
+        "effect": "主动卸力生效后下一次支援略减消耗",
+        "obtain": "观中基础呼吸与卸力课",
+        "visual": "松针状细流围绕大片静白中心缓慢内收"
+      },
+      "tier_reason": "成熟实用套路；该判断只对应本作现有阶段和用途，不意味着与原著武学同等强度。",
+      "decision": "阶段适配，仍需玩法验证",
+      "open_issues": [],
+      "required_evidence": [
+        "明确技理、训练内容及前置",
+        "获得事件通过人物所在地与日历冲突检查",
+        "同阶段玩法比较与代价验证"
+      ],
+      "status": "design_inference_pending_review"
+    },
+    {
+      "id": "xf_tingfeng",
+      "name": "地籁诀",
+      "kind": "heart",
+      "group": "songfeng",
+      "current_grade": "乙",
+      "proposed_grade": "乙",
+      "benchmark_id": "specialist",
+      "benchmark_relation": "只取化力思路，普通卸力招式不等于完整太极拳",
+      "scope": "单招或心法条目，不等同于参考小说整套体系",
+      "design_basis": {
+        "effect": "每战首次主动观察揭示一处未知弱点",
+        "obtain": "路图与实地观察课，不提升NPC打探数值",
+        "visual": "三条不同方向声风线汇向一处空缺"
+      },
+      "tier_reason": "有明确技理的门派或职业专长；该判断只对应本作现有阶段和用途，不意味着与原著武学同等强度。",
+      "decision": "阶段适配，仍需玩法验证",
+      "open_issues": [],
+      "required_evidence": [
+        "明确技理、训练内容及前置",
+        "获得事件通过人物所在地与日历冲突检查",
+        "同阶段玩法比较与代价验证"
+      ],
+      "status": "design_inference_pending_review"
+    },
+    {
+      "id": "xf_cunjin",
+      "name": "薪火功",
+      "kind": "heart",
+      "group": "guijintang",
+      "current_grade": "丙",
+      "proposed_grade": "丙",
+      "benchmark_id": "specialist",
+      "benchmark_relation": "只取化力思路，普通卸力招式不等于完整太极拳",
+      "scope": "单招或心法条目，不等同于参考小说整套体系",
+      "design_basis": {
+        "effect": "自身带暴露时进攻提高，减伤无法抵销全部代价",
+        "obtain": "堂内基础练习，外人需个人师友许可",
+        "visual": "暗红内核包于不闭合墨紫气壳，裂口有铜光"
+      },
+      "tier_reason": "成熟实用套路；该判断只对应本作现有阶段和用途，不意味着与原著武学同等强度。",
+      "decision": "阶段适配，仍需玩法验证",
+      "open_issues": [],
+      "required_evidence": [
+        "明确技理、训练内容及前置",
+        "获得事件通过人物所在地与日历冲突检查",
+        "同阶段玩法比较与代价验证"
+      ],
+      "status": "design_inference_pending_review"
+    },
+    {
+      "id": "xf_liulu",
+      "name": "余烬息",
+      "kind": "heart",
+      "group": "guijintang",
+      "current_grade": "乙",
+      "proposed_grade": "乙",
+      "benchmark_id": "specialist",
+      "benchmark_relation": "只取化力思路，普通卸力招式不等于完整太极拳",
+      "scope": "单招或心法条目，不等同于参考小说整套体系",
+      "design_basis": {
+        "effect": "攻击后下回合防御更有效，不自动追加行动",
+        "obtain": "岑霜退路实践并授权传授",
+        "visual": "一股折回暗铜流在紧密气壁中留下出口"
+      },
+      "tier_reason": "有明确技理的门派或职业专长；该判断只对应本作现有阶段和用途，不意味着与原著武学同等强度。",
+      "decision": "阶段适配，仍需玩法验证",
+      "open_issues": [],
+      "required_evidence": [
+        "明确技理、训练内容及前置",
+        "获得事件通过人物所在地与日历冲突检查",
+        "同阶段玩法比较与代价验证"
+      ],
+      "status": "design_inference_pending_review"
+    },
+    {
+      "id": "xf_tongdan",
+      "name": "同气连枝篇",
+      "kind": "heart",
+      "group": "alliance",
+      "current_grade": "乙",
+      "proposed_grade": "乙",
+      "benchmark_id": "specialist",
+      "benchmark_relation": "只取化力思路，普通卸力招式不等于完整太极拳",
+      "scope": "单招或心法条目，不等同于参考小说整套体系",
+      "design_basis": {
+        "effect": "给别人护卫时略减内力支出",
+        "obtain": "徐令仪私人师承及公议护送经验，联盟身份不赠送",
+        "visual": "两条绛青气柱相接共托一枚白色核心"
+      },
+      "tier_reason": "有明确技理的门派或职业专长；该判断只对应本作现有阶段和用途，不意味着与原著武学同等强度。",
+      "decision": "阶段适配，仍需玩法验证",
+      "open_issues": [],
+      "required_evidence": [
+        "明确技理、训练内容及前置",
+        "获得事件通过人物所在地与日历冲突检查",
+        "同阶段玩法比较与代价验证"
+      ],
+      "status": "design_inference_pending_review"
+    },
+    {
+      "id": "xf_xunliu",
+      "name": "江潮调息法",
+      "kind": "heart",
+      "group": "patrol",
+      "current_grade": "丙",
+      "proposed_grade": "丙",
+      "benchmark_id": "specialist",
+      "benchmark_relation": "只取化力思路，普通卸力招式不等于完整太极拳",
+      "scope": "单招或心法条目，不等同于参考小说整套体系",
+      "design_basis": {
+        "effect": "长兵基础招式消耗略低，不提升官职权限",
+        "obtain": "公开差务自保训练，正式执法仍看职务",
+        "visual": "深蓝长流在三段灰白横节间有序回转"
+      },
+      "tier_reason": "成熟实用套路；该判断只对应本作现有阶段和用途，不意味着与原著武学同等强度。",
+      "decision": "阶段适配，仍需玩法验证",
+      "open_issues": [],
+      "required_evidence": [
+        "明确技理、训练内容及前置",
+        "获得事件通过人物所在地与日历冲突检查",
+        "同阶段玩法比较与代价验证"
+      ],
+      "status": "design_inference_pending_review"
+    },
+    {
+      "id": "xf_guixi",
+      "name": "归藏息经",
+      "kind": "heart",
+      "group": "ye",
+      "current_grade": "甲",
+      "proposed_grade": "甲",
+      "benchmark_id": "medical",
+      "benchmark_relation": "本轮未取得足够原作医术章节依据，单列医术专业层次；不与攻击绝学判等",
+      "scope": "单招或心法条目，不等同于参考小说整套体系",
+      "design_basis": {
+        "effect": "两线共用家传；针攻弱化敌人后自稳，医线施增益后自稳，二者每轮共享一次",
+        "obtain": "身世篇后医案整理，选择职业不影响资格",
+        "visual": "一段曾断的白流在赭金内圈重新连续，外围淡青细脉"
+      },
+      "tier_reason": "需专门传承与深厚根基的独门上乘；该判断只对应本作现有阶段和用途，不意味着与原著武学同等强度。",
+      "decision": "保留候选，补齐依据后复审",
+      "open_issues": [
+        "医术原作对照尚缺章节依据，本次不作武力等价排名。"
+      ],
+      "required_evidence": [
+        "明确技理、训练内容及前置",
+        "获得事件通过人物所在地与日历冲突检查",
+        "同阶段玩法比较与代价验证",
+        "命名字义与具体传承来历",
+        "表现不可只靠增加攻击段数、覆盖目标或光效"
+      ],
+      "status": "design_inference_pending_review"
+    },
+    {
+      "id": "xf_shouyi",
+      "name": "百工养气诀",
+      "kind": "heart",
+      "group": "independent",
+      "current_grade": "乙",
+      "proposed_grade": "乙",
+      "benchmark_id": "specialist",
+      "benchmark_relation": "只取化力思路，普通卸力招式不等于完整太极拳",
+      "scope": "单招或心法条目，不等同于参考小说整套体系",
+      "design_basis": {
+        "effect": "个人本职支援技成本小降，不提升全部攻击",
+        "obtain": "柳、秦、乔、霍等完成职业交接后共同练习；不等同统一散人门派",
+        "visual": "粗细不同的四条气流编成有开口的结，非实体绳结"
+      },
+      "tier_reason": "有明确技理的门派或职业专长；该判断只对应本作现有阶段和用途，不意味着与原著武学同等强度。",
+      "decision": "阶段适配，仍需玩法验证",
+      "open_issues": [],
+      "required_evidence": [
+        "明确技理、训练内容及前置",
+        "获得事件通过人物所在地与日历冲突检查",
+        "同阶段玩法比较与代价验证"
+      ],
+      "status": "design_inference_pending_review"
+    }
+  ],
+  "proposed_changes": [
+    "sf_s4",
+    "am_s3",
+    "pj_s4",
+    "yh_m3",
+    "yl_s2",
+    "qx_s2",
+    "lh_s2",
+    "qf_s3",
+    "rq_s4"
+  ]
+}

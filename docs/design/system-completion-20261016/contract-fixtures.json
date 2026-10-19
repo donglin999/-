@@ -1,0 +1,751 @@
+{
+  "status": "design_model_only_not_runtime_test",
+  "notes": "纯合同正反例，用于验证一次结算、双时间语义、知情来源和人物位置。货币120/20与物品ID仅为测试输入，不是正式投放。",
+  "cases": [
+    {
+      "id": "purchase_keeps_story_time",
+      "kind": "town_activity",
+      "before": {
+        "clock": {
+          "mode": "town",
+          "beat": "T2",
+          "slot": null
+        },
+        "energy": 12,
+        "currency": 120,
+        "bag": {
+          "plain_herb": 2
+        },
+        "receipts": [],
+        "actors": {
+          "hero": {
+            "location": "hangao",
+            "party": true
+          },
+          "ye-heng": {
+            "location": "hangao",
+            "party": true
+          }
+        }
+      },
+      "after": {
+        "clock": {
+          "mode": "town",
+          "beat": "T2",
+          "slot": null
+        },
+        "energy": 12,
+        "currency": 100,
+        "bag": {
+          "plain_herb": 2,
+          "medicine": 1
+        },
+        "receipts": [],
+        "actors": {
+          "hero": {
+            "location": "hangao",
+            "party": true
+          },
+          "ye-heng": {
+            "location": "hangao",
+            "party": true
+          }
+        }
+      },
+      "expect_valid": true,
+      "cost": 20
+    },
+    {
+      "id": "ordinary_activity_cannot_advance",
+      "kind": "town_activity",
+      "before": {
+        "clock": {
+          "mode": "town",
+          "beat": "T2",
+          "slot": null
+        },
+        "energy": 12,
+        "currency": 120,
+        "bag": {
+          "plain_herb": 2
+        },
+        "receipts": [],
+        "actors": {
+          "hero": {
+            "location": "hangao",
+            "party": true
+          },
+          "ye-heng": {
+            "location": "hangao",
+            "party": true
+          }
+        }
+      },
+      "after": {
+        "clock": {
+          "mode": "town",
+          "beat": "T3",
+          "slot": null
+        },
+        "energy": 12,
+        "currency": 120,
+        "bag": {
+          "plain_herb": 2
+        },
+        "receipts": [],
+        "actors": {
+          "hero": {
+            "location": "hangao",
+            "party": true
+          },
+          "ye-heng": {
+            "location": "hangao",
+            "party": true
+          }
+        }
+      },
+      "expect_valid": false,
+      "cost": 0
+    },
+    {
+      "id": "repeat_receipt_no_changes",
+      "kind": "duplicate",
+      "before": {
+        "clock": {
+          "mode": "town",
+          "beat": "T2",
+          "slot": null
+        },
+        "energy": 12,
+        "currency": 120,
+        "bag": {
+          "plain_herb": 2
+        },
+        "receipts": [
+          "tx-paid"
+        ],
+        "actors": {
+          "hero": {
+            "location": "hangao",
+            "party": true
+          },
+          "ye-heng": {
+            "location": "hangao",
+            "party": true
+          }
+        }
+      },
+      "after": {
+        "clock": {
+          "mode": "town",
+          "beat": "T2",
+          "slot": null
+        },
+        "energy": 12,
+        "currency": 120,
+        "bag": {
+          "plain_herb": 2
+        },
+        "receipts": [
+          "tx-paid"
+        ],
+        "actors": {
+          "hero": {
+            "location": "hangao",
+            "party": true
+          },
+          "ye-heng": {
+            "location": "hangao",
+            "party": true
+          }
+        }
+      },
+      "expect_valid": true
+    },
+    {
+      "id": "repeat_receipt_cannot_award_again",
+      "kind": "duplicate",
+      "before": {
+        "clock": {
+          "mode": "town",
+          "beat": "T2",
+          "slot": null
+        },
+        "energy": 12,
+        "currency": 120,
+        "bag": {
+          "plain_herb": 2
+        },
+        "receipts": [
+          "tx-paid"
+        ],
+        "actors": {
+          "hero": {
+            "location": "hangao",
+            "party": true
+          },
+          "ye-heng": {
+            "location": "hangao",
+            "party": true
+          }
+        }
+      },
+      "after": {
+        "clock": {
+          "mode": "town",
+          "beat": "T2",
+          "slot": null
+        },
+        "energy": 12,
+        "currency": 140,
+        "bag": {
+          "plain_herb": 2
+        },
+        "receipts": [
+          "tx-paid"
+        ],
+        "actors": {
+          "hero": {
+            "location": "hangao",
+            "party": true
+          },
+          "ye-heng": {
+            "location": "hangao",
+            "party": true
+          }
+        }
+      },
+      "expect_valid": false
+    },
+    {
+      "id": "storage_failure_preserves_state",
+      "kind": "storage_failure",
+      "before": {
+        "clock": {
+          "mode": "town",
+          "beat": "T2",
+          "slot": null
+        },
+        "energy": 12,
+        "currency": 120,
+        "bag": {
+          "plain_herb": 2
+        },
+        "receipts": [],
+        "actors": {
+          "hero": {
+            "location": "hangao",
+            "party": true
+          },
+          "ye-heng": {
+            "location": "hangao",
+            "party": true
+          }
+        }
+      },
+      "after": {
+        "clock": {
+          "mode": "town",
+          "beat": "T2",
+          "slot": null
+        },
+        "energy": 12,
+        "currency": 120,
+        "bag": {
+          "plain_herb": 2
+        },
+        "receipts": [],
+        "actors": {
+          "hero": {
+            "location": "hangao",
+            "party": true
+          },
+          "ye-heng": {
+            "location": "hangao",
+            "party": true
+          }
+        }
+      },
+      "expect_valid": true
+    },
+    {
+      "id": "storage_failure_cannot_charge",
+      "kind": "storage_failure",
+      "before": {
+        "clock": {
+          "mode": "town",
+          "beat": "T2",
+          "slot": null
+        },
+        "energy": 12,
+        "currency": 120,
+        "bag": {
+          "plain_herb": 2
+        },
+        "receipts": [],
+        "actors": {
+          "hero": {
+            "location": "hangao",
+            "party": true
+          },
+          "ye-heng": {
+            "location": "hangao",
+            "party": true
+          }
+        }
+      },
+      "after": {
+        "clock": {
+          "mode": "town",
+          "beat": "T2",
+          "slot": null
+        },
+        "energy": 12,
+        "currency": 100,
+        "bag": {
+          "plain_herb": 2
+        },
+        "receipts": [],
+        "actors": {
+          "hero": {
+            "location": "hangao",
+            "party": true
+          },
+          "ye-heng": {
+            "location": "hangao",
+            "party": true
+          }
+        }
+      },
+      "expect_valid": false
+    },
+    {
+      "id": "visible_fastforward",
+      "kind": "advance",
+      "before": {
+        "clock": {
+          "mode": "town",
+          "beat": "T2",
+          "slot": null
+        },
+        "energy": 12,
+        "currency": 120,
+        "bag": {
+          "plain_herb": 2
+        },
+        "receipts": [],
+        "actors": {
+          "hero": {
+            "location": "hangao",
+            "party": true
+          },
+          "ye-heng": {
+            "location": "hangao",
+            "party": true
+          }
+        }
+      },
+      "after": {
+        "clock": {
+          "mode": "town",
+          "beat": "T4",
+          "slot": null
+        },
+        "energy": 12,
+        "currency": 120,
+        "bag": {
+          "plain_herb": 2
+        },
+        "receipts": [],
+        "actors": {
+          "hero": {
+            "location": "hangao",
+            "party": true
+          },
+          "ye-heng": {
+            "location": "hangao",
+            "party": true
+          }
+        }
+      },
+      "expect_valid": true,
+      "confirmed": true,
+      "expiry_preview": true
+    },
+    {
+      "id": "fastforward_requires_expiry_notice",
+      "kind": "advance",
+      "before": {
+        "clock": {
+          "mode": "town",
+          "beat": "T2",
+          "slot": null
+        },
+        "energy": 12,
+        "currency": 120,
+        "bag": {
+          "plain_herb": 2
+        },
+        "receipts": [],
+        "actors": {
+          "hero": {
+            "location": "hangao",
+            "party": true
+          },
+          "ye-heng": {
+            "location": "hangao",
+            "party": true
+          }
+        }
+      },
+      "after": {
+        "clock": {
+          "mode": "town",
+          "beat": "T4",
+          "slot": null
+        },
+        "energy": 12,
+        "currency": 120,
+        "bag": {
+          "plain_herb": 2
+        },
+        "receipts": [],
+        "actors": {
+          "hero": {
+            "location": "hangao",
+            "party": true
+          },
+          "ye-heng": {
+            "location": "hangao",
+            "party": true
+          }
+        }
+      },
+      "expect_valid": false,
+      "confirmed": true,
+      "expiry_preview": false
+    },
+    {
+      "id": "party_member_cannot_remain_remote",
+      "kind": "actor_presence",
+      "before": {
+        "clock": {
+          "mode": "town",
+          "beat": "T2",
+          "slot": null
+        },
+        "energy": 12,
+        "currency": 120,
+        "bag": {
+          "plain_herb": 2
+        },
+        "receipts": [],
+        "actors": {
+          "hero": {
+            "location": "hangao",
+            "party": true
+          },
+          "ye-heng": {
+            "location": "hangao",
+            "party": true
+          }
+        }
+      },
+      "after": {
+        "clock": {
+          "mode": "town",
+          "beat": "T2",
+          "slot": null
+        },
+        "energy": 12,
+        "currency": 120,
+        "bag": {
+          "plain_herb": 2
+        },
+        "receipts": [],
+        "actors": {
+          "hero": {
+            "location": "hangao",
+            "party": true
+          },
+          "ye-heng": {
+            "location": "white_heron",
+            "party": true
+          }
+        }
+      },
+      "expect_valid": false,
+      "party_location": "hangao"
+    },
+    {
+      "id": "party_presence_consistent",
+      "kind": "actor_presence",
+      "before": {
+        "clock": {
+          "mode": "town",
+          "beat": "T2",
+          "slot": null
+        },
+        "energy": 12,
+        "currency": 120,
+        "bag": {
+          "plain_herb": 2
+        },
+        "receipts": [],
+        "actors": {
+          "hero": {
+            "location": "hangao",
+            "party": true
+          },
+          "ye-heng": {
+            "location": "hangao",
+            "party": true
+          }
+        }
+      },
+      "after": {
+        "clock": {
+          "mode": "town",
+          "beat": "T2",
+          "slot": null
+        },
+        "energy": 12,
+        "currency": 120,
+        "bag": {
+          "plain_herb": 2
+        },
+        "receipts": [],
+        "actors": {
+          "hero": {
+            "location": "hangao",
+            "party": true
+          },
+          "ye-heng": {
+            "location": "hangao",
+            "party": true
+          }
+        }
+      },
+      "expect_valid": true,
+      "party_location": "hangao"
+    },
+    {
+      "id": "cultivation_action_charged_once",
+      "kind": "cultivation_activity",
+      "before": {
+        "clock": {
+          "mode": "cultivation",
+          "slot": 3,
+          "beat": null
+        },
+        "energy": 12,
+        "currency": 120,
+        "bag": {
+          "plain_herb": 2
+        },
+        "receipts": [],
+        "actors": {
+          "hero": {
+            "location": "hangao",
+            "party": true
+          },
+          "ye-heng": {
+            "location": "hangao",
+            "party": true
+          }
+        }
+      },
+      "after": {
+        "clock": {
+          "mode": "cultivation",
+          "slot": 3,
+          "beat": null
+        },
+        "energy": 8,
+        "currency": 120,
+        "bag": {
+          "plain_herb": 2
+        },
+        "receipts": [
+          "lesson-once"
+        ],
+        "actors": {
+          "hero": {
+            "location": "hangao",
+            "party": true
+          },
+          "ye-heng": {
+            "location": "hangao",
+            "party": true
+          }
+        }
+      },
+      "expect_valid": true,
+      "cost": 4
+    },
+    {
+      "id": "overcharge_rejected",
+      "kind": "cultivation_activity",
+      "before": {
+        "clock": {
+          "mode": "cultivation",
+          "slot": 3,
+          "beat": null
+        },
+        "energy": 12,
+        "currency": 120,
+        "bag": {
+          "plain_herb": 2
+        },
+        "receipts": [],
+        "actors": {
+          "hero": {
+            "location": "hangao",
+            "party": true
+          },
+          "ye-heng": {
+            "location": "hangao",
+            "party": true
+          }
+        }
+      },
+      "after": {
+        "clock": {
+          "mode": "cultivation",
+          "slot": 3,
+          "beat": null
+        },
+        "energy": 4,
+        "currency": 120,
+        "bag": {
+          "plain_herb": 2
+        },
+        "receipts": [],
+        "actors": {
+          "hero": {
+            "location": "hangao",
+            "party": true
+          },
+          "ye-heng": {
+            "location": "hangao",
+            "party": true
+          }
+        }
+      },
+      "expect_valid": false,
+      "cost": 4
+    },
+    {
+      "id": "rumor_retains_source",
+      "kind": "information",
+      "before": {
+        "clock": {
+          "mode": "town",
+          "beat": "T2",
+          "slot": null
+        },
+        "energy": 12,
+        "currency": 120,
+        "bag": {
+          "plain_herb": 2
+        },
+        "receipts": [],
+        "actors": {
+          "hero": {
+            "location": "hangao",
+            "party": true
+          },
+          "ye-heng": {
+            "location": "hangao",
+            "party": true
+          }
+        }
+      },
+      "after": {
+        "clock": {
+          "mode": "town",
+          "beat": "T2",
+          "slot": null
+        },
+        "energy": 12,
+        "currency": 120,
+        "bag": {
+          "plain_herb": 2
+        },
+        "receipts": [],
+        "actors": {
+          "hero": {
+            "location": "hangao",
+            "party": true
+          },
+          "ye-heng": {
+            "location": "hangao",
+            "party": true
+          }
+        }
+      },
+      "expect_valid": true,
+      "claim": {
+        "kind": "rumor",
+        "source": "known_npc",
+        "verificationRefs": []
+      }
+    },
+    {
+      "id": "verified_claim_requires_evidence",
+      "kind": "information",
+      "before": {
+        "clock": {
+          "mode": "town",
+          "beat": "T2",
+          "slot": null
+        },
+        "energy": 12,
+        "currency": 120,
+        "bag": {
+          "plain_herb": 2
+        },
+        "receipts": [],
+        "actors": {
+          "hero": {
+            "location": "hangao",
+            "party": true
+          },
+          "ye-heng": {
+            "location": "hangao",
+            "party": true
+          }
+        }
+      },
+      "after": {
+        "clock": {
+          "mode": "town",
+          "beat": "T2",
+          "slot": null
+        },
+        "energy": 12,
+        "currency": 120,
+        "bag": {
+          "plain_herb": 2
+        },
+        "receipts": [],
+        "actors": {
+          "hero": {
+            "location": "hangao",
+            "party": true
+          },
+          "ye-heng": {
+            "location": "hangao",
+            "party": true
+          }
+        }
+      },
+      "expect_valid": false,
+      "claim": {
+        "kind": "verified",
+        "source": "known_npc",
+        "verificationRefs": []
+      }
+    }
+  ]
+}

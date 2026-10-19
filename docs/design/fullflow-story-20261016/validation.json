@@ -1,0 +1,863 @@
+{
+  "passed": true,
+  "errors": [],
+  "mainEvents": 34,
+  "endingActions": 3,
+  "operationRows": 102,
+  "originalOptionalEvents": 41,
+  "newVignettes": 16,
+  "citySubscenes": 8,
+  "scoredCompanions": 19,
+  "vignetteParts": {
+    "2": 6,
+    "3": 8,
+    "4": 2
+  },
+  "routes": [
+    {
+      "selected": "N-01",
+      "reachesEpilogue": true,
+      "optionalRequired": false
+    },
+    {
+      "selected": "N-02",
+      "reachesEpilogue": true,
+      "optionalRequired": false
+    },
+    {
+      "selected": "N-03",
+      "reachesEpilogue": true,
+      "optionalRequired": false
+    }
+  ],
+  "companions": 19,
+  "namedCharacters": 54,
+  "newNonRecruitActors": 7,
+  "scope": "离线流程/引用/登记检查；不是运行游戏、资源完成、演员联合排期或平衡验收",
+  "negativeCases": {
+    "late_city_date_rejected": true,
+    "inflated_character_score_rejected": true,
+    "unknown_node_rejected": true,
+    "cycle_rejected": true
+  },
+  "missingLinks": [],
+  "revision": "fullflow-20261016.3",
+  "calendar": {
+    "status": "pass",
+    "catalogVersion": "CAL-2026-10-16.1",
+    "catalogSha256": "0e209ab68644e827eafa55e9d48e9f67233fdf7049252d972c48cb6799561b66",
+    "planningStatus": "planning-catalog-with-local-implemented-subset",
+    "scope": "finite calendar, energy, prerequisite and actor-presence feasibility; not growth/random/runtime verification",
+    "profiles": {
+      "mountain_ye_stays": {
+        "jointRequiredAndGoals": {
+          "status": "pass",
+          "nodes": 29,
+          "placements": {
+            "entry_join": {
+              "start": 0,
+              "duration": 1,
+              "cost": 0
+            },
+            "village_news": {
+              "start": 2,
+              "duration": 1,
+              "cost": 0
+            },
+            "old_friend_letter": {
+              "start": 5,
+              "duration": 1,
+              "cost": 0
+            },
+            "first_foundation_lesson": {
+              "start": 0,
+              "duration": 1,
+              "cost": 5
+            },
+            "first_ye_work": {
+              "start": 1,
+              "duration": 1,
+              "cost": 4
+            },
+            "first_zhou_talk": {
+              "start": 0,
+              "duration": 1,
+              "cost": 4
+            },
+            "escort_notice": {
+              "start": 10,
+              "duration": 1,
+              "cost": 0
+            },
+            "lu_visit": {
+              "start": 8,
+              "duration": 1,
+              "cost": 0
+            },
+            "spring_escort": {
+              "start": 12,
+              "duration": 1,
+              "cost": 0
+            },
+            "escort_return": {
+              "start": 13,
+              "duration": 1,
+              "cost": 0
+            },
+            "xiangyang_invitation": {
+              "start": 15,
+              "duration": 1,
+              "cost": 0
+            },
+            "zhou_after_escort": {
+              "start": 13,
+              "duration": 1,
+              "cost": 0
+            },
+            "pre_departure_talk": {
+              "start": 16,
+              "duration": 1,
+              "cost": 0
+            },
+            "xiangyang_departure": {
+              "start": 19,
+              "duration": 1,
+              "cost": 0
+            },
+            "journey_m5": {
+              "start": 20,
+              "duration": 5,
+              "cost": 0
+            },
+            "journey_m10": {
+              "start": 45,
+              "duration": 5,
+              "cost": 0
+            },
+            "year1_assessment": {
+              "start": 50,
+              "duration": 1,
+              "cost": 0
+            },
+            "ye_future": {
+              "start": 59,
+              "duration": 1,
+              "cost": 0
+            },
+            "journey_m16": {
+              "start": 60,
+              "duration": 5,
+              "cost": 0
+            },
+            "old_visitor": {
+              "start": 65,
+              "duration": 1,
+              "cost": 0
+            },
+            "pressure": {
+              "start": 90,
+              "duration": 1,
+              "cost": 0
+            },
+            "journey_m22": {
+              "start": 105,
+              "duration": 5,
+              "cost": 0
+            },
+            "truth_a": {
+              "start": 120,
+              "duration": 1,
+              "cost": 0
+            },
+            "truth_b": {
+              "start": 121,
+              "duration": 1,
+              "cost": 0
+            },
+            "journey_m28": {
+              "start": 135,
+              "duration": 5,
+              "cost": 0
+            },
+            "journey_m33": {
+              "start": 160,
+              "duration": 5,
+              "cost": 0
+            },
+            "ending_a": {
+              "start": 165,
+              "duration": 1,
+              "cost": 0
+            },
+            "ending_b": {
+              "start": 166,
+              "duration": 1,
+              "cost": 0
+            }
+          },
+          "budget": {
+            "totalSlots": 180,
+            "playerBlockedSlots": 39,
+            "freeSlots": 141,
+            "freeEnergy": 1692,
+            "selectedActionEnergy": 13,
+            "remainingEnergy": 1679
+          }
+        },
+        "individualOptionalReachability": {
+          "first_zhou_talk": "pass",
+          "first_ye_work": "pass",
+          "ye_stay_followup": "pass",
+          "first_foundation_lesson": "pass",
+          "village_letter": "pass",
+          "ye_meal": "pass",
+          "lu_extra_halfday": "pass",
+          "ye_own_plan": "pass",
+          "zhou_invitation": "pass",
+          "visitor_songfeng_route": "pass",
+          "visitor_whiteheron_records": "pass",
+          "visitor_zhaochuan_greeting": "pass"
+        }
+      },
+      "mountain_ye_studies": {
+        "jointRequiredAndGoals": {
+          "status": "pass",
+          "nodes": 29,
+          "placements": {
+            "entry_join": {
+              "start": 0,
+              "duration": 1,
+              "cost": 0
+            },
+            "village_news": {
+              "start": 2,
+              "duration": 1,
+              "cost": 0
+            },
+            "old_friend_letter": {
+              "start": 5,
+              "duration": 1,
+              "cost": 0
+            },
+            "first_foundation_lesson": {
+              "start": 0,
+              "duration": 1,
+              "cost": 5
+            },
+            "first_ye_work": {
+              "start": 1,
+              "duration": 1,
+              "cost": 4
+            },
+            "first_zhou_talk": {
+              "start": 0,
+              "duration": 1,
+              "cost": 4
+            },
+            "escort_notice": {
+              "start": 10,
+              "duration": 1,
+              "cost": 0
+            },
+            "lu_visit": {
+              "start": 8,
+              "duration": 1,
+              "cost": 0
+            },
+            "spring_escort": {
+              "start": 12,
+              "duration": 1,
+              "cost": 0
+            },
+            "escort_return": {
+              "start": 13,
+              "duration": 1,
+              "cost": 0
+            },
+            "xiangyang_invitation": {
+              "start": 15,
+              "duration": 1,
+              "cost": 0
+            },
+            "zhou_after_escort": {
+              "start": 13,
+              "duration": 1,
+              "cost": 0
+            },
+            "pre_departure_talk": {
+              "start": 16,
+              "duration": 1,
+              "cost": 0
+            },
+            "xiangyang_departure": {
+              "start": 19,
+              "duration": 1,
+              "cost": 0
+            },
+            "journey_m5": {
+              "start": 20,
+              "duration": 5,
+              "cost": 0
+            },
+            "journey_m10": {
+              "start": 45,
+              "duration": 5,
+              "cost": 0
+            },
+            "year1_assessment": {
+              "start": 50,
+              "duration": 1,
+              "cost": 0
+            },
+            "ye_future": {
+              "start": 59,
+              "duration": 1,
+              "cost": 0
+            },
+            "journey_m16": {
+              "start": 60,
+              "duration": 5,
+              "cost": 0
+            },
+            "old_visitor": {
+              "start": 65,
+              "duration": 1,
+              "cost": 0
+            },
+            "pressure": {
+              "start": 90,
+              "duration": 1,
+              "cost": 0
+            },
+            "journey_m22": {
+              "start": 105,
+              "duration": 5,
+              "cost": 0
+            },
+            "truth_a": {
+              "start": 120,
+              "duration": 1,
+              "cost": 0
+            },
+            "truth_b": {
+              "start": 121,
+              "duration": 1,
+              "cost": 0
+            },
+            "journey_m28": {
+              "start": 135,
+              "duration": 5,
+              "cost": 0
+            },
+            "journey_m33": {
+              "start": 160,
+              "duration": 5,
+              "cost": 0
+            },
+            "ending_a": {
+              "start": 165,
+              "duration": 1,
+              "cost": 0
+            },
+            "ending_b": {
+              "start": 166,
+              "duration": 1,
+              "cost": 0
+            }
+          },
+          "budget": {
+            "totalSlots": 180,
+            "playerBlockedSlots": 39,
+            "freeSlots": 141,
+            "freeEnergy": 1692,
+            "selectedActionEnergy": 13,
+            "remainingEnergy": 1679
+          }
+        },
+        "individualOptionalReachability": {
+          "first_zhou_talk": "pass",
+          "first_ye_work": "pass",
+          "ye_study_mail": "pass",
+          "first_foundation_lesson": "pass",
+          "village_letter": "pass",
+          "ye_meal": "pass",
+          "lu_extra_halfday": "pass",
+          "ye_own_plan": "pass",
+          "zhou_invitation": "pass",
+          "visitor_songfeng_route": "pass",
+          "visitor_whiteheron_records": "pass",
+          "visitor_zhaochuan_greeting": "pass"
+        }
+      }
+    }
+  },
+  "calendarAdditional": {
+    "allExistingOptionalJoint": {
+      "mountain_ye_stays": {
+        "status": "pass",
+        "nodes": 38,
+        "placements": {
+          "entry_join": {
+            "start": 0,
+            "duration": 1,
+            "cost": 0
+          },
+          "village_news": {
+            "start": 2,
+            "duration": 1,
+            "cost": 0
+          },
+          "old_friend_letter": {
+            "start": 5,
+            "duration": 1,
+            "cost": 0
+          },
+          "first_foundation_lesson": {
+            "start": 0,
+            "duration": 1,
+            "cost": 5
+          },
+          "first_ye_work": {
+            "start": 1,
+            "duration": 1,
+            "cost": 4
+          },
+          "first_zhou_talk": {
+            "start": 0,
+            "duration": 1,
+            "cost": 4
+          },
+          "visitor_songfeng_route": {
+            "start": 8,
+            "duration": 1,
+            "cost": 3
+          },
+          "escort_notice": {
+            "start": 10,
+            "duration": 1,
+            "cost": 0
+          },
+          "lu_visit": {
+            "start": 8,
+            "duration": 1,
+            "cost": 0
+          },
+          "lu_extra_halfday": {
+            "start": 10,
+            "duration": 1,
+            "cost": 4
+          },
+          "village_letter": {
+            "start": 2,
+            "duration": 1,
+            "cost": 4
+          },
+          "ye_meal": {
+            "start": 5,
+            "duration": 1,
+            "cost": 4
+          },
+          "spring_escort": {
+            "start": 12,
+            "duration": 1,
+            "cost": 0
+          },
+          "escort_return": {
+            "start": 13,
+            "duration": 1,
+            "cost": 0
+          },
+          "visitor_whiteheron_records": {
+            "start": 13,
+            "duration": 1,
+            "cost": 3
+          },
+          "xiangyang_invitation": {
+            "start": 15,
+            "duration": 1,
+            "cost": 0
+          },
+          "visitor_zhaochuan_greeting": {
+            "start": 15,
+            "duration": 1,
+            "cost": 3
+          },
+          "zhou_after_escort": {
+            "start": 13,
+            "duration": 1,
+            "cost": 0
+          },
+          "ye_own_plan": {
+            "start": 13,
+            "duration": 1,
+            "cost": 4
+          },
+          "pre_departure_talk": {
+            "start": 16,
+            "duration": 1,
+            "cost": 0
+          },
+          "xiangyang_departure": {
+            "start": 19,
+            "duration": 1,
+            "cost": 0
+          },
+          "zhou_invitation": {
+            "start": 15,
+            "duration": 1,
+            "cost": 4
+          },
+          "journey_m5": {
+            "start": 20,
+            "duration": 5,
+            "cost": 0
+          },
+          "journey_m10": {
+            "start": 45,
+            "duration": 5,
+            "cost": 0
+          },
+          "year1_assessment": {
+            "start": 50,
+            "duration": 1,
+            "cost": 0
+          },
+          "ye_future": {
+            "start": 59,
+            "duration": 1,
+            "cost": 0
+          },
+          "journey_m16": {
+            "start": 60,
+            "duration": 5,
+            "cost": 0
+          },
+          "ye_stay_followup": {
+            "start": 65,
+            "duration": 1,
+            "cost": 4
+          },
+          "old_visitor": {
+            "start": 66,
+            "duration": 1,
+            "cost": 0
+          },
+          "pressure": {
+            "start": 90,
+            "duration": 1,
+            "cost": 0
+          },
+          "journey_m22": {
+            "start": 105,
+            "duration": 5,
+            "cost": 0
+          },
+          "truth_a": {
+            "start": 120,
+            "duration": 1,
+            "cost": 0
+          },
+          "truth_b": {
+            "start": 121,
+            "duration": 1,
+            "cost": 0
+          },
+          "journey_m28": {
+            "start": 135,
+            "duration": 5,
+            "cost": 0
+          },
+          "journey_m33": {
+            "start": 160,
+            "duration": 5,
+            "cost": 0
+          },
+          "ending_a": {
+            "start": 165,
+            "duration": 1,
+            "cost": 0
+          },
+          "ending_b": {
+            "start": 166,
+            "duration": 1,
+            "cost": 0
+          }
+        },
+        "budget": {
+          "totalSlots": 180,
+          "playerBlockedSlots": 39,
+          "freeSlots": 141,
+          "freeEnergy": 1692,
+          "selectedActionEnergy": 46,
+          "remainingEnergy": 1646
+        }
+      },
+      "mountain_ye_studies": {
+        "status": "pass",
+        "nodes": 38,
+        "placements": {
+          "entry_join": {
+            "start": 0,
+            "duration": 1,
+            "cost": 0
+          },
+          "village_news": {
+            "start": 2,
+            "duration": 1,
+            "cost": 0
+          },
+          "old_friend_letter": {
+            "start": 5,
+            "duration": 1,
+            "cost": 0
+          },
+          "first_foundation_lesson": {
+            "start": 0,
+            "duration": 1,
+            "cost": 5
+          },
+          "first_ye_work": {
+            "start": 1,
+            "duration": 1,
+            "cost": 4
+          },
+          "first_zhou_talk": {
+            "start": 0,
+            "duration": 1,
+            "cost": 4
+          },
+          "visitor_songfeng_route": {
+            "start": 8,
+            "duration": 1,
+            "cost": 3
+          },
+          "escort_notice": {
+            "start": 10,
+            "duration": 1,
+            "cost": 0
+          },
+          "lu_visit": {
+            "start": 8,
+            "duration": 1,
+            "cost": 0
+          },
+          "lu_extra_halfday": {
+            "start": 10,
+            "duration": 1,
+            "cost": 4
+          },
+          "village_letter": {
+            "start": 2,
+            "duration": 1,
+            "cost": 4
+          },
+          "ye_meal": {
+            "start": 5,
+            "duration": 1,
+            "cost": 4
+          },
+          "spring_escort": {
+            "start": 12,
+            "duration": 1,
+            "cost": 0
+          },
+          "escort_return": {
+            "start": 13,
+            "duration": 1,
+            "cost": 0
+          },
+          "visitor_whiteheron_records": {
+            "start": 13,
+            "duration": 1,
+            "cost": 3
+          },
+          "xiangyang_invitation": {
+            "start": 15,
+            "duration": 1,
+            "cost": 0
+          },
+          "visitor_zhaochuan_greeting": {
+            "start": 15,
+            "duration": 1,
+            "cost": 3
+          },
+          "zhou_after_escort": {
+            "start": 13,
+            "duration": 1,
+            "cost": 0
+          },
+          "ye_own_plan": {
+            "start": 13,
+            "duration": 1,
+            "cost": 4
+          },
+          "pre_departure_talk": {
+            "start": 16,
+            "duration": 1,
+            "cost": 0
+          },
+          "xiangyang_departure": {
+            "start": 19,
+            "duration": 1,
+            "cost": 0
+          },
+          "zhou_invitation": {
+            "start": 15,
+            "duration": 1,
+            "cost": 4
+          },
+          "journey_m5": {
+            "start": 20,
+            "duration": 5,
+            "cost": 0
+          },
+          "journey_m10": {
+            "start": 45,
+            "duration": 5,
+            "cost": 0
+          },
+          "year1_assessment": {
+            "start": 50,
+            "duration": 1,
+            "cost": 0
+          },
+          "ye_future": {
+            "start": 59,
+            "duration": 1,
+            "cost": 0
+          },
+          "journey_m16": {
+            "start": 60,
+            "duration": 5,
+            "cost": 0
+          },
+          "ye_study_mail": {
+            "start": 65,
+            "duration": 1,
+            "cost": 1
+          },
+          "old_visitor": {
+            "start": 66,
+            "duration": 1,
+            "cost": 0
+          },
+          "pressure": {
+            "start": 90,
+            "duration": 1,
+            "cost": 0
+          },
+          "journey_m22": {
+            "start": 105,
+            "duration": 5,
+            "cost": 0
+          },
+          "truth_a": {
+            "start": 120,
+            "duration": 1,
+            "cost": 0
+          },
+          "truth_b": {
+            "start": 121,
+            "duration": 1,
+            "cost": 0
+          },
+          "journey_m28": {
+            "start": 135,
+            "duration": 5,
+            "cost": 0
+          },
+          "journey_m33": {
+            "start": 160,
+            "duration": 5,
+            "cost": 0
+          },
+          "ending_a": {
+            "start": 165,
+            "duration": 1,
+            "cost": 0
+          },
+          "ending_b": {
+            "start": 166,
+            "duration": 1,
+            "cost": 0
+          }
+        },
+        "budget": {
+          "totalSlots": 180,
+          "playerBlockedSlots": 39,
+          "freeSlots": 141,
+          "freeEnergy": 1692,
+          "selectedActionEnergy": 43,
+          "remainingEnergy": 1649
+        }
+      }
+    },
+    "focusedNegativeCases": {
+      "old_window_mountain_ye_stays": {
+        "status": "fail",
+        "nodes": 3,
+        "errors": [
+          "journey_m16: no placement fits window, prerequisites, energy and actor availability",
+          "ye_future: no placement fits window, prerequisites, energy and actor availability",
+          "ye_stay_followup: no placement fits window, prerequisites, energy and actor availability"
+        ]
+      },
+      "old_window_mountain_ye_studies": {
+        "status": "fail",
+        "nodes": 3,
+        "errors": [
+          "journey_m16: no placement fits window, prerequisites, energy and actor availability",
+          "ye_future: no placement fits window, prerequisites, energy and actor availability",
+          "ye_study_mail: no placement fits window, prerequisites, energy and actor availability"
+        ]
+      },
+      "child_double_booking": {
+        "status": "fail",
+        "nodes": 3,
+        "errors": [
+          "bad_city_child: no placement fits window, prerequisites, energy and actor availability",
+          "journey_m16: no placement fits window, prerequisites, energy and actor availability",
+          "ye_future: no placement fits window, prerequisites, energy and actor availability"
+        ]
+      }
+    },
+    "scope": "registered calendar only, not all new cast / city child graph / reward runtime"
+  },
+  "calendarUnitTests": {
+    "passed": 16,
+    "failed": 0,
+    "scope": "existing finite schedule checks; new city internal actors not covered"
+  },
+  "consistency": {
+    "warnings": 0,
+    "info": 205,
+    "scope": "configured age/four-part/legacy-name/look checks, contextual history exemptions retained"
+  },
+  "browser": {
+    "provider": "in-app browser",
+    "filters": {
+      "all": 61,
+      "1": 6,
+      "2": 24,
+      "3": 18,
+      "4": 13,
+      "city": 8,
+      "short": 16,
+      "side": 41,
+      "weightRows": 19
+    },
+    "weightToVignetteLink": "MINI-03 target and gameplay details verified",
+    "screenshots": [
+      "review/fullflow-story-20261016/hangao-preview.png",
+      "review/fullflow-story-20261016/weights-preview.png"
+    ],
+    "initialIssue": "First HTML script had newline regex escaping failure; fixed template to raw string, node syntax check and all browser filters subsequently passed. Historical console entry retained; no claim all captured logs empty."
+  },
+  "sourceSha256": {
+    "docs/design/calendar/mountain-events.json": "0f5f3bf5e7c53201801c7f2c70dd03c4858e5c507a94555f3fec67274ea1817e",
+    "docs/design/fullflow-story-20261016/story.md": "cb6f1cf76486461c3a697a9c421da97a76b3caa1fa3dc7eb5b9326d2eac61d8d",
+    "docs/design/fullflow-story-20261016/hangao-year2.md": "0be1d7f539ae37c22fe05c4a13335575810dab6d50c7fb6b0939f14ab3a5e40c",
+    "docs/design/fullflow-story-20261016/companion-weight-and-vignettes.md": "2abb413d22285c87a81c23f78f27f55c56c260c0294e4e72143313c5ae16917b",
+    "docs/design/fullflow-story-20261016/flow.json": "758dab63fdfb66705793f8b235079ab9c4c47e9eb6ab51538e76e8f3826374e7"
+  }
+}

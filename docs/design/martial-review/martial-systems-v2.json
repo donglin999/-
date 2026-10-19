@@ -1,0 +1,1064 @@
+{
+  "version": "MARTIAL-SYSTEM-2",
+  "date": "2026-10-06",
+  "status": "design_proposal_not_runtime",
+  "systems": [
+    {
+      "id": "system_gy_foundation_s",
+      "name": "试锋剑法",
+      "kind": "system",
+      "group": "guiyun",
+      "group_name": "归云谷",
+      "principle": "正式基础课程，分别练习距离与稳架，不等同于上乘门派传承。",
+      "skill_ids": [
+        "gy_s1"
+      ],
+      "grade": "丁",
+      "grade_note": "初阶功法，首季三重上限。",
+      "training_stages": [
+        {
+          "name": "试锋探路",
+          "grade": "丁",
+          "requires": "首月B03后K01正式教学，5体力",
+          "skill_id": "gy_s1",
+          "legacy_name": "入门剑式",
+          "runtime_status": "foundation_runtime"
+        }
+      ],
+      "obtain": [
+        "首月B03后K01正式教学，5体力"
+      ],
+      "status": "foundation_runtime",
+      "runtime_status": "foundation_runtime",
+      "advances_to": "system_gy_s",
+      "completeness": "已接入本地培养；后续进阶传艺待开发。",
+      "source": "../cultivation-formal-martial.md",
+      "category": "external",
+      "compatible_inner_ids": []
+    },
+    {
+      "id": "system_gy_foundation_p",
+      "name": "守拙拳法",
+      "kind": "system",
+      "group": "guiyun",
+      "group_name": "归云谷",
+      "principle": "正式基础课程，分别练习距离与稳架，不等同于上乘门派传承。",
+      "skill_ids": [
+        "gy_p1"
+      ],
+      "grade": "丁",
+      "grade_note": "初阶功法，首季三重上限。",
+      "training_stages": [
+        {
+          "name": "守拙立桩",
+          "grade": "丁",
+          "requires": "首月B03后K02正式教学，5体力",
+          "skill_id": "gy_p1",
+          "legacy_name": "粗浅拳脚",
+          "runtime_status": "foundation_runtime"
+        }
+      ],
+      "obtain": [
+        "首月B03后K02正式教学，5体力"
+      ],
+      "status": "foundation_runtime",
+      "runtime_status": "foundation_runtime",
+      "advances_to": "system_gy_p",
+      "completeness": "已接入本地培养；后续进阶传艺待开发。",
+      "source": "../cultivation-formal-martial.md",
+      "category": "external",
+      "compatible_inner_ids": []
+    },
+    {
+      "id": "system_gy_s",
+      "name": "归云剑诀",
+      "kind": "system",
+      "group": "guiyun",
+      "group_name": "归云谷",
+      "principle": "收势观敌，由试锋、回锋练到守势转攻；高阶集中剑势，不能靠多段数量证明造诣。",
+      "skill_ids": [
+        "gy_s2",
+        "gy_s3",
+        "gy_s4",
+        "gy_s5"
+      ],
+      "grade": "甲",
+      "grade_note": "上乘门派传承，与初阶功法分开；组成招式的品阶不等同于整套功法。",
+      "training_stages": [
+        {
+          "name": "拨云回锋",
+          "grade": "丙",
+          "requires": "剑式入门后周砚收势课",
+          "skill_id": "gy_s2"
+        },
+        {
+          "name": "一线开晴",
+          "grade": "乙",
+          "requires": "年二主修剑与护送复盘",
+          "skill_id": "gy_s3"
+        },
+        {
+          "name": "千岚归一",
+          "grade": "甲",
+          "requires": "下山后回谷切磋与责任事件",
+          "skill_id": "gy_s4"
+        },
+        {
+          "name": "云开见山",
+          "grade": "绝",
+          "requires": "剑路长线实务与导师复盘后个人领悟",
+          "skill_id": "gy_s5"
+        }
+      ],
+      "obtain": [
+        "剑式入门后周砚收势课",
+        "年二主修剑与护送复盘",
+        "下山后回谷切磋与责任事件",
+        "剑路长线实务与导师复盘后个人领悟"
+      ],
+      "status": "design_proposal_not_runtime",
+      "completeness": "已有招式链，训练课程与传承需进一步核实",
+      "source": "2026-10-06用户纠正：门派冠名功法保留为上乘传承，首月只传基础功法。",
+      "runtime_status": "planned_not_runtime",
+      "prerequisite_systems": [
+        "system_gy_foundation_s"
+      ],
+      "teaching_trigger": {
+        "status": "planned_not_runtime",
+        "earliest_month": 13,
+        "id": "martial_guiyun_s_transmission",
+        "prerequisite_course": "gy_s1",
+        "prerequisite_level": 3,
+        "additional_requirements": [
+          "advanced_course_completed",
+          "school_assessment_completed",
+          "mentor_present"
+        ],
+        "completion": "explicit_story_choice_and_finish"
+      },
+      "category": "external",
+      "compatible_inner_ids": [
+        "xf_guiyun",
+        "xf_guanlan",
+        "xf_wanhe"
+      ]
+    },
+    {
+      "id": "system_gy_p",
+      "name": "归云拳掌法",
+      "kind": "system",
+      "group": "guiyun",
+      "group_name": "归云谷",
+      "principle": "站稳、卸力、叠劲与承伤后还击相贯；回岚步也可辅助剑路，按共同基础训练解释。",
+      "skill_ids": [
+        "gy_p2",
+        "gy_p3",
+        "gy_p4",
+        "gy_p5"
+      ],
+      "grade": "甲",
+      "grade_note": "上乘门派传承，与初阶功法分开；组成招式的品阶不等同于整套功法。",
+      "training_stages": [
+        {
+          "name": "回岚步",
+          "grade": "丙",
+          "requires": "基础步法熟悉后明确传授",
+          "skill_id": "gy_p2"
+        },
+        {
+          "name": "叠岚掌",
+          "grade": "乙",
+          "requires": "年二拳掌主修与护人实务",
+          "skill_id": "gy_p3"
+        },
+        {
+          "name": "抱山还岳",
+          "grade": "甲",
+          "requires": "下山后的解围与师叔传授",
+          "skill_id": "gy_p4"
+        },
+        {
+          "name": "万壑回响",
+          "grade": "绝",
+          "requires": "拳路长线责任事件与领悟",
+          "skill_id": "gy_p5"
+        }
+      ],
+      "obtain": [
+        "基础步法熟悉后明确传授",
+        "年二拳掌主修与护人实务",
+        "下山后的解围与师叔传授",
+        "拳路长线责任事件与领悟"
+      ],
+      "status": "design_proposal_not_runtime",
+      "completeness": "已有招式链，训练课程与传承需进一步核实",
+      "source": "2026-10-06用户纠正：门派冠名功法保留为上乘传承，首月只传基础功法。",
+      "runtime_status": "planned_not_runtime",
+      "prerequisite_systems": [
+        "system_gy_foundation_p"
+      ],
+      "teaching_trigger": {
+        "status": "planned_not_runtime",
+        "earliest_month": 13,
+        "id": "martial_guiyun_p_transmission",
+        "prerequisite_course": "gy_p1",
+        "prerequisite_level": 3,
+        "additional_requirements": [
+          "advanced_course_completed",
+          "school_assessment_completed",
+          "mentor_present"
+        ],
+        "completion": "explicit_story_choice_and_finish"
+      },
+      "category": "external",
+      "compatible_inner_ids": [
+        "xf_guiyun",
+        "xf_guanlan",
+        "xf_wanhe"
+      ]
+    },
+    {
+      "id": "system_bh",
+      "name": "本草针药法",
+      "kind": "system",
+      "group": "white-heron",
+      "group_name": "白鹇谷",
+      "principle": "辨证、针位与药理相配，区分急救、净脉和接续保护；医术层次另审，不按攻击力分级。",
+      "skill_ids": [
+        "bh_s1",
+        "bh_s2",
+        "bh_s3",
+        "bh_s4",
+        "bh_s5"
+      ],
+      "grade": "未定",
+      "grade_note": "下列为组成招式的当前档位；整套功法层次须单独评审，不取最高招式档自动定级。",
+      "training_stages": [
+        {
+          "name": "金针刺穴",
+          "grade": "丙",
+          "requires": "苏芷初见任务体验（初见剧情待重新设计）；主角需另经授权学习",
+          "skill_id": "bh_s1"
+        },
+        {
+          "name": "回春散",
+          "grade": "丙",
+          "requires": "苏芷随身医术，不因见面授给全队",
+          "skill_id": "bh_s2"
+        },
+        {
+          "name": "净脉针",
+          "grade": "乙",
+          "requires": "苏芷巡诊复盘，外学者先修医理与监督实习",
+          "skill_id": "bh_s3"
+        },
+        {
+          "name": "百草回生",
+          "grade": "甲",
+          "requires": "未写完的医案完成且巡诊方案可持续",
+          "skill_id": "bh_s4"
+        },
+        {
+          "name": "一息相续",
+          "grade": "绝",
+          "requires": "长期急救案例与教习共同验证",
+          "skill_id": "bh_s5"
+        }
+      ],
+      "obtain": [
+        "苏芷初见任务体验（初见剧情待重新设计）；主角需另经授权学习",
+        "苏芷随身医术，不因见面授给全队",
+        "苏芷巡诊复盘，外学者先修医理与监督实习",
+        "未写完的医案完成且巡诊方案可持续",
+        "长期急救案例与教习共同验证"
+      ],
+      "status": "design_proposal_not_runtime",
+      "completeness": "已有招式链，训练课程与传承需进一步核实",
+      "source": "现有 catalog.json 招式、心法、人物与门派设计归组；本轮系统名是整理提案，不宣称原有游戏已存在。",
+      "category": "external",
+      "compatible_inner_ids": [
+        "xf_baicao",
+        "xf_hemai"
+      ]
+    },
+    {
+      "id": "system_zc",
+      "name": "照川剑法",
+      "kind": "system",
+      "group": "zhaochuan",
+      "group_name": "照川剑派",
+      "principle": "先试锋辨隙，再把力集中在可确认的破绽；观察是技术基础，不是无条件看穿一切。",
+      "skill_ids": [
+        "zc_s1",
+        "zc_s2",
+        "zc_s3",
+        "zc_s4",
+        "zc_s5"
+      ],
+      "grade": "未定",
+      "grade_note": "下列为组成招式的当前档位；整套功法层次须单独评审，不取最高招式档自动定级。",
+      "training_stages": [
+        {
+          "name": "照水起锋",
+          "grade": "丁",
+          "requires": "唐照雪初见试艺；主角经外派交流另学",
+          "skill_id": "zc_s1"
+        },
+        {
+          "name": "折光三叠",
+          "grade": "丙",
+          "requires": "正式基础考校或公开基础课",
+          "skill_id": "zc_s2"
+        },
+        {
+          "name": "问隙挑灯",
+          "grade": "乙",
+          "requires": "唐照雪因材施教事件，先辨路再施招",
+          "skill_id": "zc_s3"
+        },
+        {
+          "name": "照川落日",
+          "grade": "甲",
+          "requires": "人物篇完成后自创定式",
+          "skill_id": "zc_s4"
+        },
+        {
+          "name": "一剑澄江",
+          "grade": "绝",
+          "requires": "师门传承争议解决后自证剑路",
+          "skill_id": "zc_s5"
+        }
+      ],
+      "obtain": [
+        "唐照雪初见试艺；主角经外派交流另学",
+        "正式基础考校或公开基础课",
+        "唐照雪因材施教事件，先辨路再施招",
+        "人物篇完成后自创定式",
+        "师门传承争议解决后自证剑路"
+      ],
+      "status": "design_proposal_not_runtime",
+      "completeness": "已有招式链，训练课程与传承需进一步核实",
+      "source": "现有 catalog.json 招式、心法、人物与门派设计归组；本轮系统名是整理提案，不宣称原有游戏已存在。",
+      "category": "external",
+      "compatible_inner_ids": [
+        "xf_chengjiang",
+        "xf_shouxian"
+      ]
+    },
+    {
+      "id": "system_hc",
+      "name": "合川拳法",
+      "kind": "system",
+      "group": "hechuan",
+      "group_name": "合川拳门",
+      "principle": "稳架承重、短劲发拳，以护运实务练根基；承伤、卸力与重拳分别训练。",
+      "skill_ids": [
+        "hc_s1",
+        "hc_s2",
+        "hc_s3",
+        "hc_s4",
+        "hc_s5"
+      ],
+      "grade": "未定",
+      "grade_note": "下列为组成招式的当前档位；整套功法层次须单独评审，不取最高招式档自动定级。",
+      "training_stages": [
+        {
+          "name": "落桩拳",
+          "grade": "丁",
+          "requires": "公开基础拳课或段明棠体验",
+          "skill_id": "hc_s1"
+        },
+        {
+          "name": "横肩护人",
+          "grade": "丙",
+          "requires": "石长庚护运体验，另教给认可的同伴",
+          "skill_id": "hc_s2"
+        },
+        {
+          "name": "崩石短打",
+          "grade": "乙",
+          "requires": "段明棠解决工钱纠纷后的训练",
+          "skill_id": "hc_s3"
+        },
+        {
+          "name": "合川撑岳",
+          "grade": "甲",
+          "requires": "护运体系整改后的守队训练",
+          "skill_id": "hc_s4"
+        },
+        {
+          "name": "百步震关",
+          "grade": "绝",
+          "requires": "拳门公共护运长线终章",
+          "skill_id": "hc_s5"
+        }
+      ],
+      "obtain": [
+        "公开基础拳课或段明棠体验",
+        "石长庚护运体验，另教给认可的同伴",
+        "段明棠解决工钱纠纷后的训练",
+        "护运体系整改后的守队训练",
+        "拳门公共护运长线终章"
+      ],
+      "status": "design_proposal_not_runtime",
+      "completeness": "已有招式链，训练课程与传承需进一步核实",
+      "source": "现有 catalog.json 招式、心法、人物与门派设计归组；本轮系统名是整理提案，不宣称原有游戏已存在。",
+      "category": "external",
+      "compatible_inner_ids": [
+        "xf_panshi",
+        "xf_hengliang"
+      ]
+    },
+    {
+      "id": "system_sf",
+      "name": "松风步剑法",
+      "kind": "system",
+      "group": "songfeng",
+      "group_name": "松风观",
+      "principle": "错步让锋、察势接应与协同剑势构成体系；剑阵需队友配合，独行不能获得完整阵法收益。",
+      "skill_ids": [
+        "sf_s1",
+        "sf_s2",
+        "sf_s3",
+        "sf_s4",
+        "sf_s5"
+      ],
+      "grade": "未定",
+      "grade_note": "下列为组成招式的当前档位；整套功法层次须单独评审，不取最高招式档自动定级。",
+      "training_stages": [
+        {
+          "name": "松间错步",
+          "grade": "丁",
+          "requires": "闻疏桐山路同行；对外基础课",
+          "skill_id": "sf_s1"
+        },
+        {
+          "name": "引枝卸锋",
+          "grade": "丙",
+          "requires": "俗家协作练习",
+          "skill_id": "sf_s2"
+        },
+        {
+          "name": "三径相援",
+          "grade": "乙",
+          "requires": "路图保护乡邻事件与两人合练",
+          "skill_id": "sf_s3"
+        },
+        {
+          "name": "松涛合阵",
+          "grade": "甲",
+          "requires": "闻疏桐个人篇及多人演练",
+          "skill_id": "sf_s4"
+        },
+        {
+          "name": "万籁归松",
+          "grade": "绝",
+          "requires": "观中入世争议收束与护乡实务",
+          "skill_id": "sf_s5"
+        }
+      ],
+      "obtain": [
+        "闻疏桐山路同行；对外基础课",
+        "俗家协作练习",
+        "路图保护乡邻事件与两人合练",
+        "闻疏桐个人篇及多人演练",
+        "观中入世争议收束与护乡实务"
+      ],
+      "status": "design_proposal_not_runtime",
+      "completeness": "已有招式链，训练课程与传承需进一步核实",
+      "source": "现有 catalog.json 招式、心法、人物与门派设计归组；本轮系统名是整理提案，不宣称原有游戏已存在。",
+      "category": "external",
+      "compatible_inner_ids": [
+        "xf_songxi",
+        "xf_tingfeng"
+      ]
+    },
+    {
+      "id": "system_gj",
+      "name": "归烬短兵诀",
+      "kind": "system",
+      "group": "guijintang",
+      "group_name": "玄烛会·归烬堂",
+      "principle": "贴身短刺、刀势强攻和收身留路；刀与短刃是不同兵器分支，不能用同一武器无条件施展全部招式。",
+      "skill_ids": [
+        "gj_s1",
+        "gj_s2",
+        "gj_s3",
+        "gj_s4",
+        "gj_s5"
+      ],
+      "grade": "未定",
+      "grade_note": "下列为组成招式的当前档位；整套功法层次须单独评审，不取最高招式档自动定级。",
+      "training_stages": [
+        {
+          "name": "藏锋短刺",
+          "grade": "丁",
+          "requires": "货路任务体验或基础教习",
+          "skill_id": "gj_s1"
+        },
+        {
+          "name": "燃隙刀",
+          "grade": "丙",
+          "requires": "戚铮基础刀路与明确传授",
+          "skill_id": "gj_s2"
+        },
+        {
+          "name": "断烬回身",
+          "grade": "乙",
+          "requires": "岑霜赔偿落实后复盘险情",
+          "skill_id": "gj_s3"
+        },
+        {
+          "name": "焚契破阵",
+          "grade": "甲",
+          "requires": "堂务问责篇后戚铮选择承担断后",
+          "skill_id": "gj_s4"
+        },
+        {
+          "name": "余烬留生",
+          "grade": "绝",
+          "requires": "岑霜兑现退路的个人长线",
+          "skill_id": "gj_s5"
+        }
+      ],
+      "obtain": [
+        "货路任务体验或基础教习",
+        "戚铮基础刀路与明确传授",
+        "岑霜赔偿落实后复盘险情",
+        "堂务问责篇后戚铮选择承担断后",
+        "岑霜兑现退路的个人长线"
+      ],
+      "status": "design_proposal_not_runtime",
+      "completeness": "已有招式链，训练课程与传承需进一步核实",
+      "source": "现有 catalog.json 招式、心法、人物与门派设计归组；本轮系统名是整理提案，不宣称原有游戏已存在。",
+      "category": "external",
+      "compatible_inner_ids": [
+        "xf_cunjin",
+        "xf_liulu"
+      ]
+    },
+    {
+      "id": "system_am",
+      "name": "明约协锋法",
+      "kind": "system",
+      "group": "alliance",
+      "group_name": "正道盟成员协同",
+      "principle": "以个人短剑师承为基础，练照应与协同出手；正道盟不是授予万能神功的师门。",
+      "skill_ids": [
+        "am_s1",
+        "am_s2",
+        "am_s3"
+      ],
+      "grade": "未定",
+      "grade_note": "下列为组成招式的当前档位；整套功法层次须单独评审，不取最高招式档自动定级。",
+      "training_stages": [
+        {
+          "name": "短锋相照",
+          "grade": "丙",
+          "requires": "徐令仪个人师友传授，公议护送体验",
+          "skill_id": "am_s1",
+          "legacy_name": "短剑照应"
+        },
+        {
+          "name": "同担一线",
+          "grade": "乙",
+          "requires": "赈济裁断失误后护送合练",
+          "skill_id": "am_s2"
+        },
+        {
+          "name": "明约合锋",
+          "grade": "甲",
+          "requires": "徐令仪个人篇结束与同伴练习",
+          "skill_id": "am_s3"
+        }
+      ],
+      "obtain": [
+        "徐令仪个人师友传授，公议护送体验",
+        "赈济裁断失误后护送合练",
+        "徐令仪个人篇结束与同伴练习"
+      ],
+      "status": "design_proposal_not_runtime",
+      "completeness": "已有招式链，训练课程与传承需进一步核实",
+      "source": "现有 catalog.json 招式、心法、人物与门派设计归组；本轮系统名是整理提案，不宣称原有游戏已存在。",
+      "category": "external",
+      "compatible_inner_ids": [
+        "xf_tongdan"
+      ]
+    },
+    {
+      "id": "system_pj",
+      "name": "巡江擒护法",
+      "kind": "system",
+      "group": "patrol",
+      "group_name": "巡江司差务训练",
+      "principle": "长兵拦截、回杆化势与护送擒拿；差务训练不赋予官职或调兵权限。",
+      "skill_ids": [
+        "pj_s1",
+        "pj_s2",
+        "pj_s3",
+        "pj_s4"
+      ],
+      "grade": "未定",
+      "grade_note": "下列为组成招式的当前档位；整套功法层次须单独评审，不取最高招式档自动定级。",
+      "training_stages": [
+        {
+          "name": "横江拦步",
+          "grade": "丁",
+          "requires": "沈雁回获准参加的基础自保训练",
+          "skill_id": "pj_s1"
+        },
+        {
+          "name": "回杆卸势",
+          "grade": "丙",
+          "requires": "护送实务与教习纠正",
+          "skill_id": "pj_s2"
+        },
+        {
+          "name": "断渡擒锋",
+          "grade": "乙",
+          "requires": "证物护送成功后训练",
+          "skill_id": "pj_s3"
+        },
+        {
+          "name": "风雨护归",
+          "grade": "甲",
+          "requires": "沈雁回个人篇与差务交接后",
+          "skill_id": "pj_s4"
+        }
+      ],
+      "obtain": [
+        "沈雁回获准参加的基础自保训练",
+        "护送实务与教习纠正",
+        "证物护送成功后训练",
+        "沈雁回个人篇与差务交接后"
+      ],
+      "status": "design_proposal_not_runtime",
+      "completeness": "已有招式链，训练课程与传承需进一步核实",
+      "source": "现有 catalog.json 招式、心法、人物与门派设计归组；本轮系统名是整理提案，不宣称原有游戏已存在。",
+      "category": "external",
+      "compatible_inner_ids": [
+        "xf_xunliu"
+      ]
+    },
+    {
+      "id": "system_yh_care",
+      "name": "随行救护法",
+      "kind": "system",
+      "group": "ye",
+      "group_name": "叶蘅双线",
+      "principle": "家传照护与正式战斗救护基础；目前只设计一项动作，完整诊治课程待补，不冒称成熟针攻。",
+      "skill_ids": [
+        "yh_s0"
+      ],
+      "grade": "未定",
+      "grade_note": "下列为组成招式的当前档位；整套功法层次须单独评审，不取最高招式档自动定级。",
+      "training_stages": [
+        {
+          "name": "随行照护",
+          "grade": "丁",
+          "requires": "初期家传实践后教学，序章OC.3不提前授予",
+          "skill_id": "yh_s0"
+        }
+      ],
+      "obtain": [
+        "初期家传实践后教学，序章OC.3不提前授予"
+      ],
+      "status": "design_proposal_not_runtime",
+      "completeness": "局部技法，完整套路待补",
+      "source": "现有 catalog.json 招式、心法、人物与门派设计归组；本轮系统名是整理提案，不宣称原有游戏已存在。",
+      "category": "external",
+      "compatible_inner_ids": []
+    },
+    {
+      "id": "system_yh_needle",
+      "name": "循脉针诀",
+      "kind": "system",
+      "group": "ye",
+      "group_name": "叶蘅双线",
+      "principle": "先辨针位与空隙，再练截脉、收针与削弱目标；须按第13月起的针攻路线教学。",
+      "skill_ids": [
+        "yh_n1",
+        "yh_n2",
+        "yh_n3"
+      ],
+      "grade": "未定",
+      "grade_note": "下列为组成招式的当前档位；整套功法层次须单独评审，不取最高招式档自动定级。",
+      "training_stages": [
+        {
+          "name": "循隙针",
+          "grade": "丙",
+          "requires": "第13月起针攻路线入门课",
+          "skill_id": "yh_n1"
+        },
+        {
+          "name": "截脉三针",
+          "grade": "乙",
+          "requires": "针攻实务后逐点校准",
+          "skill_id": "yh_n2"
+        },
+        {
+          "name": "归息断潮",
+          "grade": "甲",
+          "requires": "身世篇后针攻实践与家传整理",
+          "skill_id": "yh_n3"
+        }
+      ],
+      "obtain": [
+        "第13月起针攻路线入门课",
+        "针攻实务后逐点校准",
+        "身世篇后针攻实践与家传整理"
+      ],
+      "status": "design_proposal_not_runtime",
+      "completeness": "已有招式链，训练课程与传承需进一步核实",
+      "source": "现有 catalog.json 招式、心法、人物与门派设计归组；本轮系统名是整理提案，不宣称原有游戏已存在。",
+      "category": "external",
+      "compatible_inner_ids": [
+        "xf_guixi"
+      ]
+    },
+    {
+      "id": "system_yh_med",
+      "name": "和脉医法",
+      "kind": "system",
+      "group": "ye",
+      "group_name": "叶蘅双线",
+      "principle": "温络、同息与持续医护相接；须按第13月起的医法路线教学，不能据共享心法自动取得另一线招式。",
+      "skill_ids": [
+        "yh_m1",
+        "yh_m2",
+        "yh_m3"
+      ],
+      "grade": "未定",
+      "grade_note": "下列为组成招式的当前档位；整套功法层次须单独评审，不取最高招式档自动定级。",
+      "training_stages": [
+        {
+          "name": "温络行针",
+          "grade": "丙",
+          "requires": "第13月起白鹇谷监督实习",
+          "skill_id": "yh_m1"
+        },
+        {
+          "name": "和脉同息",
+          "grade": "乙",
+          "requires": "医线复诊追踪与教习认可",
+          "skill_id": "yh_m2"
+        },
+        {
+          "name": "归息续照",
+          "grade": "甲",
+          "requires": "身世篇后家传与白鹇医案交叉验证",
+          "skill_id": "yh_m3"
+        }
+      ],
+      "obtain": [
+        "第13月起白鹇谷监督实习",
+        "医线复诊追踪与教习认可",
+        "身世篇后家传与白鹇医案交叉验证"
+      ],
+      "status": "design_proposal_not_runtime",
+      "completeness": "已有招式链，训练课程与传承需进一步核实",
+      "source": "现有 catalog.json 招式、心法、人物与门派设计归组；本轮系统名是整理提案，不宣称原有游戏已存在。",
+      "category": "external",
+      "compatible_inner_ids": [
+        "xf_hemai",
+        "xf_guixi"
+      ]
+    },
+    {
+      "id": "system_yl",
+      "name": "飞燕投刃法",
+      "kind": "system",
+      "group": "independent",
+      "group_name": "散人与人物专长",
+      "principle": "晏小楼的投掷节奏与落点训练；现有群体投掷不等同于小李飞刀式精确个人绝技。",
+      "skill_ids": [
+        "yl_s1",
+        "yl_s2"
+      ],
+      "grade": "未定",
+      "grade_note": "下列为组成招式的当前档位；整套功法层次须单独评审，不取最高招式档自动定级。",
+      "training_stages": [
+        {
+          "name": "飞燕点枝",
+          "grade": "丙",
+          "requires": "戏班护送任务临时体验",
+          "skill_id": "yl_s1"
+        },
+        {
+          "name": "满场惊鸿",
+          "grade": "甲",
+          "requires": "署名新戏与巡演交接后练习",
+          "skill_id": "yl_s2"
+        }
+      ],
+      "obtain": [
+        "戏班护送任务临时体验",
+        "署名新戏与巡演交接后练习"
+      ],
+      "status": "design_proposal_not_runtime",
+      "completeness": "已有招式链，训练课程与传承需进一步核实",
+      "source": "现有 catalog.json 招式、心法、人物与门派设计归组；本轮系统名是整理提案，不宣称原有游戏已存在。",
+      "category": "external",
+      "compatible_inner_ids": [
+        "xf_shouyi"
+      ]
+    },
+    {
+      "id": "system_qx",
+      "name": "渡汀撑护法",
+      "kind": "system",
+      "group": "independent",
+      "group_name": "散人与人物专长",
+      "principle": "乔行舟以长篙接应、撑护与救援的职业技；船上实务和战斗护卫资格分别记录。",
+      "skill_ids": [
+        "qx_s1",
+        "qx_s2"
+      ],
+      "grade": "未定",
+      "grade_note": "下列为组成招式的当前档位；整套功法层次须单独评审，不取最高招式档自动定级。",
+      "training_stages": [
+        {
+          "name": "撑篙截流",
+          "grade": "丙",
+          "requires": "渡口救援任务与本人指导",
+          "skill_id": "qx_s1"
+        },
+        {
+          "name": "回舟接客",
+          "grade": "甲",
+          "requires": "浅滩新船试航与救援训练",
+          "skill_id": "qx_s2"
+        }
+      ],
+      "obtain": [
+        "渡口救援任务与本人指导",
+        "浅滩新船试航与救援训练"
+      ],
+      "status": "design_proposal_not_runtime",
+      "completeness": "已有招式链，训练课程与传承需进一步核实",
+      "source": "现有 catalog.json 招式、心法、人物与门派设计归组；本轮系统名是整理提案，不宣称原有游戏已存在。",
+      "category": "external",
+      "compatible_inner_ids": [
+        "xf_shouyi"
+      ]
+    },
+    {
+      "id": "system_lh",
+      "name": "留灯伞护法",
+      "kind": "system",
+      "group": "independent",
+      "group_name": "散人与人物专长",
+      "principle": "柳含烟以伞骨承力、伞下容身和有限护持为核心；不能把一次卸力解释为宗师无敌防御。",
+      "skill_ids": [
+        "lh_s1",
+        "lh_s2"
+      ],
+      "grade": "未定",
+      "grade_note": "下列为组成招式的当前档位；整套功法层次须单独评审，不取最高招式档自动定级。",
+      "training_stages": [
+        {
+          "name": "伞下容身",
+          "grade": "丙",
+          "requires": "本人自保练习（获取时点待安排）；琵琶不是音波武器",
+          "skill_id": "lh_s1"
+        },
+        {
+          "name": "雨住留灯",
+          "grade": "甲",
+          "requires": "解约同行篇后持续练習",
+          "skill_id": "lh_s2"
+        }
+      ],
+      "obtain": [
+        "本人自保练习（获取时点待安排）；琵琶不是音波武器",
+        "解约同行篇后持续练習"
+      ],
+      "status": "design_proposal_not_runtime",
+      "completeness": "已有招式链，训练课程与传承需进一步核实",
+      "source": "现有 catalog.json 招式、心法、人物与门派设计归组；本轮系统名是整理提案，不宣称原有游戏已存在。",
+      "category": "external",
+      "compatible_inner_ids": [
+        "xf_shouyi"
+      ]
+    },
+    {
+      "id": "system_qf",
+      "name": "邀锋扇法",
+      "kind": "system",
+      "group": "independent",
+      "group_name": "散人与人物专长",
+      "principle": "秦绯鸢以扇骨截锋、回袖引步与护席相贯，练迎锋判断和协同次序。",
+      "skill_ids": [
+        "qf_s1",
+        "qf_s2",
+        "qf_s3"
+      ],
+      "grade": "未定",
+      "grade_note": "下列为组成招式的当前档位；整套功法层次须单独评审，不取最高招式档自动定级。",
+      "training_stages": [
+        {
+          "name": "扇骨截招",
+          "grade": "丙",
+          "requires": "守席训练（获取时点待安排），不因初见自动可控",
+          "skill_id": "qf_s1"
+        },
+        {
+          "name": "回袖引步",
+          "grade": "乙",
+          "requires": "共同护送练习与本人同意",
+          "skill_id": "qf_s2"
+        },
+        {
+          "name": "邀锋护席",
+          "grade": "甲",
+          "requires": "舞约善后、班务交接后实练",
+          "skill_id": "qf_s3"
+        }
+      ],
+      "obtain": [
+        "守席训练（获取时点待安排），不因初见自动可控",
+        "共同护送练习与本人同意",
+        "舞约善后、班务交接后实练"
+      ],
+      "status": "design_proposal_not_runtime",
+      "completeness": "已有招式链，训练课程与传承需进一步核实",
+      "source": "现有 catalog.json 招式、心法、人物与门派设计归组；本轮系统名是整理提案，不宣称原有游戏已存在。",
+      "category": "external",
+      "compatible_inner_ids": [
+        "xf_shouyi"
+      ]
+    },
+    {
+      "id": "system_rq",
+      "name": "雀步短刃法",
+      "kind": "system",
+      "group": "independent",
+      "group_name": "散人与人物专长",
+      "principle": "阮青雀以牵制、卸势、断后和留隙接应相贯；换位指行动策略，不凭空移动地图站位。",
+      "skill_ids": [
+        "rq_s1",
+        "rq_s2",
+        "rq_s3",
+        "rq_s4"
+      ],
+      "grade": "未定",
+      "grade_note": "下列为组成招式的当前档位；整套功法层次须单独评审，不取最高招式档自动定级。",
+      "training_stages": [
+        {
+          "name": "雀喙探隙",
+          "grade": "丙",
+          "requires": "人物线中的合法自保训练（获取时点待安排）",
+          "skill_id": "rq_s1",
+          "legacy_name": "短刃牵制"
+        },
+        {
+          "name": "袖手卸势",
+          "grade": "乙",
+          "requires": "本人偿还与修锁生计节点后训练",
+          "skill_id": "rq_s2"
+        },
+        {
+          "name": "雀步换位",
+          "grade": "乙",
+          "requires": "断后练习且已有合作经历",
+          "skill_id": "rq_s3"
+        },
+        {
+          "name": "留缝接应",
+          "grade": "甲",
+          "requires": "六节点与善后完成后训练",
+          "skill_id": "rq_s4"
+        }
+      ],
+      "obtain": [
+        "人物线中的合法自保训练（获取时点待安排）",
+        "本人偿还与修锁生计节点后训练",
+        "断后练习且已有合作经历",
+        "六节点与善后完成后训练"
+      ],
+      "status": "design_proposal_not_runtime",
+      "completeness": "已有招式链，训练课程与传承需进一步核实",
+      "source": "现有 catalog.json 招式、心法、人物与门派设计归组；本轮系统名是整理提案，不宣称原有游戏已存在。",
+      "category": "external",
+      "compatible_inner_ids": [
+        "xf_shouyi"
+      ]
+    },
+    {
+      "id": "system_lhg",
+      "name": "护行刀法",
+      "kind": "system",
+      "group": "independent",
+      "group_name": "散人与人物专长",
+      "principle": "陆衡护送所用的横刀援护基础；目录目前仅一招，完整刀法进退与练习课尚待补齐。",
+      "skill_ids": [
+        "lhg_s1"
+      ],
+      "grade": "未定",
+      "grade_note": "下列为组成招式的当前档位；整套功法层次须单独评审，不取最高招式档自动定级。",
+      "training_stages": [
+        {
+          "name": "横刀护途",
+          "grade": "丙",
+          "requires": "首季送药体验，主角另学需授课",
+          "skill_id": "lhg_s1",
+          "legacy_name": "护路横刀"
+        }
+      ],
+      "obtain": [
+        "首季送药体验，主角另学需授课"
+      ],
+      "status": "design_proposal_not_runtime",
+      "completeness": "局部技法，完整套路待补",
+      "source": "现有 catalog.json 招式、心法、人物与门派设计归组；本轮系统名是整理提案，不宣称原有游戏已存在。",
+      "category": "external",
+      "compatible_inner_ids": [
+        "xf_shouyi"
+      ]
+    },
+    {
+      "id": "system_hzc",
+      "name": "校铁锤法",
+      "kind": "system",
+      "group": "independent",
+      "group_name": "散人与人物专长",
+      "principle": "霍逐尘由工具经验转入辨隙用锤；目前仅一招，完整套路与可传授资格待人物篇核实。",
+      "skill_ids": [
+        "hzc_s1"
+      ],
+      "grade": "未定",
+      "grade_note": "下列为组成招式的当前档位；整套功法层次须单独评审，不取最高招式档自动定级。",
+      "training_stages": [
+        {
+          "name": "寻隙敲山",
+          "grade": "乙",
+          "requires": "找回工具与修械交付后本人使用",
+          "skill_id": "hzc_s1"
+        }
+      ],
+      "obtain": [
+        "找回工具与修械交付后本人使用"
+      ],
+      "status": "design_proposal_not_runtime",
+      "completeness": "局部技法，完整套路待补",
+      "source": "现有 catalog.json 招式、心法、人物与门派设计归组；本轮系统名是整理提案，不宣称原有游戏已存在。",
+      "category": "external",
+      "compatible_inner_ids": [
+        "xf_shouyi"
+      ]
+    }
+  ],
+  "standalone_hearts": [
+    "xf_tuna"
+  ],
+  "runtime_adoption": {
+    "date": "2026-10-06",
+    "scope": "仅基础功法试锋剑法、守拙拳法已接入；门派上乘传承尚未开放",
+    "contract": "../cultivation-formal-martial.md",
+    "skill_ids": [
+      "gy_s1",
+      "gy_p1"
+    ]
+  },
+  "relationship_rule": "外功收纳招式；内功是并列功法，不属于外功组成部分。每门内功恰好一个主动技能和一个被动技能。"
+}

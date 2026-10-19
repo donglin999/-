@@ -1,0 +1,1021 @@
+{
+  "date": "2026-10-16",
+  "status": "runtime_module_arithmetic_only_not_balance_verification",
+  "sources": [
+    {
+      "path": "xiaojianghu-legacy-prologue/js/character-growth-state.js",
+      "sha256": "34b4f0c0290d8333aaa592dcc73260ebf28cbea9deb12a890b2db7e869a9738c"
+    },
+    {
+      "path": "xiaojianghu-legacy-prologue/js/shared-insight-pool.js",
+      "sha256": "0e5182d94c9a6cdd6c510124a623aaecf8b0a95e687934d40fc0fb2236e16e8e"
+    },
+    {
+      "path": "xiaojianghu-legacy-prologue/js/qihe-ui-model.js",
+      "sha256": "37862befdf503f150a5c796722b38119a7c1cd4c2b0398920650e3a45fd3bf4d"
+    },
+    {
+      "path": "xiaojianghu-legacy-prologue/js/battle.js",
+      "sha256": "8a42a319a29abaf24a8e1ff5d26640a706ccdcd8242753f3be7ff7e87f305058"
+    },
+    {
+      "path": "xiaojianghu-legacy-prologue/js/bfx.js",
+      "sha256": "ea7147ffc087ade0ec50a9e4d01fbf819873ccf5f4092f1a43fd501e716ae4b0"
+    }
+  ],
+  "formulas": {
+    "xp": "100*currentLevel",
+    "cumulative": "50*L*(L-1)",
+    "points": "3*(L-1)",
+    "allocationCap": "8+actorLevel",
+    "derived": "Matches QiheUIModel.calc before equipment/inner/cultivation/condition contributions"
+  },
+  "levels": [
+    {
+      "level": 1,
+      "cumulativeXp": 0,
+      "points": 0
+    },
+    {
+      "level": 3,
+      "cumulativeXp": 300,
+      "points": 6
+    },
+    {
+      "level": 8,
+      "cumulativeXp": 2800,
+      "points": 21
+    },
+    {
+      "level": 14,
+      "cumulativeXp": 9100,
+      "points": 39
+    },
+    {
+      "level": 25,
+      "cumulativeXp": 30000,
+      "points": 72
+    },
+    {
+      "level": 35,
+      "cumulativeXp": 59500,
+      "points": 102
+    },
+    {
+      "level": 45,
+      "cumulativeXp": 99000,
+      "points": 132
+    },
+    {
+      "level": 58,
+      "cumulativeXp": 165300,
+      "points": 171
+    },
+    {
+      "level": 70,
+      "cumulativeXp": 241500,
+      "points": 207
+    },
+    {
+      "level": 78,
+      "cumulativeXp": 300300,
+      "points": 231
+    },
+    {
+      "level": 90,
+      "cumulativeXp": 400500,
+      "points": 267
+    },
+    {
+      "level": 100,
+      "cumulativeXp": 495000,
+      "points": 297
+    }
+  ],
+  "battleXpSimulation": {
+    "basePerBattle": 100,
+    "start": {
+      "hero": 1,
+      "ye": 3,
+      "high": 54
+    },
+    "results": [
+      {
+        "baseXp": 600,
+        "hero": {
+          "lv": 4,
+          "exp": 120,
+          "pts": 9
+        },
+        "ye": {
+          "lv": 4,
+          "exp": 300,
+          "pts": 3,
+          "xpFraction": 0
+        },
+        "high": {
+          "lv": 54,
+          "exp": 600,
+          "pts": 0,
+          "xpFraction": 0
+        }
+      },
+      {
+        "baseXp": 1500,
+        "hero": {
+          "lv": 6,
+          "exp": 300,
+          "pts": 15
+        },
+        "ye": {
+          "lv": 6,
+          "exp": 300,
+          "pts": 9,
+          "xpFraction": 0
+        },
+        "high": {
+          "lv": 54,
+          "exp": 1500,
+          "pts": 0,
+          "xpFraction": 0
+        }
+      },
+      {
+        "baseXp": 10000,
+        "hero": {
+          "lv": 16,
+          "exp": 0,
+          "pts": 45
+        },
+        "ye": {
+          "lv": 14,
+          "exp": 1200,
+          "pts": 33,
+          "xpFraction": 0
+        },
+        "high": {
+          "lv": 55,
+          "exp": 4600,
+          "pts": 3,
+          "xpFraction": 0
+        }
+      },
+      {
+        "baseXp": 50000,
+        "hero": {
+          "lv": 35,
+          "exp": 500,
+          "pts": 102
+        },
+        "ye": {
+          "lv": 32,
+          "exp": 700,
+          "pts": 87,
+          "xpFraction": 0
+        },
+        "high": {
+          "lv": 62,
+          "exp": 4000,
+          "pts": 24,
+          "xpFraction": 0
+        }
+      },
+      {
+        "baseXp": 200000,
+        "hero": {
+          "lv": 69,
+          "exp": 5400,
+          "pts": 204
+        },
+        "ye": {
+          "lv": 65,
+          "exp": 1280,
+          "pts": 186,
+          "xpFraction": 0
+        },
+        "high": {
+          "lv": 83,
+          "exp": 2800,
+          "pts": 87,
+          "xpFraction": 0
+        }
+      }
+    ]
+  },
+  "sharedPool": [
+    {
+      "input": {
+        "lv": 3,
+        "exp": 0,
+        "balance": 6720,
+        "request": 6720
+      },
+      "output": {
+        "cost": 6720,
+        "before": 3,
+        "after": 12,
+        "exp": 420,
+        "points": 27
+      }
+    },
+    {
+      "input": {
+        "lv": 54,
+        "exp": 0,
+        "balance": 6720,
+        "request": 6720
+      },
+      "output": {
+        "cost": 6720,
+        "before": 54,
+        "after": 55,
+        "exp": 1320,
+        "points": 3
+      }
+    }
+  ],
+  "level100RawDiagnostic": {
+    "source": "synthetic legal allocation, not a reachable story save",
+    "initialStats": {
+      "str": 3,
+      "con": 3,
+      "agi": 3,
+      "wil": 3,
+      "wis": 3
+    },
+    "allocation": "297 points round-robin str/con/agi/wil/wis",
+    "stats": {
+      "str": 63,
+      "con": 63,
+      "agi": 62,
+      "wil": 62,
+      "wis": 62
+    },
+    "raw": {
+      "mhp": 2142,
+      "mmp": 1088,
+      "atk": 397,
+      "def": 187,
+      "spd": 62,
+      "crit": 129,
+      "dodge": 93,
+      "block": 30,
+      "move": 14
+    },
+    "foeSingleTargetDodgeInput": 55.8
+  },
+  "validation": {
+    "arithmeticAssertionsPassed": true,
+    "wholeBattleSimulated": false,
+    "fullGameBalanceVerified": false
+  },
+  "actualFunctionVmVerification": {
+    "date": "2026-10-16",
+    "scope": "read-only isolated execution of exact runtime function source; no browser state, no save mutation, not full-game balance test",
+    "sources": [
+      {
+        "path": "xiaojianghu-legacy-prologue/js/menu.js",
+        "sha256": "068d06f2fe8d8f824dd5e59c9d36bb321b647220cc8a66dd329ddb81e7f2fe4a"
+      },
+      {
+        "path": "xiaojianghu-legacy-prologue/js/core.js",
+        "sha256": "8daaf9e0bff81bd8d7a37fa665c61bf393c95fff12137d94e702543e5bcb2399"
+      },
+      {
+        "path": "xiaojianghu-legacy-prologue/js/battle.js",
+        "sha256": "8a42a319a29abaf24a8e1ff5d26640a706ccdcd8242753f3be7ff7e87f305058"
+      },
+      {
+        "path": "xiaojianghu-legacy-prologue/js/bfx.js",
+        "sha256": "ea7147ffc087ade0ec50a9e4d01fbf819873ccf5f4092f1a43fd501e716ae4b0"
+      },
+      {
+        "path": "xiaojianghu-legacy-prologue/js/qihe-ui-model.js",
+        "sha256": "37862befdf503f150a5c796722b38119a7c1cd4c2b0398920650e3a45fd3bf4d"
+      },
+      {
+        "path": "xiaojianghu-legacy-prologue/js/qh-mode-cultivation-martial.js",
+        "sha256": "3ff85e1e1f04b0ac42b6d1d72e8b587fad4caf6a9ba01432fab31eb70907ba10"
+      },
+      {
+        "path": "xiaojianghu-legacy-prologue/js/qihe-cultivation-bridge.js",
+        "sha256": "177c0a96b30be31063422ef624a6c56adf0d4a3bdb778b6144b44e5861e06b7a"
+      }
+    ],
+    "executedSourceSlices": {
+      "mnCap": {
+        "file": "js/menu.js",
+        "start": 34,
+        "end": 34
+      },
+      "derived": {
+        "file": "js/menu.js",
+        "start": 75,
+        "end": 83
+      },
+      "chance": {
+        "file": "js/core.js",
+        "start": 78,
+        "end": 78
+      },
+      "strike": {
+        "file": "js/battle.js",
+        "start": 378,
+        "end": 383
+      }
+    },
+    "allocation": {
+      "startLevel": 1,
+      "endLevel": 100,
+      "startStats": {
+        "str": 3,
+        "con": 3,
+        "agi": 3,
+        "wil": 3,
+        "wis": 3
+      },
+      "pointsPerLevel": 3,
+      "order": [
+        "str",
+        "con",
+        "agi",
+        "wil",
+        "wis"
+      ],
+      "totalPointChecks": 297,
+      "allPerPointChecksPassed": true,
+      "minimumHeadroomAfterAnAllocation": 6,
+      "perLevel": [
+        {
+          "level": 2,
+          "maxAllocatedStat": 4,
+          "cap": 10,
+          "legal": true
+        },
+        {
+          "level": 3,
+          "maxAllocatedStat": 5,
+          "cap": 11,
+          "legal": true
+        },
+        {
+          "level": 4,
+          "maxAllocatedStat": 5,
+          "cap": 12,
+          "legal": true
+        },
+        {
+          "level": 5,
+          "maxAllocatedStat": 6,
+          "cap": 13,
+          "legal": true
+        },
+        {
+          "level": 6,
+          "maxAllocatedStat": 6,
+          "cap": 14,
+          "legal": true
+        },
+        {
+          "level": 7,
+          "maxAllocatedStat": 7,
+          "cap": 15,
+          "legal": true
+        },
+        {
+          "level": 8,
+          "maxAllocatedStat": 8,
+          "cap": 16,
+          "legal": true
+        },
+        {
+          "level": 9,
+          "maxAllocatedStat": 8,
+          "cap": 17,
+          "legal": true
+        },
+        {
+          "level": 10,
+          "maxAllocatedStat": 9,
+          "cap": 18,
+          "legal": true
+        },
+        {
+          "level": 11,
+          "maxAllocatedStat": 9,
+          "cap": 19,
+          "legal": true
+        },
+        {
+          "level": 12,
+          "maxAllocatedStat": 10,
+          "cap": 20,
+          "legal": true
+        },
+        {
+          "level": 13,
+          "maxAllocatedStat": 11,
+          "cap": 21,
+          "legal": true
+        },
+        {
+          "level": 14,
+          "maxAllocatedStat": 11,
+          "cap": 22,
+          "legal": true
+        },
+        {
+          "level": 15,
+          "maxAllocatedStat": 12,
+          "cap": 23,
+          "legal": true
+        },
+        {
+          "level": 16,
+          "maxAllocatedStat": 12,
+          "cap": 24,
+          "legal": true
+        },
+        {
+          "level": 17,
+          "maxAllocatedStat": 13,
+          "cap": 25,
+          "legal": true
+        },
+        {
+          "level": 18,
+          "maxAllocatedStat": 14,
+          "cap": 26,
+          "legal": true
+        },
+        {
+          "level": 19,
+          "maxAllocatedStat": 14,
+          "cap": 27,
+          "legal": true
+        },
+        {
+          "level": 20,
+          "maxAllocatedStat": 15,
+          "cap": 28,
+          "legal": true
+        },
+        {
+          "level": 21,
+          "maxAllocatedStat": 15,
+          "cap": 29,
+          "legal": true
+        },
+        {
+          "level": 22,
+          "maxAllocatedStat": 16,
+          "cap": 30,
+          "legal": true
+        },
+        {
+          "level": 23,
+          "maxAllocatedStat": 17,
+          "cap": 31,
+          "legal": true
+        },
+        {
+          "level": 24,
+          "maxAllocatedStat": 17,
+          "cap": 32,
+          "legal": true
+        },
+        {
+          "level": 25,
+          "maxAllocatedStat": 18,
+          "cap": 33,
+          "legal": true
+        },
+        {
+          "level": 26,
+          "maxAllocatedStat": 18,
+          "cap": 34,
+          "legal": true
+        },
+        {
+          "level": 27,
+          "maxAllocatedStat": 19,
+          "cap": 35,
+          "legal": true
+        },
+        {
+          "level": 28,
+          "maxAllocatedStat": 20,
+          "cap": 36,
+          "legal": true
+        },
+        {
+          "level": 29,
+          "maxAllocatedStat": 20,
+          "cap": 37,
+          "legal": true
+        },
+        {
+          "level": 30,
+          "maxAllocatedStat": 21,
+          "cap": 38,
+          "legal": true
+        },
+        {
+          "level": 31,
+          "maxAllocatedStat": 21,
+          "cap": 39,
+          "legal": true
+        },
+        {
+          "level": 32,
+          "maxAllocatedStat": 22,
+          "cap": 40,
+          "legal": true
+        },
+        {
+          "level": 33,
+          "maxAllocatedStat": 23,
+          "cap": 41,
+          "legal": true
+        },
+        {
+          "level": 34,
+          "maxAllocatedStat": 23,
+          "cap": 42,
+          "legal": true
+        },
+        {
+          "level": 35,
+          "maxAllocatedStat": 24,
+          "cap": 43,
+          "legal": true
+        },
+        {
+          "level": 36,
+          "maxAllocatedStat": 24,
+          "cap": 44,
+          "legal": true
+        },
+        {
+          "level": 37,
+          "maxAllocatedStat": 25,
+          "cap": 45,
+          "legal": true
+        },
+        {
+          "level": 38,
+          "maxAllocatedStat": 26,
+          "cap": 46,
+          "legal": true
+        },
+        {
+          "level": 39,
+          "maxAllocatedStat": 26,
+          "cap": 47,
+          "legal": true
+        },
+        {
+          "level": 40,
+          "maxAllocatedStat": 27,
+          "cap": 48,
+          "legal": true
+        },
+        {
+          "level": 41,
+          "maxAllocatedStat": 27,
+          "cap": 49,
+          "legal": true
+        },
+        {
+          "level": 42,
+          "maxAllocatedStat": 28,
+          "cap": 50,
+          "legal": true
+        },
+        {
+          "level": 43,
+          "maxAllocatedStat": 29,
+          "cap": 51,
+          "legal": true
+        },
+        {
+          "level": 44,
+          "maxAllocatedStat": 29,
+          "cap": 52,
+          "legal": true
+        },
+        {
+          "level": 45,
+          "maxAllocatedStat": 30,
+          "cap": 53,
+          "legal": true
+        },
+        {
+          "level": 46,
+          "maxAllocatedStat": 30,
+          "cap": 54,
+          "legal": true
+        },
+        {
+          "level": 47,
+          "maxAllocatedStat": 31,
+          "cap": 55,
+          "legal": true
+        },
+        {
+          "level": 48,
+          "maxAllocatedStat": 32,
+          "cap": 56,
+          "legal": true
+        },
+        {
+          "level": 49,
+          "maxAllocatedStat": 32,
+          "cap": 57,
+          "legal": true
+        },
+        {
+          "level": 50,
+          "maxAllocatedStat": 33,
+          "cap": 58,
+          "legal": true
+        },
+        {
+          "level": 51,
+          "maxAllocatedStat": 33,
+          "cap": 59,
+          "legal": true
+        },
+        {
+          "level": 52,
+          "maxAllocatedStat": 34,
+          "cap": 60,
+          "legal": true
+        },
+        {
+          "level": 53,
+          "maxAllocatedStat": 35,
+          "cap": 61,
+          "legal": true
+        },
+        {
+          "level": 54,
+          "maxAllocatedStat": 35,
+          "cap": 62,
+          "legal": true
+        },
+        {
+          "level": 55,
+          "maxAllocatedStat": 36,
+          "cap": 63,
+          "legal": true
+        },
+        {
+          "level": 56,
+          "maxAllocatedStat": 36,
+          "cap": 64,
+          "legal": true
+        },
+        {
+          "level": 57,
+          "maxAllocatedStat": 37,
+          "cap": 65,
+          "legal": true
+        },
+        {
+          "level": 58,
+          "maxAllocatedStat": 38,
+          "cap": 66,
+          "legal": true
+        },
+        {
+          "level": 59,
+          "maxAllocatedStat": 38,
+          "cap": 67,
+          "legal": true
+        },
+        {
+          "level": 60,
+          "maxAllocatedStat": 39,
+          "cap": 68,
+          "legal": true
+        },
+        {
+          "level": 61,
+          "maxAllocatedStat": 39,
+          "cap": 69,
+          "legal": true
+        },
+        {
+          "level": 62,
+          "maxAllocatedStat": 40,
+          "cap": 70,
+          "legal": true
+        },
+        {
+          "level": 63,
+          "maxAllocatedStat": 41,
+          "cap": 71,
+          "legal": true
+        },
+        {
+          "level": 64,
+          "maxAllocatedStat": 41,
+          "cap": 72,
+          "legal": true
+        },
+        {
+          "level": 65,
+          "maxAllocatedStat": 42,
+          "cap": 73,
+          "legal": true
+        },
+        {
+          "level": 66,
+          "maxAllocatedStat": 42,
+          "cap": 74,
+          "legal": true
+        },
+        {
+          "level": 67,
+          "maxAllocatedStat": 43,
+          "cap": 75,
+          "legal": true
+        },
+        {
+          "level": 68,
+          "maxAllocatedStat": 44,
+          "cap": 76,
+          "legal": true
+        },
+        {
+          "level": 69,
+          "maxAllocatedStat": 44,
+          "cap": 77,
+          "legal": true
+        },
+        {
+          "level": 70,
+          "maxAllocatedStat": 45,
+          "cap": 78,
+          "legal": true
+        },
+        {
+          "level": 71,
+          "maxAllocatedStat": 45,
+          "cap": 79,
+          "legal": true
+        },
+        {
+          "level": 72,
+          "maxAllocatedStat": 46,
+          "cap": 80,
+          "legal": true
+        },
+        {
+          "level": 73,
+          "maxAllocatedStat": 47,
+          "cap": 81,
+          "legal": true
+        },
+        {
+          "level": 74,
+          "maxAllocatedStat": 47,
+          "cap": 82,
+          "legal": true
+        },
+        {
+          "level": 75,
+          "maxAllocatedStat": 48,
+          "cap": 83,
+          "legal": true
+        },
+        {
+          "level": 76,
+          "maxAllocatedStat": 48,
+          "cap": 84,
+          "legal": true
+        },
+        {
+          "level": 77,
+          "maxAllocatedStat": 49,
+          "cap": 85,
+          "legal": true
+        },
+        {
+          "level": 78,
+          "maxAllocatedStat": 50,
+          "cap": 86,
+          "legal": true
+        },
+        {
+          "level": 79,
+          "maxAllocatedStat": 50,
+          "cap": 87,
+          "legal": true
+        },
+        {
+          "level": 80,
+          "maxAllocatedStat": 51,
+          "cap": 88,
+          "legal": true
+        },
+        {
+          "level": 81,
+          "maxAllocatedStat": 51,
+          "cap": 89,
+          "legal": true
+        },
+        {
+          "level": 82,
+          "maxAllocatedStat": 52,
+          "cap": 90,
+          "legal": true
+        },
+        {
+          "level": 83,
+          "maxAllocatedStat": 53,
+          "cap": 91,
+          "legal": true
+        },
+        {
+          "level": 84,
+          "maxAllocatedStat": 53,
+          "cap": 92,
+          "legal": true
+        },
+        {
+          "level": 85,
+          "maxAllocatedStat": 54,
+          "cap": 93,
+          "legal": true
+        },
+        {
+          "level": 86,
+          "maxAllocatedStat": 54,
+          "cap": 94,
+          "legal": true
+        },
+        {
+          "level": 87,
+          "maxAllocatedStat": 55,
+          "cap": 95,
+          "legal": true
+        },
+        {
+          "level": 88,
+          "maxAllocatedStat": 56,
+          "cap": 96,
+          "legal": true
+        },
+        {
+          "level": 89,
+          "maxAllocatedStat": 56,
+          "cap": 97,
+          "legal": true
+        },
+        {
+          "level": 90,
+          "maxAllocatedStat": 57,
+          "cap": 98,
+          "legal": true
+        },
+        {
+          "level": 91,
+          "maxAllocatedStat": 57,
+          "cap": 99,
+          "legal": true
+        },
+        {
+          "level": 92,
+          "maxAllocatedStat": 58,
+          "cap": 100,
+          "legal": true
+        },
+        {
+          "level": 93,
+          "maxAllocatedStat": 59,
+          "cap": 101,
+          "legal": true
+        },
+        {
+          "level": 94,
+          "maxAllocatedStat": 59,
+          "cap": 102,
+          "legal": true
+        },
+        {
+          "level": 95,
+          "maxAllocatedStat": 60,
+          "cap": 103,
+          "legal": true
+        },
+        {
+          "level": 96,
+          "maxAllocatedStat": 60,
+          "cap": 104,
+          "legal": true
+        },
+        {
+          "level": 97,
+          "maxAllocatedStat": 61,
+          "cap": 105,
+          "legal": true
+        },
+        {
+          "level": 98,
+          "maxAllocatedStat": 62,
+          "cap": 106,
+          "legal": true
+        },
+        {
+          "level": 99,
+          "maxAllocatedStat": 62,
+          "cap": 107,
+          "legal": true
+        },
+        {
+          "level": 100,
+          "maxAllocatedStat": 63,
+          "cap": 108,
+          "legal": true
+        }
+      ],
+      "finalStats": {
+        "str": 63,
+        "con": 63,
+        "agi": 62,
+        "wil": 62,
+        "wis": 62
+      }
+    },
+    "actualDerived": {
+      "mhp": 2142,
+      "mmp": 1088,
+      "atk": 397,
+      "def": 187,
+      "spd": 62,
+      "crit": 129,
+      "dodge": 93,
+      "block": 30,
+      "move": 14,
+      "st": {
+        "str": 63,
+        "con": 63,
+        "agi": 62,
+        "wil": 62,
+        "wis": 62
+      },
+      "fx": {}
+    },
+    "probabilities": {
+      "displayCritPercent": 129,
+      "actualNormalStrikeCritPercent": 100,
+      "displayDodgePercent": 93,
+      "actualEnemyNonAoeDodgePercent": 55.8,
+      "enemyAoeDodgeChecked": false,
+      "explanation": "chance(p) is Math.random()*100 < p; 129 saturates to certainty. Enemy single-target path uses dodge*0.6. Enemy all-target path bypasses this check. No new balancing cap chosen."
+    },
+    "strikeCheck": {
+      "randomValue": 0.999999999,
+      "attack": 397,
+      "targetDefense": 0,
+      "power": 1,
+      "damageVariation": 1,
+      "actualDamage": 596,
+      "expectedDamage": 596,
+      "assertionPassed": true
+    },
+    "reviewedWrappers": [
+      {
+        "file": "js/menu.js",
+        "lines": [
+          241,
+          242
+        ],
+        "effect": "weapon proficiency power multiplier only; no crit cap"
+      },
+      {
+        "file": "js/qh-mode-cultivation-martial.js",
+        "lines": [
+          40
+        ],
+        "effect": "cultivation power multiplier only; no crit cap"
+      },
+      {
+        "file": "js/qihe-cultivation-bridge.js",
+        "lines": [
+          21,
+          26
+        ],
+        "effect": "cultivation bonuses and condition application; no crit cap"
+      }
+    ],
+    "limitations": [
+      "Does not establish a reachable gameplay route to level 100.",
+      "Does not test bespoke fixed-damage/scripted attacks that bypass strike.",
+      "Does not automatically adopt 35% or another probability cap.",
+      "No browser or full battle simulation was run for this addition."
+    ]
+  }
+}

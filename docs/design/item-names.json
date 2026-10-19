@@ -1,0 +1,342 @@
+{
+  "version": "2026-10-06.2",
+  "standard": "docs/design/item-naming-standard.md",
+  "items": {
+    "bun": {
+      "name": "羊肉笼饼",
+      "previous_name": "羊肉馒头",
+      "description": "以羊肉为馅的蒸饼，适合随身备作口粮。香气扑鼻，回复 40 气血。狗子最爱。",
+      "naming": {
+        "meaning": "以羊肉为馅的蒸饼，适合随身备作口粮。香气扑鼻，回复 40 气血。狗子最爱。",
+        "basis": "当前实际物品定义与既有剧情；非新增人物经历",
+        "status": "runtime_current"
+      }
+    },
+    "pill": {
+      "name": "金疮药",
+      "previous_name": "金创药",
+      "description": "行路常备的外伤药。回复 120 气血。",
+      "naming": {
+        "meaning": "行路常备的外伤药。回复 120 气血。",
+        "basis": "当前实际物品定义与既有剧情；非新增人物经历",
+        "status": "runtime_current"
+      }
+    },
+    "wine": {
+      "name": "竹叶青",
+      "previous_name": "竹叶青",
+      "description": "竹叶青酒，盛于随身酒壶。回复 40 内力。",
+      "naming": {
+        "meaning": "竹叶青酒，盛于随身酒壶。回复 40 内力。",
+        "basis": "当前实际物品定义与既有剧情；非新增人物经历",
+        "status": "runtime_current"
+      }
+    },
+    "shovel": {
+      "name": "青铁短铲",
+      "previous_name": "铁铲",
+      "description": "铁制短铲，供近处掘土取物。可在闪光处挖掘。",
+      "naming": {
+        "meaning": "铁制短铲，供近处掘土取物。可在闪光处挖掘。",
+        "basis": "当前实际物品定义与既有剧情；非新增人物经历",
+        "status": "runtime_current"
+      }
+    },
+    "book": {
+      "name": "武学残札",
+      "previous_name": "武学残页",
+      "description": "前人习武留下的手札残篇，须借已有根基参悟。使用后令一门武学升一级。",
+      "naming": {
+        "meaning": "前人习武留下的手札残篇，须借已有根基参悟。使用后令一门武学升一级。",
+        "basis": "当前实际物品定义与既有剧情；非新增人物经历",
+        "status": "runtime_current"
+      }
+    },
+    "gall": {
+      "name": "山蟒胆",
+      "previous_name": "蟒蛇胆",
+      "description": "从山中巨蟒腹内取出的胆囊。服下永久增加 30 内力上限。",
+      "naming": {
+        "meaning": "从山中巨蟒腹内取出的胆囊。服下永久增加 30 内力上限。",
+        "basis": "当前实际物品定义与既有剧情；非新增人物经历",
+        "status": "runtime_current"
+      }
+    },
+    "token": {
+      "name": "黑风腰牌",
+      "previous_name": "黑风令牌",
+      "description": "乌木腰牌，正面烙着「黑风」二字，背面刻一道浪纹。黑风寨的通行令牌——寨门只认牌子。",
+      "naming": {
+        "meaning": "乌木腰牌，正面烙着「黑风」二字，背面刻一道浪纹。黑风寨的通行令牌——寨门只认牌子。",
+        "basis": "当前实际物品定义与既有剧情；非新增人物经历",
+        "status": "runtime_current"
+      }
+    },
+    "wood": {
+      "name": "桃纹木剑",
+      "previous_name": "桃木剑",
+      "description": "桃木制练习剑，木纹清楚、刃缘宽钝。剑类兵器，攻击 +6。",
+      "naming": {
+        "meaning": "桃木制练习剑，木纹清楚、刃缘宽钝。剑类兵器，攻击 +6。",
+        "basis": "当前实际物品定义与既有剧情；非新增人物经历",
+        "status": "runtime_current"
+      }
+    },
+    "iron": {
+      "name": "青锋剑",
+      "previous_name": "精铁剑",
+      "description": "精铁打制的修长剑刃，青锋取其冷亮锋色。剑类兵器，攻击 +14。",
+      "naming": {
+        "meaning": "精铁打制的修长剑刃，青锋取其冷亮锋色。剑类兵器，攻击 +14。",
+        "basis": "当前实际物品定义与既有剧情；非新增人物经历",
+        "status": "runtime_current"
+      }
+    },
+    "rusty": {
+      "name": "井底锈锋",
+      "previous_name": "井底锈剑",
+      "description": "井底寻得的旧剑，锈蚀仍未掩去剑锋。剑类兵器，攻击 +10，暴击 +5%。 剑格上隐约刻着半截龙尾。",
+      "naming": {
+        "meaning": "井底寻得的旧剑，锈蚀仍未掩去剑锋。剑类兵器，攻击 +10，暴击 +5%。 剑格上隐约刻着半截龙尾。",
+        "basis": "当前实际物品定义与既有剧情；非新增人物经历",
+        "status": "runtime_current"
+      }
+    },
+    "cloth": {
+      "name": "素布短衣",
+      "previous_name": "粗布短打",
+      "description": "素色粗布短衣，便于日常行走和练习。防御 +4。",
+      "naming": {
+        "meaning": "素色粗布短衣，便于日常行走和练习。防御 +4。",
+        "basis": "当前实际物品定义与既有剧情；非新增人物经历",
+        "status": "runtime_current"
+      }
+    },
+    "vest": {
+      "name": "熟革软甲",
+      "previous_name": "牛皮软甲",
+      "description": "以熟制牛皮缝成的软甲，仍保留贴身活动余地。防御 +10。",
+      "naming": {
+        "meaning": "以熟制牛皮缝成的软甲，仍保留贴身活动余地。防御 +10。",
+        "basis": "当前实际物品定义与既有剧情；非新增人物经历",
+        "status": "runtime_current"
+      }
+    },
+    "bf_note": {
+      "name": "浪纹密札",
+      "previous_name": "暗号纸条",
+      "description": "从浪里鳅身上搜出的油纸条，歪歪扭扭写着四个字：风起云涌。背面画着一道浪纹。",
+      "naming": {
+        "meaning": "从浪里鳅身上搜出的油纸条，歪歪扭扭写着四个字：风起云涌。背面画着一道浪纹。",
+        "basis": "当前实际物品定义与既有剧情；非新增人物经历",
+        "status": "runtime_current"
+      }
+    },
+    "jieyao": {
+      "name": "青蚨解药",
+      "previous_name": "青蚨散解药",
+      "description": "从疤脸刘怀里搜出的小瓷瓶，瓶底刻着一只青虫。",
+      "naming": {
+        "meaning": "从疤脸刘怀里搜出的小瓷瓶，瓶底刻着一只青虫。",
+        "basis": "当前实际物品定义与既有剧情；非新增人物经历",
+        "status": "runtime_current"
+      }
+    },
+    "ledger": {
+      "name": "铁臂收支簿",
+      "previous_name": "铁臂帮账簿",
+      "description": "「例钱三成，每月初一送东津渡，交黑风寨」——字迹潦草，油渍斑斑。",
+      "naming": {
+        "meaning": "「例钱三成，每月初一送东津渡，交黑风寨」——字迹潦草，油渍斑斑。",
+        "basis": "当前实际物品定义与既有剧情；非新增人物经历",
+        "status": "runtime_current"
+      }
+    },
+    "arrows": {
+      "name": "三棱箭镞",
+      "previous_name": "一捆箭镞",
+      "description": "石铁匠刚淬好的三棱箭镞，用草绳捆着，送城门守门军士。",
+      "naming": {
+        "meaning": "石铁匠刚淬好的三棱箭镞，用草绳捆着，送城门守门军士。",
+        "basis": "当前实际物品定义与既有剧情；非新增人物经历",
+        "status": "runtime_current"
+      }
+    },
+    "shuxia": {
+      "name": "岘山书匣",
+      "previous_name": "说书匣",
+      "description": "说书老伯装书钱的旧木匣，匣盖上刻着「岘山」二字。",
+      "naming": {
+        "meaning": "说书老伯装书钱的旧木匣，匣盖上刻着「岘山」二字。",
+        "basis": "当前实际物品定义与既有剧情；非新增人物经历",
+        "status": "runtime_current"
+      }
+    },
+    "zhupian": {
+      "name": "三痕竹片",
+      "previous_name": "丐帮竹片",
+      "description": "一片磨得发亮的竹片，刻着三道斜痕——丐帮的暗记。",
+      "naming": {
+        "meaning": "一片磨得发亮的竹片，刻着三道斜痕——丐帮的暗记。",
+        "basis": "当前实际物品定义与既有剧情；非新增人物经历",
+        "status": "runtime_current"
+      }
+    },
+    "club": {
+      "name": "枣木短杖",
+      "previous_name": "枣木短棍",
+      "description": "枣木短杖，木质坚韧，既可赶羊，也作棍类入门兵器。",
+      "naming": {
+        "meaning": "枣木短杖，木质坚韧，既可赶羊，也作棍类入门兵器。",
+        "basis": "当前实际物品定义与既有剧情；非新增人物经历",
+        "status": "runtime_current"
+      }
+    },
+    "knife": {
+      "name": "厚背樵刀",
+      "previous_name": "厚背柴刀",
+      "description": "厚背樵刀，原作劈柴用具，刀背厚实。",
+      "naming": {
+        "meaning": "厚背樵刀，原作劈柴用具，刀背厚实。",
+        "basis": "当前实际物品定义与既有剧情；非新增人物经历",
+        "status": "runtime_current"
+      }
+    },
+    "needles": {
+      "name": "素铜针囊",
+      "previous_name": "铜针囊",
+      "description": "素铜针具收在囊中，一囊七枚；既是医家工具，也是暗器兵器。",
+      "naming": {
+        "meaning": "素铜针具收在囊中，一囊七枚；既是医家工具，也是暗器兵器。",
+        "basis": "当前实际物品定义与既有剧情；非新增人物经历",
+        "status": "runtime_current"
+      }
+    },
+    "mianjia": {
+      "name": "絮麻夹衣",
+      "previous_name": "麻布夹袄",
+      "description": "夹层絮麻的短夹衣，取「絮麻」明其填料，挡得住寻常拳脚。",
+      "naming": {
+        "meaning": "夹层絮麻的短夹衣，取「絮麻」明其填料，挡得住寻常拳脚。",
+        "basis": "当前实际物品定义与既有剧情；非新增人物经历",
+        "status": "runtime_current"
+      }
+    },
+    "charm": {
+      "name": "安行符",
+      "previous_name": "平安符",
+      "description": "羊太傅庙求来的黄纸符，取平安行路之意，贴身携带使人心安。",
+      "naming": {
+        "meaning": "羊太傅庙求来的黄纸符，取平安行路之意，贴身携带使人心安。",
+        "basis": "当前实际物品定义与既有剧情；非新增人物经历",
+        "status": "runtime_current"
+      }
+    },
+    "collar": {
+      "name": "铜铃颈环",
+      "previous_name": "铜铃项圈",
+      "description": "带小铜铃的颈环，戴在狗子脖子上正合适。",
+      "naming": {
+        "meaning": "带小铜铃的颈环，戴在狗子脖子上正合适。",
+        "basis": "当前实际物品定义与既有剧情；非新增人物经历",
+        "status": "runtime_current"
+      }
+    },
+    "jade": {
+      "name": "兰纹青佩",
+      "previous_name": "青玉佩",
+      "description": "青玉上雕一枝兰草，故称兰纹青佩；成色一般，贵在雕纹清楚。",
+      "naming": {
+        "meaning": "青玉上雕一枝兰草，故称兰纹青佩；成色一般，贵在雕纹清楚。",
+        "basis": "当前实际物品定义与既有剧情；非新增人物经历",
+        "status": "runtime_current"
+      }
+    },
+    "pelt": {
+      "name": "山狼皮",
+      "previous_name": "狼皮",
+      "description": "山中野狼身上剥下的皮子，铁匠铺按半价收。",
+      "naming": {
+        "meaning": "山中野狼身上剥下的皮子，铁匠铺按半价收。",
+        "basis": "当前实际物品定义与既有剧情；非新增人物经历",
+        "status": "runtime_current"
+      }
+    },
+    "xf_can": {
+      "name": "内息残札",
+      "previous_name": "心法残卷",
+      "description": "前人练功的手札残篇。使用后令一门心法进一层（第二章开放）。",
+      "naming": {
+        "meaning": "前人练功的手札残篇。使用后令一门心法进一层（第二章开放）。",
+        "basis": "当前实际物品定义与既有剧情；非新增人物经历",
+        "status": "runtime_current"
+      }
+    },
+    "canglong_map": {
+      "name": "苍龙白鸟图（上卷）",
+      "previous_name": "苍龙白鸟图（上卷）",
+      "description": "半张羊皮，画着盘龙与展翅的白鸟，边缘密密标着水道记号。另一半不知落在谁手里。",
+      "naming": {
+        "meaning": "半张羊皮，画着盘龙与展翅的白鸟，边缘密密标着水道记号。另一半不知落在谁手里。",
+        "basis": "当前实际物品定义与既有剧情；非新增人物经历",
+        "status": "runtime_current"
+      }
+    },
+    "tea_bowl": {
+      "name": "茶棚旧盏",
+      "previous_name": "老周的茶碗",
+      "description": "柳三娘茶棚的粗陶碗。疤脸刘曾端起来，碗沿还留着茶渍。",
+      "naming": {
+        "meaning": "柳三娘茶棚的粗陶碗。疤脸刘曾端起来，碗沿还留着茶渍。",
+        "basis": "当前实际物品定义与既有剧情；非新增人物经历",
+        "status": "runtime_current"
+      }
+    },
+    "ferry_tag": {
+      "name": "东津渡货签",
+      "previous_name": "东津渡货签",
+      "description": "从黑风寨取回的货签，记录渡口收货日子；毒的制作者仍待追查。",
+      "naming": {
+        "meaning": "从黑风寨取回的货签，记录渡口收货日子；毒的制作者仍待追查。",
+        "basis": "当前实际物品定义与既有剧情；非新增人物经历",
+        "status": "runtime_current"
+      }
+    }
+  },
+  "resources": {
+    "grain": "庖厨食材",
+    "cloth": "素织布料",
+    "herb": "草木药材",
+    "food": "随行干粮",
+    "pouch": "素布行囊"
+  },
+  "preview_only": [
+    "碧络剑",
+    "照晚剑",
+    "归山剑",
+    "封缄信札"
+  ],
+  "high_grade_naming_policy": {
+    "grades": [
+      "甲",
+      "绝"
+    ],
+    "applies_to": "所有具有金色及以上品阶的物品，包含装备、药食、材料、秘籍、工具；剧情证物无品阶",
+    "required_fields": [
+      "meaning",
+      "basis",
+      "design_anchor",
+      "lore_text",
+      "status"
+    ],
+    "production_gate": "meaning/basis/design_anchor/lore_text 缺失则不得进入生成或接入；仅有提案不能当成已实现剧情",
+    "catalog": "docs/design/martial-review/catalog.json"
+  },
+  "resource_descriptions": {
+    "grain": "供炊事练习与日常制作使用的基础食材。",
+    "cloth": "供缝补和制作布包使用的基础布料，与可穿戴短衣分开保管。",
+    "herb": "供辨药、医课与药材交接使用的基础药材。",
+    "food": "便于外出携带的干粮，也是现有可赠送资源。",
+    "pouch": "缝制的日用布囊，可收纳随身杂物，也是现有可赠送资源。"
+  }
+}

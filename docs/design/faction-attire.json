@@ -1,0 +1,238 @@
+{
+  "version": 1,
+  "date": "2026-10-04",
+  "status": "design_contract_with_five_portrait_revision_candidates",
+  "source": "faction-attire.md",
+  "principles": [
+    "每人至少两项非颜色特征，至少一项为剪裁／袖型／衣摆结构",
+    "当前身份与阶段决定能否穿门派衣，驻地和入队不等于入门",
+    "每派共用识别语法，日常／行旅／正式与个人审美保留变化",
+    "纯背景、兵器、换色或贴徽不能替代服装形制",
+    "机器核对字段不等同画面通过，旧图未审不可自动标达标"
+  ],
+  "profiles": {
+    "guiyun": {
+      "silhouette": "短交领练功衣与轻便长裤；前辈可穿松弛直身旧袍，衣摆简洁",
+      "collar_sleeves": "小交领、可束窄袖、竹青单条衣缘；不使用宽幅亮色护腰",
+      "material": "洗净棉麻、素竹、旧木；低光泽",
+      "motif": "衣缘小段断云线或竹节缝线，留大面积素布",
+      "accessories": "手缝布袋、朴素编绳结、保养好的旧器具",
+      "structural_keys": [
+        "compact_training_wrap",
+        "soft_narrow_tied_cuffs"
+      ],
+      "variants": "初学者短衣长裤；外出加轻外衫；师父旧长袍沿相同竹青单缘；不按等级堆珠宝",
+      "name": "归云谷",
+      "palette": "竹青 · 米白 · 旧木棕",
+      "colors": [
+        "#58756a",
+        "#e8ddc5",
+        "#78624e"
+      ]
+    },
+    "white-heron": {
+      "silhouette": "月白为主的轻短外医袍，内层药青；分层针药袋形成医者轮廓",
+      "collar_sleeves": "药青双细缘、窄袖可束腕；外袍开摆方便蹲身诊疗",
+      "material": "易洗棉布、软药囊、小竹筒；不配硬皮束甲",
+      "motif": "一枚小鹇羽与药叶组合放在领缘或针囊；禁止全身铺满花叶纹",
+      "accessories": "分格针囊、布带、小药包；发簪朴素",
+      "structural_keys": [
+        "short_light_medical_overcoat",
+        "washable_tied_narrow_cuffs"
+      ],
+      "variants": "学徒单缘和基础药袋；医师双缘与分格针囊；已明确教习可加第三细缘。依职务，不依年龄自动升级",
+      "name": "白鹇谷",
+      "palette": "月白 · 药青 · 淡金",
+      "colors": [
+        "#eee9dc",
+        "#668d84",
+        "#b5a372"
+      ]
+    },
+    "zhaochuan": {
+      "silhouette": "修身长剑衣与利落分摆，线条纵向、衣摆可随剑步展开",
+      "collar_sleeves": "利落交领、收臂袖与护腕；规整长靴和固定剑带",
+      "material": "细布与少量皮护具；银灰五金，古金仅私人小饰物",
+      "motif": "单段川流剑线或剑脊式衣缘；唐照雪用户指定图为审美基准",
+      "accessories": "剑鞘、整齐剑穗、细剑带；不借医具识别",
+      "structural_keys": [
+        "long_split_sword_coat",
+        "fitted_sword_arm_guards"
+      ],
+      "variants": "练习服收摆；外出剑衣长分摆；正式服加规整衣缘，不增加盔甲",
+      "name": "照川剑派",
+      "palette": "靛蓝 · 银灰 · 霜白",
+      "colors": [
+        "#465b79",
+        "#a3adb1",
+        "#ece9df"
+      ]
+    },
+    "hechuan": {
+      "silhouette": "赭红短褂、分裤或宽松练功长裤，露出清楚发力肩线",
+      "collar_sleeves": "短袖或可卷袖、层叠布绑手、结实窄腰带",
+      "material": "粗棉、麻绳与磨旧护具；干净、有修补",
+      "motif": "双绳结或折角缝线只在腰带／护腕出现",
+      "accessories": "绑手、绳套、补缝护具；不使用飘逸长袖",
+      "structural_keys": [
+        "short_boxy_fist_jacket",
+        "layered_fabric_wrist_wraps"
+      ],
+      "variants": "教习可长外衫但保留绑手；训练减层；接护运加工作护具",
+      "name": "合川拳门",
+      "palette": "赭红 · 麻褐 · 铁灰",
+      "colors": [
+        "#a25843",
+        "#aa9473",
+        "#5b6160"
+      ]
+    },
+    "songfeng": {
+      "silhouette": "灰绿直身长袍、松褐窄腰绦，纵向平直褶线，轮廓清静",
+      "collar_sleeves": "石白内领、深松绿方形袖口与直襟缘；袖子可束起行脚",
+      "material": "哑光细麻、布履、木簪与竹制图筒",
+      "motif": "一小枝松针放在袖缘或下摆，其余素布；无发光符咒",
+      "accessories": "素木簪、窄腰绦、图筒与行囊；俗家不强制道冠",
+      "structural_keys": [
+        "straight_travel_robes",
+        "rectangular_dark_pine_cuffs"
+      ],
+      "variants": "俗家行脚可束袖；道职沿明确身份配冠；两者共享方袖缘和直身袍，不穿医门短医袍",
+      "name": "松风观",
+      "palette": "灰绿 · 石白 · 松褐",
+      "colors": [
+        "#788679",
+        "#dfddd1",
+        "#716655"
+      ]
+    },
+    "guijintang": {
+      "silhouette": "墨紫暗红叠衣、非对称披袖或短兵行装，精致而有张力",
+      "collar_sleeves": "斜向衣缘、铜扣分段束腰，袖长依交涉／实务变化",
+      "material": "深色织锦和旧铜；适量皮护具；不用全身黑皮甲",
+      "motif": "余烬火舌／折焰线放在衣缘与铜件；不是骷髅和尖刺",
+      "accessories": "细铜链、账签或短兵鞘，依角色身份",
+      "structural_keys": [
+        "asymmetric_ember_layers",
+        "segmented_copper_fastening"
+      ],
+      "variants": "岑霜确认稿为交涉衣基准；堂众简化铜件和纹样，不能人人穿堂主同级华服",
+      "name": "归烬堂",
+      "palette": "墨紫 · 暗红 · 铜金",
+      "colors": [
+        "#51405b",
+        "#8f394c",
+        "#b09462"
+      ]
+    },
+    "alliance": {
+      "silhouette": "本部文职用绛青对襟长背心配米白内衫，前襟形成两条清楚纵线",
+      "collar_sleeves": "对襟外层、齐整窄袖内衫，低调文职束腰",
+      "material": "平整布料与少量旧金小件；无剑派重护腕",
+      "motif": "小型合页纹／公议结纹仅在牌绳或衣缘",
+      "accessories": "可拆的公议圆腰牌、文夹、纸笔；来客保留自家衣装",
+      "structural_keys": [
+        "open_front_clerk_long_vest",
+        "detachable_public_council_tag"
+      ],
+      "variants": "统一工作衣只供本部办事者；各派代表在本派服装上加腰牌，不被联盟换籍",
+      "name": "正道盟",
+      "palette": "绛青 · 米白 · 旧金",
+      "colors": [
+        "#536779",
+        "#e7dfca",
+        "#ae9364"
+      ]
+    },
+    "patrol": {
+      "silhouette": "深靛短行衣、侧开短摆、贴腿下装与平整皮具，呈行动与差务轮廓",
+      "collar_sleeves": "窄袖、直线护腕、简短肩带；不使用剑衣长飘摆",
+      "material": "耐磨斜纹布、褐皮、灰铁扣；保持整洁利落",
+      "motif": "短水线／缝线只作组织差务器具设计；协办无官阶纹样",
+      "accessories": "案袋、长棍、素木委办凭牌挂于案袋；正式差役另依确认职务配置",
+      "structural_keys": [
+        "short_duty_coat",
+        "straight_leather_guards_case_harness"
+      ],
+      "variants": "沈雁回属民间委办，用案袋凭牌，无官帽、补子、官阶肩章；正式差役与协办分开",
+      "name": "巡江司",
+      "palette": "深蓝 · 褐皮 · 灰铁",
+      "colors": [
+        "#3c566b",
+        "#846149",
+        "#909b9c"
+      ]
+    },
+    "independent": {
+      "silhouette": "按职业选择短工衣、戏班轻衣、驻楼演出长衣或护送行装，互不套同一轮廓",
+      "collar_sleeves": "工匠卷袖、乐师演出袖、护送者窄袖；遵从具体操作",
+      "material": "按生活选棉麻、演出细布或实用皮件，保留整洁",
+      "motif": "职业细节或个人修补；无统一散人徽记",
+      "accessories": "木刨工具套／戏本／琵琶／修械卷各归其人",
+      "structural_keys": [
+        "occupation_specific_cut",
+        "occupation_specific_tool_attachment"
+      ],
+      "variants": "乔行舟：短青衣、短围布与素工具套；晏小楼：杏黄短披帛、交领贴身上衣、单一A字短裙与隐藏安全短裤；柳含烟：莲粉琵琶衣。各自按职业配置；阮青雀：短打上衣、明确双裤腿高腰布热裤、分段工具带与布囊，无门派徽记；秦绯鸢：按肩点和衣侧固定、连续覆胸的半透明舞者红纱、合体不透明舞衣、前后统一半透明红纱裹裙、连贯腰间褶线与不透明腰胯短衬、花扇，无门派徽记",
+      "name": "市井与江湖散人",
+      "palette": "随职业变化",
+      "colors": [
+        "#b39577",
+        "#776878",
+        "#d2b98f"
+      ]
+    },
+    "xuanzhuhui": {
+      "name": "玄烛会上层",
+      "palette": "暗褐 · 铁灰 · 旧铜",
+      "colors": [
+        "#3d3039",
+        "#616369",
+        "#9b754a"
+      ],
+      "silhouette": "短硬肩行袍与单侧束紧窄袖，腰身平直、分段铜扣，区别分堂交涉长袖",
+      "collar_sleeves": "偏襟短外袍、可活动肩片和束腕袖，不以宽袍拖袖体现上层身份",
+      "material": "耐磨织布、少量旧铜与皮质固定带",
+      "motif": "直属调队牌只用于获授权者，不给会众统一高阶徽记",
+      "accessories": "旧师门刀穗、随行者各自器具；不把普通弟子道具写成全会统御凭证",
+      "structural_keys": [
+        "short_rigid_shoulder_robe",
+        "one_side_bound_sleeve",
+        "segmented_delegation_clasp"
+      ],
+      "variants": "庄按前会主旧弟子与自身追随者关系表现；普通会众用封口信袋与轻便衣，归烬堂沿原衣装"
+    },
+    "court": {
+      "name": "地方官署与守备",
+      "palette": "藏蓝 · 铁灰 · 褐红",
+      "colors": [
+        "#344658",
+        "#62656a",
+        "#895444"
+      ],
+      "silhouette": "军需者直身文袍与文匣，守备者短札护肩与便于登埠的分片战裙；文武分别表现",
+      "collar_sleeves": "文职整齐窄口袖与圆领外袍，武职束袖护臂与可卸甲，不虚构具体官阶补子",
+      "material": "文职平整暗布，守备旧札甲、皮带及防磨布护颈",
+      "motif": "职责牌与营记限本人权限，不作皇权全权符号",
+      "accessories": "承办者案匣／本营令牌／绳具按实际职责分开，严的案匣不作调军道具",
+      "structural_keys": [
+        "civil_document_case_or_lamellar_military",
+        "segmented_military_skirt",
+        "role_limited_court_badge"
+      ],
+      "variants": "严文职追案，梁本营守备候选，普通差役或兵卒按具体场景配置，巡江司保持地方委办合同"
+    }
+  },
+  "protected_current_portraits": {
+    "ye-heng": "初版便衣，当前未入门",
+    "tang-zhaoxue": "用户指定原图，作为照川剑衣审美基准",
+    "cen-shuang": "用户确认原图，作为归烬堂交涉衣审美基准"
+  },
+  "revision_targets": [
+    "su-zhi",
+    "wen-shutong",
+    "xu-lingyi",
+    "shen-yanhui",
+    "qiao-xingzhou"
+  ]
+}

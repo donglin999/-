@@ -1,0 +1,310 @@
+{
+  "version": 1,
+  "date": "2026-10-02",
+  "generation_authorized": true,
+  "scope": "wilderness_encounter_first_slice",
+  "rules": [
+    "docs/design/character-asset-rules.json",
+    "docs/battle-sprite-spec.md",
+    "docs/design/wilderness-encounters.md"
+  ],
+  "assets": [
+    {
+      "id": "enc-bandit-map",
+      "kind": "exploration_sprite",
+      "status": "accepted_visual_runtime",
+      "count": 1,
+      "resource_key": "c_enc_bandit",
+      "group_ids": [
+        "bgate-west-bandits",
+        "bgate-east-bandits"
+      ],
+      "priority": "P0",
+      "spec": {
+        "directions": [
+          "d",
+          "u",
+          "l",
+          "r"
+        ],
+        "frames_per_direction": 4,
+        "total_frames": 16,
+        "display_height_world_px": 92,
+        "format": "transparent WebP",
+        "cell_file_px": [
+          132,
+          141
+        ],
+        "atlas_file_px": [
+          528,
+          564
+        ],
+        "source_grid_px": 3,
+        "palette_colors": 28,
+        "foot_baseline_file_px": 138,
+        "generation_batch_max_poses": 4
+      },
+      "generated_this_task": true,
+      "file": "assets/s_enc_bandit_v1.webp",
+      "production_method": "built_in_imagegen",
+      "sha256": "da0fbd214434ba4b9d9bb0c25242d29f5dec6f5388021f0733e51a3edca9a7e3",
+      "runtime_wired": true,
+      "acceptance": {
+        "numeric": "passed",
+        "runtime": "passed",
+        "evidence": "review/wilderness-assets-v1/"
+      }
+    },
+    {
+      "id": "enc-bandit-combat",
+      "kind": "battle_sprite",
+      "status": "accepted_reuse",
+      "count": 1,
+      "resource_key": "BART.bandit",
+      "group_ids": [
+        "bgate-west-bandits",
+        "bgate-east-bandits"
+      ],
+      "priority": "P0",
+      "spec": {
+        "spec": "docs/battle-sprite-spec.md",
+        "identity": "same_as_enc-bandit-map"
+      },
+      "generated_this_task": false,
+      "file": "assets/b_bandit.webp",
+      "production_method": "existing",
+      "sha256": "7d492b802d06187c8f00fa77a851300dc7aa782c4f346499e8aceefdea909dc5",
+      "runtime_wired": true,
+      "acceptance": {
+        "numeric": "passed",
+        "runtime": "passed",
+        "evidence": "review/wilderness-assets-v1/"
+      }
+    },
+    {
+      "id": "enc-bandit-face",
+      "kind": "portrait",
+      "status": "accepted_reuse",
+      "count": 1,
+      "resource_key": "p_bandit",
+      "group_ids": [
+        "bgate-west-bandits",
+        "bgate-east-bandits"
+      ],
+      "priority": "P1",
+      "spec": {
+        "identity": "same_as_enc-bandit-map"
+      },
+      "generated_this_task": false,
+      "file": "assets/p_bandit.webp",
+      "production_method": "existing",
+      "sha256": "836ec2b41396a91fb34bb841fc65c26ba5d29299d28fe3c5b842f3595e791a07",
+      "runtime_wired": true,
+      "acceptance": {
+        "numeric": "passed",
+        "runtime": "passed",
+        "evidence": "review/wilderness-assets-v1/"
+      }
+    },
+    {
+      "id": "enc-status-sheet",
+      "kind": "ui_atlas",
+      "status": "accepted_visual_runtime",
+      "count": 9,
+      "resource_key": "enc_status_v1",
+      "group_ids": [
+        "bgate-west-bandits",
+        "bgate-east-bandits"
+      ],
+      "priority": "P1",
+      "spec": {
+        "source_cell_px": 64,
+        "display_px": [
+          18,
+          24
+        ],
+        "format": "transparent WebP",
+        "symbols": [
+          "idle",
+          "alert",
+          "chase",
+          "return",
+          "group_count",
+          "risk",
+          "protection"
+        ],
+        "semantic_categories": 7,
+        "cells": [
+          "idle",
+          "alert",
+          "chase",
+          "return",
+          "group_count",
+          "risk_low",
+          "risk_equal",
+          "risk_high",
+          "protection"
+        ]
+      },
+      "generated_this_task": true,
+      "file": "assets/enc_status_v1.webp",
+      "production_method": "code_native_graphics",
+      "sha256": "1c7ed16d9e94b75f392f716490419b5d6c20ecc0faa1077bbda00fbe8878d181",
+      "runtime_wired": true,
+      "acceptance": {
+        "numeric": "passed",
+        "runtime": "passed",
+        "evidence": "review/wilderness-assets-v1/"
+      }
+    },
+    {
+      "id": "enc-alert-sfx",
+      "kind": "audio",
+      "status": "accepted_signal_runtime",
+      "count": 1,
+      "resource_key": "enc_alert_v1",
+      "group_ids": [
+        "bgate-west-bandits",
+        "bgate-east-bandits"
+      ],
+      "priority": "P1",
+      "spec": {
+        "duration_seconds": [
+          0.25,
+          0.5
+        ],
+        "runtime_wired": true
+      },
+      "generated_this_task": true,
+      "file": "assets/audio/enc_alert_v1.mp3",
+      "production_method": "ElevenLabs",
+      "sha256": "09d13a1f423ad06149d705d026a605cee5c18dd894058cc3339af9dc924e719b",
+      "runtime_wired": true,
+      "acceptance": {
+        "numeric": "passed",
+        "runtime": "passed",
+        "evidence": "review/wilderness-assets-v1/",
+        "subjective_timbre": "human_listening_not_certified"
+      }
+    },
+    {
+      "id": "enc-pursuit-sfx",
+      "kind": "audio",
+      "status": "accepted_signal_runtime",
+      "count": 1,
+      "resource_key": "enc_pursuit_v1",
+      "group_ids": [
+        "bgate-west-bandits",
+        "bgate-east-bandits"
+      ],
+      "priority": "P2",
+      "spec": {
+        "duration_seconds": [
+          0.4,
+          0.8
+        ],
+        "runtime_wired": true
+      },
+      "generated_this_task": true,
+      "file": "assets/audio/enc_pursuit_v1.mp3",
+      "production_method": "ElevenLabs",
+      "sha256": "0a00dfc08797ff1989b6a58d12f709016e4fcaf8f2cbd9bc9a56a372854f3baa",
+      "runtime_wired": true,
+      "acceptance": {
+        "numeric": "passed",
+        "runtime": "passed",
+        "evidence": "review/wilderness-assets-v1/",
+        "subjective_timbre": "human_listening_not_certified"
+      }
+    },
+    {
+      "id": "enc-breakaway-sfx",
+      "kind": "audio",
+      "status": "accepted_signal_runtime",
+      "count": 1,
+      "resource_key": "enc_breakaway_v1",
+      "group_ids": [
+        "bgate-west-bandits",
+        "bgate-east-bandits"
+      ],
+      "priority": "P2",
+      "spec": {
+        "duration_seconds": [
+          0.4,
+          0.8
+        ],
+        "runtime_wired": true
+      },
+      "generated_this_task": true,
+      "file": "assets/audio/enc_breakaway_v1.mp3",
+      "production_method": "ElevenLabs",
+      "sha256": "18b4318e99a19db68ec0ac2f29d03e278da888f0d03ca0b25656f5cd4b732614",
+      "runtime_wired": true,
+      "acceptance": {
+        "numeric": "passed",
+        "runtime": "passed",
+        "evidence": "review/wilderness-assets-v1/",
+        "subjective_timbre": "human_listening_not_certified"
+      }
+    },
+    {
+      "id": "enc-bgate-backdrop",
+      "kind": "battle_background",
+      "status": "accepted_visual_runtime",
+      "count": 1,
+      "resource_key": "bg_bandit_gate_day_v1",
+      "group_ids": [
+        "bgate-west-bandits",
+        "bgate-east-bandits"
+      ],
+      "priority": "P0",
+      "spec": {
+        "match_scene": "m_bgate_v2",
+        "generate_per_group": false
+      },
+      "generated_this_task": true,
+      "file": "assets/bg_bandit_gate_day_v1.webp",
+      "production_method": "built_in_imagegen",
+      "sha256": "b75b12711ce3ba70234ee46a96e3c1e2b416a1e9a9821d858b6bb33b6ee3cb6c",
+      "runtime_wired": true,
+      "acceptance": {
+        "numeric": "passed",
+        "runtime": "passed",
+        "evidence": "review/wilderness-assets-v1/"
+      }
+    },
+    {
+      "id": "enc-bgate-world",
+      "kind": "scene",
+      "status": "accepted_reuse",
+      "count": 1,
+      "resource_key": "m_bgate_v2",
+      "group_ids": [
+        "bgate-west-bandits",
+        "bgate-east-bandits"
+      ],
+      "priority": "P0",
+      "spec": {
+        "preserve_collision": true,
+        "preserve_main_route": true
+      },
+      "generated_this_task": false,
+      "file": "assets/m_bgate_v2.webp",
+      "production_method": "existing",
+      "sha256": "9ca2109bb79f6f6f1540f05aedcf74d4d6ec0026f2c76862e5ccd6f00ab62f64",
+      "runtime_wired": true,
+      "acceptance": {
+        "numeric": "passed",
+        "runtime": "passed",
+        "evidence": "review/wilderness-assets-v1/"
+      }
+    }
+  ],
+  "deferred": [
+    "wildlife_requires_map_ecology",
+    "elites_require_character_cards",
+    "ambushes_require_story_scripts",
+    "new_bgm_requires_map_design"
+  ],
+  "acceptance_record": "review/wilderness-assets-v1/README.md"
+}

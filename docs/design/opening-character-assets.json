@@ -1,0 +1,4016 @@
+{
+  "version": 1,
+  "date": "2026-10-04",
+  "scope": "P-01 to C1-12; mountain first night",
+  "status": "implemented_local_verified_pending_live_browser",
+  "rules": "character-asset-rules.json",
+  "notes": [
+    "角色图像验收与地图、CG、完整剧情实装分别记账。",
+    "固定人物重复站姿只兼容切表，不计作行走动画。",
+    "后山山犬的独立教学表现见章节素材表，不复用大黄或灰狼冒充。",
+    "OC.3：新版走跑与初始叶战斗逐项验收，旧版通过不代表新版通过；实际生图原稿和失败候选保留来源。",
+    "OC.4：采用用户确认grid94；原RGB、282格高／264地面、世界92；新源和生产绘制重新验收，浏览器待复测。"
+  ],
+  "characters": [
+    {
+      "character_id": "hero",
+      "stage_id": "hero_modern",
+      "name": "萧白·现代装",
+      "species": "human",
+      "role_type": "player",
+      "joinability": "player",
+      "availability": "current",
+      "recruitment_availability": "current",
+      "combat": true,
+      "combat_side": "ally",
+      "exploration_presence": "on_map",
+      "exploration_motion": "fixed",
+      "story_importance": "core",
+      "services": [],
+      "current_stage": "hero_modern",
+      "planned_stages": [],
+      "chapter_scope": [
+        "P-01",
+        "P-02",
+        "P-03 before borrowed clothes"
+      ],
+      "identity_refs": [
+        "art_sources/opening_characters_20261003/native/hero_modern.png"
+      ],
+      "costume_and_ability_limits": [
+        "开篇为正常现代男性短黑发，耳侧与后颈短；无长发、马尾、发髻或发带。第一章只有数日，借衣后仍保持短发。",
+        "无古装、佩剑、师承；24 岁现代来客。"
+      ],
+      "expression_map": {
+        "neutral": "p_opening_hero_modern",
+        "smile": "p_opening_hero_modern_smile",
+        "worry": "p_opening_hero_modern_worry",
+        "firm": "p_opening_hero_modern_firm",
+        "surprise": "p_opening_hero_modern_surprise",
+        "hurt": "p_opening_hero_modern_hurt"
+      },
+      "pose_definitions": [
+        {
+          "key": "guard_branch",
+          "purpose": "谨慎挡住野犬；原静态立绘保留，实战由独立现代装战斗表表现",
+          "hands": "双手持同一短木杆，杆身位于胸腹前",
+          "gaze": "野犬",
+          "props": "短木杆",
+          "scenes": [
+            "P-02"
+          ],
+          "needs_separate_image": true
+        }
+      ],
+      "needs_story_poses": true,
+      "needs_dedicated_run": false,
+      "assets": [
+        {
+          "id": "hero_modern:identity",
+          "group": "identity",
+          "required": true,
+          "files": [
+            "art_sources/opening_characters_20261003/native/hero_modern.png"
+          ],
+          "status": "accepted",
+          "checks": {
+            "identity": "pass",
+            "stage": "pass",
+            "structure": "pass",
+            "medium": "pass",
+            "display": "pass"
+          },
+          "evidence": "docs/archive/design/opening-character-acceptance.md",
+          "files_sha256": {
+            "art_sources/opening_characters_20261003/native/hero_modern.png": "7f19ae47a80bd10815957bfc1c7c12864bcbe3646563653dc49eeacead902c90"
+          }
+        },
+        {
+          "id": "hero_modern:avatar",
+          "group": "avatar",
+          "required": true,
+          "files": [
+            "assets/a_opening_hero_modern.webp"
+          ],
+          "status": "accepted",
+          "checks": {
+            "identity": "pass",
+            "stage": "pass",
+            "structure": "pass",
+            "medium": "pass",
+            "display": "pass"
+          },
+          "evidence": "docs/archive/design/opening-character-acceptance.md",
+          "files_sha256": {
+            "assets/a_opening_hero_modern.webp": "a55b9fc6828c9c3ee9c52c7ba0c7998160f0115e8ac13d5786b3100ec49e29df"
+          }
+        },
+        {
+          "id": "hero_modern:dialogue_neutral",
+          "group": "dialogue_neutral",
+          "required": true,
+          "files": [
+            "assets/p_opening_hero_modern.webp"
+          ],
+          "status": "accepted",
+          "checks": {
+            "identity": "pass",
+            "stage": "pass",
+            "structure": "pass",
+            "medium": "pass",
+            "display": "pass"
+          },
+          "evidence": "docs/archive/design/opening-character-acceptance.md",
+          "files_sha256": {
+            "assets/p_opening_hero_modern.webp": "217ef31fda3061824803d0f73d27c6ce9b9ce9c5d3f6769cdce4638a474ea251"
+          },
+          "dialogue_evidence": "docs/design/opening-correction-oc4-acceptance.md",
+          "dialogue_live_browser": "pending_access_policy",
+          "dialogue_local_display": "pass_module_and_composition"
+        },
+        {
+          "id": "hero_modern:dialogue_smile",
+          "group": "dialogue_smile",
+          "required": true,
+          "files": [
+            "assets/p_opening_hero_modern_smile.webp"
+          ],
+          "status": "accepted",
+          "checks": {
+            "identity": "pass",
+            "stage": "pass",
+            "structure": "pass",
+            "medium": "pass",
+            "display": "pass"
+          },
+          "evidence": "docs/archive/design/opening-character-acceptance.md",
+          "files_sha256": {
+            "assets/p_opening_hero_modern_smile.webp": "5eb2d1bc864c5810dadae6e9a1cd66aac0bf916fc28aa2d0bb1bcce577503378"
+          },
+          "dialogue_evidence": "docs/design/opening-correction-oc4-acceptance.md",
+          "dialogue_live_browser": "pending_access_policy",
+          "dialogue_local_display": "pass_module_and_composition"
+        },
+        {
+          "id": "hero_modern:dialogue_worry",
+          "group": "dialogue_worry",
+          "required": true,
+          "files": [
+            "assets/p_opening_hero_modern_worry.webp"
+          ],
+          "status": "accepted",
+          "checks": {
+            "identity": "pass",
+            "stage": "pass",
+            "structure": "pass",
+            "medium": "pass",
+            "display": "pass"
+          },
+          "evidence": "docs/archive/design/opening-character-acceptance.md",
+          "files_sha256": {
+            "assets/p_opening_hero_modern_worry.webp": "f43dba3d7539ab42adcbd9ea3206f901d48d476bbc411966831f0504a61f1a80"
+          },
+          "dialogue_evidence": "docs/design/opening-correction-oc4-acceptance.md",
+          "dialogue_live_browser": "pending_access_policy",
+          "dialogue_local_display": "pass_module_and_composition"
+        },
+        {
+          "id": "hero_modern:dialogue_firm",
+          "group": "dialogue_firm",
+          "required": true,
+          "files": [
+            "assets/p_opening_hero_modern_firm.webp"
+          ],
+          "status": "accepted",
+          "checks": {
+            "identity": "pass",
+            "stage": "pass",
+            "structure": "pass",
+            "medium": "pass",
+            "display": "pass"
+          },
+          "evidence": "docs/archive/design/opening-character-acceptance.md",
+          "files_sha256": {
+            "assets/p_opening_hero_modern_firm.webp": "b6790252aea0ec8caed05674cccd3e670c1f931dc1538fc5ecc42ed80e8927a4"
+          },
+          "dialogue_evidence": "docs/design/opening-correction-oc4-acceptance.md",
+          "dialogue_live_browser": "pending_access_policy",
+          "dialogue_local_display": "pass_module_and_composition"
+        },
+        {
+          "id": "hero_modern:dialogue_surprise",
+          "group": "dialogue_surprise",
+          "required": true,
+          "files": [
+            "assets/p_opening_hero_modern_surprise.webp"
+          ],
+          "status": "accepted",
+          "checks": {
+            "identity": "pass",
+            "stage": "pass",
+            "structure": "pass",
+            "medium": "pass",
+            "display": "pass"
+          },
+          "evidence": "docs/archive/design/opening-character-acceptance.md",
+          "files_sha256": {
+            "assets/p_opening_hero_modern_surprise.webp": "4ec8908dfb0e0d26a91b529592f309fb120130eca28a5fb497bfd6ec106db2eb"
+          },
+          "dialogue_evidence": "docs/design/opening-correction-oc4-acceptance.md",
+          "dialogue_live_browser": "pending_access_policy",
+          "dialogue_local_display": "pass_module_and_composition"
+        },
+        {
+          "id": "hero_modern:dialogue_hurt",
+          "group": "dialogue_hurt",
+          "required": true,
+          "files": [
+            "assets/p_opening_hero_modern_hurt.webp"
+          ],
+          "status": "accepted",
+          "checks": {
+            "identity": "pass",
+            "stage": "pass",
+            "structure": "pass",
+            "medium": "pass",
+            "display": "pass"
+          },
+          "evidence": "docs/archive/design/opening-character-acceptance.md",
+          "files_sha256": {
+            "assets/p_opening_hero_modern_hurt.webp": "2d6af064ca69869e8bffc7471c89fbc961773ac4f0c4ae4170559898b7c3ddce"
+          },
+          "dialogue_evidence": "docs/design/opening-correction-oc4-acceptance.md",
+          "dialogue_live_browser": "pending_access_policy",
+          "dialogue_local_display": "pass_module_and_composition"
+        },
+        {
+          "id": "hero_modern:menu_portrait",
+          "group": "menu_portrait",
+          "required": true,
+          "files": [
+            "assets/p_opening_menu_hero_modern.webp"
+          ],
+          "status": "accepted",
+          "checks": {
+            "identity": "pass",
+            "stage": "pass",
+            "structure": "pass",
+            "medium": "pass",
+            "display": "pass"
+          },
+          "evidence": "docs/archive/design/opening-character-acceptance.md",
+          "files_sha256": {
+            "assets/p_opening_menu_hero_modern.webp": "4654f3d80c5c3f0e5138327c0078ced8acd7e12d70766c9e4799c51d755a08d3"
+          }
+        },
+        {
+          "id": "hero_modern:story_pose",
+          "group": "story_pose",
+          "required": true,
+          "files": [
+            "assets/p_opening_hero_modern_guard.webp"
+          ],
+          "status": "accepted",
+          "checks": {
+            "identity": "pass",
+            "stage": "pass",
+            "structure": "pass",
+            "medium": "pass",
+            "display": "pass"
+          },
+          "evidence": "docs/archive/design/opening-character-acceptance.md",
+          "files_sha256": {
+            "assets/p_opening_hero_modern_guard.webp": "7fe80874d45cf9da69e10a41c911f902f513c79adcd1506bffcdd20ddd3665c4"
+          }
+        },
+        {
+          "id": "hero_modern:exploration_fixed",
+          "group": "exploration_fixed",
+          "required": true,
+          "files": [
+            "assets/s_opening_hero_modern_v4.webp"
+          ],
+          "status": "accepted_local_render_pending_live_browser",
+          "checks": {
+            "identity": "pass",
+            "stage": "pass",
+            "structure": "pass",
+            "medium": "pass",
+            "display": "pass_local_production_renderer",
+            "live_browser": "pending_access_policy",
+            "native_high_resolution": "deferred_by_user",
+            "source_export_match": "pass_canonical_RGBA_alpha0_RGB_zeroed"
+          },
+          "evidence": "docs/design/opening-correction-oc4-acceptance.md",
+          "files_sha256": {
+            "assets/s_opening_hero_modern_v4.webp": "faba66032610715e5d9126b30ce6b4ed3cf77ca467744d1a078dc98a70c7cf6e"
+          },
+          "source_record": "art_sources/opening_correction_20261004_4/hero/generation-manifest.json",
+          "source_qa": "art_sources/opening_correction_20261004_4/hero/exploration/hero_modern/stand-qa.json",
+          "resolution": [
+            528,
+            1128
+          ],
+          "runtime_contract": "OC-2026-10-04.4",
+          "pixel_contract": {
+            "logical_cell_height": 94,
+            "logical_body_height": 82,
+            "integer_export": 3,
+            "footY": 264,
+            "world_body_height": 92,
+            "color": "source RGB; no fixed palette/gamma",
+            "QA_distance_unit": "47 equivalent"
+          }
+        },
+        {
+          "id": "hero_modern:party_battle",
+          "group": "party_battle",
+          "required": true,
+          "files": [
+            "assets/b_hero_modern.webp"
+          ],
+          "status": "accepted_functional_test",
+          "checks": {
+            "identity": "pass",
+            "stage": "pass",
+            "structure": "pass",
+            "medium": "pass",
+            "display": "pass",
+            "native_high_resolution": "deferred_by_user"
+          },
+          "evidence": "docs/design/prologue-interactive-acceptance.md",
+          "files_sha256": {
+            "assets/b_hero_modern.webp": "ddaed22bb18934fb859cc6e8fd9f56261d88bf662b1e3581aface15d66742f33"
+          },
+          "source_record": "art_sources/prologue_interactive_20261004/characters/generation-record.json",
+          "runtime_evidence": "docs/archive/design/opening-correction-acceptance.md",
+          "runtime_render": "pass_local_production_renderer",
+          "live_browser": "pending_access_policy"
+        }
+      ],
+      "generation_plan": [
+        {
+          "asset": "hero_modern:identity",
+          "action": "generate_or_derive",
+          "quality": "character-asset-quality.md",
+          "status": "completed_current_art_scope"
+        },
+        {
+          "asset": "hero_modern:avatar",
+          "action": "generate_or_derive",
+          "quality": "character-asset-quality.md",
+          "status": "completed_current_art_scope"
+        },
+        {
+          "asset": "hero_modern:dialogue_neutral",
+          "action": "generate_or_derive",
+          "quality": "character-asset-quality.md",
+          "status": "completed_current_art_scope"
+        },
+        {
+          "asset": "hero_modern:dialogue_smile",
+          "action": "generate_or_derive",
+          "quality": "character-asset-quality.md",
+          "status": "completed_current_art_scope"
+        },
+        {
+          "asset": "hero_modern:dialogue_worry",
+          "action": "generate_or_derive",
+          "quality": "character-asset-quality.md",
+          "status": "completed_current_art_scope"
+        },
+        {
+          "asset": "hero_modern:dialogue_firm",
+          "action": "generate_or_derive",
+          "quality": "character-asset-quality.md",
+          "status": "completed_current_art_scope"
+        },
+        {
+          "asset": "hero_modern:dialogue_surprise",
+          "action": "generate_or_derive",
+          "quality": "character-asset-quality.md",
+          "status": "completed_current_art_scope"
+        },
+        {
+          "asset": "hero_modern:dialogue_hurt",
+          "action": "generate_or_derive",
+          "quality": "character-asset-quality.md",
+          "status": "completed_current_art_scope"
+        },
+        {
+          "asset": "hero_modern:menu_portrait",
+          "action": "generate_or_derive",
+          "quality": "character-asset-quality.md",
+          "status": "completed_current_art_scope"
+        },
+        {
+          "asset": "hero_modern:story_pose",
+          "action": "generate_or_derive",
+          "quality": "character-asset-quality.md",
+          "status": "completed_current_art_scope"
+        },
+        {
+          "asset": "hero_modern:exploration_fixed",
+          "action": "generated_and_packed",
+          "quality": "prologue-interactive-needs.md",
+          "status": "completed_functional_test"
+        },
+        {
+          "asset": "hero_modern:party_battle",
+          "action": "generated_and_packed",
+          "quality": "prologue-interactive-needs.md",
+          "status": "completed_functional_test"
+        },
+        {
+          "asset": "hero_modern:oc3_motion",
+          "action": "generate_and_verify_versioned_art",
+          "quality": "opening-correction-20261004.md",
+          "status": "implemented_local_verified_pending_live_browser"
+        },
+        {
+          "asset": "hero_modern:oc4_motion",
+          "action": "generate_and_verify_rgb94_source_and_production_renderer",
+          "quality": "opening-correction-20261004-oc4.md",
+          "status": "implemented_local_verified_pending_live_browser"
+        }
+      ],
+      "quality_evidence": [
+        "docs/archive/design/opening-character-acceptance.md",
+        "art_sources/opening_characters_20261003/acceptance/runtime.json",
+        "docs/design/prologue-interactive-acceptance.md",
+        "docs/design/opening-correction-20261004.md",
+        "docs/archive/design/opening-correction-acceptance.md",
+        "docs/design/opening-correction-20261004-oc4.md",
+        "docs/design/opening-correction-oc4-acceptance.md",
+        "docs/design/dialogue-staging.md",
+        "docs/archive/design/prologue-battle-teaching.md"
+      ],
+      "presentation": "P-01/P-02后山固定小场景与现有battle临时防御／驱离，P-03换衣前现代装待机；无现代装自由探索、walk或run。",
+      "controls_available": true,
+      "package_scope": "active_stage",
+      "delivery_scope": "oc4_opening_source_and_local_renderer",
+      "runtime_contract": "OC-2026-10-04.4",
+      "exploration_exception": {
+        "authority": "2026-10-04 user instruction",
+        "reason": "fixed-foot opening dialogue + sole CG; no modern-costume walk or run",
+        "spec": "prologue-interactive-needs.md"
+      },
+      "combat_limits": [
+        "standard menu with tutorial locks; temporary defense only; Ye performs drive-away on her own turn",
+        "no permanent skills/equipment/rewards/growth"
+      ],
+      "dialogue_staging": {
+        "contract": "OC-2026-10-04.4",
+        "spec": "docs/design/dialogue-staging.md",
+        "local_evidence": "review/opening-correction-20261004-oc4/dialogue-render.json",
+        "status": "local_module_and_composition_pass",
+        "live_browser": "pending_access_policy"
+      },
+      "character_icons": [
+        {
+          "stage_id": "hero_modern",
+          "required": true,
+          "performance_plan": {
+            "personality_basis": "17 岁异乡来客，观察、肯试错",
+            "variants": [
+              {
+                "expression": "眉微挑，茫然好奇",
+                "pose": "回头张望，一手摸后颈",
+                "props": "无"
+              },
+              {
+                "expression": "嘴角一点不服输的笑",
+                "pose": "双臂抱在胸前",
+                "props": "无"
+              }
+            ]
+          },
+          "reference_portraits": [
+            "xiaojianghu-legacy-prologue/assets/production/portraits/p_opening_hero_modern_hd_20261017.webp"
+          ],
+          "facing": "画面左",
+          "status": "候选，未采用",
+          "source_batch": "xiaojianghu-legacy-prologue/art_sources/char-icons-20261019/",
+          "candidate_ids": [
+            "R2_hero_modern_a",
+            "R2_hero_modern_b"
+          ],
+          "note": "第二轮试生成，待用户评审选定；未登记正式素材、未接入游戏"
+        }
+      ]
+    },
+    {
+      "character_id": "hero",
+      "stage_id": "hero_village",
+      "name": "萧白·借来便衣",
+      "species": "human",
+      "role_type": "player",
+      "joinability": "player",
+      "availability": "current",
+      "recruitment_availability": "current",
+      "combat": true,
+      "combat_side": "ally",
+      "exploration_presence": "on_map",
+      "exploration_motion": "walk_run",
+      "story_importance": "core",
+      "services": [],
+      "current_stage": "hero_village",
+      "planned_stages": [],
+      "chapter_scope": [
+        "P-03",
+        "P-S1",
+        "P-S2",
+        "P-S3",
+        "P-04",
+        "P-05",
+        "C1-00…C1-12"
+      ],
+      "identity_refs": [
+        "art_sources/opening_characters_20261003/native/hero_village.png"
+      ],
+      "costume_and_ability_limits": [
+        "开篇为正常现代男性短黑发，耳侧与后颈短；无长发、马尾、发髻或发带。第一章只有数日，借衣后仍保持短发。",
+        "灰蓝粗布便衣，褐灰束带，无剑、徽记；守路只借用短木杆。"
+      ],
+      "expression_map": {
+        "neutral": "p_opening_hero_village",
+        "smile": "p_opening_hero_village_smile",
+        "worry": "p_opening_hero_village_worry",
+        "firm": "p_opening_hero_village_firm",
+        "surprise": "p_opening_hero_village_surprise",
+        "hurt": "p_opening_hero_village_hurt"
+      },
+      "pose_definitions": [],
+      "needs_story_poses": false,
+      "needs_dedicated_run": true,
+      "assets": [
+        {
+          "id": "hero_village:identity",
+          "group": "identity",
+          "required": true,
+          "files": [
+            "art_sources/opening_characters_20261003/native/hero_village.png"
+          ],
+          "status": "accepted",
+          "checks": {
+            "identity": "pass",
+            "stage": "pass",
+            "structure": "pass",
+            "medium": "pass",
+            "display": "pass"
+          },
+          "evidence": "docs/archive/design/opening-character-acceptance.md",
+          "files_sha256": {
+            "art_sources/opening_characters_20261003/native/hero_village.png": "937dbddad1a26e79d0bb43c3b3cb0e9b060bf66c86f941db595f275cd407f9d7"
+          }
+        },
+        {
+          "id": "hero_village:avatar",
+          "group": "avatar",
+          "required": true,
+          "files": [
+            "assets/a_opening_hero_village.webp"
+          ],
+          "status": "accepted",
+          "checks": {
+            "identity": "pass",
+            "stage": "pass",
+            "structure": "pass",
+            "medium": "pass",
+            "display": "pass"
+          },
+          "evidence": "docs/archive/design/opening-character-acceptance.md",
+          "files_sha256": {
+            "assets/a_opening_hero_village.webp": "aec9c67f514ff7459e673a960815d5286637308217b9259ecbcfb916eb1548a2"
+          }
+        },
+        {
+          "id": "hero_village:dialogue_neutral",
+          "group": "dialogue_neutral",
+          "required": true,
+          "files": [
+            "assets/p_opening_hero_village.webp"
+          ],
+          "status": "accepted",
+          "checks": {
+            "identity": "pass",
+            "stage": "pass",
+            "structure": "pass",
+            "medium": "pass",
+            "display": "pass"
+          },
+          "evidence": "docs/archive/design/opening-character-acceptance.md",
+          "files_sha256": {
+            "assets/p_opening_hero_village.webp": "3d042abbf586cf03f810d8dfac022464986c5096c52d99257b47b19dc87e3e24"
+          },
+          "dialogue_evidence": "docs/design/opening-correction-oc4-acceptance.md",
+          "dialogue_live_browser": "pending_access_policy",
+          "dialogue_local_display": "pass_module_and_composition"
+        },
+        {
+          "id": "hero_village:dialogue_smile",
+          "group": "dialogue_smile",
+          "required": true,
+          "files": [
+            "assets/p_opening_hero_village_smile.webp"
+          ],
+          "status": "accepted",
+          "checks": {
+            "identity": "pass",
+            "stage": "pass",
+            "structure": "pass",
+            "medium": "pass",
+            "display": "pass"
+          },
+          "evidence": "docs/archive/design/opening-character-acceptance.md",
+          "files_sha256": {
+            "assets/p_opening_hero_village_smile.webp": "145f3eea827b46e80178a60592b1f9ba4d17f4be93f72c850ceaf382d943176f"
+          },
+          "dialogue_evidence": "docs/design/opening-correction-oc4-acceptance.md",
+          "dialogue_live_browser": "pending_access_policy",
+          "dialogue_local_display": "pass_module_and_composition"
+        },
+        {
+          "id": "hero_village:dialogue_worry",
+          "group": "dialogue_worry",
+          "required": true,
+          "files": [
+            "assets/p_opening_hero_village_worry.webp"
+          ],
+          "status": "accepted",
+          "checks": {
+            "identity": "pass",
+            "stage": "pass",
+            "structure": "pass",
+            "medium": "pass",
+            "display": "pass"
+          },
+          "evidence": "docs/archive/design/opening-character-acceptance.md",
+          "files_sha256": {
+            "assets/p_opening_hero_village_worry.webp": "6a924d48e5e5742f679734bbf86a23fa63ccdb1cb88d0010237802d28c9365f3"
+          },
+          "dialogue_evidence": "docs/design/opening-correction-oc4-acceptance.md",
+          "dialogue_live_browser": "pending_access_policy",
+          "dialogue_local_display": "pass_module_and_composition"
+        },
+        {
+          "id": "hero_village:dialogue_firm",
+          "group": "dialogue_firm",
+          "required": true,
+          "files": [
+            "assets/p_opening_hero_village_firm.webp"
+          ],
+          "status": "accepted",
+          "checks": {
+            "identity": "pass",
+            "stage": "pass",
+            "structure": "pass",
+            "medium": "pass",
+            "display": "pass"
+          },
+          "evidence": "docs/archive/design/opening-character-acceptance.md",
+          "files_sha256": {
+            "assets/p_opening_hero_village_firm.webp": "18a284c18ef151b27dc43bda5a2d2b20c9cbe01b2c82c06a75acdde59010e6f2"
+          },
+          "dialogue_evidence": "docs/design/opening-correction-oc4-acceptance.md",
+          "dialogue_live_browser": "pending_access_policy",
+          "dialogue_local_display": "pass_module_and_composition"
+        },
+        {
+          "id": "hero_village:dialogue_surprise",
+          "group": "dialogue_surprise",
+          "required": true,
+          "files": [
+            "assets/p_opening_hero_village_surprise.webp"
+          ],
+          "status": "accepted",
+          "checks": {
+            "identity": "pass",
+            "stage": "pass",
+            "structure": "pass",
+            "medium": "pass",
+            "display": "pass"
+          },
+          "evidence": "docs/archive/design/opening-character-acceptance.md",
+          "files_sha256": {
+            "assets/p_opening_hero_village_surprise.webp": "88f9698ac7885466fd1f66e417951ef827b76afa3746d57860a673f72fe4f4c0"
+          },
+          "dialogue_evidence": "docs/design/opening-correction-oc4-acceptance.md",
+          "dialogue_live_browser": "pending_access_policy",
+          "dialogue_local_display": "pass_module_and_composition"
+        },
+        {
+          "id": "hero_village:dialogue_hurt",
+          "group": "dialogue_hurt",
+          "required": true,
+          "files": [
+            "assets/p_opening_hero_village_hurt.webp"
+          ],
+          "status": "accepted",
+          "checks": {
+            "identity": "pass",
+            "stage": "pass",
+            "structure": "pass",
+            "medium": "pass",
+            "display": "pass"
+          },
+          "evidence": "docs/archive/design/opening-character-acceptance.md",
+          "files_sha256": {
+            "assets/p_opening_hero_village_hurt.webp": "fa4aa2da22b5a607790aa47961e121ffcf94b20ace931316c44d0c2a2370e12c"
+          },
+          "dialogue_evidence": "docs/design/opening-correction-oc4-acceptance.md",
+          "dialogue_live_browser": "pending_access_policy",
+          "dialogue_local_display": "pass_module_and_composition"
+        },
+        {
+          "id": "hero_village:menu_portrait",
+          "group": "menu_portrait",
+          "required": true,
+          "files": [
+            "assets/p_opening_menu_hero_village.webp"
+          ],
+          "status": "accepted",
+          "checks": {
+            "identity": "pass",
+            "stage": "pass",
+            "structure": "pass",
+            "medium": "pass",
+            "display": "pass"
+          },
+          "evidence": "docs/archive/design/opening-character-acceptance.md",
+          "files_sha256": {
+            "assets/p_opening_menu_hero_village.webp": "2db629bb2c70e414704beab66fc13f6748cae458f882339d896df61847b85df7"
+          }
+        },
+        {
+          "id": "hero_village:exploration",
+          "group": "exploration",
+          "required": true,
+          "files": [
+            "assets/s_opening_hero_village_v4.webp"
+          ],
+          "status": "accepted_local_render_pending_live_browser",
+          "checks": {
+            "identity": "pass",
+            "stage": "pass",
+            "structure": "pass",
+            "medium": "pass",
+            "display": "pass_local_production_renderer",
+            "live_browser": "pending_access_policy",
+            "native_high_resolution": "deferred_by_user",
+            "source_export_match": "pass_canonical_RGBA_alpha0_RGB_zeroed"
+          },
+          "evidence": "docs/design/opening-correction-oc4-acceptance.md",
+          "files_sha256": {
+            "assets/s_opening_hero_village_v4.webp": "99464fe08fa8dfd1996cb6224cba77cda4d1e0a6179f4e176e8d4a14bd8488f3"
+          },
+          "source_record": "art_sources/opening_correction_20261004_4/hero/generation-manifest.json",
+          "source_qa": "art_sources/opening_correction_20261004_4/hero/exploration/hero_village/stand-qa.json",
+          "resolution": [
+            576,
+            1128
+          ],
+          "runtime_contract": "OC-2026-10-04.4",
+          "pixel_contract": {
+            "logical_cell_height": 94,
+            "logical_body_height": 82,
+            "integer_export": 3,
+            "footY": 264,
+            "world_body_height": 92,
+            "color": "source RGB; no fixed palette/gamma",
+            "QA_distance_unit": "47 equivalent"
+          }
+        },
+        {
+          "id": "hero_village:walk",
+          "group": "walk",
+          "required": true,
+          "files": [
+            "assets/s_opening_hero_village_walk_v4.webp"
+          ],
+          "status": "technical_pass_motion_rework_required",
+          "checks": {
+            "identity": "pass",
+            "stage": "pass",
+            "structure": "pass",
+            "medium": "pass",
+            "display": "pass_local_production_renderer",
+            "live_browser": "pending_access_policy",
+            "native_high_resolution": "deferred_by_user",
+            "source_export_match": "pass_canonical_RGBA_alpha0_RGB_zeroed",
+            "motion_experience": "rejected_by_user_20261004"
+          },
+          "evidence": "docs/design/opening-correction-oc4-acceptance.md",
+          "files_sha256": {
+            "assets/s_opening_hero_village_walk_v4.webp": "dea149017849e9293ef386d43ebcd1411a7376513a064d33882b66a95bfa424d"
+          },
+          "source_record": "art_sources/opening_correction_20261004_4/hero/generation-manifest.json",
+          "source_qa": "art_sources/opening_correction_20261004_4/hero/exploration/hero_village/walk-qa.json",
+          "resolution": [
+            1104,
+            1128
+          ],
+          "runtime_contract": "OC-2026-10-04.4",
+          "pixel_contract": {
+            "logical_cell_height": 94,
+            "logical_body_height": 82,
+            "integer_export": 3,
+            "footY": 264,
+            "world_body_height": 92,
+            "color": "source RGB; no fixed palette/gamma",
+            "QA_distance_unit": "47 equivalent"
+          },
+          "motion_review": "docs/archive/design/map-character-motion-plan.md"
+        },
+        {
+          "id": "hero_village:party_battle",
+          "group": "party_battle",
+          "required": true,
+          "files": [
+            "assets/b_hero_village.webp"
+          ],
+          "status": "accepted",
+          "checks": {
+            "identity": "pass",
+            "stage": "pass",
+            "structure": "pass",
+            "medium": "pass",
+            "display": "pass"
+          },
+          "evidence": "docs/archive/design/opening-character-acceptance.md",
+          "files_sha256": {
+            "assets/b_hero_village.webp": "a4a80f20fff12855075a3d4ccbaa8772748984c303f660961e3769b204fadf98"
+          },
+          "runtime_evidence": "docs/archive/design/opening-correction-acceptance.md",
+          "runtime_render": "pass_local_production_renderer",
+          "live_browser": "pending_access_policy"
+        },
+        {
+          "id": "hero_village:exploration_run",
+          "group": "exploration_run",
+          "required": true,
+          "files": [
+            "assets/s_opening_hero_village_run_v4.webp"
+          ],
+          "status": "technical_pass_motion_rework_required",
+          "checks": {
+            "identity": "pass",
+            "stage": "pass",
+            "structure": "pass",
+            "medium": "pass",
+            "display": "pass_local_production_renderer",
+            "live_browser": "pending_access_policy",
+            "native_high_resolution": "deferred_by_user",
+            "source_export_match": "pass_canonical_RGBA_alpha0_RGB_zeroed",
+            "motion_experience": "rejected_by_user_20261004"
+          },
+          "evidence": "docs/design/opening-correction-oc4-acceptance.md",
+          "source_record": "art_sources/opening_correction_20261004_4/hero/generation-manifest.json",
+          "source_qa": "art_sources/opening_correction_20261004_4/hero/exploration/hero_village/run-qa.json",
+          "files_sha256": {
+            "assets/s_opening_hero_village_run_v4.webp": "d3496082502c2307fb757dd8da52e89b986c1b3f53b9e9790e4df5dc9e468aa2"
+          },
+          "resolution": [
+            1296,
+            1128
+          ],
+          "runtime_contract": "OC-2026-10-04.4",
+          "pixel_contract": {
+            "logical_cell_height": 94,
+            "logical_body_height": 82,
+            "integer_export": 3,
+            "footY": 264,
+            "world_body_height": 92,
+            "color": "source RGB; no fixed palette/gamma",
+            "QA_distance_unit": "47 equivalent"
+          },
+          "motion_review": "docs/archive/design/map-character-motion-plan.md"
+        }
+      ],
+      "generation_plan": [
+        {
+          "asset": "hero_village:identity",
+          "action": "generate_or_derive",
+          "quality": "character-asset-quality.md",
+          "status": "completed_current_art_scope"
+        },
+        {
+          "asset": "hero_village:avatar",
+          "action": "generate_or_derive",
+          "quality": "character-asset-quality.md",
+          "status": "completed_current_art_scope"
+        },
+        {
+          "asset": "hero_village:dialogue_neutral",
+          "action": "generate_or_derive",
+          "quality": "character-asset-quality.md",
+          "status": "completed_current_art_scope"
+        },
+        {
+          "asset": "hero_village:dialogue_smile",
+          "action": "generate_or_derive",
+          "quality": "character-asset-quality.md",
+          "status": "completed_current_art_scope"
+        },
+        {
+          "asset": "hero_village:dialogue_worry",
+          "action": "generate_or_derive",
+          "quality": "character-asset-quality.md",
+          "status": "completed_current_art_scope"
+        },
+        {
+          "asset": "hero_village:dialogue_firm",
+          "action": "generate_or_derive",
+          "quality": "character-asset-quality.md",
+          "status": "completed_current_art_scope"
+        },
+        {
+          "asset": "hero_village:dialogue_surprise",
+          "action": "generate_or_derive",
+          "quality": "character-asset-quality.md",
+          "status": "completed_current_art_scope"
+        },
+        {
+          "asset": "hero_village:dialogue_hurt",
+          "action": "generate_or_derive",
+          "quality": "character-asset-quality.md",
+          "status": "completed_current_art_scope"
+        },
+        {
+          "asset": "hero_village:menu_portrait",
+          "action": "generate_or_derive",
+          "quality": "character-asset-quality.md",
+          "status": "completed_current_art_scope"
+        },
+        {
+          "asset": "hero_village:exploration",
+          "action": "generate_or_derive",
+          "quality": "character-asset-quality.md",
+          "status": "completed_current_art_scope"
+        },
+        {
+          "asset": "hero_village:walk",
+          "action": "generate_or_derive",
+          "quality": "character-asset-quality.md",
+          "status": "completed_current_art_scope"
+        },
+        {
+          "asset": "hero_village:party_battle",
+          "action": "generate_or_derive",
+          "quality": "character-asset-quality.md",
+          "status": "completed_current_art_scope"
+        },
+        {
+          "asset": "hero_village:oc3_motion",
+          "action": "generate_and_verify_versioned_art",
+          "quality": "opening-correction-20261004.md",
+          "status": "implemented_local_verified_pending_live_browser"
+        },
+        {
+          "asset": "hero_village:oc4_motion",
+          "action": "generate_and_verify_rgb94_source_and_production_renderer",
+          "quality": "opening-correction-20261004-oc4.md",
+          "status": "implemented_local_verified_pending_live_browser"
+        }
+      ],
+      "quality_evidence": [
+        "docs/archive/design/opening-character-acceptance.md",
+        "art_sources/opening_characters_20261003/acceptance/runtime.json",
+        "docs/design/opening-correction-20261004.md",
+        "docs/archive/design/opening-correction-acceptance.md",
+        "docs/design/opening-correction-20261004-oc4.md",
+        "docs/design/opening-correction-oc4-acceptance.md",
+        "docs/design/dialogue-staging.md",
+        "docs/archive/design/prologue-battle-teaching.md"
+      ],
+      "controls_available": true,
+      "package_scope": "active_stage",
+      "delivery_scope": "oc4_opening_source_and_local_renderer",
+      "runtime_contract": "OC-2026-10-04.4",
+      "dialogue_staging": {
+        "contract": "OC-2026-10-04.4",
+        "spec": "docs/design/dialogue-staging.md",
+        "local_evidence": "review/opening-correction-20261004-oc4/dialogue-render.json",
+        "status": "local_module_and_composition_pass",
+        "live_browser": "pending_access_policy"
+      },
+      "character_icons": [
+        {
+          "stage_id": "hero_village",
+          "required": true,
+          "performance_plan": {
+            "personality_basis": "渐学承担，开篇用木棍（无剑）",
+            "variants": [
+              {
+                "expression": "咬定的认真神情",
+                "pose": "双手握木棍斜在身前",
+                "props": "木棍"
+              },
+              {
+                "expression": "有点逞强的笑",
+                "pose": "木棍扛在肩上，回头看",
+                "props": "木棍"
+              }
+            ]
+          },
+          "reference_portraits": [
+            "xiaojianghu-legacy-prologue/assets/production/portraits/p_opening_hero_village_hd_20261017.webp"
+          ],
+          "facing": "画面左",
+          "status": "候选，未采用",
+          "source_batch": "xiaojianghu-legacy-prologue/art_sources/char-icons-20261019/",
+          "candidate_ids": [
+            "R2_hero_village_a",
+            "R2_hero_village_b"
+          ],
+          "note": "第二轮试生成，待用户评审选定；未登记正式素材、未接入游戏"
+        }
+      ]
+    },
+    {
+      "character_id": "ye",
+      "stage_id": "ye",
+      "name": "叶蘅",
+      "species": "human",
+      "role_type": "companion",
+      "joinability": "recruitable",
+      "availability": "current",
+      "recruitment_availability": "current",
+      "combat": true,
+      "combat_side": "ally",
+      "exploration_presence": "on_map",
+      "exploration_motion": "walk_run",
+      "story_importance": "core",
+      "services": [],
+      "current_stage": "ye",
+      "planned_stages": [],
+      "chapter_scope": [
+        "P-01…P-05",
+        "C1-00…C1-12"
+      ],
+      "identity_refs": [
+        "assets/p_ye.webp"
+      ],
+      "costume_and_ability_limits": [
+        "初始乡村医者，只有普通照护；不能用攻击针法、归息或归元诀。"
+      ],
+      "expression_map": {
+        "neutral": "p_ye",
+        "smile": "p_ye_smile",
+        "worry": "p_ye_worry",
+        "firm": "p_ye_angry",
+        "surprise": "p_ye_surprise",
+        "hurt": "p_ye_hurt"
+      },
+      "pose_definitions": [],
+      "needs_story_poses": false,
+      "needs_dedicated_run": true,
+      "assets": [
+        {
+          "id": "ye:existing_portraits",
+          "group": "existing_portraits",
+          "required": true,
+          "files": [
+            "assets/p_ye.webp",
+            "assets/p_ye_smile.webp",
+            "assets/p_ye_worry.webp",
+            "assets/p_ye_angry.webp",
+            "assets/p_ye_surprise.webp",
+            "assets/p_ye_hurt.webp",
+            "assets/p_ye_shy.webp"
+          ],
+          "status": "accepted_reuse",
+          "checks": {
+            "identity": "pass",
+            "stage": "pass",
+            "structure": "pass",
+            "medium": "pass",
+            "display": "pass"
+          },
+          "evidence": "docs/archive/design/opening-character-acceptance.md",
+          "files_sha256": {
+            "assets/p_ye.webp": "9ba31d08c56e6a4cdb0ba7c799c7df9345cfa9d63339d2597b4c9c9aa73b9458",
+            "assets/p_ye_smile.webp": "735550b41d98170c8cc9e489678e9808423c8a678d03e0209adc0b9dca660e13",
+            "assets/p_ye_worry.webp": "73fd964e246933ea41cf57ec352ca39ceff5f081c8e813e4802378b8ee450f30",
+            "assets/p_ye_angry.webp": "41a58ff9289b92d7fe0660c2314d563fc3d0ba432f0a6257fca17fad283f7cb2",
+            "assets/p_ye_surprise.webp": "5e21c6a9c653414e9a520e301ba8ac9230fc022d1ce86881c265493f056ca246",
+            "assets/p_ye_hurt.webp": "4396c8b75f583fd7cddd063d03ea7ca4fbd9927c80cfc514dba1927c2c0c9cc1",
+            "assets/p_ye_shy.webp": "d99f1fc996b5e8afd93dd9fac70697ee35feeeb8cd85ff021ee536f44cd4e0aa"
+          },
+          "note": "Existing initial portrait and expressions retained; late b_ye is not the opening battle binding.",
+          "dialogue_evidence": "docs/design/opening-correction-oc4-acceptance.md",
+          "dialogue_live_browser": "pending_access_policy",
+          "dialogue_local_display": "pass_module_and_composition"
+        },
+        {
+          "id": "ye:menu_portrait",
+          "group": "menu_portrait",
+          "required": true,
+          "files": [
+            "assets/p_opening_menu_ye.webp"
+          ],
+          "status": "accepted",
+          "checks": {
+            "identity": "pass",
+            "stage": "pass",
+            "structure": "pass",
+            "medium": "pass",
+            "display": "pass"
+          },
+          "evidence": "docs/archive/design/opening-character-acceptance.md",
+          "files_sha256": {
+            "assets/p_opening_menu_ye.webp": "6cabc1cf9c8895d75248029c04de94e424c990e25793475c4d4c850427b86942"
+          }
+        },
+        {
+          "id": "ye:exploration",
+          "group": "exploration",
+          "required": true,
+          "files": [
+            "assets/s_opening_ye_initial_v4.webp"
+          ],
+          "status": "accepted_local_render_pending_live_browser",
+          "checks": {
+            "identity": "pass",
+            "stage": "pass",
+            "structure": "pass",
+            "medium": "pass",
+            "display": "pass_local_production_renderer",
+            "live_browser": "pending_access_policy",
+            "native_high_resolution": "deferred_by_user",
+            "source_export_match": "pass_canonical_RGBA_alpha0_RGB_zeroed"
+          },
+          "evidence": "docs/design/opening-correction-oc4-acceptance.md",
+          "source_record": "art_sources/opening_correction_20261004_4/ye/generation-manifest.json",
+          "source_qa": "art_sources/opening_correction_20261004_4/ye/exploration/ye_initial/stand-qa.json",
+          "files_sha256": {
+            "assets/s_opening_ye_initial_v4.webp": "6b0cd4101572c19b155f6c11ac3584a5275f72d1e2fc87239f88f66bacbe21b6"
+          },
+          "resolution": [
+            480,
+            1128
+          ],
+          "runtime_contract": "OC-2026-10-04.4",
+          "pixel_contract": {
+            "logical_cell_height": 94,
+            "logical_body_height": 82,
+            "integer_export": 3,
+            "footY": 264,
+            "world_body_height": 92,
+            "color": "source RGB; no fixed palette/gamma",
+            "QA_distance_unit": "47 equivalent"
+          }
+        },
+        {
+          "id": "ye:walk",
+          "group": "walk",
+          "required": true,
+          "files": [
+            "assets/s_opening_ye_initial_walk_v4.webp"
+          ],
+          "status": "technical_pass_motion_rework_required",
+          "checks": {
+            "identity": "pass",
+            "stage": "pass",
+            "structure": "pass",
+            "medium": "pass",
+            "display": "pass_local_production_renderer",
+            "live_browser": "pending_access_policy",
+            "native_high_resolution": "deferred_by_user",
+            "source_export_match": "pass_canonical_RGBA_alpha0_RGB_zeroed",
+            "motion_experience": "rejected_by_user_20261004"
+          },
+          "evidence": "docs/design/opening-correction-oc4-acceptance.md",
+          "source_record": "art_sources/opening_correction_20261004_4/ye/generation-manifest.json",
+          "source_qa": "art_sources/opening_correction_20261004_4/ye/exploration/ye_initial/walk-qa.json",
+          "files_sha256": {
+            "assets/s_opening_ye_initial_walk_v4.webp": "8ba5262c25b6678d929c630f61a5143282a40682f6f8139fcb1cd43be7885a02"
+          },
+          "resolution": [
+            1008,
+            1128
+          ],
+          "runtime_contract": "OC-2026-10-04.4",
+          "pixel_contract": {
+            "logical_cell_height": 94,
+            "logical_body_height": 82,
+            "integer_export": 3,
+            "footY": 264,
+            "world_body_height": 92,
+            "color": "source RGB; no fixed palette/gamma",
+            "QA_distance_unit": "47 equivalent"
+          },
+          "motion_review": "docs/archive/design/map-character-motion-plan.md"
+        },
+        {
+          "id": "ye:party_battle",
+          "group": "party_battle",
+          "required": true,
+          "files": [
+            "assets/b_ye_initial.webp"
+          ],
+          "status": "accepted_local_render_pending_live_browser",
+          "checks": {
+            "identity": "pass",
+            "stage": "pass",
+            "structure": "pass",
+            "medium": "pass",
+            "display": "pass_local_production_renderer",
+            "live_browser": "pending_access_policy",
+            "native_high_resolution": "deferred_by_user"
+          },
+          "evidence": "docs/archive/design/opening-correction-acceptance.md",
+          "source_record": "art_sources/opening_correction_20261004/ye/generation-manifest.json",
+          "source_qa": "art_sources/opening_correction_20261004/ye/battle-acceptance.json",
+          "files_sha256": {
+            "assets/b_ye_initial.webp": "f5aa00409c2a2ac99ed9e48559dc842acf1e0e6a74ace34b47a61b605e9046e6"
+          },
+          "resolution": [
+            5160,
+            204
+          ],
+          "runtime_contract": "OC-2026-10-04.3"
+        },
+        {
+          "id": "ye:exploration_run",
+          "group": "exploration_run",
+          "required": true,
+          "files": [
+            "assets/s_opening_ye_initial_run_v4.webp"
+          ],
+          "status": "technical_pass_motion_rework_required",
+          "checks": {
+            "identity": "pass",
+            "stage": "pass",
+            "structure": "pass",
+            "medium": "pass",
+            "display": "pass_local_production_renderer",
+            "live_browser": "pending_access_policy",
+            "native_high_resolution": "deferred_by_user",
+            "source_export_match": "pass_canonical_RGBA_alpha0_RGB_zeroed",
+            "motion_experience": "rejected_by_user_20261004"
+          },
+          "evidence": "docs/design/opening-correction-oc4-acceptance.md",
+          "source_record": "art_sources/opening_correction_20261004_4/ye/generation-manifest.json",
+          "source_qa": "art_sources/opening_correction_20261004_4/ye/exploration/ye_initial/run-qa.json",
+          "files_sha256": {
+            "assets/s_opening_ye_initial_run_v4.webp": "0b1cbf409dd2793a57d9d088dfafcee4d61e86466aaa9fc6cf3956eece1c60be"
+          },
+          "resolution": [
+            1248,
+            1128
+          ],
+          "runtime_contract": "OC-2026-10-04.4",
+          "pixel_contract": {
+            "logical_cell_height": 94,
+            "logical_body_height": 82,
+            "integer_export": 3,
+            "footY": 264,
+            "world_body_height": 92,
+            "color": "source RGB; no fixed palette/gamma",
+            "QA_distance_unit": "47 equivalent"
+          },
+          "motion_review": "docs/archive/design/map-character-motion-plan.md"
+        }
+      ],
+      "generation_plan": [
+        {
+          "asset": "ye:existing_base_package",
+          "action": "review_reuse",
+          "quality": "character-asset-quality.md",
+          "status": "completed_current_art_scope"
+        },
+        {
+          "asset": "ye:menu_portrait",
+          "action": "generate_or_derive",
+          "quality": "character-asset-quality.md",
+          "status": "completed_current_art_scope"
+        },
+        {
+          "asset": "ye:oc3_motion",
+          "action": "generate_and_verify_versioned_art",
+          "quality": "opening-correction-20261004.md",
+          "status": "implemented_local_verified_pending_live_browser"
+        },
+        {
+          "asset": "ye:oc4_motion",
+          "action": "generate_and_verify_rgb94_source_and_production_renderer",
+          "quality": "opening-correction-20261004-oc4.md",
+          "status": "implemented_local_verified_pending_live_browser"
+        }
+      ],
+      "quality_evidence": [
+        "docs/archive/design/opening-character-acceptance.md",
+        "art_sources/opening_characters_20261003/acceptance/runtime.json",
+        "docs/design/opening-correction-20261004.md",
+        "docs/archive/design/opening-correction-acceptance.md",
+        "docs/design/opening-correction-20261004-oc4.md",
+        "docs/design/opening-correction-oc4-acceptance.md",
+        "docs/design/dialogue-staging.md",
+        "docs/archive/design/prologue-battle-teaching.md"
+      ],
+      "controls_available": true,
+      "package_scope": "active_stage",
+      "delivery_scope": "oc4_opening_source_and_local_renderer",
+      "runtime_contract": "OC-2026-10-04.4",
+      "combat_limits": [
+        "P-02 actual temporary participant; her own drive-away action",
+        "no needle attack, faction skills or permanent buffs in this opening stage"
+      ],
+      "dialogue_staging": {
+        "contract": "OC-2026-10-04.4",
+        "spec": "docs/design/dialogue-staging.md",
+        "local_evidence": "review/opening-correction-20261004-oc4/dialogue-render.json",
+        "status": "local_module_and_composition_pass",
+        "live_browser": "pending_access_policy"
+      },
+      "character_icons": [
+        {
+          "stage_id": "ye",
+          "required": true,
+          "performance_plan": {
+            "personality_basis": "朴素清秀、亲近坚韧、警醒；针具、布带、药袋",
+            "variants": [
+              {
+                "expression": "眼神专注清亮",
+                "pose": "两指拈银针举到颊边",
+                "props": "银针"
+              },
+              {
+                "expression": "侧头微笑",
+                "pose": "手里缠着一段布带，发带被风扬起",
+                "props": "布带"
+              }
+            ]
+          },
+          "reference_portraits": [
+            "xiaojianghu-legacy-prologue/assets/production/portraits/p_ye_hd_20261017.webp"
+          ],
+          "facing": "画面左",
+          "status": "候选，未采用",
+          "source_batch": "xiaojianghu-legacy-prologue/art_sources/char-icons-20261019/",
+          "candidate_ids": [
+            "R2_ye_a",
+            "R2_ye_b"
+          ],
+          "note": "第二轮试生成，待用户评审选定；未登记正式素材、未接入游戏"
+        }
+      ]
+    },
+    {
+      "character_id": "zhouyan",
+      "stage_id": "zhouyan",
+      "name": "周砚",
+      "species": "human",
+      "role_type": "important_npc",
+      "joinability": "none",
+      "availability": "current",
+      "recruitment_availability": "none",
+      "combat": false,
+      "combat_side": "none",
+      "exploration_presence": "on_map",
+      "exploration_motion": "fixed",
+      "story_importance": "recurring",
+      "services": [],
+      "current_stage": "zhouyan",
+      "planned_stages": [],
+      "chapter_scope": [
+        "P-S1",
+        "C1-A5",
+        "C1-01",
+        "C1-04",
+        "C1-05",
+        "C1-07…C1-12"
+      ],
+      "identity_refs": [
+        "art_sources/opening_characters_20261003/native/zhouyan.png"
+      ],
+      "costume_and_ability_limits": [
+        "独立游侠、温行舟旧识；尚未正式收徒，无门派制服。"
+      ],
+      "expression_map": {
+        "neutral": "p_opening_zhouyan",
+        "firm": "p_opening_zhouyan_firm",
+        "worry": "p_opening_zhouyan_worry"
+      },
+      "pose_definitions": [],
+      "needs_story_poses": false,
+      "needs_dedicated_run": false,
+      "assets": [
+        {
+          "id": "zhouyan:identity",
+          "group": "identity",
+          "required": true,
+          "files": [
+            "art_sources/opening_characters_20261003/native/zhouyan.png"
+          ],
+          "status": "accepted",
+          "checks": {
+            "identity": "pass",
+            "stage": "pass",
+            "structure": "pass",
+            "medium": "pass",
+            "display": "pass"
+          },
+          "evidence": "docs/archive/design/opening-character-acceptance.md",
+          "files_sha256": {
+            "art_sources/opening_characters_20261003/native/zhouyan.png": "6784a0b62f3432d710399e0bf0e203ed0948d16c9bba0f9897b5ded418284d72"
+          }
+        },
+        {
+          "id": "zhouyan:avatar",
+          "group": "avatar",
+          "required": true,
+          "files": [
+            "assets/a_opening_zhouyan.webp"
+          ],
+          "status": "accepted",
+          "checks": {
+            "identity": "pass",
+            "stage": "pass",
+            "structure": "pass",
+            "medium": "pass",
+            "display": "pass"
+          },
+          "evidence": "docs/archive/design/opening-character-acceptance.md",
+          "files_sha256": {
+            "assets/a_opening_zhouyan.webp": "e508ec4e47afffc9c93c72b42d3754df0d66872dbe4ce236a84a8575571633ef"
+          }
+        },
+        {
+          "id": "zhouyan:dialogue_neutral",
+          "group": "dialogue_neutral",
+          "required": true,
+          "files": [
+            "assets/p_opening_zhouyan.webp"
+          ],
+          "status": "accepted",
+          "checks": {
+            "identity": "pass",
+            "stage": "pass",
+            "structure": "pass",
+            "medium": "pass",
+            "display": "pass"
+          },
+          "evidence": "docs/archive/design/opening-character-acceptance.md",
+          "files_sha256": {
+            "assets/p_opening_zhouyan.webp": "b43c39bcbe8f8488fadfe05b43175050f9934030f0837fefe2ab915517dc87d2"
+          }
+        },
+        {
+          "id": "zhouyan:dialogue_firm",
+          "group": "dialogue_firm",
+          "required": true,
+          "files": [
+            "assets/p_opening_zhouyan_firm.webp"
+          ],
+          "status": "accepted",
+          "checks": {
+            "identity": "pass",
+            "stage": "pass",
+            "structure": "pass",
+            "medium": "pass",
+            "display": "pass"
+          },
+          "evidence": "docs/archive/design/opening-character-acceptance.md",
+          "files_sha256": {
+            "assets/p_opening_zhouyan_firm.webp": "3cbc530ba13ff70819c06a41340e4ddb99bbdf64e42cb48cee643490fa363e01"
+          }
+        },
+        {
+          "id": "zhouyan:dialogue_worry",
+          "group": "dialogue_worry",
+          "required": true,
+          "files": [
+            "assets/p_opening_zhouyan_worry.webp"
+          ],
+          "status": "accepted",
+          "checks": {
+            "identity": "pass",
+            "stage": "pass",
+            "structure": "pass",
+            "medium": "pass",
+            "display": "pass"
+          },
+          "evidence": "docs/archive/design/opening-character-acceptance.md",
+          "files_sha256": {
+            "assets/p_opening_zhouyan_worry.webp": "e17b9fbf3dd9698e62c95bea8c9116cac4f0964c9477f3fcdd79e447478a23b0"
+          }
+        },
+        {
+          "id": "zhouyan:exploration",
+          "group": "exploration",
+          "required": true,
+          "files": [
+            "assets/s_opening_zhouyan.webp"
+          ],
+          "status": "accepted",
+          "checks": {
+            "identity": "pass",
+            "stage": "pass",
+            "structure": "pass",
+            "medium": "pass",
+            "display": "pass"
+          },
+          "evidence": "docs/archive/design/opening-character-acceptance.md",
+          "files_sha256": {
+            "assets/s_opening_zhouyan.webp": "595ff87d20356eafd96e9289f96a09076cd4fe1d25467b02ad4ecf888d4fbd14"
+          }
+        }
+      ],
+      "generation_plan": [
+        {
+          "asset": "zhouyan:identity",
+          "action": "generate_or_derive",
+          "quality": "character-asset-quality.md",
+          "status": "completed_current_art_scope"
+        },
+        {
+          "asset": "zhouyan:avatar",
+          "action": "generate_or_derive",
+          "quality": "character-asset-quality.md",
+          "status": "completed_current_art_scope"
+        },
+        {
+          "asset": "zhouyan:dialogue_neutral",
+          "action": "generate_or_derive",
+          "quality": "character-asset-quality.md",
+          "status": "completed_current_art_scope"
+        },
+        {
+          "asset": "zhouyan:dialogue_firm",
+          "action": "generate_or_derive",
+          "quality": "character-asset-quality.md",
+          "status": "completed_current_art_scope"
+        },
+        {
+          "asset": "zhouyan:dialogue_worry",
+          "action": "generate_or_derive",
+          "quality": "character-asset-quality.md",
+          "status": "completed_current_art_scope"
+        },
+        {
+          "asset": "zhouyan:exploration",
+          "action": "generate_or_derive",
+          "quality": "character-asset-quality.md",
+          "status": "completed_current_art_scope"
+        }
+      ],
+      "quality_evidence": [
+        "docs/archive/design/opening-character-acceptance.md",
+        "art_sources/opening_characters_20261003/acceptance/runtime.json"
+      ],
+      "controls_available": false,
+      "package_scope": "active_stage",
+      "delivery_scope": "chapter_appearance_and_reused_foundation",
+      "character_icons": []
+    },
+    {
+      "character_id": "luheng",
+      "stage_id": "luheng",
+      "name": "陆衡",
+      "species": "human",
+      "role_type": "companion",
+      "joinability": "recruitable",
+      "availability": "current",
+      "recruitment_availability": "future",
+      "combat": true,
+      "combat_side": "ally",
+      "exploration_presence": "on_map",
+      "exploration_motion": "fixed",
+      "story_importance": "recurring",
+      "services": [],
+      "current_stage": "luheng",
+      "planned_stages": [
+        {
+          "id": "luheng_recruited",
+          "availability": "future",
+          "required": [
+            "menu_portrait",
+            "dialogue_six_semantics",
+            "four_direction_walk",
+            "party_battle"
+          ],
+          "status": "deferred_until_recruitment_scope",
+          "note": "全作分类保持 companion；本章不开入队、菜单和控制功能。未来包未交付，不能声明完整同伴基础包齐备。"
+        }
+      ],
+      "chapter_scope": [
+        "C1-00",
+        "C1-A2",
+        "C1-A4",
+        "C1-03",
+        "C1-06",
+        "C1-09…C1-11"
+      ],
+      "identity_refs": [
+        "art_sources/opening_characters_20261003/native/luheng.png"
+      ],
+      "costume_and_ability_limits": [
+        "本章不可入队；弯刀护运者，临时援助后离开。"
+      ],
+      "expression_map": {
+        "neutral": "p_opening_luheng",
+        "firm": "p_opening_luheng_firm",
+        "worry": "p_opening_luheng_worry"
+      },
+      "pose_definitions": [],
+      "needs_story_poses": false,
+      "needs_dedicated_run": false,
+      "assets": [
+        {
+          "id": "luheng:identity",
+          "group": "identity",
+          "required": true,
+          "files": [
+            "art_sources/opening_characters_20261003/native/luheng.png"
+          ],
+          "status": "accepted",
+          "checks": {
+            "identity": "pass",
+            "stage": "pass",
+            "structure": "pass",
+            "medium": "pass",
+            "display": "pass"
+          },
+          "evidence": "docs/archive/design/opening-character-acceptance.md",
+          "files_sha256": {
+            "art_sources/opening_characters_20261003/native/luheng.png": "433bc39be98de081907da71d9465f9e3005de22ff8255630ab886507992d90ae"
+          }
+        },
+        {
+          "id": "luheng:avatar",
+          "group": "avatar",
+          "required": true,
+          "files": [
+            "assets/a_opening_luheng.webp"
+          ],
+          "status": "accepted",
+          "checks": {
+            "identity": "pass",
+            "stage": "pass",
+            "structure": "pass",
+            "medium": "pass",
+            "display": "pass"
+          },
+          "evidence": "docs/archive/design/opening-character-acceptance.md",
+          "files_sha256": {
+            "assets/a_opening_luheng.webp": "f2277c8c87cab4982711783cb4be53adce0ba8f04c5b1d828090b0dc714c7f8b"
+          }
+        },
+        {
+          "id": "luheng:dialogue_neutral",
+          "group": "dialogue_neutral",
+          "required": true,
+          "files": [
+            "assets/p_opening_luheng.webp"
+          ],
+          "status": "accepted",
+          "checks": {
+            "identity": "pass",
+            "stage": "pass",
+            "structure": "pass",
+            "medium": "pass",
+            "display": "pass"
+          },
+          "evidence": "docs/archive/design/opening-character-acceptance.md",
+          "files_sha256": {
+            "assets/p_opening_luheng.webp": "a3a87595877ab0e7cc10931febfacf41352f377146190eb58b2d0579d2449258"
+          }
+        },
+        {
+          "id": "luheng:dialogue_firm",
+          "group": "dialogue_firm",
+          "required": true,
+          "files": [
+            "assets/p_opening_luheng_firm.webp"
+          ],
+          "status": "accepted",
+          "checks": {
+            "identity": "pass",
+            "stage": "pass",
+            "structure": "pass",
+            "medium": "pass",
+            "display": "pass"
+          },
+          "evidence": "docs/archive/design/opening-character-acceptance.md",
+          "files_sha256": {
+            "assets/p_opening_luheng_firm.webp": "73d23fc3f83a9f50483f77bf1893b5aec959dd2bc0900516f5ecee2f1a35d4ca"
+          }
+        },
+        {
+          "id": "luheng:dialogue_worry",
+          "group": "dialogue_worry",
+          "required": true,
+          "files": [
+            "assets/p_opening_luheng_worry.webp"
+          ],
+          "status": "accepted",
+          "checks": {
+            "identity": "pass",
+            "stage": "pass",
+            "structure": "pass",
+            "medium": "pass",
+            "display": "pass"
+          },
+          "evidence": "docs/archive/design/opening-character-acceptance.md",
+          "files_sha256": {
+            "assets/p_opening_luheng_worry.webp": "d9c20b72a8070f4ae31eaa0614e3691613c3fe5acb80951c338cbdd2a93adffc"
+          }
+        },
+        {
+          "id": "luheng:exploration",
+          "group": "exploration",
+          "required": true,
+          "files": [
+            "assets/s_opening_luheng.webp"
+          ],
+          "status": "accepted",
+          "checks": {
+            "identity": "pass",
+            "stage": "pass",
+            "structure": "pass",
+            "medium": "pass",
+            "display": "pass"
+          },
+          "evidence": "docs/archive/design/opening-character-acceptance.md",
+          "files_sha256": {
+            "assets/s_opening_luheng.webp": "5e51cb60076503ec2ffe79f435de731d43d5c70a7881b83cc6e139fe75fb592c"
+          }
+        },
+        {
+          "id": "luheng:party_battle",
+          "group": "party_battle",
+          "required": true,
+          "files": [
+            "assets/b_luheng.webp"
+          ],
+          "status": "accepted",
+          "checks": {
+            "identity": "pass",
+            "stage": "pass",
+            "structure": "pass",
+            "medium": "pass",
+            "display": "pass"
+          },
+          "evidence": "docs/archive/design/opening-character-acceptance.md",
+          "files_sha256": {
+            "assets/b_luheng.webp": "f50945945060b07cb88e0c85e4336b8a775a47c305bf4d75ddbc500f86a3d4c8"
+          }
+        }
+      ],
+      "generation_plan": [
+        {
+          "asset": "luheng:identity",
+          "action": "generate_or_derive",
+          "quality": "character-asset-quality.md",
+          "status": "completed_current_art_scope"
+        },
+        {
+          "asset": "luheng:avatar",
+          "action": "generate_or_derive",
+          "quality": "character-asset-quality.md",
+          "status": "completed_current_art_scope"
+        },
+        {
+          "asset": "luheng:dialogue_neutral",
+          "action": "generate_or_derive",
+          "quality": "character-asset-quality.md",
+          "status": "completed_current_art_scope"
+        },
+        {
+          "asset": "luheng:dialogue_firm",
+          "action": "generate_or_derive",
+          "quality": "character-asset-quality.md",
+          "status": "completed_current_art_scope"
+        },
+        {
+          "asset": "luheng:dialogue_worry",
+          "action": "generate_or_derive",
+          "quality": "character-asset-quality.md",
+          "status": "completed_current_art_scope"
+        },
+        {
+          "asset": "luheng:exploration",
+          "action": "generate_or_derive",
+          "quality": "character-asset-quality.md",
+          "status": "completed_current_art_scope"
+        },
+        {
+          "asset": "luheng:party_battle",
+          "action": "generate_or_derive",
+          "quality": "character-asset-quality.md",
+          "status": "completed_current_art_scope"
+        }
+      ],
+      "quality_evidence": [
+        "docs/archive/design/opening-character-acceptance.md",
+        "art_sources/opening_characters_20261003/acceptance/runtime.json"
+      ],
+      "current_package": "chapter_appearance_before_recruitment",
+      "controls_available": false,
+      "package_scope": "chapter_appearance_before_recruitment",
+      "delivery_scope": "chapter_appearance_and_reused_foundation",
+      "character_icons": [
+        {
+          "stage_id": "luheng",
+          "required": true,
+          "performance_plan": {
+            "personality_basis": "30 岁，沉稳守诺，护送行装，修补刀鞘",
+            "variants": [
+              {
+                "expression": "目光沉稳直视",
+                "pose": "一手按着修补过的刀鞘",
+                "props": "刀鞘"
+              },
+              {
+                "expression": "嘴角很淡的一点笑",
+                "pose": "略低头，肩上挂一圈绳索",
+                "props": "绳索"
+              }
+            ]
+          },
+          "reference_portraits": [
+            "xiaojianghu-legacy-prologue/assets/production/portraits/p_opening_luheng_hd_20261017.webp"
+          ],
+          "facing": "画面左",
+          "status": "候选，未采用",
+          "source_batch": "xiaojianghu-legacy-prologue/art_sources/char-icons-20261019/",
+          "candidate_ids": [
+            "R2_luheng_a2",
+            "R2_luheng_b2"
+          ],
+          "note": "第二轮试生成，待用户评审选定；未登记正式素材、未接入游戏；成图去掉了兵器描述（含刀鞘字样的提示词被接口拒），是否符合演出方案以评审为准"
+        }
+      ]
+    },
+    {
+      "character_id": "censhuang",
+      "stage_id": "censhuang",
+      "name": "岑霜",
+      "species": "human",
+      "role_type": "companion",
+      "joinability": "recruitable",
+      "availability": "current",
+      "recruitment_availability": "future",
+      "combat": false,
+      "combat_side": "none",
+      "exploration_presence": "none",
+      "exploration_motion": "fixed",
+      "story_importance": "recurring",
+      "services": [],
+      "current_stage": "censhuang",
+      "planned_stages": [
+        {
+          "id": "censhuang_recruited",
+          "availability": "future",
+          "required": [
+            "menu_portrait",
+            "dialogue_six_semantics",
+            "four_direction_walk",
+            "party_battle"
+          ],
+          "status": "deferred_until_recruitment_scope",
+          "note": "全作分类保持 companion；本章不开入队、菜单和控制功能。未来包未交付，不能声明完整同伴基础包齐备。"
+        }
+      ],
+      "chapter_scope": [
+        "C1-02",
+        "C1-04",
+        "C1-05",
+        "C1-08"
+      ],
+      "identity_refs": [
+        "art_sources/opening_characters_20261003/native/censhuang.png"
+      ],
+      "costume_and_ability_limits": [
+        "归烬堂出场者，本章不可招募；当前不参加真实战斗。"
+      ],
+      "expression_map": {
+        "neutral": "p_opening_censhuang",
+        "firm": "p_opening_censhuang_firm",
+        "worry": "p_opening_censhuang_worry"
+      },
+      "pose_definitions": [],
+      "needs_story_poses": false,
+      "needs_dedicated_run": false,
+      "assets": [
+        {
+          "id": "censhuang:identity",
+          "group": "identity",
+          "required": true,
+          "files": [
+            "art_sources/opening_characters_20261003/native/censhuang.png"
+          ],
+          "status": "accepted",
+          "checks": {
+            "identity": "pass",
+            "stage": "pass",
+            "structure": "pass",
+            "medium": "pass",
+            "display": "pass"
+          },
+          "evidence": "docs/archive/design/opening-character-acceptance.md",
+          "files_sha256": {
+            "art_sources/opening_characters_20261003/native/censhuang.png": "2704c40517c2770851552a9d9a7fba97ca6bb7a6abaf271c53813858235dfa84"
+          }
+        },
+        {
+          "id": "censhuang:avatar",
+          "group": "avatar",
+          "required": true,
+          "files": [
+            "assets/a_opening_censhuang.webp"
+          ],
+          "status": "accepted",
+          "checks": {
+            "identity": "pass",
+            "stage": "pass",
+            "structure": "pass",
+            "medium": "pass",
+            "display": "pass"
+          },
+          "evidence": "docs/archive/design/opening-character-acceptance.md",
+          "files_sha256": {
+            "assets/a_opening_censhuang.webp": "eb662f18f3c40e37183fd10284235016ec6c07f544def05cc0e48a94d871e9ea"
+          }
+        },
+        {
+          "id": "censhuang:dialogue_neutral",
+          "group": "dialogue_neutral",
+          "required": true,
+          "files": [
+            "assets/p_opening_censhuang.webp"
+          ],
+          "status": "accepted",
+          "checks": {
+            "identity": "pass",
+            "stage": "pass",
+            "structure": "pass",
+            "medium": "pass",
+            "display": "pass"
+          },
+          "evidence": "docs/archive/design/opening-character-acceptance.md",
+          "files_sha256": {
+            "assets/p_opening_censhuang.webp": "a20711bef4a242ad103f25cdc2ce58b7ea144a282fd0c2385f0e5ff0a2dbbe20"
+          }
+        },
+        {
+          "id": "censhuang:dialogue_firm",
+          "group": "dialogue_firm",
+          "required": true,
+          "files": [
+            "assets/p_opening_censhuang_firm.webp"
+          ],
+          "status": "accepted",
+          "checks": {
+            "identity": "pass",
+            "stage": "pass",
+            "structure": "pass",
+            "medium": "pass",
+            "display": "pass"
+          },
+          "evidence": "docs/archive/design/opening-character-acceptance.md",
+          "files_sha256": {
+            "assets/p_opening_censhuang_firm.webp": "a0cc5a60df4018e5b31abb404f82b7b514306a39a068ed046a81642d16904d59"
+          }
+        },
+        {
+          "id": "censhuang:dialogue_worry",
+          "group": "dialogue_worry",
+          "required": true,
+          "files": [
+            "assets/p_opening_censhuang_worry.webp"
+          ],
+          "status": "accepted",
+          "checks": {
+            "identity": "pass",
+            "stage": "pass",
+            "structure": "pass",
+            "medium": "pass",
+            "display": "pass"
+          },
+          "evidence": "docs/archive/design/opening-character-acceptance.md",
+          "files_sha256": {
+            "assets/p_opening_censhuang_worry.webp": "f32a0ba1568010586e12b9998fc2213027173a9eae8787f57cc9677d24673cd2"
+          }
+        },
+        {
+          "id": "censhuang:four_view_reference",
+          "group": "four_view_reference",
+          "required": false,
+          "files": [
+            "assets/s_opening_censhuang.webp"
+          ],
+          "status": "accepted",
+          "checks": {
+            "identity": "pass",
+            "stage": "pass",
+            "structure": "pass",
+            "medium": "pass",
+            "display": "pass"
+          },
+          "evidence": "docs/archive/design/opening-character-acceptance.md",
+          "files_sha256": {
+            "assets/s_opening_censhuang.webp": "6b6bfd18e84f79b76a33726c7579dcb5a1cd0cf23a21d7884635a858cddd1b38"
+          }
+        }
+      ],
+      "generation_plan": [
+        {
+          "asset": "censhuang:identity",
+          "action": "generate_or_derive",
+          "quality": "character-asset-quality.md",
+          "status": "completed_current_art_scope"
+        },
+        {
+          "asset": "censhuang:avatar",
+          "action": "generate_or_derive",
+          "quality": "character-asset-quality.md",
+          "status": "completed_current_art_scope"
+        },
+        {
+          "asset": "censhuang:dialogue_neutral",
+          "action": "generate_or_derive",
+          "quality": "character-asset-quality.md",
+          "status": "completed_current_art_scope"
+        },
+        {
+          "asset": "censhuang:dialogue_firm",
+          "action": "generate_or_derive",
+          "quality": "character-asset-quality.md",
+          "status": "completed_current_art_scope"
+        },
+        {
+          "asset": "censhuang:dialogue_worry",
+          "action": "generate_or_derive",
+          "quality": "character-asset-quality.md",
+          "status": "completed_current_art_scope"
+        },
+        {
+          "asset": "censhuang:four_view_reference",
+          "action": "generate_or_derive",
+          "quality": "character-asset-quality.md",
+          "status": "completed_current_art_scope"
+        }
+      ],
+      "quality_evidence": [
+        "docs/archive/design/opening-character-acceptance.md",
+        "art_sources/opening_characters_20261003/acceptance/runtime.json"
+      ],
+      "current_package": "chapter_appearance_before_recruitment",
+      "controls_available": false,
+      "package_scope": "chapter_appearance_before_recruitment",
+      "delivery_scope": "chapter_appearance_and_reused_foundation",
+      "character_icons": []
+    },
+    {
+      "character_id": "wukui",
+      "stage_id": "wukui",
+      "name": "乌魁",
+      "species": "human",
+      "role_type": "important_npc",
+      "joinability": "none",
+      "availability": "current",
+      "recruitment_availability": "none",
+      "combat": false,
+      "combat_side": "none",
+      "exploration_presence": "none",
+      "exploration_motion": "fixed",
+      "story_importance": "recurring",
+      "services": [],
+      "current_stage": "wukui",
+      "planned_stages": [],
+      "chapter_scope": [
+        "C1-02",
+        "C1-04"
+      ],
+      "identity_refs": [
+        "art_sources/opening_characters_20261003/native/wukui.png"
+      ],
+      "costume_and_ability_limits": [
+        "具名对立人物；粗布短装、短刀，无夸张头目盔甲。"
+      ],
+      "expression_map": {
+        "neutral": "p_opening_wukui",
+        "firm": "p_opening_wukui_firm",
+        "worry": "p_opening_wukui_worry"
+      },
+      "pose_definitions": [],
+      "needs_story_poses": false,
+      "needs_dedicated_run": false,
+      "assets": [
+        {
+          "id": "wukui:identity",
+          "group": "identity",
+          "required": true,
+          "files": [
+            "art_sources/opening_characters_20261003/native/wukui.png"
+          ],
+          "status": "accepted",
+          "checks": {
+            "identity": "pass",
+            "stage": "pass",
+            "structure": "pass",
+            "medium": "pass",
+            "display": "pass"
+          },
+          "evidence": "docs/archive/design/opening-character-acceptance.md",
+          "files_sha256": {
+            "art_sources/opening_characters_20261003/native/wukui.png": "6e524c0cf424a995f13b5174cbd2aa604811da60f6929f4c1bbdb3e92017f883"
+          }
+        },
+        {
+          "id": "wukui:avatar",
+          "group": "avatar",
+          "required": true,
+          "files": [
+            "assets/a_opening_wukui.webp"
+          ],
+          "status": "accepted",
+          "checks": {
+            "identity": "pass",
+            "stage": "pass",
+            "structure": "pass",
+            "medium": "pass",
+            "display": "pass"
+          },
+          "evidence": "docs/archive/design/opening-character-acceptance.md",
+          "files_sha256": {
+            "assets/a_opening_wukui.webp": "a87fa0197f86a047ad80aa76c219f814bd3b39f2de322eb19a87385feaad1f6f"
+          }
+        },
+        {
+          "id": "wukui:dialogue_neutral",
+          "group": "dialogue_neutral",
+          "required": true,
+          "files": [
+            "assets/p_opening_wukui.webp"
+          ],
+          "status": "accepted",
+          "checks": {
+            "identity": "pass",
+            "stage": "pass",
+            "structure": "pass",
+            "medium": "pass",
+            "display": "pass"
+          },
+          "evidence": "docs/archive/design/opening-character-acceptance.md",
+          "files_sha256": {
+            "assets/p_opening_wukui.webp": "8683f22187f4c833a39d2199c4d71ad1bd6113946304716fea832c40caab497f"
+          }
+        },
+        {
+          "id": "wukui:dialogue_firm",
+          "group": "dialogue_firm",
+          "required": true,
+          "files": [
+            "assets/p_opening_wukui_firm.webp"
+          ],
+          "status": "accepted",
+          "checks": {
+            "identity": "pass",
+            "stage": "pass",
+            "structure": "pass",
+            "medium": "pass",
+            "display": "pass"
+          },
+          "evidence": "docs/archive/design/opening-character-acceptance.md",
+          "files_sha256": {
+            "assets/p_opening_wukui_firm.webp": "0f161835488b007a6e7233491a02fc52e0165196375958f58e23d5b62ef8dda8"
+          }
+        },
+        {
+          "id": "wukui:dialogue_worry",
+          "group": "dialogue_worry",
+          "required": true,
+          "files": [
+            "assets/p_opening_wukui_worry.webp"
+          ],
+          "status": "accepted",
+          "checks": {
+            "identity": "pass",
+            "stage": "pass",
+            "structure": "pass",
+            "medium": "pass",
+            "display": "pass"
+          },
+          "evidence": "docs/archive/design/opening-character-acceptance.md",
+          "files_sha256": {
+            "assets/p_opening_wukui_worry.webp": "66387a0262cb7ada3cf07aae3532d4be1fad405a3d55f48c415b3bff84b6fba8"
+          }
+        },
+        {
+          "id": "wukui:four_view_reference",
+          "group": "four_view_reference",
+          "required": false,
+          "files": [
+            "assets/s_opening_wukui.webp"
+          ],
+          "status": "accepted",
+          "checks": {
+            "identity": "pass",
+            "stage": "pass",
+            "structure": "pass",
+            "medium": "pass",
+            "display": "pass"
+          },
+          "evidence": "docs/archive/design/opening-character-acceptance.md",
+          "files_sha256": {
+            "assets/s_opening_wukui.webp": "b7feb2e8d6956a29f5aa79e3ee80e088d5fb3217c4a4c8da573a083182fa050c"
+          }
+        }
+      ],
+      "generation_plan": [
+        {
+          "asset": "wukui:identity",
+          "action": "generate_or_derive",
+          "quality": "character-asset-quality.md",
+          "status": "completed_current_art_scope"
+        },
+        {
+          "asset": "wukui:avatar",
+          "action": "generate_or_derive",
+          "quality": "character-asset-quality.md",
+          "status": "completed_current_art_scope"
+        },
+        {
+          "asset": "wukui:dialogue_neutral",
+          "action": "generate_or_derive",
+          "quality": "character-asset-quality.md",
+          "status": "completed_current_art_scope"
+        },
+        {
+          "asset": "wukui:dialogue_firm",
+          "action": "generate_or_derive",
+          "quality": "character-asset-quality.md",
+          "status": "completed_current_art_scope"
+        },
+        {
+          "asset": "wukui:dialogue_worry",
+          "action": "generate_or_derive",
+          "quality": "character-asset-quality.md",
+          "status": "completed_current_art_scope"
+        },
+        {
+          "asset": "wukui:four_view_reference",
+          "action": "generate_or_derive",
+          "quality": "character-asset-quality.md",
+          "status": "completed_current_art_scope"
+        }
+      ],
+      "quality_evidence": [
+        "docs/archive/design/opening-character-acceptance.md",
+        "art_sources/opening_characters_20261003/acceptance/runtime.json"
+      ],
+      "controls_available": false,
+      "package_scope": "active_stage",
+      "delivery_scope": "chapter_appearance_and_reused_foundation",
+      "character_icons": []
+    },
+    {
+      "character_id": "chengduo",
+      "stage_id": "chengduo",
+      "name": "程铎",
+      "species": "human",
+      "role_type": "important_npc",
+      "joinability": "none",
+      "availability": "current",
+      "recruitment_availability": "none",
+      "combat": false,
+      "combat_side": "none",
+      "exploration_presence": "none",
+      "exploration_motion": "fixed",
+      "story_importance": "recurring",
+      "services": [],
+      "current_stage": "chengduo",
+      "planned_stages": [],
+      "chapter_scope": [
+        "C1-A5",
+        "C1-04",
+        "C1-05",
+        "C1-08"
+      ],
+      "identity_refs": [
+        "art_sources/opening_characters_20261003/native/chengduo.png"
+      ],
+      "costume_and_ability_limits": [
+        "地方巡检，朴素巡查服与弯刀；不是皇家重甲将领。"
+      ],
+      "expression_map": {
+        "neutral": "p_opening_chengduo",
+        "firm": "p_opening_chengduo_firm",
+        "worry": "p_opening_chengduo_worry"
+      },
+      "pose_definitions": [],
+      "needs_story_poses": false,
+      "needs_dedicated_run": false,
+      "assets": [
+        {
+          "id": "chengduo:identity",
+          "group": "identity",
+          "required": true,
+          "files": [
+            "art_sources/opening_characters_20261003/native/chengduo.png"
+          ],
+          "status": "accepted",
+          "checks": {
+            "identity": "pass",
+            "stage": "pass",
+            "structure": "pass",
+            "medium": "pass",
+            "display": "pass"
+          },
+          "evidence": "docs/archive/design/opening-character-acceptance.md",
+          "files_sha256": {
+            "art_sources/opening_characters_20261003/native/chengduo.png": "e464d5c1ff622dbe4c322cd1e160533bc6c19b048979b1105eb980c12431df67"
+          }
+        },
+        {
+          "id": "chengduo:avatar",
+          "group": "avatar",
+          "required": true,
+          "files": [
+            "assets/a_opening_chengduo.webp"
+          ],
+          "status": "accepted",
+          "checks": {
+            "identity": "pass",
+            "stage": "pass",
+            "structure": "pass",
+            "medium": "pass",
+            "display": "pass"
+          },
+          "evidence": "docs/archive/design/opening-character-acceptance.md",
+          "files_sha256": {
+            "assets/a_opening_chengduo.webp": "37cc2a1401a365d24e2dfb2e0a4959963745c96872705508c95fe6fbbf4d789e"
+          }
+        },
+        {
+          "id": "chengduo:dialogue_neutral",
+          "group": "dialogue_neutral",
+          "required": true,
+          "files": [
+            "assets/p_opening_chengduo.webp"
+          ],
+          "status": "accepted",
+          "checks": {
+            "identity": "pass",
+            "stage": "pass",
+            "structure": "pass",
+            "medium": "pass",
+            "display": "pass"
+          },
+          "evidence": "docs/archive/design/opening-character-acceptance.md",
+          "files_sha256": {
+            "assets/p_opening_chengduo.webp": "24e961398b6c17e509f86a66bb146f8287eea85cebc86354beb8202c200e97b2"
+          }
+        },
+        {
+          "id": "chengduo:dialogue_firm",
+          "group": "dialogue_firm",
+          "required": true,
+          "files": [
+            "assets/p_opening_chengduo_firm.webp"
+          ],
+          "status": "accepted",
+          "checks": {
+            "identity": "pass",
+            "stage": "pass",
+            "structure": "pass",
+            "medium": "pass",
+            "display": "pass"
+          },
+          "evidence": "docs/archive/design/opening-character-acceptance.md",
+          "files_sha256": {
+            "assets/p_opening_chengduo_firm.webp": "10347e1412c107783ef71383213a7fe3cb5951e97ce5e85e8925f423a0f63709"
+          }
+        },
+        {
+          "id": "chengduo:dialogue_worry",
+          "group": "dialogue_worry",
+          "required": true,
+          "files": [
+            "assets/p_opening_chengduo_worry.webp"
+          ],
+          "status": "accepted",
+          "checks": {
+            "identity": "pass",
+            "stage": "pass",
+            "structure": "pass",
+            "medium": "pass",
+            "display": "pass"
+          },
+          "evidence": "docs/archive/design/opening-character-acceptance.md",
+          "files_sha256": {
+            "assets/p_opening_chengduo_worry.webp": "e5851031c0fa69ab2d307a526ce425b5e1e3149ee2e426cc73933ae1e46b1600"
+          }
+        },
+        {
+          "id": "chengduo:four_view_reference",
+          "group": "four_view_reference",
+          "required": false,
+          "files": [
+            "assets/s_opening_chengduo.webp"
+          ],
+          "status": "accepted",
+          "checks": {
+            "identity": "pass",
+            "stage": "pass",
+            "structure": "pass",
+            "medium": "pass",
+            "display": "pass"
+          },
+          "evidence": "docs/archive/design/opening-character-acceptance.md",
+          "files_sha256": {
+            "assets/s_opening_chengduo.webp": "6d5cef4f76e81cc5988bcfc858b04166c9481eb1988274171e1aa66d5c3b89f9"
+          }
+        }
+      ],
+      "generation_plan": [
+        {
+          "asset": "chengduo:identity",
+          "action": "generate_or_derive",
+          "quality": "character-asset-quality.md",
+          "status": "completed_current_art_scope"
+        },
+        {
+          "asset": "chengduo:avatar",
+          "action": "generate_or_derive",
+          "quality": "character-asset-quality.md",
+          "status": "completed_current_art_scope"
+        },
+        {
+          "asset": "chengduo:dialogue_neutral",
+          "action": "generate_or_derive",
+          "quality": "character-asset-quality.md",
+          "status": "completed_current_art_scope"
+        },
+        {
+          "asset": "chengduo:dialogue_firm",
+          "action": "generate_or_derive",
+          "quality": "character-asset-quality.md",
+          "status": "completed_current_art_scope"
+        },
+        {
+          "asset": "chengduo:dialogue_worry",
+          "action": "generate_or_derive",
+          "quality": "character-asset-quality.md",
+          "status": "completed_current_art_scope"
+        },
+        {
+          "asset": "chengduo:four_view_reference",
+          "action": "generate_or_derive",
+          "quality": "character-asset-quality.md",
+          "status": "completed_current_art_scope"
+        }
+      ],
+      "quality_evidence": [
+        "docs/archive/design/opening-character-acceptance.md",
+        "art_sources/opening_characters_20261003/acceptance/runtime.json"
+      ],
+      "controls_available": false,
+      "package_scope": "active_stage",
+      "delivery_scope": "chapter_appearance_and_reused_foundation",
+      "character_icons": []
+    },
+    {
+      "character_id": "aunt",
+      "stage_id": "aunt",
+      "name": "周婶",
+      "species": "human",
+      "role_type": "ordinary_npc",
+      "joinability": "none",
+      "availability": "current",
+      "recruitment_availability": "none",
+      "combat": false,
+      "combat_side": "none",
+      "exploration_presence": "on_map",
+      "exploration_motion": "fixed",
+      "story_importance": "ordinary",
+      "services": [],
+      "current_stage": "aunt",
+      "planned_stages": [],
+      "chapter_scope": [
+        "P-03",
+        "P-S1",
+        "P-S2",
+        "P-S3",
+        "C1-T",
+        "C1-05",
+        "C1-07",
+        "C1-09"
+      ],
+      "identity_refs": [
+        "art_sources/opening_characters_20261003/exploration/aunt/stand-native.png"
+      ],
+      "costume_and_ability_limits": [
+        "村中成年妇人、低髻、褪蓝裙与布围裙；不是男性闲汉。"
+      ],
+      "expression_map": {},
+      "pose_definitions": [],
+      "needs_story_poses": false,
+      "needs_dedicated_run": false,
+      "assets": [
+        {
+          "id": "aunt:appearance_card",
+          "group": "appearance_card",
+          "required": true,
+          "files": [
+            "art_sources/opening_characters_20261003/exploration/aunt/stand-native.png"
+          ],
+          "status": "accepted",
+          "checks": {
+            "identity": "pass",
+            "stage": "pass",
+            "structure": "pass",
+            "medium": "pass",
+            "display": "pass"
+          },
+          "evidence": "docs/archive/design/opening-character-acceptance.md",
+          "files_sha256": {
+            "art_sources/opening_characters_20261003/exploration/aunt/stand-native.png": "50879a99d89dba3e6f066e51caffd21d4ee77cf34acf3f9d3faa3b6582fe5cda"
+          }
+        },
+        {
+          "id": "aunt:exploration",
+          "group": "exploration",
+          "required": true,
+          "files": [
+            "assets/s_opening_aunt.webp"
+          ],
+          "status": "accepted",
+          "checks": {
+            "identity": "pass",
+            "stage": "pass",
+            "structure": "pass",
+            "medium": "pass",
+            "display": "pass"
+          },
+          "evidence": "docs/archive/design/opening-character-acceptance.md",
+          "files_sha256": {
+            "assets/s_opening_aunt.webp": "1ec25efd74ee2f5c90313d2a398e09e0b045e94087acd8045dea7caa5e68bbc6"
+          }
+        },
+        {
+          "id": "aunt:avatar",
+          "group": "avatar",
+          "required": true,
+          "files": [
+            "assets/a_opening_aunt.webp"
+          ],
+          "status": "accepted",
+          "checks": {
+            "identity": "pass",
+            "stage": "pass",
+            "structure": "pass",
+            "medium": "pass",
+            "display": "pass"
+          },
+          "evidence": "docs/archive/design/opening-character-acceptance.md",
+          "files_sha256": {
+            "assets/a_opening_aunt.webp": "f3818c601c66d85223776663f09a6ec8de567e46eaad0afd9aef33d3e74bdcfb"
+          }
+        }
+      ],
+      "generation_plan": [
+        {
+          "asset": "aunt:appearance_card",
+          "action": "generate_or_derive",
+          "quality": "character-asset-quality.md",
+          "status": "completed_current_art_scope"
+        },
+        {
+          "asset": "aunt:exploration",
+          "action": "generate_or_derive",
+          "quality": "character-asset-quality.md",
+          "status": "completed_current_art_scope"
+        },
+        {
+          "asset": "aunt:avatar",
+          "action": "generate_or_derive",
+          "quality": "character-asset-quality.md",
+          "status": "completed_current_art_scope"
+        }
+      ],
+      "quality_evidence": [
+        "docs/archive/design/opening-character-acceptance.md",
+        "art_sources/opening_characters_20261003/acceptance/runtime.json"
+      ],
+      "controls_available": false,
+      "package_scope": "active_stage",
+      "delivery_scope": "chapter_appearance_and_reused_foundation",
+      "character_icons": []
+    },
+    {
+      "character_id": "chen",
+      "stage_id": "chen",
+      "name": "陈伯",
+      "species": "human",
+      "role_type": "ordinary_npc",
+      "joinability": "none",
+      "availability": "current",
+      "recruitment_availability": "none",
+      "combat": false,
+      "combat_side": "none",
+      "exploration_presence": "on_map",
+      "exploration_motion": "fixed",
+      "story_importance": "ordinary",
+      "services": [],
+      "current_stage": "chen",
+      "planned_stages": [],
+      "chapter_scope": [
+        "P-03",
+        "P-S1",
+        "C1-A2",
+        "C1-A6",
+        "C1-05",
+        "C1-07",
+        "C1-09"
+      ],
+      "identity_refs": [
+        "art_sources/opening_characters_20261003/exploration/chen/stand-native.png"
+      ],
+      "costume_and_ability_limits": [
+        "老木匠、花白短须、褐围裙与工具袋；不是村口白须老人。"
+      ],
+      "expression_map": {},
+      "pose_definitions": [],
+      "needs_story_poses": false,
+      "needs_dedicated_run": false,
+      "assets": [
+        {
+          "id": "chen:appearance_card",
+          "group": "appearance_card",
+          "required": true,
+          "files": [
+            "art_sources/opening_characters_20261003/exploration/chen/stand-native.png"
+          ],
+          "status": "accepted",
+          "checks": {
+            "identity": "pass",
+            "stage": "pass",
+            "structure": "pass",
+            "medium": "pass",
+            "display": "pass"
+          },
+          "evidence": "docs/archive/design/opening-character-acceptance.md",
+          "files_sha256": {
+            "art_sources/opening_characters_20261003/exploration/chen/stand-native.png": "82338220749e831c3cc7db1133f8f393e1e17f85dac27ee73d366d6632e8bc08"
+          }
+        },
+        {
+          "id": "chen:exploration",
+          "group": "exploration",
+          "required": true,
+          "files": [
+            "assets/s_opening_chen.webp"
+          ],
+          "status": "accepted",
+          "checks": {
+            "identity": "pass",
+            "stage": "pass",
+            "structure": "pass",
+            "medium": "pass",
+            "display": "pass"
+          },
+          "evidence": "docs/archive/design/opening-character-acceptance.md",
+          "files_sha256": {
+            "assets/s_opening_chen.webp": "fd900eaec3e594ee0969805e1accf96410794ace1197e63fd14c8a70920c9513"
+          }
+        },
+        {
+          "id": "chen:avatar",
+          "group": "avatar",
+          "required": true,
+          "files": [
+            "assets/a_opening_chen.webp"
+          ],
+          "status": "accepted",
+          "checks": {
+            "identity": "pass",
+            "stage": "pass",
+            "structure": "pass",
+            "medium": "pass",
+            "display": "pass"
+          },
+          "evidence": "docs/archive/design/opening-character-acceptance.md",
+          "files_sha256": {
+            "assets/a_opening_chen.webp": "d42a0e2fe64b6d798423119e7d36021d87be5167a7843ec51f6212ff9274d4b3"
+          }
+        }
+      ],
+      "generation_plan": [
+        {
+          "asset": "chen:appearance_card",
+          "action": "generate_or_derive",
+          "quality": "character-asset-quality.md",
+          "status": "completed_current_art_scope"
+        },
+        {
+          "asset": "chen:exploration",
+          "action": "generate_or_derive",
+          "quality": "character-asset-quality.md",
+          "status": "completed_current_art_scope"
+        },
+        {
+          "asset": "chen:avatar",
+          "action": "generate_or_derive",
+          "quality": "character-asset-quality.md",
+          "status": "completed_current_art_scope"
+        }
+      ],
+      "quality_evidence": [
+        "docs/archive/design/opening-character-acceptance.md",
+        "art_sources/opening_characters_20261003/acceptance/runtime.json"
+      ],
+      "controls_available": false,
+      "package_scope": "active_stage",
+      "delivery_scope": "chapter_appearance_and_reused_foundation",
+      "character_icons": []
+    },
+    {
+      "character_id": "apothecary",
+      "stage_id": "apothecary",
+      "name": "药商",
+      "species": "human",
+      "role_type": "ordinary_npc",
+      "joinability": "none",
+      "availability": "current",
+      "recruitment_availability": "none",
+      "combat": false,
+      "combat_side": "none",
+      "exploration_presence": "on_map",
+      "exploration_motion": "fixed",
+      "story_importance": "ordinary",
+      "services": [],
+      "current_stage": "apothecary",
+      "planned_stages": [],
+      "chapter_scope": [
+        "C1-00",
+        "C1-A6"
+      ],
+      "identity_refs": [
+        "art_sources/opening_characters_20261003/exploration/apothecary/stand-native.png"
+      ],
+      "costume_and_ability_limits": [
+        "普通行商，赭衣、闭合药袋；问讯不变成可交易武器商店。"
+      ],
+      "expression_map": {},
+      "pose_definitions": [],
+      "needs_story_poses": false,
+      "needs_dedicated_run": false,
+      "assets": [
+        {
+          "id": "apothecary:appearance_card",
+          "group": "appearance_card",
+          "required": true,
+          "files": [
+            "art_sources/opening_characters_20261003/exploration/apothecary/stand-native.png"
+          ],
+          "status": "accepted",
+          "checks": {
+            "identity": "pass",
+            "stage": "pass",
+            "structure": "pass",
+            "medium": "pass",
+            "display": "pass"
+          },
+          "evidence": "docs/archive/design/opening-character-acceptance.md",
+          "files_sha256": {
+            "art_sources/opening_characters_20261003/exploration/apothecary/stand-native.png": "857753508a78e4468391892914df40127e058ba8b09e621a9397b9a99151c0b7"
+          }
+        },
+        {
+          "id": "apothecary:exploration",
+          "group": "exploration",
+          "required": true,
+          "files": [
+            "assets/s_opening_apothecary.webp"
+          ],
+          "status": "accepted",
+          "checks": {
+            "identity": "pass",
+            "stage": "pass",
+            "structure": "pass",
+            "medium": "pass",
+            "display": "pass"
+          },
+          "evidence": "docs/archive/design/opening-character-acceptance.md",
+          "files_sha256": {
+            "assets/s_opening_apothecary.webp": "fb32becaf87bee4719b0cd54cbdfe68c61eb023519088c32a44123eaacdde8b0"
+          }
+        },
+        {
+          "id": "apothecary:avatar",
+          "group": "avatar",
+          "required": true,
+          "files": [
+            "assets/a_opening_apothecary.webp"
+          ],
+          "status": "accepted",
+          "checks": {
+            "identity": "pass",
+            "stage": "pass",
+            "structure": "pass",
+            "medium": "pass",
+            "display": "pass"
+          },
+          "evidence": "docs/archive/design/opening-character-acceptance.md",
+          "files_sha256": {
+            "assets/a_opening_apothecary.webp": "a179d22d55d3f733be253ab88f7b10797cc886df8fc14d885f579e8281cac2a9"
+          }
+        }
+      ],
+      "generation_plan": [
+        {
+          "asset": "apothecary:appearance_card",
+          "action": "generate_or_derive",
+          "quality": "character-asset-quality.md",
+          "status": "completed_current_art_scope"
+        },
+        {
+          "asset": "apothecary:exploration",
+          "action": "generate_or_derive",
+          "quality": "character-asset-quality.md",
+          "status": "completed_current_art_scope"
+        },
+        {
+          "asset": "apothecary:avatar",
+          "action": "generate_or_derive",
+          "quality": "character-asset-quality.md",
+          "status": "completed_current_art_scope"
+        }
+      ],
+      "quality_evidence": [
+        "docs/archive/design/opening-character-acceptance.md",
+        "art_sources/opening_characters_20261003/acceptance/runtime.json"
+      ],
+      "controls_available": false,
+      "package_scope": "active_stage",
+      "delivery_scope": "chapter_appearance_and_reused_foundation",
+      "character_icons": []
+    },
+    {
+      "character_id": "steward",
+      "stage_id": "steward",
+      "name": "管事",
+      "species": "human",
+      "role_type": "ordinary_npc",
+      "joinability": "none",
+      "availability": "current",
+      "recruitment_availability": "none",
+      "combat": false,
+      "combat_side": "none",
+      "exploration_presence": "none",
+      "exploration_motion": "fixed",
+      "story_importance": "ordinary",
+      "services": [],
+      "current_stage": "steward",
+      "planned_stages": [],
+      "chapter_scope": [
+        "C1-01",
+        "C1-04"
+      ],
+      "identity_refs": [
+        "art_sources/opening_characters_20261003/exploration/steward/stand-native.png"
+      ],
+      "costume_and_ability_limits": [
+        "正道盟普通管事，灰绿长衣；不加未来门派掌门制服。"
+      ],
+      "expression_map": {},
+      "pose_definitions": [],
+      "needs_story_poses": false,
+      "needs_dedicated_run": false,
+      "assets": [
+        {
+          "id": "steward:appearance_card",
+          "group": "appearance_card",
+          "required": true,
+          "files": [
+            "art_sources/opening_characters_20261003/exploration/steward/stand-native.png"
+          ],
+          "status": "accepted",
+          "checks": {
+            "identity": "pass",
+            "stage": "pass",
+            "structure": "pass",
+            "medium": "pass",
+            "display": "pass"
+          },
+          "evidence": "docs/archive/design/opening-character-acceptance.md",
+          "files_sha256": {
+            "art_sources/opening_characters_20261003/exploration/steward/stand-native.png": "ddd9905b7e530ea7335371fdf92a7476762c92fb363308ecbce1e2fe5749be53"
+          }
+        },
+        {
+          "id": "steward:four_view_reference",
+          "group": "four_view_reference",
+          "required": false,
+          "files": [
+            "assets/s_opening_steward.webp"
+          ],
+          "status": "accepted",
+          "checks": {
+            "identity": "pass",
+            "stage": "pass",
+            "structure": "pass",
+            "medium": "pass",
+            "display": "pass"
+          },
+          "evidence": "docs/archive/design/opening-character-acceptance.md",
+          "files_sha256": {
+            "assets/s_opening_steward.webp": "070afac5353663627f5e2ecd2cc6f37eedeca84f8e6c34cdf8dfa64cd3031ac4"
+          }
+        },
+        {
+          "id": "steward:avatar",
+          "group": "avatar",
+          "required": true,
+          "files": [
+            "assets/a_opening_steward.webp"
+          ],
+          "status": "accepted",
+          "checks": {
+            "identity": "pass",
+            "stage": "pass",
+            "structure": "pass",
+            "medium": "pass",
+            "display": "pass"
+          },
+          "evidence": "docs/archive/design/opening-character-acceptance.md",
+          "files_sha256": {
+            "assets/a_opening_steward.webp": "77e526e44d7dc84bbaf6eaebb54cfcfbc9f83dfacfa8aab829e73eed5c771846"
+          }
+        }
+      ],
+      "generation_plan": [
+        {
+          "asset": "steward:appearance_card",
+          "action": "generate_or_derive",
+          "quality": "character-asset-quality.md",
+          "status": "completed_current_art_scope"
+        },
+        {
+          "asset": "steward:four_view_reference",
+          "action": "generate_or_derive",
+          "quality": "character-asset-quality.md",
+          "status": "completed_current_art_scope"
+        },
+        {
+          "asset": "steward:avatar",
+          "action": "generate_or_derive",
+          "quality": "character-asset-quality.md",
+          "status": "completed_current_art_scope"
+        }
+      ],
+      "quality_evidence": [
+        "docs/archive/design/opening-character-acceptance.md",
+        "art_sources/opening_characters_20261003/acceptance/runtime.json"
+      ],
+      "controls_available": false,
+      "package_scope": "active_stage",
+      "delivery_scope": "chapter_appearance_and_reused_foundation",
+      "character_icons": []
+    },
+    {
+      "character_id": "retainer",
+      "stage_id": "retainer",
+      "name": "护院",
+      "species": "human",
+      "role_type": "ordinary_npc",
+      "joinability": "none",
+      "availability": "current",
+      "recruitment_availability": "none",
+      "combat": false,
+      "combat_side": "none",
+      "exploration_presence": "none",
+      "exploration_motion": "fixed",
+      "story_importance": "ordinary",
+      "services": [],
+      "current_stage": "retainer",
+      "planned_stages": [],
+      "chapter_scope": [
+        "C1-01",
+        "C1-04"
+      ],
+      "identity_refs": [
+        "art_sources/opening_characters_20261003/exploration/retainer/stand-native.png"
+      ],
+      "costume_and_ability_limits": [
+        "灰蓝短衣、朴素护腕、鞘中直剑；拔剑只画在事件 CG。"
+      ],
+      "expression_map": {},
+      "pose_definitions": [],
+      "needs_story_poses": false,
+      "needs_dedicated_run": false,
+      "assets": [
+        {
+          "id": "retainer:appearance_card",
+          "group": "appearance_card",
+          "required": true,
+          "files": [
+            "art_sources/opening_characters_20261003/exploration/retainer/stand-native.png"
+          ],
+          "status": "accepted",
+          "checks": {
+            "identity": "pass",
+            "stage": "pass",
+            "structure": "pass",
+            "medium": "pass",
+            "display": "pass"
+          },
+          "evidence": "docs/archive/design/opening-character-acceptance.md",
+          "files_sha256": {
+            "art_sources/opening_characters_20261003/exploration/retainer/stand-native.png": "286aaabb6d9246c6ad6998f4e1702f834806e0113f2b3d12c8fd9d8ca1b6658e"
+          }
+        },
+        {
+          "id": "retainer:four_view_reference",
+          "group": "four_view_reference",
+          "required": false,
+          "files": [
+            "assets/s_opening_retainer.webp"
+          ],
+          "status": "accepted",
+          "checks": {
+            "identity": "pass",
+            "stage": "pass",
+            "structure": "pass",
+            "medium": "pass",
+            "display": "pass"
+          },
+          "evidence": "docs/archive/design/opening-character-acceptance.md",
+          "files_sha256": {
+            "assets/s_opening_retainer.webp": "1458c8e5a4abd24df6c8f80f3e01aedf0b00e7bf45f189a9152951cad632497b"
+          }
+        },
+        {
+          "id": "retainer:avatar",
+          "group": "avatar",
+          "required": true,
+          "files": [
+            "assets/a_opening_retainer.webp"
+          ],
+          "status": "accepted",
+          "checks": {
+            "identity": "pass",
+            "stage": "pass",
+            "structure": "pass",
+            "medium": "pass",
+            "display": "pass"
+          },
+          "evidence": "docs/archive/design/opening-character-acceptance.md",
+          "files_sha256": {
+            "assets/a_opening_retainer.webp": "e3086c0ba640fab390a7259db848f4c949d02438796be2ebafdeecf099b6b749"
+          }
+        }
+      ],
+      "generation_plan": [
+        {
+          "asset": "retainer:appearance_card",
+          "action": "generate_or_derive",
+          "quality": "character-asset-quality.md",
+          "status": "completed_current_art_scope"
+        },
+        {
+          "asset": "retainer:four_view_reference",
+          "action": "generate_or_derive",
+          "quality": "character-asset-quality.md",
+          "status": "completed_current_art_scope"
+        },
+        {
+          "asset": "retainer:avatar",
+          "action": "generate_or_derive",
+          "quality": "character-asset-quality.md",
+          "status": "completed_current_art_scope"
+        }
+      ],
+      "quality_evidence": [
+        "docs/archive/design/opening-character-acceptance.md",
+        "art_sources/opening_characters_20261003/acceptance/runtime.json"
+      ],
+      "controls_available": false,
+      "package_scope": "active_stage",
+      "delivery_scope": "chapter_appearance_and_reused_foundation",
+      "character_icons": []
+    },
+    {
+      "character_id": "procurement",
+      "stage_id": "procurement",
+      "name": "采办使",
+      "species": "human",
+      "role_type": "ordinary_npc",
+      "joinability": "none",
+      "availability": "current",
+      "recruitment_availability": "none",
+      "combat": false,
+      "combat_side": "none",
+      "exploration_presence": "none",
+      "exploration_motion": "fixed",
+      "story_importance": "ordinary",
+      "services": [],
+      "current_stage": "procurement",
+      "planned_stages": [],
+      "chapter_scope": [
+        "C1-02",
+        "C1-04"
+      ],
+      "identity_refs": [
+        "art_sources/opening_characters_20261003/exploration/procurement/stand-native.png"
+      ],
+      "costume_and_ability_limits": [
+        "普通采办文职，暗绿袍布帽，无龙纹冠甲。"
+      ],
+      "expression_map": {},
+      "pose_definitions": [],
+      "needs_story_poses": false,
+      "needs_dedicated_run": false,
+      "assets": [
+        {
+          "id": "procurement:appearance_card",
+          "group": "appearance_card",
+          "required": true,
+          "files": [
+            "art_sources/opening_characters_20261003/exploration/procurement/stand-native.png"
+          ],
+          "status": "accepted",
+          "checks": {
+            "identity": "pass",
+            "stage": "pass",
+            "structure": "pass",
+            "medium": "pass",
+            "display": "pass"
+          },
+          "evidence": "docs/archive/design/opening-character-acceptance.md",
+          "files_sha256": {
+            "art_sources/opening_characters_20261003/exploration/procurement/stand-native.png": "ad7fac98c194a20c8ce5be7f9058cf34cfd9a89507cb32320196e7a644798c8f"
+          }
+        },
+        {
+          "id": "procurement:four_view_reference",
+          "group": "four_view_reference",
+          "required": false,
+          "files": [
+            "assets/s_opening_procurement.webp"
+          ],
+          "status": "accepted",
+          "checks": {
+            "identity": "pass",
+            "stage": "pass",
+            "structure": "pass",
+            "medium": "pass",
+            "display": "pass"
+          },
+          "evidence": "docs/archive/design/opening-character-acceptance.md",
+          "files_sha256": {
+            "assets/s_opening_procurement.webp": "f72168c53979b3b655640058b5169df1ec1fc388a03e6eea4bcf8e2c563fd252"
+          }
+        },
+        {
+          "id": "procurement:avatar",
+          "group": "avatar",
+          "required": true,
+          "files": [
+            "assets/a_opening_procurement.webp"
+          ],
+          "status": "accepted",
+          "checks": {
+            "identity": "pass",
+            "stage": "pass",
+            "structure": "pass",
+            "medium": "pass",
+            "display": "pass"
+          },
+          "evidence": "docs/archive/design/opening-character-acceptance.md",
+          "files_sha256": {
+            "assets/a_opening_procurement.webp": "72fd05c650ca6885980ee31773bca7c26ba58f88be0a26a461114c78bd0a6017"
+          }
+        }
+      ],
+      "generation_plan": [
+        {
+          "asset": "procurement:appearance_card",
+          "action": "generate_or_derive",
+          "quality": "character-asset-quality.md",
+          "status": "completed_current_art_scope"
+        },
+        {
+          "asset": "procurement:four_view_reference",
+          "action": "generate_or_derive",
+          "quality": "character-asset-quality.md",
+          "status": "completed_current_art_scope"
+        },
+        {
+          "asset": "procurement:avatar",
+          "action": "generate_or_derive",
+          "quality": "character-asset-quality.md",
+          "status": "completed_current_art_scope"
+        }
+      ],
+      "quality_evidence": [
+        "docs/archive/design/opening-character-acceptance.md",
+        "art_sources/opening_characters_20261003/acceptance/runtime.json"
+      ],
+      "controls_available": false,
+      "package_scope": "active_stage",
+      "delivery_scope": "chapter_appearance_and_reused_foundation",
+      "character_icons": []
+    },
+    {
+      "character_id": "procurement_aide",
+      "stage_id": "procurement_aide",
+      "name": "采办随从",
+      "species": "human",
+      "role_type": "ordinary_npc",
+      "joinability": "none",
+      "availability": "current",
+      "recruitment_availability": "none",
+      "combat": false,
+      "combat_side": "none",
+      "exploration_presence": "none",
+      "exploration_motion": "fixed",
+      "story_importance": "ordinary",
+      "services": [],
+      "current_stage": "procurement_aide",
+      "planned_stages": [],
+      "chapter_scope": [
+        "P-S3",
+        "C1-02",
+        "C1-04"
+      ],
+      "identity_refs": [
+        "art_sources/opening_characters_20261003/exploration/procurement_aide/stand-native.png"
+      ],
+      "costume_and_ability_limits": [
+        "褐灰短装、闭合账册袋，无生成文字；推架通过剧情结果或 CG。"
+      ],
+      "expression_map": {},
+      "pose_definitions": [],
+      "needs_story_poses": false,
+      "needs_dedicated_run": false,
+      "assets": [
+        {
+          "id": "procurement_aide:appearance_card",
+          "group": "appearance_card",
+          "required": true,
+          "files": [
+            "art_sources/opening_characters_20261003/exploration/procurement_aide/stand-native.png"
+          ],
+          "status": "accepted",
+          "checks": {
+            "identity": "pass",
+            "stage": "pass",
+            "structure": "pass",
+            "medium": "pass",
+            "display": "pass"
+          },
+          "evidence": "docs/archive/design/opening-character-acceptance.md",
+          "files_sha256": {
+            "art_sources/opening_characters_20261003/exploration/procurement_aide/stand-native.png": "e378aa45f80264d00a3798a25465f514b7a05ad0a95b3c6601a5f5629a497e73"
+          }
+        },
+        {
+          "id": "procurement_aide:four_view_reference",
+          "group": "four_view_reference",
+          "required": false,
+          "files": [
+            "assets/s_opening_procurement_aide.webp"
+          ],
+          "status": "accepted",
+          "checks": {
+            "identity": "pass",
+            "stage": "pass",
+            "structure": "pass",
+            "medium": "pass",
+            "display": "pass"
+          },
+          "evidence": "docs/archive/design/opening-character-acceptance.md",
+          "files_sha256": {
+            "assets/s_opening_procurement_aide.webp": "6cf76b8d78affd061ed14e2dc00e846f1c40f86e0d1d44c0eaa9ff6e26881091"
+          }
+        },
+        {
+          "id": "procurement_aide:avatar",
+          "group": "avatar",
+          "required": true,
+          "files": [
+            "assets/a_opening_procurement_aide.webp"
+          ],
+          "status": "accepted",
+          "checks": {
+            "identity": "pass",
+            "stage": "pass",
+            "structure": "pass",
+            "medium": "pass",
+            "display": "pass"
+          },
+          "evidence": "docs/archive/design/opening-character-acceptance.md",
+          "files_sha256": {
+            "assets/a_opening_procurement_aide.webp": "5b29962c118d76dc4fe8c86921f15b59aad14d670dedf5c8b2efe84df215cdf2"
+          }
+        }
+      ],
+      "generation_plan": [
+        {
+          "asset": "procurement_aide:appearance_card",
+          "action": "generate_or_derive",
+          "quality": "character-asset-quality.md",
+          "status": "completed_current_art_scope"
+        },
+        {
+          "asset": "procurement_aide:four_view_reference",
+          "action": "generate_or_derive",
+          "quality": "character-asset-quality.md",
+          "status": "completed_current_art_scope"
+        },
+        {
+          "asset": "procurement_aide:avatar",
+          "action": "generate_or_derive",
+          "quality": "character-asset-quality.md",
+          "status": "completed_current_art_scope"
+        }
+      ],
+      "quality_evidence": [
+        "docs/archive/design/opening-character-acceptance.md",
+        "art_sources/opening_characters_20261003/acceptance/runtime.json"
+      ],
+      "controls_available": false,
+      "package_scope": "active_stage",
+      "delivery_scope": "chapter_appearance_and_reused_foundation",
+      "character_icons": []
+    },
+    {
+      "character_id": "bailiff",
+      "stage_id": "bailiff",
+      "name": "差役",
+      "species": "human",
+      "role_type": "ordinary_npc",
+      "joinability": "none",
+      "availability": "current",
+      "recruitment_availability": "none",
+      "combat": false,
+      "combat_side": "none",
+      "exploration_presence": "none",
+      "exploration_motion": "fixed",
+      "story_importance": "ordinary",
+      "services": [],
+      "current_stage": "bailiff",
+      "planned_stages": [],
+      "chapter_scope": [
+        "P-S3",
+        "C1-02",
+        "C1-04",
+        "C1-05"
+      ],
+      "identity_refs": [
+        "art_sources/opening_characters_20261003/exploration/bailiff/stand-native.png"
+      ],
+      "costume_and_ability_limits": [
+        "地方差役，暗蓝布帽短衣；不复用重甲红缨军士。"
+      ],
+      "expression_map": {},
+      "pose_definitions": [],
+      "needs_story_poses": false,
+      "needs_dedicated_run": false,
+      "assets": [
+        {
+          "id": "bailiff:appearance_card",
+          "group": "appearance_card",
+          "required": true,
+          "files": [
+            "art_sources/opening_characters_20261003/exploration/bailiff/stand-native.png"
+          ],
+          "status": "accepted",
+          "checks": {
+            "identity": "pass",
+            "stage": "pass",
+            "structure": "pass",
+            "medium": "pass",
+            "display": "pass"
+          },
+          "evidence": "docs/archive/design/opening-character-acceptance.md",
+          "files_sha256": {
+            "art_sources/opening_characters_20261003/exploration/bailiff/stand-native.png": "b16c243d56ccfefdfd29b335ae6513ad076b3d496f0e540db8f44859167bbfce"
+          }
+        },
+        {
+          "id": "bailiff:four_view_reference",
+          "group": "four_view_reference",
+          "required": false,
+          "files": [
+            "assets/s_opening_bailiff.webp"
+          ],
+          "status": "accepted",
+          "checks": {
+            "identity": "pass",
+            "stage": "pass",
+            "structure": "pass",
+            "medium": "pass",
+            "display": "pass"
+          },
+          "evidence": "docs/archive/design/opening-character-acceptance.md",
+          "files_sha256": {
+            "assets/s_opening_bailiff.webp": "9a44a9ed8848161bf2f45d47626c7c7603c1133507d6c9963c9c82b4a1677b86"
+          }
+        },
+        {
+          "id": "bailiff:avatar",
+          "group": "avatar",
+          "required": true,
+          "files": [
+            "assets/a_opening_bailiff.webp"
+          ],
+          "status": "accepted",
+          "checks": {
+            "identity": "pass",
+            "stage": "pass",
+            "structure": "pass",
+            "medium": "pass",
+            "display": "pass"
+          },
+          "evidence": "docs/archive/design/opening-character-acceptance.md",
+          "files_sha256": {
+            "assets/a_opening_bailiff.webp": "16772594080980f8d440f7472576f18e9cd67ae2579c435c3457be2d376ab224"
+          }
+        }
+      ],
+      "generation_plan": [
+        {
+          "asset": "bailiff:appearance_card",
+          "action": "generate_or_derive",
+          "quality": "character-asset-quality.md",
+          "status": "completed_current_art_scope"
+        },
+        {
+          "asset": "bailiff:four_view_reference",
+          "action": "generate_or_derive",
+          "quality": "character-asset-quality.md",
+          "status": "completed_current_art_scope"
+        },
+        {
+          "asset": "bailiff:avatar",
+          "action": "generate_or_derive",
+          "quality": "character-asset-quality.md",
+          "status": "completed_current_art_scope"
+        }
+      ],
+      "quality_evidence": [
+        "docs/archive/design/opening-character-acceptance.md",
+        "art_sources/opening_characters_20261003/acceptance/runtime.json"
+      ],
+      "controls_available": false,
+      "package_scope": "active_stage",
+      "delivery_scope": "chapter_appearance_and_reused_foundation",
+      "character_icons": []
+    },
+    {
+      "character_id": "innkeeper",
+      "stage_id": "innkeeper",
+      "name": "店家",
+      "species": "human",
+      "role_type": "ordinary_npc",
+      "joinability": "none",
+      "availability": "current",
+      "recruitment_availability": "none",
+      "combat": false,
+      "combat_side": "none",
+      "exploration_presence": "on_map",
+      "exploration_motion": "fixed",
+      "story_importance": "ordinary",
+      "services": [],
+      "current_stage": "innkeeper",
+      "planned_stages": [],
+      "chapter_scope": [
+        "P-S2",
+        "C1-T"
+      ],
+      "identity_refs": [
+        "assets/s_merchant.webp"
+      ],
+      "costume_and_ability_limits": [
+        "复用朴素店家 merchant；普通布包交付，无专属劳动动作。"
+      ],
+      "expression_map": {},
+      "pose_definitions": [],
+      "needs_story_poses": false,
+      "needs_dedicated_run": false,
+      "assets": [
+        {
+          "id": "innkeeper:appearance_reuse",
+          "group": "appearance_reuse",
+          "required": true,
+          "files": [
+            "assets/s_merchant.webp"
+          ],
+          "status": "accepted_reuse",
+          "checks": {
+            "identity": "pass",
+            "stage": "pass",
+            "structure": "pass",
+            "medium": "pass",
+            "display": "pass"
+          },
+          "evidence": "docs/archive/design/opening-character-acceptance.md",
+          "files_sha256": {
+            "assets/s_merchant.webp": "166001248b87cb26fc34f6c1691e265f4f0d9404aee468195bca7ee62b84f887"
+          }
+        }
+      ],
+      "generation_plan": [
+        {
+          "asset": "innkeeper:appearance_reuse",
+          "action": "review_reuse",
+          "quality": "character-asset-quality.md",
+          "status": "completed_current_art_scope"
+        }
+      ],
+      "quality_evidence": [
+        "docs/archive/design/opening-character-acceptance.md",
+        "art_sources/opening_characters_20261003/acceptance/runtime.json"
+      ],
+      "controls_available": false,
+      "package_scope": "active_stage",
+      "delivery_scope": "chapter_appearance_and_reused_foundation",
+      "character_icons": []
+    },
+    {
+      "character_id": "elder",
+      "stage_id": "elder",
+      "name": "村口老人",
+      "species": "human",
+      "role_type": "ordinary_npc",
+      "joinability": "none",
+      "availability": "current",
+      "recruitment_availability": "none",
+      "combat": false,
+      "combat_side": "none",
+      "exploration_presence": "on_map",
+      "exploration_motion": "fixed",
+      "story_importance": "ordinary",
+      "services": [],
+      "current_stage": "elder",
+      "planned_stages": [],
+      "chapter_scope": [
+        "P-S3",
+        "C1-A1",
+        "C1-A2"
+      ],
+      "identity_refs": [
+        "assets/s_oldman.webp"
+      ],
+      "costume_and_ability_limits": [
+        "复用白须 oldman，与陈伯区分。"
+      ],
+      "expression_map": {},
+      "pose_definitions": [],
+      "needs_story_poses": false,
+      "needs_dedicated_run": false,
+      "assets": [
+        {
+          "id": "elder:appearance_reuse",
+          "group": "appearance_reuse",
+          "required": true,
+          "files": [
+            "assets/s_oldman.webp"
+          ],
+          "status": "accepted_reuse",
+          "checks": {
+            "identity": "pass",
+            "stage": "pass",
+            "structure": "pass",
+            "medium": "pass",
+            "display": "pass"
+          },
+          "evidence": "docs/archive/design/opening-character-acceptance.md",
+          "files_sha256": {
+            "assets/s_oldman.webp": "5a4fcd950d9e38038f404d53aa13b818d66b4847c14f2a5a0a545a479ae73e8d"
+          }
+        }
+      ],
+      "generation_plan": [
+        {
+          "asset": "elder:appearance_reuse",
+          "action": "review_reuse",
+          "quality": "character-asset-quality.md",
+          "status": "completed_current_art_scope"
+        }
+      ],
+      "quality_evidence": [
+        "docs/archive/design/opening-character-acceptance.md",
+        "art_sources/opening_characters_20261003/acceptance/runtime.json"
+      ],
+      "controls_available": false,
+      "package_scope": "active_stage",
+      "delivery_scope": "chapter_appearance_and_reused_foundation",
+      "character_icons": []
+    },
+    {
+      "character_id": "henchman",
+      "stage_id": "henchman",
+      "name": "帮众",
+      "species": "human",
+      "role_type": "enemy",
+      "joinability": "none",
+      "availability": "current",
+      "recruitment_availability": "none",
+      "combat": true,
+      "combat_side": "enemy",
+      "exploration_presence": "none",
+      "exploration_motion": "fixed",
+      "story_importance": "ordinary",
+      "services": [],
+      "current_stage": "henchman",
+      "planned_stages": [],
+      "chapter_scope": [
+        "P-S2",
+        "C1-06"
+      ],
+      "identity_refs": [
+        "assets/s_bandit.webp"
+      ],
+      "costume_and_ability_limits": [
+        "普通黑衣头巾帮众；两名守路敌人复用同身份合格敌方表。"
+      ],
+      "expression_map": {},
+      "pose_definitions": [],
+      "needs_story_poses": false,
+      "needs_dedicated_run": false,
+      "assets": [
+        {
+          "id": "henchman:appearance_reuse",
+          "group": "appearance_reuse",
+          "required": true,
+          "files": [
+            "assets/s_bandit.webp"
+          ],
+          "status": "accepted_reuse",
+          "checks": {
+            "identity": "pass",
+            "stage": "pass",
+            "structure": "pass",
+            "medium": "pass",
+            "display": "pass"
+          },
+          "evidence": "docs/archive/design/opening-character-acceptance.md",
+          "files_sha256": {
+            "assets/s_bandit.webp": "dc064373aec41f8543ff6e35f7214b87ab91d0035084defe9b5cf69a4137b8a7"
+          }
+        },
+        {
+          "id": "henchman:enemy_battle",
+          "group": "enemy_battle",
+          "required": true,
+          "files": [
+            "assets/b_bandit.webp"
+          ],
+          "status": "accepted_reuse",
+          "checks": {
+            "identity": "pass",
+            "stage": "pass",
+            "structure": "pass",
+            "medium": "pass",
+            "display": "pass"
+          },
+          "evidence": "docs/archive/design/opening-character-acceptance.md",
+          "files_sha256": {
+            "assets/b_bandit.webp": "7d492b802d06187c8f00fa77a851300dc7aa782c4f346499e8aceefdea909dc5"
+          }
+        }
+      ],
+      "generation_plan": [
+        {
+          "asset": "henchman:appearance_reuse",
+          "action": "review_reuse",
+          "quality": "character-asset-quality.md",
+          "status": "completed_current_art_scope"
+        },
+        {
+          "asset": "henchman:enemy_battle",
+          "action": "review_reuse",
+          "quality": "character-asset-quality.md",
+          "status": "completed_current_art_scope"
+        }
+      ],
+      "quality_evidence": [
+        "docs/archive/design/opening-character-acceptance.md",
+        "art_sources/opening_characters_20261003/acceptance/runtime.json"
+      ],
+      "controls_available": false,
+      "package_scope": "active_stage",
+      "delivery_scope": "chapter_appearance_and_reused_foundation",
+      "character_icons": [
+        {
+          "stage_id": "henchman",
+          "required": true,
+          "performance_plan": {
+            "personality_basis": "待设计",
+            "expression": "待设计",
+            "pose": "待设计",
+            "props": "待设计"
+          },
+          "reference_portraits": [],
+          "facing": "画面右",
+          "status": "未生成",
+          "source_batch": null,
+          "candidate_ids": [],
+          "note": "character-icons.md 第 8 节列为第二批；同种敌人共用一张"
+        }
+      ]
+    },
+    {
+      "character_id": "villager",
+      "stage_id": "villager",
+      "name": "村民",
+      "species": "human",
+      "role_type": "ordinary_npc",
+      "joinability": "none",
+      "availability": "current",
+      "recruitment_availability": "none",
+      "combat": false,
+      "combat_side": "none",
+      "exploration_presence": "on_map",
+      "exploration_motion": "fixed",
+      "story_importance": "ordinary",
+      "services": [],
+      "current_stage": "villager",
+      "planned_stages": [],
+      "chapter_scope": [
+        "C1-T",
+        "C1-05",
+        "C1-07"
+      ],
+      "identity_refs": [
+        "assets/s_villager.webp"
+      ],
+      "costume_and_ability_limits": [
+        "普通村民基础图复用，不派每句任务专属动作。"
+      ],
+      "expression_map": {},
+      "pose_definitions": [],
+      "needs_story_poses": false,
+      "needs_dedicated_run": false,
+      "assets": [
+        {
+          "id": "villager:appearance_reuse",
+          "group": "appearance_reuse",
+          "required": true,
+          "files": [
+            "assets/s_villager.webp"
+          ],
+          "status": "accepted_reuse",
+          "checks": {
+            "identity": "pass",
+            "stage": "pass",
+            "structure": "pass",
+            "medium": "pass",
+            "display": "pass"
+          },
+          "evidence": "docs/archive/design/opening-character-acceptance.md",
+          "files_sha256": {
+            "assets/s_villager.webp": "6a0d2fdf6570ed777c13ff4c5555ae855902b30f374d79690b127c309348949d"
+          }
+        }
+      ],
+      "generation_plan": [
+        {
+          "asset": "villager:appearance_reuse",
+          "action": "review_reuse",
+          "quality": "character-asset-quality.md",
+          "status": "completed_current_art_scope"
+        }
+      ],
+      "quality_evidence": [
+        "docs/archive/design/opening-character-acceptance.md",
+        "art_sources/opening_characters_20261003/acceptance/runtime.json"
+      ],
+      "controls_available": false,
+      "package_scope": "active_stage",
+      "delivery_scope": "chapter_appearance_and_reused_foundation",
+      "character_icons": []
+    },
+    {
+      "character_id": "wilddog",
+      "stage_id": "wilddog",
+      "name": "后山野犬",
+      "species": "canine",
+      "role_type": "enemy",
+      "joinability": "none",
+      "availability": "current",
+      "combat": true,
+      "combat_side": "enemy",
+      "exploration_presence": "on_map",
+      "exploration_motion": "fixed",
+      "story_importance": "ordinary",
+      "services": [],
+      "current_stage": "frightened_stray_tutorial",
+      "planned_stages": [],
+      "chapter_scope": [
+        "P-02"
+      ],
+      "identity_refs": [
+        "art_sources/opening_characters_20261003/native/wilddog.png"
+      ],
+      "costume_and_ability_limits": [
+        "棕褐短毛、尖耳、瘦身、低垂直尾；不是灰狼，也不是黄毛垂耳卷尾的大黄。",
+        "教学驱离，无击杀奖励、宠物捕获和护主技能。"
+      ],
+      "expression_map": {},
+      "pose_definitions": [],
+      "needs_story_poses": false,
+      "needs_dedicated_run": false,
+      "assets": [
+        {
+          "id": "wilddog:identity",
+          "group": "identity",
+          "required": true,
+          "files": [
+            "art_sources/opening_characters_20261003/native/wilddog.png"
+          ],
+          "status": "accepted",
+          "checks": {
+            "identity": "pass",
+            "stage": "pass",
+            "structure": "pass",
+            "medium": "pass",
+            "display": "pass"
+          },
+          "evidence": "docs/archive/design/opening-character-acceptance.md",
+          "files_sha256": {
+            "art_sources/opening_characters_20261003/native/wilddog.png": "2a62ad422cb0e0b83d249fecfa0dd57db2936a6748b1d4724edb1bd9b2fceb98"
+          }
+        },
+        {
+          "id": "wilddog:enemy_battle",
+          "group": "enemy_battle",
+          "required": true,
+          "files": [
+            "assets/b_wilddog.webp"
+          ],
+          "status": "accepted",
+          "checks": {
+            "identity": "pass",
+            "stage": "pass",
+            "structure": "pass",
+            "medium": "pass",
+            "display": "pass"
+          },
+          "evidence": "docs/archive/design/opening-character-acceptance.md",
+          "files_sha256": {
+            "assets/b_wilddog.webp": "2bfabe5dd436ac9108bd60ad77b26c6492e55190b64cc64d48c5e4119bce861e"
+          }
+        },
+        {
+          "id": "wilddog:exploration_fixed",
+          "group": "exploration_fixed",
+          "required": true,
+          "files": [
+            "assets/s_prologue_wilddog_v1.webp"
+          ],
+          "status": "accepted_functional_test",
+          "checks": {
+            "identity": "pass",
+            "stage": "pass",
+            "structure": "pass",
+            "medium": "pass",
+            "display": "pass",
+            "native_high_resolution": "deferred_by_user"
+          },
+          "evidence": "docs/design/prologue-interactive-acceptance.md",
+          "files_sha256": {
+            "assets/s_prologue_wilddog_v1.webp": "9cbed0d5a79c56fb6d5997773389e56d974f64229c3b64e6ef18a702fae700a3"
+          },
+          "source_record": "art_sources/prologue_interactive_20261004/characters/generation-record.json"
+        }
+      ],
+      "generation_plan": [
+        {
+          "asset": "wilddog:exploration_fixed",
+          "action": "generated_and_packed",
+          "quality": "prologue-interactive-needs.md",
+          "status": "completed_functional_test"
+        }
+      ],
+      "quality_evidence": [
+        "docs/archive/design/opening-character-acceptance.md",
+        "art_sources/opening_characters_20261003/acceptance/runtime.json",
+        "docs/design/prologue-interactive-acceptance.md"
+      ],
+      "controls_available": false,
+      "package_scope": "active_stage",
+      "runtime_scope": "P-02窄路单向静态及现有battle；驱离退回林侧，无击杀、收宠或奖励。",
+      "recruitment_availability": "none",
+      "delivery_scope": "active_opening_runtime_functional_test",
+      "runtime_contract": "PI-2026-10-04.2",
+      "character_icons": [
+        {
+          "stage_id": "wilddog",
+          "required": true,
+          "performance_plan": {
+            "personality_basis": "待设计",
+            "expression": "待设计",
+            "pose": "待设计",
+            "props": "待设计"
+          },
+          "reference_portraits": [],
+          "facing": "画面右",
+          "status": "未生成",
+          "source_batch": null,
+          "candidate_ids": [],
+          "note": "后山野犬不是灰狼，不得用 R2_wolf_* 候选冒充"
+        }
+      ]
+    }
+  ],
+  "acceptance": "opening-correction-oc4-acceptance.md",
+  "runtime_contract": "OC-2026-10-04.4",
+  "oc3_acceptance": {
+    "evidence": "docs/archive/design/opening-correction-acceptance.md",
+    "source_and_local_render": "pass",
+    "live_browser": "pending_access_policy",
+    "visual_adoption": "superseded_after_user_rejection",
+    "scope": "historical OC3 sources and local checks only"
+  },
+  "oc4_acceptance": {
+    "evidence": "docs/design/opening-correction-oc4-acceptance.md",
+    "source_and_local_render": "pass",
+    "live_browser": "pending_access_policy",
+    "portrait_layout": "local module/composition pass; live CSS pending",
+    "teaching": "real input/state VM tests pass; live browser pending",
+    "motion_experience": "rejected_by_user_20261004; rework_required",
+    "motion_review": "docs/archive/design/map-character-motion-plan.md"
+  },
+  "character_icons_without_card": {
+    "note": "以下两名栖河试玩版战斗角色在本文件尚无角色卡，图标候选先记在这里；建卡时移入卡片的 character_icons。",
+    "items": [
+      {
+        "character_id": "dog",
+        "name": "大黄",
+        "role_type": "pet",
+        "combat_side": "ally",
+        "stage_id": "dog",
+        "required": true,
+        "performance_plan": {
+          "personality_basis": "村里的狗，宠物",
+          "variants": [
+            {
+              "expression": "歪头吐舌，耳朵竖起，开心",
+              "pose": "正面歪头",
+              "props": "无"
+            },
+            {
+              "expression": "张嘴吠叫",
+              "pose": "前爪抬起，护主",
+              "props": "无"
+            }
+          ]
+        },
+        "reference_portraits": [
+          "xiaojianghu-legacy-prologue/art_sources/char-icons-20261019/refs/ref_dog_battle_f0_x8.png"
+        ],
+        "facing": "画面左",
+        "status": "候选，未采用",
+        "source_batch": "xiaojianghu-legacy-prologue/art_sources/char-icons-20261019/",
+        "candidate_ids": [
+          "R2_dog_a2",
+          "R2_dog_b2"
+        ],
+        "note": "第二轮试生成，待用户评审选定；未登记正式素材、未接入游戏；R2_dog_a／R2_dog_b 画了设定外饰物，已由 a2／b2 重做，不建议选"
+      },
+      {
+        "character_id": "wolf",
+        "name": "受惊灰狼",
+        "role_type": "enemy",
+        "combat_side": "enemy",
+        "stage_id": "wolf",
+        "required": true,
+        "performance_plan": {
+          "personality_basis": "后山被惊的狼，敌人",
+          "variants": [
+            {
+              "expression": "龇牙压耳，凶",
+              "pose": "向前扑的低身角度",
+              "props": "无"
+            },
+            {
+              "expression": "侧脸低吼，眼神凶",
+              "pose": "颈毛炸起",
+              "props": "无"
+            }
+          ]
+        },
+        "reference_portraits": [
+          "xiaojianghu-legacy-prologue/art_sources/char-icons-20261019/refs/ref_wolf_battle_f0_x4.png"
+        ],
+        "facing": "画面右",
+        "status": "候选，未采用",
+        "source_batch": "xiaojianghu-legacy-prologue/art_sources/char-icons-20261019/",
+        "candidate_ids": [
+          "R2_wolf_a",
+          "R2_wolf_b"
+        ],
+        "note": "第二轮试生成，待用户评审选定；未登记正式素材、未接入游戏；R2_wolf_a 头部裁切档偏离狼头"
+      }
+    ]
+  }
+}

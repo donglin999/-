@@ -1,0 +1,6198 @@
+{
+  "schema_version": 1,
+  "version": "SCRIPT-PRE-XY-2026-10-05.1",
+  "status": "complete-dialogue-draft-not-runtime-or-audio-acceptance",
+  "scope": "P-01后山初遇至首次进入襄阳城门之前；第一章边界仍在山居安身，新增培养段单列。",
+  "chapters_before_entry": [
+    "序章",
+    "第一章",
+    "入谷第1至4月",
+    "第5月城外转场"
+  ],
+  "sources": [
+    "docs/design/pre-xiangyang-story.md",
+    "docs/design/pre-xiangyang-training.md",
+    "docs/design/pre-xiangyang-visitors.md",
+    "docs/design/calendar/mountain-events.json"
+  ],
+  "voice_policy": {
+    "hero_voiced": false,
+    "new_audio_generation": false,
+    "catalog_sync": false,
+    "priority": "初见、危机、态度变化、承诺；说明、选项、信件和重复培养反馈不配音",
+    "missing_voice": "字幕继续，不阻塞剧情",
+    "plan_only": true
+  },
+  "scenes": [
+    {
+      "id": "M-01",
+      "title": "愿意学，就从这里开始",
+      "group": "主线",
+      "event_id": "entry_join",
+      "window": [
+        0,
+        0
+      ],
+      "cost": 0,
+      "action_id": null,
+      "requires": [],
+      "stage": "清晨院内。周砚收好昨日借用的器具，萧白自己提出学武；叶蘅抱普通登记簿旁听。拜师礼用静态对白和短淡出，不派新动画。",
+      "blocks": [
+        {
+          "key": "main",
+          "label": "开场与自愿入门",
+          "condition": "always",
+          "kind": "main",
+          "group": null,
+          "lines": [
+            {
+              "speaker": "萧白",
+              "text": "周先生，昨天您说能教基础。我想好了，我想学。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "M-01-main-01"
+            },
+            {
+              "speaker": "周砚",
+              "text": "先说说，你想学来做什么？",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "M-01-main-02"
+            },
+            {
+              "speaker": "萧白",
+              "text": "遇到事情，至少能站稳，知道怎么退。也不想每次都让别人替我挡着。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "M-01-main-03"
+            },
+            {
+              "speaker": "周砚",
+              "text": "有人帮你，不是丢脸。学武以后，这一点也别忘。",
+              "voice": true,
+              "emotion_api": "calm",
+              "delivery_notes": "温和认真，第二句稍停；不训斥。",
+              "id": "M-01-main-04"
+            },
+            {
+              "speaker": "萧白",
+              "text": "我记住了。我怕的是，明明不会，还硬说自己能。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "M-01-main-05"
+            },
+            {
+              "speaker": "周砚",
+              "text": "归云谷人不多，功课得一遍遍做。该问就问，答应的事要记着。你愿意，今日便入门。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "M-01-main-06"
+            },
+            {
+              "speaker": "萧白",
+              "text": "弟子萧白，愿意。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "M-01-main-07"
+            },
+            {
+              "speaker": "周砚",
+              "text": "好。往后叫师父。",
+              "voice": true,
+              "emotion_api": "happy",
+              "delivery_notes": "笑意很轻，不庄严宣誓或洪亮宣布。",
+              "id": "M-01-main-08"
+            },
+            {
+              "speaker": "叶蘅",
+              "text": "那我是不是得换个称呼？",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "M-01-main-09"
+            },
+            {
+              "speaker": "周砚",
+              "text": "你照旧。住在这里，不必随他拜师。你想学什么，往后自己说。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "M-01-main-10"
+            },
+            {
+              "speaker": "叶蘅",
+              "text": "好。我先管好药圃，学不学别的，我自己想。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "M-01-main-11"
+            },
+            {
+              "speaker": "萧白",
+              "text": "师父，我今天就能练吗？",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "M-01-main-12"
+            },
+            {
+              "speaker": "周砚",
+              "text": "能。先吃饭，再去练场。入门是答应好好学，拳脚还得从第一课学起。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "M-01-main-13"
+            }
+          ],
+          "effects": []
+        }
+      ],
+      "contract_notes": [
+        "写入入门事实；不自动学会拳脚、剑式或调息。第一章章末仍只是暂住。"
+      ],
+      "runtime_status": "script-draft-not-integrated"
+    },
+    {
+      "id": "M-02",
+      "title": "信到的时候，粥还温着",
+      "group": "主线",
+      "event_id": "village_news",
+      "window": [
+        2,
+        2
+      ],
+      "cost": 0,
+      "action_id": null,
+      "requires": [],
+      "stage": "正月中下旬，早饭时，谷里的廊下。叶蘅碗里的粥没动，手里是村里周婶托人捎来的信。",
+      "blocks": [
+        {
+          "key": "main",
+          "label": "必要近况",
+          "condition": "always",
+          "kind": "main",
+          "group": null,
+          "lines": [
+            {
+              "speaker": "萧白",
+              "text": "粥都凉了，你捧着这封信半天了。村里来的？",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "M-02-main-01",
+              "revision": 2
+            },
+            {
+              "speaker": "叶蘅",
+              "text": "周婶写的。邻村的大夫接了我那摊事，各家轮着给受灾的人送饭、腾住处。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "M-02-main-02",
+              "revision": 2
+            },
+            {
+              "speaker": "萧白",
+              "text": "那就是有人照应了。陈伯呢，伤得怎样？",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "M-02-main-03",
+              "revision": 2
+            },
+            {
+              "speaker": "叶蘅",
+              "text": "周婶写在后头，我往下找找。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "M-02-main-04",
+              "revision": 2
+            }
+          ],
+          "effects": []
+        },
+        {
+          "key": "light",
+          "label": "陈伯可自行走动",
+          "condition": "opening.chen_injury == 'light'",
+          "kind": "variant",
+          "group": "chen_injury",
+          "lines": [
+            {
+              "speaker": "叶蘅",
+              "text": "陈伯已经能拄着走短路，做点轻活。周婶特地写了一句，不许他搬重东西。",
+              "voice": true,
+              "emotion_api": "happy",
+              "delivery_notes": "",
+              "id": "M-02-light-01",
+              "revision": 2,
+              "mood": "smile"
+            },
+            {
+              "speaker": "叶蘅",
+              "text": "他这下该嫌周婶管得宽了。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "M-02-light-02",
+              "revision": 2
+            }
+          ],
+          "effects": []
+        },
+        {
+          "key": "rest",
+          "label": "陈伯仍需休养",
+          "condition": "opening.chen_injury == 'rest'",
+          "kind": "variant",
+          "group": "chen_injury",
+          "lines": [
+            {
+              "speaker": "叶蘅",
+              "text": "陈伯还得躺着养。木工活交给徒弟，他坐在旁边动嘴。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "M-02-rest-01",
+              "revision": 2
+            },
+            {
+              "speaker": "叶蘅",
+              "text": "这倒像他，手闲下来，嘴也闲不住。",
+              "voice": true,
+              "emotion_api": "happy",
+              "delivery_notes": "",
+              "id": "M-02-rest-02",
+              "revision": 2,
+              "mood": "smile"
+            }
+          ],
+          "effects": []
+        },
+        {
+          "key": "unknown",
+          "label": "旧档伤势未核实",
+          "condition": "opening.chen_injury not in ['light','rest']",
+          "kind": "fallback",
+          "group": "chen_injury",
+          "lines": [
+            {
+              "speaker": "叶蘅",
+              "text": "只写了还在养伤，没说能不能下地。回信时我得问清楚。",
+              "voice": true,
+              "emotion_api": "fearful",
+              "delivery_notes": "",
+              "id": "M-02-unknown-01",
+              "revision": 2,
+              "mood": "worry"
+            }
+          ],
+          "effects": []
+        },
+        {
+          "key": "end",
+          "label": "合流",
+          "condition": "always",
+          "kind": "main",
+          "group": null,
+          "lines": [
+            {
+              "speaker": "萧白",
+              "text": "要不我跟师父说一声，捎一大包米和药回去？",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "M-02-end-01",
+              "revision": 2
+            },
+            {
+              "speaker": "叶蘅",
+              "text": "先别。周婶说了，缺什么她会写，别乱寄，路上费脚力。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "M-02-end-02",
+              "revision": 2
+            },
+            {
+              "speaker": "叶蘅",
+              "text": "她最后还说，叫我别惦记着回去，安心住着。",
+              "voice": true,
+              "emotion_api": "sad",
+              "delivery_notes": "",
+              "id": "M-02-end-03",
+              "revision": 2,
+              "mood": "sad"
+            },
+            {
+              "speaker": "周砚",
+              "text": "两碗粥都凉了。先热一热，喝完再看信。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "M-02-end-04",
+              "revision": 2
+            },
+            {
+              "speaker": "叶蘅",
+              "text": "知道了，周先生。我先把粥喝了，信等会儿再看一遍。",
+              "voice": true,
+              "emotion_api": "happy",
+              "delivery_notes": "",
+              "id": "M-02-end-05",
+              "revision": 2,
+              "mood": "smile"
+            }
+          ],
+          "effects": []
+        }
+      ],
+      "contract_notes": [
+        "伤势键是叙事别名，运行接入需映射现有开篇存档；未知值保守处理。没有选V1也能收到近况。",
+        "2026-10-16 返工：剧情按 briefs/pre-xiangyang-mainline-brief.json 重新设计，台词由 MiniMax 起草、人工审定；段落、条件、效果未改。",
+        "2026-10-16 定：游戏播放以进城前完善版为准（chapter-two-dialogue.json preHangao，同 id 场次），本稿不播出，仅作返工参考。"
+      ],
+      "runtime_status": "superseded-by-pre-hangao"
+    },
+    {
+      "id": "M-03",
+      "title": "先给她看",
+      "group": "主线",
+      "event_id": "old_friend_letter",
+      "window": [
+        5,
+        5
+      ],
+      "cost": 0,
+      "action_id": null,
+      "requires": [],
+      "stage": "二月初，周砚的书房。周砚收到一位旧识的回信，是他托人打听叶蘅父亲温行舟的。",
+      "blocks": [
+        {
+          "key": "main",
+          "label": "读信与信息边界",
+          "condition": "always",
+          "kind": "main",
+          "group": null,
+          "lines": [
+            {
+              "speaker": "周砚",
+              "text": "叶蘅，来。托人打听你父亲的事，回信到了，你先看。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "M-03-main-01",
+              "revision": 2
+            },
+            {
+              "speaker": "萧白",
+              "text": "师父，我要不要先出去？",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "M-03-main-02",
+              "revision": 2
+            },
+            {
+              "speaker": "叶蘅",
+              "text": "不用，你在这儿。……周先生，是坏消息吗？",
+              "voice": true,
+              "emotion_api": "fearful",
+              "delivery_notes": "",
+              "id": "M-03-main-03",
+              "revision": 2,
+              "mood": "worry"
+            },
+            {
+              "speaker": "周砚",
+              "text": "不是坏消息，也算不上好消息。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "M-03-main-04",
+              "revision": 2
+            },
+            {
+              "speaker": "叶蘅",
+              "text": "我说给你听。山那边镇上有户人家，十几年前家里有人病重，是我父亲治好的。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "M-03-main-05",
+              "revision": 2
+            },
+            {
+              "speaker": "叶蘅",
+              "text": "信上说，这家人或许知道他后来往哪里去了。可写信的人也没见过他们，是听人说的。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "M-03-main-06",
+              "revision": 2
+            },
+            {
+              "speaker": "叶蘅",
+              "text": "……就只有这些？",
+              "voice": true,
+              "emotion_api": "sad",
+              "delivery_notes": "",
+              "id": "M-03-main-07",
+              "revision": 2,
+              "mood": "sad"
+            },
+            {
+              "speaker": "周砚",
+              "text": "我这位朋友住在城里，做事稳当。听来的，他就写明是听来的，不会添油加醋。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "M-03-main-08",
+              "revision": 2
+            },
+            {
+              "speaker": "叶蘅",
+              "text": "后面是写给您的，我就不看了。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "M-03-main-09",
+              "revision": 2
+            },
+            {
+              "speaker": "叶蘅",
+              "text": "周先生，我想自己去问那户人家。只是山路远，我不知道怎么去。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "M-03-main-10",
+              "revision": 2
+            },
+            {
+              "speaker": "周砚",
+              "text": "这事我记下了，会想法子。你先把想问的写下来。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "M-03-main-11",
+              "revision": 2
+            },
+            {
+              "speaker": "萧白",
+              "text": "要不要我帮你一起想想，问些什么？",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "M-03-main-12",
+              "revision": 2
+            },
+            {
+              "speaker": "叶蘅",
+              "text": "问什么我自己来。你帮我记着这件事就好，别让我一忙又往后搁。",
+              "voice": true,
+              "emotion_api": "happy",
+              "delivery_notes": "",
+              "id": "M-03-main-13",
+              "revision": 2,
+              "mood": "smile"
+            },
+            {
+              "speaker": "叶蘅",
+              "text": "周先生，多谢您。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "M-03-main-14",
+              "revision": 2
+            }
+          ],
+          "effects": []
+        }
+      ],
+      "contract_notes": [
+        "不确定父亲结局、位置、遗产真伪；不命名尚未定稿的证人。信件不变成主角获得家传证物。",
+        "2026-10-16 返工：剧情按 briefs/pre-xiangyang-mainline-brief.json 重新设计，台词由 MiniMax 起草、人工审定；段落、条件、效果未改。",
+        "2026-10-16 定：游戏播放以进城前完善版为准（chapter-two-dialogue.json preHangao，同 id 场次），本稿不播出，仅作返工参考。"
+      ],
+      "runtime_status": "superseded-by-pre-hangao"
+    },
+    {
+      "id": "M-04",
+      "title": "这趟送什么，什么时候回",
+      "group": "主线",
+      "event_id": "escort_notice",
+      "window": [
+        10,
+        10
+      ],
+      "cost": 0,
+      "action_id": null,
+      "requires": [],
+      "stage": "三月初，谷里院子。陆衡卸完货来找周砚。",
+      "blocks": [
+        {
+          "key": "main",
+          "label": "护送预告",
+          "condition": "always",
+          "kind": "main",
+          "group": null,
+          "lines": [
+            {
+              "speaker": "陆衡",
+              "text": "这月中旬，要往山那边镇上送一趟药，几家人等着用。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "M-04-main-01",
+              "revision": 2
+            },
+            {
+              "speaker": "周砚",
+              "text": "叶蘅，信里那户人家的事，镇上收药的人或许知道。我托了陆衡捎你去，顺路问问。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "M-04-main-02",
+              "revision": 2
+            },
+            {
+              "speaker": "叶蘅",
+              "text": "这么快？……多谢周先生，也多谢陆大哥。",
+              "voice": true,
+              "emotion_api": "surprised",
+              "delivery_notes": "",
+              "id": "M-04-main-03",
+              "revision": 2,
+              "mood": "surprise"
+            },
+            {
+              "speaker": "周砚",
+              "text": "萧白也跟着去，搬搬药包，认认山路。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "M-04-main-04",
+              "revision": 2
+            },
+            {
+              "speaker": "萧白",
+              "text": "我也去？（头一回出远门……）",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "M-04-main-05",
+              "revision": 2
+            },
+            {
+              "speaker": "陆衡",
+              "text": "先别急着高兴。走过山路没有？背得动几包？",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "M-04-main-06",
+              "revision": 2
+            },
+            {
+              "speaker": "萧白",
+              "text": "只在谷里走过。背两包，应该行。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "M-04-main-07",
+              "revision": 2
+            },
+            {
+              "speaker": "陆衡",
+              "text": "那就两包。走不动早说，别硬撑到半路。",
+              "voice": true,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "M-04-main-08",
+              "revision": 2,
+              "mood": "serious"
+            },
+            {
+              "speaker": "萧白",
+              "text": "那几天的功课怎么办？",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "M-04-main-09",
+              "revision": 2
+            },
+            {
+              "speaker": "周砚",
+              "text": "停几天。路上一样是功课。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "M-04-main-10",
+              "revision": 2
+            },
+            {
+              "speaker": "叶蘅",
+              "text": "要问那户人家的话我写好了，回去再理一遍。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "M-04-main-11",
+              "revision": 2
+            },
+            {
+              "speaker": "陆衡",
+              "text": "前些天下了雨。鞋底磨平了的，换一双。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "M-04-main-12",
+              "revision": 2
+            }
+          ],
+          "effects": []
+        }
+      ],
+      "contract_notes": [
+        "slot12整期护送；预告0点，实际占期不再收6点闲逛或5点战斗。",
+        "2026-10-16 返工：剧情按 briefs/pre-xiangyang-mainline-brief.json 重新设计，台词由 MiniMax 起草、人工审定；段落、条件、效果未改。"
+      ],
+      "runtime_status": "script-draft-not-integrated"
+    },
+    {
+      "id": "M-05",
+      "title": "雨后这段路",
+      "group": "主线",
+      "event_id": "spring_escort",
+      "window": [
+        12,
+        12
+      ],
+      "cost": 0,
+      "action_id": null,
+      "requires": [
+        "escort_notice"
+      ],
+      "stage": "三月中旬，去山那边镇上的山路。前几天下过雨。陆衡带路，萧白背两包药，叶蘅也背着一包。",
+      "blocks": [
+        {
+          "key": "start",
+          "label": "清点与遇阻",
+          "condition": "always",
+          "kind": "main",
+          "group": null,
+          "lines": [
+            {
+              "speaker": "陆衡",
+              "text": "萧白，包带勒紧些。松了的包，走坡会往一边坠。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "M-05-start-01",
+              "revision": 2
+            },
+            {
+              "speaker": "萧白",
+              "text": "好。……前面那段坡，泥怎么是黑的？",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "M-05-start-02",
+              "revision": 2
+            },
+            {
+              "speaker": "陆衡",
+              "text": "雨水泡透了。都看着脚下。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "M-05-start-03",
+              "revision": 2
+            },
+            {
+              "speaker": "萧白",
+              "text": "早到早好，咱们快些过去吧。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "M-05-start-04",
+              "revision": 2
+            },
+            {
+              "speaker": "叶蘅",
+              "text": "我也想早点到镇上。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "M-05-start-05",
+              "revision": 2
+            },
+            {
+              "speaker": "萧白",
+              "text": "哎——！刚才差点连人带包滑下去。",
+              "voice": false,
+              "emotion_api": "surprised",
+              "delivery_notes": "",
+              "id": "M-05-start-06",
+              "revision": 2,
+              "mood": "surprise"
+            },
+            {
+              "speaker": "陆衡",
+              "text": "都停下。这段不能照原样走。",
+              "voice": true,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "M-05-start-07",
+              "revision": 2,
+              "mood": "serious"
+            },
+            {
+              "speaker": "萧白",
+              "text": "（光想着别拖后腿，结果差点成了最拖后腿的那个。）",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "M-05-start-08",
+              "revision": 2
+            },
+            {
+              "speaker": "陆衡",
+              "text": "萧白，这段你自己过得去吗？",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "M-05-start-09",
+              "revision": 2
+            }
+          ],
+          "effects": []
+        },
+        {
+          "key": "footwork",
+          "label": "“这段我能帮着过。”：已练基础步法",
+          "condition": "choice == 'cooperate' and learned.footwork == true",
+          "kind": "branch",
+          "group": "delivery_method",
+          "lines": [
+            {
+              "speaker": "萧白",
+              "text": "我练过退步，脚底下有点数。前面这一小段，让我背过去试试，陆大哥在下面看着。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "M-05-footwork-01",
+              "revision": 2
+            },
+            {
+              "speaker": "陆衡",
+              "text": "行。踩有草根的地方，步子迈小，到平地前别回头。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "M-05-footwork-02",
+              "revision": 2
+            },
+            {
+              "speaker": "萧白",
+              "text": "过来了。最后一步，差点又迈大了。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "M-05-footwork-03",
+              "revision": 2
+            },
+            {
+              "speaker": "陆衡",
+              "text": "自己知道就行。剩下的一起走。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "M-05-footwork-04",
+              "revision": 2
+            }
+          ],
+          "effects": [
+            "first_delivery.method=guided_footwork"
+          ]
+        },
+        {
+          "key": "carry",
+          "label": "“这段我能帮着过。”：未练基础步法",
+          "condition": "choice == 'cooperate' and learned.footwork != true",
+          "kind": "branch",
+          "group": "delivery_method",
+          "lines": [
+            {
+              "speaker": "萧白",
+              "text": "这种坡我不会走。不过包可以分开搬，分量轻些，人就稳些。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "M-05-carry-01",
+              "revision": 2
+            },
+            {
+              "speaker": "陆衡",
+              "text": "那就在这块平地重新分。我背重的先过，你们背轻的，踩着我的脚印走。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "M-05-carry-02",
+              "revision": 2
+            },
+            {
+              "speaker": "叶蘅",
+              "text": "药签朝里放，免得蹭湿了。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "M-05-carry-03",
+              "revision": 2
+            },
+            {
+              "speaker": "萧白",
+              "text": "过是过来了。这坡到底怎么走，我还得学。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "M-05-carry-04",
+              "revision": 2
+            }
+          ],
+          "effects": [
+            "first_delivery.method=assisted_carry"
+          ]
+        },
+        {
+          "key": "guide",
+          "label": "“陆大哥，你说怎么走。”：请求陆衡指导",
+          "condition": "choice == 'guidance'",
+          "kind": "branch",
+          "group": "delivery_method",
+          "lines": [
+            {
+              "speaker": "萧白",
+              "text": "我拿不准。陆大哥，你说怎么走，我们就怎么走。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "M-05-guide-01",
+              "revision": 2
+            },
+            {
+              "speaker": "陆衡",
+              "text": "你们在平地等着。我空手上去看看哪儿能落脚，回来带你们。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "M-05-guide-02",
+              "revision": 2
+            },
+            {
+              "speaker": "萧白",
+              "text": "原来要踩那几块。我记住了。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "M-05-guide-03",
+              "revision": 2
+            }
+          ],
+          "effects": [
+            "first_delivery.method=asked_for_guidance"
+          ]
+        },
+        {
+          "key": "handoff",
+          "label": "交接与有限见闻",
+          "condition": "always",
+          "kind": "main",
+          "group": null,
+          "lines": [
+            {
+              "speaker": "陆衡",
+              "text": "到了。萧白，把包卸下来，跟人家对对数。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "M-05-handoff-01",
+              "revision": 2
+            },
+            {
+              "speaker": "收件人",
+              "text": "数目对上了。几家人都等着用药，多谢三位跑这一趟。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "M-05-handoff-02",
+              "revision": 2
+            },
+            {
+              "speaker": "叶蘅",
+              "text": "请问，十几年前有位温先生，是不是治过府上的人？",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "M-05-handoff-03",
+              "revision": 2
+            },
+            {
+              "speaker": "收件人",
+              "text": "治过我父亲。那年他病得厉害，是温先生治好的。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "M-05-handoff-04",
+              "revision": 2
+            },
+            {
+              "speaker": "收件人",
+              "text": "我那时还小，只记得家里人一直念着温先生的好。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "M-05-handoff-05",
+              "revision": 2
+            },
+            {
+              "speaker": "叶蘅",
+              "text": "能不能见见老人家？",
+              "voice": true,
+              "emotion_api": "fearful",
+              "delivery_notes": "",
+              "id": "M-05-handoff-06",
+              "revision": 2,
+              "mood": "worry"
+            },
+            {
+              "speaker": "收件人",
+              "text": "家父去我妹子家住了，这阵子不在。等他回来，我替姑娘问。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "M-05-handoff-07",
+              "revision": 2
+            },
+            {
+              "speaker": "收件人",
+              "text": "有了消息，就捎信去谷里。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "M-05-handoff-08",
+              "revision": 2
+            },
+            {
+              "speaker": "叶蘅",
+              "text": "多谢。我等信。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "M-05-handoff-09",
+              "revision": 2
+            },
+            {
+              "speaker": "萧白",
+              "text": "信送到谷里，我记着去问。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "M-05-handoff-10",
+              "revision": 2
+            },
+            {
+              "speaker": "陆衡",
+              "text": "天色还早，趁亮往回走。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "M-05-handoff-11",
+              "revision": 2
+            }
+          ],
+          "effects": []
+        }
+      ],
+      "contract_notes": [
+        "“协同行路／请陆衡指导”沿现有两选项；协同行路再读取步法事实，不显示学不会的第三选项。",
+        "收件人采用本稿匿名职务型普通NPC，作为受治者家属的有限见闻来源；不是新增同伴。没有姓名、专属声线或追加动画要求；具体人名可后定而不改变信息与费用。",
+        "本期无战斗、没有永久陆衡招募、未授针攻；不动叶家旧物。",
+        "2026-10-16 返工：剧情按 briefs/pre-xiangyang-mainline-brief.json 重新设计，台词由 MiniMax 起草、人工审定；段落、条件、效果未改。"
+      ],
+      "runtime_status": "script-draft-not-integrated"
+    },
+    {
+      "id": "M-06",
+      "title": "回来，先放下包",
+      "group": "主线",
+      "event_id": "escort_return",
+      "window": [
+        13,
+        13
+      ],
+      "cost": 0,
+      "action_id": null,
+      "requires": [
+        "spring_escort"
+      ],
+      "stage": "三月下旬，回到谷里院子。周砚在等。陆衡把人送到谷口就接着去下一趟活了，不在场。",
+      "blocks": [
+        {
+          "key": "main",
+          "label": "回来交接",
+          "condition": "always",
+          "kind": "main",
+          "group": null,
+          "lines": [
+            {
+              "speaker": "周砚",
+              "text": "回来了。先把包放下，喝口水。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "M-06-main-01",
+              "revision": 2
+            },
+            {
+              "speaker": "叶蘅",
+              "text": "药都送到了。我父亲的事问到一点，当年见过他的老人不在家，得等信。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "M-06-main-02",
+              "revision": 2
+            },
+            {
+              "speaker": "萧白",
+              "text": "师父，路上那段坡……我差点连人带包滑下去。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "M-06-main-03",
+              "revision": 2,
+              "mood": "awkward"
+            }
+          ],
+          "effects": []
+        },
+        {
+          "key": "footwork",
+          "label": "实际步法路线",
+          "condition": "first_delivery.method == 'guided_footwork'",
+          "kind": "variant",
+          "group": "delivery_result",
+          "lines": [
+            {
+              "speaker": "萧白",
+              "text": "后来是陆大哥指着落脚的地方，我自己背过去的。最后一步差点又迈大了。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "M-06-footwork-01",
+              "revision": 2
+            }
+          ],
+          "effects": []
+        },
+        {
+          "key": "carry",
+          "label": "实际协助路线",
+          "condition": "first_delivery.method == 'assisted_carry'",
+          "kind": "variant",
+          "group": "delivery_result",
+          "lines": [
+            {
+              "speaker": "萧白",
+              "text": "后来分了包，跟着陆大哥的脚印过去的。那坡怎么走，我其实还不会。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "M-06-carry-01",
+              "revision": 2
+            }
+          ],
+          "effects": []
+        },
+        {
+          "key": "guide",
+          "label": "实际求助路线",
+          "condition": "first_delivery.method == 'asked_for_guidance'",
+          "kind": "variant",
+          "group": "delivery_result",
+          "lines": [
+            {
+              "speaker": "萧白",
+              "text": "后来我请陆大哥先去探路，跟着走过去的。我自己看不出该踩哪儿。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "M-06-guide-01",
+              "revision": 2
+            }
+          ],
+          "effects": []
+        },
+        {
+          "key": "end",
+          "label": "合流",
+          "condition": "always",
+          "kind": "main",
+          "group": null,
+          "lines": [
+            {
+              "speaker": "周砚",
+              "text": "滑了一下能停住，比硬冲强。明早到练场，把那一步走给我看。",
+              "voice": true,
+              "emotion_api": "happy",
+              "delivery_notes": "",
+              "id": "M-06-end-01",
+              "revision": 2,
+              "mood": "smile"
+            },
+            {
+              "speaker": "萧白",
+              "text": "陆大哥送到谷口，就接着去下一趟了。我还没来得及谢他。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "M-06-end-02",
+              "revision": 2
+            },
+            {
+              "speaker": "叶蘅",
+              "text": "下回陆大哥来，我煮点吃的谢他。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "M-06-end-03",
+              "revision": 2
+            },
+            {
+              "speaker": "周砚",
+              "text": "今天先歇着。饭好了叫你们。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "M-06-end-04",
+              "revision": 2
+            }
+          ],
+          "effects": []
+        }
+      ],
+      "contract_notes": [
+        "若没有first_delivery有效记录，不播放本场；旧档迁移先补核，不默认已成功走险坡。",
+        "2026-10-16 返工：剧情按 briefs/pre-xiangyang-mainline-brief.json 重新设计，台词由 MiniMax 起草、人工审定；段落、条件、效果未改。",
+        "2026-10-16 定：游戏播放以进城前完善版为准（chapter-two-dialogue.json preHangao，同 id 场次），本稿不播出，仅作返工参考。"
+      ],
+      "runtime_status": "superseded-by-pre-hangao"
+    },
+    {
+      "id": "M-07",
+      "title": "帖子上有几件不同的事",
+      "group": "主线",
+      "event_id": "xiangyang_invitation",
+      "window": [
+        15,
+        15
+      ],
+      "cost": 0,
+      "action_id": null,
+      "requires": [],
+      "stage": "四月初，周砚的书房。城里来了一封请帖。",
+      "blocks": [
+        {
+          "key": "main",
+          "label": "邀请与分别征询",
+          "condition": "always",
+          "kind": "main",
+          "group": null,
+          "lines": [
+            {
+              "speaker": "周砚",
+              "text": "城里一位老朋友五月做寿，请我去。谷里正好有批东西要交过去，一并带上。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "M-07-main-01",
+              "revision": 2
+            },
+            {
+              "speaker": "周砚",
+              "text": "你们两个，愿不愿一道去？不愿去，就留在谷里。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "M-07-main-02",
+              "revision": 2
+            },
+            {
+              "speaker": "萧白",
+              "text": "城里……有什么？",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "M-07-main-03",
+              "revision": 2
+            },
+            {
+              "speaker": "周砚",
+              "text": "寿宴上，各家年轻弟子会出来试试身手，点到为止。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "M-07-main-04",
+              "revision": 2
+            },
+            {
+              "speaker": "萧白",
+              "text": "试身手？我才学了几个月。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "M-07-main-05",
+              "revision": 2,
+              "mood": "awkward"
+            },
+            {
+              "speaker": "周砚",
+              "text": "去看看，也是学。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "M-07-main-06",
+              "revision": 2
+            },
+            {
+              "speaker": "叶蘅",
+              "text": "我要是走了，药圃谁管？",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "M-07-main-07",
+              "revision": 2
+            },
+            {
+              "speaker": "周砚",
+              "text": "去一个月，师母会替你看着。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "M-07-main-08",
+              "revision": 2
+            },
+            {
+              "speaker": "周砚",
+              "text": "上回替你打听父亲的那位朋友，就住在城里。你可以当面问他。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "M-07-main-09",
+              "revision": 2
+            },
+            {
+              "speaker": "叶蘅",
+              "text": "……那我去。",
+              "voice": true,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "M-07-main-10",
+              "revision": 2,
+              "mood": "serious"
+            },
+            {
+              "speaker": "萧白",
+              "text": "我也去。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "M-07-main-11",
+              "revision": 2
+            },
+            {
+              "speaker": "周砚",
+              "text": "好。四月底动身，六月初回谷。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "M-07-main-12",
+              "revision": 2
+            },
+            {
+              "speaker": "萧白",
+              "text": "那还有一个月，我再多练几回。",
+              "voice": false,
+              "emotion_api": "happy",
+              "delivery_notes": "",
+              "id": "M-07-main-13",
+              "revision": 2,
+              "mood": "smile"
+            }
+          ],
+          "effects": []
+        }
+      ],
+      "contract_notes": [
+        "主人姓名与活动场次未定，不编造请帖全文；不提前知晓苏芷、唐照雪或裴嵩责任。",
+        "2026-10-16 返工：剧情按 briefs/pre-xiangyang-mainline-brief.json 重新设计，台词由 MiniMax 起草、人工审定；段落、条件、效果未改。",
+        "2026-10-16 定：游戏播放以进城前完善版为准（chapter-two-dialogue.json preHangao，同 id 场次），本稿不播出，仅作返工参考。"
+      ],
+      "runtime_status": "superseded-by-pre-hangao"
+    },
+    {
+      "id": "M-08",
+      "title": "出发前，先说自己的事",
+      "group": "主线",
+      "event_id": "xiangyang_departure",
+      "window": [
+        19,
+        19
+      ],
+      "cost": 0,
+      "action_id": null,
+      "requires": [
+        "xiangyang_invitation"
+      ],
+      "stage": "四月底，出发前一天傍晚，廊下，行李都收拾好了。",
+      "blocks": [
+        {
+          "key": "main",
+          "label": "必要交接",
+          "condition": "always",
+          "kind": "main",
+          "group": null,
+          "lines": [
+            {
+              "speaker": "周砚",
+              "text": "明早动身，六月初回。这一个月，谷里的功课先停了。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "M-08-main-01",
+              "revision": 2
+            },
+            {
+              "speaker": "叶蘅",
+              "text": "我托了师母：村里周婶要是来信，先替我收着，药圃也帮着浇。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "M-08-main-02",
+              "revision": 2
+            },
+            {
+              "speaker": "萧白",
+              "text": "师父，陆大哥会在城里吗？上回还没谢他。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "M-08-main-03",
+              "revision": 2
+            },
+            {
+              "speaker": "周砚",
+              "text": "陆衡来信说，他在城里接了护运的活，能碰个面。别指望他陪着。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "M-08-main-04",
+              "revision": 2
+            },
+            {
+              "speaker": "叶蘅",
+              "text": "萧白，包打开我看看……换洗衣裳怎么塞在最底下？路上要翻个底朝天。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "M-08-main-05",
+              "revision": 2
+            },
+            {
+              "speaker": "萧白",
+              "text": "呃……顺手就这么装了。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "M-08-main-06",
+              "revision": 2,
+              "mood": "awkward"
+            }
+          ],
+          "effects": []
+        },
+        {
+          "key": "seen",
+          "label": "经历X1后的短回响",
+          "condition": "facts.pre_departure_talk_seen == true",
+          "kind": "variant",
+          "group": "departure_talk",
+          "lines": [
+            {
+              "speaker": "萧白",
+              "text": "你那张要办的事，带了没？",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "M-08-seen-01",
+              "revision": 2
+            },
+            {
+              "speaker": "叶蘅",
+              "text": "带了。你自己那张呢？别又塞在包底。",
+              "voice": true,
+              "emotion_api": "happy",
+              "delivery_notes": "",
+              "id": "M-08-seen-02",
+              "revision": 2,
+              "mood": "smile"
+            }
+          ],
+          "effects": []
+        },
+        {
+          "key": "not_seen",
+          "label": "未选X1也得到必要信息",
+          "condition": "facts.pre_departure_talk_seen != true",
+          "kind": "fallback",
+          "group": "departure_talk",
+          "lines": [
+            {
+              "speaker": "叶蘅",
+              "text": "进了城，我要去见那位朋友，再看看城里的大夫怎么看病。到时候你别等我。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "M-08-not_seen-01",
+              "revision": 2
+            },
+            {
+              "speaker": "萧白",
+              "text": "我也想去看年轻人试身手。各忙各的，空了再碰头。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "M-08-not_seen-02",
+              "revision": 2
+            }
+          ],
+          "effects": []
+        },
+        {
+          "key": "end",
+          "label": "出发与集合规则",
+          "condition": "always",
+          "kind": "main",
+          "group": null,
+          "lines": [
+            {
+              "speaker": "周砚",
+              "text": "城里人多。走散了，就回落脚的客栈等，别满城找。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "M-08-end-01",
+              "revision": 2
+            },
+            {
+              "speaker": "萧白",
+              "text": "记住了。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "M-08-end-02",
+              "revision": 2
+            },
+            {
+              "speaker": "周砚",
+              "text": "饭好了，先吃饭。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "M-08-end-03",
+              "revision": 2
+            },
+            {
+              "speaker": "叶蘅",
+              "text": "这回我先把饭吃了，不等它凉。",
+              "voice": true,
+              "emotion_api": "happy",
+              "delivery_notes": "",
+              "id": "M-08-end-04",
+              "revision": 2,
+              "mood": "smile"
+            }
+          ],
+          "effects": []
+        }
+      ],
+      "contract_notes": [
+        "此处只是出发交接；第5月起整月历练，不能额外占据第4月训练期或收长谈費。必要集合规则不收费。",
+        "2026-10-16 返工：剧情按 briefs/pre-xiangyang-mainline-brief.json 重新设计，台词由 MiniMax 起草、人工审定；段落、条件、效果未改。",
+        "2026-10-16 定：游戏播放以进城前完善版为准（chapter-two-dialogue.json preHangao，同 id 场次），本稿不播出，仅作返工参考。"
+      ],
+      "runtime_status": "superseded-by-pre-hangao"
+    },
+    {
+      "id": "M-09",
+      "title": "城门还在前面",
+      "group": "转场",
+      "event_id": null,
+      "window": [
+        20,
+        20
+      ],
+      "cost": 0,
+      "action_id": null,
+      "requires": [
+        "xiangyang_departure"
+      ],
+      "stage": "五月初，进城的路上，已经能远远看见城墙，路上人和车越来越多。",
+      "blocks": [
+        {
+          "key": "main",
+          "label": "城外短段",
+          "condition": "always",
+          "kind": "main",
+          "group": null,
+          "lines": [
+            {
+              "speaker": "萧白",
+              "text": "师父，这城墙比我想的大多了。",
+              "voice": false,
+              "emotion_api": "surprised",
+              "delivery_notes": "",
+              "id": "M-09-main-01",
+              "revision": 2,
+              "mood": "surprise"
+            },
+            {
+              "speaker": "萧白",
+              "text": "（原来书上写的“城池”，是这个样子。）",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "M-09-main-02",
+              "revision": 2
+            },
+            {
+              "speaker": "叶蘅",
+              "text": "路上这么多人，问路都不知道该问谁。",
+              "voice": true,
+              "emotion_api": "fearful",
+              "delivery_notes": "",
+              "id": "M-09-main-03",
+              "revision": 2,
+              "mood": "worry"
+            },
+            {
+              "speaker": "周砚",
+              "text": "先找落脚的地方把东西放下，别的再说。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "M-09-main-04",
+              "revision": 2
+            },
+            {
+              "speaker": "萧白",
+              "text": "叶蘅，你那边问到了什么，回落脚的地方跟我说一声。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "M-09-main-05",
+              "revision": 2
+            },
+            {
+              "speaker": "叶蘅",
+              "text": "好。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "M-09-main-06",
+              "revision": 2
+            },
+            {
+              "speaker": "周砚",
+              "text": "走吧，赶在关城门之前进去。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "M-09-main-07",
+              "revision": 2
+            }
+          ],
+          "effects": []
+        }
+      ],
+      "contract_notes": [
+        "终点在进入城门以前；不增加整月出游或必胜战斗；尚未遇见苏芷、唐照雪、阮青雀等襄阳人物。",
+        "2026-10-16 返工：剧情按 briefs/pre-xiangyang-mainline-brief.json 重新设计，台词由 MiniMax 起草、人工审定；段落、条件、效果未改。",
+        "2026-10-16 定：游戏播放以进城前完善版为准（chapter-two-dialogue.json preHangao，M-09 由 hg_road／hg_gate 取代），本稿不播出，仅作返工参考。"
+      ],
+      "runtime_status": "superseded-by-pre-hangao"
+    },
+    {
+      "id": "Y-01",
+      "title": "药签上留着的空白",
+      "group": "人物",
+      "event_id": "first_ye_work",
+      "window": [
+        1,
+        9
+      ],
+      "cost": 4,
+      "action_id": "W02",
+      "requires": [],
+      "stage": "药圃晾架，普通标签有一格字迹模糊。叶蘅放下布包，按住自己的标签；萧白放下笔。严肃靠停手与核对表现，不用愤怒推掌。",
+      "blocks": [
+        {
+          "key": "main",
+          "label": "先别写",
+          "condition": "always",
+          "kind": "main",
+          "group": null,
+          "lines": [
+            {
+              "speaker": "萧白",
+              "text": "这两包看着一样。我把没写完的补上，省得你再找？",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "Y-01-main-01"
+            },
+            {
+              "speaker": "叶蘅",
+              "text": "等一下，先别写。",
+              "voice": true,
+              "emotion_api": "calm",
+              "delivery_notes": "叫停短而明确，尚未发火。",
+              "id": "Y-01-main-02"
+            },
+            {
+              "speaker": "萧白",
+              "text": "不是写漏了吗？",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "Y-01-main-03"
+            },
+            {
+              "speaker": "叶蘅",
+              "text": "这一格不是忘写，是还没问清。包得像，不能就当是同一种。",
+              "voice": true,
+              "emotion_api": "calm",
+              "delivery_notes": "认真解释，重音在“还没问清”；不居高临下。",
+              "id": "Y-01-main-04"
+            },
+            {
+              "speaker": "萧白",
+              "text": "我以为你忙，我能少让你做一件。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "Y-01-main-05"
+            },
+            {
+              "speaker": "叶蘅",
+              "text": "这几包是我能让你整理的。要怎么写，你得先问。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "Y-01-main-06"
+            },
+            {
+              "speaker": "萧白",
+              "text": "我把笔放下。刚才那张还没写上去。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "Y-01-main-07"
+            },
+            {
+              "speaker": "叶蘅",
+              "text": "那就好。我自己拿不准的，也不补。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "Y-01-main-08"
+            },
+            {
+              "speaker": "萧白",
+              "text": "你也有不知道的？",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "Y-01-main-09"
+            },
+            {
+              "speaker": "叶蘅",
+              "text": "当然有。要是都认得，我就不必把这些留到回信了。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "Y-01-main-10"
+            },
+            {
+              "speaker": "萧白",
+              "text": "那我先做哪一件？",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "Y-01-main-11"
+            }
+          ],
+          "effects": []
+        },
+        {
+          "key": "A",
+          "label": "把确定和待问分开",
+          "condition": "choice == 'separate'",
+          "kind": "branch",
+          "group": "response",
+          "lines": [
+            {
+              "speaker": "萧白",
+              "text": "知道的放这一边，没问清的放另一边。标签还是你看，我不补。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "Y-01-A-01"
+            },
+            {
+              "speaker": "叶蘅",
+              "text": "行。也别挪掉原来的小纸签，省得下回不知道问哪包。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "Y-01-A-02"
+            },
+            {
+              "speaker": "萧白",
+              "text": "这张我另压一块木片，写“待问”，可以吗？",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "Y-01-A-03"
+            },
+            {
+              "speaker": "叶蘅",
+              "text": "可以。这几个字，我认得。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "Y-01-A-04"
+            }
+          ],
+          "effects": [
+            "asked_before_helping=true"
+          ]
+        },
+        {
+          "key": "B",
+          "label": "先整理架子",
+          "condition": "choice == 'sort'",
+          "kind": "branch",
+          "group": "response",
+          "lines": [
+            {
+              "speaker": "萧白",
+              "text": "我先把架子收好。包放哪一层，你指给我。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "Y-01-B-01"
+            },
+            {
+              "speaker": "叶蘅",
+              "text": "上层这边空着，先用干布擦。未知的这几包别挪。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "Y-01-B-02"
+            },
+            {
+              "speaker": "萧白",
+              "text": "好。这件我能做完再叫你。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "Y-01-B-03"
+            },
+            {
+              "speaker": "叶蘅",
+              "text": "那我就不一边记数，一边盯架子了。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "Y-01-B-04"
+            }
+          ],
+          "effects": [
+            "sorted_without_guessing=true"
+          ]
+        },
+        {
+          "key": "end",
+          "label": "把帮忙落到事情上",
+          "condition": "always",
+          "kind": "main",
+          "group": null,
+          "lines": [
+            {
+              "speaker": "旁白",
+              "text": "两人收好获许可整理的普通材料。叶家旧物仍在叶蘅自己的房间。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "Y-01-end-01"
+            },
+            {
+              "speaker": "叶蘅",
+              "text": "这格先留着，余下的我们再问清。下次不确定，先告诉我。",
+              "voice": true,
+              "emotion_api": "calm",
+              "delivery_notes": "有边界，也认可刚完成的合作。",
+              "id": "Y-01-end-02"
+            },
+            {
+              "speaker": "萧白",
+              "text": "我记住了。要是只是缺个擦架子的人，我倒不用猜。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "Y-01-end-03"
+            },
+            {
+              "speaker": "叶蘅",
+              "text": "那就先把架子擦完。你这边还有一角。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "Y-01-end-04"
+            }
+          ],
+          "effects": []
+        }
+      ],
+      "contract_notes": [
+        "与A03辨药课分别结算；不得读到此段就授诊疗权或针攻。两分支不锁恋爱。"
+      ],
+      "runtime_status": "script-draft-not-integrated"
+    },
+    {
+      "id": "Z-01",
+      "title": "记住了，还是站不稳",
+      "group": "人物",
+      "event_id": "first_zhou_talk",
+      "window": [
+        0,
+        9
+      ],
+      "cost": 4,
+      "action_id": "W01",
+      "requires": [
+        "first_foundation_lesson"
+      ],
+      "stage": "正月到二月，练场一角。萧白刚上完几回站桩和退步的课。",
+      "blocks": [
+        {
+          "key": "main",
+          "label": "把困难说出来",
+          "condition": "always",
+          "kind": "main",
+          "group": null,
+          "lines": [
+            {
+              "speaker": "周砚",
+              "text": "今天站了三回，哪一回最稳？",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "Z-01-main-01",
+              "revision": 2
+            },
+            {
+              "speaker": "萧白",
+              "text": "第二回。膝要弯，肩要平，眼看前面——我都记着。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "Z-01-main-02",
+              "revision": 2
+            },
+            {
+              "speaker": "周砚",
+              "text": "记得都对。可第三回退步，你身子先往后仰了。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "Z-01-main-03",
+              "revision": 2
+            },
+            {
+              "speaker": "萧白",
+              "text": "……您看见了。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "Z-01-main-04",
+              "revision": 2,
+              "mood": "awkward"
+            },
+            {
+              "speaker": "萧白",
+              "text": "我怕一说做不到，您觉得我笨。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "Z-01-main-05",
+              "revision": 2
+            },
+            {
+              "speaker": "周砚",
+              "text": "你不说，我就不知道该从哪儿教。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "Z-01-main-06",
+              "revision": 2
+            },
+            {
+              "speaker": "周砚",
+              "text": "哪儿别扭，说给我听。要不，再站一回给我看。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "Z-01-main-07",
+              "revision": 2
+            }
+          ],
+          "effects": []
+        },
+        {
+          "key": "A",
+          "label": "“退步那一下，我没懂。”：说出没懂的地方",
+          "condition": "choice == 'ask'",
+          "kind": "branch",
+          "group": "response",
+          "lines": [
+            {
+              "speaker": "萧白",
+              "text": "往后退那一下，到底是身子先动，还是脚先动？我一直没弄明白。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "Z-01-A-01",
+              "revision": 2
+            },
+            {
+              "speaker": "周砚",
+              "text": "明天单练这一步，不求快。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "Z-01-A-02",
+              "revision": 2
+            },
+            {
+              "speaker": "萧白",
+              "text": "好。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "Z-01-A-03",
+              "revision": 2
+            }
+          ],
+          "effects": [
+            "named_training_difficulty=true"
+          ]
+        },
+        {
+          "key": "B",
+          "label": "“我再试一次。”：再试一次后说明",
+          "condition": "choice == 'retry'",
+          "kind": "branch",
+          "group": "response",
+          "lines": [
+            {
+              "speaker": "萧白",
+              "text": "我慢慢退一回，看是不是还错在同一个地方。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "Z-01-B-01",
+              "revision": 2
+            },
+            {
+              "speaker": "周砚",
+              "text": "就一次，站不住就停。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "Z-01-B-02",
+              "revision": 2
+            },
+            {
+              "speaker": "萧白",
+              "text": "（慢慢退……还是这里。腰先过去了，脚还没到。）",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "Z-01-B-03",
+              "revision": 2
+            },
+            {
+              "speaker": "萧白",
+              "text": "还是那儿。我想先弄明白，再多练。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "Z-01-B-04",
+              "revision": 2
+            }
+          ],
+          "effects": [
+            "named_training_difficulty=true"
+          ]
+        },
+        {
+          "key": "end",
+          "label": "保留下一课的课题",
+          "condition": "always",
+          "kind": "main",
+          "group": null,
+          "lines": [
+            {
+              "speaker": "周砚",
+              "text": "今天就到这儿。晚上不用偷着加练。",
+              "voice": true,
+              "emotion_api": "happy",
+              "delivery_notes": "",
+              "id": "Z-01-end-01",
+              "revision": 2,
+              "mood": "smile"
+            },
+            {
+              "speaker": "萧白",
+              "text": "我本来还想再练几回的……",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "Z-01-end-02",
+              "revision": 2
+            },
+            {
+              "speaker": "周砚",
+              "text": "力气留到明天，把这一步练明白。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "Z-01-end-03",
+              "revision": 2
+            }
+          ],
+          "effects": []
+        }
+      ],
+      "contract_notes": [
+        "修订旧稿第三种选择并入“重试后说明”，遵守每节点最多两条处理分支。课题事实不是额外武学或道德奖励。",
+        "2026-10-16 返工：剧情按 briefs/pre-xiangyang-mainline-brief.json 重新设计，台词由 MiniMax 起草、人工审定；段落、条件、效果未改。"
+      ],
+      "runtime_status": "script-draft-not-integrated"
+    },
+    {
+      "id": "V-01",
+      "title": "袋底的木屑",
+      "group": "人物",
+      "event_id": "village_letter",
+      "window": [
+        2,
+        11
+      ],
+      "cost": 4,
+      "action_id": "W03",
+      "requires": [],
+      "stage": "谷中书案，乡邻来信随普通尺寸纸附一点木屑。陈伯与周婶仅在信中，不用站在谷中代演回访。",
+      "blocks": [
+        {
+          "key": "main",
+          "label": "信里也有他们自己的安排",
+          "condition": "always",
+          "kind": "main",
+          "group": null,
+          "lines": [
+            {
+              "speaker": "叶蘅",
+              "text": "这张是陈伯写给修凳子的人看的。袋里还落了点木屑。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "V-01-main-01"
+            },
+            {
+              "speaker": "萧白",
+              "text": "他还惦记凳脚。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "V-01-main-02"
+            },
+            {
+              "speaker": "叶蘅",
+              "text": "信上写：“凳脚别替我加高，坐着顺手就好。”",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "V-01-main-03"
+            },
+            {
+              "speaker": "萧白",
+              "text": "我想起他院里那块不能踩的板了。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "V-01-main-04"
+            },
+            {
+              "speaker": "叶蘅",
+              "text": "他没让我们去找旧板。这里才是还缺的东西。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "V-01-main-05"
+            },
+            {
+              "speaker": "萧白",
+              "text": "那把能寄的都凑齐？",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "V-01-main-06"
+            },
+            {
+              "speaker": "叶蘅",
+              "text": "这一项周婶划掉了。那边有人借了，不用再送。",
+              "voice": true,
+              "emotion_api": "calm",
+              "delivery_notes": "读实际消息，带一点放心，不能批评村民依赖。",
+              "id": "V-01-main-07"
+            },
+            {
+              "speaker": "萧白",
+              "text": "我只看见缺项，没看见他们已经做了什么。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "V-01-main-08"
+            },
+            {
+              "speaker": "叶蘅",
+              "text": "我刚才也想再备一包。先把已经接手的人记清。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "V-01-main-09"
+            }
+          ],
+          "effects": []
+        },
+        {
+          "key": "A",
+          "label": "核实实际缺项",
+          "condition": "choice == 'verify'",
+          "kind": "branch",
+          "group": "response",
+          "lines": [
+            {
+              "speaker": "萧白",
+              "text": "还没划掉的，也不一定都要我们寄。我先列要问的数量和用途。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "V-01-A-01"
+            },
+            {
+              "speaker": "叶蘅",
+              "text": "好。回话来了，再找现有的普通材料。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "V-01-A-02"
+            },
+            {
+              "speaker": "萧白",
+              "text": "陈伯要的尺寸，我照他的批注留着，不自作主张加高。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "V-01-A-03"
+            }
+          ],
+          "effects": [
+            "checked_village_needs=true"
+          ]
+        },
+        {
+          "key": "B",
+          "label": "说明下次能带什么",
+          "condition": "choice == 'reply'",
+          "kind": "branch",
+          "group": "response",
+          "lines": [
+            {
+              "speaker": "萧白",
+              "text": "我现在有的先写清，没有的只说待找，不答应哪天一定送到。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "V-01-B-01"
+            },
+            {
+              "speaker": "叶蘅",
+              "text": "我也写我能做的。医者接了手的部分，不用再等我。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "V-01-B-02"
+            },
+            {
+              "speaker": "萧白",
+              "text": "那这封先草拟，真寄出去还走通信的确认。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "V-01-B-03"
+            }
+          ],
+          "effects": [
+            "scoped_village_reply=true"
+          ]
+        },
+        {
+          "key": "end",
+          "label": "别把木屑当成灾难纪念物",
+          "condition": "always",
+          "kind": "main",
+          "group": null,
+          "lines": [
+            {
+              "speaker": "叶蘅",
+              "text": "木屑倒不是特地留给我们的，大概是装信时落进去的。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "V-01-end-01"
+            },
+            {
+              "speaker": "萧白",
+              "text": "我还以为陈伯留了什么大意思。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "V-01-end-02"
+            },
+            {
+              "speaker": "叶蘅",
+              "text": "他留的意思都写了：别把凳脚加高。",
+              "voice": true,
+              "emotion_api": "happy",
+              "delivery_notes": "轻轻笑一下，生活气，不掩盖伤势。",
+              "id": "V-01-end-03"
+            },
+            {
+              "speaker": "旁白",
+              "text": "两人保留信与需求草稿；没有自动执行寄物，也没有完成实地回访。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "V-01-end-04"
+            }
+          ],
+          "effects": []
+        }
+      ],
+      "contract_notes": [
+        "按M-02伤势事实决定陈伯是指导尺寸还是做轻活；本场不写伤已痊愈。"
+      ],
+      "runtime_status": "script-draft-not-integrated"
+    },
+    {
+      "id": "Y-02",
+      "title": "饭还在锅里",
+      "group": "人物",
+      "event_id": "ye_meal",
+      "window": [
+        5,
+        11
+      ],
+      "cost": 4,
+      "action_id": null,
+      "requires": [
+        "first_ye_work"
+      ],
+      "stage": "二月到三月初，夜里，厨房边的小桌。叶蘅在写一封回信，饭一直没吃。",
+      "blocks": [
+        {
+          "key": "main",
+          "label": "一句还没写清",
+          "condition": "always",
+          "kind": "main",
+          "group": null,
+          "lines": [
+            {
+              "speaker": "萧白",
+              "text": "锅里的饭还热着，先吃吧？",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "Y-02-main-01",
+              "revision": 2
+            },
+            {
+              "speaker": "叶蘅",
+              "text": "写完这句就吃。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "Y-02-main-02",
+              "revision": 2
+            },
+            {
+              "speaker": "萧白",
+              "text": "这句你划了几回了？",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "Y-02-main-03",
+              "revision": 2
+            },
+            {
+              "speaker": "叶蘅",
+              "text": "邻村的大夫问，村东那位老人家以前吃过什么药。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "Y-02-main-04",
+              "revision": 2
+            },
+            {
+              "speaker": "叶蘅",
+              "text": "有一味药，我记得他吃了不舒服，可记不清是哪一回了。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "Y-02-main-05",
+              "revision": 2
+            },
+            {
+              "speaker": "叶蘅",
+              "text": "写错了，怕人家照着用出事；不写，又怕人家白绕路。",
+              "voice": true,
+              "emotion_api": "fearful",
+              "delivery_notes": "",
+              "id": "Y-02-main-06",
+              "revision": 2,
+              "mood": "worry"
+            },
+            {
+              "speaker": "萧白",
+              "text": "那边的大夫天天看着老人家，总比信上几行字清楚。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "Y-02-main-07",
+              "revision": 2
+            },
+            {
+              "speaker": "叶蘅",
+              "text": "我知道。可就是放不下。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "Y-02-main-08",
+              "revision": 2
+            }
+          ],
+          "effects": []
+        },
+        {
+          "key": "A",
+          "label": "“记得清的先写？”：分清今晚要交接的事",
+          "condition": "choice == 'handoff'",
+          "kind": "branch",
+          "group": "response",
+          "lines": [
+            {
+              "speaker": "萧白",
+              "text": "记得清的先写。记不清的那味，就直说记不清，让那边的大夫自己留心。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "Y-02-A-01",
+              "revision": 2
+            },
+            {
+              "speaker": "叶蘅",
+              "text": "……这样写，人家一看就知道哪句能信。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "Y-02-A-02",
+              "revision": 2
+            },
+            {
+              "speaker": "叶蘅",
+              "text": "那就写“记不准，请您留意”。",
+              "voice": true,
+              "emotion_api": "happy",
+              "delivery_notes": "",
+              "id": "Y-02-A-03",
+              "revision": 2,
+              "mood": "smile"
+            }
+          ],
+          "effects": [
+            "shared_clear_handoff=true"
+          ]
+        },
+        {
+          "key": "B",
+          "label": "帮她把杂事弄好：接走自己能做的杂务",
+          "condition": "choice == 'chores'",
+          "kind": "branch",
+          "group": "response",
+          "lines": [
+            {
+              "speaker": "萧白",
+              "text": "那你写。我去拿信封、添灯油，饭也替你热着。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "Y-02-B-01",
+              "revision": 2
+            },
+            {
+              "speaker": "叶蘅",
+              "text": "信封在柜子下面。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "Y-02-B-02",
+              "revision": 2
+            },
+            {
+              "speaker": "叶蘅",
+              "text": "……也不用全写。老人家现在怎样，那边的大夫比我清楚，我只写自己记得的。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "Y-02-B-03",
+              "revision": 2
+            }
+          ],
+          "effects": [
+            "shared_clear_handoff=true"
+          ]
+        },
+        {
+          "key": "end",
+          "label": "先吃这一顿",
+          "condition": "always",
+          "kind": "main",
+          "group": null,
+          "lines": [
+            {
+              "speaker": "叶蘅",
+              "text": "写完了，明早交给捎信的人。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "Y-02-end-01",
+              "revision": 2
+            },
+            {
+              "speaker": "萧白",
+              "text": "饭还热着。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "Y-02-end-02",
+              "revision": 2
+            },
+            {
+              "speaker": "叶蘅",
+              "text": "你那碗怎么也没动？……一直等着我，自己也没吃？",
+              "voice": true,
+              "emotion_api": "surprised",
+              "delivery_notes": "",
+              "id": "Y-02-end-03",
+              "revision": 2,
+              "mood": "surprise"
+            }
+          ],
+          "effects": []
+        }
+      ],
+      "contract_notes": [
+        "不提供现实治疗方法；任务必要消息已送达，不因跳支线造成患者无人照料。",
+        "2026-10-16 返工：剧情按 briefs/pre-xiangyang-mainline-brief.json 重新设计，台词由 MiniMax 起草、人工审定；段落、条件、效果未改。"
+      ],
+      "runtime_status": "script-draft-not-integrated"
+    },
+    {
+      "id": "L-01",
+      "title": "话别说得太满",
+      "group": "人物",
+      "event_id": "lu_visit",
+      "window": [
+        8,
+        11
+      ],
+      "cost": 0,
+      "action_id": "W05",
+      "requires": [],
+      "stage": "陆衡来谷的廊下，卸完自己的普通货物才谈追加托运。他摊开行程纸、按住数量栏；拒绝靠纸上的分工表现。",
+      "blocks": [
+        {
+          "key": "main",
+          "label": "顺路的半天",
+          "condition": "always",
+          "kind": "main",
+          "group": null,
+          "lines": [
+            {
+              "speaker": "萧白",
+              "text": "陆大哥，乡邻还想托两件东西。我看您也走那条路，就先说能捎。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "L-01-main-01"
+            },
+            {
+              "speaker": "陆衡",
+              "text": "哪两件，到谁手里，哪一天？",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "L-01-main-02"
+            },
+            {
+              "speaker": "萧白",
+              "text": "一件是器具，一件是布。具体收件的人，我还没问。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "L-01-main-03"
+            },
+            {
+              "speaker": "陆衡",
+              "text": "那这句话先收回来。我明日还接一趟货，不是车空着就都能加。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "L-01-main-04"
+            },
+            {
+              "speaker": "萧白",
+              "text": "我想得简单了。多这一点，得绕多久？",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "L-01-main-05"
+            },
+            {
+              "speaker": "陆衡",
+              "text": "多半天，也得有人知道我晚半天。",
+              "voice": true,
+              "emotion_api": "calm",
+              "delivery_notes": "语气有分量，仍尊重熟人；不怒斥。",
+              "id": "L-01-main-06"
+            },
+            {
+              "speaker": "萧白",
+              "text": "我没替您算这一趟工夫。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "L-01-main-07"
+            },
+            {
+              "speaker": "陆衡",
+              "text": "也别替另一边说“等一等无妨”。那得人家自己点头。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "L-01-main-08"
+            },
+            {
+              "speaker": "萧白",
+              "text": "我先把没定的划出来，不替您答应。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "L-01-main-09"
+            }
+          ],
+          "effects": []
+        },
+        {
+          "key": "A",
+          "label": "先列真正急的事",
+          "condition": "choice == 'urgent'",
+          "kind": "branch",
+          "group": "response",
+          "lines": [
+            {
+              "speaker": "萧白",
+              "text": "哪项急，我请托付的人写清。您看过再决定接哪件。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "L-01-A-01"
+            },
+            {
+              "speaker": "陆衡",
+              "text": "行。数量、收件人和最迟到的日子，都要有。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "L-01-A-02"
+            },
+            {
+              "speaker": "萧白",
+              "text": "原来的那份委托不挪，我先问追加这边。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "L-01-A-03"
+            },
+            {
+              "speaker": "陆衡",
+              "text": "这样才是两边都听得明白。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "L-01-A-04"
+            }
+          ],
+          "effects": [
+            "specified_promise_scope=true"
+          ]
+        },
+        {
+          "key": "B",
+          "label": "回信说明不能保证归期",
+          "condition": "choice == 'reschedule'",
+          "kind": "branch",
+          "group": "response",
+          "lines": [
+            {
+              "speaker": "萧白",
+              "text": "我先回话，说还没和您核过，不能保证明天送到。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "L-01-B-01"
+            },
+            {
+              "speaker": "陆衡",
+              "text": "别只说是我忙。你先应了什么，也照实说明。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "L-01-B-02"
+            },
+            {
+              "speaker": "萧白",
+              "text": "嗯。该改的我自己说，不推给您。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "L-01-B-03"
+            },
+            {
+              "speaker": "陆衡",
+              "text": "能改过来就好。等回复再定。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "L-01-B-04"
+            }
+          ],
+          "effects": [
+            "specified_promise_scope=true"
+          ]
+        },
+        {
+          "key": "end",
+          "label": "收好行程纸",
+          "condition": "always",
+          "kind": "main",
+          "group": null,
+          "lines": [
+            {
+              "speaker": "萧白",
+              "text": "我先前以为，帮忙总是多做一点。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "L-01-end-01"
+            },
+            {
+              "speaker": "陆衡",
+              "text": "做得了才接。接了能到，比话说得漂亮有用。",
+              "voice": true,
+              "emotion_api": "calm",
+              "delivery_notes": "稳健实在，避免说教总结腔。",
+              "id": "L-01-end-02"
+            },
+            {
+              "speaker": "萧白",
+              "text": "这回先写清楚。您的货，我帮卸到您指的那边。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "L-01-end-03"
+            },
+            {
+              "speaker": "陆衡",
+              "text": "那个倒能帮。轻的这包，先看底结。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "L-01-end-04"
+            }
+          ],
+          "effects": []
+        }
+      ],
+      "contract_notes": [
+        "普通报酬保留；不代他减价，不自动满足正式招募合同。"
+      ],
+      "runtime_status": "script-draft-not-integrated"
+    },
+    {
+      "id": "L-02",
+      "title": "多出来的半天",
+      "group": "人物",
+      "event_id": "lu_extra_halfday",
+      "window": [
+        10,
+        11
+      ],
+      "cost": 4,
+      "action_id": null,
+      "requires": [
+        "lu_visit"
+      ],
+      "stage": "三月初，谷里院子。陆衡这几天在谷里。",
+      "blocks": [
+        {
+          "key": "main",
+          "label": "回复不是凭空腾出的时间",
+          "condition": "always",
+          "kind": "main",
+          "group": null,
+          "lines": [
+            {
+              "speaker": "陆衡",
+              "text": "乡邻回话了。器具不急，月底再送也行；布他们另找人捎。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "L-02-main-01",
+              "revision": 2
+            },
+            {
+              "speaker": "萧白",
+              "text": "那就没事了。我这几天一直悬着心。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "L-02-main-02",
+              "revision": 2
+            },
+            {
+              "speaker": "陆衡",
+              "text": "还有一件。器具改了日子，得跟收东西的人说一声，不然人家明天还在门口等。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "L-02-main-03",
+              "revision": 2
+            },
+            {
+              "speaker": "陆衡",
+              "text": "这么一来，中旬那趟药，我腾得出手了。",
+              "voice": true,
+              "emotion_api": "happy",
+              "delivery_notes": "",
+              "id": "L-02-main-04",
+              "revision": 2,
+              "mood": "smile"
+            }
+          ],
+          "effects": []
+        },
+        {
+          "key": "A",
+          "label": "“改日子的事我去说。”：核对收件人与时间",
+          "condition": "choice == 'check'",
+          "kind": "branch",
+          "group": "response",
+          "lines": [
+            {
+              "speaker": "萧白",
+              "text": "我去跟托东西的乡邻、收东西的人都说一声，改到月底。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "L-02-A-01",
+              "revision": 2
+            },
+            {
+              "speaker": "陆衡",
+              "text": "说完问一句人家听清了没有，别只顾自己说完就走。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "L-02-A-02",
+              "revision": 2
+            },
+            {
+              "speaker": "萧白",
+              "text": "记下了。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "L-02-A-03",
+              "revision": 2
+            }
+          ],
+          "effects": [
+            "delivery_checklist_practiced=true"
+          ]
+        },
+        {
+          "key": "B",
+          "label": "“陆大哥，这些怎么记？”：请教交接怎样写清",
+          "condition": "choice == 'learn'",
+          "kind": "branch",
+          "group": "response",
+          "lines": [
+            {
+              "speaker": "萧白",
+              "text": "我老记不住谁托了什么。陆大哥，你平时怎么记？",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "L-02-B-01",
+              "revision": 2
+            },
+            {
+              "speaker": "陆衡",
+              "text": "每件写三样：给谁、几件、哪天到。改过的另起一行，旧的别涂掉。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "L-02-B-02",
+              "revision": 2
+            },
+            {
+              "speaker": "萧白",
+              "text": "这样？我写一张你看看。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "L-02-B-03",
+              "revision": 2
+            },
+            {
+              "speaker": "陆衡",
+              "text": "行。就这么记。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "L-02-B-04",
+              "revision": 2
+            }
+          ],
+          "effects": [
+            "delivery_checklist_practiced=true"
+          ]
+        },
+        {
+          "key": "end",
+          "label": "有限承诺",
+          "condition": "always",
+          "kind": "main",
+          "group": null,
+          "lines": [
+            {
+              "speaker": "萧白",
+              "text": "下回乡邻再托东西，我先来问你。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "L-02-end-01",
+              "revision": 2
+            },
+            {
+              "speaker": "陆衡",
+              "text": "问我可以。我不在的时候，让乡邻自己托人，别替谁都应下。",
+              "voice": true,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "L-02-end-02",
+              "revision": 2,
+              "mood": "serious"
+            }
+          ],
+          "effects": []
+        }
+      ],
+      "contract_notes": [
+        "未做L1/L2者必要合同仍由委托方完成，不得阻塞M-05。",
+        "2026-10-16 返工：剧情按 briefs/pre-xiangyang-mainline-brief.json 重新设计，台词由 MiniMax 起草、人工审定；段落、条件、效果未改。"
+      ],
+      "runtime_status": "script-draft-not-integrated"
+    },
+    {
+      "id": "Z-02",
+      "title": "回来再说那半步",
+      "group": "人物",
+      "event_id": "zhou_after_escort",
+      "window": [
+        13,
+        17
+      ],
+      "cost": 0,
+      "action_id": "W06",
+      "requires": [
+        "spring_escort"
+      ],
+      "stage": "护送后练场边。周砚先放下示范木剑，问经过；萧白说明判断，叶蘅只在选择请她补充时说自己亲见的部分。",
+      "blocks": [
+        {
+          "key": "main",
+          "label": "先问经过",
+          "condition": "always",
+          "kind": "main",
+          "group": null,
+          "lines": [
+            {
+              "speaker": "周砚",
+              "text": "那处坡，你怎么决定停的？",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "Z-02-main-01"
+            },
+            {
+              "speaker": "萧白",
+              "text": "一开始只想着别让这一趟晚。我后来才注意，包底和脚下都要看。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "Z-02-main-02"
+            },
+            {
+              "speaker": "周砚",
+              "text": "这一步是谁提醒你的？",
+              "voice": true,
+              "emotion_api": "calm",
+              "delivery_notes": "真正在询问，不预先替弟子回答。",
+              "id": "Z-02-main-03"
+            }
+          ],
+          "effects": []
+        },
+        {
+          "key": "footwork",
+          "label": "已练步法的实际复盘",
+          "condition": "first_delivery.method == 'guided_footwork'",
+          "kind": "variant",
+          "group": "method",
+          "lines": [
+            {
+              "speaker": "萧白",
+              "text": "陆大哥先看过路。我只在他指导下负责短的一段，退的时候差点把步子迈大。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "Z-02-footwork-01"
+            },
+            {
+              "speaker": "周砚",
+              "text": "那下次先练小步退到稳处，别先比走得远。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "Z-02-footwork-02"
+            }
+          ],
+          "effects": []
+        },
+        {
+          "key": "carry",
+          "label": "协作搬运的实际复盘",
+          "condition": "first_delivery.method == 'assisted_carry'",
+          "kind": "variant",
+          "group": "method",
+          "lines": [
+            {
+              "speaker": "萧白",
+              "text": "陆大哥决定绕路，我和叶蘅分包。步法我没学，不能把顺利回来算作自己会走。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "Z-02-carry-01"
+            },
+            {
+              "speaker": "周砚",
+              "text": "那先补落脚，搬运时的停手也保留。每件事得分清。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "Z-02-carry-02"
+            }
+          ],
+          "effects": []
+        },
+        {
+          "key": "guide",
+          "label": "求助路线的实际复盘",
+          "condition": "first_delivery.method == 'asked_for_guidance'",
+          "kind": "variant",
+          "group": "method",
+          "lines": [
+            {
+              "speaker": "萧白",
+              "text": "我请陆大哥安排。那时候自己不知道该从哪儿看，先承认了。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "Z-02-guide-01"
+            },
+            {
+              "speaker": "周砚",
+              "text": "下次我们就先练怎样看同行位置。会求助以后，也得知道问哪一段。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "Z-02-guide-02"
+            }
+          ],
+          "effects": []
+        },
+        {
+          "key": "A",
+          "label": "解释当时的判断",
+          "condition": "choice == 'explain'",
+          "kind": "branch",
+          "group": "response",
+          "lines": [
+            {
+              "speaker": "萧白",
+              "text": "我后来发现，越怕没帮上忙，就越想一下把事做完。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "Z-02-A-01"
+            },
+            {
+              "speaker": "周砚",
+              "text": "看见这个习惯了，不必今天就全改掉。下一课先做好一个停步。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "Z-02-A-02"
+            },
+            {
+              "speaker": "萧白",
+              "text": "停下来以后，要先看谁还没站稳。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "Z-02-A-03"
+            },
+            {
+              "speaker": "周砚",
+              "text": "对。不是停住了就只看自己。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "Z-02-A-04"
+            }
+          ],
+          "effects": [
+            "escort_reflection=true"
+          ]
+        },
+        {
+          "key": "B",
+          "label": "请师父指出可改处",
+          "condition": "choice == 'ask'",
+          "kind": "branch",
+          "group": "response",
+          "lines": [
+            {
+              "speaker": "萧白",
+              "text": "您原先说跟着陆大哥。我照着跟，但不知道轮到我时该负责什么。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "Z-02-B-01"
+            },
+            {
+              "speaker": "周砚",
+              "text": "这句话我也说得省了。下回出发前，先把你负责的一段讲清。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "Z-02-B-02"
+            },
+            {
+              "speaker": "萧白",
+              "text": "那我也能先说自己做不了的地方。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "Z-02-B-03"
+            },
+            {
+              "speaker": "周砚",
+              "text": "应该说。这样旁人才能留出接手的位置。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "Z-02-B-04"
+            }
+          ],
+          "effects": [
+            "escort_reflection=true"
+          ]
+        },
+        {
+          "key": "end",
+          "label": "下一次练习有具体目标",
+          "condition": "always",
+          "kind": "main",
+          "group": null,
+          "lines": [
+            {
+              "speaker": "周砚",
+              "text": "那就记着这份帮忙。下次你先看同伴站在哪里。",
+              "voice": true,
+              "emotion_api": "calm",
+              "delivery_notes": "认可共同工作，不颁发高手评价。",
+              "id": "Z-02-end-01"
+            },
+            {
+              "speaker": "萧白",
+              "text": "下一课我先试退步，不求走得远。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "Z-02-end-02"
+            },
+            {
+              "speaker": "周砚",
+              "text": "行。今日说清了，明日仍得实际练。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "Z-02-end-03"
+            }
+          ],
+          "effects": []
+        }
+      ],
+      "contract_notes": [
+        "未知first_delivery.method不进入本场，保留普通课程问答；不默认步法路线。"
+      ],
+      "runtime_status": "script-draft-not-integrated"
+    },
+    {
+      "id": "Y-03",
+      "title": "清单上也写自己的名字",
+      "group": "人物",
+      "event_id": "ye_own_plan",
+      "window": [
+        13,
+        18
+      ],
+      "cost": 4,
+      "action_id": null,
+      "requires": [
+        "spring_escort",
+        "first_ye_work"
+      ],
+      "stage": "三月下旬到四月，药圃边。护送回来后，叶蘅在写下回送药和回村要带的清单。",
+      "blocks": [
+        {
+          "key": "main",
+          "label": "总是排在以后",
+          "condition": "always",
+          "kind": "main",
+          "group": null,
+          "lines": [
+            {
+              "speaker": "萧白",
+              "text": "你这张纸上写的什么？",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "Y-03-main-01",
+              "revision": 2
+            },
+            {
+              "speaker": "叶蘅",
+              "text": "下回带给村里的东西，还有药圃要补的，都在这上头。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "Y-03-main-02",
+              "revision": 2
+            },
+            {
+              "speaker": "萧白",
+              "text": "（写得真细……）最后这两个字，“以后”？",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "Y-03-main-03",
+              "revision": 2
+            },
+            {
+              "speaker": "叶蘅",
+              "text": "是我自己想学的。每回有人缺点什么，它就往后挪一挪。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "Y-03-main-04",
+              "revision": 2
+            },
+            {
+              "speaker": "萧白",
+              "text": "村里有大夫了，这回的药也送完了，能不能往前挪挪？",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "Y-03-main-05",
+              "revision": 2
+            },
+            {
+              "speaker": "叶蘅",
+              "text": "我也这么想。可真闲下来，又不知道先学什么。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "Y-03-main-06",
+              "revision": 2
+            },
+            {
+              "speaker": "叶蘅",
+              "text": "别人的事都写得清清楚楚，就我自己这条，只有两个字。",
+              "voice": true,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "Y-03-main-07",
+              "revision": 2,
+              "mood": "serious"
+            }
+          ],
+          "effects": []
+        },
+        {
+          "key": "A",
+          "label": "“你最想先学什么？”：问她想先学什么",
+          "condition": "choice == 'learning'",
+          "kind": "branch",
+          "group": "response",
+          "lines": [
+            {
+              "speaker": "萧白",
+              "text": "要是只能先挑一样，你最想学什么？",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "Y-03-A-01",
+              "revision": 2
+            },
+            {
+              "speaker": "叶蘅",
+              "text": "想看看别处的大夫碰上治不了的病，是怎么找人商量的。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "Y-03-A-02",
+              "revision": 2
+            },
+            {
+              "speaker": "叶蘅",
+              "text": "在村里碰上这种事，我只能一个人干着急。",
+              "voice": true,
+              "emotion_api": "sad",
+              "delivery_notes": "",
+              "id": "Y-03-A-03",
+              "revision": 2,
+              "mood": "sad"
+            },
+            {
+              "speaker": "叶蘅",
+              "text": "就写这一条，写在“以后”前面。",
+              "voice": true,
+              "emotion_api": "happy",
+              "delivery_notes": "",
+              "id": "Y-03-A-04",
+              "revision": 2,
+              "mood": "smile"
+            }
+          ],
+          "effects": [
+            "ye_named_learning_goal=true"
+          ]
+        },
+        {
+          "key": "B",
+          "label": "“其实我也有个‘以后’。”：交流自己的出游顾虑",
+          "condition": "choice == 'worry'",
+          "kind": "branch",
+          "group": "response",
+          "lines": [
+            {
+              "speaker": "萧白",
+              "text": "其实我也有个“以后”。想出去试试身手，又怕到了外头才发现，自己什么都不会。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "Y-03-B-01",
+              "revision": 2,
+              "mood": "awkward"
+            },
+            {
+              "speaker": "叶蘅",
+              "text": "那就先去看。看完回来，才知道差在哪儿。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "Y-03-B-02",
+              "revision": 2
+            },
+            {
+              "speaker": "萧白",
+              "text": "那你的呢？",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "Y-03-B-03",
+              "revision": 2
+            },
+            {
+              "speaker": "叶蘅",
+              "text": "我想看看别处的大夫遇上治不了的病怎么办。再接着问我爹的事。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "Y-03-B-04",
+              "revision": 2
+            }
+          ],
+          "effects": [
+            "ye_named_learning_goal=true"
+          ]
+        },
+        {
+          "key": "end",
+          "label": "不替她定路",
+          "condition": "always",
+          "kind": "main",
+          "group": null,
+          "lines": [
+            {
+              "speaker": "叶蘅",
+              "text": "好了，折起来收着。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "Y-03-end-01",
+              "revision": 2
+            },
+            {
+              "speaker": "萧白",
+              "text": "要帮忙就叫我。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "Y-03-end-02",
+              "revision": 2
+            },
+            {
+              "speaker": "叶蘅",
+              "text": "那先帮我把这几包药搬上晾架——这个你总会吧？",
+              "voice": true,
+              "emotion_api": "happy",
+              "delivery_notes": "",
+              "id": "Y-03-end-03",
+              "revision": 2,
+              "mood": "smile"
+            }
+          ],
+          "effects": []
+        }
+      ],
+      "contract_notes": [
+        "不能在这里确定白鹇谷或针攻路线，第12月月底才正式选择。",
+        "2026-10-16 返工：剧情按 briefs/pre-xiangyang-mainline-brief.json 重新设计，台词由 MiniMax 起草、人工审定；段落、条件、效果未改。"
+      ],
+      "runtime_status": "script-draft-not-integrated"
+    },
+    {
+      "id": "Z-03",
+      "title": "帖子上的名字",
+      "group": "人物",
+      "event_id": "zhou_invitation",
+      "window": [
+        15,
+        19
+      ],
+      "cost": 4,
+      "action_id": null,
+      "requires": [
+        "xiangyang_invitation"
+      ],
+      "stage": "四月，周砚的书房，请帖还放在书案上。",
+      "blocks": [
+        {
+          "key": "main",
+          "label": "介绍从哪里学",
+          "condition": "always",
+          "kind": "main",
+          "group": null,
+          "lines": [
+            {
+              "speaker": "萧白",
+              "text": "师父，到了城里有人问起，我就说是归云谷周砚的徒弟？",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "Z-03-main-01",
+              "revision": 2
+            },
+            {
+              "speaker": "周砚",
+              "text": "嗯，就这么说。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "Z-03-main-02",
+              "revision": 2
+            },
+            {
+              "speaker": "萧白",
+              "text": "我怕人家一听是您的徒弟，就让我上去比划。我学得浅，万一给您丢人……",
+              "voice": false,
+              "emotion_api": "fearful",
+              "delivery_notes": "",
+              "id": "Z-03-main-03",
+              "revision": 2,
+              "mood": "worry"
+            },
+            {
+              "speaker": "周砚",
+              "text": "报我的名字，是说你从哪儿学的，不是说你已经学成了。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "Z-03-main-04",
+              "revision": 2
+            },
+            {
+              "speaker": "周砚",
+              "text": "人家要是问你学了什么，你怎么说？",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "Z-03-main-05",
+              "revision": 2
+            }
+          ],
+          "effects": []
+        },
+        {
+          "key": "fist",
+          "label": "已学拳脚",
+          "condition": "learned.fist == true",
+          "kind": "variant",
+          "group": "training",
+          "lines": [
+            {
+              "speaker": "萧白",
+              "text": "我就说学了基础拳脚，收势还不稳。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "Z-03-fist-01",
+              "revision": 2
+            }
+          ],
+          "effects": []
+        },
+        {
+          "key": "sword",
+          "label": "只学剑式",
+          "condition": "learned.fist != true and learned.sword == true",
+          "kind": "variant",
+          "group": "training",
+          "lines": [
+            {
+              "speaker": "萧白",
+              "text": "我就说学了几式剑，出剑还不稳，用的是谷里练习的剑。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "Z-03-sword-01",
+              "revision": 2
+            }
+          ],
+          "effects": []
+        },
+        {
+          "key": "none",
+          "label": "尚未学会技击",
+          "condition": "learned.fist != true and learned.sword != true",
+          "kind": "fallback",
+          "group": "training",
+          "lines": [
+            {
+              "speaker": "萧白",
+              "text": "那我只能说刚入门，招式还没学。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "Z-03-none-01",
+              "revision": 2
+            },
+            {
+              "speaker": "周砚",
+              "text": "照实说就行。没人笑话刚入门的人。",
+              "voice": true,
+              "emotion_api": "happy",
+              "delivery_notes": "",
+              "id": "Z-03-none-02",
+              "revision": 2,
+              "mood": "smile"
+            }
+          ],
+          "effects": []
+        },
+        {
+          "key": "A",
+          "label": "“我先去看别人怎么比。”：先观看新手试艺",
+          "condition": "choice == 'watch'",
+          "kind": "branch",
+          "group": "response",
+          "lines": [
+            {
+              "speaker": "萧白",
+              "text": "我先看几场，看人家怎么起手、怎么收手。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "Z-03-A-01",
+              "revision": 2
+            },
+            {
+              "speaker": "周砚",
+              "text": "好。看完来问我具体哪一招，别只问谁最厉害。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "Z-03-A-02",
+              "revision": 2
+            }
+          ],
+          "effects": [
+            "xiangyang_intro_style=watch"
+          ]
+        },
+        {
+          "key": "B",
+          "label": "“我先帮师父送东西。”：先帮普通交接",
+          "condition": "choice == 'handoff'",
+          "kind": "branch",
+          "group": "response",
+          "lines": [
+            {
+              "speaker": "萧白",
+              "text": "我先帮您把带去的东西点清楚，送到人家手里。比试的事，到了再说。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "Z-03-B-01",
+              "revision": 2
+            },
+            {
+              "speaker": "周砚",
+              "text": "也好。城里人多手杂，有人帮着看东西，我放心。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "Z-03-B-02",
+              "revision": 2
+            }
+          ],
+          "effects": [
+            "xiangyang_intro_style=handoff"
+          ]
+        },
+        {
+          "key": "end",
+          "label": "不凭师门破例",
+          "condition": "always",
+          "kind": "main",
+          "group": null,
+          "lines": [
+            {
+              "speaker": "周砚",
+              "text": "上了场，就看你自己了。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "Z-03-end-01",
+              "revision": 2
+            },
+            {
+              "speaker": "萧白",
+              "text": "嗯。输赢都算我自己的。",
+              "voice": false,
+              "emotion_api": "happy",
+              "delivery_notes": "",
+              "id": "Z-03-end-02",
+              "revision": 2,
+              "mood": "smile"
+            }
+          ],
+          "effects": []
+        }
+      ],
+      "contract_notes": [
+        "仅决定自我介绍与意向，不自动报名、涨全门派好感或获得参赛资格。",
+        "2026-10-16 返工：剧情按 briefs/pre-xiangyang-mainline-brief.json 重新设计，台词由 MiniMax 起草、人工审定；段落、条件、效果未改。"
+      ],
+      "runtime_status": "script-draft-not-integrated"
+    },
+    {
+      "id": "X-01",
+      "title": "这趟各自要办的事",
+      "group": "人物",
+      "event_id": "pre_departure_talk",
+      "window": [
+        16,
+        19
+      ],
+      "cost": 0,
+      "action_id": "W07",
+      "requires": [
+        "xiangyang_invitation"
+      ],
+      "stage": "四月廊下，两人各一张普通清单。叶蘅把自己的清单拉回身前认真解释，亲近只在双方已选择的关系表达中出现。",
+      "blocks": [
+        {
+          "key": "main",
+          "label": "两张清单",
+          "condition": "always",
+          "kind": "main",
+          "group": null,
+          "lines": [
+            {
+              "speaker": "萧白",
+              "text": "我把要带的东西列好了。你的那张还留着空白？",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "X-01-main-01"
+            },
+            {
+              "speaker": "叶蘅",
+              "text": "东西写完了，想办的事还在改。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "X-01-main-02"
+            },
+            {
+              "speaker": "萧白",
+              "text": "我以为我们都先随师父赴宴。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "X-01-main-03"
+            },
+            {
+              "speaker": "叶蘅",
+              "text": "赴宴是一件。核实旧见闻、看诊疗，是我想做的另外两件。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "X-01-main-04"
+            },
+            {
+              "speaker": "叶蘅",
+              "text": "我想去，不只是跟着你。",
+              "voice": true,
+              "emotion_api": "calm",
+              "delivery_notes": "直接而认真，身体朝自己的清单，不演赌气。",
+              "id": "X-01-main-05"
+            },
+            {
+              "speaker": "萧白",
+              "text": "那你要问的由你问。我能帮的，先说清。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "X-01-main-06"
+            },
+            {
+              "speaker": "叶蘅",
+              "text": "这句话好。还有我家的箱子，不当礼物，也不让别人说一句“安全”就拿去代管。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "X-01-main-07"
+            },
+            {
+              "speaker": "萧白",
+              "text": "我不会替你答应。真有人来问，我先叫你。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "X-01-main-08"
+            }
+          ],
+          "effects": []
+        },
+        {
+          "key": "A",
+          "label": "说清自己想检验什么",
+          "condition": "choice == 'own_goal' and facts.first_ye_work_seen == true",
+          "kind": "branch",
+          "group": "response",
+          "lines": [
+            {
+              "speaker": "萧白",
+              "text": "我想看看初学的人怎样切磋。能参加什么，按我真的学过的来。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "X-01-A-01"
+            },
+            {
+              "speaker": "叶蘅",
+              "text": "有人喊你试的时候，先问清规矩。你一紧张，会笑着先点头。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "X-01-A-02"
+            },
+            {
+              "speaker": "萧白",
+              "text": "你已经发现了？",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "X-01-A-03"
+            },
+            {
+              "speaker": "叶蘅",
+              "text": "药签那回，你也先说“我来”。这次先说清。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "X-01-A-04"
+            }
+          ],
+          "effects": [
+            "departure_goals_named=true"
+          ]
+        },
+        {
+          "key": "A0",
+          "label": "未经历药签事件的同选项",
+          "condition": "choice == 'own_goal' and facts.first_ye_work_seen != true",
+          "kind": "branch",
+          "group": "response",
+          "lines": [
+            {
+              "speaker": "萧白",
+              "text": "我想看看初学的人怎样切磋。能参加什么，按我真的学过的来。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "X-01-A0-01"
+            },
+            {
+              "speaker": "叶蘅",
+              "text": "你怕给别人添麻烦，有时候先答应了再想。这次先问清规矩。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "X-01-A0-02"
+            },
+            {
+              "speaker": "萧白",
+              "text": "嗯。不会的就说不会。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "X-01-A0-03"
+            }
+          ],
+          "effects": [
+            "departure_goals_named=true"
+          ]
+        },
+        {
+          "key": "B",
+          "label": "问她需要哪段协助",
+          "condition": "choice == 'help'",
+          "kind": "branch",
+          "group": "response",
+          "lines": [
+            {
+              "speaker": "萧白",
+              "text": "找到了愿意答话的人，你想我做什么？",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "X-01-B-01"
+            },
+            {
+              "speaker": "叶蘅",
+              "text": "普通的日期和交接，你帮我核。家里的问题让我自己问，私下的答话我也可能只想自己听。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "X-01-B-02"
+            },
+            {
+              "speaker": "萧白",
+              "text": "可以。你要我等，我就先等。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "X-01-B-03"
+            },
+            {
+              "speaker": "叶蘅",
+              "text": "我也不替你报试艺。你的打算，你来说。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "X-01-B-04"
+            }
+          ],
+          "effects": [
+            "departure_goals_named=true"
+          ]
+        },
+        {
+          "key": "friend",
+          "label": "友情回应",
+          "condition": "relationship_choice != 'close'",
+          "kind": "fallback",
+          "group": "relationship",
+          "lines": [
+            {
+              "speaker": "叶蘅",
+              "text": "在城里各有事做，也别一声不说就走开。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "X-01-friend-01"
+            },
+            {
+              "speaker": "萧白",
+              "text": "留话、回集合处。我记着。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "X-01-friend-02"
+            }
+          ],
+          "effects": []
+        },
+        {
+          "key": "close",
+          "label": "主动选择亲近措辞",
+          "condition": "relationship_choice == 'close'",
+          "kind": "variant",
+          "group": "relationship",
+          "lines": [
+            {
+              "speaker": "萧白",
+              "text": "还有一件。我会惦记你有没有平安回来，也想让你知道我在哪儿。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "X-01-close-01"
+            },
+            {
+              "speaker": "叶蘅",
+              "text": "那就告诉我，别让我猜。我也一样。",
+              "voice": true,
+              "emotion_api": "calm",
+              "delivery_notes": "轻一些，真诚；不宣告恋爱锁定。",
+              "id": "X-01-close-02"
+            }
+          ],
+          "effects": []
+        },
+        {
+          "key": "end",
+          "label": "带着各自的目的出门",
+          "condition": "always",
+          "kind": "main",
+          "group": null,
+          "lines": [
+            {
+              "speaker": "叶蘅",
+              "text": "我也写下了自己想问的事。你的打算，你来说；能帮什么，我们先说清。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "X-01-end-01"
+            },
+            {
+              "speaker": "萧白",
+              "text": "这下是两张清单，不是一张写我们俩。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "X-01-end-02"
+            },
+            {
+              "speaker": "叶蘅",
+              "text": "你那张带好。别到了城门又来问我放哪儿了。",
+              "voice": true,
+              "emotion_api": "happy",
+              "delivery_notes": "熟悉后的轻笑与提醒，不强加撒娇。",
+              "id": "X-01-end-03"
+            }
+          ],
+          "effects": []
+        }
+      ],
+      "contract_notes": [
+        "亲近措辞是本场可选的第二层表达，不构成第三条处理分支或确认恋爱；默认友情完整成立。未经历Y1不得回忆其细节。"
+      ],
+      "runtime_status": "script-draft-not-integrated"
+    },
+    {
+      "id": "T-B03",
+      "title": "站位与发力",
+      "group": "教学",
+      "event_id": "first_foundation_lesson",
+      "window": [
+        0,
+        9
+      ],
+      "cost": 5,
+      "action_id": "B03",
+      "requires": [],
+      "stage": "练武场，首次教学使用双人静态对白；教师指向当前器具或脚位。重复课只给短反馈，不额外生成动作图或重复关键语音。",
+      "blocks": [
+        {
+          "key": "first",
+          "label": "首次实际受教",
+          "condition": "action.completed_count == 0",
+          "kind": "variant",
+          "group": "lesson",
+          "lines": [
+            {
+              "speaker": "周砚",
+              "text": "先站在你能站稳的地方，别急着照我的样子。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "T-B03-first-01"
+            },
+            {
+              "speaker": "萧白",
+              "text": "我记住了，肩放松，脚……",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "T-B03-first-02"
+            },
+            {
+              "speaker": "周砚",
+              "text": "先别背。现在脚下哪里不稳，你告诉我。",
+              "voice": true,
+              "emotion_api": "calm",
+              "delivery_notes": "提问后停住，等身体实际反馈。",
+              "id": "T-B03-first-03"
+            },
+            {
+              "speaker": "萧白",
+              "text": "后面这只脚，刚才退的时候没接上。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "T-B03-first-04"
+            }
+          ],
+          "effects": []
+        },
+        {
+          "key": "choice_slow",
+          "label": "先慢练，找准重心",
+          "condition": "action.completed_count == 0 and choice == 'slow'",
+          "kind": "branch",
+          "group": "lesson_choice",
+          "effects": [],
+          "lines": [
+            {
+              "id": "T-B03-choice_slow-01",
+              "speaker": "萧白",
+              "text": "我先慢一点，找清两只脚什么时候接上。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "实际选择的一支；首次教学费用已包含，不另计长谈。"
+            },
+            {
+              "id": "T-B03-choice_slow-02",
+              "speaker": "周砚",
+              "text": "好。不稳便停，不用把每一回硬做完。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "实际选择的一支；首次教学费用已包含，不另计长谈。"
+            }
+          ]
+        },
+        {
+          "key": "choice_ask",
+          "label": "请师父指出紧张处",
+          "condition": "action.completed_count == 0 and choice == 'ask'",
+          "kind": "branch",
+          "group": "lesson_choice",
+          "effects": [],
+          "lines": [
+            {
+              "id": "T-B03-choice_ask-01",
+              "speaker": "萧白",
+              "text": "哪里还绷着，我自己分不清，您先指一处。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "实际选择的一支；首次教学费用已包含，不另计长谈。"
+            },
+            {
+              "id": "T-B03-choice_ask-02",
+              "speaker": "周砚",
+              "text": "先看肩。松开这一处，再试脚下，不一起改所有地方。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "实际选择的一支；首次教学费用已包含，不另计长谈。"
+            }
+          ]
+        },
+        {
+          "key": "repeat",
+          "label": "之后的有效练习",
+          "condition": "action.completed_count > 0",
+          "kind": "fallback",
+          "group": "lesson",
+          "lines": [
+            {
+              "speaker": "周砚",
+              "text": "上次说的那只脚，今日先试一小步。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "T-B03-repeat-01"
+            },
+            {
+              "speaker": "萧白",
+              "text": "我能感觉到，肩一紧，脚就慢了。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "T-B03-repeat-02"
+            },
+            {
+              "speaker": "周砚",
+              "text": "先把紧的地方松开，再做一次。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "T-B03-repeat-03"
+            }
+          ],
+          "effects": []
+        }
+      ],
+      "contract_notes": [
+        "前置、导师在场和实际收益读取对应活动；对白不额外授予或重复结算能力。",
+        "未付教学费用时只看简介，不播放首次受教完成句；若重复时角色离场，只显示实际结果摘要。",
+        "首次选择沿当前活动的两个选项，对应本稿两支；重复课不再反复询问初学选择。completed_count读取进入事务前的快照。"
+      ],
+      "runtime_status": "script-draft-not-integrated"
+    },
+    {
+      "id": "T-B02",
+      "title": "步法与脱身",
+      "group": "教学",
+      "event_id": null,
+      "window": [
+        0,
+        19
+      ],
+      "cost": 5,
+      "action_id": "B02",
+      "requires": [],
+      "stage": "练武场，首次教学使用双人静态对白；教师指向当前器具或脚位。重复课只给短反馈，不额外生成动作图或重复关键语音。",
+      "blocks": [
+        {
+          "key": "first",
+          "label": "首次实际受教",
+          "condition": "action.completed_count == 0",
+          "kind": "variant",
+          "group": "lesson",
+          "lines": [
+            {
+              "speaker": "周砚",
+              "text": "往后退之前，先看你身后有没有同伴。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "T-B02-first-01"
+            },
+            {
+              "speaker": "萧白",
+              "text": "我只看了空地，没看您站在哪儿。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "T-B02-first-02"
+            },
+            {
+              "speaker": "周砚",
+              "text": "要退到哪里，先看清，再迈脚。",
+              "voice": true,
+              "emotion_api": "calm",
+              "delivery_notes": "简短明确，不高声口号。",
+              "id": "T-B02-first-03"
+            },
+            {
+              "speaker": "萧白",
+              "text": "先留出您能站的位置，我再慢着走。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "T-B02-first-04"
+            }
+          ],
+          "effects": []
+        },
+        {
+          "key": "repeat",
+          "label": "之后的有效练习",
+          "condition": "action.completed_count > 0",
+          "kind": "fallback",
+          "group": "lesson",
+          "lines": [
+            {
+              "speaker": "周砚",
+              "text": "这回别只看前面的落脚点。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "T-B02-repeat-01"
+            },
+            {
+              "speaker": "萧白",
+              "text": "后面是空的，右边还有您。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "T-B02-repeat-02"
+            },
+            {
+              "speaker": "周砚",
+              "text": "好。现在再转向，别抢快。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "T-B02-repeat-03"
+            }
+          ],
+          "effects": []
+        }
+      ],
+      "contract_notes": [
+        "前置、导师在场和实际收益读取对应活动；对白不额外授予或重复结算能力。",
+        "未付教学费用时只看简介，不播放首次受教完成句；若重复时角色离场，只显示实际结果摘要。"
+      ],
+      "runtime_status": "script-draft-not-integrated"
+    },
+    {
+      "id": "T-B01",
+      "title": "吐纳调息",
+      "group": "教学",
+      "event_id": null,
+      "window": [
+        0,
+        19
+      ],
+      "cost": 5,
+      "action_id": "B01",
+      "requires": [],
+      "stage": "竹径，首次教学使用双人静态对白；教师指向当前器具或脚位。重复课只给短反馈，不额外生成动作图或重复关键语音。",
+      "blocks": [
+        {
+          "key": "first",
+          "label": "首次实际受教",
+          "condition": "action.completed_count == 0",
+          "kind": "variant",
+          "group": "lesson",
+          "lines": [
+            {
+              "speaker": "萧白",
+              "text": "我把气留得久一点，是不是就练得好一点？",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "T-B01-first-01"
+            },
+            {
+              "speaker": "周砚",
+              "text": "先按受教的节奏做，别靠憋气撑过疲倦。",
+              "voice": true,
+              "emotion_api": "calm",
+              "delivery_notes": "稳、慢一些，不读成真实健康教学。",
+              "id": "T-B01-first-02"
+            },
+            {
+              "speaker": "萧白",
+              "text": "刚才我连肩都绷起来了。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "T-B01-first-03"
+            },
+            {
+              "speaker": "周砚",
+              "text": "先停一停，放松。今日是学会这一段，不是比谁能忍。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "T-B01-first-04"
+            }
+          ],
+          "effects": []
+        },
+        {
+          "key": "repeat",
+          "label": "之后的有效练习",
+          "condition": "action.completed_count > 0",
+          "kind": "fallback",
+          "group": "lesson",
+          "lines": [
+            {
+              "speaker": "周砚",
+              "text": "今日先看练完还能不能自然走动。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "T-B01-repeat-01"
+            },
+            {
+              "speaker": "萧白",
+              "text": "这次没有硬撑到肩发紧。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "T-B01-repeat-02"
+            },
+            {
+              "speaker": "周砚",
+              "text": "那就收课。余下的不是靠再憋一回补上。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "T-B01-repeat-03"
+            }
+          ],
+          "effects": []
+        }
+      ],
+      "contract_notes": [
+        "前置、导师在场和实际收益读取对应活动；对白不额外授予或重复结算能力。",
+        "未付教学费用时只看简介，不播放首次受教完成句；若重复时角色离场，只显示实际结果摘要。"
+      ],
+      "runtime_status": "script-draft-not-integrated"
+    },
+    {
+      "id": "T-B04",
+      "title": "舒展与协调",
+      "group": "教学",
+      "event_id": null,
+      "window": [
+        0,
+        19
+      ],
+      "cost": 5,
+      "action_id": "B04",
+      "requires": [],
+      "stage": "练武场，首次教学使用双人静态对白；教师指向当前器具或脚位。重复课只给短反馈，不额外生成动作图或重复关键语音。",
+      "blocks": [
+        {
+          "key": "first",
+          "label": "首次实际受教",
+          "condition": "action.completed_count == 0",
+          "kind": "variant",
+          "group": "lesson",
+          "lines": [
+            {
+              "speaker": "萧白",
+              "text": "我知道下一步，可身子还是接不上。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "T-B04-first-01"
+            },
+            {
+              "speaker": "周砚",
+              "text": "慢一点。知道顺序以后，还得让身体跟上。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "T-B04-first-02"
+            },
+            {
+              "speaker": "萧白",
+              "text": "那先做前半段？",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "T-B04-first-03"
+            },
+            {
+              "speaker": "周砚",
+              "text": "对。今天能接上这两步，就先记这两步。",
+              "voice": true,
+              "emotion_api": "calm",
+              "delivery_notes": "务实的认可，不宣布招式解锁。",
+              "id": "T-B04-first-04"
+            }
+          ],
+          "effects": []
+        },
+        {
+          "key": "repeat",
+          "label": "之后的有效练习",
+          "condition": "action.completed_count > 0",
+          "kind": "fallback",
+          "group": "lesson",
+          "lines": [
+            {
+              "speaker": "周砚",
+              "text": "上次卡在转身，今天先收住肩。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "T-B04-repeat-01"
+            },
+            {
+              "speaker": "萧白",
+              "text": "这次接上了，后面仍有些乱。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "T-B04-repeat-02"
+            },
+            {
+              "speaker": "周砚",
+              "text": "那就停在清楚的地方，下次再接。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "T-B04-repeat-03"
+            }
+          ],
+          "effects": []
+        }
+      ],
+      "contract_notes": [
+        "前置、导师在场和实际收益读取对应活动；对白不额外授予或重复结算能力。",
+        "未付教学费用时只看简介，不播放首次受教完成句；若重复时角色离场，只显示实际结果摘要。"
+      ],
+      "runtime_status": "script-draft-not-integrated"
+    },
+    {
+      "id": "T-B06",
+      "title": "观察与察势",
+      "group": "教学",
+      "event_id": null,
+      "window": [
+        0,
+        19
+      ],
+      "cost": 5,
+      "action_id": "B06",
+      "requires": [],
+      "stage": "练武场，首次教学使用双人静态对白；教师指向当前器具或脚位。重复课只给短反馈，不额外生成动作图或重复关键语音。",
+      "blocks": [
+        {
+          "key": "first",
+          "label": "首次实际受教",
+          "condition": "action.completed_count == 0",
+          "kind": "variant",
+          "group": "lesson",
+          "lines": [
+            {
+              "speaker": "周砚",
+              "text": "先说你看见了什么，不急着猜我要用哪招。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "T-B06-first-01"
+            },
+            {
+              "speaker": "萧白",
+              "text": "您的脚挪了，肩还没动。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "T-B06-first-02"
+            },
+            {
+              "speaker": "周砚",
+              "text": "好。观察和猜测分开，你就能知道自己看漏哪里。",
+              "voice": true,
+              "emotion_api": "calm",
+              "delivery_notes": "平实提示，不神秘传功。",
+              "id": "T-B06-first-03"
+            }
+          ],
+          "effects": []
+        },
+        {
+          "key": "repeat",
+          "label": "之后的有效练习",
+          "condition": "action.completed_count > 0",
+          "kind": "fallback",
+          "group": "lesson",
+          "lines": [
+            {
+              "speaker": "萧白",
+              "text": "我刚才看了手，漏了脚。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "T-B06-repeat-01"
+            },
+            {
+              "speaker": "周砚",
+              "text": "那这回先看重心。别急着把每次都猜中。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "T-B06-repeat-02"
+            }
+          ],
+          "effects": []
+        }
+      ],
+      "contract_notes": [
+        "前置、导师在场和实际收益读取对应活动；对白不额外授予或重复结算能力。",
+        "未付教学费用时只看简介，不播放首次受教完成句；若重复时角色离场，只显示实际结果摘要。"
+      ],
+      "runtime_status": "script-draft-not-integrated"
+    },
+    {
+      "id": "T-K02",
+      "title": "守拙拳法",
+      "group": "教学",
+      "event_id": null,
+      "window": [
+        0,
+        19
+      ],
+      "cost": 5,
+      "action_id": "K02",
+      "requires": [],
+      "stage": "练武场，首次教学使用双人静态对白；教师指向当前器具或脚位。重复课只给短反馈，不额外生成动作图或重复关键语音。",
+      "blocks": [
+        {
+          "key": "first",
+          "label": "首次实际受教",
+          "condition": "action.completed_count == 0",
+          "kind": "variant",
+          "group": "lesson",
+          "lines": [
+            {
+              "speaker": "周砚",
+              "text": "今日传你《守拙拳法》。先站稳，练收势转劲，我做一遍，你慢着跟。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "T-K02-first-01"
+            },
+            {
+              "speaker": "萧白",
+              "text": "出手后还要能收回来，站稳。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "T-K02-first-02"
+            },
+            {
+              "speaker": "周砚",
+              "text": "对。拳头响不响，先放后面。",
+              "voice": true,
+              "emotion_api": "calm",
+              "delivery_notes": "略带轻松，仍认真教学。",
+              "id": "T-K02-first-03"
+            },
+            {
+              "speaker": "周砚",
+              "text": "好。今天实际学过的部分，课后才能独练。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "T-K02-first-05"
+            }
+          ],
+          "effects": []
+        },
+        {
+          "key": "choice_finish",
+          "label": "先练收势",
+          "condition": "action.completed_count == 0 and choice == 'finish'",
+          "kind": "branch",
+          "group": "lesson_choice",
+          "effects": [],
+          "lines": [
+            {
+              "id": "T-K02-choice_finish-01",
+              "speaker": "萧白",
+              "text": "我先从收回来这一段练起。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "实际选择的一支；首次教学费用已包含，不另计长谈。"
+            },
+            {
+              "id": "T-K02-choice_finish-02",
+              "speaker": "周砚",
+              "text": "好。收住了，下一次才有地方起手。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "实际选择的一支；首次教学费用已包含，不另计长谈。"
+            }
+          ]
+        },
+        {
+          "key": "choice_guided",
+          "label": "请师父带着走一遍",
+          "condition": "action.completed_count == 0 and choice == 'guided'",
+          "kind": "branch",
+          "group": "lesson_choice",
+          "effects": [],
+          "lines": [
+            {
+              "id": "T-K02-choice_guided-01",
+              "speaker": "萧白",
+              "text": "您带我慢走一遍，我把先后顺序弄清。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "实际选择的一支；首次教学费用已包含，不另计长谈。"
+            },
+            {
+              "id": "T-K02-choice_guided-02",
+              "speaker": "周砚",
+              "text": "可以。停在你能站稳的地方，不追着我抢快。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "实际选择的一支；首次教学费用已包含，不另计长谈。"
+            }
+          ]
+        },
+        {
+          "key": "repeat",
+          "label": "之后的有效练习",
+          "condition": "action.completed_count > 0",
+          "kind": "fallback",
+          "group": "lesson",
+          "lines": [
+            {
+              "speaker": "周砚",
+              "text": "这次出手以后，别跟着往前倒。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "T-K02-repeat-01"
+            },
+            {
+              "speaker": "萧白",
+              "text": "我把最后那步收小。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "T-K02-repeat-02"
+            },
+            {
+              "speaker": "周砚",
+              "text": "试过再说，还是看脚下。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "T-K02-repeat-03"
+            }
+          ],
+          "effects": []
+        }
+      ],
+      "contract_notes": [
+        "前置、导师在场和实际收益读取对应活动；对白不额外授予或重复结算能力。",
+        "未付教学费用时只看简介，不播放首次受教完成句；若重复时角色离场，只显示实际结果摘要。",
+        "首次选择沿当前活动的两个选项，对应本稿两支；重复课不再反复询问初学选择。completed_count读取进入事务前的快照。"
+      ],
+      "runtime_status": "script-draft-not-integrated"
+    },
+    {
+      "id": "T-K01",
+      "title": "试锋剑法",
+      "group": "教学",
+      "event_id": null,
+      "window": [
+        0,
+        19
+      ],
+      "cost": 5,
+      "action_id": "K01",
+      "requires": [],
+      "stage": "练武场，首次教学使用双人静态对白；教师指向当前器具或脚位。重复课只给短反馈，不额外生成动作图或重复关键语音。",
+      "blocks": [
+        {
+          "key": "first",
+          "label": "首次实际受教",
+          "condition": "action.completed_count == 0",
+          "kind": "variant",
+          "group": "lesson",
+          "lines": [
+            {
+              "speaker": "周砚",
+              "text": "今日传你《试锋剑法》。用练场的这把，先看距离，练试锋与回锋。器具课后要放回。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "T-K01-first-01"
+            },
+            {
+              "speaker": "萧白",
+              "text": "不是我一接过来，就算自己的佩剑？",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "T-K01-first-02"
+            },
+            {
+              "speaker": "周砚",
+              "text": "不是。先把起手和收势学会，出游用什么，再说明来源。",
+              "voice": true,
+              "emotion_api": "calm",
+              "delivery_notes": "说清借用关系，不带训斥。",
+              "id": "T-K01-first-03"
+            },
+            {
+              "speaker": "周砚",
+              "text": "好。有人进到练习范围，先停下。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "T-K01-first-05"
+            }
+          ],
+          "effects": []
+        },
+        {
+          "key": "choice_parts",
+          "label": "先分解动作",
+          "condition": "action.completed_count == 0 and choice == 'parts'",
+          "kind": "branch",
+          "group": "lesson_choice",
+          "effects": [],
+          "lines": [
+            {
+              "id": "T-K01-choice_parts-01",
+              "speaker": "萧白",
+              "text": "我先拆开起手与收势，不连整段。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "实际选择的一支；首次教学费用已包含，不另计长谈。"
+            },
+            {
+              "id": "T-K01-choice_parts-02",
+              "speaker": "周砚",
+              "text": "行。每次收稳，再看下一步。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "实际选择的一支；首次教学费用已包含，不另计长谈。"
+            }
+          ]
+        },
+        {
+          "key": "choice_follow",
+          "label": "跟随师父慢练",
+          "condition": "action.completed_count == 0 and choice == 'follow'",
+          "kind": "branch",
+          "group": "lesson_choice",
+          "effects": [],
+          "lines": [
+            {
+              "id": "T-K01-choice_follow-01",
+              "speaker": "萧白",
+              "text": "我想跟着您慢走一遍，哪里跟不上就停。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "实际选择的一支；首次教学费用已包含，不另计长谈。"
+            },
+            {
+              "id": "T-K01-choice_follow-02",
+              "speaker": "周砚",
+              "text": "那我先放慢。别为了跟上，把距离挤没了。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "实际选择的一支；首次教学费用已包含，不另计长谈。"
+            }
+          ]
+        },
+        {
+          "key": "repeat",
+          "label": "之后的有效练习",
+          "condition": "action.completed_count > 0",
+          "kind": "fallback",
+          "group": "lesson",
+          "lines": [
+            {
+              "speaker": "萧白",
+              "text": "今天我先确认距离，再出手。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "T-K01-repeat-01"
+            },
+            {
+              "speaker": "周砚",
+              "text": "收势也留出间隔，器具放回原位。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "T-K01-repeat-02"
+            }
+          ],
+          "effects": []
+        }
+      ],
+      "contract_notes": [
+        "前置、导师在场和实际收益读取对应活动；对白不额外授予或重复结算能力。",
+        "未付教学费用时只看简介，不播放首次受教完成句；若重复时角色离场，只显示实际结果摘要。",
+        "首次选择沿当前活动的两个选项，对应本稿两支；重复课不再反复询问初学选择。completed_count读取进入事务前的快照。"
+      ],
+      "runtime_status": "script-draft-not-integrated"
+    },
+    {
+      "id": "T-A01",
+      "title": "武学常识与复盘",
+      "group": "教学",
+      "event_id": null,
+      "window": [
+        0,
+        19
+      ],
+      "cost": 3,
+      "action_id": "A01",
+      "requires": [],
+      "stage": "书房，首次教学使用双人静态对白；教师指向当前器具或脚位。重复课只给短反馈，不额外生成动作图或重复关键语音。",
+      "blocks": [
+        {
+          "key": "first",
+          "label": "首次实际受教",
+          "condition": "action.completed_count == 0",
+          "kind": "variant",
+          "group": "lesson",
+          "lines": [
+            {
+              "speaker": "周砚",
+              "text": "挑今天实际练过的一步，问一个具体问题。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "T-A01-first-01"
+            },
+            {
+              "speaker": "萧白",
+              "text": "不是问怎样一下把整套都学会？",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "T-A01-first-02"
+            },
+            {
+              "speaker": "周砚",
+              "text": "那样我也不知从哪里回答。先把这一处讲清。",
+              "voice": true,
+              "emotion_api": "happy",
+              "delivery_notes": "淡淡笑意，不能嘲笑笨拙。",
+              "id": "T-A01-first-03"
+            }
+          ],
+          "effects": []
+        },
+        {
+          "key": "repeat",
+          "label": "之后的有效练习",
+          "condition": "action.completed_count > 0",
+          "kind": "fallback",
+          "group": "lesson",
+          "lines": [
+            {
+              "speaker": "萧白",
+              "text": "上回退步的问题，我今天有一处改了。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "T-A01-repeat-01"
+            },
+            {
+              "speaker": "周砚",
+              "text": "说给我听，再看还缺哪一段。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "T-A01-repeat-02"
+            }
+          ],
+          "effects": []
+        }
+      ],
+      "contract_notes": [
+        "前置、导师在场和实际收益读取对应活动；对白不额外授予或重复结算能力。",
+        "未付教学费用时只看简介，不播放首次受教完成句；若重复时角色离场，只显示实际结果摘要。"
+      ],
+      "runtime_status": "script-draft-not-integrated"
+    },
+    {
+      "id": "T-A02",
+      "title": "医案记录入门",
+      "group": "教学",
+      "event_id": null,
+      "window": [
+        0,
+        19
+      ],
+      "cost": 3,
+      "action_id": "A02",
+      "requires": [],
+      "stage": "药圃，首次教学使用双人静态对白；教师指向当前器具或脚位。重复课只给短反馈，不额外生成动作图或重复关键语音。",
+      "blocks": [
+        {
+          "key": "first",
+          "label": "首次实际受教",
+          "condition": "action.completed_count == 0",
+          "kind": "variant",
+          "group": "lesson",
+          "lines": [
+            {
+              "speaker": "叶蘅",
+              "text": "你先写看见的和别人说的，分开。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "T-A02-first-01"
+            },
+            {
+              "speaker": "萧白",
+              "text": "拿不准的，不写成已经确定？",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "T-A02-first-02"
+            },
+            {
+              "speaker": "叶蘅",
+              "text": "对。整理是你现在学的，诊疗判断还是我来。",
+              "voice": true,
+              "emotion_api": "calm",
+              "delivery_notes": "清亮、具体，不高深医理腔。",
+              "id": "T-A02-first-03"
+            }
+          ],
+          "effects": []
+        },
+        {
+          "key": "choice_order",
+          "label": "整理观察顺序",
+          "condition": "action.completed_count == 0 and choice == 'order'",
+          "kind": "branch",
+          "group": "lesson_choice",
+          "effects": [],
+          "lines": [
+            {
+              "id": "T-A02-choice_order-01",
+              "speaker": "萧白",
+              "text": "先写看见的，再写什么时候，转述另放。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "实际选择的一支；首次教学费用已包含，不另计长谈。"
+            },
+            {
+              "id": "T-A02-choice_order-02",
+              "speaker": "叶蘅",
+              "text": "对。时间不清楚就留待问，不替它补一个日子。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "实际选择的一支；首次教学费用已包含，不另计长谈。"
+            }
+          ]
+        },
+        {
+          "key": "choice_boundary",
+          "label": "问清记录的边界",
+          "condition": "action.completed_count == 0 and choice == 'boundary'",
+          "kind": "branch",
+          "group": "lesson_choice",
+          "effects": [],
+          "lines": [
+            {
+              "id": "T-A02-choice_boundary-01",
+              "speaker": "萧白",
+              "text": "我能记到哪一步？不能看见症状就自己写病名吧？",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "实际选择的一支；首次教学费用已包含，不另计长谈。"
+            },
+            {
+              "id": "T-A02-choice_boundary-02",
+              "speaker": "叶蘅",
+              "text": "不能。先记录，判断让照看的医者做。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "实际选择的一支；首次教学费用已包含，不另计长谈。"
+            }
+          ]
+        },
+        {
+          "key": "repeat",
+          "label": "之后的有效练习",
+          "condition": "action.completed_count > 0",
+          "kind": "fallback",
+          "group": "lesson",
+          "lines": [
+            {
+              "speaker": "叶蘅",
+              "text": "这句是你看见的，还是听人说的？",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "T-A02-repeat-01"
+            },
+            {
+              "speaker": "萧白",
+              "text": "听说的，我挪到另一栏。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "T-A02-repeat-02"
+            }
+          ],
+          "effects": []
+        }
+      ],
+      "contract_notes": [
+        "前置、导师在场和实际收益读取对应活动；对白不额外授予或重复结算能力。",
+        "未付教学费用时只看简介，不播放首次受教完成句；若重复时角色离场，只显示实际结果摘要。",
+        "首次选择沿当前活动的两个选项，对应本稿两支；重复课不再反复询问初学选择。completed_count读取进入事务前的快照。"
+      ],
+      "runtime_status": "script-draft-not-integrated"
+    },
+    {
+      "id": "T-A03",
+      "title": "普通药材辨识",
+      "group": "教学",
+      "event_id": null,
+      "window": [
+        0,
+        19
+      ],
+      "cost": 3,
+      "action_id": "A03",
+      "requires": [],
+      "stage": "药圃，首次教学使用双人静态对白；教师指向当前器具或脚位。重复课只给短反馈，不额外生成动作图或重复关键语音。",
+      "blocks": [
+        {
+          "key": "first",
+          "label": "首次实际受教",
+          "condition": "action.completed_count == 0",
+          "kind": "variant",
+          "group": "lesson",
+          "lines": [
+            {
+              "speaker": "叶蘅",
+              "text": "今天只看我放在这边的普通样品。家里的东西不在这一课里。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "T-A03-first-01"
+            },
+            {
+              "speaker": "萧白",
+              "text": "先认标签，再问能不能取？",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "T-A03-first-02"
+            },
+            {
+              "speaker": "叶蘅",
+              "text": "嗯。留空的先别补，采集的范围也要先问。",
+              "voice": true,
+              "emotion_api": "calm",
+              "delivery_notes": "以工作提醒表达边界。",
+              "id": "T-A03-first-03"
+            },
+            {
+              "speaker": "萧白",
+              "text": "我先把确定和待问分开。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "T-A03-first-04"
+            }
+          ],
+          "effects": []
+        },
+        {
+          "key": "choice_label",
+          "label": "先看标签",
+          "condition": "action.completed_count == 0 and choice == 'label'",
+          "kind": "branch",
+          "group": "lesson_choice",
+          "effects": [],
+          "lines": [
+            {
+              "id": "T-A03-choice_label-01",
+              "speaker": "萧白",
+              "text": "我先按确认过的标签分，不确定的放另一边。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "实际选择的一支；首次教学费用已包含，不另计长谈。"
+            },
+            {
+              "id": "T-A03-choice_label-02",
+              "speaker": "叶蘅",
+              "text": "好。原标签别扔，等问清再补。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "实际选择的一支；首次教学费用已包含，不另计长谈。"
+            }
+          ]
+        },
+        {
+          "key": "choice_storage",
+          "label": "先听保存要求",
+          "condition": "action.completed_count == 0 and choice == 'storage'",
+          "kind": "branch",
+          "group": "lesson_choice",
+          "effects": [],
+          "lines": [
+            {
+              "id": "T-A03-choice_storage-01",
+              "speaker": "萧白",
+              "text": "这几包放哪，哪些不能动，您先说明。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "实际选择的一支；首次教学费用已包含，不另计长谈。"
+            },
+            {
+              "id": "T-A03-choice_storage-02",
+              "speaker": "叶蘅",
+              "text": "我指给你看。今天只动允许的普通样品，没说过的先问。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "实际选择的一支；首次教学费用已包含，不另计长谈。"
+            }
+          ]
+        },
+        {
+          "key": "repeat",
+          "label": "之后的有效练习",
+          "condition": "action.completed_count > 0",
+          "kind": "fallback",
+          "group": "lesson",
+          "lines": [
+            {
+              "speaker": "萧白",
+              "text": "这包的标签有点模糊，我先放到待问那边。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "T-A03-repeat-01"
+            },
+            {
+              "speaker": "叶蘅",
+              "text": "好。别因为上回像，就当这回一样。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "T-A03-repeat-02"
+            }
+          ],
+          "effects": []
+        }
+      ],
+      "contract_notes": [
+        "前置、导师在场和实际收益读取对应活动；对白不额外授予或重复结算能力。",
+        "未付教学费用时只看简介，不播放首次受教完成句；若重复时角色离场，只显示实际结果摘要。",
+        "首次选择沿当前活动的两个选项，对应本稿两支；重复课不再反复询问初学选择。completed_count读取进入事务前的快照。"
+      ],
+      "runtime_status": "script-draft-not-integrated"
+    },
+    {
+      "id": "T-A04",
+      "title": "行路与护送常识",
+      "group": "教学",
+      "event_id": null,
+      "window": [
+        8,
+        11
+      ],
+      "cost": 3,
+      "action_id": "A04",
+      "requires": [],
+      "stage": "陆衡来访的院内，首次教学使用双人静态对白；教师指向当前器具或脚位。重复课只给短反馈，不额外生成动作图或重复关键语音。",
+      "blocks": [
+        {
+          "key": "first",
+          "label": "首次实际受教",
+          "condition": "action.completed_count == 0",
+          "kind": "variant",
+          "group": "lesson",
+          "lines": [
+            {
+              "speaker": "陆衡",
+              "text": "包带我看过，你再说一遍，东西到谁手里？",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "T-A04-first-01"
+            },
+            {
+              "speaker": "萧白",
+              "text": "收件的人还没确认，这件先不接。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "T-A04-first-02"
+            },
+            {
+              "speaker": "陆衡",
+              "text": "对。顺路也得说清什么时候回。",
+              "voice": true,
+              "emotion_api": "calm",
+              "delivery_notes": "朴实稳健，语气不强压。",
+              "id": "T-A04-first-03"
+            },
+            {
+              "speaker": "萧白",
+              "text": "路不好走时，先告诉带队的人，不藏着。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "T-A04-first-04"
+            }
+          ],
+          "effects": []
+        },
+        {
+          "key": "repeat",
+          "label": "之后的有效练习",
+          "condition": "action.completed_count > 0",
+          "kind": "fallback",
+          "group": "lesson",
+          "lines": [
+            {
+              "speaker": "陆衡",
+              "text": "你这包底还松着。先托住，我指出哪儿要收。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "T-A04-repeat-01"
+            },
+            {
+              "speaker": "萧白",
+              "text": "好，不在坡上现拆。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "T-A04-repeat-02"
+            }
+          ],
+          "effects": []
+        }
+      ],
+      "contract_notes": [
+        "前置、导师在场和实际收益读取对应活动；对白不额外授予或重复结算能力。",
+        "未付教学费用时只看简介，不播放首次受教完成句；若重复时角色离场，只显示实际结果摘要。"
+      ],
+      "runtime_status": "script-draft-not-integrated"
+    },
+    {
+      "id": "T-A05",
+      "title": "家常炊事",
+      "group": "教学",
+      "event_id": null,
+      "window": [
+        0,
+        19
+      ],
+      "cost": 3,
+      "action_id": "A05",
+      "requires": [],
+      "stage": "厨房，首次教学使用双人静态对白；教师指向当前器具或脚位。重复课只给短反馈，不额外生成动作图或重复关键语音。",
+      "blocks": [
+        {
+          "key": "first",
+          "label": "首次实际受教",
+          "condition": "action.completed_count == 0",
+          "kind": "variant",
+          "group": "lesson",
+          "lines": [
+            {
+              "speaker": "周砚",
+              "text": "锅铲在这里。先认器具和你能用的普通食材。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "T-A05-first-01"
+            },
+            {
+              "speaker": "萧白",
+              "text": "练武以前先学一顿饭，也挺实际。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "T-A05-first-02"
+            },
+            {
+              "speaker": "周砚",
+              "text": "饿着肚子，背再多招名也不管用。",
+              "voice": true,
+              "emotion_api": "happy",
+              "delivery_notes": "生活笑意，轻松自然。",
+              "id": "T-A05-first-03"
+            },
+            {
+              "speaker": "萧白",
+              "text": "这顿我做一件，不把整桌都包下来。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "T-A05-first-04"
+            }
+          ],
+          "effects": []
+        },
+        {
+          "key": "repeat",
+          "label": "之后的有效练习",
+          "condition": "action.completed_count > 0",
+          "kind": "fallback",
+          "group": "lesson",
+          "lines": [
+            {
+              "speaker": "萧白",
+              "text": "这一回我知道东西放哪了，不再边做边翻。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "T-A05-repeat-01"
+            },
+            {
+              "speaker": "周砚",
+              "text": "用完放回，别让下一个人又找一遍。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "T-A05-repeat-02"
+            }
+          ],
+          "effects": []
+        }
+      ],
+      "contract_notes": [
+        "前置、导师在场和实际收益读取对应活动；对白不额外授予或重复结算能力。",
+        "未付教学费用时只看简介，不播放首次受教完成句；若重复时角色离场，只显示实际结果摘要。"
+      ],
+      "runtime_status": "script-draft-not-integrated"
+    },
+    {
+      "id": "T-A06",
+      "title": "布料与行囊照护",
+      "group": "教学",
+      "event_id": null,
+      "window": [
+        0,
+        19
+      ],
+      "cost": 3,
+      "action_id": "A06",
+      "requires": [],
+      "stage": "药圃边，首次教学使用双人静态对白；教师指向当前器具或脚位。重复课只给短反馈，不额外生成动作图或重复关键语音。",
+      "blocks": [
+        {
+          "key": "first",
+          "label": "首次实际受教",
+          "condition": "action.completed_count == 0",
+          "kind": "variant",
+          "group": "lesson",
+          "lines": [
+            {
+              "speaker": "叶蘅",
+              "text": "练缝补用这一份普通布料和公用针具。我的针囊别拿来拆。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "T-A06-first-01"
+            },
+            {
+              "speaker": "萧白",
+              "text": "我先处理这条开线，不改整只包。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "T-A06-first-02"
+            },
+            {
+              "speaker": "叶蘅",
+              "text": "好。里面装什么，也别缝着才想起来问。",
+              "voice": true,
+              "emotion_api": "happy",
+              "delivery_notes": "熟悉后的轻提醒；不影射攻针能力。",
+              "id": "T-A06-first-03"
+            }
+          ],
+          "effects": []
+        },
+        {
+          "key": "repeat",
+          "label": "之后的有效练习",
+          "condition": "action.completed_count > 0",
+          "kind": "fallback",
+          "group": "lesson",
+          "lines": [
+            {
+              "speaker": "萧白",
+              "text": "这段我能收紧，坏得更大的那边还不会。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "T-A06-repeat-01"
+            },
+            {
+              "speaker": "叶蘅",
+              "text": "那就留着问，别把裂口藏在折边里。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "T-A06-repeat-02"
+            }
+          ],
+          "effects": []
+        }
+      ],
+      "contract_notes": [
+        "前置、导师在场和实际收益读取对应活动；对白不额外授予或重复结算能力。",
+        "未付教学费用时只看简介，不播放首次受教完成句；若重复时角色离场，只显示实际结果摘要。"
+      ],
+      "runtime_status": "script-draft-not-integrated"
+    },
+    {
+      "id": "D-P01",
+      "title": "照料药圃",
+      "group": "日常",
+      "event_id": null,
+      "window": [
+        0,
+        19
+      ],
+      "cost": 3,
+      "action_id": "P01",
+      "requires": [],
+      "stage": "药圃。纯文字结果或已有静态形象；实际课程与资源条件沿现有活动配置。",
+      "blocks": [
+        {
+          "key": "result",
+          "label": "首次与重复的实际结果短句",
+          "condition": "always",
+          "kind": "main",
+          "group": null,
+          "lines": [
+            {
+              "speaker": "叶蘅",
+              "text": "今天这层可以整理。只收已确认的一份，别顺手把待问的也采了。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "D-P01-result-01"
+            },
+            {
+              "speaker": "萧白",
+              "text": "这份收好了，原标签一起放回。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "D-P01-result-02"
+            },
+            {
+              "speaker": "叶蘅",
+              "text": "我再清点。剩下的还留给下一回。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "D-P01-result-03"
+            }
+          ],
+          "effects": []
+        }
+      ],
+      "contract_notes": [
+        "本场不安排角色语音；结果只在实际成功结算后出现。角色缺席时用结果摘要，不从远端借声代演。",
+        "C01/C02沿通信V7图卡与一键寄出，不恢复旧表单。材料不足、取消或重复查看不能显示成功句。"
+      ],
+      "runtime_status": "script-draft-not-integrated"
+    },
+    {
+      "id": "D-P02",
+      "title": "准备干粮",
+      "group": "日常",
+      "event_id": null,
+      "window": [
+        0,
+        19
+      ],
+      "cost": 3,
+      "action_id": "P02",
+      "requires": [],
+      "stage": "厨房。纯文字结果或已有静态形象；实际课程与资源条件沿现有活动配置。",
+      "blocks": [
+        {
+          "key": "result",
+          "label": "首次与重复的实际结果短句",
+          "condition": "always",
+          "kind": "main",
+          "group": null,
+          "lines": [
+            {
+              "speaker": "周砚",
+              "text": "先看自己的食材够不够。凉了再装，别急着全塞进包。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "D-P02-result-01"
+            },
+            {
+              "speaker": "萧白",
+              "text": "这两份按账记好，不把公用食材算成自己的。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "D-P02-result-02"
+            },
+            {
+              "speaker": "周砚",
+              "text": "那就放到你能记得的地方。出门别又回来找。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "D-P02-result-03"
+            }
+          ],
+          "effects": []
+        }
+      ],
+      "contract_notes": [
+        "本场不安排角色语音；结果只在实际成功结算后出现。角色缺席时用结果摘要，不从远端借声代演。",
+        "C01/C02沿通信V7图卡与一键寄出，不恢复旧表单。材料不足、取消或重复查看不能显示成功句。"
+      ],
+      "runtime_status": "script-draft-not-integrated"
+    },
+    {
+      "id": "D-P03",
+      "title": "缝制普通布包",
+      "group": "日常",
+      "event_id": null,
+      "window": [
+        0,
+        19
+      ],
+      "cost": 3,
+      "action_id": "P03",
+      "requires": [],
+      "stage": "药圃边。纯文字结果或已有静态形象；实际课程与资源条件沿现有活动配置。",
+      "blocks": [
+        {
+          "key": "result",
+          "label": "首次与重复的实际结果短句",
+          "condition": "always",
+          "kind": "main",
+          "group": null,
+          "lines": [
+            {
+              "speaker": "萧白",
+              "text": "接缝收好了。这里我留宽一点，装普通日用物。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "D-P03-result-01"
+            },
+            {
+              "speaker": "叶蘅",
+              "text": "这是你自己的布做的，拿好。装重物以前，先看底线。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "D-P03-result-02"
+            }
+          ],
+          "effects": []
+        }
+      ],
+      "contract_notes": [
+        "本场不安排角色语音；结果只在实际成功结算后出现。角色缺席时用结果摘要，不从远端借声代演。",
+        "C01/C02沿通信V7图卡与一键寄出，不恢复旧表单。材料不足、取消或重复查看不能显示成功句。"
+      ],
+      "runtime_status": "script-draft-not-integrated"
+    },
+    {
+      "id": "D-D01",
+      "title": "挑水",
+      "group": "日常",
+      "event_id": null,
+      "window": [
+        0,
+        19
+      ],
+      "cost": 2,
+      "action_id": "D01",
+      "requires": [],
+      "stage": "廊下。纯文字结果或已有静态形象；实际课程与资源条件沿现有活动配置。",
+      "blocks": [
+        {
+          "key": "result",
+          "label": "首次与重复的实际结果短句",
+          "condition": "always",
+          "kind": "main",
+          "group": null,
+          "lines": [
+            {
+              "speaker": "萧白",
+              "text": "这回添到原来那条线，不想一次把桶挑得太满。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "D-D01-result-01"
+            },
+            {
+              "speaker": "周砚",
+              "text": "够今天用就行。路上洒了，你自己也多走一趟。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "D-D01-result-02"
+            }
+          ],
+          "effects": []
+        }
+      ],
+      "contract_notes": [
+        "本场不安排角色语音；结果只在实际成功结算后出现。角色缺席时用结果摘要，不从远端借声代演。",
+        "C01/C02沿通信V7图卡与一键寄出，不恢复旧表单。材料不足、取消或重复查看不能显示成功句。"
+      ],
+      "runtime_status": "script-draft-not-integrated"
+    },
+    {
+      "id": "D-D02",
+      "title": "扫院与整理练场",
+      "group": "日常",
+      "event_id": null,
+      "window": [
+        0,
+        19
+      ],
+      "cost": 2,
+      "action_id": "D02",
+      "requires": [],
+      "stage": "练武场。纯文字结果或已有静态形象；实际课程与资源条件沿现有活动配置。",
+      "blocks": [
+        {
+          "key": "result",
+          "label": "首次与重复的实际结果短句",
+          "condition": "always",
+          "kind": "main",
+          "group": null,
+          "lines": [
+            {
+              "speaker": "萧白",
+              "text": "这把是公用器具，我先放回标好的地方。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "D-D02-result-01"
+            },
+            {
+              "speaker": "周砚",
+              "text": "好。叶子扫到边上，别把走路那条也堆住。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "D-D02-result-02"
+            }
+          ],
+          "effects": []
+        }
+      ],
+      "contract_notes": [
+        "本场不安排角色语音；结果只在实际成功结算后出现。角色缺席时用结果摘要，不从远端借声代演。",
+        "C01/C02沿通信V7图卡与一键寄出，不恢复旧表单。材料不足、取消或重复查看不能显示成功句。"
+      ],
+      "runtime_status": "script-draft-not-integrated"
+    },
+    {
+      "id": "D-D03",
+      "title": "整理晾架与标签",
+      "group": "日常",
+      "event_id": null,
+      "window": [
+        0,
+        19
+      ],
+      "cost": 2,
+      "action_id": "D03",
+      "requires": [],
+      "stage": "药圃。纯文字结果或已有静态形象；实际课程与资源条件沿现有活动配置。",
+      "blocks": [
+        {
+          "key": "result",
+          "label": "首次与重复的实际结果短句",
+          "condition": "always",
+          "kind": "main",
+          "group": null,
+          "lines": [
+            {
+              "speaker": "叶蘅",
+              "text": "右边这几张纸签别动，其余按我指的层放。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "D-D03-result-01"
+            },
+            {
+              "speaker": "萧白",
+              "text": "知道。位置我改过的，结束前告诉你。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "D-D03-result-02"
+            },
+            {
+              "speaker": "叶蘅",
+              "text": "那我就照新位置点，不再重复找旧架子。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "D-D03-result-03"
+            }
+          ],
+          "effects": []
+        }
+      ],
+      "contract_notes": [
+        "本场不安排角色语音；结果只在实际成功结算后出现。角色缺席时用结果摘要，不从远端借声代演。",
+        "C01/C02沿通信V7图卡与一键寄出，不恢复旧表单。材料不足、取消或重复查看不能显示成功句。"
+      ],
+      "runtime_status": "script-draft-not-integrated"
+    },
+    {
+      "id": "D-D04",
+      "title": "磨墨与整理书案",
+      "group": "日常",
+      "event_id": null,
+      "window": [
+        0,
+        19
+      ],
+      "cost": 2,
+      "action_id": "D04",
+      "requires": [],
+      "stage": "书房。纯文字结果或已有静态形象；实际课程与资源条件沿现有活动配置。",
+      "blocks": [
+        {
+          "key": "result",
+          "label": "首次与重复的实际结果短句",
+          "condition": "always",
+          "kind": "main",
+          "group": null,
+          "lines": [
+            {
+              "speaker": "萧白",
+              "text": "公用纸笔放好了。私信我原样压着，没翻。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "D-D04-result-01"
+            },
+            {
+              "speaker": "周砚",
+              "text": "这一件做得清楚。信的事情，等本人来取。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "D-D04-result-02"
+            }
+          ],
+          "effects": []
+        }
+      ],
+      "contract_notes": [
+        "本场不安排角色语音；结果只在实际成功结算后出现。角色缺席时用结果摘要，不从远端借声代演。",
+        "C01/C02沿通信V7图卡与一键寄出，不恢复旧表单。材料不足、取消或重复查看不能显示成功句。"
+      ],
+      "runtime_status": "script-draft-not-integrated"
+    },
+    {
+      "id": "D-D05",
+      "title": "修补竹篓",
+      "group": "日常",
+      "event_id": null,
+      "window": [
+        0,
+        19
+      ],
+      "cost": 2,
+      "action_id": "D05",
+      "requires": [],
+      "stage": "廊下。纯文字结果或已有静态形象；实际课程与资源条件沿现有活动配置。",
+      "blocks": [
+        {
+          "key": "result",
+          "label": "首次与重复的实际结果短句",
+          "condition": "always",
+          "kind": "main",
+          "group": null,
+          "lines": [
+            {
+              "speaker": "萧白",
+              "text": "小破口收住了，底下裂得大的我还不会修。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "D-D05-result-01"
+            },
+            {
+              "speaker": "叶蘅",
+              "text": "那把这个先标出来。别装满了，才想起它还坏着。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "D-D05-result-02"
+            }
+          ],
+          "effects": []
+        }
+      ],
+      "contract_notes": [
+        "本场不安排角色语音；结果只在实际成功结算后出现。角色缺席时用结果摘要，不从远端借声代演。",
+        "C01/C02沿通信V7图卡与一键寄出，不恢复旧表单。材料不足、取消或重复查看不能显示成功句。"
+      ],
+      "runtime_status": "script-draft-not-integrated"
+    },
+    {
+      "id": "D-C01",
+      "title": "寄送近况信",
+      "group": "日常",
+      "event_id": null,
+      "window": [
+        0,
+        19
+      ],
+      "cost": 1,
+      "action_id": "C01",
+      "requires": [],
+      "stage": "书案。纯文字结果或已有静态形象；实际课程与资源条件沿现有活动配置。",
+      "blocks": [
+        {
+          "key": "result",
+          "label": "首次与重复的实际结果短句",
+          "condition": "always",
+          "kind": "main",
+          "group": null,
+          "lines": [
+            {
+              "speaker": "萧白",
+              "text": "收信的人、可捎的地址都确认了。这封只说我实际做过的近况。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "D-C01-result-01"
+            },
+            {
+              "speaker": "旁白",
+              "text": "玩家确认寄出且后台事务成功后，显示已交给捎信人。失败保留原稿与资源，不宣称已送达。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "D-C01-result-02"
+            },
+            {
+              "speaker": "萧白",
+              "text": "交出去了。回信到了再看，不把寄出就当作对方答应。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "D-C01-result-03"
+            }
+          ],
+          "effects": []
+        }
+      ],
+      "contract_notes": [
+        "本场不安排角色语音；结果只在实际成功结算后出现。角色缺席时用结果摘要，不从远端借声代演。",
+        "C01/C02沿通信V7图卡与一键寄出，不恢复旧表单。材料不足、取消或重复查看不能显示成功句。"
+      ],
+      "runtime_status": "script-draft-not-integrated"
+    },
+    {
+      "id": "D-C02",
+      "title": "赠送普通物品",
+      "group": "日常",
+      "event_id": null,
+      "window": [
+        0,
+        19
+      ],
+      "cost": 2,
+      "action_id": "C02",
+      "requires": [],
+      "stage": "当期收件人物处。纯文字结果或已有静态形象；实际课程与资源条件沿现有活动配置。",
+      "blocks": [
+        {
+          "key": "result",
+          "label": "首次与重复的实际结果短句",
+          "condition": "always",
+          "kind": "main",
+          "group": null,
+          "lines": [
+            {
+              "speaker": "萧白",
+              "text": "这一份是我的普通物品，您现在需要吗？",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "D-C02-result-01"
+            },
+            {
+              "speaker": "旁白",
+              "text": "选择收件人物与实际物品图卡，确认后才提交。叶家遗物和样品从可送列表排除。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "D-C02-result-02"
+            }
+          ],
+          "effects": []
+        },
+        {
+          "key": "zhou",
+          "label": "送给周砚",
+          "condition": "recipient == 'zhou' and transaction.success == true",
+          "kind": "variant",
+          "group": "recipient",
+          "lines": [
+            {
+              "speaker": "周砚",
+              "text": "收到了。以后送东西，先看你自己还用不用得上。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "D-C02-zhou-01"
+            }
+          ],
+          "effects": []
+        },
+        {
+          "key": "ye",
+          "label": "送给叶蘅",
+          "condition": "recipient == 'ye' and transaction.success == true",
+          "kind": "variant",
+          "group": "recipient",
+          "lines": [
+            {
+              "speaker": "叶蘅",
+              "text": "谢谢。我收下这一份，家里的东西照旧自己管。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "D-C02-ye-01"
+            }
+          ],
+          "effects": []
+        },
+        {
+          "key": "lu",
+          "label": "送给陆衡",
+          "condition": "recipient == 'lu' and transaction.success == true and actor.lu.present == true",
+          "kind": "variant",
+          "group": "recipient",
+          "lines": [
+            {
+              "speaker": "陆衡",
+              "text": "这份有用，多谢。我的委托仍照原来办，不算你另买了一趟路。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "D-C02-lu-01"
+            }
+          ],
+          "effects": []
+        },
+        {
+          "key": "neighbor",
+          "label": "送给乡邻",
+          "condition": "recipient == 'neighbor' and transaction.success == true",
+          "kind": "fallback",
+          "group": "recipient",
+          "lines": [
+            {
+              "speaker": "旁白",
+              "text": "物品交给当前可接收的乡邻。这里只确认收到，不把赠物当作伤势痊愈、满意或额外托运承诺。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "D-C02-neighbor-01"
+            }
+          ],
+          "effects": []
+        }
+      ],
+      "contract_notes": [
+        "本场不安排角色语音；结果只在实际成功结算后出现。角色缺席时用结果摘要，不从远端借声代演。",
+        "C01/C02沿通信V7图卡与一键寄出，不恢复旧表单。材料不足、取消或重复查看不能显示成功句。"
+      ],
+      "runtime_status": "script-draft-not-integrated"
+    },
+    {
+      "id": "D-W04",
+      "title": "溪畔与近山",
+      "group": "日常",
+      "event_id": null,
+      "window": [
+        0,
+        19
+      ],
+      "cost": 3,
+      "action_id": "W04",
+      "requires": [],
+      "stage": "已知近路。纯文字结果或已有静态形象；实际课程与资源条件沿现有活动配置。",
+      "blocks": [
+        {
+          "key": "result",
+          "label": "首次与重复的实际结果短句",
+          "condition": "always",
+          "kind": "main",
+          "group": null,
+          "lines": [
+            {
+              "speaker": "萧白",
+              "text": "今天只走受过指导的这一段。后面的湿地先记下，不试着跨。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "D-W04-result-01"
+            },
+            {
+              "speaker": "旁白",
+              "text": "萧白观察已知近路并返回，没有踏进新地图，也没有因此学会高级身法。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "D-W04-result-02"
+            }
+          ],
+          "effects": []
+        }
+      ],
+      "contract_notes": [
+        "本场不安排角色语音；结果只在实际成功结算后出现。角色缺席时用结果摘要，不从远端借声代演。",
+        "C01/C02沿通信V7图卡与一键寄出，不恢复旧表单。材料不足、取消或重复查看不能显示成功句。"
+      ],
+      "runtime_status": "script-draft-not-integrated"
+    },
+    {
+      "id": "R-01",
+      "title": "两种教法，同一个落脚点",
+      "group": "待定扩展",
+      "event_id": null,
+      "window": [
+        0,
+        19
+      ],
+      "cost": 0,
+      "action_id": null,
+      "requires": [],
+      "stage": "师叔身份与导师资格定稿后，嵌入一次已付费基础课。当前不进入正式派单或在场目录。",
+      "blocks": [
+        {
+          "key": "proposal",
+          "label": "生活人员定稿后采用",
+          "condition": "role_card.approved == true and teacher_permission.valid == true",
+          "kind": "main",
+          "group": null,
+          "lines": [
+            {
+              "speaker": "师叔（待定）",
+              "text": "他把脚下看清了，可旁边是谁，他还没看。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "R-01-proposal-01"
+            },
+            {
+              "speaker": "周砚",
+              "text": "是。我刚才只说了地面，没说明同行的位置。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "R-01-proposal-02"
+            },
+            {
+              "speaker": "萧白",
+              "text": "那我能先复述一下，再试吗？",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "R-01-proposal-03"
+            },
+            {
+              "speaker": "师叔（待定）",
+              "text": "先说你要退到哪里，会不会碰着身边的人。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "R-01-proposal-04"
+            },
+            {
+              "speaker": "萧白",
+              "text": "给同伴留出一段，我自己的步子也要小一些。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "R-01-proposal-05"
+            },
+            {
+              "speaker": "周砚",
+              "text": "这回试这一段。我也换个讲法，不把没说清的算作你没记住。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "R-01-proposal-06"
+            }
+          ],
+          "effects": []
+        }
+      ],
+      "contract_notes": [
+        "角色尚未定名、性别与资格未定，本段明确列为提案；不替其编造正式声线、不扣新增闲逛费用。"
+      ],
+      "runtime_status": "script-draft-not-integrated"
+    },
+    {
+      "id": "R-02",
+      "title": "练场边留下的位置",
+      "group": "待定扩展",
+      "event_id": null,
+      "window": [
+        0,
+        19
+      ],
+      "cost": 0,
+      "action_id": null,
+      "requires": [],
+      "stage": "先入门同门身份与外出日程定稿后，嵌入公用器具整理的打杂结果。当前不进入正式派单。",
+      "blocks": [
+        {
+          "key": "proposal",
+          "label": "生活人员定稿后采用",
+          "condition": "role_card.approved == true and actor.present == true",
+          "kind": "main",
+          "group": null,
+          "lines": [
+            {
+              "speaker": "萧白",
+              "text": "这把放回原处。明日还能请你陪我练吗？",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "R-02-proposal-01"
+            },
+            {
+              "speaker": "先入门同门（待定）",
+              "text": "明日我有自己的差事，回来得晚。别先替我把一整天留了。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "R-02-proposal-02"
+            },
+            {
+              "speaker": "萧白",
+              "text": "那等你回来，我问你什么时候方便。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "R-02-proposal-03"
+            },
+            {
+              "speaker": "先入门同门（待定）",
+              "text": "好。借过的东西先归位，下个人才有地方站。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "R-02-proposal-04"
+            },
+            {
+              "speaker": "萧白",
+              "text": "我留一处空着，不把自己的都堆满。",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "R-02-proposal-05"
+            }
+          ],
+          "effects": []
+        }
+      ],
+      "contract_notes": [
+        "称呼随未来性别与师承定稿；不用唐照雪或裴砚秋代演归云谷同门。"
+      ],
+      "runtime_status": "script-draft-not-integrated"
+    }
+  ]
+}

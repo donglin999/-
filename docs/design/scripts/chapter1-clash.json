@@ -1,0 +1,294 @@
+{
+  "version": "QIHE-CLASH-JIA-3",
+  "profiles": {
+    "xu": {
+      "name": "徐令仪",
+      "art": "qh_clash_xu",
+      "portrait": "p_qh_xulingyi_story",
+      "side": "ally",
+      "lv": 22,
+      "st": {
+        "str": 8,
+        "con": 8,
+        "agi": 12,
+        "wil": 8,
+        "wis": 9
+      },
+      "weapon": {
+        "id": "iron",
+        "name": "精铁剑",
+        "kind": "剑",
+        "atk": 14,
+        "crit": 0
+      },
+      "skillLevels": {
+        "am_s1": 7,
+        "am_s2": 5,
+        "am_s3": 5
+      },
+      "artLevels": {
+        "art_am_s1": 7,
+        "art_am_jia": 5
+      },
+      "actor_id": "xu-lingyi"
+    },
+    "guard_front": {
+      "name": "正道盟护院·前",
+      "art": "bandit",
+      "side": "ally",
+      "lv": 12,
+      "st": {
+        "str": 5,
+        "con": 6,
+        "agi": 5,
+        "wil": 4,
+        "wis": 3
+      },
+      "weapon": {
+        "id": "qh_clash_guard_dao",
+        "name": "短柄铁刀",
+        "kind": "刀",
+        "atk": 8,
+        "crit": 0
+      },
+      "skillLevels": {}
+    },
+    "guard_rear": {
+      "name": "正道盟护院·后",
+      "art": "bandit",
+      "side": "ally",
+      "lv": 12,
+      "st": {
+        "str": 5,
+        "con": 6,
+        "agi": 5,
+        "wil": 4,
+        "wis": 3
+      },
+      "weapon": {
+        "id": "qh_clash_guard_dao",
+        "name": "短柄铁刀",
+        "kind": "刀",
+        "atk": 8,
+        "crit": 0
+      },
+      "skillLevels": {}
+    },
+    "cen": {
+      "name": "岑霜",
+      "art": "qh_clash_cen",
+      "portrait": "p_qh_censhuang_story",
+      "side": "foe",
+      "lv": 38,
+      "st": {
+        "str": 9,
+        "con": 8,
+        "agi": 10,
+        "wil": 7,
+        "wis": 6
+      },
+      "weapon": {
+        "id": "eq_cen_soft_whip",
+        "name": "乌藤软鞭",
+        "kind": "鞭",
+        "atk": 12,
+        "crit": 5
+      },
+      "skillLevels": {
+        "cs_whip_s1": 5,
+        "cs_whip_s2": 5
+      },
+      "artLevels": {
+        "art_cs_whip_jia": 5
+      },
+      "actor_id": "cen-shuang"
+    },
+    "wu": {
+      "name": "乌魁",
+      "art": "qh_raider_front_v1",
+      "side": "foe",
+      "lv": 12,
+      "st": {
+        "str": 6,
+        "con": 6,
+        "agi": 5,
+        "wil": 4,
+        "wis": 3
+      },
+      "weapon": {
+        "id": "qh_clash_guard_dao",
+        "name": "短柄铁刀",
+        "kind": "刀",
+        "atk": 8,
+        "crit": 0
+      },
+      "skillLevels": {}
+    },
+    "adept": {
+      "name": "归烬堂堂众",
+      "art": "qh_raider_rear_v1",
+      "side": "foe",
+      "lv": 12,
+      "st": {
+        "str": 5,
+        "con": 6,
+        "agi": 6,
+        "wil": 4,
+        "wis": 3
+      },
+      "weapon": {
+        "id": "qh_clash_guard_dao",
+        "name": "短柄铁刀",
+        "kind": "刀",
+        "atk": 8,
+        "crit": 0
+      },
+      "skillLevels": {}
+    }
+  },
+  "sequence": [
+    {
+      "actor": "xu",
+      "skill": "am_s1",
+      "target": "wu",
+      "support": "guard_front"
+    },
+    {
+      "actor": "wu",
+      "skill": "attack",
+      "target": "guard_front"
+    },
+    {
+      "actor": "cen",
+      "skill": "cs_whip_s1",
+      "target": "xu"
+    },
+    {
+      "actor": "xu",
+      "skill": "am_s3",
+      "target": "cen"
+    },
+    {
+      "actor": "guard_rear",
+      "skill": "attack",
+      "target": "cen",
+      "bp": 1
+    },
+    {
+      "actor": "adept",
+      "skill": "attack",
+      "target": "guard_rear"
+    },
+    {
+      "actor": "guard_front",
+      "skill": "defend",
+      "target": "guard_front"
+    },
+    {
+      "actor": "cen",
+      "skill": "cs_whip_s2",
+      "target": "xu"
+    }
+  ],
+  "skill_ids": [
+    "am_s1",
+    "am_s2",
+    "am_s3",
+    "cs_whip_s1",
+    "cs_whip_s2"
+  ],
+  "dialogue": {
+    "opening": [
+      [
+        "徐令仪",
+        "岑姑娘，先叫你的人松手。",
+        "xu",
+        1600
+      ],
+      [
+        "岑霜",
+        "你的人把兵刃撤了，我自会问他。",
+        "cen",
+        1700
+      ]
+    ],
+    "stopping": [
+      [
+        "沈雁回",
+        "停手！布棚着了，里头还有人！",
+        "shen",
+        2400
+      ],
+      [
+        "徐令仪",
+        "收起兵器，先把人接出来！",
+        "xu",
+        1500
+      ],
+      [
+        "岑霜",
+        "都退到侧门，给人让路！",
+        "cen",
+        1500
+      ]
+    ],
+    "_migrated": "2026-10-19：before／ignition／afterIgnition 三段已迁入 ink 剧本（xiaojianghu-legacy-prologue/story/01-开始/风起-*.ink），此处删除；交锋战斗里按时间播的喊话仍在本文件。"
+  },
+  "assetBatch": "qihe-clash-jia-20261014",
+  "design_ref": "docs/design/chapter1-clash-jia-20261014.md",
+  "fx_generation_policy": "programmatic_only_20261018",
+  "presentation": {
+    "am_s1": {
+      "motion": "cast",
+      "hitAt": 330,
+      "dur": 950,
+      "fxId": "am_s1",
+      "fxStatus": "ready",
+      "descriptionRef": "docs/design/chapter1-clash-jia-20261014.md",
+      "stationary": true,
+      "damageTiming": "effect_contract"
+    },
+    "am_s2": {
+      "motion": "cast",
+      "hitAt": 700,
+      "dur": 1250,
+      "fxId": "am_s2",
+      "fxStatus": "ready",
+      "descriptionRef": "docs/design/chapter1-clash-jia-20261014.md",
+      "stationary": true,
+      "damageTiming": "effect_contract"
+    },
+    "am_s3": {
+      "motion": "cast",
+      "hitAt": 520,
+      "dur": 1250,
+      "fxId": "am_s3",
+      "fxStatus": "ready",
+      "descriptionRef": "docs/design/chapter1-clash-jia-20261014.md",
+      "stationary": true,
+      "damageTiming": "effect_contract"
+    },
+    "cs_whip_s1": {
+      "motion": "cast",
+      "hitAt": 300,
+      "dur": 900,
+      "fxId": "cs_whip_s1",
+      "fxStatus": "ready",
+      "descriptionRef": "docs/design/chapter1-clash-jia-20261014.md",
+      "stationary": true,
+      "damageTiming": "effect_contract"
+    },
+    "cs_whip_s2": {
+      "motion": "cast",
+      "hitAt": 520,
+      "dur": 1250,
+      "fxId": "cs_whip_s2",
+      "fxStatus": "ready",
+      "descriptionRef": "docs/design/chapter1-clash-jia-20261014.md",
+      "stationary": true,
+      "damageTiming": "effect_contract"
+    }
+  },
+  "runtimeCheckpoint": 3,
+  "skill_presentation_policy": "stationary_cast_effect_hit"
+}

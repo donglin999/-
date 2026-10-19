@@ -1,0 +1,363 @@
+{
+  "character_id": "ruan-qingque",
+  "name": "阮青雀",
+  "species": "human",
+  "role_type": "companion",
+  "joinability": "recruitable",
+  "availability": "future",
+  "combat": false,
+  "exploration_motion": "fixed",
+  "story_importance": "recurring",
+  "services": [
+    "planned_theft_training_shared_progress_with_xuqing"
+  ],
+  "current_stage": "xiangyang_first_meeting_thief",
+  "planned_stages": [
+    "xiangyang_pre_recruitment_npc",
+    "travel_temporary_ally_optional",
+    "travel_recruited_companion"
+  ],
+  "chapter_scope": [],
+  "identity_refs": [
+    "../../art_sources/story_atlas_portraits_v5/native/ruan-qingque-new-character.png"
+  ],
+  "costume_and_ability_limits": [
+    "19岁成年，不幼态；乌黑齐颌短发，短裤保持明确双裤腿，工具卷与布囊归本人",
+    "无门派标记，无预设官阶；未来成长不自动改长发或长裙",
+    "生活技能目前关闭，教学尚未实装；首遇不参战，未来短刀技能不得偷取稀有掉落"
+  ],
+  "expression_map": {
+    "neutral": {
+      "planned_key": "p_ruan_neutral",
+      "status": "deferred_not_generated"
+    },
+    "smile": {
+      "planned_key": "p_ruan_smile",
+      "status": "deferred_not_generated"
+    },
+    "worry": {
+      "planned_key": "p_ruan_worry",
+      "status": "deferred_not_generated"
+    },
+    "firm": {
+      "planned_key": "p_ruan_firm",
+      "status": "deferred_not_generated"
+    },
+    "surprise": {
+      "planned_key": "p_ruan_surprise",
+      "status": "deferred_not_generated"
+    },
+    "hurt": {
+      "planned_key": "p_ruan_hurt",
+      "status": "deferred_not_generated"
+    }
+  },
+  "pose_definitions": [],
+  "assets": [
+    {
+      "id": "ruan_first_meeting_identity",
+      "group": "identity",
+      "quality": "identity",
+      "status": "reference_internally_reviewed_pending_user_confirmation",
+      "candidates": [
+        "../../art_sources/story_atlas_portraits_v5/native/ruan-qingque-new-character.png"
+      ],
+      "native_size": [
+        1024,
+        1536
+      ]
+    },
+    {
+      "id": "ruan_first_meeting_menu",
+      "group": "menu_portrait",
+      "quality": "menu_portrait",
+      "status": "review_website_only_pending_game_integration",
+      "candidates": [
+        "../../review/story-atlas/portraits/ruan-qingque-v5.png"
+      ],
+      "native_size": [
+        1024,
+        1536
+      ]
+    },
+    {
+      "id": "ruan_avatar",
+      "group": "avatar",
+      "quality": "avatar",
+      "status": "derive_after_identity_confirmation",
+      "candidates": []
+    },
+    {
+      "id": "ruan_dialogue_neutral",
+      "group": "dialogue",
+      "semantic": "neutral",
+      "quality": "dialogue_portrait",
+      "status": "future_deferred",
+      "candidates": []
+    },
+    {
+      "id": "ruan_dialogue_smile",
+      "group": "dialogue",
+      "semantic": "smile",
+      "quality": "dialogue_portrait",
+      "status": "future_deferred",
+      "candidates": []
+    },
+    {
+      "id": "ruan_dialogue_worry",
+      "group": "dialogue",
+      "semantic": "worry",
+      "quality": "dialogue_portrait",
+      "status": "future_deferred",
+      "candidates": []
+    },
+    {
+      "id": "ruan_dialogue_firm",
+      "group": "dialogue",
+      "semantic": "firm",
+      "quality": "dialogue_portrait",
+      "status": "future_deferred",
+      "candidates": []
+    },
+    {
+      "id": "ruan_dialogue_surprise",
+      "group": "dialogue",
+      "semantic": "surprise",
+      "quality": "dialogue_portrait",
+      "status": "future_deferred",
+      "candidates": []
+    },
+    {
+      "id": "ruan_dialogue_hurt",
+      "group": "dialogue",
+      "semantic": "hurt",
+      "quality": "dialogue_portrait",
+      "status": "future_deferred",
+      "candidates": []
+    },
+    {
+      "id": "ruan_exploration",
+      "group": "exploration",
+      "quality": "exploration",
+      "status": "future_deferred",
+      "candidates": []
+    },
+    {
+      "id": "ruan_party_battle",
+      "group": "party_battle",
+      "quality": "party_battle",
+      "status": "future_deferred",
+      "candidates": []
+    }
+  ],
+  "generation_plan": [
+    {
+      "action": "completed_reference_generation",
+      "groups": [
+        "identity",
+        "menu_portrait"
+      ],
+      "scope": "one_native_full_body_portrait_for_story_atlas"
+    },
+    {
+      "action": "derive_after_user_selection",
+      "groups": [
+        "avatar"
+      ]
+    },
+    {
+      "action": "defer_until_stage_enters_production",
+      "groups": [
+        "dialogue",
+        "exploration",
+        "party_battle",
+        "voice"
+      ],
+      "reason": "未来地图、临时援助或正式入队前交付，不冒充当前素材已齐"
+    }
+  ],
+  "quality_evidence": [
+    {
+      "check": "native_file",
+      "result": "passed",
+      "size": [
+        1024,
+        1536
+      ],
+      "sha256": "0121501866a45525a88e47973d1e7fdb608d5387ad36e54a153b22ab2bf42314"
+    },
+    {
+      "check": "visual_identity_stage_structure_medium",
+      "result": "internally_reviewed_pending_user_confirmation",
+      "record": "../../art_sources/story_atlas_portraits_v5/records/ruan-qingque.json"
+    },
+    {
+      "check": "review_website_display",
+      "result": "passed_1280_720_and_1920_1080_review_website_only",
+      "evidence": [
+        "../../review/story-atlas/qa-ruan-qingque.json",
+        "../../review/story-atlas/qa-ruan-qingque-1280.png",
+        "../../review/story-atlas/qa-ruan-qingque-1920.png",
+        "../../review/story-atlas/qa-ruan-qingque-face-gray.png"
+      ],
+      "scope": "图鉴图片、人物篇对白与素材入口、年表和匿名灰度五官；未验证游戏内素材或功能"
+    },
+    {
+      "check": "game_integration_and_motion",
+      "result": "not_implemented"
+    }
+  ],
+  "combat_side": "none",
+  "exploration_presence": "none",
+  "needs_story_poses": false,
+  "needs_dedicated_run": false,
+  "recruitment_availability": "future",
+  "controls_available": false,
+  "package_scope": "appearance_before_recruitment",
+  "outfit_profile": "independent",
+  "membership_at_stage": "市井小偷，无门派；以短打、热裤和细小器具辨识",
+  "uniform_variant": "civilian",
+  "visible_outfit_features": [
+    "短款交领系扣上衣与明确双裤腿的高腰布热裤",
+    "分段工具腰带、短靴与贴身布囊；无门派徽记"
+  ],
+  "identifier_allowed": false,
+  "face_identity": {
+    "face_shape": "偏短的成人软方脸，颊部略宽、下颌转折柔和，短钝下巴",
+    "brows": "眉头较浓的利落直眉，外端微扬",
+    "eyes": "横向长眼，目光带试探；不用统一圆杏眼",
+    "nose": "鼻梁较短，鼻尖轻翘、有真实体积",
+    "mouth": "略宽的清楚唇线，单侧抿笑",
+    "expression": "故作轻松、警觉机灵；认真时嘴角收平"
+  },
+  "version": 1,
+  "date": "2026-10-04",
+  "status": "design_and_reference_not_runtime",
+  "planned_chapter_scope": [
+    "RQ-01",
+    "RQ-02",
+    "RQ-03",
+    "RQ-04",
+    "RQ-05",
+    "RQ-06"
+  ],
+  "base_package_status": "portrait_reference_only_full_companion_package_pending",
+  "opening_adaptation_status": "not_in_prologue_or_chapter1",
+  "future_packages": [
+    {
+      "stage": "xiangyang_pre_recruitment_npc",
+      "combat": false,
+      "combat_side": "none",
+      "exploration_presence": "on_map",
+      "exploration_motion": "fixed",
+      "required": [
+        "avatar",
+        "dialogue_neutral_firm_worry",
+        "required_standing_directions"
+      ]
+    },
+    {
+      "stage": "travel_temporary_ally_optional",
+      "combat": true,
+      "combat_side": "ally",
+      "exploration_presence": "on_map",
+      "exploration_motion": "walk",
+      "required": [
+        "avatar",
+        "dialogue",
+        "exploration",
+        "party_battle"
+      ],
+      "battle_actions": [
+        "idle",
+        "dash",
+        "atk",
+        "atk2",
+        "hurt",
+        "cast",
+        "brk",
+        "dead",
+        "win"
+      ]
+    },
+    {
+      "stage": "travel_recruited_companion",
+      "combat": true,
+      "combat_side": "ally",
+      "exploration_presence": "on_map",
+      "exploration_motion": "walk",
+      "required": [
+        "identity",
+        "avatar",
+        "menu_portrait",
+        "dialogue",
+        "exploration",
+        "party_battle"
+      ],
+      "dialogue_semantics": [
+        "neutral",
+        "smile",
+        "worry",
+        "firm",
+        "surprise",
+        "hurt"
+      ],
+      "battle_actions": [
+        "idle",
+        "dash",
+        "atk",
+        "atk2",
+        "hurt",
+        "cast",
+        "brk",
+        "dead",
+        "win"
+      ],
+      "exploration_spec": "character-walk-quality.md"
+    }
+  ],
+  "gender": "女",
+  "first_meeting_age": 19,
+  "dialogue_package_status": "6_unified_states_production_in_progress",
+  "dialogue_package_source": "companion-performance/ruan-qingque.md",
+  "dialogue_package_contract": {
+    "count": 6,
+    "separate_expression_count": 0,
+    "switch": "whole_image",
+    "emotion_pose_gate_required": true,
+    "source": "companion-performance.md"
+  },
+  "dialogue_state_definitions": [
+    {
+      "key": "neutral",
+      "label": "常态倾听",
+      "body_and_emotion": "一手叉腰，另一手在腹前松握，身体轻侧；肩颈自然松弛，头正常抬起，看向说话人，眉眼平静，嘴唇轻合，不欢迎挥手，也不做忧伤缩肩。道具：原工具带"
+    },
+    {
+      "key": "happy",
+      "label": "开心认可",
+      "body_and_emotion": "一手两指捏一枚铜钱在肩下，另一手低位招呼，双脚落地；肩背舒展，头略抬，身体向来人轻侧，眼神温暖，眉眼舒展、自然真实的小笑。道具：一枚本人铜钱"
+    },
+    {
+      "key": "sad",
+      "label": "伤心担忧",
+      "body_and_emotion": "两臂收近身体，两手在腰前偏低握住本人随身物或衣缘，肩部明显低落内收，头微低、躯干轻侧、重心偏后；内眉收起、眼神低垂、嘴角轻落，成人忧心而非惊恐；绝不挥手、欢迎或微笑。本人随身道具仍稳妥挂腰/背负，不凭空换装。"
+    },
+    {
+      "key": "angry",
+      "label": "愤怒拒绝",
+      "body_and_emotion": "一手掌朝前拒绝，另一手护住贴身工具囊，站稳；肩背稳直，身体稍向前，重心前移，头正直、不低头；眉位压低、目光直接有力、唇线紧抿、绝不微笑，是明确的愤怒与拒绝。示停掌在胸下，不像抬高欢迎。道具：本人工具囊。长棍/篙必须改为竖直置于身侧或贴身短斜角，两端完整留在画内，不横跨边缘。"
+    },
+    {
+      "key": "surprise",
+      "label": "惊讶发现",
+      "body_and_emotion": "躯干小幅后仰、肩轻提、重心后移，头稍向前确认；一手靠近胸骨，另一手稳住本人腰侧/背负道具，肘贴近身体；眉轻抬、眼睛自然睁大、嘴唇小幅分开，成人吃惊。绝不挥手或欢快招呼，恰有两臂两腿。"
+    },
+    {
+      "key": "guilty",
+      "label": "心虚认账",
+      "body_and_emotion": "两手低位摊开且掌心可见，没有藏物；肩微沉、上臂收近、身体稍前倾、头微偏低；目光侧避、眉微拢、嘴角收紧，成人心虚诚实而非得意笑。"
+    }
+  ],
+  "character_icons": []
+}

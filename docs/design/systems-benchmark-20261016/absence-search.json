@@ -1,0 +1,48 @@
+{
+  "note": "关键词结果是补充证据，不能单独证明系统不存在；已结合负责文档与运行代码。排除本报告、更新记录与归档。",
+  "results": {
+    "已投入成长重配": {
+      "query": "洗点|退还.*属性点|重新分配.*属性|构筑重置",
+      "matches": []
+    },
+    "难度与可访问性": {
+      "query": "色盲|按键重绑|键位重绑|辅助模式|难度模式|难度选择|字幕大小",
+      "matches": [
+        {
+          "path": "xiaojianghu/docs/archive/design/opening-assets.md",
+          "line": 47,
+          "text": "| `C1-06` 守路 | 真战斗使用必需战斗包；辅助模式采用站位、短对白与结果 | 普通帮众只有战斗职责，未进入战斗时不另做剧情动作 |"
+        }
+      ]
+    },
+    "新周目": {
+      "query": "二周目|新周目|周目继承|通关后继续|通关后.*游历",
+      "matches": []
+    },
+    "存档备份": {
+      "query": "导入导出|导出存档|存档.*导出|云存档",
+      "matches": [
+        {
+          "path": "xiaojianghu/docs/archive/design/prologue-exploration/minimap.md",
+          "line": 34,
+          "text": "本页使用现行地图的行走区域和障碍生成10像素网格，带脚点余量及四向寻路，检查不会直接穿过建筑。它是独立验证器，不是已接入的游戏导航。人物固定站姿用于布局，未新增走路动作；遮挡、真实任务追踪、战斗／CG显隐、手柄、云存档与低端机性能需正式接入后验收。"
+        },
+        {
+          "path": "xiaojianghu/docs/archive/design/cultivation-minimax-compare-20261012/README.md",
+          "line": 78,
+          "text": "实现与证据存放于兄弟正式工作区 `review/cultivation-minimax-compare-20261012/`，预览使用既有 8792 服务，不改游戏对白或普通存档。对照页提供逐句并排、整段阅读与意见导出。"
+        },
+        {
+          "path": "xiaojianghu-legacy-prologue/docs/design/qihe-map/expansion/ui-flow/settings.md",
+          "line": 26,
+          "text": "本功能为本机浏览器存档，没有云同步、导入导出或跨设备迁移。存档元信息附在记录内的`qiheSave`字段；原有无该字段的版本继续可读。"
+        },
+        {
+          "path": "xiaojianghu-legacy-prologue/docs/design/qihe-map/expansion/ui-flow/other-pages.md",
+          "line": 27,
+          "text": "存档管理提供独立手动副本、载入、重命名及可恢复回收站。返回首页先保存，再回到当前版本的开始/继续选择页。云存档仍未接入。"
+        }
+      ]
+    }
+  }
+}

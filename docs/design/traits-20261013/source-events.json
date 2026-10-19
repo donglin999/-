@@ -1,0 +1,1242 @@
+{
+  "source": "xiaojianghu-legacy-prologue/js/qh-mode-cultivation-household.js",
+  "snapshotDate": "2026-10-13",
+  "version": "TRAITS-STORY-DESIGN-2",
+  "events": [
+    {
+      "id": "gy_z01",
+      "name": "记住了，还是站不稳",
+      "window": [
+        0,
+        9
+      ],
+      "place": "training_ground",
+      "cast": [
+        "zhou",
+        "hero"
+      ],
+      "requires": [],
+      "choices": [
+        {
+          "key": "ask",
+          "text": "说出没懂的地方"
+        },
+        {
+          "key": "retry",
+          "text": "再试一次后说明"
+        }
+      ],
+      "closing": [
+        {
+          "speaker": "zhou",
+          "text": "今夜不必再练。吃饭时也不用反复想着怎么赢第三回。",
+          "cast": [
+            "zhou",
+            "hero"
+          ]
+        },
+        {
+          "speaker": "hero",
+          "text": "我原本还想多站几次。",
+          "cast": [
+            "zhou",
+            "hero"
+          ]
+        },
+        {
+          "speaker": "zhou",
+          "text": "留点力气，明天能把这一回做明白。",
+          "cast": [
+            "zhou",
+            "hero"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gy_ledger",
+      "name": "师母的账本",
+      "window": [
+        1,
+        3
+      ],
+      "place": "market_town",
+      "cast": [
+        "hero",
+        "shimu"
+      ],
+      "requires": [],
+      "choices": [
+        {
+          "key": "columns",
+          "text": "用“分栏对账”的法子重新排一遍"
+        },
+        {
+          "key": "ask_first",
+          "text": "先问清楚每一笔的来历"
+        }
+      ],
+      "closing": [
+        {
+          "speaker": "shimu",
+          "text": "收摊了。剩下这只木鸟送你——你二师叔做了一百只，没一只卖得出去。",
+          "cast": [
+            "hero",
+            "shimu"
+          ]
+        },
+        {
+          "speaker": "shimu",
+          "text": "走，回谷。路上跟你说说我当年走镖记账的事——就说一点点。",
+          "cast": [
+            "hero",
+            "shimu"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gy_night_return",
+      "name": "夜归人",
+      "window": [
+        4,
+        4
+      ],
+      "place": "courtyard",
+      "cast": [
+        "hero",
+        "yin",
+        "ye"
+      ],
+      "requires": [],
+      "choices": [
+        {
+          "key": "polite",
+          "text": "“这位……前辈，能先松手吗？”"
+        },
+        {
+          "key": "counter",
+          "text": "试着挣脱，学着白天练的步法转身"
+        }
+      ],
+      "closing": [
+        {
+          "speaker": "yin",
+          "text": "这位姑娘是？",
+          "cast": [
+            "hero",
+            "yin",
+            "ye"
+          ]
+        },
+        {
+          "speaker": "ye",
+          "text": "叶蘅，借住在谷里。……殷前辈手上有伤，渗血了，要不要先包一下？",
+          "cast": [
+            "hero",
+            "yin",
+            "ye"
+          ]
+        },
+        {
+          "speaker": "yin",
+          "text": "眼尖。不碍事——好吧，碍一点。小白脸，明早别告诉你师母我喝了酒。",
+          "cast": [
+            "hero",
+            "yin",
+            "ye"
+          ]
+        },
+        {
+          "speaker": "title",
+          "text": "第二天一早",
+          "place": "courtyard",
+          "time": "day",
+          "cast": [
+            "hero",
+            "ye"
+          ]
+        },
+        {
+          "speaker": "ye",
+          "text": "……全谷都知道了。不是我说的。",
+          "cast": [
+            "hero",
+            "ye"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gy_man_herbs",
+      "name": "小满认药",
+      "window": [
+        6,
+        9
+      ],
+      "place": "herb_garden",
+      "cast": [
+        "man",
+        "ye",
+        "hero"
+      ],
+      "requires": [],
+      "choices": [
+        {
+          "key": "teach",
+          "text": "陪小满一起认药，认错了也不笑她"
+        },
+        {
+          "key": "tease",
+          "text": "“那小满是什么？小辣椒？”"
+        }
+      ],
+      "closing": [
+        {
+          "speaker": "ye",
+          "text": "她记性很好，只是急。你以后带她认药，先认叶背。",
+          "mood": "normal",
+          "place": "herb_garden",
+          "time": "day",
+          "cast": [
+            "man",
+            "ye",
+            "hero"
+          ]
+        },
+        {
+          "speaker": "man",
+          "text": "明天还来！",
+          "mood": "smile",
+          "cast": [
+            "man",
+            "ye",
+            "hero"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gn_terraces",
+      "name": "田头的账",
+      "window": [
+        6,
+        11
+      ],
+      "place": "terraces",
+      "cast": [
+        "shimu",
+        "pei",
+        "hero"
+      ],
+      "requires": [
+        "gn_lamp_seen"
+      ],
+      "choices": [
+        {
+          "key": "recall",
+          "text": "帮她想：那天她手里拿的是什么书"
+        },
+        {
+          "key": "recount",
+          "text": "提议直接去田头再问一遍两户人家"
+        }
+      ],
+      "closing": [
+        {
+          "speaker": "shimu",
+          "text": "知古心细，就是心不在一处。归云谷的账要她记，也得有人替她记着她把账放哪儿了。",
+          "mood": "smile",
+          "cast": [
+            "shimu",
+            "pei",
+            "hero"
+          ]
+        },
+        {
+          "speaker": "pei",
+          "text": "师母，这句我记下了。……记在哪儿，回头告诉您。",
+          "mood": "worry",
+          "cast": [
+            "shimu",
+            "pei",
+            "hero"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gn_words",
+      "name": "认字",
+      "window": [
+        7,
+        11
+      ],
+      "place": "bookhouse_inside",
+      "cast": [
+        "peishu",
+        "hero",
+        "pei"
+      ],
+      "requires": [
+        "gn_lamp_seen"
+      ],
+      "choices": [
+        {
+          "key": "ask_on",
+          "text": "接着问：书上没写他们后来怎样吗？"
+        },
+        {
+          "key": "read_on",
+          "text": "觉得问多了，低头继续往下读"
+        }
+      ],
+      "closing": [
+        {
+          "speaker": "peishu",
+          "text": "今天就到这里。明日再来，带上你自己写的字，我看看怪在哪里。",
+          "mood": "smile",
+          "cast": [
+            "peishu",
+            "hero",
+            "pei"
+          ]
+        },
+        {
+          "speaker": "hero",
+          "text": "（最好别看。）",
+          "mood": "worry",
+          "cast": [
+            "peishu",
+            "hero",
+            "pei"
+          ]
+        },
+        {
+          "speaker": "pei",
+          "text": "我送你到溪边。……“后来呢”这三个字，你往后要是还想问，来问我。我也想知道。",
+          "mood": "smile",
+          "cast": [
+            "peishu",
+            "hero",
+            "pei"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gy_m04",
+      "name": "这趟送什么，什么时候回",
+      "window": [
+        10,
+        11
+      ],
+      "place": "courtyard",
+      "cast": [
+        "lu",
+        "zhou",
+        "hero",
+        "ye"
+      ],
+      "requires": [],
+      "choices": [
+        {
+          "key": "linear",
+          "text": ""
+        }
+      ],
+      "closing": [
+        {
+          "speaker": "ye",
+          "text": "我也把想问的写好了。先把药送到，再找人慢慢说。",
+          "cast": [
+            "lu",
+            "zhou",
+            "hero",
+            "ye"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gy_m05",
+      "name": "雨后这段路",
+      "window": [
+        12,
+        12
+      ],
+      "place": "mountain_road",
+      "cast": [
+        "lu",
+        "hero",
+        "ye"
+      ],
+      "requires": [],
+      "choices": [
+        {
+          "key": "cooperate",
+          "text": "协同行路"
+        },
+        {
+          "key": "guidance",
+          "text": "请求陆衡指导"
+        }
+      ],
+      "closing": [
+        {
+          "speaker": "lu",
+          "text": "药包都在这儿。数一数，齐了就在这张纸上签个字。",
+          "cast": [
+            "lu",
+            "hero",
+            "ye",
+            "recipient"
+          ]
+        },
+        {
+          "speaker": "recipient",
+          "text": "齐了。我这份签在这儿，其余几家，我叫他们自己来点。",
+          "cast": [
+            "lu",
+            "hero",
+            "ye",
+            "recipient"
+          ]
+        },
+        {
+          "speaker": "ye",
+          "text": "还想请教您一件事。您家里有人受过温行舟照料，您当时也在吗？",
+          "cast": [
+            "lu",
+            "hero",
+            "ye",
+            "recipient"
+          ]
+        },
+        {
+          "speaker": "recipient",
+          "text": "送药时我在。怎样治的，我没见着，是家里人后来告诉我的。",
+          "cast": [
+            "lu",
+            "hero",
+            "ye",
+            "recipient"
+          ]
+        },
+        {
+          "speaker": "ye",
+          "text": "那能不能请他跟我说说？不急，等他得空。",
+          "cast": [
+            "lu",
+            "hero",
+            "ye",
+            "recipient"
+          ]
+        },
+        {
+          "speaker": "recipient",
+          "text": "我替你带话，他愿意说再捎信给你。温先生后来去了哪里，我也说不上。那本旧谱，更没见过。",
+          "cast": [
+            "lu",
+            "hero",
+            "ye",
+            "recipient"
+          ]
+        },
+        {
+          "speaker": "ye",
+          "text": "好，多谢。那我等您的信。",
+          "cast": [
+            "lu",
+            "hero",
+            "ye",
+            "recipient"
+          ]
+        },
+        {
+          "speaker": "hero",
+          "text": "药包这页我记好了。你那张纸，别忘在这里。",
+          "cast": [
+            "lu",
+            "hero",
+            "ye",
+            "recipient"
+          ]
+        },
+        {
+          "speaker": "lu",
+          "text": "都办好了，回去吧。到谷里先歇脚，明日再练。",
+          "cast": [
+            "lu",
+            "hero",
+            "ye",
+            "recipient"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gy_m06",
+      "name": "回来，先放下包",
+      "window": [
+        13,
+        14
+      ],
+      "place": "courtyard",
+      "cast": [
+        "zhou",
+        "hero",
+        "ye"
+      ],
+      "requires": [
+        "first_delivery"
+      ],
+      "choices": [
+        {
+          "key": "linear",
+          "text": ""
+        }
+      ],
+      "closing": [
+        {
+          "speaker": "ye",
+          "text": "好。路上改过的那张单子，我也留着。",
+          "cast": [
+            "zhou",
+            "hero",
+            "ye"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gy_fang_spar",
+      "name": "陪练",
+      "window": [
+        13,
+        15
+      ],
+      "place": "training_ground",
+      "cast": [
+        "fang",
+        "hero"
+      ],
+      "requires": [
+        "gy_fang_back_seen"
+      ],
+      "choices": [
+        {
+          "key": "win",
+          "text": ""
+        },
+        {
+          "key": "lose",
+          "text": ""
+        }
+      ],
+      "closing": [
+        {
+          "speaker": "fang",
+          "text": "我走以后，小豆会偷懒，你多盯着点。还有……师父的旧伤，别让他逞强。",
+          "mood": "worry",
+          "cast": [
+            "fang",
+            "hero"
+          ]
+        },
+        {
+          "speaker": "hero",
+          "text": "大师兄放心。",
+          "mood": "serious",
+          "cast": [
+            "fang",
+            "hero"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gn_chests",
+      "name": "两箱残稿",
+      "window": [
+        13,
+        18
+      ],
+      "place": "bookhouse_inside",
+      "cast": [
+        "pei",
+        "hero"
+      ],
+      "requires": [
+        "gn_words_seen"
+      ],
+      "choices": [
+        {
+          "key": "restore",
+          "text": "“那就把它补完。”"
+        },
+        {
+          "key": "own",
+          "text": "“你自己想写什么？”"
+        }
+      ],
+      "closing": [
+        {
+          "speaker": "pei",
+          "text": "这话你别同我爹说。他只盼着把原书补齐。",
+          "mood": "worry",
+          "cast": [
+            "pei",
+            "hero"
+          ]
+        },
+        {
+          "speaker": "hero",
+          "text": "不说。",
+          "mood": "normal",
+          "cast": [
+            "pei",
+            "hero"
+          ]
+        },
+        {
+          "speaker": "pei",
+          "text": "四月底我要进一趟城，去书铺交抄稿。听说你们也是那时候走。",
+          "mood": "normal",
+          "cast": [
+            "pei",
+            "hero"
+          ]
+        },
+        {
+          "speaker": "hero",
+          "text": "那就一道。",
+          "mood": "smile",
+          "cast": [
+            "pei",
+            "hero"
+          ]
+        },
+        {
+          "speaker": "pei",
+          "text": "我走路慢，会看着路边的碑就站住。先同你说一声。",
+          "mood": "smile",
+          "cast": [
+            "pei",
+            "hero"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gy_zhong_kit",
+      "name": "出门的家伙",
+      "window": [
+        16,
+        19
+      ],
+      "place": "courtyard",
+      "cast": [
+        "zhong",
+        "hero"
+      ],
+      "requires": [
+        "xiangyang_invitation"
+      ],
+      "choices": [
+        {
+          "key": "wear",
+          "text": "当场戴上，认真道谢"
+        },
+        {
+          "key": "ask",
+          "text": "“二师叔当年第一次下山，也有人给你做吗？”"
+        }
+      ],
+      "closing": [
+        {
+          "speaker": "zhong",
+          "text": "去吧。城里的事，看清了再动手——这是你师父的话，我就借来说一句。",
+          "mood": "serious",
+          "cast": [
+            "zhong",
+            "hero"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gs_drying_herbs",
+      "name": "晒药的日头",
+      "window": [
+        25,
+        31
+      ],
+      "place": "herb_garden",
+      "cast": [
+        "hero",
+        "ye",
+        "man"
+      ],
+      "requires": [],
+      "choices": [
+        {
+          "key": "sort",
+          "text": "按叶蘅的标签一样一样分开摊"
+        },
+        {
+          "key": "teach_man",
+          "text": "教小满认筐里的药"
+        }
+      ],
+      "closing": [
+        {
+          "speaker": "ye",
+          "text": "傍晚收的时候，再叫你。",
+          "mood": "normal",
+          "cast": [
+            "hero",
+            "ye",
+            "man"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gy_goose_steps",
+      "name": "回岚步与鹅",
+      "window": [
+        26,
+        29
+      ],
+      "place": "training_ground",
+      "cast": [
+        "hero",
+        "yin",
+        "goose",
+        "dou"
+      ],
+      "requires": [],
+      "choices": [
+        {
+          "key": "circle",
+          "text": "绕着木人桩兜圈，用桩子挡它"
+        },
+        {
+          "key": "face_it",
+          "text": "不跑了，转身正面对着将军"
+        }
+      ],
+      "closing": [
+        {
+          "speaker": "yin",
+          "text": "一炷香，被啄了……我数数，五口。比小豆强。",
+          "cast": [
+            "hero",
+            "yin",
+            "goose",
+            "dou"
+          ]
+        },
+        {
+          "speaker": "dou",
+          "text": "我那是十四岁！",
+          "cast": [
+            "hero",
+            "yin",
+            "goose",
+            "dou"
+          ]
+        },
+        {
+          "speaker": "yin",
+          "text": "明天再来。将军，干得好——晚上给你加谷子。",
+          "cast": [
+            "hero",
+            "yin",
+            "goose",
+            "dou"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gs_roof_wine",
+      "name": "屋顶上的酒",
+      "window": [
+        27,
+        33
+      ],
+      "place": "courtyard",
+      "cast": [
+        "hero",
+        "yin"
+      ],
+      "requires": [
+        "gy_night_return_seen"
+      ],
+      "choices": [
+        {
+          "key": "climb",
+          "text": "学着她的样子，轻轻翻上屋顶"
+        },
+        {
+          "key": "stay_down",
+          "text": "在院子里仰头陪她说话"
+        }
+      ],
+      "closing": [
+        {
+          "speaker": "yin",
+          "text": "明早谁问起，就说你起夜。",
+          "mood": "fun",
+          "cast": [
+            "hero",
+            "yin"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gy_spar_yin",
+      "name": "竹林里的指点",
+      "window": [
+        28,
+        31
+      ],
+      "place": "bamboo_path",
+      "cast": [
+        "yin",
+        "hero"
+      ],
+      "requires": [
+        "gy_night_return_seen"
+      ],
+      "choices": [
+        {
+          "key": "win",
+          "text": ""
+        },
+        {
+          "key": "lose",
+          "text": ""
+        }
+      ],
+      "closing": [
+        {
+          "speaker": "yin",
+          "text": "今天就到这儿。酒葫芦递我一下。",
+          "mood": "smile",
+          "cast": [
+            "yin",
+            "hero"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gy_brother_hurt",
+      "name": "大师兄负伤",
+      "window": [
+        32,
+        33
+      ],
+      "place": "courtyard",
+      "cast": [
+        "hero",
+        "fang",
+        "shimu",
+        "dou",
+        "ye",
+        "zhou"
+      ],
+      "requires": [],
+      "choices": [
+        {
+          "key": "night_watch",
+          "text": "守在大师兄床边照看"
+        },
+        {
+          "key": "ask_story",
+          "text": "去院里，听师父和师母说话"
+        }
+      ],
+      "closing": [
+        {
+          "speaker": "shimu",
+          "text": "都去歇会儿。灯我守着。",
+          "cast": [
+            "hero",
+            "shimu"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gs_fang_rehab",
+      "name": "大师兄重新站桩",
+      "window": [
+        34,
+        40
+      ],
+      "place": "training_ground",
+      "cast": [
+        "hero",
+        "fang",
+        "ye"
+      ],
+      "requires": [
+        "gy_brother_hurt_seen"
+      ],
+      "choices": [
+        {
+          "key": "stand_with",
+          "text": "站到大师兄旁边，陪他一起站"
+        },
+        {
+          "key": "count",
+          "text": "帮叶蘅看着香，按时叫停"
+        }
+      ],
+      "closing": [
+        {
+          "speaker": "fang",
+          "text": "明天，多站一刻。",
+          "mood": "serious",
+          "cast": [
+            "hero",
+            "fang",
+            "ye"
+          ]
+        },
+        {
+          "speaker": "ye",
+          "text": "明天看伤口再说。",
+          "mood": "normal",
+          "cast": [
+            "hero",
+            "fang",
+            "ye"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gs_bandage",
+      "name": "大师兄教包扎",
+      "window": [
+        50,
+        55
+      ],
+      "place": "herb_garden",
+      "cast": [
+        "hero",
+        "fang"
+      ],
+      "requires": [
+        "gy_brother_hurt_seen"
+      ],
+      "choices": [
+        {
+          "key": "practice",
+          "text": "在大师兄胳膊上练一遍"
+        },
+        {
+          "key": "ask_wound",
+          "text": "问大师兄，那一刀是怎么挨的"
+        }
+      ],
+      "closing": [
+        {
+          "speaker": "fang",
+          "text": "学会了，就别有用上的那天。",
+          "mood": "smile",
+          "cast": [
+            "hero",
+            "fang"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gn_winter",
+      "name": "抄完的那一卷",
+      "window": [
+        50,
+        58
+      ],
+      "place": "bookhouse_inside",
+      "cast": [
+        "pei",
+        "peishu",
+        "hero"
+      ],
+      "requires": [
+        "gn_chests_seen"
+      ],
+      "choices": [
+        {
+          "key": "celebrate",
+          "text": "“今天不算还差多少。今天算补完了一卷。”"
+        },
+        {
+          "key": "ask_pei",
+          "text": "转头问她：你那本册子呢，今年写了多少"
+        }
+      ],
+      "closing": [
+        {
+          "speaker": "peishu",
+          "text": "萧白，明年你们还出门的话，带上她。",
+          "mood": "normal",
+          "cast": [
+            "pei",
+            "peishu",
+            "hero"
+          ]
+        },
+        {
+          "speaker": "pei",
+          "text": "爹——",
+          "mood": "worry",
+          "cast": [
+            "pei",
+            "peishu",
+            "hero"
+          ]
+        },
+        {
+          "speaker": "peishu",
+          "text": "书在箱子里跑不了。人得出去走。这句是你高祖说的，我今天才算听懂。",
+          "mood": "smile",
+          "cast": [
+            "pei",
+            "peishu",
+            "hero"
+          ]
+        },
+        {
+          "speaker": "pei",
+          "text": "……好。",
+          "mood": "smile",
+          "cast": [
+            "pei",
+            "peishu",
+            "hero"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gs_new_year_goods",
+      "name": "年货",
+      "window": [
+        55,
+        58
+      ],
+      "place": "kitchen",
+      "cast": [
+        "hero",
+        "shimu",
+        "zhong"
+      ],
+      "requires": [],
+      "choices": [
+        {
+          "key": "list",
+          "text": "帮师母把单子按价钱排一遍"
+        },
+        {
+          "key": "lantern",
+          "text": "跟二师叔一起做灯笼"
+        }
+      ],
+      "closing": [
+        {
+          "speaker": "shimu",
+          "text": "腊月二十三之前，全都要齐。",
+          "mood": "normal",
+          "cast": [
+            "hero",
+            "shimu",
+            "zhong"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gy_year_exam",
+      "name": "年终考校",
+      "window": [
+        57,
+        58
+      ],
+      "place": "courtyard",
+      "cast": [
+        "zhou",
+        "hero",
+        "zhong",
+        "yin",
+        "shimu"
+      ],
+      "requires": [],
+      "choices": [
+        {
+          "key": "win",
+          "text": ""
+        },
+        {
+          "key": "lose",
+          "text": ""
+        }
+      ],
+      "closing": [
+        {
+          "speaker": "zhou",
+          "text": "第三题。萧白，这一年里，你最怕的是什么？",
+          "mood": "serious",
+          "cast": [
+            "zhou",
+            "hero",
+            "zhong",
+            "yin",
+            "shimu"
+          ]
+        },
+        {
+          "speaker": "hero",
+          "text": "……怕自己什么都做不了。怕大家受伤的时候，我只能站着看。",
+          "mood": "sad",
+          "cast": [
+            "zhou",
+            "hero",
+            "zhong",
+            "yin",
+            "shimu"
+          ]
+        },
+        {
+          "speaker": "zhou",
+          "text": "记着这份怕。会怕，才知道为什么要练。——考校，过了。",
+          "mood": "smile",
+          "moods": {
+            "hero": "normal"
+          },
+          "cast": [
+            "zhou",
+            "hero",
+            "zhong",
+            "yin",
+            "shimu"
+          ]
+        },
+        {
+          "speaker": "shimu",
+          "text": "好！都过来吃饭！",
+          "mood": "smile",
+          "cast": [
+            "hero",
+            "zhou",
+            "zhong",
+            "yin",
+            "shimu"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gy_new_year",
+      "name": "除夕守岁",
+      "window": [
+        59,
+        59
+      ],
+      "place": "kitchen",
+      "cast": [
+        "hero",
+        "ye",
+        "yin",
+        "shimu",
+        "man",
+        "dou",
+        "zhou",
+        "zhong",
+        "fang",
+        "goose"
+      ],
+      "requires": [],
+      "choices": [
+        {
+          "key": "toast_all",
+          "text": "站起来，敬全家一杯"
+        },
+        {
+          "key": "quiet",
+          "text": "不说话，安静地看着大家"
+        }
+      ],
+      "closing": [
+        {
+          "speaker": "shimu",
+          "text": "新年好。——归云谷的第一年，过完了。",
+          "cast": [
+            "hero",
+            "ye",
+            "yin",
+            "shimu",
+            "man",
+            "dou",
+            "zhou",
+            "zhong",
+            "fang",
+            "goose"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gy_yin_past",
+      "name": "十几年前的寿宴",
+      "window": [
+        60,
+        179
+      ],
+      "place": "bamboo_path",
+      "cast": [
+        "yin",
+        "hero"
+      ],
+      "requires": [],
+      "choices": [
+        {
+          "key": "right",
+          "text": "“你做得对。”"
+        },
+        {
+          "key": "cost",
+          "text": "“所以你才一直不回谷？”"
+        }
+      ],
+      "closing": [
+        {
+          "speaker": "yin",
+          "text": "这事我没跟第二个人说过。",
+          "mood": "normal",
+          "cast": [
+            "yin",
+            "hero"
+          ]
+        },
+        {
+          "speaker": "yin",
+          "text": "回去吧。……改天月亮好的时候，到屋顶上来。",
+          "mood": "smile",
+          "cast": [
+            "yin",
+            "hero"
+          ]
+        }
+      ]
+    }
+  ]
+}

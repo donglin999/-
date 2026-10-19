@@ -1,0 +1,16 @@
+{
+  "status": "pass",
+  "date": "2026-10-16",
+  "checks": [
+    "local links",
+    "26 unique finding IDs",
+    "required evidence and acceptance fields",
+    "category counts 4/16/4/2"
+  ],
+  "runtime_changed": false,
+  "files": {
+    "sources.md": "590563728cd540d95ac442fa5136deff4c92e4c86b846adc6917af101c5fb6e9",
+    "report.md": "487072eabf1262df9d40b0819749a184f6f1d83848280b5e5179fd1cf6affbb7",
+    "gap-register.md": "17ea5788246868b4f010cb544db7a67b734503f19a028a7c7050f048215367a4"
+  }
+}

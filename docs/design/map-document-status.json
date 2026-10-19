@@ -1,0 +1,122 @@
+{
+  "version": "MAP-2026-10-04.1",
+  "authority": "docs/design/map-development-standard.md",
+  "documents": [
+    {
+      "path": "docs/design/map-development-standard.md",
+      "status": "current"
+    },
+    {
+      "path": "docs/archive/design/preview-first-map-development.md",
+      "status": "superseded",
+      "archive": "docs/design/archive/map-process-20261004/preview-first-map-development.md"
+    },
+    {
+      "path": "docs/archive/design/map-resolution-experiments.md",
+      "status": "superseded",
+      "archive": "docs/design/archive/map-process-20261004/map-resolution-experiments.md"
+    },
+    {
+      "path": "docs/archive/design/chen-yard-preview-r3.3.md",
+      "status": "superseded",
+      "archive": "docs/design/archive/map-process-20261004/chen-yard-preview-r3.3.md"
+    },
+    {
+      "path": "docs/design/scene-spatial-contract.md",
+      "status": "supporting"
+    },
+    {
+      "path": "docs/design/map-size-review.md",
+      "status": "supporting"
+    },
+    {
+      "path": "docs/design/map-preflight.md",
+      "status": "supporting"
+    },
+    {
+      "path": "docs/archive/design/village-functional-boundaries.md",
+      "status": "supporting"
+    },
+    {
+      "path": "docs/README.md",
+      "status": "entry"
+    },
+    {
+      "path": "docs/design/README.md",
+      "status": "entry"
+    },
+    {
+      "path": "docs/art-pipeline.md",
+      "status": "entry"
+    },
+    {
+      "path": "docs/archive/content-guide.md",
+      "status": "entry"
+    },
+    {
+      "path": "docs/archive/architecture.md",
+      "status": "entry"
+    },
+    {
+      "path": "docs/testing.md",
+      "status": "entry"
+    },
+    {
+      "path": "docs/archive/design/xiangyang-art-prompts.md",
+      "status": "entry"
+    },
+    {
+      "path": "docs/archive/design/prologue-scene.md",
+      "status": "entry"
+    },
+    {
+      "path": "docs/archive/design/chapter1-delivery.md",
+      "status": "entry"
+    },
+    {
+      "path": "docs/design/presentation.md",
+      "status": "entry"
+    },
+    {
+      "path": "docs/archive/design/opening-functional-delivery.md",
+      "status": "supporting"
+    }
+  ],
+  "parameters": {
+    "adultHeight": 92,
+    "footHalfWidth": 14,
+    "maskWorldStep": 2,
+    "navStep": 8,
+    "sweepMaxStep": 2,
+    "previewPathClearance": 1,
+    "doorHeightMin": 100,
+    "passageWidthMin": 56,
+    "mainPassageWidthMin": 84,
+    "reviewCore": [
+      640,
+      480
+    ],
+    "reviewHalo": 96,
+    "reviewDistrict": [
+      1280,
+      960
+    ]
+  },
+  "currentPreview": {
+    "board": "art_sources/chapter1_preview_v3/authoring-board-stitch-v1.json",
+    "revision": "3.5-functional-boundaries-v2",
+    "worldSize": [
+      3072,
+      2048
+    ],
+    "tier": "large",
+    "productionReady": false
+  },
+  "currentRuntime": {
+    "board": "assets/opening-maps-v4.json",
+    "revision": "opening-v4-20261004",
+    "scope": "prologue-through-chapter1-first-night",
+    "productionReady": false,
+    "qualityPolicy": "functional-test-user-deferred-native-high-resolution"
+  }
+}

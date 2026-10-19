@@ -1,0 +1,138 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4800 3200" width="2400" height="1600" font-family="PingFang SC, Songti SC, serif">
+  <!-- 大地图方位拓扑 WM-2026-10-08.1：坐标单位＝大地图单位（4800×3200），不是场景世界像素，不是成图 -->
+  <rect width="4800" height="3200" fill="#efe4c8"/>
+  <!-- 区域范围 -->
+  <ellipse cx="2450" cy="1520" rx="1250" ry="1050" fill="#f6eed8" stroke="#8a6d3b" stroke-width="8" stroke-dasharray="40 24"/>
+  <text x="1300" y="560" font-size="64" fill="#8a6d3b">区域一 · 荆渚腹地（序章—年一开放）</text>
+  <text x="2400" y="90" font-size="56" fill="#8a6d3b">区域二 · 汉北（年二起）</text>
+  <text x="250" y="1950" font-size="56" fill="#8a6d3b">区域三 · 江西岭（叶蘅入谷／年二起）</text>
+  <text x="3700" y="1700" font-size="56" fill="#8a6d3b">区域四 · 云梦泽东（预留）</text>
+
+  <!-- 山地 -->
+  <g fill="#c9b48a" stroke="#7a6440" stroke-width="6">
+    <path d="M2180,1330 l90,-150 l90,150 z M2330,1290 l110,-180 l110,180 z M2480,1340 l80,-130 l80,130 z M2560,1560 l70,-120 l70,120 z M2150,1620 l70,-110 l70,110 z"/>
+    <path d="M1000,820 l120,-200 l120,200 z M1150,900 l140,-230 l140,230 z M1300,800 l100,-170 l100,170 z"/>
+    <path d="M480,1200 l150,-260 l150,260 z M650,1330 l120,-210 l120,210 z M380,1420 l110,-190 l110,190 z"/>
+    <path d="M900,2300 l120,-200 l120,200 z M1060,2420 l110,-190 l110,190 z M1200,2280 l100,-170 l100,170 z"/>
+    <path d="M2200,430 l90,-150 l90,150 z M2350,470 l80,-130 l80,130 z"/>
+    <path d="M2820,950 l100,-170 l100,170 z M2960,900 l80,-140 l80,140 z"/>
+  </g>
+  <!-- 云梦泽 -->
+  <ellipse cx="3380" cy="1300" rx="430" ry="260" fill="#b9cdb0" opacity="0.8"/>
+  <text x="3300" y="1520" font-size="44" fill="#4f6b45">云梦泽</text>
+
+  <!-- 水系 -->
+  <path d="M0,2400 C800,2350 1400,2380 2188,2430 S2900,2590 3780,2520 S4400,2460 4800,2660" fill="none" stroke="#6f97b0" stroke-width="70"/>
+  <text x="600" y="2500" font-size="60" fill="#3e6a85">大江</text>
+  <path d="M1880,0 C1920,180 2100,480 2380,800 S2800,1400 2980,1660 S3500,2250 3780,2520" fill="none" stroke="#6f97b0" stroke-width="44"/>
+  <text x="2600" y="980" font-size="52" fill="#3e6a85">汉水</text>
+  <path d="M1900,1470 C1880,1700 1950,1950 2010,2400" fill="none" stroke="#6f97b0" stroke-width="18"/>
+  <text x="1700" y="1800" font-size="40" fill="#3e6a85">栖河</text>
+
+  <!-- 三派等距走廊（核心约束） -->
+  <g stroke="#a33a2a" stroke-width="16" stroke-dasharray="36 18" fill="none">
+    <line x1="2400" y1="1500" x2="1820" y2="920"/>
+    <line x1="2400" y1="1500" x2="3192" y2="1288"/>
+    <line x1="2400" y1="1500" x2="2188" y2="2292"/>
+  </g>
+  <circle cx="2400" cy="1500" r="820" fill="none" stroke="#a33a2a" stroke-width="5" stroke-dasharray="10 14"/>
+  <text x="2600" y="2240" font-size="40" fill="#a33a2a">等距圈 r≈820（三条走廊路长 1000±60，各 1 日脚程）</text>
+
+  <!-- 官道（其他） -->
+  <g stroke="#7a5a2e" stroke-width="12" fill="none">
+    <path d="M2400,1500 L2800,1750"/>
+    <path d="M2800,1750 C2500,1500 2100,1150 1820,920"/>
+    <path d="M2800,1750 L3192,1288"/>
+    <path d="M2800,1750 C2600,2000 2350,2200 2188,2292"/>
+    <path d="M1900,1450 L2150,1480 L2400,1500"/>
+    <path d="M1820,920 L2280,380 L2110,200"/>
+    <path d="M1820,920 L1250,780"/>
+    <path d="M1250,780 L620,1180"/>
+    <path d="M2188,2292 L1060,2130"/>
+    <path d="M2800,1750 L3660,2400"/>
+    <path d="M2800,1750 L2950,880"/>
+    <path d="M620,1180 L150,1500"/>
+    <path d="M3660,2400 L4550,2330"/>
+    <path d="M2188,2292 L2350,2620 L2400,3020"/>
+    <path d="M3192,1288 L3850,720"/>
+    <path d="M1060,2130 L520,2880"/>
+    <path d="M2800,1750 L3300,2050"/>
+    <path d="M1900,1450 L1550,1310"/>
+  </g>
+
+  <!-- 地点 -->
+  <g font-size="54" fill="#2b2016" stroke="#2b2016">
+    <!-- 归云谷 -->
+    <circle cx="2400" cy="1500" r="58" fill="#3f7a5a" stroke-width="8"/>
+    <text x="2300" y="1640" stroke="none" font-weight="bold">归云谷</text>
+    <!-- 三派 -->
+    <rect x="1760" y="860" width="120" height="120" fill="#5b6e8f" stroke-width="8"/>
+    <text x="1440" y="840" stroke="none">正道盟·鹿门公议院</text>
+    <rect x="3132" y="1228" width="120" height="120" fill="#6b3046" stroke-width="8"/>
+    <text x="3280" y="1250" stroke="none">玄烛会·归烬堂（烬渡）</text>
+    <rect x="2128" y="2232" width="120" height="120" fill="#2f4a6b" stroke-width="8"/>
+    <text x="2270" y="2420" stroke="none">巡江司·江口巡检署</text>
+    <!-- 汉皋城 -->
+    <rect x="2700" y="1650" width="200" height="200" fill="#b8862f" stroke-width="10"/>
+    <text x="2930" y="1720" stroke="none" font-size="66" font-weight="bold">汉皋城</text>
+    <text x="2930" y="1790" stroke="none" font-size="40">（新主城，年一5月）</text>
+    <!-- 栖河 -->
+    <circle cx="1900" cy="1450" r="40" fill="#9a7b4f" stroke-width="6"/>
+    <text x="1640" y="1420" stroke="none">栖河村</text>
+    <circle cx="2150" cy="1480" r="26" fill="#9a7b4f" stroke-width="5"/>
+    <text x="2050" y="1400" stroke="none" font-size="38">邻村</text>
+    <!-- 其他门派 -->
+    <circle cx="1250" cy="780" r="44" fill="#7d8fa8" stroke-width="6"/>
+    <text x="1060" y="900" stroke="none">照川剑派</text>
+    <circle cx="620" cy="1180" r="44" fill="#6b8a6b" stroke-width="6"/>
+    <text x="440" y="1080" stroke="none">松风观</text>
+    <circle cx="1060" cy="2130" r="44" fill="#d9e4e8" stroke-width="6"/>
+    <text x="900" y="2040" stroke="none">白鹇谷</text>
+    <circle cx="3660" cy="2400" r="44" fill="#a4523a" stroke-width="6"/>
+    <text x="3300" y="2330" stroke="none">合川镇·合川拳门</text>
+    <circle cx="2280" cy="380" r="36" fill="#c9c2d8" stroke-width="6"/>
+    <text x="2350" y="400" stroke="none">清徽阁（岘山）</text>
+    <rect x="1990" y="130" width="120" height="110" fill="#8c7a5c" stroke-width="6"/>
+    <text x="2130" y="210" stroke="none">襄阳</text>
+    <rect x="1760" y="70" width="80" height="70" fill="#8c7a5c" stroke-width="5"/>
+    <text x="1620" y="60" stroke="none" font-size="44">樊城</text>
+    <circle cx="2950" cy="880" r="30" fill="#5a4a3a" stroke-width="6"/>
+    <text x="3010" y="880" stroke="none" font-size="44">黑风岭</text>
+  </g>
+  <!-- 野外节点（走廊中点，公共支线用） -->
+  <g font-size="36" fill="#5a3b20">
+    <circle cx="2110" cy="1210" r="18" fill="#e0c070" stroke="#5a3b20" stroke-width="4"/><text x="1900" y="1200">鹿门驿</text>
+    <circle cx="2796" cy="1394" r="18" fill="#e0c070" stroke="#5a3b20" stroke-width="4"/><text x="2830" y="1380">芦花渡</text>
+    <circle cx="2294" cy="1896" r="18" fill="#e0c070" stroke="#5a3b20" stroke-width="4"/><text x="2050" y="1960">三岔山神庙</text>
+  </g>
+  <!-- 预留地块 -->
+  <g fill="none" stroke="#8a6d3b" stroke-width="6" stroke-dasharray="16 12" font-size="40">
+    <polygon points="150,1440 210,1475 210,1545 150,1580 90,1545 90,1475"/>
+    <polygon points="4550,2270 4610,2305 4610,2375 4550,2410 4490,2375 4490,2305"/>
+    <polygon points="2400,2960 2460,2995 2460,3065 2400,3100 2340,3065 2340,2995"/>
+    <polygon points="3850,660 3910,695 3910,765 3850,800 3790,765 3790,695"/>
+    <polygon points="520,2820 580,2855 580,2925 520,2960 460,2925 460,2855"/>
+    <polygon points="2350,2560 2410,2595 2410,2665 2350,2700 2290,2665 2290,2595"/>
+    <polygon points="1550,1240 1610,1275 1610,1345 1550,1380 1490,1345 1490,1275"/>
+    <polygon points="3300,1980 3360,2015 3360,2085 3300,2120 3240,2085 3240,2015"/>
+  </g>
+  <g font-size="38" fill="#8a6d3b">
+    <text x="240" y="1520">R1 西·峡口蜀道</text>
+    <text x="4230" y="2230">R2 东·江夏大港</text>
+    <text x="2490" y="3060">R3 南·洞庭方向</text>
+    <text x="3600" y="620">R4 东北·佛门寺院</text>
+    <text x="600" y="2950">R5 西南·山寨/大帮</text>
+    <text x="2440" y="2650">R6 江南小镇</text>
+    <text x="1380" y="1220">R7 腹地空节点</text>
+    <text x="3380" y="2060">R8 腹地空节点</text>
+  </g>
+  <!-- 图例 -->
+  <g font-size="40" fill="#2b2016">
+    <rect x="3700" y="2780" width="1060" height="380" fill="#f6eed8" stroke="#8a6d3b" stroke-width="5"/>
+    <line x1="3740" y1="2840" x2="3860" y2="2840" stroke="#a33a2a" stroke-width="14" stroke-dasharray="30 14"/><text x="3880" y="2855">归云谷—三派等距走廊</text>
+    <line x1="3740" y1="2910" x2="3860" y2="2910" stroke="#7a5a2e" stroke-width="12"/><text x="3880" y="2925">官道 / 山道</text>
+    <polygon points="3800,2960 3830,2978 3830,3012 3800,3030 3770,3012 3770,2978" fill="none" stroke="#8a6d3b" stroke-width="5" stroke-dasharray="10 8"/><text x="3880" y="3005">预留地块（已留路口）</text>
+    <text x="3740" y="3090" font-size="32">拓扑示意，非成图坐标合同；WM-2026-10-08.1</text>
+    <text x="3740" y="3135" font-size="32">北上；城镇临岸不跨河；单位：大地图单位</text>
+  </g>
+</svg>

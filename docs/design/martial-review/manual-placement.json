@@ -1,0 +1,2690 @@
+{
+  "version": "MANUAL-PLACEMENT-1",
+  "date": "2026-10-08",
+  "count": 143,
+  "manuals": [
+    {
+      "item": "mj_system_gy_foundation_s",
+      "art": "system_gy_foundation_s",
+      "name": "试锋剑法",
+      "kind": "外功",
+      "grade": "丁",
+      "sect": "归云谷",
+      "manual": true,
+      "primary": {
+        "type": "师门传授",
+        "where": "归云谷",
+        "how": "首月 B03 后 K01 正式教学，5 体力；传授时赐书"
+      },
+      "outsider": {
+        "type": "—",
+        "how": "主角本门；同伴可借读主角的书"
+      }
+    },
+    {
+      "item": "mj_art_gy_s2",
+      "art": "art_gy_s2",
+      "name": "拨云剑法",
+      "kind": "外功",
+      "grade": "丙",
+      "sect": "归云谷",
+      "manual": true,
+      "primary": {
+        "type": "师门传授",
+        "where": "归云谷",
+        "how": "剑路基础三重后，周砚收势课；传授时赐书"
+      },
+      "outsider": {
+        "type": "—",
+        "how": "主角本门；同伴可借读主角的书"
+      }
+    },
+    {
+      "item": "mj_art_gy_s3",
+      "art": "art_gy_s3",
+      "name": "开晴剑法",
+      "kind": "外功",
+      "grade": "乙",
+      "sect": "归云谷",
+      "manual": true,
+      "primary": {
+        "type": "师门传授",
+        "where": "归云谷",
+        "how": "年二主修剑，季度考校通过；传授时赐书"
+      },
+      "outsider": {
+        "type": "—",
+        "how": "主角本门；同伴可借读主角的书"
+      }
+    },
+    {
+      "item": "mj_system_gy_s",
+      "art": "system_gy_s",
+      "name": "归云剑诀",
+      "kind": "外功",
+      "grade": "甲",
+      "sect": "归云谷",
+      "manual": true,
+      "primary": {
+        "type": "师门传授",
+        "where": "归云谷",
+        "how": "年二末起，导师在场，专门传授剧情；传授时赐书"
+      },
+      "outsider": {
+        "type": "—",
+        "how": "主角本门；同伴可借读主角的书"
+      }
+    },
+    {
+      "item": "mj_art_gy_s_jue",
+      "art": "art_gy_s_jue",
+      "name": "云开见山剑",
+      "kind": "外功",
+      "grade": "绝",
+      "sect": "归云谷",
+      "manual": true,
+      "primary": {
+        "type": "领悟",
+        "where": "归云谷",
+        "how": "剑路长线实务与导师复盘后个人领悟；领悟后自录成书"
+      },
+      "outsider": {
+        "type": "—",
+        "how": "主角本门；同伴可借读主角的书"
+      }
+    },
+    {
+      "item": "mj_system_gy_foundation_p",
+      "art": "system_gy_foundation_p",
+      "name": "守拙拳法",
+      "kind": "外功",
+      "grade": "丁",
+      "sect": "归云谷",
+      "manual": true,
+      "primary": {
+        "type": "师门传授",
+        "where": "归云谷",
+        "how": "首月 B03 后 K02 正式教学，5 体力；传授时赐书"
+      },
+      "outsider": {
+        "type": "—",
+        "how": "主角本门；同伴可借读主角的书"
+      }
+    },
+    {
+      "item": "mj_art_gy_p2",
+      "art": "art_gy_p2",
+      "name": "回岚身法",
+      "kind": "外功",
+      "grade": "丙",
+      "sect": "归云谷",
+      "manual": true,
+      "primary": {
+        "type": "师门传授",
+        "where": "归云谷",
+        "how": "拳路基础三重后，师叔步法课；传授时赐书"
+      },
+      "outsider": {
+        "type": "—",
+        "how": "主角本门；同伴可借读主角的书"
+      }
+    },
+    {
+      "item": "mj_art_gy_p3",
+      "art": "art_gy_p3",
+      "name": "叠岚掌法",
+      "kind": "外功",
+      "grade": "乙",
+      "sect": "归云谷",
+      "manual": true,
+      "primary": {
+        "type": "师门传授",
+        "where": "归云谷",
+        "how": "年二主修拳掌，季度考校通过；传授时赐书"
+      },
+      "outsider": {
+        "type": "—",
+        "how": "主角本门；同伴可借读主角的书"
+      }
+    },
+    {
+      "item": "mj_system_gy_p",
+      "art": "system_gy_p",
+      "name": "归云拳掌法",
+      "kind": "外功",
+      "grade": "甲",
+      "sect": "归云谷",
+      "manual": true,
+      "primary": {
+        "type": "师门传授",
+        "where": "归云谷",
+        "how": "年二末起，导师在场，专门传授剧情；传授时赐书"
+      },
+      "outsider": {
+        "type": "—",
+        "how": "主角本门；同伴可借读主角的书"
+      }
+    },
+    {
+      "item": "mj_art_gy_p_jue",
+      "art": "art_gy_p_jue",
+      "name": "万壑掌",
+      "kind": "外功",
+      "grade": "绝",
+      "sect": "归云谷",
+      "manual": true,
+      "primary": {
+        "type": "领悟",
+        "where": "归云谷",
+        "how": "拳路长线实务与导师复盘后个人领悟；领悟后自录成书"
+      },
+      "outsider": {
+        "type": "—",
+        "how": "主角本门；同伴可借读主角的书"
+      }
+    },
+    {
+      "item": "mj_art_bh_s0",
+      "art": "art_bh_s0",
+      "name": "止血术",
+      "kind": "外功",
+      "grade": "丁",
+      "sect": "白鹇谷",
+      "manual": true,
+      "primary": {
+        "type": "师门传授",
+        "where": "白鹇谷诊所与外出行医点",
+        "how": "白鹇谷公开急救课，或苏芷指点；传授时赐书"
+      },
+      "outsider": {
+        "type": "公开渠道",
+        "how": "随白鹇谷义诊协助三次后，医案执事赠书"
+      }
+    },
+    {
+      "item": "mj_art_bh_s1",
+      "art": "art_bh_s1",
+      "name": "金针刺穴法",
+      "kind": "外功",
+      "grade": "丙",
+      "sect": "白鹇谷",
+      "manual": true,
+      "primary": {
+        "type": "师门传授",
+        "where": "白鹇谷诊所与外出行医点",
+        "how": "止血术三重后，医案执事考核；传授时赐书"
+      },
+      "outsider": {
+        "type": "公开渠道",
+        "how": "随白鹇谷义诊协助三次后，医案执事赠书"
+      }
+    },
+    {
+      "item": "mj_art_bh_s2",
+      "art": "art_bh_s2",
+      "name": "回春散方",
+      "kind": "外功",
+      "grade": "丙",
+      "sect": "白鹇谷",
+      "manual": true,
+      "primary": {
+        "type": "师门传授",
+        "where": "白鹇谷诊所与外出行医点",
+        "how": "止血术三重后，医案执事考核；传授时赐书"
+      },
+      "outsider": {
+        "type": "公开渠道",
+        "how": "随白鹇谷义诊协助三次后，医案执事赠书"
+      }
+    },
+    {
+      "item": "mj_art_bh_s3",
+      "art": "art_bh_s3",
+      "name": "净脉针法",
+      "kind": "外功",
+      "grade": "乙",
+      "sect": "白鹇谷",
+      "manual": true,
+      "primary": {
+        "type": "师门传授",
+        "where": "白鹇谷诊所与外出行医点",
+        "how": "金针刺穴法或回春散方五重，谷中复诊实务；传授时赐书"
+      },
+      "outsider": {
+        "type": "合作许可",
+        "how": "完成白鹇谷合作支线、取得医案执事许可"
+      }
+    },
+    {
+      "item": "mj_art_bh_jia",
+      "art": "art_bh_jia",
+      "name": "百草回生术",
+      "kind": "外功",
+      "grade": "甲",
+      "sect": "白鹇谷",
+      "manual": true,
+      "primary": {
+        "type": "师门传授",
+        "where": "白鹇谷诊所与外出行医点",
+        "how": "谷主何素问许可，外地疫病实务后传授；传授时赐书"
+      },
+      "outsider": {
+        "type": "人物篇或深交",
+        "how": "苏芷个人篇或深交"
+      }
+    },
+    {
+      "item": "mj_art_bh_jue",
+      "art": "art_bh_jue",
+      "name": "相续针诀",
+      "kind": "外功",
+      "grade": "绝",
+      "sect": "白鹇谷",
+      "manual": true,
+      "primary": {
+        "type": "师门传授",
+        "where": "白鹇谷诊所与外出行医点",
+        "how": "白鹇谷长线医案与谷主亲传；传授时赐书"
+      },
+      "outsider": {
+        "type": "不外传",
+        "how": "只随本门或人物篇取得"
+      }
+    },
+    {
+      "item": "mj_art_zc_s1",
+      "art": "art_zc_s1",
+      "name": "照水剑法",
+      "kind": "外功",
+      "grade": "丁",
+      "sect": "照川剑派",
+      "manual": true,
+      "primary": {
+        "type": "师门传授",
+        "where": "荆襄周边照川山门",
+        "how": "照川公开试艺或外派基础课；传授时赐书"
+      },
+      "outsider": {
+        "type": "公开渠道",
+        "how": "照川公开试艺通过后赠书"
+      }
+    },
+    {
+      "item": "mj_art_zc_s2",
+      "art": "art_zc_s2",
+      "name": "折光剑法",
+      "kind": "外功",
+      "grade": "丙",
+      "sect": "照川剑派",
+      "manual": true,
+      "primary": {
+        "type": "师门传授",
+        "where": "荆襄周边照川山门",
+        "how": "照水剑法三重，教习梁照庭考校；传授时赐书"
+      },
+      "outsider": {
+        "type": "公开渠道",
+        "how": "照川公开试艺通过后赠书"
+      }
+    },
+    {
+      "item": "mj_art_zc_s3",
+      "art": "art_zc_s3",
+      "name": "问隙剑法",
+      "kind": "外功",
+      "grade": "乙",
+      "sect": "照川剑派",
+      "manual": true,
+      "primary": {
+        "type": "师门传授",
+        "where": "荆襄周边照川山门",
+        "how": "折光剑法五重，掌门顾行简考校；传授时赐书"
+      },
+      "outsider": {
+        "type": "合作许可",
+        "how": "完成照川剑派合作支线、取得掌门许可"
+      }
+    },
+    {
+      "item": null,
+      "art": "art_zc_jia",
+      "name": "照川剑法",
+      "kind": "外功",
+      "grade": "甲",
+      "sect": "照川剑派",
+      "manual": false,
+      "primary": {
+        "type": "请教",
+        "where": "荆襄周边照川山门",
+        "how": "唐照雪个人篇与掌门许可；只能向本人请教，不出秘籍"
+      },
+      "outsider": {
+        "type": "请教",
+        "how": "同左"
+      }
+    },
+    {
+      "item": null,
+      "art": "art_zc_jue",
+      "name": "澄江剑",
+      "kind": "外功",
+      "grade": "绝",
+      "sect": "照川剑派",
+      "manual": false,
+      "primary": {
+        "type": "请教",
+        "where": "荆襄周边照川山门",
+        "how": "唐照雪个人篇后期领悟；只能向本人请教，不出秘籍"
+      },
+      "outsider": {
+        "type": "请教",
+        "how": "同左"
+      }
+    },
+    {
+      "item": "mj_art_hc_s1",
+      "art": "art_hc_s1",
+      "name": "落桩拳",
+      "kind": "外功",
+      "grade": "丁",
+      "sect": "合川拳门",
+      "manual": true,
+      "primary": {
+        "type": "师门传授",
+        "where": "河运城镇拳馆",
+        "how": "合川拳馆公开课；传授时赐书"
+      },
+      "outsider": {
+        "type": "公开渠道",
+        "how": "在合川拳馆交学费习满一月后赠书"
+      }
+    },
+    {
+      "item": "mj_art_hc_s2",
+      "art": "art_hc_s2",
+      "name": "横肩护人术",
+      "kind": "外功",
+      "grade": "丙",
+      "sect": "合川拳门",
+      "manual": true,
+      "primary": {
+        "type": "师门传授",
+        "where": "河运城镇拳馆",
+        "how": "落桩拳三重，随队护运一次；传授时赐书"
+      },
+      "outsider": {
+        "type": "公开渠道",
+        "how": "在合川拳馆交学费习满一月后赠书"
+      }
+    },
+    {
+      "item": "mj_art_hc_s3",
+      "art": "art_hc_s3",
+      "name": "崩石拳",
+      "kind": "外功",
+      "grade": "乙",
+      "sect": "合川拳门",
+      "manual": true,
+      "primary": {
+        "type": "师门传授",
+        "where": "河运城镇拳馆",
+        "how": "横肩护人术五重，门主杜敬山考校；传授时赐书"
+      },
+      "outsider": {
+        "type": "合作许可",
+        "how": "完成合川拳门合作支线、取得门主许可"
+      }
+    },
+    {
+      "item": "mj_art_hc_jia",
+      "art": "art_hc_jia",
+      "name": "合川拳法",
+      "kind": "外功",
+      "grade": "甲",
+      "sect": "合川拳门",
+      "manual": true,
+      "primary": {
+        "type": "师门传授",
+        "where": "河运城镇拳馆",
+        "how": "段明棠或石长庚个人篇后门主传授；传授时赐书"
+      },
+      "outsider": {
+        "type": "人物篇或深交",
+        "how": "段明棠或石长庚个人篇"
+      }
+    },
+    {
+      "item": "mj_art_hc_jue",
+      "art": "art_hc_jue",
+      "name": "震关拳",
+      "kind": "外功",
+      "grade": "绝",
+      "sect": "合川拳门",
+      "manual": true,
+      "primary": {
+        "type": "师门传授",
+        "where": "河运城镇拳馆",
+        "how": "合川拳门长线护运事件后传授；传授时赐书"
+      },
+      "outsider": {
+        "type": "不外传",
+        "how": "只随本门或人物篇取得"
+      }
+    },
+    {
+      "item": "mj_art_sf_s1",
+      "art": "art_sf_s1",
+      "name": "松间步",
+      "kind": "外功",
+      "grade": "丁",
+      "sect": "松风观",
+      "manual": true,
+      "primary": {
+        "type": "师门传授",
+        "where": "松风山观与沿途客舍",
+        "how": "松风观公开早课；传授时赐书"
+      },
+      "outsider": {
+        "type": "公开渠道",
+        "how": "在观中挂单、随早课一旬后赠书"
+      }
+    },
+    {
+      "item": "mj_art_sf_s2",
+      "art": "art_sf_s2",
+      "name": "引枝剑",
+      "kind": "外功",
+      "grade": "丙",
+      "sect": "松风观",
+      "manual": true,
+      "primary": {
+        "type": "师门传授",
+        "where": "松风山观与沿途客舍",
+        "how": "松间步三重，监院明谦许可；传授时赐书"
+      },
+      "outsider": {
+        "type": "公开渠道",
+        "how": "在观中挂单、随早课一旬后赠书"
+      }
+    },
+    {
+      "item": "mj_art_sf_s3",
+      "art": "art_sf_s3",
+      "name": "三径相援法",
+      "kind": "外功",
+      "grade": "乙",
+      "sect": "松风观",
+      "manual": true,
+      "primary": {
+        "type": "师门传授",
+        "where": "松风山观与沿途客舍",
+        "how": "引枝剑五重，与观中弟子合练；传授时赐书"
+      },
+      "outsider": {
+        "type": "合作许可",
+        "how": "完成松风观合作支线、取得观主许可"
+      }
+    },
+    {
+      "item": "mj_art_sf_jia",
+      "art": "art_sf_jia",
+      "name": "松涛剑法",
+      "kind": "外功",
+      "grade": "甲",
+      "sect": "松风观",
+      "manual": true,
+      "primary": {
+        "type": "师门传授",
+        "where": "松风山观与沿途客舍",
+        "how": "闻疏桐个人篇后观主静笃传授；传授时赐书"
+      },
+      "outsider": {
+        "type": "人物篇或深交",
+        "how": "闻疏桐个人篇或深交"
+      }
+    },
+    {
+      "item": "mj_art_sf_jue",
+      "art": "art_sf_jue",
+      "name": "万籁剑阵",
+      "kind": "外功",
+      "grade": "绝",
+      "sect": "松风观",
+      "manual": true,
+      "primary": {
+        "type": "师门传授",
+        "where": "松风山观与沿途客舍",
+        "how": "松风观长线事件后观主亲传；传授时赐书"
+      },
+      "outsider": {
+        "type": "不外传",
+        "how": "只随本门或人物篇取得"
+      }
+    },
+    {
+      "item": "mj_art_gj_s1",
+      "art": "art_gj_s1",
+      "name": "藏锋刺",
+      "kind": "外功",
+      "grade": "丁",
+      "sect": "玄烛会·归烬堂",
+      "manual": true,
+      "primary": {
+        "type": "师门传授",
+        "where": "归烬堂各处堂口",
+        "how": "归烬堂堂众基础课；传授时赐书"
+      },
+      "outsider": {
+        "type": "缴获",
+        "how": "击败持书的归烬堂堂众后缴获"
+      }
+    },
+    {
+      "item": "mj_art_gj_s2",
+      "art": "art_gj_s2",
+      "name": "燃隙刀",
+      "kind": "外功",
+      "grade": "丙",
+      "sect": "玄烛会·归烬堂",
+      "manual": true,
+      "primary": {
+        "type": "师门传授",
+        "where": "归烬堂各处堂口",
+        "how": "藏锋刺三重，堂内考校；传授时赐书"
+      },
+      "outsider": {
+        "type": "缴获",
+        "how": "击败持书的归烬堂堂众后缴获"
+      }
+    },
+    {
+      "item": "mj_art_gj_s3",
+      "art": "art_gj_s3",
+      "name": "断烬身法",
+      "kind": "外功",
+      "grade": "乙",
+      "sect": "玄烛会·归烬堂",
+      "manual": true,
+      "primary": {
+        "type": "师门传授",
+        "where": "归烬堂各处堂口",
+        "how": "燃隙刀五重，堂主韩烬川许可；传授时赐书"
+      },
+      "outsider": {
+        "type": "合作许可",
+        "how": "完成归烬堂合作支线、取得堂主许可"
+      }
+    },
+    {
+      "item": "mj_art_gj_jia",
+      "art": "art_gj_jia",
+      "name": "焚契刀法",
+      "kind": "外功",
+      "grade": "甲",
+      "sect": "玄烛会·归烬堂",
+      "manual": true,
+      "primary": {
+        "type": "师门传授",
+        "where": "归烬堂各处堂口",
+        "how": "岑霜或戚铮个人篇后堂主传授；传授时赐书"
+      },
+      "outsider": {
+        "type": "人物篇或深交",
+        "how": "岑霜或戚铮个人篇"
+      }
+    },
+    {
+      "item": null,
+      "art": "art_gj_jue",
+      "name": "留生短兵诀",
+      "kind": "外功",
+      "grade": "绝",
+      "sect": "玄烛会·归烬堂",
+      "manual": false,
+      "primary": {
+        "type": "请教",
+        "where": "归烬堂各处堂口",
+        "how": "岑霜个人篇后期领悟；只能向本人请教，不出秘籍"
+      },
+      "outsider": {
+        "type": "请教",
+        "how": "同左"
+      }
+    },
+    {
+      "item": "mj_art_pj_s1",
+      "art": "art_pj_s1",
+      "name": "横江棍法",
+      "kind": "外功",
+      "grade": "丁",
+      "sect": "巡江司",
+      "manual": true,
+      "primary": {
+        "type": "师门传授",
+        "where": "巡检衙署与巡查站",
+        "how": "巡江司差务训练；传授时赐书"
+      },
+      "outsider": {
+        "type": "公开渠道",
+        "how": "协助巡江司差务三次后，教头赠书"
+      }
+    },
+    {
+      "item": "mj_art_pj_s2",
+      "art": "art_pj_s2",
+      "name": "回杆卸势",
+      "kind": "外功",
+      "grade": "丙",
+      "sect": "巡江司",
+      "manual": true,
+      "primary": {
+        "type": "师门传授",
+        "where": "巡检衙署与巡查站",
+        "how": "横江棍法三重，差务复盘；传授时赐书"
+      },
+      "outsider": {
+        "type": "公开渠道",
+        "how": "协助巡江司差务三次后，教头赠书"
+      }
+    },
+    {
+      "item": "mj_art_pj_s3",
+      "art": "art_pj_s3",
+      "name": "断渡擒法",
+      "kind": "外功",
+      "grade": "乙",
+      "sect": "巡江司",
+      "manual": true,
+      "primary": {
+        "type": "师门传授",
+        "where": "巡检衙署与巡查站",
+        "how": "回杆卸势五重，沈雁回带队实务；传授时赐书"
+      },
+      "outsider": {
+        "type": "合作许可",
+        "how": "取得巡江司差务协同资格"
+      }
+    },
+    {
+      "item": "mj_art_pj_jia",
+      "art": "art_pj_jia",
+      "name": "巡江擒护法",
+      "kind": "外功",
+      "grade": "甲",
+      "sect": "巡江司",
+      "manual": true,
+      "primary": {
+        "type": "师门传授",
+        "where": "巡检衙署与巡查站",
+        "how": "沈雁回个人篇后差务长官许可；传授时赐书"
+      },
+      "outsider": {
+        "type": "人物篇或深交",
+        "how": "沈雁回个人篇或深交"
+      }
+    },
+    {
+      "item": "mj_art_hui_q1",
+      "art": "art_hui_q1",
+      "name": "勾挑指法",
+      "kind": "外功",
+      "grade": "丁",
+      "sect": "清徽阁",
+      "manual": true,
+      "primary": {
+        "type": "师门传授",
+        "where": "岘山南麓清徽阁",
+        "how": "清徽阁入门课（只收女弟子）；传授时赐书"
+      },
+      "outsider": {
+        "type": "公开渠道",
+        "how": "在乐坊旁听清徽阁入门课后，经阁中同意抄得（只限丁级；乐坊所在地待安排）"
+      }
+    },
+    {
+      "item": "mj_art_hui_q2",
+      "art": "art_hui_q2",
+      "name": "商声琴法",
+      "kind": "外功",
+      "grade": "丙",
+      "sect": "清徽阁",
+      "manual": true,
+      "primary": {
+        "type": "师门传授",
+        "where": "岘山南麓清徽阁",
+        "how": "勾挑指法三重，首徒林清徵考校；传授时赐书"
+      },
+      "outsider": {
+        "type": "不外传",
+        "how": "清徽阁只对男子开放丁级旁听"
+      }
+    },
+    {
+      "item": "mj_art_hui_q3",
+      "art": "art_hui_q3",
+      "name": "静夜琴诀",
+      "kind": "外功",
+      "grade": "乙",
+      "sect": "清徽阁",
+      "manual": true,
+      "primary": {
+        "type": "师门传授",
+        "where": "岘山南麓清徽阁",
+        "how": "商声琴法五重，阁主许可；传授时赐书"
+      },
+      "outsider": {
+        "type": "合作许可",
+        "how": "清徽阁不对男子外传乙级以上功法；女同伴可经阁主许可学习"
+      }
+    },
+    {
+      "item": "mj_art_hui_jia_q",
+      "art": "art_hui_jia_q",
+      "name": "清徽琴法",
+      "kind": "外功",
+      "grade": "甲",
+      "sect": "清徽阁",
+      "manual": true,
+      "primary": {
+        "type": "师门传授",
+        "where": "岘山南麓清徽阁",
+        "how": "静夜琴诀七重，阁主亲传；传授时赐书"
+      },
+      "outsider": {
+        "type": "人物篇或深交",
+        "how": "不对男子外传；柳含烟相关篇章另定"
+      }
+    },
+    {
+      "item": "mj_art_hui_jue_q",
+      "art": "art_hui_jue_q",
+      "name": "太音希声",
+      "kind": "外功",
+      "grade": "绝",
+      "sect": "清徽阁",
+      "manual": true,
+      "primary": {
+        "type": "师门传授",
+        "where": "岘山南麓清徽阁",
+        "how": "清徽琴法七重，长线事件后阁主传授；传授时赐书"
+      },
+      "outsider": {
+        "type": "不外传",
+        "how": "只随本门或人物篇取得"
+      }
+    },
+    {
+      "item": "mj_art_hui_d1",
+      "art": "art_hui_d1",
+      "name": "横笛调",
+      "kind": "外功",
+      "grade": "丁",
+      "sect": "清徽阁",
+      "manual": true,
+      "primary": {
+        "type": "师门传授",
+        "where": "岘山南麓清徽阁",
+        "how": "清徽阁入门课（只收女弟子）；传授时赐书"
+      },
+      "outsider": {
+        "type": "公开渠道",
+        "how": "在乐坊旁听清徽阁入门课后，经阁中同意抄得（只限丁级；乐坊所在地待安排）"
+      }
+    },
+    {
+      "item": "mj_art_hui_d2",
+      "art": "art_hui_d2",
+      "name": "折柳笛法",
+      "kind": "外功",
+      "grade": "丙",
+      "sect": "清徽阁",
+      "manual": true,
+      "primary": {
+        "type": "师门传授",
+        "where": "岘山南麓清徽阁",
+        "how": "横笛调三重，谢晚笛指点；传授时赐书"
+      },
+      "outsider": {
+        "type": "不外传",
+        "how": "清徽阁只对男子开放丁级旁听"
+      }
+    },
+    {
+      "item": "mj_art_hui_d3",
+      "art": "art_hui_d3",
+      "name": "梅落笛法",
+      "kind": "外功",
+      "grade": "乙",
+      "sect": "清徽阁",
+      "manual": true,
+      "primary": {
+        "type": "师门传授",
+        "where": "岘山南麓清徽阁",
+        "how": "折柳笛法五重，谢晚笛考校；传授时赐书"
+      },
+      "outsider": {
+        "type": "合作许可",
+        "how": "清徽阁不对男子外传乙级以上功法；女同伴可经阁主许可学习"
+      }
+    },
+    {
+      "item": "mj_art_hui_jia_d",
+      "art": "art_hui_jia_d",
+      "name": "关山笛诀",
+      "kind": "外功",
+      "grade": "甲",
+      "sect": "清徽阁",
+      "manual": true,
+      "primary": {
+        "type": "师门传授",
+        "where": "岘山南麓清徽阁",
+        "how": "梅落笛法七重，谢晚笛亲传；传授时赐书"
+      },
+      "outsider": {
+        "type": "人物篇或深交",
+        "how": "不对男子外传；柳含烟相关篇章另定"
+      }
+    },
+    {
+      "item": "mj_art_hui_jue_d",
+      "art": "art_hui_jue_d",
+      "name": "裂石笛",
+      "kind": "外功",
+      "grade": "绝",
+      "sect": "清徽阁",
+      "manual": true,
+      "primary": {
+        "type": "师门传授",
+        "where": "岘山南麓清徽阁",
+        "how": "关山笛诀七重，长线事件后传授；传授时赐书"
+      },
+      "outsider": {
+        "type": "不外传",
+        "how": "只随本门或人物篇取得"
+      }
+    },
+    {
+      "item": "mj_art_am_s1",
+      "art": "art_am_s1",
+      "name": "短锋相照",
+      "kind": "外功",
+      "grade": "丙",
+      "sect": "正道盟",
+      "manual": true,
+      "primary": {
+        "type": "师门传授",
+        "where": "待安排",
+        "how": "正道盟公开护卫演练；传授时赐书"
+      },
+      "outsider": {
+        "type": "公开渠道",
+        "how": "正道盟联络院公开讲习后领取（地点待安排）"
+      }
+    },
+    {
+      "item": null,
+      "art": "art_am_jia",
+      "name": "明约协锋法",
+      "kind": "外功",
+      "grade": "甲",
+      "sect": "正道盟",
+      "manual": false,
+      "primary": {
+        "type": "请教",
+        "where": "待安排",
+        "how": "徐令仪个人篇；只能向本人请教，不出秘籍"
+      },
+      "outsider": {
+        "type": "请教",
+        "how": "同左"
+      }
+    },
+    {
+      "item": "mj_art_bh_d1",
+      "art": "art_bh_d1",
+      "name": "柳叶针法",
+      "kind": "外功",
+      "grade": "丁",
+      "sect": "白鹇谷",
+      "manual": true,
+      "primary": {
+        "type": "师门传授",
+        "where": "白鹇谷诊所与外出行医点",
+        "how": "白鹇谷针房公开课，或苏芷指点；传授时赐书"
+      },
+      "outsider": {
+        "type": "公开渠道",
+        "how": "随白鹇谷义诊协助三次后，医案执事赠书"
+      }
+    },
+    {
+      "item": "mj_art_bh_d2",
+      "art": "art_bh_d2",
+      "name": "麻沸烟方",
+      "kind": "外功",
+      "grade": "丙",
+      "sect": "白鹇谷",
+      "manual": true,
+      "primary": {
+        "type": "师门传授",
+        "where": "白鹇谷诊所与外出行医点",
+        "how": "柳叶针法三重后，医案执事考核药性；传授时赐书"
+      },
+      "outsider": {
+        "type": "公开渠道",
+        "how": "随白鹇谷义诊协助三次后，医案执事赠书"
+      }
+    },
+    {
+      "item": "mj_art_bh_d3",
+      "art": "art_bh_d3",
+      "name": "透骨针法",
+      "kind": "外功",
+      "grade": "乙",
+      "sect": "白鹇谷",
+      "manual": true,
+      "primary": {
+        "type": "师门传授",
+        "where": "白鹇谷诊所与外出行医点",
+        "how": "麻沸烟方五重，谷中药房实务；传授时赐书"
+      },
+      "outsider": {
+        "type": "合作许可",
+        "how": "完成白鹇谷合作支线、取得医案执事许可"
+      }
+    },
+    {
+      "item": "mj_art_bh_d_jia",
+      "art": "art_bh_d_jia",
+      "name": "百草逆方",
+      "kind": "外功",
+      "grade": "甲",
+      "sect": "白鹇谷",
+      "manual": true,
+      "primary": {
+        "type": "师门传授",
+        "where": "白鹇谷诊所与外出行医点",
+        "how": "谷主何素问许可，立誓只用于制敌自保后传授；传授时赐书"
+      },
+      "outsider": {
+        "type": "人物篇或深交",
+        "how": "苏芷个人篇或深交"
+      }
+    },
+    {
+      "item": "mj_art_bh_d_jue",
+      "art": "art_bh_d_jue",
+      "name": "寒潭锁脉针",
+      "kind": "外功",
+      "grade": "绝",
+      "sect": "白鹇谷",
+      "manual": true,
+      "primary": {
+        "type": "师门传授",
+        "where": "白鹇谷诊所与外出行医点",
+        "how": "白鹇谷长线医案后谷主亲传；传授时赐书"
+      },
+      "outsider": {
+        "type": "不外传",
+        "how": "只随本门或人物篇取得"
+      }
+    },
+    {
+      "item": "mj_art_zc_f1",
+      "art": "art_zc_f1",
+      "name": "袖光剑",
+      "kind": "外功",
+      "grade": "丁",
+      "sect": "照川剑派",
+      "manual": true,
+      "primary": {
+        "type": "师门传授",
+        "where": "荆襄周边照川山门",
+        "how": "照川公开试艺或外派基础课；传授时赐书"
+      },
+      "outsider": {
+        "type": "公开渠道",
+        "how": "照川公开试艺通过后赠书"
+      }
+    },
+    {
+      "item": "mj_art_zc_f2",
+      "art": "art_zc_f2",
+      "name": "分光袖剑",
+      "kind": "外功",
+      "grade": "丙",
+      "sect": "照川剑派",
+      "manual": true,
+      "primary": {
+        "type": "师门传授",
+        "where": "荆襄周边照川山门",
+        "how": "袖光剑三重，教习梁照庭考校；传授时赐书"
+      },
+      "outsider": {
+        "type": "公开渠道",
+        "how": "照川公开试艺通过后赠书"
+      }
+    },
+    {
+      "item": "mj_art_zc_f3",
+      "art": "art_zc_f3",
+      "name": "寒星袖剑",
+      "kind": "外功",
+      "grade": "乙",
+      "sect": "照川剑派",
+      "manual": true,
+      "primary": {
+        "type": "师门传授",
+        "where": "荆襄周边照川山门",
+        "how": "分光袖剑五重，掌门顾行简考校；传授时赐书"
+      },
+      "outsider": {
+        "type": "合作许可",
+        "how": "完成照川剑派合作支线、取得掌门许可"
+      }
+    },
+    {
+      "item": "mj_art_zc_f_jia",
+      "art": "art_zc_f_jia",
+      "name": "飞光剑诀",
+      "kind": "外功",
+      "grade": "甲",
+      "sect": "照川剑派",
+      "manual": true,
+      "primary": {
+        "type": "师门传授",
+        "where": "荆襄周边照川山门",
+        "how": "寒星袖剑七重，掌门顾行简亲传；传授时赐书"
+      },
+      "outsider": {
+        "type": "人物篇或深交",
+        "how": "唐照雪个人篇或深交"
+      }
+    },
+    {
+      "item": "mj_art_zc_f_jue",
+      "art": "art_zc_f_jue",
+      "name": "千江映月剑",
+      "kind": "外功",
+      "grade": "绝",
+      "sect": "照川剑派",
+      "manual": true,
+      "primary": {
+        "type": "师门传授",
+        "where": "荆襄周边照川山门",
+        "how": "照川剑派长线事件后掌门传授；传授时赐书"
+      },
+      "outsider": {
+        "type": "不外传",
+        "how": "只随本门或人物篇取得"
+      }
+    },
+    {
+      "item": "mj_art_hc_g1",
+      "art": "art_hc_g1",
+      "name": "挑担杠法",
+      "kind": "外功",
+      "grade": "丁",
+      "sect": "合川拳门",
+      "manual": true,
+      "primary": {
+        "type": "师门传授",
+        "where": "河运城镇拳馆",
+        "how": "合川拳馆公开课；传授时赐书"
+      },
+      "outsider": {
+        "type": "公开渠道",
+        "how": "在合川拳馆交学费习满一月后赠书"
+      }
+    },
+    {
+      "item": "mj_art_hc_g2",
+      "art": "art_hc_g2",
+      "name": "清道杠",
+      "kind": "外功",
+      "grade": "丙",
+      "sect": "合川拳门",
+      "manual": true,
+      "primary": {
+        "type": "师门传授",
+        "where": "河运城镇拳馆",
+        "how": "挑担杠法三重，随队护运一次；传授时赐书"
+      },
+      "outsider": {
+        "type": "公开渠道",
+        "how": "在合川拳馆交学费习满一月后赠书"
+      }
+    },
+    {
+      "item": "mj_art_hc_g3",
+      "art": "art_hc_g3",
+      "name": "拨火杠",
+      "kind": "外功",
+      "grade": "乙",
+      "sect": "合川拳门",
+      "manual": true,
+      "primary": {
+        "type": "师门传授",
+        "where": "河运城镇拳馆",
+        "how": "清道杠五重，门主杜敬山考校；传授时赐书"
+      },
+      "outsider": {
+        "type": "合作许可",
+        "how": "完成合川拳门合作支线、取得门主许可"
+      }
+    },
+    {
+      "item": "mj_art_hc_g_jia",
+      "art": "art_hc_g_jia",
+      "name": "千斤杠法",
+      "kind": "外功",
+      "grade": "甲",
+      "sect": "合川拳门",
+      "manual": true,
+      "primary": {
+        "type": "师门传授",
+        "where": "河运城镇拳馆",
+        "how": "段明棠或石长庚个人篇后门主传授；传授时赐书"
+      },
+      "outsider": {
+        "type": "人物篇或深交",
+        "how": "段明棠或石长庚个人篇"
+      }
+    },
+    {
+      "item": "mj_art_hc_g_jue",
+      "art": "art_hc_g_jue",
+      "name": "镇河杠",
+      "kind": "外功",
+      "grade": "绝",
+      "sect": "合川拳门",
+      "manual": true,
+      "primary": {
+        "type": "师门传授",
+        "where": "河运城镇拳馆",
+        "how": "合川拳门长线护运事件后传授；传授时赐书"
+      },
+      "outsider": {
+        "type": "不外传",
+        "how": "只随本门或人物篇取得"
+      }
+    },
+    {
+      "item": "mj_art_sf_f1",
+      "art": "art_sf_f1",
+      "name": "扫叶拂尘",
+      "kind": "外功",
+      "grade": "丁",
+      "sect": "松风观",
+      "manual": true,
+      "primary": {
+        "type": "师门传授",
+        "where": "松风山观与沿途客舍",
+        "how": "松风观公开早课；传授时赐书"
+      },
+      "outsider": {
+        "type": "公开渠道",
+        "how": "在观中挂单、随早课一旬后赠书"
+      }
+    },
+    {
+      "item": "mj_art_sf_f2",
+      "art": "art_sf_f2",
+      "name": "松针拂",
+      "kind": "外功",
+      "grade": "丙",
+      "sect": "松风观",
+      "manual": true,
+      "primary": {
+        "type": "师门传授",
+        "where": "松风山观与沿途客舍",
+        "how": "扫叶拂尘三重，监院明谦许可；传授时赐书"
+      },
+      "outsider": {
+        "type": "公开渠道",
+        "how": "在观中挂单、随早课一旬后赠书"
+      }
+    },
+    {
+      "item": "mj_art_sf_f3",
+      "art": "art_sf_f3",
+      "name": "缠枝拂",
+      "kind": "外功",
+      "grade": "乙",
+      "sect": "松风观",
+      "manual": true,
+      "primary": {
+        "type": "师门传授",
+        "where": "松风山观与沿途客舍",
+        "how": "松针拂五重，与观中弟子合练；传授时赐书"
+      },
+      "outsider": {
+        "type": "合作许可",
+        "how": "完成松风观合作支线、取得观主许可"
+      }
+    },
+    {
+      "item": "mj_art_sf_f_jia",
+      "art": "art_sf_f_jia",
+      "name": "松涛拂尘",
+      "kind": "外功",
+      "grade": "甲",
+      "sect": "松风观",
+      "manual": true,
+      "primary": {
+        "type": "师门传授",
+        "where": "松风山观与沿途客舍",
+        "how": "闻疏桐个人篇后观主静笃传授；传授时赐书"
+      },
+      "outsider": {
+        "type": "人物篇或深交",
+        "how": "闻疏桐个人篇或深交"
+      }
+    },
+    {
+      "item": "mj_art_sf_f_jue",
+      "art": "art_sf_f_jue",
+      "name": "万壑松雷",
+      "kind": "外功",
+      "grade": "绝",
+      "sect": "松风观",
+      "manual": true,
+      "primary": {
+        "type": "师门传授",
+        "where": "松风山观与沿途客舍",
+        "how": "松风观长线事件后观主亲传；传授时赐书"
+      },
+      "outsider": {
+        "type": "不外传",
+        "how": "只随本门或人物篇取得"
+      }
+    },
+    {
+      "item": "mj_art_gj_h1",
+      "art": "art_gj_h1",
+      "name": "扬灰手",
+      "kind": "外功",
+      "grade": "丁",
+      "sect": "玄烛会·归烬堂",
+      "manual": true,
+      "primary": {
+        "type": "师门传授",
+        "where": "归烬堂各处堂口",
+        "how": "归烬堂堂众基础课；传授时赐书"
+      },
+      "outsider": {
+        "type": "缴获",
+        "how": "击败持书的归烬堂堂众后缴获"
+      }
+    },
+    {
+      "item": "mj_art_gj_h2",
+      "art": "art_gj_h2",
+      "name": "火鸦镖法",
+      "kind": "外功",
+      "grade": "丙",
+      "sect": "玄烛会·归烬堂",
+      "manual": true,
+      "primary": {
+        "type": "师门传授",
+        "where": "归烬堂各处堂口",
+        "how": "扬灰手三重，堂内考校；传授时赐书"
+      },
+      "outsider": {
+        "type": "缴获",
+        "how": "击败持书的归烬堂堂众后缴获"
+      }
+    },
+    {
+      "item": "mj_art_gj_h3",
+      "art": "art_gj_h3",
+      "name": "烬雨手",
+      "kind": "外功",
+      "grade": "乙",
+      "sect": "玄烛会·归烬堂",
+      "manual": true,
+      "primary": {
+        "type": "师门传授",
+        "where": "归烬堂各处堂口",
+        "how": "火鸦镖法五重，堂主韩烬川许可；传授时赐书"
+      },
+      "outsider": {
+        "type": "合作许可",
+        "how": "完成归烬堂合作支线、取得堂主许可"
+      }
+    },
+    {
+      "item": "mj_art_gj_h_jia",
+      "art": "art_gj_h_jia",
+      "name": "焚砂手",
+      "kind": "外功",
+      "grade": "甲",
+      "sect": "玄烛会·归烬堂",
+      "manual": true,
+      "primary": {
+        "type": "师门传授",
+        "where": "归烬堂各处堂口",
+        "how": "岑霜或戚铮个人篇后堂主传授；传授时赐书"
+      },
+      "outsider": {
+        "type": "人物篇或深交",
+        "how": "岑霜或戚铮个人篇"
+      }
+    },
+    {
+      "item": "mj_art_gj_h_jue",
+      "art": "art_gj_h_jue",
+      "name": "烬夜流火",
+      "kind": "外功",
+      "grade": "绝",
+      "sect": "玄烛会·归烬堂",
+      "manual": true,
+      "primary": {
+        "type": "师门传授",
+        "where": "归烬堂各处堂口",
+        "how": "归烬堂长线事件后堂主亲传；传授时赐书"
+      },
+      "outsider": {
+        "type": "不外传",
+        "how": "只随本门或人物篇取得"
+      }
+    },
+    {
+      "item": "mj_art_pj_d1",
+      "art": "art_pj_d1",
+      "name": "巡江腰刀",
+      "kind": "外功",
+      "grade": "丁",
+      "sect": "巡江司",
+      "manual": true,
+      "primary": {
+        "type": "师门传授",
+        "where": "巡检衙署与巡查站",
+        "how": "巡江司差务训练；传授时赐书"
+      },
+      "outsider": {
+        "type": "公开渠道",
+        "how": "协助巡江司差务三次后，教头赠书"
+      }
+    },
+    {
+      "item": "mj_art_pj_d2",
+      "art": "art_pj_d2",
+      "name": "截缆刀",
+      "kind": "外功",
+      "grade": "丙",
+      "sect": "巡江司",
+      "manual": true,
+      "primary": {
+        "type": "师门传授",
+        "where": "巡检衙署与巡查站",
+        "how": "巡江腰刀三重，差务复盘；传授时赐书"
+      },
+      "outsider": {
+        "type": "公开渠道",
+        "how": "协助巡江司差务三次后，教头赠书"
+      }
+    },
+    {
+      "item": "mj_art_pj_d3",
+      "art": "art_pj_d3",
+      "name": "断流刀",
+      "kind": "外功",
+      "grade": "乙",
+      "sect": "巡江司",
+      "manual": true,
+      "primary": {
+        "type": "师门传授",
+        "where": "巡检衙署与巡查站",
+        "how": "截缆刀五重，沈雁回带队实务；传授时赐书"
+      },
+      "outsider": {
+        "type": "合作许可",
+        "how": "取得巡江司差务协同资格"
+      }
+    },
+    {
+      "item": "mj_art_pj_d_jia",
+      "art": "art_pj_d_jia",
+      "name": "缉盗刀法",
+      "kind": "外功",
+      "grade": "甲",
+      "sect": "巡江司",
+      "manual": true,
+      "primary": {
+        "type": "师门传授",
+        "where": "巡检衙署与巡查站",
+        "how": "沈雁回个人篇后差务长官许可；传授时赐书"
+      },
+      "outsider": {
+        "type": "人物篇或深交",
+        "how": "沈雁回个人篇或深交"
+      }
+    },
+    {
+      "item": "mj_art_pj_d_jue",
+      "art": "art_pj_d_jue",
+      "name": "镇澜刀",
+      "kind": "外功",
+      "grade": "绝",
+      "sect": "巡江司",
+      "manual": true,
+      "primary": {
+        "type": "师门传授",
+        "where": "巡检衙署与巡查站",
+        "how": "巡江司老教头私传（江防旧军刀法，不属官府训练；长线差务后）；传授时赐书"
+      },
+      "outsider": {
+        "type": "不外传",
+        "how": "只随本门或人物篇取得"
+      }
+    },
+    {
+      "item": "mj_art_jh_gh",
+      "art": "art_jh_gh",
+      "name": "孤鸿九剑",
+      "kind": "外功",
+      "grade": "绝",
+      "sect": "江湖散学",
+      "manual": true,
+      "primary": {
+        "type": "奇遇",
+        "where": "游历途中的荒谷石室",
+        "how": "在石室见前人剑痕与遗刻，参悟后自录成书"
+      },
+      "outsider": {
+        "type": "同左",
+        "how": "人人可得"
+      }
+    },
+    {
+      "item": "mj_art_jh_fl",
+      "art": "art_jh_fl",
+      "name": "伏龙十八掌",
+      "kind": "外功",
+      "grade": "绝",
+      "sect": "江湖散学",
+      "manual": true,
+      "primary": {
+        "type": "人物传授",
+        "where": "待安排",
+        "how": "为一位嗜酒好吃的老丐寻来三样菜肴并通过品行考校后口授，事后自录成书"
+      },
+      "outsider": {
+        "type": "同左",
+        "how": "人人可得"
+      }
+    },
+    {
+      "item": "mj_art_jh_lm",
+      "art": "art_jh_lm",
+      "name": "六脉剑气",
+      "kind": "外功",
+      "grade": "绝",
+      "sect": "江湖散学",
+      "manual": true,
+      "primary": {
+        "type": "秘籍",
+        "where": "西南来的行脚僧处",
+        "how": "完成护送经匣的支线后获准抄录"
+      },
+      "outsider": {
+        "type": "同左",
+        "how": "人人可得"
+      }
+    },
+    {
+      "item": "mj_art_jh_dm",
+      "art": "art_jh_dm",
+      "name": "夺命十三式",
+      "kind": "外功",
+      "grade": "绝",
+      "sect": "江湖散学",
+      "manual": true,
+      "primary": {
+        "type": "奇遇",
+        "where": "枫林夜渡",
+        "how": "得落魄剑客遗下的剑谱；第十五式为功法七重后自行生出"
+      },
+      "outsider": {
+        "type": "同左",
+        "how": "人人可得"
+      }
+    },
+    {
+      "item": "mj_art_jh_bx",
+      "art": "art_jh_bx",
+      "name": "不虚飞刀",
+      "kind": "外功",
+      "grade": "绝",
+      "sect": "江湖散学",
+      "manual": true,
+      "primary": {
+        "type": "人物传授",
+        "where": "路边酒肆",
+        "how": "向一位咳嗽不止、以小刀雕木的酒客多次赠酒并完成其托付后获授"
+      },
+      "outsider": {
+        "type": "同左",
+        "how": "人人可得"
+      }
+    },
+    {
+      "item": "mj_art_jh_qq",
+      "art": "art_jh_qq",
+      "name": "驱犬棒法",
+      "kind": "外功",
+      "grade": "甲",
+      "sect": "江湖散学",
+      "manual": true,
+      "primary": {
+        "type": "人物传授",
+        "where": "待安排",
+        "how": "替乞儿首领解围并三次相助后传授"
+      },
+      "outsider": {
+        "type": "同左",
+        "how": "人人可得"
+      }
+    },
+    {
+      "item": "mj_art_jh_qs",
+      "art": "art_jh_qs",
+      "name": "七损拳",
+      "kind": "外功",
+      "grade": "甲",
+      "sect": "江湖散学",
+      "manual": true,
+      "primary": {
+        "type": "缴获",
+        "where": "山道匪寨",
+        "how": "击败使此拳的寨主后得拳谱（谱上注明伤己之害）"
+      },
+      "outsider": {
+        "type": "同左",
+        "how": "人人可得"
+      }
+    },
+    {
+      "item": "mj_art_jh_xh",
+      "art": "art_jh_xh",
+      "name": "销魂掌",
+      "kind": "外功",
+      "grade": "甲",
+      "sect": "江湖散学",
+      "manual": true,
+      "primary": {
+        "type": "奇遇",
+        "where": "江边渡口",
+        "how": "听一位久候故人的旅人讲完旧事后获赠手录"
+      },
+      "outsider": {
+        "type": "同左",
+        "how": "人人可得"
+      }
+    },
+    {
+      "item": "mj_art_jh_ly",
+      "art": "art_jh_ly",
+      "name": "两仪圆转剑",
+      "kind": "外功",
+      "grade": "甲",
+      "sect": "江湖散学",
+      "manual": true,
+      "primary": {
+        "type": "人物传授",
+        "where": "山中道旁",
+        "how": "随一位晨练的老道习练满一旬后相授"
+      },
+      "outsider": {
+        "type": "同左",
+        "how": "人人可得"
+      }
+    },
+    {
+      "item": "mj_art_jh_qx",
+      "art": "art_jh_qx",
+      "name": "祛邪剑谱",
+      "kind": "外功",
+      "grade": "甲",
+      "sect": "江湖散学",
+      "manual": true,
+      "primary": {
+        "type": "秘籍",
+        "where": "旧镖局老宅",
+        "how": "在老宅佛堂暗格中找到的残卷"
+      },
+      "outsider": {
+        "type": "同左",
+        "how": "人人可得"
+      }
+    },
+    {
+      "item": "mj_art_jh_xy",
+      "art": "art_jh_xy",
+      "name": "弦月弯刀",
+      "kind": "外功",
+      "grade": "甲",
+      "sect": "江湖散学",
+      "manual": true,
+      "primary": {
+        "type": "奇遇",
+        "where": "月夜山谷",
+        "how": "误入山谷，得谷中人相赠刀谱"
+      },
+      "outsider": {
+        "type": "同左",
+        "how": "人人可得"
+      }
+    },
+    {
+      "item": "mj_art_jh_bw",
+      "art": "art_jh_bw",
+      "name": "项王枪",
+      "kind": "外功",
+      "grade": "甲",
+      "sect": "江湖散学",
+      "manual": true,
+      "primary": {
+        "type": "人物传授",
+        "where": "镖局",
+        "how": "在镖局比枪胜出后由镖局主人传授"
+      },
+      "outsider": {
+        "type": "同左",
+        "how": "人人可得"
+      }
+    },
+    {
+      "item": "mj_art_jh_qp",
+      "art": "art_jh_qp",
+      "name": "雀屏翎",
+      "kind": "外功",
+      "grade": "甲",
+      "sect": "江湖散学",
+      "manual": true,
+      "primary": {
+        "type": "秘籍",
+        "where": "暗器匠人旧居",
+        "how": "凑齐匠人遗稿三页图样后可习"
+      },
+      "outsider": {
+        "type": "同左",
+        "how": "人人可得"
+      }
+    },
+    {
+      "item": "mj_art_jh_by",
+      "art": "art_jh_by",
+      "name": "白云一剑",
+      "kind": "外功",
+      "grade": "甲",
+      "sect": "江湖散学",
+      "manual": true,
+      "primary": {
+        "type": "奇遇",
+        "where": "江楼",
+        "how": "观两位剑客月下比剑后领悟"
+      },
+      "outsider": {
+        "type": "同左",
+        "how": "人人可得"
+      }
+    },
+    {
+      "item": "mj_art_jh_hp",
+      "art": "art_jh_hp",
+      "name": "寒魄符",
+      "kind": "外功",
+      "grade": "甲",
+      "sect": "江湖散学",
+      "manual": true,
+      "primary": {
+        "type": "秘籍",
+        "where": "西行商队",
+        "how": "从商队带回的冰窖残卷中得到"
+      },
+      "outsider": {
+        "type": "同左",
+        "how": "人人可得"
+      }
+    },
+    {
+      "item": "mj_art_jh_sh",
+      "art": "art_jh_sh",
+      "name": "雷音吼",
+      "kind": "外功",
+      "grade": "甲",
+      "sect": "江湖散学",
+      "manual": true,
+      "primary": {
+        "type": "人物传授",
+        "where": "山寺",
+        "how": "听老僧讲经满七日后传授"
+      },
+      "outsider": {
+        "type": "同左",
+        "how": "人人可得"
+      }
+    },
+    {
+      "item": "mj_art_jh_ty",
+      "art": "art_jh_ty",
+      "name": "天涯刀",
+      "kind": "外功",
+      "grade": "乙",
+      "sect": "江湖散学",
+      "manual": true,
+      "primary": {
+        "type": "人物传授",
+        "where": "边镇酒铺",
+        "how": "替一位跛足刀客守夜后获授拔刀一式"
+      },
+      "outsider": {
+        "type": "同左",
+        "how": "人人可得"
+      }
+    },
+    {
+      "item": "mj_art_jh_cy",
+      "art": "art_jh_cy",
+      "name": "纯阳指",
+      "kind": "外功",
+      "grade": "乙",
+      "sect": "江湖散学",
+      "manual": true,
+      "primary": {
+        "type": "人物传授",
+        "where": "山寺",
+        "how": "替寺中僧人送药后，由一位南来的僧人传授"
+      },
+      "outsider": {
+        "type": "同左",
+        "how": "人人可得"
+      }
+    },
+    {
+      "item": "mj_art_jh_hd",
+      "art": "art_jh_hd",
+      "name": "冷月刀法",
+      "kind": "外功",
+      "grade": "乙",
+      "sect": "江湖散学",
+      "manual": true,
+      "primary": {
+        "type": "秘籍",
+        "where": "待安排",
+        "how": "书铺旧书堆里缺了头两页的刀谱"
+      },
+      "outsider": {
+        "type": "同左",
+        "how": "人人可得"
+      }
+    },
+    {
+      "item": "mj_art_jh_cg",
+      "art": "art_jh_cg",
+      "name": "摧骨爪",
+      "kind": "外功",
+      "grade": "乙",
+      "sect": "江湖散学",
+      "manual": true,
+      "primary": {
+        "type": "缴获",
+        "where": "荒坟",
+        "how": "击败夜间练爪的恶徒后缴获"
+      },
+      "outsider": {
+        "type": "同左",
+        "how": "人人可得"
+      }
+    },
+    {
+      "item": "mj_art_jh_tz",
+      "art": "art_jh_tz",
+      "name": "弹指惊雷",
+      "kind": "外功",
+      "grade": "乙",
+      "sect": "江湖散学",
+      "manual": true,
+      "primary": {
+        "type": "人物传授",
+        "where": "江心小岛",
+        "how": "替岛上隐者修好一局残棋后获授"
+      },
+      "outsider": {
+        "type": "同左",
+        "how": "人人可得"
+      }
+    },
+    {
+      "item": "mj_art_jh_bl",
+      "art": "art_jh_bl",
+      "name": "别离钩",
+      "kind": "外功",
+      "grade": "乙",
+      "sect": "江湖散学",
+      "manual": true,
+      "primary": {
+        "type": "人物传授",
+        "where": "县衙旧捕快处",
+        "how": "帮一位旧捕快了结旧案后获授"
+      },
+      "outsider": {
+        "type": "同左",
+        "how": "人人可得"
+      }
+    },
+    {
+      "item": "mj_art_jh_lx",
+      "art": "art_jh_lx",
+      "name": "通犀指",
+      "kind": "外功",
+      "grade": "乙",
+      "sect": "江湖散学",
+      "manual": true,
+      "primary": {
+        "type": "人物传授",
+        "where": "待安排",
+        "how": "与一位爱管闲事的酒客赌赢三局后获授"
+      },
+      "outsider": {
+        "type": "同左",
+        "how": "人人可得"
+      }
+    },
+    {
+      "item": "mj_art_jh_luo",
+      "art": "art_jh_luo",
+      "name": "落英掌",
+      "kind": "外功",
+      "grade": "丙",
+      "sect": "江湖散学",
+      "manual": true,
+      "primary": {
+        "type": "购买",
+        "where": "待安排",
+        "how": "书铺有售的手抄本"
+      },
+      "outsider": {
+        "type": "同左",
+        "how": "人人可得"
+      }
+    },
+    {
+      "item": "mj_art_jh_jh",
+      "art": "art_jh_jh",
+      "name": "金虺剑法",
+      "kind": "外功",
+      "grade": "丙",
+      "sect": "江湖散学",
+      "manual": true,
+      "primary": {
+        "type": "奇遇",
+        "where": "山洞",
+        "how": "在山洞石匣中得到"
+      },
+      "outsider": {
+        "type": "同左",
+        "how": "人人可得"
+      }
+    },
+    {
+      "item": "mj_art_jh_wm",
+      "art": "art_jh_wm",
+      "name": "无名快剑",
+      "kind": "外功",
+      "grade": "丙",
+      "sect": "江湖散学",
+      "manual": true,
+      "primary": {
+        "type": "切磋",
+        "where": "武馆、镖局",
+        "how": "与一位独行少年切磋后领悟"
+      },
+      "outsider": {
+        "type": "同左",
+        "how": "人人可得"
+      }
+    },
+    {
+      "item": "mj_art_jh_pl",
+      "art": "art_jh_pl",
+      "name": "霹雳子",
+      "kind": "外功",
+      "grade": "丙",
+      "sect": "江湖散学",
+      "manual": true,
+      "primary": {
+        "type": "购买",
+        "where": "待安排",
+        "how": "作坊有售（附用法图说）"
+      },
+      "outsider": {
+        "type": "同左",
+        "how": "人人可得"
+      }
+    },
+    {
+      "item": "mj_art_jh_bp",
+      "art": "art_jh_bp",
+      "name": "冰魄针",
+      "kind": "外功",
+      "grade": "丙",
+      "sect": "江湖散学",
+      "manual": true,
+      "primary": {
+        "type": "缴获",
+        "where": "山道",
+        "how": "击败使毒针的女冠后缴获"
+      },
+      "outsider": {
+        "type": "同左",
+        "how": "人人可得"
+      }
+    },
+    {
+      "item": "mj_art_jh_fuhu",
+      "art": "art_jh_fuhu",
+      "name": "伏虎拳",
+      "kind": "外功",
+      "grade": "丙",
+      "sect": "江湖散学",
+      "manual": true,
+      "primary": {
+        "type": "切磋",
+        "where": "待安排",
+        "how": "在武馆或镖局切磋连胜三场后获赠"
+      },
+      "outsider": {
+        "type": "同左",
+        "how": "人人可得"
+      }
+    },
+    {
+      "item": "mj_art_jh_liuye",
+      "art": "art_jh_liuye",
+      "name": "柳叶剑法",
+      "kind": "外功",
+      "grade": "丙",
+      "sect": "江湖散学",
+      "manual": true,
+      "primary": {
+        "type": "购买",
+        "where": "待安排",
+        "how": "书铺有售"
+      },
+      "outsider": {
+        "type": "同左",
+        "how": "人人可得"
+      }
+    },
+    {
+      "item": "mj_art_jh_lianhua",
+      "art": "art_jh_lianhua",
+      "name": "莲花落",
+      "kind": "外功",
+      "grade": "丙",
+      "sect": "江湖散学",
+      "manual": true,
+      "primary": {
+        "type": "传授",
+        "where": "待安排",
+        "how": "帮乞儿与说唱艺人解围后获赠"
+      },
+      "outsider": {
+        "type": "同左",
+        "how": "人人可得"
+      }
+    },
+    {
+      "item": "mj_art_jh_shuaibei",
+      "art": "art_jh_shuaibei",
+      "name": "乞儿摔碑手",
+      "kind": "外功",
+      "grade": "丁",
+      "sect": "江湖散学",
+      "manual": true,
+      "primary": {
+        "type": "传授",
+        "where": "待安排",
+        "how": "市井乞儿传授时赠书"
+      },
+      "outsider": {
+        "type": "同左",
+        "how": "人人可得"
+      }
+    },
+    {
+      "item": "mj_art_jh_bianfa",
+      "art": "art_jh_bianfa",
+      "name": "牧羊鞭法",
+      "kind": "外功",
+      "grade": "丁",
+      "sect": "江湖散学",
+      "manual": true,
+      "primary": {
+        "type": "传授",
+        "where": "山村",
+        "how": "山村牧人传授时赠书"
+      },
+      "outsider": {
+        "type": "同左",
+        "how": "人人可得"
+      }
+    },
+    {
+      "item": "mj_art_jh_guafeng",
+      "art": "art_jh_guafeng",
+      "name": "刮风脚",
+      "kind": "外功",
+      "grade": "乙",
+      "sect": "江湖散学",
+      "manual": true,
+      "primary": {
+        "type": "战后领悟",
+        "where": "待安排",
+        "how": "原为击败旧襄阳演示红冠将军后从其遗物中得到，获取方式待安排"
+      },
+      "outsider": {
+        "type": "同左",
+        "how": "人人可得"
+      }
+    },
+    {
+      "item": "mj_xf_tuna",
+      "art": "tuna",
+      "name": "吐故纳新篇",
+      "kind": "内功",
+      "grade": "丁",
+      "sect": "通用",
+      "manual": true,
+      "primary": {
+        "type": "自得",
+        "where": "—",
+        "how": "培养开始时人人自得；书铺也有售（地点待安排）"
+      },
+      "outsider": {
+        "type": "同左",
+        "how": "人人可得"
+      }
+    },
+    {
+      "item": "mj_xf_yq_xin",
+      "art": "yq_xin",
+      "name": "玉泉心经",
+      "kind": "内功",
+      "grade": "丙",
+      "sect": "玉泉寺",
+      "manual": true,
+      "primary": {
+        "type": "师门传授",
+        "where": "玉泉寺",
+        "how": "拜入玉泉寺或与其弟子深交后赐书"
+      },
+      "outsider": {
+        "type": "交情",
+        "how": "玉泉寺好感达到“相熟”后赠书"
+      }
+    },
+    {
+      "item": "mj_xf_yq_shi",
+      "art": "yq_shi",
+      "name": "石佛功",
+      "kind": "内功",
+      "grade": "丁",
+      "sect": "玉泉寺",
+      "manual": true,
+      "primary": {
+        "type": "师门传授",
+        "where": "玉泉寺",
+        "how": "玉泉寺弟子随手相授"
+      },
+      "outsider": {
+        "type": "公开渠道",
+        "how": "在玉泉寺帮一次忙后获赠"
+      }
+    },
+    {
+      "item": "mj_xf_gb_xin",
+      "art": "gb_xin",
+      "name": "百衲功",
+      "kind": "内功",
+      "grade": "丙",
+      "sect": "丐帮",
+      "manual": true,
+      "primary": {
+        "type": "师门传授",
+        "where": "待安排",
+        "how": "拜入丐帮或与其弟子深交后赐书"
+      },
+      "outsider": {
+        "type": "交情",
+        "how": "丐帮好感达到“相熟”后赠书"
+      }
+    },
+    {
+      "item": "mj_xf_gb_shi",
+      "art": "gb_shi",
+      "name": "市井身",
+      "kind": "内功",
+      "grade": "丁",
+      "sect": "丐帮",
+      "manual": true,
+      "primary": {
+        "type": "师门传授",
+        "where": "待安排",
+        "how": "丐帮弟子随手相授"
+      },
+      "outsider": {
+        "type": "公开渠道",
+        "how": "在丐帮分舵帮一次忙后获赠（地点待安排）"
+      }
+    },
+    {
+      "item": "mj_xf_lm_xin",
+      "art": "lm_xin",
+      "name": "浩然诀",
+      "kind": "内功",
+      "grade": "丙",
+      "sect": "鹿门书院",
+      "manual": true,
+      "primary": {
+        "type": "师门传授",
+        "where": "鹿门山书院",
+        "how": "拜入鹿门书院或与其弟子深交后赐书"
+      },
+      "outsider": {
+        "type": "交情",
+        "how": "鹿门书院好感达到“相熟”后赠书"
+      }
+    },
+    {
+      "item": "mj_xf_lm_bo",
+      "art": "lm_bo",
+      "name": "博闻",
+      "kind": "内功",
+      "grade": "丁",
+      "sect": "鹿门书院",
+      "manual": true,
+      "primary": {
+        "type": "师门传授",
+        "where": "鹿门山书院",
+        "how": "鹿门书院弟子随手相授"
+      },
+      "outsider": {
+        "type": "公开渠道",
+        "how": "在鹿门山书院帮一次忙后获赠"
+      }
+    },
+    {
+      "item": "mj_xf_th_xin",
+      "art": "th_xin",
+      "name": "太和玄功",
+      "kind": "内功",
+      "grade": "丙",
+      "sect": "太和观",
+      "manual": true,
+      "primary": {
+        "type": "师门传授",
+        "where": "太和观",
+        "how": "拜入太和观或与其弟子深交后赐书"
+      },
+      "outsider": {
+        "type": "交情",
+        "how": "太和观好感达到“相熟”后赠书"
+      }
+    },
+    {
+      "item": "mj_xf_th_zuo",
+      "art": "th_zuo",
+      "name": "坐忘",
+      "kind": "内功",
+      "grade": "丁",
+      "sect": "太和观",
+      "manual": true,
+      "primary": {
+        "type": "师门传授",
+        "where": "太和观",
+        "how": "太和观弟子随手相授"
+      },
+      "outsider": {
+        "type": "公开渠道",
+        "how": "在太和观帮一次忙后获赠"
+      }
+    },
+    {
+      "item": "mj_xf_yy_xin",
+      "art": "yy_xin",
+      "name": "军中吐纳",
+      "kind": "内功",
+      "grade": "丙",
+      "sect": "京湖义勇",
+      "manual": true,
+      "primary": {
+        "type": "师门传授",
+        "where": "义勇营",
+        "how": "拜入京湖义勇或与其弟子深交后赐书"
+      },
+      "outsider": {
+        "type": "交情",
+        "how": "京湖义勇好感达到“相熟”后赠书"
+      }
+    },
+    {
+      "item": "mj_xf_yy_zhen",
+      "art": "yy_zhen",
+      "name": "行伍阵",
+      "kind": "内功",
+      "grade": "丁",
+      "sect": "京湖义勇",
+      "manual": true,
+      "primary": {
+        "type": "师门传授",
+        "where": "义勇营",
+        "how": "京湖义勇弟子随手相授"
+      },
+      "outsider": {
+        "type": "公开渠道",
+        "how": "在义勇营帮一次忙后获赠"
+      }
+    },
+    {
+      "item": "mj_xf_bx_xin",
+      "art": "bx_xin",
+      "name": "本草经",
+      "kind": "内功",
+      "grade": "丙",
+      "sect": "白鹇谷",
+      "manual": true,
+      "primary": {
+        "type": "师门传授",
+        "where": "白鹇谷",
+        "how": "拜入白鹇谷或与其弟子深交后赐书"
+      },
+      "outsider": {
+        "type": "交情",
+        "how": "白鹇谷好感达到“相熟”后赠书"
+      }
+    },
+    {
+      "item": "mj_xf_bx_du",
+      "art": "bx_du",
+      "name": "毒经",
+      "kind": "内功",
+      "grade": "丁",
+      "sect": "白鹇谷",
+      "manual": true,
+      "primary": {
+        "type": "师门传授",
+        "where": "白鹇谷",
+        "how": "白鹇谷弟子随手相授"
+      },
+      "outsider": {
+        "type": "公开渠道",
+        "how": "在白鹇谷帮一次忙后获赠"
+      }
+    },
+    {
+      "item": "mj_xf_xf_guiyun",
+      "art": "xf_guiyun",
+      "name": "出岫心经",
+      "kind": "内功",
+      "grade": "丙",
+      "sect": "归云谷",
+      "v3": true,
+      "manual": true,
+      "primary": {
+        "type": "师门传授",
+        "where": "归云谷",
+        "how": "拜入归云谷或受传授时赐书（年一基础吐纳后的正式传功）"
+      },
+      "outsider": {
+        "type": "—",
+        "how": "主角本门；同伴可借读主角的书"
+      }
+    },
+    {
+      "item": "mj_xf_xf_guanlan",
+      "art": "xf_guanlan",
+      "name": "观岚诀",
+      "kind": "内功",
+      "grade": "乙",
+      "sect": "归云谷",
+      "v3": true,
+      "manual": true,
+      "primary": {
+        "type": "师门传授",
+        "where": "归云谷",
+        "how": "拜入归云谷或受传授时赐书（年二主修课程，与剑掌都可兼容）"
+      },
+      "outsider": {
+        "type": "—",
+        "how": "主角本门；同伴可借读主角的书"
+      }
+    },
+    {
+      "item": "mj_xf_xf_wanhe",
+      "art": "xf_wanhe",
+      "name": "万壑归元诀",
+      "kind": "内功",
+      "grade": "绝",
+      "sect": "归云谷",
+      "v3": true,
+      "manual": true,
+      "primary": {
+        "type": "师门传授",
+        "where": "归云谷",
+        "how": "拜入归云谷或受传授时赐书（下山长期实务与师门问答，非主线必需）"
+      },
+      "outsider": {
+        "type": "—",
+        "how": "主角本门；同伴可借读主角的书"
+      }
+    },
+    {
+      "item": "mj_xf_xf_baicao",
+      "art": "xf_baicao",
+      "name": "青囊养元经",
+      "kind": "内功",
+      "grade": "丙",
+      "sect": "白鹇谷",
+      "v3": true,
+      "manual": true,
+      "primary": {
+        "type": "师门传授",
+        "where": "白鹇谷诊所与外出行医点",
+        "how": "拜入白鹇谷或受传授时赐书（苏芷现有修习；外学者医理实习与师门许可）"
+      },
+      "outsider": {
+        "type": "公开渠道",
+        "how": "随白鹇谷义诊协助三次后，医案执事赠书"
+      }
+    },
+    {
+      "item": "mj_xf_xf_hemai",
+      "art": "xf_hemai",
+      "name": "营卫心经",
+      "kind": "内功",
+      "grade": "乙",
+      "sect": "白鹇谷",
+      "v3": true,
+      "manual": true,
+      "primary": {
+        "type": "师门传授",
+        "where": "白鹇谷诊所与外出行医点",
+        "how": "拜入白鹇谷或受传授时赐书（叶蘅医线第13月以后，苏芷也可学习）"
+      },
+      "outsider": {
+        "type": "合作许可",
+        "how": "完成白鹇谷合作支线、取得医案执事许可"
+      }
+    },
+    {
+      "item": "mj_xf_xf_chengjiang",
+      "art": "xf_chengjiang",
+      "name": "静练功",
+      "kind": "内功",
+      "grade": "丙",
+      "sect": "照川剑派",
+      "v3": true,
+      "manual": true,
+      "primary": {
+        "type": "师门传授",
+        "where": "荆襄周边照川山门",
+        "how": "拜入照川剑派或受传授时赐书（照川基础考校或获准交流）"
+      },
+      "outsider": {
+        "type": "公开渠道",
+        "how": "照川公开试艺通过后赠书"
+      }
+    },
+    {
+      "item": "mj_xf_xf_shouxian",
+      "art": "xf_shouxian",
+      "name": "霜弦真气",
+      "kind": "内功",
+      "grade": "乙",
+      "sect": "照川剑派",
+      "v3": true,
+      "manual": true,
+      "primary": {
+        "type": "师门传授",
+        "where": "荆襄周边照川山门",
+        "how": "拜入照川剑派或受传授时赐书（年二剑路熟练与定力练习）"
+      },
+      "outsider": {
+        "type": "合作许可",
+        "how": "完成照川剑派合作支线、取得掌门许可"
+      }
+    },
+    {
+      "item": "mj_xf_xf_panshi",
+      "art": "xf_panshi",
+      "name": "负岳功",
+      "kind": "内功",
+      "grade": "丙",
+      "sect": "合川拳门",
+      "v3": true,
+      "manual": true,
+      "primary": {
+        "type": "师门传授",
+        "where": "河运城镇拳馆",
+        "how": "拜入合川拳门或受传授时赐书（护运基本功与教习授业）"
+      },
+      "outsider": {
+        "type": "公开渠道",
+        "how": "在合川拳馆交学费习满一月后赠书"
+      }
+    },
+    {
+      "item": "mj_xf_xf_hengliang",
+      "art": "xf_hengliang",
+      "name": "承梁真劲",
+      "kind": "内功",
+      "grade": "乙",
+      "sect": "合川拳门",
+      "v3": true,
+      "manual": true,
+      "primary": {
+        "type": "师门传授",
+        "where": "河运城镇拳馆",
+        "how": "拜入合川拳门或受传授时赐书（护运轮值与稳架复试）"
+      },
+      "outsider": {
+        "type": "合作许可",
+        "how": "完成合川拳门合作支线、取得门主许可"
+      }
+    },
+    {
+      "item": "mj_xf_xf_songxi",
+      "art": "xf_songxi",
+      "name": "华阳养真经",
+      "kind": "内功",
+      "grade": "丙",
+      "sect": "松风观",
+      "v3": true,
+      "manual": true,
+      "primary": {
+        "type": "师门传授",
+        "where": "松风山观与沿途客舍",
+        "how": "拜入松风观或受传授时赐书（观中基础呼吸与卸力课）"
+      },
+      "outsider": {
+        "type": "公开渠道",
+        "how": "在观中挂单、随早课一旬后赠书"
+      }
+    },
+    {
+      "item": "mj_xf_xf_tingfeng",
+      "art": "xf_tingfeng",
+      "name": "地籁诀",
+      "kind": "内功",
+      "grade": "乙",
+      "sect": "松风观",
+      "v3": true,
+      "manual": true,
+      "primary": {
+        "type": "师门传授",
+        "where": "松风山观与沿途客舍",
+        "how": "拜入松风观或受传授时赐书（路图与实地观察课，不提升NPC打探数值）"
+      },
+      "outsider": {
+        "type": "合作许可",
+        "how": "完成松风观合作支线、取得观主许可"
+      }
+    },
+    {
+      "item": "mj_xf_xf_cunjin",
+      "art": "xf_cunjin",
+      "name": "薪火功",
+      "kind": "内功",
+      "grade": "丙",
+      "sect": "玄烛会·归烬堂",
+      "v3": true,
+      "manual": true,
+      "primary": {
+        "type": "师门传授",
+        "where": "归烬堂各处堂口",
+        "how": "拜入玄烛会·归烬堂或受传授时赐书（堂内基础练习，外人需个人师友许可）"
+      },
+      "outsider": {
+        "type": "缴获",
+        "how": "击败持书的归烬堂堂众后缴获"
+      }
+    },
+    {
+      "item": "mj_xf_xf_liulu",
+      "art": "xf_liulu",
+      "name": "余烬息",
+      "kind": "内功",
+      "grade": "乙",
+      "sect": "玄烛会·归烬堂",
+      "v3": true,
+      "manual": true,
+      "primary": {
+        "type": "师门传授",
+        "where": "归烬堂各处堂口",
+        "how": "拜入玄烛会·归烬堂或受传授时赐书（岑霜退路实践并授权传授）"
+      },
+      "outsider": {
+        "type": "合作许可",
+        "how": "完成归烬堂合作支线、取得堂主许可"
+      }
+    },
+    {
+      "item": "mj_xf_xf_tongdan",
+      "art": "xf_tongdan",
+      "name": "同气连枝篇",
+      "kind": "内功",
+      "grade": "乙",
+      "sect": "正道盟",
+      "v3": true,
+      "manual": true,
+      "primary": {
+        "type": "协同传授",
+        "where": "待安排",
+        "how": "徐令仪私人师承及公议护送经验，联盟身份不赠送；传授时赐书"
+      },
+      "outsider": {
+        "type": "合作许可",
+        "how": "以正道盟协同身份完成一件盟务"
+      }
+    },
+    {
+      "item": "mj_xf_xf_xunliu",
+      "art": "xf_xunliu",
+      "name": "江潮调息法",
+      "kind": "内功",
+      "grade": "丙",
+      "sect": "巡江司",
+      "v3": true,
+      "manual": true,
+      "primary": {
+        "type": "协同传授",
+        "where": "巡检衙署与巡查站",
+        "how": "公开差务自保训练，正式执法仍看职务；传授时赐书"
+      },
+      "outsider": {
+        "type": "公开渠道",
+        "how": "协助巡江司差务三次后，教头赠书"
+      }
+    },
+    {
+      "item": null,
+      "art": "xf_guixi",
+      "name": "归藏息经",
+      "kind": "内功",
+      "grade": "甲",
+      "sect": "叶蘅家传",
+      "v3": true,
+      "manual": false,
+      "primary": {
+        "type": "请教",
+        "where": "叶蘅身边",
+        "how": "身世篇后医案整理，选择职业不影响资格；只能向叶蘅请教，不出秘籍"
+      },
+      "outsider": {
+        "type": "请教",
+        "how": "同左"
+      }
+    },
+    {
+      "item": "mj_xf_xf_shouyi",
+      "art": "xf_shouyi",
+      "name": "百工养气诀",
+      "kind": "内功",
+      "grade": "乙",
+      "sect": "通用",
+      "v3": true,
+      "manual": true,
+      "primary": {
+        "type": "传授",
+        "where": "江湖各处",
+        "how": "柳、秦、乔、霍等完成职业交接后共同练习；不等同统一散人门派；共同练习时抄录成书"
+      },
+      "outsider": {
+        "type": "同左",
+        "how": "散人同伴各自传授"
+      }
+    },
+    {
+      "item": "mj_xf_xf_qinghui",
+      "art": "xf_qinghui",
+      "name": "清徽心经",
+      "kind": "内功",
+      "grade": "丙",
+      "sect": "清徽阁",
+      "v3": true,
+      "manual": true,
+      "primary": {
+        "type": "师门传授",
+        "where": "岘山南麓清徽阁",
+        "how": "拜入清徽阁或受传授时赐书（入清徽阁后随琴课传授）"
+      },
+      "outsider": {
+        "type": "不外传",
+        "how": "清徽阁只对男子开放丁级旁听"
+      }
+    },
+    {
+      "item": "mj_xf_xf_xisheng",
+      "art": "xf_xisheng",
+      "name": "希声诀",
+      "kind": "内功",
+      "grade": "乙",
+      "sect": "清徽阁",
+      "v3": true,
+      "manual": true,
+      "primary": {
+        "type": "师门传授",
+        "where": "岘山南麓清徽阁",
+        "how": "拜入清徽阁或受传授时赐书（清徽阁弟子习满琴笛基础后由阁中传授）"
+      },
+      "outsider": {
+        "type": "合作许可",
+        "how": "清徽阁不对男子外传乙级以上功法；女同伴可经阁主许可学习"
+      }
+    }
+  ]
+}

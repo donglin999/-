@@ -1,0 +1,471 @@
+{
+ "version": "PROGRESSION-SIM-1",
+ "assumptions": {
+  "STAGE_MONTH": {
+   "first_courses": 3,
+   "xiangyang": 5,
+   "year1_end": 12,
+   "year2_mid": 18,
+   "year2_end": 24,
+   "graduation": 36,
+   "travel_entry": 38,
+   "travel_mid": 44,
+   "chapter14": 50,
+   "chapter17": 56,
+   "chapter18": 60,
+   "finale": 64
+  },
+  "PROFILES": {
+   "专修": {
+    "desc": "几乎不闲逛，课余都在练功",
+    "main": 0.45,
+    "sub": 0.35,
+    "con": 0.3,
+    "wil": 0.25,
+    "other": 0.12,
+    "prof": 60,
+    "lump": 0
+   },
+   "均衡": {
+    "desc": "练功、生活、人物事件大致各占一份",
+    "main": 0.32,
+    "sub": 0.25,
+    "con": 0.22,
+    "wil": 0.18,
+    "other": 0.1,
+    "prof": 42,
+    "lump": 0
+   },
+   "游历": {
+    "desc": "多走支线与游历，练功较少；支线偶尔给属性",
+    "main": 0.2,
+    "sub": 0.16,
+    "con": 0.14,
+    "wil": 0.12,
+    "other": 0.08,
+    "prof": 28,
+    "lump": 1.5
+   }
+  }
+ },
+ "timelines": {
+  "剑·专修": {
+   "learnedAt": {
+    "试锋剑法": 1,
+    "拨云剑法": 6,
+    "开晴剑法": 13,
+    "归云剑诀": 20,
+    "云开见山剑": 27
+   },
+   "openedX": 33,
+   "attrAt36": {
+    "臂力": 8.3,
+    "根骨": 14.8,
+    "身法": 20.2,
+    "定力": 13,
+    "悟性": 16.6
+   }
+  },
+  "剑·均衡": {
+   "learnedAt": {
+    "试锋剑法": 1,
+    "拨云剑法": 8,
+    "开晴剑法": 17,
+    "归云剑诀": 27,
+    "云开见山剑": 37
+   },
+   "openedX": 46,
+   "attrAt36": {
+    "臂力": 7.6,
+    "根骨": 11.9,
+    "身法": 15.5,
+    "定力": 10.5,
+    "悟性": 13
+   }
+  },
+  "剑·游历": {
+   "learnedAt": {
+    "试锋剑法": 1,
+    "拨云剑法": 11,
+    "开晴剑法": 19,
+    "归云剑诀": 33,
+    "云开见山剑": 47
+   },
+   "openedX": 60,
+   "attrAt36": {
+    "臂力": 11.4,
+    "根骨": 13.5,
+    "身法": 15.7,
+    "定力": 12.8,
+    "悟性": 14.3
+   }
+  },
+  "拳掌·专修": {
+   "learnedAt": {
+    "守拙拳法": 1,
+    "回岚身法": 6,
+    "叠岚掌法": 13,
+    "归云拳掌法": 20,
+    "万壑掌": 27
+   },
+   "openedX": 33,
+   "attrAt36": {
+    "臂力": 20.2,
+    "根骨": 16.6,
+    "身法": 8.3,
+    "定力": 13,
+    "悟性": 8.3
+   }
+  },
+  "拳掌·均衡": {
+   "learnedAt": {
+    "守拙拳法": 1,
+    "回岚身法": 8,
+    "叠岚掌法": 17,
+    "归云拳掌法": 27,
+    "万壑掌": 37
+   },
+   "openedX": 46,
+   "attrAt36": {
+    "臂力": 15.5,
+    "根骨": 13,
+    "身法": 7.6,
+    "定力": 10.5,
+    "悟性": 7.6
+   }
+  },
+  "拳掌·游历": {
+   "learnedAt": {
+    "守拙拳法": 1,
+    "回岚身法": 11,
+    "叠岚掌法": 19,
+    "归云拳掌法": 33,
+    "万壑掌": 47
+   },
+   "openedX": 60,
+   "attrAt36": {
+    "臂力": 15.7,
+    "根骨": 14.3,
+    "身法": 11.4,
+    "定力": 12.8,
+    "悟性": 11.4
+   }
+  }
+ },
+ "combat": [
+  {
+   "party": "破势爆发",
+   "route": "剑",
+   "stage": "year1_end",
+   "month": 12,
+   "专修": {
+    "rounds": 4.2,
+    "win": 1
+   },
+   "均衡": {
+    "rounds": 4.2,
+    "win": 1
+   },
+   "游历": {
+    "rounds": 4.22,
+    "win": 1
+   }
+  },
+  {
+   "party": "破势爆发",
+   "route": "剑",
+   "stage": "year2_end",
+   "month": 24,
+   "专修": {
+    "rounds": 3.9,
+    "win": 1
+   },
+   "均衡": {
+    "rounds": 4.08,
+    "win": 1
+   },
+   "游历": {
+    "rounds": 4.07,
+    "win": 1
+   }
+  },
+  {
+   "party": "破势爆发",
+   "route": "剑",
+   "stage": "graduation",
+   "month": 36,
+   "专修": {
+    "rounds": 3.55,
+    "win": 1
+   },
+   "均衡": {
+    "rounds": 3.72,
+    "win": 1
+   },
+   "游历": {
+    "rounds": 3.77,
+    "win": 1
+   }
+  },
+  {
+   "party": "破势爆发",
+   "route": "剑",
+   "stage": "travel_mid",
+   "month": 44,
+   "专修": {
+    "rounds": 3.52,
+    "win": 1
+   },
+   "均衡": {
+    "rounds": 3.7,
+    "win": 1
+   },
+   "游历": {
+    "rounds": 3.75,
+    "win": 1
+   }
+  },
+  {
+   "party": "破势爆发",
+   "route": "剑",
+   "stage": "chapter17",
+   "month": 56,
+   "专修": {
+    "rounds": 3.62,
+    "win": 1
+   },
+   "均衡": {
+    "rounds": 3.7,
+    "win": 1
+   },
+   "游历": {
+    "rounds": 3.85,
+    "win": 1
+   }
+  },
+  {
+   "party": "稳守游历",
+   "route": "拳掌",
+   "stage": "year1_end",
+   "month": 12,
+   "专修": {
+    "rounds": 9.07,
+    "win": 1
+   },
+   "均衡": {
+    "rounds": 9.07,
+    "win": 1
+   },
+   "游历": {
+    "rounds": 9.07,
+    "win": 1
+   }
+  },
+  {
+   "party": "稳守游历",
+   "route": "拳掌",
+   "stage": "year2_end",
+   "month": 24,
+   "专修": {
+    "rounds": 7.87,
+    "win": 1
+   },
+   "均衡": {
+    "rounds": 8.08,
+    "win": 1
+   },
+   "游历": {
+    "rounds": 8.17,
+    "win": 1
+   }
+  },
+  {
+   "party": "稳守游历",
+   "route": "拳掌",
+   "stage": "graduation",
+   "month": 36,
+   "专修": {
+    "rounds": 7.68,
+    "win": 1
+   },
+   "均衡": {
+    "rounds": 7.92,
+    "win": 1
+   },
+   "游历": {
+    "rounds": 8.03,
+    "win": 1
+   }
+  },
+  {
+   "party": "稳守游历",
+   "route": "拳掌",
+   "stage": "travel_mid",
+   "month": 44,
+   "专修": {
+    "rounds": 7.58,
+    "win": 0.967
+   },
+   "均衡": {
+    "rounds": 7.87,
+    "win": 0.983
+   },
+   "游历": {
+    "rounds": 7.73,
+    "win": 1
+   }
+  },
+  {
+   "party": "稳守游历",
+   "route": "拳掌",
+   "stage": "chapter17",
+   "month": 56,
+   "专修": {
+    "rounds": 9.93,
+    "win": 0.867
+   },
+   "均衡": {
+    "rounds": 10.05,
+    "win": 0.9
+   },
+   "游历": {
+    "rounds": 9.77,
+    "win": 0.95
+   }
+  }
+ ],
+ "secret": [
+  {
+   "secretMonth": 6,
+   "profile": "专修",
+   "attrGate": true,
+   "learnedMonth": 25,
+   "xOpenMonth": 31,
+   "year1EndFight": {
+    "rounds": 4.2,
+    "win": 1
+   }
+  },
+  {
+   "secretMonth": 6,
+   "profile": "专修",
+   "attrGate": false,
+   "learnedMonth": 6,
+   "xOpenMonth": 18,
+   "year1EndFight": {
+    "rounds": 3.48,
+    "win": 1
+   }
+  },
+  {
+   "secretMonth": 6,
+   "profile": "均衡",
+   "attrGate": true,
+   "learnedMonth": 35,
+   "xOpenMonth": 44,
+   "year1EndFight": {
+    "rounds": 4.2,
+    "win": 1
+   }
+  },
+  {
+   "secretMonth": 6,
+   "profile": "均衡",
+   "attrGate": false,
+   "learnedMonth": 6,
+   "xOpenMonth": 25,
+   "year1EndFight": {
+    "rounds": 3.68,
+    "win": 1
+   }
+  },
+  {
+   "secretMonth": 6,
+   "profile": "游历",
+   "attrGate": true,
+   "learnedMonth": 36,
+   "xOpenMonth": 49,
+   "year1EndFight": {
+    "rounds": 4.22,
+    "win": 1
+   }
+  },
+  {
+   "secretMonth": 6,
+   "profile": "游历",
+   "attrGate": false,
+   "learnedMonth": 6,
+   "xOpenMonth": 26,
+   "year1EndFight": {
+    "rounds": 3.68,
+    "win": 1
+   }
+  },
+  {
+   "secretMonth": 12,
+   "profile": "专修",
+   "attrGate": true,
+   "learnedMonth": 25,
+   "xOpenMonth": 31,
+   "year1EndFight": {
+    "rounds": 4.2,
+    "win": 1
+   }
+  },
+  {
+   "secretMonth": 12,
+   "profile": "专修",
+   "attrGate": false,
+   "learnedMonth": 12,
+   "xOpenMonth": 18,
+   "year1EndFight": {
+    "rounds": 3.85,
+    "win": 1
+   }
+  },
+  {
+   "secretMonth": 12,
+   "profile": "均衡",
+   "attrGate": true,
+   "learnedMonth": 35,
+   "xOpenMonth": 44,
+   "year1EndFight": {
+    "rounds": 4.2,
+    "win": 1
+   }
+  },
+  {
+   "secretMonth": 12,
+   "profile": "均衡",
+   "attrGate": false,
+   "learnedMonth": 12,
+   "xOpenMonth": 25,
+   "year1EndFight": {
+    "rounds": 3.85,
+    "win": 1
+   }
+  },
+  {
+   "secretMonth": 12,
+   "profile": "游历",
+   "attrGate": true,
+   "learnedMonth": 36,
+   "xOpenMonth": 49,
+   "year1EndFight": {
+    "rounds": 4.22,
+    "win": 1
+   }
+  },
+  {
+   "secretMonth": 12,
+   "profile": "游历",
+   "attrGate": false,
+   "learnedMonth": 12,
+   "xOpenMonth": 26,
+   "year1EndFight": {
+    "rounds": 3.95,
+    "win": 1
+   }
+  }
+ ]
+}

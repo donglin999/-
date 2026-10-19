@@ -304,7 +304,7 @@ def items(body, pose, d):
     front = [q[:2] for q in bp if q[2] >= proj(w, d)[2] - .5]
     out.append((.2, 'belt', front, C_BELT))
     # 背剑（主角）：背后斜挎，剑柄在右肩上方
-    if b.ponytail:
+    if b.ponytail and getattr(b, 'sword', True):
         a3 = _add(c, _rotX((-4.2, 3.6, -3.8), 0, (0, 0, 0)))
         b3 = _add(w, (4.6, -4.5, -3.6))
         dep = (proj(a3, d)[2] + proj(b3, d)[2]) / 2 - tor_dep

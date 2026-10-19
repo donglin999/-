@@ -1,0 +1,11 @@
+{
+  "status": "pass",
+  "scenes": 36,
+  "revised": 6,
+  "new": 12,
+  "mainLines": 300,
+  "variantCount": 9,
+  "independentRecruitmentPreserved": true,
+  "absentSpeakers": 0,
+  "scope": "Schema, DAG including alternative edges, source recruitment parity, speaking cast, explicit knowledge/action gates. No calendar, gameplay or narrative approval claim."
+}

@@ -1,0 +1,35 @@
+{
+  "说明": "生图源登记。current 是当前默认源；用户说“切到某个源”时只改 current 并在 history 记一笔。旧源一律保留，不删除。密钥不写在这里，写在 tools_por/.env（已被 git 忽略），按 key_env 读取。",
+  "current": "302ai-sunburst",
+  "sources": {
+    "codex": {
+      "kind": "codex",
+      "label": "codex exec 内置 image_gen（Codex 订阅额度）",
+      "model": "服务端自选（提示词里请求 gpt-image-2.5，无法确认实际模型）",
+      "added": "2026-10-07",
+      "note": "提示词经标准输入传入；-i 参考图；透明背景在提示词里要求 transparent_background: true。"
+    },
+    "flatrouter-sunburst": {
+      "kind": "flatrouter",
+      "label": "FlatRouter 异步接口",
+      "base_url": "https://api.flatrouter.com/v1",
+      "model": "gpt-image-2.5-sunburst",
+      "key_env": "FLATROUTER_API_KEY",
+      "added": "2026-10-07",
+      "note": "额度有限；支持蒙版局部重绘。客户端见 tools_common/flatimg.py。"
+    },
+    "302ai-sunburst": {
+      "kind": "openai_compat",
+      "label": "302.AI",
+      "base_url": "https://api.302ai.cn/v1",
+      "model": "gpt-image-2.5-sunburst",
+      "key_env": "AI302_API_KEY",
+      "added": "2026-10-17",
+      "note": "OpenAI 兼容：/images/generations（JSON）、/images/edits（multipart，参考图 image[]）。2026-10-17 实测 1024x1536 透明背景 39 秒出图；人物 alpha 最高 254，入库时需补成 255。产品页 https://302ai.cn/product/detail/gpt-image-2.5-sunburst"
+    }
+  },
+  "history": [
+    {"date": "2026-10-07", "current": "codex", "by": "用户", "note": "默认走 codex exec，FlatRouter 只在 codex 做不到时用"},
+    {"date": "2026-10-17", "current": "302ai-sunburst", "by": "用户", "note": "“暂时先用这个作为生图源”；以后可能加多个源，用户说切就切到最新的，旧源保留"}
+  ]
+}

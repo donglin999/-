@@ -1,0 +1,1834 @@
+{
+  "version": "TRAITS-STORY-DESIGN-2",
+  "status": "design_only_not_runtime_adopted",
+  "scope": "现有开篇/栖河/归云谷剧情；不新增世界剧情章节",
+  "date": "2026-10-13",
+  "traits": [
+    {
+      "id": "insight_learning",
+      "name": "历练领悟",
+      "owners": [
+        "hero"
+      ],
+      "category": "innate",
+      "polarity": "positive",
+      "grade": "乙",
+      "summary": "战斗结算修为+20%；不影响共享历练池和剧情固定奖励。",
+      "effects": [
+        {
+          "op": "battle_xp_rate",
+          "value": 0.2,
+          "unit": "ratio",
+          "scope": "self",
+          "channel": "existing_hero_xp"
+        }
+      ],
+      "trigger": {
+        "kind": "initial",
+        "event": null,
+        "title": "人物初始配置",
+        "source": "character_initial_config",
+        "window": null,
+        "clock": "initial",
+        "place": "沿原场景",
+        "cast": [
+          "hero"
+        ],
+        "choices": [],
+        "predicate": [],
+        "commit": "人物初始化一次；仅展示已认识的人物"
+      },
+      "duration": {
+        "kind": "permanent",
+        "expiry": "不自然到期"
+      },
+      "stacking": {
+        "maxStacks": 1,
+        "group": "insight_learning",
+        "rule": "同ID不叠加；同组按明确替换规则"
+      },
+      "migration": "既有主角记录直接展示；不补历史经验",
+      "integration": {
+        "status": "existing_effect_new_tag",
+        "hook": "CharacterGrowth.awardBattle：只读已有1.2倍率，标签不能再次乘算",
+        "active_only_when": "角色实际在场并满足effect.scope；NPC初始特性不自动代表已入队"
+      },
+      "dialogue": [],
+      "notification": "首次打开已认识人物的详情时展示；不弹出假装刚获得的通知",
+      "note": "不是刚穿越就会武功；仅解释现有成长效率。",
+      "stages": []
+    },
+    {
+      "id": "ye_field_care",
+      "name": "行医在乡",
+      "owners": [
+        "ye"
+      ],
+      "category": "innate",
+      "polarity": "positive",
+      "grade": "丁",
+      "summary": "本人使用恢复气血的药品时，治疗量+5%。",
+      "effects": [
+        {
+          "op": "item_hp_heal_bonus",
+          "value": 0.05,
+          "unit": "ratio",
+          "scope": "self",
+          "channel": "item_hp_heal_bonus"
+        }
+      ],
+      "trigger": {
+        "kind": "initial",
+        "event": null,
+        "title": "人物初始配置",
+        "source": "character_initial_config",
+        "window": null,
+        "clock": "initial",
+        "place": "沿原场景",
+        "cast": [
+          "ye"
+        ],
+        "choices": [],
+        "predicate": [],
+        "commit": "人物初始化一次；仅展示已认识的人物"
+      },
+      "duration": {
+        "kind": "permanent",
+        "expiry": "不自然到期"
+      },
+      "stacking": {
+        "maxStacks": 1,
+        "group": "ye_field_care",
+        "rule": "同ID不叠加；同组按明确替换规则"
+      },
+      "migration": "仅确证已完成事件可补发；缺少分支记录则不猜测",
+      "integration": {
+        "status": "new_design",
+        "hook": "药品结算，施药者必须是叶蘅；不要求叶蘅对所有人的药物遥控加成",
+        "active_only_when": "角色实际在场并满足effect.scope；NPC初始特性不自动代表已入队"
+      },
+      "dialogue": [],
+      "notification": "首次打开已认识人物的详情时展示；不弹出假装刚获得的通知",
+      "note": "以叶蘅已有乡村行医身份为依据；不赠高阶治疗招式。",
+      "stages": []
+    },
+    {
+      "id": "xu_support_thrift",
+      "name": "照应同袍",
+      "owners": [
+        "xulingyi"
+      ],
+      "category": "innate",
+      "polarity": "positive",
+      "grade": "丙",
+      "summary": "每场首次成功向另一同伴转交BP后，返还1内力。",
+      "effects": [
+        {
+          "op": "support_mp_refund",
+          "value": 1,
+          "unit": "mp",
+          "scope": "self",
+          "channel": "support_mp_refund"
+        }
+      ],
+      "trigger": {
+        "kind": "initial",
+        "event": null,
+        "title": "人物初始配置",
+        "source": "character_initial_config",
+        "window": null,
+        "clock": "initial",
+        "place": "沿原场景",
+        "cast": [
+          "xulingyi"
+        ],
+        "choices": [],
+        "predicate": [],
+        "commit": "人物初始化一次；仅展示已认识的人物"
+      },
+      "duration": {
+        "kind": "permanent",
+        "expiry": "不自然到期"
+      },
+      "stacking": {
+        "maxStacks": 1,
+        "group": "xu_support_thrift",
+        "rule": "同ID不叠加；同组按明确替换规则"
+      },
+      "migration": "仅确证已完成事件可补发；缺少分支记录则不猜测",
+      "integration": {
+        "status": "new_design",
+        "hook": "am_s2真实BP转交成功后；仅一次；自己或目标无增益时不返",
+        "active_only_when": "角色实际在场并满足effect.scope；NPC初始特性不自动代表已入队"
+      },
+      "dialogue": [],
+      "notification": "首次打开已认识人物的详情时展示；不弹出假装刚获得的通知",
+      "note": "不增加转交BP数量，不改同担一线的冷却；NPC初始配置待迁移。",
+      "stages": []
+    },
+    {
+      "id": "cen_retreat",
+      "name": "收势留路",
+      "owners": [
+        "censhuang"
+      ],
+      "category": "innate",
+      "polarity": "positive",
+      "grade": "丙",
+      "summary": "软鞭首次命中后，下一次受击减伤5%，最晚在下次本人行动前结束。",
+      "effects": [
+        {
+          "op": "post_whip_hit_guard",
+          "value": 0.05,
+          "unit": "ratio",
+          "scope": "self",
+          "channel": "post_whip_hit_guard"
+        }
+      ],
+      "trigger": {
+        "kind": "initial",
+        "event": null,
+        "title": "人物初始配置",
+        "source": "character_initial_config",
+        "window": null,
+        "clock": "initial",
+        "place": "沿原场景",
+        "cast": [
+          "censhuang"
+        ],
+        "choices": [],
+        "predicate": [],
+        "commit": "人物初始化一次；仅展示已认识的人物"
+      },
+      "duration": {
+        "kind": "permanent",
+        "expiry": "不自然到期"
+      },
+      "stacking": {
+        "maxStacks": 1,
+        "group": "cen_retreat",
+        "rule": "同ID不叠加；同组按明确替换规则"
+      },
+      "migration": "仅确证已完成事件可补发；缺少分支记录则不猜测",
+      "integration": {
+        "status": "blocked_by_whip_contract",
+        "hook": "一次真实软鞭命中产生一次护体token；多段共用该次；无命中不触发",
+        "active_only_when": "角色实际在场并满足effect.scope；NPC初始特性不自动代表已入队"
+      },
+      "dialogue": [],
+      "notification": "首次打开已认识人物的详情时展示；不弹出假装刚获得的通知",
+      "note": "岑的软鞭仍待制作/数值接入；旧短刀版不启用此项。",
+      "stages": []
+    },
+    {
+      "id": "shen_staff_control",
+      "name": "拦势有方",
+      "owners": [
+        "shenyanhui"
+      ],
+      "category": "innate",
+      "polarity": "positive",
+      "grade": "丙",
+      "summary": "棍类招式已有迟滞判定时，施加率+5个百分点。",
+      "effects": [
+        {
+          "op": "staff_slow_chance_add",
+          "value": 0.05,
+          "unit": "probability_delta",
+          "scope": "self",
+          "channel": "staff_slow_chance_add"
+        }
+      ],
+      "trigger": {
+        "kind": "initial",
+        "event": null,
+        "title": "人物初始配置",
+        "source": "character_initial_config",
+        "window": null,
+        "clock": "initial",
+        "place": "沿原场景",
+        "cast": [
+          "shenyanhui"
+        ],
+        "choices": [],
+        "predicate": [],
+        "commit": "人物初始化一次；仅展示已认识的人物"
+      },
+      "duration": {
+        "kind": "permanent",
+        "expiry": "不自然到期"
+      },
+      "stacking": {
+        "maxStacks": 1,
+        "group": "shen_staff_control",
+        "rule": "同ID不叠加；同组按明确替换规则"
+      },
+      "migration": "仅确证已完成事件可补发；缺少分支记录则不猜测",
+      "integration": {
+        "status": "blocked_by_shen_combat_adapter",
+        "hook": "仅给已有迟滞效果的棍招加成，与截江棍同通道相加后再扣抗性",
+        "active_only_when": "角色实际在场并满足effect.scope；NPC初始特性不自动代表已入队"
+      },
+      "dialogue": [],
+      "notification": "首次打开已认识人物的详情时展示；不弹出假装刚获得的通知",
+      "note": "不让所有棍击凭空附带迟滞；完整沈战斗配置尚未接入。",
+      "stages": []
+    },
+    {
+      "id": "yin_sword_focus",
+      "name": "剑路熟稔",
+      "owners": [
+        "yin"
+      ],
+      "category": "innate",
+      "polarity": "positive",
+      "grade": "乙",
+      "summary": "剑类直接伤害+5%；治疗、持续伤害和其他兵器不受益。",
+      "effects": [
+        {
+          "op": "sword_direct_damage_bonus",
+          "value": 0.05,
+          "unit": "ratio",
+          "scope": "self",
+          "channel": "conditional_damage"
+        }
+      ],
+      "trigger": {
+        "kind": "initial",
+        "event": null,
+        "title": "人物初始配置",
+        "source": "character_initial_config",
+        "window": null,
+        "clock": "initial",
+        "place": "沿原场景",
+        "cast": [
+          "yin"
+        ],
+        "choices": [],
+        "predicate": [],
+        "commit": "人物初始化一次；仅展示已认识的人物"
+      },
+      "duration": {
+        "kind": "permanent",
+        "expiry": "不自然到期"
+      },
+      "stacking": {
+        "maxStacks": 1,
+        "group": "yin_sword_focus",
+        "rule": "同ID不叠加；同组按明确替换规则"
+      },
+      "migration": "仅确证已完成事件可补发；缺少分支记录则不猜测",
+      "integration": {
+        "status": "new_design",
+        "hook": "直接伤害增幅池；不得加成内功治疗和状态伤害",
+        "active_only_when": "角色实际在场并满足effect.scope；NPC初始特性不自动代表已入队"
+      },
+      "dialogue": [],
+      "notification": "首次打开已认识人物的详情时展示；不弹出假装刚获得的通知",
+      "note": "旧伤对攻击的折损先计算；这5%不能抵消旧伤。",
+      "stages": []
+    },
+    {
+      "id": "yin_old_injury",
+      "name": "旧伤未愈",
+      "owners": [
+        "yin"
+      ],
+      "category": "injury",
+      "polarity": "negative",
+      "grade": "特殊",
+      "summary": "真实等级不变，按旧伤阶段降低可用气血、内力、攻击与速度。",
+      "effects": [
+        {
+          "op": "mhp_multiplier",
+          "value": 0.45,
+          "unit": "ratio",
+          "scope": "self",
+          "channel": "mhp_multiplier"
+        },
+        {
+          "op": "mmp_multiplier",
+          "value": 0.35,
+          "unit": "ratio",
+          "scope": "self",
+          "channel": "mmp_multiplier"
+        },
+        {
+          "op": "atk_multiplier",
+          "value": 0.4,
+          "unit": "ratio",
+          "scope": "self",
+          "channel": "atk_multiplier"
+        },
+        {
+          "op": "spd_multiplier",
+          "value": 0.8,
+          "unit": "ratio",
+          "scope": "self",
+          "channel": "spd_multiplier"
+        }
+      ],
+      "trigger": {
+        "kind": "existing_cultivation_event",
+        "event": "gy_night_return",
+        "title": "夜归人",
+        "source": "xiaojianghu-legacy-prologue/js/qh-mode-cultivation-household.js",
+        "window": [
+          4,
+          4
+        ],
+        "clock": "cultivation_slot_0_179",
+        "place": "courtyard",
+        "cast": [
+          "hero",
+          "yin",
+          "ye"
+        ],
+        "choices": [
+          "polite",
+          "counter"
+        ],
+        "predicate": [
+          "cultivation.facts.gy_night_return_seen == true"
+        ],
+        "commit": "当前事件所有对白和选择效果完成，保存成功后；挂接原事务，不新增行动/体力"
+      },
+      "duration": {
+        "kind": "story",
+        "expiry": "专门疗伤事件解除；普通休息、净化、升级不能解除"
+      },
+      "stacking": {
+        "maxStacks": 1,
+        "group": "yin_old_injury",
+        "rule": "同ID不叠加；同组按明确替换规则"
+      },
+      "migration": "只恢复能够确定的伤势阶段；有痊愈事实优先；听过往事不是治疗依据",
+      "integration": {
+        "status": "existing_definition_trigger_pending",
+        "hook": "迁移CharacterCondition.yin_old_injury；故事演员记录与正式队友记录共享同一实体ID",
+        "active_only_when": "角色实际在场并满足effect.scope；NPC初始特性不自动代表已入队"
+      },
+      "dialogue": [
+        [
+          "ye",
+          "先把袖口挽起来。血还在往外渗。"
+        ],
+        [
+          "yin",
+          "老毛病，酒一上头就忘了轻重。"
+        ],
+        [
+          "ye",
+          "包上只能止血。里面的旧伤，还得另想办法。"
+        ]
+      ],
+      "notification": "伤势有了变化：旧伤未愈",
+      "note": "gy_yin_past只是说往事，明确不减轻旧伤。后两阶段治疗剧情另立案，不用恋爱好感代替治疗。",
+      "stages": [
+        {
+          "stage": 0,
+          "name": "旧伤未愈",
+          "mul": {
+            "mhp": 0.45,
+            "mmp": 0.35,
+            "atk": 0.4,
+            "spd": 0.8
+          }
+        },
+        {
+          "stage": 1,
+          "name": "伤势缓解",
+          "mul": {
+            "mhp": 0.65,
+            "mmp": 0.6,
+            "atk": 0.65,
+            "spd": 0.9
+          }
+        },
+        {
+          "stage": 2,
+          "name": "经脉渐复",
+          "mul": {
+            "mhp": 0.85,
+            "mmp": 0.8,
+            "atk": 0.85,
+            "spd": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "yin_wine",
+      "name": "微醺",
+      "owners": [
+        "yin"
+      ],
+      "category": "temporary",
+      "polarity": "mixed",
+      "grade": "丁",
+      "summary": "暴击率+3个百分点，命中率-5个百分点。",
+      "effects": [
+        {
+          "op": "crit_add",
+          "value": 0.03,
+          "unit": "probability_delta",
+          "scope": "self",
+          "channel": "crit_add"
+        },
+        {
+          "op": "accuracy_add",
+          "value": -0.05,
+          "unit": "probability_delta",
+          "scope": "self",
+          "channel": "accuracy_add"
+        }
+      ],
+      "trigger": {
+        "kind": "existing_cultivation_event",
+        "event": "gs_roof_wine",
+        "title": "屋顶上的酒",
+        "source": "xiaojianghu-legacy-prologue/js/qh-mode-cultivation-household.js",
+        "window": [
+          27,
+          33
+        ],
+        "clock": "cultivation_slot_0_179",
+        "place": "courtyard",
+        "cast": [
+          "hero",
+          "yin"
+        ],
+        "choices": [
+          "climb",
+          "stay_down"
+        ],
+        "predicate": [
+          "cultivation.facts.gs_roof_wine_seen == true"
+        ],
+        "commit": "当前事件所有对白和选择效果完成，保存成功后；挂接原事务，不新增行动/体力"
+      },
+      "duration": {
+        "kind": "battle_or_period",
+        "expiry": "下一场战斗结束或推进到下一期，先到者清除"
+      },
+      "stacking": {
+        "maxStacks": 1,
+        "group": "yin_wine",
+        "rule": "同ID不叠加；同组按明确替换规则"
+      },
+      "migration": "不从旧“看过喝酒剧情”永久补挂限时状态",
+      "integration": {
+        "status": "new_design",
+        "hook": "暴击/命中概率通道；不提高攻击面板",
+        "active_only_when": "角色实际在场并满足effect.scope；NPC初始特性不自动代表已入队"
+      },
+      "dialogue": [],
+      "notification": "酒意渐起 · 微醺",
+      "note": "原剧情只有殷饮酒，不给萧白或小豆挂酒意；同酒意只能刷新，不能叠暴击。",
+      "stages": []
+    },
+    {
+      "id": "steady_in_crisis",
+      "name": "临危不乱",
+      "owners": [
+        "hero"
+      ],
+      "category": "acquired",
+      "polarity": "positive",
+      "grade": "丙",
+      "summary": "每场第一次实际受伤时，该次伤害减少8%。",
+      "effects": [
+        {
+          "op": "first_received_damage_reduction",
+          "value": 0.08,
+          "unit": "ratio",
+          "scope": "self",
+          "channel": "first_received_damage_reduction"
+        }
+      ],
+      "trigger": {
+        "kind": "route_completion",
+        "event": "tr_escort_closure",
+        "title": "把人平安带回来 · 收官",
+        "source": "routes.json",
+        "window": null,
+        "clock": "scheduled_route_event",
+        "place": "依导师与当事人当前合法日程预约",
+        "cast": [
+          "hero",
+          "lu"
+        ],
+        "choices": [
+          "complete"
+        ],
+        "predicate": [
+          "路线所有阶段证据成立",
+          "收官验证通过",
+          "未领取过本路线结果"
+        ],
+        "commit": "仅收官事务保存成功后授予；早期单个剧情事件不授予"
+      },
+      "duration": {
+        "kind": "permanent",
+        "expiry": "不自然到期"
+      },
+      "stacking": {
+        "maxStacks": 1,
+        "group": "steady_in_crisis",
+        "rule": "同路线只授予一种结业特性；同ID不叠加。"
+      },
+      "migration": "原单事件只回填经历，不能补发路线特性；保留已完成阶段，可从缺失节点补做。",
+      "integration": {
+        "status": "blocked_by_route_closure",
+        "hook": "首次正伤害扣血前消费token；未命中/零伤害不消费",
+        "active_only_when": "角色实际在场并满足effect.scope；NPC初始特性不自动代表已入队"
+      },
+      "dialogue": [
+        [
+          "lu",
+          "人到了，药也点清了。路上那处险，你怎么绕开的？"
+        ],
+        [
+          "hero",
+          "先让他们停下，我去看了另一条路。来不及就请人接应。"
+        ],
+        [
+          "lu",
+          "往后带人走，也照这样办。别只顾自己闯过去。"
+        ]
+      ],
+      "notification": "历经这一程，领会了：临危不乱",
+      "note": "须完成“把人平安带回来”整条路线。首次救援或送药资料缺失时，陆衡安排同难度的现场复盘和补充护送；不要求重玩栖河，不以招募陆衡为前置。",
+      "stages": [],
+      "origin_event": {
+        "kind": "existing_story_event",
+        "event": "rescue",
+        "title": "火场救援",
+        "source": "xiaojianghu-legacy-prologue/js/qihe-chapter.js",
+        "window": null,
+        "clock": "chapter_fact",
+        "place": "沿原场景",
+        "cast": [
+          "hero",
+          "ye"
+        ],
+        "choices": [],
+        "predicate": [
+          "qiheChapter.events.rescue == true"
+        ],
+        "commit": "rescue完成保存后记效果；补充对白与通知延后到arrival安全场景",
+        "dialogue_anchor": "抵达邻村arrival后，叶蘅清点药箱与陈伯安置完毕；不在火场停步交谈",
+        "dialogue_event": "arrival"
+      },
+      "acquisition": {
+        "route_id": "route_escort",
+        "require_all_steps": true,
+        "grant_event": "tr_escort_closure",
+        "rewards_per_route": 1,
+        "status": "planned_not_runtime",
+        "choice": "complete"
+      }
+    },
+    {
+      "id": "verified_record",
+      "name": "有据再记",
+      "owners": [
+        "hero"
+      ],
+      "category": "acquired",
+      "polarity": "positive",
+      "grade": "丙",
+      "summary": "此后首次完成具名剧情所得共享历练+5%；月度、年度、战斗收益不加成。",
+      "effects": [
+        {
+          "op": "story_insight_bonus",
+          "value": 0.05,
+          "unit": "ratio",
+          "scope": "party_once",
+          "channel": "shared_insight_story"
+        }
+      ],
+      "trigger": {
+        "kind": "route_completion",
+        "event": "tr_evidence_closure",
+        "title": "把一份记录查到底 · 收官",
+        "source": "routes.json",
+        "window": null,
+        "clock": "scheduled_route_event",
+        "place": "依导师与当事人当前合法日程预约",
+        "cast": [
+          "hero",
+          "shenyanhui"
+        ],
+        "choices": [
+          "verified"
+        ],
+        "predicate": [
+          "路线所有阶段证据成立",
+          "收官验证通过",
+          "未领取过本路线结果"
+        ],
+        "commit": "仅收官事务保存成功后授予；早期单个剧情事件不授予"
+      },
+      "duration": {
+        "kind": "permanent",
+        "expiry": "不自然到期"
+      },
+      "stacking": {
+        "maxStacks": 1,
+        "group": "verified_record",
+        "rule": "同路线只授予一种结业特性；同ID不叠加。"
+      },
+      "migration": "原单事件只回填经历，不能补发路线特性；保留已完成阶段，可从缺失节点补做。",
+      "integration": {
+        "status": "blocked_by_route_closure",
+        "hook": "SharedInsightPool：仅future story:* source；本次对证80仍为80；旧receipts不重算",
+        "active_only_when": "角色实际在场并满足effect.scope；NPC初始特性不自动代表已入队"
+      },
+      "dialogue": [
+        [
+          "shenyanhui",
+          "能对上的留在正文，拿不准的另附一页。"
+        ],
+        [
+          "hero",
+          "这两处我都回去问过了，原话也没有改。"
+        ],
+        [
+          "shenyanhui",
+          "好。副本给当事人一份，别只留在我们手里。"
+        ]
+      ],
+      "notification": "历经这一程，领会了：有据再记",
+      "note": "须完成“把一份记录查到底”整条路线。不会核验时可以请教和再次走访；错判后有更正支线，不永久锁定。沈不在场则预约下一次合法会面。",
+      "stages": [],
+      "origin_event": {
+        "kind": "existing_story_event",
+        "event": "evidence-v2",
+        "title": "邻村对证",
+        "source": "xiaojianghu-legacy-prologue/js/qihe-chapter.js",
+        "window": null,
+        "clock": "chapter_fact",
+        "place": "沿原场景",
+        "cast": [
+          "hero",
+          "ye",
+          "shenyanhui"
+        ],
+        "choices": [],
+        "predicate": [
+          "qiheChapter.events.evidence-v2 == true"
+        ],
+        "commit": "原事件完成事务提交时；不新增时间/资源成本",
+        "dialogue_anchor": "原对证尾声，三方已经署责后"
+      },
+      "acquisition": {
+        "route_id": "route_evidence",
+        "require_all_steps": true,
+        "grant_event": "tr_evidence_closure",
+        "rewards_per_route": 1,
+        "status": "planned_not_runtime",
+        "choice": "verified"
+      }
+    },
+    {
+      "id": "ask_before_practice",
+      "name": "问清再练",
+      "owners": [
+        "hero"
+      ],
+      "category": "acquired",
+      "polarity": "positive",
+      "grade": "丙",
+      "summary": "正常武学练习获得的外功、内功熟练+5%。",
+      "effects": [
+        {
+          "op": "natural_martial_xp_bonus",
+          "value": 0.05,
+          "unit": "ratio",
+          "scope": "self",
+          "channel": "training_efficiency"
+        }
+      ],
+      "trigger": {
+        "kind": "route_completion",
+        "event": "tr_practice_closure",
+        "title": "从会照做到能自查 · 收官",
+        "source": "routes.json",
+        "window": null,
+        "clock": "scheduled_route_event",
+        "place": "依导师与当事人当前合法日程预约",
+        "cast": [
+          "hero",
+          "zhou"
+        ],
+        "choices": [
+          "learning",
+          "guard"
+        ],
+        "predicate": [
+          "路线所有阶段证据成立",
+          "收官验证通过",
+          "未领取过本路线结果"
+        ],
+        "commit": "仅收官事务保存成功后授予；早期单个剧情事件不授予"
+      },
+      "duration": {
+        "kind": "permanent",
+        "expiry": "不自然到期"
+      },
+      "stacking": {
+        "maxStacks": 1,
+        "group": "practice_route_result",
+        "rule": "同路线只授予一种结业特性；同ID不叠加。"
+      },
+      "migration": "原单事件只回填经历，不能补发路线特性；保留已完成阶段，可从缺失节点补做。",
+      "integration": {
+        "status": "blocked_by_route_closure",
+        "hook": "CultivationBalance.preview 的xp分量，首次传授/共享历练/剧情赠重不加成",
+        "active_only_when": "角色实际在场并满足effect.scope；NPC初始特性不自动代表已入队"
+      },
+      "dialogue": [
+        [
+          "zhou",
+          "这一年，哪一步最常出错，你自己说得清了。"
+        ],
+        [
+          "hero",
+          "先记下来，练过再对。还不明白，就来问您。"
+        ],
+        [
+          "zhou",
+          "往后想先把哪一头练深，就按自己的意思来。"
+        ]
+      ],
+      "notification": "历经这一程，领会了：问清再练",
+      "note": "须完成“从会照做到能自查”整条路线。错过可选纠错/陪练时，第二年在导师在场时补等价复盘，不重考整年；收官明确预告二选一，早期对话不暗锁结果。",
+      "stages": [],
+      "origin_event": {
+        "kind": "existing_cultivation_event",
+        "event": "gy_z01",
+        "title": "记住了，还是站不稳",
+        "source": "xiaojianghu-legacy-prologue/js/qh-mode-cultivation-household.js",
+        "window": [
+          0,
+          9
+        ],
+        "clock": "cultivation_slot_0_179",
+        "place": "training_ground",
+        "cast": [
+          "zhou",
+          "hero"
+        ],
+        "choices": [
+          "ask",
+          "retry"
+        ],
+        "predicate": [
+          "cultivation.facts.gy_z01_seen == true"
+        ],
+        "commit": "当前事件所有对白和选择效果完成，保存成功后；挂接原事务，不新增行动/体力"
+      },
+      "acquisition": {
+        "route_id": "route_practice",
+        "require_all_steps": true,
+        "grant_event": "tr_practice_closure",
+        "rewards_per_route": 1,
+        "status": "planned_not_runtime",
+        "choice": "learning"
+      }
+    },
+    {
+      "id": "careful_accounts",
+      "name": "量入为出",
+      "owners": [
+        "hero"
+      ],
+      "category": "acquired",
+      "polarity": "positive",
+      "grade": "丙",
+      "summary": "普通商店购买药食、生活材料时价格降低3%。",
+      "effects": [
+        {
+          "op": "consumable_buy_discount",
+          "value": 0.03,
+          "unit": "ratio",
+          "scope": "party_once",
+          "channel": "shop_discount"
+        }
+      ],
+      "trigger": {
+        "kind": "route_completion",
+        "event": "tr_accounts_closure",
+        "title": "让一本账有始有终 · 收官",
+        "source": "routes.json",
+        "window": null,
+        "clock": "scheduled_route_event",
+        "place": "依导师与当事人当前合法日程预约",
+        "cast": [
+          "hero",
+          "shimu"
+        ],
+        "choices": [
+          "balanced"
+        ],
+        "predicate": [
+          "路线所有阶段证据成立",
+          "收官验证通过",
+          "未领取过本路线结果"
+        ],
+        "commit": "仅收官事务保存成功后授予；早期单个剧情事件不授予"
+      },
+      "duration": {
+        "kind": "permanent",
+        "expiry": "不自然到期"
+      },
+      "stacking": {
+        "maxStacks": 1,
+        "group": "careful_accounts",
+        "rule": "同路线只授予一种结业特性；同ID不叠加。"
+      },
+      "migration": "原单事件只回填经历，不能补发路线特性；保留已完成阶段，可从缺失节点补做。",
+      "integration": {
+        "status": "blocked_by_route_closure",
+        "hook": "商店报价与扣款同一函数，向上取整；卖价不变，购买价最低卖价+1",
+        "active_only_when": "角色实际在场并满足effect.scope；NPC初始特性不自动代表已入队"
+      },
+      "dialogue": [
+        [
+          "shimu",
+          "账先放下。米、布、药，咱们照着单子再点一遍。"
+        ],
+        [
+          "hero",
+          "余下的钱在这里，赊着的两笔也单独记了。"
+        ],
+        [
+          "shimu",
+          "这才算交清。往后小宗采买，你可以自己拿主意。"
+        ]
+      ],
+      "notification": "历经这一程，领会了：量入为出",
+      "note": "须完成“让一本账有始有终”整条路线。漏记可回访商家补凭据，钱数出错先纠正；不以牺牲村民利益或压低别人报酬作最优解。",
+      "stages": [],
+      "origin_event": {
+        "kind": "existing_cultivation_event",
+        "event": "gy_ledger",
+        "title": "师母的账本",
+        "source": "xiaojianghu-legacy-prologue/js/qh-mode-cultivation-household.js",
+        "window": [
+          1,
+          3
+        ],
+        "clock": "cultivation_slot_0_179",
+        "place": "market_town",
+        "cast": [
+          "hero",
+          "shimu"
+        ],
+        "choices": [
+          "columns",
+          "ask_first"
+        ],
+        "predicate": [
+          "cultivation.facts.gy_ledger_seen == true"
+        ],
+        "commit": "当前事件所有对白和选择效果完成，保存成功后；挂接原事务，不新增行动/体力"
+      },
+      "acquisition": {
+        "route_id": "route_accounts",
+        "require_all_steps": true,
+        "grant_event": "tr_accounts_closure",
+        "rewards_per_route": 1,
+        "status": "planned_not_runtime",
+        "choice": "balanced"
+      }
+    },
+    {
+      "id": "measured_guard",
+      "name": "留有余地",
+      "owners": [
+        "hero"
+      ],
+      "category": "acquired",
+      "polarity": "positive",
+      "grade": "丙",
+      "summary": "每场第一次主动防御，防御减伤由50%提高到55%。",
+      "effects": [
+        {
+          "op": "first_defend_reduction_add",
+          "value": 0.05,
+          "unit": "probability_delta",
+          "scope": "self",
+          "channel": "defend_action"
+        }
+      ],
+      "trigger": {
+        "kind": "route_completion",
+        "event": "tr_practice_closure",
+        "title": "从会照做到能自查 · 收官",
+        "source": "routes.json",
+        "window": null,
+        "clock": "scheduled_route_event",
+        "place": "依导师与当事人当前合法日程预约",
+        "cast": [
+          "hero",
+          "zhou"
+        ],
+        "choices": [
+          "learning",
+          "guard"
+        ],
+        "predicate": [
+          "路线所有阶段证据成立",
+          "收官验证通过",
+          "未领取过本路线结果"
+        ],
+        "commit": "仅收官事务保存成功后授予；早期单个剧情事件不授予"
+      },
+      "duration": {
+        "kind": "permanent",
+        "expiry": "不自然到期"
+      },
+      "stacking": {
+        "maxStacks": 1,
+        "group": "practice_route_result",
+        "rule": "同路线只授予一种结业特性；同ID不叠加。"
+      },
+      "migration": "原单事件只回填经历，不能补发路线特性；保留已完成阶段，可从缺失节点补做。",
+      "integration": {
+        "status": "blocked_by_route_closure",
+        "hook": "本人首个防御行动；该防御结束重置，整场不再次触发",
+        "active_only_when": "角色实际在场并满足effect.scope；NPC初始特性不自动代表已入队"
+      },
+      "dialogue": [
+        [
+          "zhou",
+          "这一年，哪一步最常出错，你自己说得清了。"
+        ],
+        [
+          "hero",
+          "先记下来，练过再对。还不明白，就来问您。"
+        ],
+        [
+          "zhou",
+          "往后想先把哪一头练深，就按自己的意思来。"
+        ]
+      ],
+      "notification": "历经这一程，领会了：留有余地",
+      "note": "须完成“从会照做到能自查”整条路线。错过可选纠错/陪练时，第二年在导师在场时补等价复盘，不重考整年；收官明确预告二选一，早期对话不暗锁结果。",
+      "stages": [],
+      "origin_event": {
+        "kind": "existing_cultivation_event",
+        "event": "gy_fang_spar",
+        "title": "陪练",
+        "source": "xiaojianghu-legacy-prologue/js/qh-mode-cultivation-household.js",
+        "window": [
+          13,
+          15
+        ],
+        "clock": "cultivation_slot_0_179",
+        "place": "training_ground",
+        "cast": [
+          "fang",
+          "hero"
+        ],
+        "choices": [
+          "win",
+          "lose"
+        ],
+        "predicate": [
+          "cultivation.facts.gy_fang_spar_seen == true"
+        ],
+        "commit": "当前事件所有对白和选择效果完成，保存成功后；挂接原事务，不新增行动/体力"
+      },
+      "acquisition": {
+        "route_id": "route_practice",
+        "require_all_steps": true,
+        "grant_event": "tr_practice_closure",
+        "rewards_per_route": 1,
+        "status": "planned_not_runtime",
+        "choice": "guard"
+      }
+    },
+    {
+      "id": "circle_step",
+      "name": "借物换步",
+      "owners": [
+        "hero"
+      ],
+      "category": "acquired",
+      "polarity": "positive",
+      "grade": "丙",
+      "summary": "闪避率+3个百分点。",
+      "effects": [
+        {
+          "op": "dodge_add",
+          "value": 0.03,
+          "unit": "probability_delta",
+          "scope": "self",
+          "channel": "dodge_add"
+        }
+      ],
+      "trigger": {
+        "kind": "route_completion",
+        "event": "tr_footwork_closure",
+        "title": "把步法用在实处 · 收官",
+        "source": "routes.json",
+        "window": null,
+        "clock": "scheduled_route_event",
+        "place": "依导师与当事人当前合法日程预约",
+        "cast": [
+          "hero",
+          "yin"
+        ],
+        "choices": [
+          "circle",
+          "face_it"
+        ],
+        "predicate": [
+          "路线所有阶段证据成立",
+          "收官验证通过",
+          "未领取过本路线结果"
+        ],
+        "commit": "仅收官事务保存成功后授予；早期单个剧情事件不授予"
+      },
+      "duration": {
+        "kind": "permanent",
+        "expiry": "不自然到期"
+      },
+      "stacking": {
+        "maxStacks": 1,
+        "group": "goose_lesson",
+        "rule": "同路线只授予一种结业特性；同ID不叠加。"
+      },
+      "migration": "原单事件只回填经历，不能补发路线特性；保留已完成阶段，可从缺失节点补做。",
+      "integration": {
+        "status": "blocked_by_route_closure",
+        "hook": "闪避概率统一通道；与迎势定足互斥",
+        "active_only_when": "角色实际在场并满足effect.scope；NPC初始特性不自动代表已入队"
+      },
+      "dialogue": [
+        [
+          "yin",
+          "这回没只顾着自己躲。身后的人呢？"
+        ],
+        [
+          "hero",
+          "还在安全处。我留了能退回去的空当。"
+        ],
+        [
+          "yin",
+          "好。绕开，还是站住挡，你挑一条先练透。"
+        ]
+      ],
+      "notification": "历经这一程，领会了：借物换步",
+      "note": "须完成“把步法用在实处”整条路线。错过小师叔窗口可预约她下次回谷，不要求结缘或正式入队；早期鹅步choice只存为经历，不能成为不可改的天赋选择。",
+      "stages": [],
+      "origin_event": {
+        "kind": "existing_cultivation_event",
+        "event": "gy_goose_steps",
+        "title": "回岚步与鹅",
+        "source": "xiaojianghu-legacy-prologue/js/qh-mode-cultivation-household.js",
+        "window": [
+          26,
+          29
+        ],
+        "clock": "cultivation_slot_0_179",
+        "place": "training_ground",
+        "cast": [
+          "hero",
+          "yin",
+          "goose",
+          "dou"
+        ],
+        "choices": [
+          "circle"
+        ],
+        "predicate": [
+          "cultivation.facts.gy_goose_steps_seen == true",
+          "cultivation.facts.gy_goose_steps_choice == circle"
+        ],
+        "commit": "当前事件所有对白和选择效果完成，保存成功后；挂接原事务，不新增行动/体力"
+      },
+      "acquisition": {
+        "route_id": "route_footwork",
+        "require_all_steps": true,
+        "grant_event": "tr_footwork_closure",
+        "rewards_per_route": 1,
+        "status": "planned_not_runtime",
+        "choice": "circle"
+      }
+    },
+    {
+      "id": "face_step",
+      "name": "迎势定足",
+      "owners": [
+        "hero"
+      ],
+      "category": "acquired",
+      "polarity": "positive",
+      "grade": "丙",
+      "summary": "格挡率+3个百分点。",
+      "effects": [
+        {
+          "op": "block_add",
+          "value": 0.03,
+          "unit": "probability_delta",
+          "scope": "self",
+          "channel": "block_add"
+        }
+      ],
+      "trigger": {
+        "kind": "route_completion",
+        "event": "tr_footwork_closure",
+        "title": "把步法用在实处 · 收官",
+        "source": "routes.json",
+        "window": null,
+        "clock": "scheduled_route_event",
+        "place": "依导师与当事人当前合法日程预约",
+        "cast": [
+          "hero",
+          "yin"
+        ],
+        "choices": [
+          "circle",
+          "face_it"
+        ],
+        "predicate": [
+          "路线所有阶段证据成立",
+          "收官验证通过",
+          "未领取过本路线结果"
+        ],
+        "commit": "仅收官事务保存成功后授予；早期单个剧情事件不授予"
+      },
+      "duration": {
+        "kind": "permanent",
+        "expiry": "不自然到期"
+      },
+      "stacking": {
+        "maxStacks": 1,
+        "group": "goose_lesson",
+        "rule": "同路线只授予一种结业特性；同ID不叠加。"
+      },
+      "migration": "原单事件只回填经历，不能补发路线特性；保留已完成阶段，可从缺失节点补做。",
+      "integration": {
+        "status": "blocked_by_route_closure",
+        "hook": "格挡概率统一通道；与借物换步互斥",
+        "active_only_when": "角色实际在场并满足effect.scope；NPC初始特性不自动代表已入队"
+      },
+      "dialogue": [
+        [
+          "yin",
+          "这回没只顾着自己躲。身后的人呢？"
+        ],
+        [
+          "hero",
+          "还在安全处。我留了能退回去的空当。"
+        ],
+        [
+          "yin",
+          "好。绕开，还是站住挡，你挑一条先练透。"
+        ]
+      ],
+      "notification": "历经这一程，领会了：迎势定足",
+      "note": "须完成“把步法用在实处”整条路线。错过小师叔窗口可预约她下次回谷，不要求结缘或正式入队；早期鹅步choice只存为经历，不能成为不可改的天赋选择。",
+      "stages": [],
+      "origin_event": {
+        "kind": "existing_cultivation_event",
+        "event": "gy_goose_steps",
+        "title": "回岚步与鹅",
+        "source": "xiaojianghu-legacy-prologue/js/qh-mode-cultivation-household.js",
+        "window": [
+          26,
+          29
+        ],
+        "clock": "cultivation_slot_0_179",
+        "place": "training_ground",
+        "cast": [
+          "hero",
+          "yin",
+          "goose",
+          "dou"
+        ],
+        "choices": [
+          "face_it"
+        ],
+        "predicate": [
+          "cultivation.facts.gy_goose_steps_seen == true",
+          "cultivation.facts.gy_goose_steps_choice == face_it"
+        ],
+        "commit": "当前事件所有对白和选择效果完成，保存成功后；挂接原事务，不新增行动/体力"
+      },
+      "acquisition": {
+        "route_id": "route_footwork",
+        "require_all_steps": true,
+        "grant_event": "tr_footwork_closure",
+        "rewards_per_route": 1,
+        "status": "planned_not_runtime",
+        "choice": "face_it"
+      }
+    },
+    {
+      "id": "bandage_practice",
+      "name": "包扎得法",
+      "owners": [
+        "hero"
+      ],
+      "category": "acquired",
+      "polarity": "positive",
+      "grade": "丙",
+      "summary": "本人使用恢复气血药品时，治疗量+8%。",
+      "effects": [
+        {
+          "op": "item_hp_heal_bonus",
+          "value": 0.08,
+          "unit": "ratio",
+          "scope": "self",
+          "channel": "item_hp_heal_bonus"
+        }
+      ],
+      "trigger": {
+        "kind": "route_completion",
+        "event": "tr_care_closure",
+        "title": "从认药到能独立照护 · 收官",
+        "source": "routes.json",
+        "window": null,
+        "clock": "scheduled_route_event",
+        "place": "依导师与当事人当前合法日程预约",
+        "cast": [
+          "hero",
+          "ye"
+        ],
+        "choices": [
+          "qualified"
+        ],
+        "predicate": [
+          "路线所有阶段证据成立",
+          "收官验证通过",
+          "未领取过本路线结果"
+        ],
+        "commit": "仅收官事务保存成功后授予；早期单个剧情事件不授予"
+      },
+      "duration": {
+        "kind": "permanent",
+        "expiry": "不自然到期"
+      },
+      "stacking": {
+        "maxStacks": 1,
+        "group": "bandage_practice",
+        "rule": "同路线只授予一种结业特性；同ID不叠加。"
+      },
+      "migration": "原单事件只回填经历，不能补发路线特性；保留已完成阶段，可从缺失节点补做。",
+      "integration": {
+        "status": "blocked_by_route_closure",
+        "hook": "用药者特性，物品治疗通道；不强化治疗武学，不凭空解除重伤/旧伤",
+        "active_only_when": "角色实际在场并满足effect.scope；NPC初始特性不自动代表已入队"
+      },
+      "dialogue": [
+        [
+          "ye",
+          "解开看看。你上回说要留意的那几处，还记得吗？"
+        ],
+        [
+          "hero",
+          "记得。先问疼不疼，再看肿处，最后查手指能不能动。"
+        ],
+        [
+          "ye",
+          "这回做得稳。简单的伤，你可以先照应着；拿不准的仍要叫大夫。"
+        ]
+      ],
+      "notification": "历经这一程，领会了：包扎得法",
+      "note": "须完成“从认药到能独立照护”整条路线。叶蘅第二年求学路线不强迫留谷：可在合法入城时由苏芷现场复核，使用独立演员版本；不能让不在场的叶蘅远程说话。",
+      "stages": [],
+      "origin_event": {
+        "kind": "existing_cultivation_event",
+        "event": "gs_bandage",
+        "title": "大师兄教包扎",
+        "source": "xiaojianghu-legacy-prologue/js/qh-mode-cultivation-household.js",
+        "window": [
+          50,
+          55
+        ],
+        "clock": "cultivation_slot_0_179",
+        "place": "herb_garden",
+        "cast": [
+          "hero",
+          "fang"
+        ],
+        "choices": [
+          "practice",
+          "ask_wound"
+        ],
+        "predicate": [
+          "cultivation.facts.gs_bandage_seen == true"
+        ],
+        "commit": "当前事件所有对白和选择效果完成，保存成功后；挂接原事务，不新增行动/体力"
+      },
+      "acquisition": {
+        "route_id": "route_care",
+        "require_all_steps": true,
+        "grant_event": "tr_care_closure",
+        "rewards_per_route": 1,
+        "status": "planned_not_runtime",
+        "choice": "qualified"
+      }
+    },
+    {
+      "id": "pei_crosscheck",
+      "name": "逐字核校",
+      "owners": [
+        "pei"
+      ],
+      "category": "acquired",
+      "polarity": "positive",
+      "grade": "丙",
+      "summary": "已掌握的主动看破招式耗内力-1，最低1；原本0消耗保持0。",
+      "effects": [
+        {
+          "op": "reveal_skill_mp_discount",
+          "value": 1,
+          "unit": "mp",
+          "scope": "self",
+          "channel": "reveal_skill_mp_discount"
+        }
+      ],
+      "trigger": {
+        "kind": "route_completion",
+        "event": "tr_scholar_closure",
+        "title": "留下一卷经得起问的书 · 收官",
+        "source": "routes.json",
+        "window": null,
+        "clock": "scheduled_route_event",
+        "place": "依导师与当事人当前合法日程预约",
+        "cast": [
+          "hero",
+          "pei",
+          "peishu"
+        ],
+        "choices": [
+          "reviewed"
+        ],
+        "predicate": [
+          "路线所有阶段证据成立",
+          "收官验证通过",
+          "未领取过本路线结果"
+        ],
+        "commit": "仅收官事务保存成功后授予；早期单个剧情事件不授予"
+      },
+      "duration": {
+        "kind": "permanent",
+        "expiry": "不自然到期"
+      },
+      "stacking": {
+        "maxStacks": 1,
+        "group": "pei_crosscheck",
+        "rule": "同路线只授予一种结业特性；同ID不叠加。"
+      },
+      "migration": "原单事件只回填经历，不能补发路线特性；保留已完成阶段，可从缺失节点补做。",
+      "integration": {
+        "status": "blocked_by_pei_combat_adapter",
+        "hook": "需已有reveal技能效果且实际可施放；裴战斗接入前仅预览，不建立假的技能ID",
+        "active_only_when": "角色实际在场并满足effect.scope；NPC初始特性不自动代表已入队"
+      },
+      "dialogue": [
+        [
+          "peishu",
+          "这处为何改了？"
+        ],
+        [
+          "pei",
+          "原先两个人都听自同一个地方，不算两份证词。我又查了原件。"
+        ],
+        [
+          "peishu",
+          "把这次查过的也记在旁边。以后有人问，你自己答得上来。"
+        ]
+      ],
+      "notification": "历经这一程，领会了：逐字核校",
+      "note": "须完成“留下一卷经得起问的书”整条路线。不要求结缘、不把材料数当收集任务；核校没通过只补证，不抹掉此前见闻。",
+      "stages": [],
+      "origin_event": {
+        "kind": "existing_cultivation_event",
+        "event": "gn_winter",
+        "title": "抄完的那一卷",
+        "source": "xiaojianghu-legacy-prologue/js/qh-mode-cultivation-household.js",
+        "window": [
+          50,
+          58
+        ],
+        "clock": "cultivation_slot_0_179",
+        "place": "bookhouse_inside",
+        "cast": [
+          "pei",
+          "peishu",
+          "hero"
+        ],
+        "choices": [
+          "celebrate",
+          "ask_pei"
+        ],
+        "predicate": [
+          "cultivation.facts.gn_winter_seen == true"
+        ],
+        "commit": "当前事件所有对白和选择效果完成，保存成功后；挂接原事务，不新增行动/体力"
+      },
+      "acquisition": {
+        "route_id": "route_scholar",
+        "require_all_steps": true,
+        "grant_event": "tr_scholar_closure",
+        "rewards_per_route": 1,
+        "status": "planned_not_runtime",
+        "choice": "reviewed"
+      }
+    },
+    {
+      "id": "fang_injury",
+      "name": "负伤待养",
+      "owners": [
+        "fang"
+      ],
+      "category": "injury",
+      "polarity": "negative",
+      "grade": "特殊",
+      "summary": "伤重时气血上限70%、攻击75%、速度85%；复养时气血与攻击90%。",
+      "effects": [
+        {
+          "op": "mhp_multiplier",
+          "value": 0.7,
+          "unit": "ratio",
+          "scope": "self",
+          "channel": "mhp_multiplier"
+        },
+        {
+          "op": "atk_multiplier",
+          "value": 0.75,
+          "unit": "ratio",
+          "scope": "self",
+          "channel": "atk_multiplier"
+        },
+        {
+          "op": "spd_multiplier",
+          "value": 0.85,
+          "unit": "ratio",
+          "scope": "self",
+          "channel": "spd_multiplier"
+        }
+      ],
+      "trigger": {
+        "kind": "existing_cultivation_event",
+        "event": "gy_brother_hurt",
+        "title": "大师兄负伤",
+        "source": "xiaojianghu-legacy-prologue/js/qh-mode-cultivation-household.js",
+        "window": [
+          32,
+          33
+        ],
+        "clock": "cultivation_slot_0_179",
+        "place": "courtyard",
+        "cast": [
+          "hero",
+          "fang",
+          "shimu",
+          "dou",
+          "ye",
+          "zhou"
+        ],
+        "choices": [
+          "night_watch",
+          "ask_story"
+        ],
+        "predicate": [
+          "cultivation.facts.gy_brother_hurt_seen == true"
+        ],
+        "commit": "当前事件所有对白和选择效果完成，保存成功后；挂接原事务，不新增行动/体力"
+      },
+      "duration": {
+        "kind": "story",
+        "expiry": "康复见证减轻；除夕复查合格后清除；详见触发脚本"
+      },
+      "stacking": {
+        "maxStacks": 1,
+        "group": "fang_injury",
+        "rule": "同ID不叠加；同组按明确替换规则"
+      },
+      "migration": "仅确证已完成事件可补发；缺少分支记录则不猜测",
+      "integration": {
+        "status": "new_design",
+        "hook": "NPC人物记录与陪练门禁；受伤期暂停主动陪练，不把他降级",
+        "active_only_when": "角色实际在场并满足effect.scope；NPC初始特性不自动代表已入队"
+      },
+      "dialogue": [],
+      "notification": "伤势有了变化：负伤待养",
+      "note": "沿已有被抬回谷与后续康复剧情；普通药只回复当前血量，不立即恢复作战。",
+      "stages": [
+        {
+          "stage": 0,
+          "name": "负伤待养",
+          "mul": {
+            "mhp": 0.7,
+            "atk": 0.75,
+            "spd": 0.85
+          }
+        },
+        {
+          "stage": 1,
+          "name": "伤口渐合",
+          "mul": {
+            "mhp": 0.9,
+            "atk": 0.9,
+            "spd": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "fatigue",
+      "name": "疲惫",
+      "owners": [
+        "hero"
+      ],
+      "category": "temporary",
+      "polarity": "negative",
+      "grade": "丁",
+      "summary": "攻击和速度降低10%。",
+      "effects": [
+        {
+          "op": "atk_multiplier",
+          "value": 0.9,
+          "unit": "ratio",
+          "scope": "self",
+          "channel": "atk_multiplier"
+        },
+        {
+          "op": "spd_multiplier",
+          "value": 0.9,
+          "unit": "ratio",
+          "scope": "self",
+          "channel": "spd_multiplier"
+        }
+      ],
+      "trigger": {
+        "kind": "existing_cultivation_event",
+        "event": "gy_brother_hurt",
+        "title": "大师兄负伤",
+        "source": "xiaojianghu-legacy-prologue/js/qh-mode-cultivation-household.js",
+        "window": [
+          32,
+          33
+        ],
+        "clock": "cultivation_slot_0_179",
+        "place": "courtyard",
+        "cast": [
+          "hero",
+          "fang",
+          "shimu",
+          "dou",
+          "ye",
+          "zhou"
+        ],
+        "choices": [
+          "night_watch"
+        ],
+        "predicate": [
+          "cultivation.facts.gy_brother_hurt_seen == true",
+          "cultivation.facts.gy_brother_hurt_choice == night_watch"
+        ],
+        "commit": "当前事件所有对白和选择效果完成，保存成功后；挂接原事务，不新增行动/体力"
+      },
+      "duration": {
+        "kind": "rest",
+        "expiry": "下一次完整休息提交后解除；不因关闭对话恢复"
+      },
+      "stacking": {
+        "maxStacks": 1,
+        "group": "rest_state",
+        "rule": "同ID不叠加；同组按明确替换规则"
+      },
+      "migration": "仅确证已完成事件可补发；缺少分支记录则不猜测",
+      "integration": {
+        "status": "existing_definition_trigger_pending",
+        "hook": "仅本人守夜；可通过正常休息解除，不收费、不影响见闻/关系奖励",
+        "active_only_when": "角色实际在场并满足effect.scope；NPC初始特性不自动代表已入队"
+      },
+      "dialogue": [
+        [
+          "shimu",
+          "眼睛都熬红了。水我来换，你回去睡。"
+        ],
+        [
+          "hero",
+          "他醒了，记得叫我。"
+        ]
+      ],
+      "notification": "熬了一夜，先歇歇吧。",
+      "note": "选择前提示“守到天亮，会有些疲惫”；听故事分支不扣疲劳，不再额外派发补偿性永久战力。",
+      "stages": []
+    },
+    {
+      "id": "rested",
+      "name": "休整充足",
+      "owners": [
+        "hero"
+      ],
+      "category": "temporary",
+      "polarity": "positive",
+      "grade": "丁",
+      "summary": "防御提高10%。",
+      "effects": [
+        {
+          "op": "def_multiplier",
+          "value": 1.1,
+          "unit": "ratio",
+          "scope": "self",
+          "channel": "def_multiplier"
+        }
+      ],
+      "trigger": {
+        "kind": "existing_action",
+        "event": "CultivationCore.advance",
+        "title": "休息推进一期",
+        "source": "xiaojianghu-legacy-prologue/js/qh-mode-cultivation-core.js",
+        "window": null,
+        "clock": "cultivation_slot_0_179",
+        "place": "沿原场景",
+        "cast": [
+          "hero"
+        ],
+        "choices": [],
+        "predicate": [
+          "CultivationCore.advance提交成功",
+          "推进前余力>=6",
+          "本人未带阻止休整的剧情事实"
+        ],
+        "commit": "advance成功提交后，使用推进前余力快照判定"
+      },
+      "duration": {
+        "kind": "battle_or_period",
+        "expiry": "下一场战后或再推进2期时清除，以先到者为准"
+      },
+      "stacking": {
+        "maxStacks": 1,
+        "group": "rest_state",
+        "rule": "同ID不叠加；同组按明确替换规则"
+      },
+      "migration": "旧档不补限时状态；只处理接入后的真实休息",
+      "integration": {
+        "status": "existing_definition_trigger_pending",
+        "hook": "持久正面准备效果；与疲惫互斥。休息不治剧情旧伤",
+        "active_only_when": "角色实际在场并满足effect.scope；NPC初始特性不自动代表已入队"
+      },
+      "dialogue": [],
+      "notification": "歇得不错，精神也足了。",
+      "note": "普通休息只给弱而短的临时状态，与永久特性分区；不作为任务成就或结业奖励。",
+      "stages": []
+    }
+  ],
+  "transitions": [
+    {
+      "id": "fang_rehab_stage",
+      "event": "gs_fang_rehab",
+      "operation": "replace_stage",
+      "trait": "fang_injury",
+      "stage": 1,
+      "requires": [
+        "gy_brother_hurt_seen",
+        "fang_injury active"
+      ],
+      "choices": [
+        "stand_with",
+        "count"
+      ],
+      "lines": [
+        [
+          "ye",
+          "伤口收住了，今天只站半炷香。"
+        ],
+        [
+          "fang",
+          "我听你的。到时候就停。"
+        ]
+      ],
+      "note": "原剧情已有叶在旁监督；不是立刻痊愈。"
+    },
+    {
+      "id": "fang_year_end_clear",
+      "event": "gy_new_year",
+      "operation": "remove",
+      "trait": "fang_injury",
+      "requires": [
+        "gy_brother_hurt_seen",
+        "距离受伤至少10期"
+      ],
+      "choices": [
+        "*"
+      ],
+      "lines": [
+        [
+          "ye",
+          "大师兄，手臂抬起来，我再看一眼。"
+        ],
+        [
+          "fang",
+          "这样？这几日已不牵着疼了。"
+        ],
+        [
+          "ye",
+          "伤口长好了。年后慢慢加练，别一口气把落下的补完。"
+        ]
+      ],
+      "note": "原除夕演员表已有叶、方、师母等；错过康复支线也可检查，不强迫补做可选事件。"
+    },
+    {
+      "id": "yin_story_not_cure",
+      "event": "gy_yin_past",
+      "operation": "none",
+      "trait": "yin_old_injury",
+      "requires": [],
+      "choices": [
+        "right",
+        "cost"
+      ],
+      "lines": [],
+      "note": "说出旧事不等于治好右手；不挂“痊愈”，不改变旧伤stage。"
+    }
+  ],
+  "compatibility": [
+    {
+      "id": "minor_wound",
+      "name": "轻伤",
+      "policy": "原CharacterCondition定义与旧实例继续读取；本轮不额外制造泛用受伤事件，不作为新剧情奖励。",
+      "mul": {
+        "mhp": 0.85
+      }
+    }
+  ],
+  "retired_to_learning_records": [
+    {
+      "id": "road_experience",
+      "name": "脚下有路",
+      "source": "gy_m06",
+      "replacement": "保留原剧情已有的熟练、关系、资源或见闻；不额外授予永久标签及该条旧加成。"
+    },
+    {
+      "id": "herb_sorting",
+      "name": "识药不混",
+      "source": "gs_drying_herbs",
+      "replacement": "保留原剧情已有的熟练、关系、资源或见闻；不额外授予永久标签及该条旧加成。"
+    },
+    {
+      "id": "rations_ready",
+      "name": "备粮有方",
+      "source": "gs_rations",
+      "replacement": "保留原剧情已有的熟练、关系、资源或见闻；不额外授予永久标签及该条旧加成。"
+    },
+    {
+      "id": "year_foundation",
+      "name": "根基渐稳",
+      "source": "gy_year_exam",
+      "replacement": "保留原剧情已有的熟练、关系、资源或见闻；不额外授予永久标签及该条旧加成。"
+    }
+  ],
+  "routes_policy": "普通支线不直接发永久正向特性；复杂路线收官后择一授予；固有能力保留，临时准备状态不混作永久奖励。"
+}

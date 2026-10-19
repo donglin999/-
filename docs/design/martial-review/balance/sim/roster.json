@@ -1,0 +1,1548 @@
+{
+ "version": "SIM-ROSTER-2",
+ "note": "战斗模拟用人物与队伍。属性以 budget.json 阶段锚点乘职能系数；招式按取得阶段排列，重数随阶段增长；人物技能按原品阶结算（升档暂缓）。不是正式招募时间表。 装备（gear）按取得阶段配给，后得的同槽装备替换先得的；只结算 skill_mods（属性亲和、异常抗性、施加率、异常持续），基础攻防已含在阶段锚点里。 2026-10-08：各人武器按本兵器类沿品阶梯度换装（武器数值 v1）。 2026-10-08：护具、佩饰按角色定位换装（护具与佩饰数值 v1）。",
+ "stage_phase": {
+  "first_courses": "Y1",
+  "xiangyang": "Y1",
+  "year1_end": "Y1",
+  "year2_mid": "Y2",
+  "year2_end": "Y2",
+  "graduation": "Y2",
+  "travel_entry": "TRAVEL",
+  "travel_mid": "TRAVEL",
+  "chapter14": "TRAVEL",
+  "chapter17": "LATE",
+  "chapter18": "LATE",
+  "finale": "LATE"
+ },
+ "slot_cap": [
+  4,
+  4,
+  5,
+  5,
+  6,
+  6,
+  6,
+  6,
+  6,
+  6,
+  6,
+  6
+ ],
+ "roles": {
+  "striker": {
+   "hp": 0.95,
+   "atk": 1.1,
+   "def": 0.95,
+   "spd": 11,
+   "wis": 0
+  },
+  "breaker": {
+   "hp": 1.05,
+   "atk": 1.05,
+   "def": 1.0,
+   "spd": 9,
+   "wis": 0
+  },
+  "tank": {
+   "hp": 1.25,
+   "atk": 0.85,
+   "def": 1.25,
+   "spd": 8,
+   "wis": 0
+  },
+  "healer": {
+   "hp": 0.9,
+   "atk": 0.8,
+   "def": 0.9,
+   "spd": 10,
+   "wis": 4
+  },
+  "support": {
+   "hp": 1.0,
+   "atk": 0.9,
+   "def": 1.0,
+   "spd": 10,
+   "wis": 2
+  }
+ },
+ "members": {
+  "xiao_s": {
+   "name": "萧白·剑",
+   "role": "striker",
+   "weapon": "剑",
+   "moves": [
+    [
+     "gy_s1",
+     "Y1"
+    ],
+    [
+     "gy_s2",
+     "Y1+"
+    ],
+    [
+     "gy_s3",
+     "Y2"
+    ],
+    [
+     "gy_s4",
+     "TRAVEL"
+    ],
+    [
+     "gy_s4b",
+     "TRAVEL"
+    ],
+    [
+     "gy_s5a",
+     "LATE"
+    ],
+    [
+     "gy_s5b",
+     "LATE"
+    ],
+    [
+     "gy_s5",
+     "LATE"
+    ]
+   ],
+   "hearts": [
+    [
+     "xf_tuna",
+     "Y1",
+     "main"
+    ],
+    [
+     "xf_guiyun",
+     "Y1+",
+     "main"
+    ],
+    [
+     "xf_guanlan",
+     "Y2",
+     "sub"
+    ],
+    [
+     "xf_wanhe",
+     "LATE",
+     "main"
+    ]
+   ],
+   "gear": [
+    [
+     "eq_practice_sword",
+     "Y1"
+    ],
+    [
+     "eq_clear_sword",
+     "Y1+"
+    ],
+    [
+     "eq_cloud_sword",
+     "Y2"
+    ],
+    [
+     "eq_return_sword",
+     "LATE"
+    ],
+    [
+     "eq_plain_robe",
+     "Y1"
+    ],
+    [
+     "eq_padded_coat",
+     "Y1+"
+    ],
+    [
+     "eq_sword_coat",
+     "Y2"
+    ],
+    [
+     "eq_cloud_shirt",
+     "TRAVEL"
+    ],
+    [
+     "eq_cloud_tassel",
+     "Y2"
+    ],
+    [
+     "eq_gilt_waist_tag",
+     "TRAVEL"
+    ],
+    [
+     "eq_home_token",
+     "LATE"
+    ]
+   ]
+  },
+  "xiao_p": {
+   "name": "萧白·拳掌",
+   "role": "breaker",
+   "weapon": "拳",
+   "moves": [
+    [
+     "gy_p1",
+     "Y1"
+    ],
+    [
+     "gy_p2",
+     "Y1+"
+    ],
+    [
+     "gy_p3",
+     "Y2"
+    ],
+    [
+     "gy_p4",
+     "TRAVEL"
+    ],
+    [
+     "gy_p4b",
+     "TRAVEL"
+    ],
+    [
+     "gy_p5a",
+     "LATE"
+    ],
+    [
+     "gy_p5b",
+     "LATE"
+    ],
+    [
+     "gy_p5",
+     "LATE"
+    ]
+   ],
+   "hearts": [
+    [
+     "xf_tuna",
+     "Y1",
+     "main"
+    ],
+    [
+     "xf_guiyun",
+     "Y1+",
+     "main"
+    ],
+    [
+     "xf_hengliang",
+     "Y2",
+     "sub"
+    ],
+    [
+     "xf_wanhe",
+     "LATE",
+     "main"
+    ]
+   ],
+   "gear": [
+    [
+     "eq_wrap",
+     "Y1"
+    ],
+    [
+     "eq_brace",
+     "Y2"
+    ],
+    [
+     "eq_heavy_brace",
+     "TRAVEL"
+    ],
+    [
+     "eq_plain_robe",
+     "Y1"
+    ],
+    [
+     "eq_padded_coat",
+     "Y1+"
+    ],
+    [
+     "eq_guard_vest",
+     "Y2"
+    ],
+    [
+     "eq_iron_scale",
+     "TRAVEL"
+    ],
+    [
+     "eq_guard_buckle",
+     "Y2"
+    ],
+    [
+     "eq_bell_rope",
+     "TRAVEL"
+    ]
+   ]
+  },
+  "ye_pre": {
+   "name": "叶蘅·分支前",
+   "role": "healer",
+   "weapon": "医具",
+   "moves": [
+    [
+     "yh_s0",
+     "Y1"
+    ]
+   ],
+   "hearts": [
+    [
+     "xf_tuna",
+     "Y1+",
+     "main"
+    ]
+   ],
+   "until": "Y1",
+   "gear": [
+    [
+     "eq_medical_kit",
+     "Y1"
+    ],
+    [
+     "eq_padded_coat",
+     "Y1+"
+    ],
+    [
+     "eq_medical_robe",
+     "Y2"
+    ],
+    [
+     "eq_herb_weave",
+     "TRAVEL"
+    ],
+    [
+     "eq_sandal_beads",
+     "Y1+"
+    ],
+    [
+     "eq_crane_jade",
+     "TRAVEL"
+    ]
+   ]
+  },
+  "ye_needle": {
+   "name": "叶蘅·针攻",
+   "role": "striker",
+   "weapon": "暗器",
+   "moves": [
+    [
+     "yh_s0",
+     "Y1"
+    ],
+    [
+     "yh_n1",
+     "Y2"
+    ],
+    [
+     "yh_n2",
+     "Y2"
+    ],
+    [
+     "yh_n3",
+     "TRAVEL"
+    ]
+   ],
+   "hearts": [
+    [
+     "xf_tuna",
+     "Y1",
+     "main"
+    ],
+    [
+     "xf_guanlan",
+     "Y2",
+     "sub"
+    ],
+    [
+     "xf_guixi",
+     "TRAVEL",
+     "main"
+    ]
+   ],
+   "from": "Y2",
+   "gear": [
+    [
+     "eq_needle_roll",
+     "Y1"
+    ],
+    [
+     "eq_thread_needle",
+     "Y2"
+    ],
+    [
+     "eq_return_needle",
+     "TRAVEL"
+    ],
+    [
+     "eq_plain_robe",
+     "Y1"
+    ],
+    [
+     "eq_padded_coat",
+     "Y1+"
+    ],
+    [
+     "eq_sword_coat",
+     "Y2"
+    ],
+    [
+     "eq_cloud_shirt",
+     "TRAVEL"
+    ],
+    [
+     "eq_needle_tag",
+     "Y2"
+    ],
+    [
+     "eq_jade_thumb",
+     "TRAVEL"
+    ]
+   ]
+  },
+  "ye_med": {
+   "name": "叶蘅·医线",
+   "role": "healer",
+   "weapon": "医具",
+   "moves": [
+    [
+     "yh_s0",
+     "Y1"
+    ],
+    [
+     "yh_m1",
+     "Y2"
+    ],
+    [
+     "yh_m2",
+     "Y2"
+    ],
+    [
+     "yh_m3",
+     "TRAVEL"
+    ]
+   ],
+   "hearts": [
+    [
+     "xf_baicao",
+     "Y2",
+     "main"
+    ],
+    [
+     "xf_hemai",
+     "Y2",
+     "sub"
+    ],
+    [
+     "xf_guixi",
+     "TRAVEL",
+     "main"
+    ]
+   ],
+   "from": "Y2",
+   "gear": [
+    [
+     "eq_medical_kit",
+     "Y1"
+    ],
+    [
+     "eq_return_needle",
+     "TRAVEL"
+    ],
+    [
+     "eq_padded_coat",
+     "Y1+"
+    ],
+    [
+     "eq_medical_robe",
+     "Y2"
+    ],
+    [
+     "eq_herb_weave",
+     "TRAVEL"
+    ],
+    [
+     "eq_sandal_beads",
+     "Y1+"
+    ],
+    [
+     "eq_crane_jade",
+     "TRAVEL"
+    ]
+   ]
+  },
+  "suzhi": {
+   "name": "苏芷",
+   "role": "healer",
+   "weapon": "暗器",
+   "moves": [
+    [
+     "bh_s0",
+     "Y1"
+    ],
+    [
+     "bh_s1",
+     "Y1"
+    ],
+    [
+     "bh_s2",
+     "Y1"
+    ],
+    [
+     "bh_s3",
+     "Y2"
+    ],
+    [
+     "bh_s4",
+     "TRAVEL"
+    ],
+    [
+     "bh_s4b",
+     "TRAVEL"
+    ],
+    [
+     "bh_s5a",
+     "LATE"
+    ],
+    [
+     "bh_s5b",
+     "LATE"
+    ],
+    [
+     "bh_s5",
+     "LATE"
+    ]
+   ],
+   "hearts": [
+    [
+     "xf_baicao",
+     "Y1",
+     "main"
+    ],
+    [
+     "xf_hemai",
+     "Y2",
+     "sub"
+    ]
+   ],
+   "gear": [
+    [
+     "eq_needle_roll",
+     "Y1"
+    ],
+    [
+     "eq_thread_needle",
+     "Y2"
+    ],
+    [
+     "eq_return_needle",
+     "TRAVEL"
+    ],
+    [
+     "eq_padded_coat",
+     "Y1+"
+    ],
+    [
+     "eq_medical_robe",
+     "Y2"
+    ],
+    [
+     "eq_herb_weave",
+     "TRAVEL"
+    ],
+    [
+     "eq_needle_tag",
+     "Y2"
+    ],
+    [
+     "eq_crane_jade",
+     "TRAVEL"
+    ]
+   ]
+  },
+  "tang": {
+   "name": "唐照雪",
+   "role": "striker",
+   "weapon": "剑",
+   "moves": [
+    [
+     "zc_s1",
+     "Y1"
+    ],
+    [
+     "zc_s2",
+     "Y1"
+    ],
+    [
+     "zc_s3",
+     "Y2"
+    ],
+    [
+     "zc_s4",
+     "TRAVEL"
+    ],
+    [
+     "zc_s4b",
+     "TRAVEL"
+    ],
+    [
+     "zc_s5a",
+     "LATE"
+    ],
+    [
+     "zc_s5b",
+     "LATE"
+    ],
+    [
+     "zc_s5",
+     "LATE"
+    ]
+   ],
+   "hearts": [
+    [
+     "xf_chengjiang",
+     "Y1",
+     "main"
+    ],
+    [
+     "xf_shouxian",
+     "Y2",
+     "sub"
+    ]
+   ],
+   "gear": [
+    [
+     "eq_clear_sword",
+     "Y1"
+    ],
+    [
+     "eq_cloud_sword",
+     "Y2"
+    ],
+    [
+     "eq_sunset_sword",
+     "TRAVEL"
+    ],
+    [
+     "eq_plain_robe",
+     "Y1"
+    ],
+    [
+     "eq_padded_coat",
+     "Y1+"
+    ],
+    [
+     "eq_sword_coat",
+     "Y2"
+    ],
+    [
+     "eq_cloud_shirt",
+     "TRAVEL"
+    ],
+    [
+     "eq_tiger_claw",
+     "Y1+"
+    ],
+    [
+     "eq_jade_thumb",
+     "Y2"
+    ],
+    [
+     "eq_bell_rope",
+     "TRAVEL"
+    ]
+   ]
+  },
+  "duan": {
+   "name": "段明棠",
+   "role": "breaker",
+   "weapon": "拳",
+   "moves": [
+    [
+     "hc_s1",
+     "Y1"
+    ],
+    [
+     "hc_s3",
+     "Y2"
+    ],
+    [
+     "hc_s4b",
+     "TRAVEL"
+    ],
+    [
+     "hc_s5a",
+     "LATE"
+    ],
+    [
+     "hc_s5",
+     "LATE"
+    ]
+   ],
+   "hearts": [
+    [
+     "xf_panshi",
+     "Y1",
+     "main"
+    ],
+    [
+     "xf_hengliang",
+     "Y2",
+     "sub"
+    ]
+   ],
+   "gear": [
+    [
+     "eq_wrap",
+     "Y1"
+    ],
+    [
+     "eq_brace",
+     "Y2"
+    ],
+    [
+     "eq_heavy_brace",
+     "TRAVEL"
+    ],
+    [
+     "eq_plain_robe",
+     "Y1"
+    ],
+    [
+     "eq_padded_coat",
+     "Y1+"
+    ],
+    [
+     "eq_guard_vest",
+     "Y2"
+    ],
+    [
+     "eq_iron_scale",
+     "TRAVEL"
+    ],
+    [
+     "eq_tiger_claw",
+     "Y1+"
+    ],
+    [
+     "eq_iron_cash",
+     "Y2"
+    ],
+    [
+     "eq_bell_rope",
+     "TRAVEL"
+    ]
+   ]
+  },
+  "shi": {
+   "name": "石长庚",
+   "role": "tank",
+   "weapon": "拳",
+   "moves": [
+    [
+     "hc_s1",
+     "Y1"
+    ],
+    [
+     "hc_s2",
+     "Y1"
+    ],
+    [
+     "hc_s4",
+     "TRAVEL"
+    ],
+    [
+     "hc_s5b",
+     "LATE"
+    ]
+   ],
+   "hearts": [
+    [
+     "xf_panshi",
+     "Y1",
+     "main"
+    ],
+    [
+     "xf_hengliang",
+     "Y2",
+     "sub"
+    ]
+   ],
+   "gear": [
+    [
+     "eq_wrap",
+     "Y1"
+    ],
+    [
+     "eq_brace",
+     "Y2"
+    ],
+    [
+     "eq_heavy_brace",
+     "TRAVEL"
+    ],
+    [
+     "eq_cowhide_guard",
+     "Y1+"
+    ],
+    [
+     "eq_guard_vest",
+     "Y2"
+    ],
+    [
+     "eq_iron_scale",
+     "TRAVEL"
+    ],
+    [
+     "eq_old_mantle",
+     "LATE"
+    ],
+    [
+     "eq_iron_cash",
+     "Y2"
+    ],
+    [
+     "eq_guard_buckle",
+     "TRAVEL"
+    ],
+    [
+     "eq_suet_ring",
+     "LATE"
+    ]
+   ]
+  },
+  "wen": {
+   "name": "闻疏桐",
+   "role": "support",
+   "weapon": "剑",
+   "moves": [
+    [
+     "sf_s1",
+     "Y1"
+    ],
+    [
+     "sf_s2",
+     "Y1"
+    ],
+    [
+     "sf_s3",
+     "Y2"
+    ],
+    [
+     "sf_s4",
+     "TRAVEL"
+    ],
+    [
+     "sf_s4b",
+     "TRAVEL"
+    ],
+    [
+     "sf_s5a",
+     "LATE"
+    ],
+    [
+     "sf_s5b",
+     "LATE"
+    ],
+    [
+     "sf_s5",
+     "LATE"
+    ]
+   ],
+   "hearts": [
+    [
+     "xf_songxi",
+     "Y1",
+     "main"
+    ],
+    [
+     "xf_tingfeng",
+     "Y2",
+     "sub"
+    ]
+   ],
+   "gear": [
+    [
+     "eq_clear_sword",
+     "Y1"
+    ],
+    [
+     "eq_cloud_sword",
+     "Y2"
+    ],
+    [
+     "eq_sunset_sword",
+     "TRAVEL"
+    ],
+    [
+     "eq_padded_coat",
+     "Y1+"
+    ],
+    [
+     "eq_dancer_layer",
+     "Y2"
+    ],
+    [
+     "eq_hidden_coat",
+     "TRAVEL"
+    ],
+    [
+     "eq_route_knot",
+     "Y2"
+    ],
+    [
+     "eq_gilt_waist_tag",
+     "TRAVEL"
+    ]
+   ]
+  },
+  "cen": {
+   "name": "岑霜",
+   "role": "striker",
+   "weapon": "刀",
+   "moves": [
+    [
+     "gj_s1",
+     "Y1"
+    ],
+    [
+     "gj_s3",
+     "Y2"
+    ],
+    [
+     "gj_s5a",
+     "LATE"
+    ],
+    [
+     "gj_s5b",
+     "LATE"
+    ],
+    [
+     "gj_s5",
+     "LATE"
+    ]
+   ],
+   "hearts": [
+    [
+     "xf_cunjin",
+     "Y1",
+     "main"
+    ],
+    [
+     "xf_liulu",
+     "Y2",
+     "sub"
+    ]
+   ],
+   "gear": [
+    [
+     "eq_hidden_dagger",
+     "Y1"
+    ],
+    [
+     "eq_lock_dagger",
+     "Y2"
+    ],
+    [
+     "eq_ember_dagger",
+     "TRAVEL"
+    ],
+    [
+     "eq_plain_robe",
+     "Y1"
+    ],
+    [
+     "eq_padded_coat",
+     "Y1+"
+    ],
+    [
+     "eq_sword_coat",
+     "Y2"
+    ],
+    [
+     "eq_cloud_shirt",
+     "TRAVEL"
+    ],
+    [
+     "eq_tiger_claw",
+     "Y1+"
+    ],
+    [
+     "eq_jade_thumb",
+     "Y2"
+    ],
+    [
+     "eq_bell_rope",
+     "TRAVEL"
+    ]
+   ]
+  },
+  "qi": {
+   "name": "戚铮",
+   "role": "breaker",
+   "weapon": "刀",
+   "moves": [
+    [
+     "gj_s2",
+     "Y1"
+    ],
+    [
+     "gj_s4",
+     "TRAVEL"
+    ],
+    [
+     "gj_s4b",
+     "TRAVEL"
+    ]
+   ],
+   "hearts": [
+    [
+     "xf_cunjin",
+     "Y1",
+     "main"
+    ],
+    [
+     "xf_liulu",
+     "Y2",
+     "sub"
+    ]
+   ],
+   "gear": [
+    [
+     "eq_road_saber",
+     "Y1"
+    ],
+    [
+     "eq_ember_saber",
+     "Y2"
+    ],
+    [
+     "eq_storm_saber",
+     "TRAVEL"
+    ],
+    [
+     "eq_plain_robe",
+     "Y1"
+    ],
+    [
+     "eq_padded_coat",
+     "Y1+"
+    ],
+    [
+     "eq_guard_vest",
+     "Y2"
+    ],
+    [
+     "eq_iron_scale",
+     "TRAVEL"
+    ],
+    [
+     "eq_tiger_claw",
+     "Y1+"
+    ],
+    [
+     "eq_iron_cash",
+     "Y2"
+    ],
+    [
+     "eq_bell_rope",
+     "TRAVEL"
+    ]
+   ]
+  },
+  "xu": {
+   "name": "徐令仪",
+   "role": "support",
+   "weapon": "剑",
+   "moves": [
+    [
+     "am_s1",
+     "Y1"
+    ],
+    [
+     "am_s2",
+     "Y2"
+    ],
+    [
+     "am_s3",
+     "TRAVEL"
+    ]
+   ],
+   "hearts": [
+    [
+     "xf_tongdan",
+     "Y1",
+     "main"
+    ]
+   ],
+   "gear": [
+    [
+     "eq_clear_sword",
+     "Y1"
+    ],
+    [
+     "eq_cloud_sword",
+     "Y2"
+    ],
+    [
+     "eq_sunset_sword",
+     "TRAVEL"
+    ],
+    [
+     "eq_padded_coat",
+     "Y1+"
+    ],
+    [
+     "eq_dancer_layer",
+     "Y2"
+    ],
+    [
+     "eq_hidden_coat",
+     "TRAVEL"
+    ],
+    [
+     "eq_route_knot",
+     "Y2"
+    ],
+    [
+     "eq_kept_word",
+     "TRAVEL"
+    ]
+   ]
+  },
+  "shen": {
+   "name": "沈雁回",
+   "role": "support",
+   "weapon": "棍",
+   "moves": [
+    [
+     "pj_s1",
+     "Y1"
+    ],
+    [
+     "pj_s2",
+     "Y1"
+    ],
+    [
+     "pj_s3",
+     "Y2"
+    ],
+    [
+     "pj_s4",
+     "TRAVEL"
+    ],
+    [
+     "pj_s4b",
+     "TRAVEL"
+    ]
+   ],
+   "hearts": [
+    [
+     "xf_xunliu",
+     "Y1",
+     "main"
+    ]
+   ],
+   "gear": [
+    [
+     "eq_patrol_staff",
+     "Y1"
+    ],
+    [
+     "eq_boat_pole",
+     "Y2"
+    ],
+    [
+     "eq_lock_river_staff",
+     "TRAVEL"
+    ],
+    [
+     "eq_padded_coat",
+     "Y1+"
+    ],
+    [
+     "eq_dancer_layer",
+     "Y2"
+    ],
+    [
+     "eq_hidden_coat",
+     "TRAVEL"
+    ],
+    [
+     "eq_case_tag",
+     "Y1+"
+    ],
+    [
+     "eq_ink_seal",
+     "TRAVEL"
+    ]
+   ]
+  },
+  "lu": {
+   "name": "陆衡",
+   "role": "tank",
+   "weapon": "刀",
+   "moves": [
+    [
+     "lhg_s1",
+     "Y1"
+    ]
+   ],
+   "hearts": [
+    [
+     "xf_tuna",
+     "Y1",
+     "main"
+    ],
+    [
+     "xf_shouyi",
+     "Y2",
+     "sub"
+    ]
+   ],
+   "gear": [
+    [
+     "eq_road_saber",
+     "Y1"
+    ],
+    [
+     "eq_ember_saber",
+     "Y2"
+    ],
+    [
+     "eq_storm_saber",
+     "TRAVEL"
+    ],
+    [
+     "eq_cowhide_guard",
+     "Y1+"
+    ],
+    [
+     "eq_guard_vest",
+     "Y2"
+    ],
+    [
+     "eq_iron_scale",
+     "TRAVEL"
+    ],
+    [
+     "eq_old_mantle",
+     "LATE"
+    ],
+    [
+     "eq_iron_cash",
+     "Y2"
+    ],
+    [
+     "eq_guard_buckle",
+     "TRAVEL"
+    ],
+    [
+     "eq_suet_ring",
+     "LATE"
+    ]
+   ]
+  },
+  "yan": {
+   "name": "晏小楼",
+   "role": "striker",
+   "weapon": "暗器",
+   "moves": [
+    [
+     "yl_s1",
+     "Y1"
+    ],
+    [
+     "yl_s2",
+     "TRAVEL"
+    ]
+   ],
+   "hearts": [
+    [
+     "xf_tuna",
+     "Y1",
+     "main"
+    ],
+    [
+     "xf_tingfeng",
+     "Y2",
+     "sub"
+    ]
+   ],
+   "gear": [
+    [
+     "eq_needle_roll",
+     "Y1"
+    ],
+    [
+     "eq_throwing_blades",
+     "Y2"
+    ],
+    [
+     "eq_return_needle",
+     "TRAVEL"
+    ],
+    [
+     "eq_plain_robe",
+     "Y1"
+    ],
+    [
+     "eq_padded_coat",
+     "Y1+"
+    ],
+    [
+     "eq_sword_coat",
+     "Y2"
+    ],
+    [
+     "eq_cloud_shirt",
+     "TRAVEL"
+    ],
+    [
+     "eq_tiger_claw",
+     "Y1+"
+    ],
+    [
+     "eq_jade_thumb",
+     "Y2"
+    ],
+    [
+     "eq_bell_rope",
+     "TRAVEL"
+    ]
+   ]
+  },
+  "liu_q": {
+   "name": "柳含烟·琴",
+   "role": "support",
+   "weapon": "琴",
+   "from": "TRAVEL",
+   "moves": [
+    [
+     "lh_s1",
+     "TRAVEL"
+    ],
+    [
+     "lh_s2",
+     "TRAVEL"
+    ],
+    [
+     "hui_q1",
+     "TRAVEL"
+    ],
+    [
+     "hui_q2",
+     "TRAVEL"
+    ],
+    [
+     "hui_q3",
+     "TRAVEL+"
+    ],
+    [
+     "hui_q4a",
+     "LATE"
+    ],
+    [
+     "hui_q4b",
+     "LATE"
+    ],
+    [
+     "hui_q5a",
+     "LATE"
+    ],
+    [
+     "hui_q5b",
+     "LATE"
+    ],
+    [
+     "hui_q5",
+     "LATE"
+    ]
+   ],
+   "hearts": [
+    [
+     "xf_tuna",
+     "TRAVEL",
+     "main"
+    ],
+    [
+     "xf_qinghui",
+     "TRAVEL",
+     "main"
+    ],
+    [
+     "xf_xisheng",
+     "TRAVEL+",
+     "sub"
+    ]
+   ],
+   "gear": [
+    [
+     "eq_qin_practice",
+     "Y1"
+    ],
+    [
+     "eq_qin_night",
+     "Y2"
+    ],
+    [
+     "eq_jade_hui_qin",
+     "TRAVEL"
+    ],
+    [
+     "eq_padded_coat",
+     "Y1+"
+    ],
+    [
+     "eq_dancer_layer",
+     "Y2"
+    ],
+    [
+     "eq_hidden_coat",
+     "TRAVEL"
+    ],
+    [
+     "eq_lamp_pendant",
+     "TRAVEL"
+    ],
+    [
+     "eq_dragonfly_pin",
+     "LATE"
+    ]
+   ]
+  },
+  "hui_di": {
+   "name": "清徽弟子·笛（模拟用，非招募）",
+   "role": "support",
+   "weapon": "笛",
+   "from": "TRAVEL",
+   "moves": [
+    [
+     "hui_d1",
+     "TRAVEL"
+    ],
+    [
+     "hui_d2",
+     "TRAVEL"
+    ],
+    [
+     "hui_d3",
+     "TRAVEL+"
+    ],
+    [
+     "hui_d4a",
+     "LATE"
+    ],
+    [
+     "hui_d4b",
+     "LATE"
+    ],
+    [
+     "hui_d5a",
+     "LATE"
+    ],
+    [
+     "hui_d5b",
+     "LATE"
+    ],
+    [
+     "hui_d5",
+     "LATE"
+    ]
+   ],
+   "hearts": [
+    [
+     "xf_qinghui",
+     "TRAVEL",
+     "main"
+    ],
+    [
+     "xf_xisheng",
+     "TRAVEL+",
+     "sub"
+    ]
+   ],
+   "gear": [
+    [
+     "eq_flute_bamboo",
+     "Y1"
+    ],
+    [
+     "eq_flute_bamboo",
+     "Y2"
+    ],
+    [
+     "eq_flute_guanshan",
+     "TRAVEL"
+    ],
+    [
+     "eq_padded_coat",
+     "Y1+"
+    ],
+    [
+     "eq_dancer_layer",
+     "Y2"
+    ],
+    [
+     "eq_hidden_coat",
+     "TRAVEL"
+    ],
+    [
+     "eq_route_knot",
+     "Y2"
+    ],
+    [
+     "eq_gilt_waist_tag",
+     "TRAVEL"
+    ]
+   ]
+  }
+ },
+ "parties": {
+  "稳定入门": [
+   "xiao_s",
+   "suzhi",
+   "lu",
+   "ye_needle"
+  ],
+  "破势爆发": [
+   "xiao_s",
+   "duan",
+   "tang",
+   "ye_needle"
+  ],
+  "稳守游历": [
+   "xiao_p",
+   "shi",
+   "ye_med",
+   "xu"
+  ],
+  "松风接应": [
+   "wen",
+   "xiao_s",
+   "suzhi",
+   "shen"
+  ],
+  "归烬强攻": [
+   "cen",
+   "qi",
+   "xiao_s",
+   "suzhi"
+  ],
+  "清徽和鸣": [
+   "liu_q",
+   "xiao_s",
+   "tang",
+   "suzhi"
+  ],
+  "清徽笛阵": [
+   "hui_di",
+   "xiao_p",
+   "duan",
+   "ye_med"
+  ]
+ },
+ "early_substitutes": {
+  "ye_needle": "ye_pre",
+  "ye_med": "ye_pre",
+  "liu_q": "lu",
+  "hui_di": "shen"
+ }
+}

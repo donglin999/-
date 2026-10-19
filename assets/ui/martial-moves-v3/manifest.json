@@ -1,0 +1,1479 @@
+{
+  "version": "MOVE-ICON-3",
+  "expected": 64,
+  "generated": 64,
+  "records": [
+    {
+      "id": "gy_s1",
+      "name": "试锋探路",
+      "path": "assets/ui/martial-moves-v3/gy_s1.png",
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGBA",
+      "sha256": "d68d53fd3f247ba6bf0884d4cdde664c8336b7ef9ef80d5a8319e4d3b0eaada8",
+      "source": "art_sources/martial_icons_tiers_v1/icon_gy_s1-v1.png",
+      "source_sha256": "7856a1d7473da5dee17b783b79da415cbf292e258fab153f310345f3390b580f",
+      "source_tool": "built-in image_gen",
+      "processing": "transparent trim + uniform Lanczos resize to longest edge384 + 512 clear frame",
+      "margins": [
+        71,
+        87,
+        83,
+        68
+      ],
+      "original_approval": "user_approved_style_sample",
+      "visual_review": "agent_contact_sheet_review_passed; not_user_approval"
+    },
+    {
+      "id": "gy_s2",
+      "name": "拨云回锋",
+      "path": "assets/ui/martial-moves-v3/gy_s2.png",
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGBA",
+      "sha256": "3df6c979099b2076593e453735180a42ef2121237e4c479b8490fc25ed46f228",
+      "source": "art_sources/martial_icons_tiers_v1/icon_gy_s2-v1.png",
+      "source_sha256": "794fa9652d95ee57587dab87e1aef72af5753dccd6fb742904c284e0ab302c55",
+      "source_tool": "built-in image_gen",
+      "processing": "transparent trim + uniform Lanczos resize to longest edge384 + 512 clear frame",
+      "margins": [
+        75,
+        73,
+        79,
+        69
+      ],
+      "original_approval": "user_approved_style_sample",
+      "visual_review": "agent_contact_sheet_review_passed; not_user_approval"
+    },
+    {
+      "id": "gy_s3",
+      "name": "一线开晴",
+      "path": "assets/ui/martial-moves-v3/gy_s3.png",
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGBA",
+      "sha256": "cac982af09eda3c8834027aee9102279a0ac1cbe7e0ccfc60bf5c3fd76dcf970",
+      "source": "art_sources/martial_icons_tiers_v1/icon_gy_s3-v1.png",
+      "source_sha256": "d3f3f1a865b4aed5adb3ac3fe804d7376726423880ac12c72fba24e5d49994f5",
+      "source_tool": "built-in image_gen",
+      "processing": "transparent trim + uniform Lanczos resize to longest edge384 + 512 clear frame",
+      "margins": [
+        112,
+        72,
+        85,
+        107
+      ],
+      "original_approval": "user_approved_style_sample",
+      "visual_review": "agent_contact_sheet_review_passed; not_user_approval"
+    },
+    {
+      "id": "gy_s4",
+      "name": "千岚归一",
+      "path": "assets/ui/martial-moves-v3/gy_s4.png",
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGBA",
+      "sha256": "cb36005aacf20de07990432553b296c8e5838c79ba511cdb699e6b26773d6a70",
+      "source": "art_sources/martial_icons_tiers_v1/icon_gy_s4-v1.png",
+      "source_sha256": "af73a88fa2557063e6373dee50ccb7d4e0bc53482d0cce8fc9582a97e7263ba9",
+      "source_tool": "built-in image_gen",
+      "processing": "transparent trim + uniform Lanczos resize to longest edge384 + 512 clear frame",
+      "margins": [
+        64,
+        83,
+        72,
+        73
+      ],
+      "original_approval": "user_approved_style_sample",
+      "visual_review": "agent_contact_sheet_review_passed; not_user_approval"
+    },
+    {
+      "id": "gy_s5",
+      "name": "云开见山",
+      "path": "assets/ui/martial-moves-v3/gy_s5.png",
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGBA",
+      "sha256": "ed247be72a37e229493ff5d32d2427078ca9fa70f451833ba3e7da9f9267822e",
+      "source": "art_sources/martial_icons_tiers_v1/icon_gy_s5-v1.png",
+      "source_sha256": "05d2d2c088cdbf39f094f283d642c95e794c5ac1c6f80ec1e7dc5efc0ae9b07c",
+      "source_tool": "built-in image_gen",
+      "processing": "transparent trim + uniform Lanczos resize to longest edge384 + 512 clear frame",
+      "margins": [
+        64,
+        74,
+        67,
+        75
+      ],
+      "original_approval": "user_approved_style_sample",
+      "visual_review": "agent_contact_sheet_review_passed; not_user_approval"
+    },
+    {
+      "id": "gy_p1",
+      "name": "守拙立桩",
+      "path": "assets/ui/martial-moves-v3/gy_p1.png",
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGBA",
+      "sha256": "07f08844ba42abc2701183331a403ab55243a55bf8a6352327f9a290dd5df8db",
+      "source": "art_sources/martial_icons_full_v1/icon_gy_p1-v2.png",
+      "source_sha256": "f601521212920f50e8d0b905b1d9d8f20a5032657cbea528bc54a4c4c597d071",
+      "source_tool": "built-in image_gen",
+      "processing": "transparent trim + uniform Lanczos resize to longest edge384 + 512 clear frame",
+      "margins": [
+        64,
+        76,
+        89,
+        80
+      ],
+      "original_approval": null,
+      "visual_review": "agent_contact_sheet_review_passed; not_user_approval"
+    },
+    {
+      "id": "gy_p2",
+      "name": "回岚步",
+      "path": "assets/ui/martial-moves-v3/gy_p2.png",
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGBA",
+      "sha256": "54d6abee2c204b2ad86d3deda9c94242574a8a69b7f94457d892b7eee41918db",
+      "source": "art_sources/martial_icons_full_v1/icon_gy_p2-v1.png",
+      "source_sha256": "7c212bb44fdfb6a99864881961d3e6ee84f17c98de9cb609e76905b2f946ff7a",
+      "source_tool": "built-in image_gen",
+      "processing": "transparent trim + uniform Lanczos resize to longest edge384 + 512 clear frame",
+      "margins": [
+        70,
+        68,
+        75,
+        66
+      ],
+      "original_approval": null,
+      "visual_review": "agent_contact_sheet_review_passed; not_user_approval"
+    },
+    {
+      "id": "gy_p3",
+      "name": "叠岚掌",
+      "path": "assets/ui/martial-moves-v3/gy_p3.png",
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGBA",
+      "sha256": "1d2fabcda1d8fcd63e5f6103cc14b7853a7ac33401144165a5b8fb1566b45f18",
+      "source": "art_sources/martial_icons_full_v1/icon_gy_p3-v1.png",
+      "source_sha256": "247148de4f5a99ad07b438c5cd1bfad33e127c38eec35b4a7eadcb77e82f5f5e",
+      "source_tool": "built-in image_gen",
+      "processing": "transparent trim + uniform Lanczos resize to longest edge384 + 512 clear frame",
+      "margins": [
+        80,
+        70,
+        69,
+        98
+      ],
+      "original_approval": null,
+      "visual_review": "agent_contact_sheet_review_passed; not_user_approval"
+    },
+    {
+      "id": "gy_p4",
+      "name": "抱山还岳",
+      "path": "assets/ui/martial-moves-v3/gy_p4.png",
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGBA",
+      "sha256": "3f8c9cf5ea62c86b32b60ce06414d374154f06b29df97d11f6a151d4ca681e06",
+      "source": "art_sources/martial_icons_full_v1/icon_gy_p4-v1.png",
+      "source_sha256": "9cb1fa2e0e942c6bf70316bd2eb306412c56259aea832a56007a1e78500ef4ba",
+      "source_tool": "built-in image_gen",
+      "processing": "transparent trim + uniform Lanczos resize to longest edge384 + 512 clear frame",
+      "margins": [
+        74,
+        64,
+        67,
+        86
+      ],
+      "original_approval": null,
+      "visual_review": "agent_contact_sheet_review_passed; not_user_approval"
+    },
+    {
+      "id": "gy_p5",
+      "name": "万壑回响",
+      "path": "assets/ui/martial-moves-v3/gy_p5.png",
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGBA",
+      "sha256": "39fb8cb40e3c55a98f069b3744dee7a52ccdaf243b694e9fd7e0abc0a2b59a56",
+      "source": "art_sources/martial_icons_full_v1/icon_gy_p5-v1.png",
+      "source_sha256": "a72ddb57f9251571d0b701145d557601e4d560e1b419fe8f1301afd74b31c9fd",
+      "source_tool": "built-in image_gen",
+      "processing": "transparent trim + uniform Lanczos resize to longest edge384 + 512 clear frame",
+      "margins": [
+        68,
+        76,
+        65,
+        112
+      ],
+      "original_approval": null,
+      "visual_review": "agent_contact_sheet_review_passed; not_user_approval"
+    },
+    {
+      "id": "bh_s1",
+      "name": "金针刺穴",
+      "path": "assets/ui/martial-moves-v3/bh_s1.png",
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGBA",
+      "sha256": "d370785dab2d5f3677f5c4d1d5956048de77ccb4e8fdde65d99368a9b8fbd60b",
+      "source": "art_sources/martial_icons_full_v1/icon_bh_s1-v2.png",
+      "source_sha256": "c8ec0bd910cf099b43808375aee5656967bf4ff37428d76ee67b19e6966cb4d8",
+      "source_tool": "built-in image_gen",
+      "processing": "transparent trim + uniform Lanczos resize to longest edge384 + 512 clear frame",
+      "margins": [
+        99,
+        67,
+        76,
+        72
+      ],
+      "original_approval": "agent_visual_review_passed_pending_user",
+      "visual_review": "agent_contact_sheet_review_passed; not_user_approval"
+    },
+    {
+      "id": "bh_s2",
+      "name": "回春散",
+      "path": "assets/ui/martial-moves-v3/bh_s2.png",
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGBA",
+      "sha256": "65b73780eec0c8cfd1baf2770bbc225516848cedadf71748d46e403c3d011e54",
+      "source": "art_sources/martial_icons_full_v1/icon_bh_s2-v1.png",
+      "source_sha256": "88be62768ba06ea3af4a73ff1b13e3bba4ce9840427e1a655487efa154317b1f",
+      "source_tool": "built-in image_gen",
+      "processing": "transparent trim + uniform Lanczos resize to longest edge384 + 512 clear frame",
+      "margins": [
+        71,
+        65,
+        65,
+        71
+      ],
+      "original_approval": null,
+      "visual_review": "agent_contact_sheet_review_passed; not_user_approval"
+    },
+    {
+      "id": "bh_s3",
+      "name": "净脉针",
+      "path": "assets/ui/martial-moves-v3/bh_s3.png",
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGBA",
+      "sha256": "a71f6267923b74db2f8a087a54503b6123b20bf8e00baeee9f616327a08ed700",
+      "source": "art_sources/martial_icons_full_v1/icon_bh_s3-v1.png",
+      "source_sha256": "1b6cfa162fb2d0514f6fcd42b24cf438c3e826a8f2c1746bc4abf260cedd4e33",
+      "source_tool": "built-in image_gen",
+      "processing": "transparent trim + uniform Lanczos resize to longest edge384 + 512 clear frame",
+      "margins": [
+        82,
+        73,
+        92,
+        89
+      ],
+      "original_approval": null,
+      "visual_review": "agent_contact_sheet_review_passed; not_user_approval"
+    },
+    {
+      "id": "bh_s4",
+      "name": "百草回生",
+      "path": "assets/ui/martial-moves-v3/bh_s4.png",
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGBA",
+      "sha256": "13c1427410ef0006d3c1b6c6ccaf129e4cd4b5e6f22377d1db6b2dd19d29f93d",
+      "source": "art_sources/martial_icons_full_v1/icon_bh_s4-v1.png",
+      "source_sha256": "0b8b71c61b2f5dd825249f9533df7af1b1d96b6a9ee6bb2a27ceeba8f84ff627",
+      "source_tool": "built-in image_gen",
+      "processing": "transparent trim + uniform Lanczos resize to longest edge384 + 512 clear frame",
+      "margins": [
+        64,
+        65,
+        78,
+        72
+      ],
+      "original_approval": null,
+      "visual_review": "agent_contact_sheet_review_passed; not_user_approval"
+    },
+    {
+      "id": "bh_s5",
+      "name": "一息相续",
+      "path": "assets/ui/martial-moves-v3/bh_s5.png",
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGBA",
+      "sha256": "ea786a693dac5345bad45ff3513443cf3068b81da15158706e251e777f697dd2",
+      "source": "art_sources/martial_icons_full_v1/icon_bh_s5-v1.png",
+      "source_sha256": "9e7eefe759a62c868248bde9b4dde1827b617b0d7d2e20450bfbb40bfd40d103",
+      "source_tool": "built-in image_gen",
+      "processing": "transparent trim + uniform Lanczos resize to longest edge384 + 512 clear frame",
+      "margins": [
+        64,
+        77,
+        64,
+        70
+      ],
+      "original_approval": null,
+      "visual_review": "agent_contact_sheet_review_passed; not_user_approval"
+    },
+    {
+      "id": "zc_s1",
+      "name": "照水起锋",
+      "path": "assets/ui/martial-moves-v3/zc_s1.png",
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGBA",
+      "sha256": "d2f1b90140948c3067530e6253bedee16db639e6934b080e3c74780c48350d37",
+      "source": "art_sources/martial_icons_full_v1/icon_zc_s1-v1.png",
+      "source_sha256": "189160b695b20f4e0321ad4e01d367d5b1ddff28aa5bd6ef0437a4bb8d6db2f1",
+      "source_tool": "built-in image_gen",
+      "processing": "transparent trim + uniform Lanczos resize to longest edge384 + 512 clear frame",
+      "margins": [
+        81,
+        69,
+        96,
+        71
+      ],
+      "original_approval": null,
+      "visual_review": "agent_contact_sheet_review_passed; not_user_approval"
+    },
+    {
+      "id": "zc_s2",
+      "name": "折光三叠",
+      "path": "assets/ui/martial-moves-v3/zc_s2.png",
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGBA",
+      "sha256": "8ed97f7740428f2428987bf5efd1b0430053bfaf07ae542be4960ab3250c11d0",
+      "source": "art_sources/martial_icons_full_v1/icon_zc_s2-v1.png",
+      "source_sha256": "4dda7bf0249ea2ed7a2856c9d002a6269145006a5236a83ddb62320985d78ac6",
+      "source_tool": "built-in image_gen",
+      "processing": "transparent trim + uniform Lanczos resize to longest edge384 + 512 clear frame",
+      "margins": [
+        71,
+        73,
+        75,
+        68
+      ],
+      "original_approval": null,
+      "visual_review": "agent_contact_sheet_review_passed; not_user_approval"
+    },
+    {
+      "id": "zc_s3",
+      "name": "问隙挑灯",
+      "path": "assets/ui/martial-moves-v3/zc_s3.png",
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGBA",
+      "sha256": "8f78621f81215ec317085a5e4efb8cf9d58985d3f8257e983b63c73fbda3dae8",
+      "source": "art_sources/martial_icons_full_v1/icon_zc_s3-v1.png",
+      "source_sha256": "42bf1f6bda337c74c881e2090ad6726295c08d9bd8eecf70256aaa6955ab445b",
+      "source_tool": "built-in image_gen",
+      "processing": "transparent trim + uniform Lanczos resize to longest edge384 + 512 clear frame",
+      "margins": [
+        94,
+        75,
+        75,
+        81
+      ],
+      "original_approval": null,
+      "visual_review": "agent_contact_sheet_review_passed; not_user_approval"
+    },
+    {
+      "id": "zc_s4",
+      "name": "照川落日",
+      "path": "assets/ui/martial-moves-v3/zc_s4.png",
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGBA",
+      "sha256": "c99939eadb0f0892bd4bf32bfc8fc3eee1a53cca663e49855398ec299d4917a9",
+      "source": "art_sources/martial_icons_full_v1/icon_zc_s4-v1.png",
+      "source_sha256": "cd56194be82287247e134a867b419fd21bebee5ef809332465d1ef6005fc7c65",
+      "source_tool": "built-in image_gen",
+      "processing": "transparent trim + uniform Lanczos resize to longest edge384 + 512 clear frame",
+      "margins": [
+        84,
+        69,
+        71,
+        74
+      ],
+      "original_approval": null,
+      "visual_review": "agent_contact_sheet_review_passed; not_user_approval"
+    },
+    {
+      "id": "zc_s5",
+      "name": "一剑澄江",
+      "path": "assets/ui/martial-moves-v3/zc_s5.png",
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGBA",
+      "sha256": "86e87c3c9fe53f379a8cab66344f239209b5bc3ee4db2988be42828b4b38370e",
+      "source": "art_sources/martial_icons_full_v1/icon_zc_s5-v1.png",
+      "source_sha256": "5b20db108eb3ff635b515c7452786e9f9543a5f968d963eb131af7e35cc655b3",
+      "source_tool": "built-in image_gen",
+      "processing": "transparent trim + uniform Lanczos resize to longest edge384 + 512 clear frame",
+      "margins": [
+        64,
+        70,
+        64,
+        87
+      ],
+      "original_approval": null,
+      "visual_review": "agent_contact_sheet_review_passed; not_user_approval"
+    },
+    {
+      "id": "hc_s1",
+      "name": "落桩拳",
+      "path": "assets/ui/martial-moves-v3/hc_s1.png",
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGBA",
+      "sha256": "7b1e7a9bbfda623c15bc3cf6a272046156217120110cb2609ad3d8b9a371a3f0",
+      "source": "art_sources/martial_icons_full_v1/icon_hc_s1-v1.png",
+      "source_sha256": "98214ceadc2a3b48b202d42db701894f0d0d4850e47c381a2c621b19233dc089",
+      "source_tool": "built-in image_gen",
+      "processing": "transparent trim + uniform Lanczos resize to longest edge384 + 512 clear frame",
+      "margins": [
+        92,
+        76,
+        95,
+        87
+      ],
+      "original_approval": null,
+      "visual_review": "agent_contact_sheet_review_passed; not_user_approval"
+    },
+    {
+      "id": "hc_s2",
+      "name": "横肩护人",
+      "path": "assets/ui/martial-moves-v3/hc_s2.png",
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGBA",
+      "sha256": "54c9d31b352fc5a632787b83473b23798c3ce13b51f51a2020b2fed3b2fa5046",
+      "source": "art_sources/martial_icons_full_v1/icon_hc_s2-v1.png",
+      "source_sha256": "8b88405eb229aa139125db9b30f0a3998b4989a50832530b8c7cff4805f1d4d7",
+      "source_tool": "built-in image_gen",
+      "processing": "transparent trim + uniform Lanczos resize to longest edge384 + 512 clear frame",
+      "margins": [
+        78,
+        76,
+        64,
+        81
+      ],
+      "original_approval": null,
+      "visual_review": "agent_contact_sheet_review_passed; not_user_approval"
+    },
+    {
+      "id": "hc_s3",
+      "name": "崩石短打",
+      "path": "assets/ui/martial-moves-v3/hc_s3.png",
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGBA",
+      "sha256": "d9ecd0ef75348b731d2f5683caa376ab9ecda71048cdcf851aad7e5a7aefabad",
+      "source": "art_sources/martial_icons_full_v1/icon_hc_s3-v1.png",
+      "source_sha256": "9a2e58f5d393087d09f89f94d0c165029e962f0ad8640c0cc98dd588a41b24c9",
+      "source_tool": "built-in image_gen",
+      "processing": "transparent trim + uniform Lanczos resize to longest edge384 + 512 clear frame",
+      "margins": [
+        83,
+        72,
+        92,
+        82
+      ],
+      "original_approval": null,
+      "visual_review": "agent_contact_sheet_review_passed; not_user_approval"
+    },
+    {
+      "id": "hc_s4",
+      "name": "合川撑岳",
+      "path": "assets/ui/martial-moves-v3/hc_s4.png",
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGBA",
+      "sha256": "7298fb5b127bd41ec8e7d2688e52d7812ca91a70a1ce05b07837c9d25aff9d34",
+      "source": "art_sources/martial_icons_full_v1/icon_hc_s4-v1.png",
+      "source_sha256": "9e8aa6a87cc6da547bd61c1a4f3ba4fe9efc0d1f8529c25bd13b8e98e53f3ea4",
+      "source_tool": "built-in image_gen",
+      "processing": "transparent trim + uniform Lanczos resize to longest edge384 + 512 clear frame",
+      "margins": [
+        73,
+        88,
+        69,
+        92
+      ],
+      "original_approval": null,
+      "visual_review": "agent_contact_sheet_review_passed; not_user_approval"
+    },
+    {
+      "id": "hc_s5",
+      "name": "百步震关",
+      "path": "assets/ui/martial-moves-v3/hc_s5.png",
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGBA",
+      "sha256": "538e2855981d2ca5b98278898e428c39d8ba4df99bb1ab357d19b2bee8b11559",
+      "source": "art_sources/martial_icons_full_v1/icon_hc_s5-v1.png",
+      "source_sha256": "a0fe4f689fd2608503bc7eb50aaa53d0d38c9e10aac6679b842a22447f4e9107",
+      "source_tool": "built-in image_gen",
+      "processing": "transparent trim + uniform Lanczos resize to longest edge384 + 512 clear frame",
+      "margins": [
+        71,
+        64,
+        66,
+        74
+      ],
+      "original_approval": null,
+      "visual_review": "agent_contact_sheet_review_passed; not_user_approval"
+    },
+    {
+      "id": "sf_s1",
+      "name": "松间错步",
+      "path": "assets/ui/martial-moves-v3/sf_s1.png",
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGBA",
+      "sha256": "e970bb0db00af54482c4425ba2525b1c986ba6ecd26012ea5255076e3804374d",
+      "source": "art_sources/martial_icons_full_v1/icon_sf_s1-v1.png",
+      "source_sha256": "49c1ebf6bf0da25a899ed85db6b6cb74569c1179aaeaf99ad38b26406e549640",
+      "source_tool": "built-in image_gen",
+      "processing": "transparent trim + uniform Lanczos resize to longest edge384 + 512 clear frame",
+      "margins": [
+        94,
+        90,
+        65,
+        67
+      ],
+      "original_approval": null,
+      "visual_review": "agent_contact_sheet_review_passed; not_user_approval"
+    },
+    {
+      "id": "sf_s2",
+      "name": "引枝卸锋",
+      "path": "assets/ui/martial-moves-v3/sf_s2.png",
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGBA",
+      "sha256": "690a33ad1fd52d3850294bdfcb35631666838aaa8974c9131d8de117697e1edb",
+      "source": "art_sources/martial_icons_full_v1/icon_sf_s2-v1.png",
+      "source_sha256": "fb532cdab99382b2f7fab52e85620ff0f2a962d30be34cf3b12072941608dbbc",
+      "source_tool": "built-in image_gen",
+      "processing": "transparent trim + uniform Lanczos resize to longest edge384 + 512 clear frame",
+      "margins": [
+        74,
+        64,
+        79,
+        80
+      ],
+      "original_approval": null,
+      "visual_review": "agent_contact_sheet_review_passed; not_user_approval"
+    },
+    {
+      "id": "sf_s3",
+      "name": "三径相援",
+      "path": "assets/ui/martial-moves-v3/sf_s3.png",
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGBA",
+      "sha256": "eba48f2c9eb71a4e2a263fd509d1638968b64c4a9f1b15e20645c64d516429cc",
+      "source": "art_sources/martial_icons_full_v1/icon_sf_s3-v1.png",
+      "source_sha256": "1055a354642fe51340a3d75e22ea828a7238d7526b2dfd2d5878b4b75c49d694",
+      "source_tool": "built-in image_gen",
+      "processing": "transparent trim + uniform Lanczos resize to longest edge384 + 512 clear frame",
+      "margins": [
+        85,
+        73,
+        75,
+        97
+      ],
+      "original_approval": null,
+      "visual_review": "agent_contact_sheet_review_passed; not_user_approval"
+    },
+    {
+      "id": "sf_s4",
+      "name": "松涛合阵",
+      "path": "assets/ui/martial-moves-v3/sf_s4.png",
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGBA",
+      "sha256": "dcebff2ab4915f32f165544b6ab7d6988835bae6c84c0387c312189fdf62e98f",
+      "source": "art_sources/martial_icons_full_v1/icon_sf_s4-v1.png",
+      "source_sha256": "6d857724f590fabe51ace2462af682a36736fd427e849f486b0bcd1d4cb9dc0f",
+      "source_tool": "built-in image_gen",
+      "processing": "transparent trim + uniform Lanczos resize to longest edge384 + 512 clear frame",
+      "margins": [
+        71,
+        77,
+        71,
+        69
+      ],
+      "original_approval": null,
+      "visual_review": "agent_contact_sheet_review_passed; not_user_approval"
+    },
+    {
+      "id": "sf_s5",
+      "name": "万籁归松",
+      "path": "assets/ui/martial-moves-v3/sf_s5.png",
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGBA",
+      "sha256": "61851932782e02291fdf20b553b30affb521dc452bc5fe3978f45c51836982c5",
+      "source": "art_sources/martial_icons_full_v1/icon_sf_s5-v1.png",
+      "source_sha256": "2573c3342ea517d3aca99f3b8bfb480ec80805d23f7758ed34932d5066608386",
+      "source_tool": "built-in image_gen",
+      "processing": "transparent trim + uniform Lanczos resize to longest edge384 + 512 clear frame",
+      "margins": [
+        73,
+        95,
+        64,
+        77
+      ],
+      "original_approval": null,
+      "visual_review": "agent_contact_sheet_review_passed; not_user_approval"
+    },
+    {
+      "id": "gj_s1",
+      "name": "藏锋短刺",
+      "path": "assets/ui/martial-moves-v3/gj_s1.png",
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGBA",
+      "sha256": "3b118faba7755c3fb98b1dda0803ea43a6db7b23c26c318797ffa5e1fa84b250",
+      "source": "art_sources/martial_icons_full_v1/icon_gj_s1-v1.png",
+      "source_sha256": "12374885aaebc69a686bb4f79d76ab336004a5be5cc4f56f4a1d4874f352fcf3",
+      "source_tool": "built-in image_gen",
+      "processing": "transparent trim + uniform Lanczos resize to longest edge384 + 512 clear frame",
+      "margins": [
+        79,
+        110,
+        80,
+        87
+      ],
+      "original_approval": null,
+      "visual_review": "agent_contact_sheet_review_passed; not_user_approval"
+    },
+    {
+      "id": "gj_s2",
+      "name": "燃隙刀",
+      "path": "assets/ui/martial-moves-v3/gj_s2.png",
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGBA",
+      "sha256": "757dbcc6ce02c8e87f9dc1029fbe7ffb8829d45c73067508e3f7f9ec5cefa118",
+      "source": "art_sources/martial_icons_full_v1/icon_gj_s2-v1.png",
+      "source_sha256": "ad20b6d75130a4939a439c78592ef07662254ca07036c36600f918e7b21c9aea",
+      "source_tool": "built-in image_gen",
+      "processing": "transparent trim + uniform Lanczos resize to longest edge384 + 512 clear frame",
+      "margins": [
+        81,
+        72,
+        103,
+        67
+      ],
+      "original_approval": null,
+      "visual_review": "agent_contact_sheet_review_passed; not_user_approval"
+    },
+    {
+      "id": "gj_s3",
+      "name": "断烬回身",
+      "path": "assets/ui/martial-moves-v3/gj_s3.png",
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGBA",
+      "sha256": "7bbd7d6633754f627192e6d1da8f29b69620f8aae0d36e5d126ae6642304ccda",
+      "source": "art_sources/martial_icons_full_v1/icon_gj_s3-v1.png",
+      "source_sha256": "c4c663a90203d37519bf05799c66bec7b22e5b45672c3f49a7d901605c496ab8",
+      "source_tool": "built-in image_gen",
+      "processing": "transparent trim + uniform Lanczos resize to longest edge384 + 512 clear frame",
+      "margins": [
+        79,
+        74,
+        87,
+        74
+      ],
+      "original_approval": null,
+      "visual_review": "agent_contact_sheet_review_passed; not_user_approval"
+    },
+    {
+      "id": "gj_s4",
+      "name": "焚契破阵",
+      "path": "assets/ui/martial-moves-v3/gj_s4.png",
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGBA",
+      "sha256": "9c687d0cc291ac3fb3d631e0a4958843ac861d531146beaf03f3f3161ff38555",
+      "source": "art_sources/martial_icons_full_v1/icon_gj_s4-v1.png",
+      "source_sha256": "e8d75c0840b3cf1c07b5eccdae9c729ea56278c5eff2c079128b5a92bcdb65a7",
+      "source_tool": "built-in image_gen",
+      "processing": "transparent trim + uniform Lanczos resize to longest edge384 + 512 clear frame",
+      "margins": [
+        88,
+        76,
+        69,
+        71
+      ],
+      "original_approval": null,
+      "visual_review": "agent_contact_sheet_review_passed; not_user_approval"
+    },
+    {
+      "id": "gj_s5",
+      "name": "余烬留生",
+      "path": "assets/ui/martial-moves-v3/gj_s5.png",
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGBA",
+      "sha256": "6200a335396e5c65d2f89ab1ed8a19ac4c6cb6199146a79a29159ba33b8f92c5",
+      "source": "art_sources/martial_icons_full_v1/icon_gj_s5-v1.png",
+      "source_sha256": "180941170234399da2a7a6026442d91660b870e2a0878568121d0c10f404cf69",
+      "source_tool": "built-in image_gen",
+      "processing": "transparent trim + uniform Lanczos resize to longest edge384 + 512 clear frame",
+      "margins": [
+        71,
+        74,
+        64,
+        75
+      ],
+      "original_approval": null,
+      "visual_review": "agent_contact_sheet_review_passed; not_user_approval"
+    },
+    {
+      "id": "am_s1",
+      "name": "短锋相照",
+      "path": "assets/ui/martial-moves-v3/am_s1.png",
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGBA",
+      "sha256": "fcae0e60ccc5c0e829149d97ccc263fa704991c9ed4175d686ea6c2786d72580",
+      "source": "art_sources/martial_icons_full_v1/icon_am_s1-v1.png",
+      "source_sha256": "cd0bf15a96e4ba5dfe096cc166bc34d5cc95b4e901eb7a18e2f3e979a9840116",
+      "source_tool": "built-in image_gen",
+      "processing": "transparent trim + uniform Lanczos resize to longest edge384 + 512 clear frame",
+      "margins": [
+        92,
+        92,
+        71,
+        76
+      ],
+      "original_approval": null,
+      "visual_review": "agent_contact_sheet_review_passed; not_user_approval"
+    },
+    {
+      "id": "am_s2",
+      "name": "同担一线",
+      "path": "assets/ui/martial-moves-v3/am_s2.png",
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGBA",
+      "sha256": "9fcde37ffd07a97e7996eff30f78dd660db5c67f927b39cdae8efab261abb820",
+      "source": "art_sources/martial_icons_full_v1/icon_am_s2-v1.png",
+      "source_sha256": "0c2c17c5d0fbebb4933775e6482fabe766a996e69b69b495347eaa6fa4912044",
+      "source_tool": "built-in image_gen",
+      "processing": "transparent trim + uniform Lanczos resize to longest edge384 + 512 clear frame",
+      "margins": [
+        105,
+        70,
+        74,
+        91
+      ],
+      "original_approval": null,
+      "visual_review": "agent_contact_sheet_review_passed; not_user_approval"
+    },
+    {
+      "id": "am_s3",
+      "name": "明约合锋",
+      "path": "assets/ui/martial-moves-v3/am_s3.png",
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGBA",
+      "sha256": "95c5c4255a55db39292a1bcd9ee248fdaa95ae389c96a5927c23d09dc24bf65e",
+      "source": "art_sources/martial_icons_full_v1/icon_am_s3-v1.png",
+      "source_sha256": "c26c8e3bb450d4fb2079d080afe95a22a774c7ca8b52215a9f0fb76e459f0ff6",
+      "source_tool": "built-in image_gen",
+      "processing": "transparent trim + uniform Lanczos resize to longest edge384 + 512 clear frame",
+      "margins": [
+        74,
+        73,
+        68,
+        85
+      ],
+      "original_approval": null,
+      "visual_review": "agent_contact_sheet_review_passed; not_user_approval"
+    },
+    {
+      "id": "pj_s1",
+      "name": "横江拦步",
+      "path": "assets/ui/martial-moves-v3/pj_s1.png",
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGBA",
+      "sha256": "e7e589d84fedc0f74bc782ae63494026e4b7bb98119339042d0c24fc31921a2c",
+      "source": "art_sources/martial_icons_full_v1/icon_pj_s1-v1.png",
+      "source_sha256": "9781156dffe4626d6238674477075623ae59328a47d8376d9c40ea7958d34419",
+      "source_tool": "built-in image_gen",
+      "processing": "transparent trim + uniform Lanczos resize to longest edge384 + 512 clear frame",
+      "margins": [
+        67,
+        146,
+        64,
+        86
+      ],
+      "original_approval": null,
+      "visual_review": "agent_contact_sheet_review_passed; not_user_approval"
+    },
+    {
+      "id": "pj_s2",
+      "name": "回杆卸势",
+      "path": "assets/ui/martial-moves-v3/pj_s2.png",
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGBA",
+      "sha256": "d1ba0217fab7ce4a52cbcf7bdf5311d3ff4ff9e67803996d71266066cdb4e3a2",
+      "source": "art_sources/martial_icons_full_v1/icon_pj_s2-v1.png",
+      "source_sha256": "14bfd65f34700c4038e957af64794a2f2480be81654580596bc42db672d339e3",
+      "source_tool": "built-in image_gen",
+      "processing": "transparent trim + uniform Lanczos resize to longest edge384 + 512 clear frame",
+      "margins": [
+        68,
+        85,
+        67,
+        65
+      ],
+      "original_approval": null,
+      "visual_review": "agent_contact_sheet_review_passed; not_user_approval"
+    },
+    {
+      "id": "pj_s3",
+      "name": "断渡擒锋",
+      "path": "assets/ui/martial-moves-v3/pj_s3.png",
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGBA",
+      "sha256": "b3a734eeb16857a48e4d8e96946dc95b9c1c2646743d1e3b344be6f00eb745e1",
+      "source": "art_sources/martial_icons_full_v1/icon_pj_s3-v1.png",
+      "source_sha256": "b29569aaf1b46d4efc22c955524aac8ffdcff6928b3d4d58d1b21bf73b0826a9",
+      "source_tool": "built-in image_gen",
+      "processing": "transparent trim + uniform Lanczos resize to longest edge384 + 512 clear frame",
+      "margins": [
+        70,
+        67,
+        76,
+        72
+      ],
+      "original_approval": null,
+      "visual_review": "agent_contact_sheet_review_passed; not_user_approval"
+    },
+    {
+      "id": "pj_s4",
+      "name": "风雨护归",
+      "path": "assets/ui/martial-moves-v3/pj_s4.png",
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGBA",
+      "sha256": "3357719999f29f96ce4c8d1f4a01b4b8a0b6f0abf191b6276ba5bdf6a2bfb72e",
+      "source": "art_sources/martial_icons_full_v1/icon_pj_s4-v1.png",
+      "source_sha256": "cbc890ac19f534f6575051f29376bf067a1f40bbc9debd775ea23748d4666930",
+      "source_tool": "built-in image_gen",
+      "processing": "transparent trim + uniform Lanczos resize to longest edge384 + 512 clear frame",
+      "margins": [
+        72,
+        64,
+        68,
+        77
+      ],
+      "original_approval": null,
+      "visual_review": "agent_contact_sheet_review_passed; not_user_approval"
+    },
+    {
+      "id": "yh_s0",
+      "name": "随行照护",
+      "path": "assets/ui/martial-moves-v3/yh_s0.png",
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGBA",
+      "sha256": "4ce06760520f5fe89f90deb2debdfa530cbad9662869712c39ea54d5008e0c82",
+      "source": "art_sources/martial_icons_full_v1/icon_yh_s0-v1.png",
+      "source_sha256": "74fa2a5a312870c2983e227207c73864b46cf2fa580dc8f8e1cab80094a49f32",
+      "source_tool": "built-in image_gen",
+      "processing": "transparent trim + uniform Lanczos resize to longest edge384 + 512 clear frame",
+      "margins": [
+        97,
+        73,
+        120,
+        64
+      ],
+      "original_approval": null,
+      "visual_review": "agent_contact_sheet_review_passed; not_user_approval"
+    },
+    {
+      "id": "yh_n1",
+      "name": "循隙针",
+      "path": "assets/ui/martial-moves-v3/yh_n1.png",
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGBA",
+      "sha256": "fea70fe61da0722b978b0e074350ea9fe6dd0df58c1db585fb4eeb45536136bc",
+      "source": "art_sources/martial_icons_full_v1/icon_yh_n1-v1.png",
+      "source_sha256": "9ec3631cf58880efbea52e0ae99691cd839bc7dbece323c5f9dfb0fe7907953d",
+      "source_tool": "built-in image_gen",
+      "processing": "transparent trim + uniform Lanczos resize to longest edge384 + 512 clear frame",
+      "margins": [
+        64,
+        70,
+        84,
+        80
+      ],
+      "original_approval": null,
+      "visual_review": "agent_contact_sheet_review_passed; not_user_approval"
+    },
+    {
+      "id": "yh_n2",
+      "name": "截脉三针",
+      "path": "assets/ui/martial-moves-v3/yh_n2.png",
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGBA",
+      "sha256": "1666739d08e839e7528294f04e069d8ae0d6c1da693d19f0af684ffb2b13e5fd",
+      "source": "art_sources/martial_icons_full_v1/icon_yh_n2-v1.png",
+      "source_sha256": "eebbe1c4ce94217ac3a8ded8c5e538a37ea4577ad7a8a4cb3e1c104408918df2",
+      "source_tool": "built-in image_gen",
+      "processing": "transparent trim + uniform Lanczos resize to longest edge384 + 512 clear frame",
+      "margins": [
+        85,
+        74,
+        87,
+        86
+      ],
+      "original_approval": null,
+      "visual_review": "agent_contact_sheet_review_passed; not_user_approval"
+    },
+    {
+      "id": "yh_n3",
+      "name": "归息断潮",
+      "path": "assets/ui/martial-moves-v3/yh_n3.png",
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGBA",
+      "sha256": "c1fd23720e6eaa472941a9802f964fba16b4cf09420ea056867d3868294798d6",
+      "source": "art_sources/martial_icons_full_v1/icon_yh_n3-v1.png",
+      "source_sha256": "d5eb5e6c29d7d90da7da6629c7401cf150f847ff7d7dafafa37d4260b648874d",
+      "source_tool": "built-in image_gen",
+      "processing": "transparent trim + uniform Lanczos resize to longest edge384 + 512 clear frame",
+      "margins": [
+        65,
+        68,
+        74,
+        69
+      ],
+      "original_approval": null,
+      "visual_review": "agent_contact_sheet_review_passed; not_user_approval"
+    },
+    {
+      "id": "yh_m1",
+      "name": "温络行针",
+      "path": "assets/ui/martial-moves-v3/yh_m1.png",
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGBA",
+      "sha256": "e0a98a2967d68eb9dc566828a75f87e9ffd4609b42c77796e37f1163b250f636",
+      "source": "art_sources/martial_icons_full_v1/icon_yh_m1-v1.png",
+      "source_sha256": "e6039f02974664f129e9cb7608f15ced82e6a15ce604e0cd573ab588cde76825",
+      "source_tool": "built-in image_gen",
+      "processing": "transparent trim + uniform Lanczos resize to longest edge384 + 512 clear frame",
+      "margins": [
+        64,
+        64,
+        71,
+        69
+      ],
+      "original_approval": null,
+      "visual_review": "agent_contact_sheet_review_passed; not_user_approval"
+    },
+    {
+      "id": "yh_m2",
+      "name": "和脉同息",
+      "path": "assets/ui/martial-moves-v3/yh_m2.png",
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGBA",
+      "sha256": "2734c02b74785f6644bd71e2b7373fe698762992f46f14b73a6732aa80b35964",
+      "source": "art_sources/martial_icons_full_v1/icon_yh_m2-v1.png",
+      "source_sha256": "cf61acf4e555055fe3040332a074760d29495934a61c2ffbd42e58320e0ce03f",
+      "source_tool": "built-in image_gen",
+      "processing": "transparent trim + uniform Lanczos resize to longest edge384 + 512 clear frame",
+      "margins": [
+        68,
+        74,
+        89,
+        83
+      ],
+      "original_approval": null,
+      "visual_review": "agent_contact_sheet_review_passed; not_user_approval"
+    },
+    {
+      "id": "yh_m3",
+      "name": "归息续照",
+      "path": "assets/ui/martial-moves-v3/yh_m3.png",
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGBA",
+      "sha256": "40a56f7d7419eb109e43e741fddbd013b1f998ed873775dddbd0c070363bf42a",
+      "source": "art_sources/martial_icons_full_v1/icon_yh_m3-v1.png",
+      "source_sha256": "469882ad5e32b8a94ec1bac4cf2426e4d24c87efa55ce086968b40c7ce6b9fe6",
+      "source_tool": "built-in image_gen",
+      "processing": "transparent trim + uniform Lanczos resize to longest edge384 + 512 clear frame",
+      "margins": [
+        64,
+        66,
+        66,
+        78
+      ],
+      "original_approval": null,
+      "visual_review": "agent_contact_sheet_review_passed; not_user_approval"
+    },
+    {
+      "id": "yl_s1",
+      "name": "飞燕点枝",
+      "path": "assets/ui/martial-moves-v3/yl_s1.png",
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGBA",
+      "sha256": "a30753b99bf1c1b2b5a51770f4ce0c3eedda97296642a4bd0cc3c1e0fabd9820",
+      "source": "art_sources/martial_icons_full_v1/icon_yl_s1-v1.png",
+      "source_sha256": "f1e0f95ad6bc04862210794372d4c1eafcfe5ec5a52ba4464da6200ab8bf1d9a",
+      "source_tool": "built-in image_gen",
+      "processing": "transparent trim + uniform Lanczos resize to longest edge384 + 512 clear frame",
+      "margins": [
+        96,
+        77,
+        67,
+        86
+      ],
+      "original_approval": null,
+      "visual_review": "agent_contact_sheet_review_passed; not_user_approval"
+    },
+    {
+      "id": "yl_s2",
+      "name": "满场惊鸿",
+      "path": "assets/ui/martial-moves-v3/yl_s2.png",
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGBA",
+      "sha256": "f19dca89a69c31a71eef2dc5829ad17a3d2482ce83f0b2819c65d72f222dd43d",
+      "source": "art_sources/martial_icons_full_v1/icon_yl_s2-v1.png",
+      "source_sha256": "8f515ad5bf5f8fee671ba333cfcd07ae9b29e3453f728ad9d1045d59ab216bf4",
+      "source_tool": "built-in image_gen",
+      "processing": "transparent trim + uniform Lanczos resize to longest edge384 + 512 clear frame",
+      "margins": [
+        78,
+        64,
+        66,
+        72
+      ],
+      "original_approval": null,
+      "visual_review": "agent_contact_sheet_review_passed; not_user_approval"
+    },
+    {
+      "id": "qx_s1",
+      "name": "撑篙截流",
+      "path": "assets/ui/martial-moves-v3/qx_s1.png",
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGBA",
+      "sha256": "f134613a23e7d1e84f38f8a23eaecd79a96dc867351d0b758d87b274457ead30",
+      "source": "art_sources/martial_icons_full_v1/icon_qx_s1-v1.png",
+      "source_sha256": "f0d9f12d1ca4244cdd9b443077eb6492ceff0f3558b08004979ce00b524d456b",
+      "source_tool": "built-in image_gen",
+      "processing": "transparent trim + uniform Lanczos resize to longest edge384 + 512 clear frame",
+      "margins": [
+        81,
+        69,
+        64,
+        89
+      ],
+      "original_approval": null,
+      "visual_review": "agent_contact_sheet_review_passed; not_user_approval"
+    },
+    {
+      "id": "qx_s2",
+      "name": "回舟接客",
+      "path": "assets/ui/martial-moves-v3/qx_s2.png",
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGBA",
+      "sha256": "1c5db7f02dd004013edc71908bb9f6b3fd41a1e8d11a7fae98de43afb441a2e5",
+      "source": "art_sources/martial_icons_full_v1/icon_qx_s2-v1.png",
+      "source_sha256": "b99e609c91a8d424c581484ae51fd337fb544ddfe45f97da1c84c098d6749561",
+      "source_tool": "built-in image_gen",
+      "processing": "transparent trim + uniform Lanczos resize to longest edge384 + 512 clear frame",
+      "margins": [
+        81,
+        74,
+        76,
+        75
+      ],
+      "original_approval": null,
+      "visual_review": "agent_contact_sheet_review_passed; not_user_approval"
+    },
+    {
+      "id": "lh_s1",
+      "name": "伞下容身",
+      "path": "assets/ui/martial-moves-v3/lh_s1.png",
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGBA",
+      "sha256": "f1edb13443bd88100e449fa605fff73b61a49378ed8c20e5d2e716740c122979",
+      "source": "art_sources/martial_icons_full_v1/icon_lh_s1-v1.png",
+      "source_sha256": "0578350e89a1695118debf6d666e9ebb11e8a88c757c740406cd7ca114c185a5",
+      "source_tool": "built-in image_gen",
+      "processing": "transparent trim + uniform Lanczos resize to longest edge384 + 512 clear frame",
+      "margins": [
+        91,
+        67,
+        96,
+        86
+      ],
+      "original_approval": null,
+      "visual_review": "agent_contact_sheet_review_passed; not_user_approval"
+    },
+    {
+      "id": "lh_s2",
+      "name": "雨住留灯",
+      "path": "assets/ui/martial-moves-v3/lh_s2.png",
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGBA",
+      "sha256": "ae3f1d8a332eeee34e206872b6f612475041564d6384cd6c5e1af2c3d5f6452e",
+      "source": "art_sources/martial_icons_full_v1/icon_lh_s2-v1.png",
+      "source_sha256": "906e4a7bf02908618f886aee916d6ba5702636821f904fc2d3991360d5a71f08",
+      "source_tool": "built-in image_gen",
+      "processing": "transparent trim + uniform Lanczos resize to longest edge384 + 512 clear frame",
+      "margins": [
+        65,
+        66,
+        67,
+        86
+      ],
+      "original_approval": null,
+      "visual_review": "agent_contact_sheet_review_passed; not_user_approval"
+    },
+    {
+      "id": "qf_s1",
+      "name": "扇骨截招",
+      "path": "assets/ui/martial-moves-v3/qf_s1.png",
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGBA",
+      "sha256": "1c6534a4ab04a5c78bd94834e08d602ab1fe87e8f6147b2242dd4441fb369db6",
+      "source": "art_sources/martial_icons_full_v1/icon_qf_s1-v1.png",
+      "source_sha256": "afd3edade97ac709b20112200bc9de873648c5a2aa6ff275eed149995e248592",
+      "source_tool": "built-in image_gen",
+      "processing": "transparent trim + uniform Lanczos resize to longest edge384 + 512 clear frame",
+      "margins": [
+        79,
+        73,
+        81,
+        87
+      ],
+      "original_approval": null,
+      "visual_review": "agent_contact_sheet_review_passed; not_user_approval"
+    },
+    {
+      "id": "qf_s2",
+      "name": "回袖引步",
+      "path": "assets/ui/martial-moves-v3/qf_s2.png",
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGBA",
+      "sha256": "b56234f14a0b2fbc9a5755d33571179a642e4305d4a4b1829ff0907eedd162e8",
+      "source": "art_sources/martial_icons_full_v1/icon_qf_s2-v1.png",
+      "source_sha256": "67ee777a13f0c9f3953b4b15eb85cae085305be9780554b7ea26f909dea6b36c",
+      "source_tool": "built-in image_gen",
+      "processing": "transparent trim + uniform Lanczos resize to longest edge384 + 512 clear frame",
+      "margins": [
+        87,
+        74,
+        75,
+        74
+      ],
+      "original_approval": null,
+      "visual_review": "agent_contact_sheet_review_passed; not_user_approval"
+    },
+    {
+      "id": "qf_s3",
+      "name": "邀锋护席",
+      "path": "assets/ui/martial-moves-v3/qf_s3.png",
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGBA",
+      "sha256": "f0ce05088a80bedd5f7350bc04174c086c53b8622f49d26fe7cebd88fea06947",
+      "source": "art_sources/martial_icons_full_v1/icon_qf_s3-v1.png",
+      "source_sha256": "9bb55162aead2a604c2016d9fbf7bd3b93f3db9729b4a582ee1bb3cb63530449",
+      "source_tool": "built-in image_gen",
+      "processing": "transparent trim + uniform Lanczos resize to longest edge384 + 512 clear frame",
+      "margins": [
+        69,
+        106,
+        74,
+        64
+      ],
+      "original_approval": null,
+      "visual_review": "agent_contact_sheet_review_passed; not_user_approval"
+    },
+    {
+      "id": "rq_s1",
+      "name": "雀喙探隙",
+      "path": "assets/ui/martial-moves-v3/rq_s1.png",
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGBA",
+      "sha256": "d9a7f50f22b532c1eb6c41faaedc437dfaa33e1962441041a487249c56b45a6d",
+      "source": "art_sources/martial_icons_full_v1/icon_rq_s1-v1.png",
+      "source_sha256": "60c2a98591044164ad97443e1df66fee39fdcc05457edd7e81891cc76d96319f",
+      "source_tool": "built-in image_gen",
+      "processing": "transparent trim + uniform Lanczos resize to longest edge384 + 512 clear frame",
+      "margins": [
+        75,
+        73,
+        69,
+        84
+      ],
+      "original_approval": null,
+      "visual_review": "agent_contact_sheet_review_passed; not_user_approval"
+    },
+    {
+      "id": "rq_s2",
+      "name": "袖手卸势",
+      "path": "assets/ui/martial-moves-v3/rq_s2.png",
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGBA",
+      "sha256": "e2066d2c16c45eba159e1243ec16f5e8cc4b4bb00d09a84ad7f848be57aef39a",
+      "source": "art_sources/martial_icons_full_v1/icon_rq_s2-v1.png",
+      "source_sha256": "730d5077e956483606e9a001929ca6edf8bb447010507eef6b8eca081615c01f",
+      "source_tool": "built-in image_gen",
+      "processing": "transparent trim + uniform Lanczos resize to longest edge384 + 512 clear frame",
+      "margins": [
+        88,
+        64,
+        91,
+        86
+      ],
+      "original_approval": null,
+      "visual_review": "agent_contact_sheet_review_passed; not_user_approval"
+    },
+    {
+      "id": "rq_s3",
+      "name": "雀步换位",
+      "path": "assets/ui/martial-moves-v3/rq_s3.png",
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGBA",
+      "sha256": "f58e0a64f766ef77690f793bdb43a9d4505169181dd99c52e56718b150f81f78",
+      "source": "art_sources/martial_icons_full_v1/icon_rq_s3-v1.png",
+      "source_sha256": "366c458d464e810db1f28b4cba863fe30c1b17e3056a7f79bdde809daab6ee80",
+      "source_tool": "built-in image_gen",
+      "processing": "transparent trim + uniform Lanczos resize to longest edge384 + 512 clear frame",
+      "margins": [
+        74,
+        65,
+        67,
+        80
+      ],
+      "original_approval": null,
+      "visual_review": "agent_contact_sheet_review_passed; not_user_approval"
+    },
+    {
+      "id": "rq_s4",
+      "name": "留缝接应",
+      "path": "assets/ui/martial-moves-v3/rq_s4.png",
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGBA",
+      "sha256": "35168581605c7b9b85301c97f0aa7dfba7d5691c54436cdad5e84471e03f4695",
+      "source": "art_sources/martial_icons_full_v1/icon_rq_s4-v1.png",
+      "source_sha256": "222546917c7adc5b2a05b69c6880e0a8c899aee2690425cd9e26e73678d708b7",
+      "source_tool": "built-in image_gen",
+      "processing": "transparent trim + uniform Lanczos resize to longest edge384 + 512 clear frame",
+      "margins": [
+        64,
+        75,
+        74,
+        92
+      ],
+      "original_approval": null,
+      "visual_review": "agent_contact_sheet_review_passed; not_user_approval"
+    },
+    {
+      "id": "lhg_s1",
+      "name": "横刀护途",
+      "path": "assets/ui/martial-moves-v3/lhg_s1.png",
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGBA",
+      "sha256": "a7174a7d1a3c96b3fa96b354a790e5dad522c34ea7a20c9f0ab61663a85c5155",
+      "source": "art_sources/martial_icons_full_v1/icon_lhg_s1-v1.png",
+      "source_sha256": "43958e40e87a42b4452a1af3a693a7291863bafe78e86438b32b648aa838167c",
+      "source_tool": "built-in image_gen",
+      "processing": "transparent trim + uniform Lanczos resize to longest edge384 + 512 clear frame",
+      "margins": [
+        79,
+        74,
+        86,
+        94
+      ],
+      "original_approval": null,
+      "visual_review": "agent_contact_sheet_review_passed; not_user_approval"
+    },
+    {
+      "id": "hzc_s1",
+      "name": "寻隙敲山",
+      "path": "assets/ui/martial-moves-v3/hzc_s1.png",
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGBA",
+      "sha256": "8823eca6f4de155e6ae5d7133d033af6b92bcb98083a95f02e1ff10755370812",
+      "source": "art_sources/martial_icons_full_v1/icon_hzc_s1-v1.png",
+      "source_sha256": "2948be5bd766d10f43b50c4582d8aa00a660cb142fd3a59b67970f6faf08017e",
+      "source_tool": "built-in image_gen",
+      "processing": "transparent trim + uniform Lanczos resize to longest edge384 + 512 clear frame",
+      "margins": [
+        70,
+        70,
+        79,
+        86
+      ],
+      "original_approval": null,
+      "visual_review": "agent_contact_sheet_review_passed; not_user_approval"
+    }
+  ]
+}

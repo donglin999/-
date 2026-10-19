@@ -1,0 +1,1000 @@
+{
+  "schema_version": 1,
+  "model": "speech-2.8-hd",
+  "characters": {
+    "suzhi": [
+      {
+        "text": "按住肩。别松。",
+        "emotion": "急救",
+        "emotion_api": "calm",
+        "delivery_notes": "短促清楚，冷静指挥，避免把救治读成愤怒。",
+        "revision": 2
+      },
+      {
+        "text": "收的。我没让。",
+        "emotion": "冷幽默",
+        "emotion_api": "calm",
+        "delivery_notes": "平淡克制，笑意点到为止，避免放声笑。",
+        "revision": 2
+      },
+      {
+        "text": "……他们明天还会收钱。",
+        "emotion": "不屑",
+        "emotion_api": "angry",
+        "delivery_notes": "表现“不屑”语气，按标点自然停顿，保持角色口吻，不朗读演出说明。",
+        "revision": 2
+      },
+      {
+        "text": "这瓶子，是我师门的东西。",
+        "emotion": "沉",
+        "emotion_api": "calm",
+        "delivery_notes": "表现“沉”语气，按标点自然停顿，保持角色口吻，不朗读演出说明。",
+        "revision": 2
+      },
+      {
+        "text": "针只能压半日。解药，得找下毒的人要。",
+        "emotion": "交代",
+        "emotion_api": "calm",
+        "delivery_notes": "表现“交代”语气，按标点自然停顿，保持角色口吻，不朗读演出说明。",
+        "revision": 2
+      },
+      {
+        "text": "我叫苏芷。你若肯帮，就去问问——他是谁，得罪了谁。",
+        "emotion": "初见",
+        "emotion_api": "calm",
+        "delivery_notes": "表现“初见”语气，按标点自然停顿，保持角色口吻，不朗读演出说明。",
+        "revision": 2
+      }
+    ],
+    "monk": [
+      {
+        "text": "老衲年轻时也算半个江湖人。今日便看看你的筋骨，来，与老衲过两招。",
+        "emotion": "邀战",
+        "emotion_api": "calm",
+        "delivery_notes": "表现“邀战”语气，按标点自然停顿，保持角色口吻，不朗读演出说明。",
+        "revision": 2
+      },
+      {
+        "text": "阿弥陀佛。还有什么事？",
+        "emotion": "问候",
+        "emotion_api": "calm",
+        "delivery_notes": "表现“问候”语气，按标点自然停顿，保持角色口吻，不朗读演出说明。",
+        "revision": 2
+      },
+      {
+        "text": "老毛病了。早年在军中挨过一箭，箭头取出来了，病根没取出来。",
+        "emotion": "旧伤",
+        "emotion_api": "sad",
+        "delivery_notes": "表现“旧伤”语气，按标点自然停顿，保持角色口吻，不朗读演出说明。",
+        "revision": 2
+      },
+      {
+        "text": "你若要闯荡江湖，就从那里开始吧。记住——拳脚是用来护人的，不是用来欺人的。",
+        "emotion": "叮嘱",
+        "emotion_api": "calm",
+        "delivery_notes": "表现“叮嘱”语气，按标点自然停顿，保持角色口吻，不朗读演出说明。",
+        "revision": 2
+      }
+    ],
+    "oldman": [
+      {
+        "text": "呵呵，年轻人，多读书总没坏处。今儿讲的是岘山的故事，坐下听听？",
+        "emotion": "招呼",
+        "emotion_api": "happy",
+        "delivery_notes": "表现“招呼”语气，按标点自然停顿，保持角色口吻，不朗读演出说明。",
+        "revision": 2
+      },
+      {
+        "text": "老汉给你讲个古：南方有种虫叫青蚨，母子分不开。拿母虫的血涂了钱花出去，那钱夜里自己会飞回来。",
+        "emotion": "讲古",
+        "emotion_api": "calm",
+        "delivery_notes": "表现“讲古”语气，按标点自然停顿，保持角色口吻，不朗读演出说明。",
+        "revision": 2
+      },
+      {
+        "text": "羊公守襄阳，从不夜里偷营。他说，仗打得赢打不赢是一回事，人心收得住收不住是另一回事。",
+        "emotion": "感慨",
+        "emotion_api": "sad",
+        "delivery_notes": "表现“感慨”语气，按标点自然停顿，保持角色口吻，不朗读演出说明。",
+        "revision": 2
+      },
+      {
+        "text": "那是羊公的兵法心诀，没写全。剩下的半截，听说埋在岘山上。——那是往后的事喽。",
+        "emotion": "卖关子",
+        "emotion_api": "calm",
+        "delivery_notes": "表现“卖关子”语气，按标点自然停顿，保持角色口吻，不朗读演出说明。",
+        "revision": 2
+      }
+    ],
+    "boatman": [
+      {
+        "text": "恩公头一回过江吧？这汉水看着平，底下的暗流能把人卷到樊城去。",
+        "emotion": "闲话",
+        "emotion_api": "calm",
+        "delivery_notes": "表现“闲话”语气，按标点自然停顿，保持角色口吻，不朗读演出说明。",
+        "revision": 2
+      },
+      {
+        "text": "是黑风寨的水匪！……坐稳了！",
+        "emotion": "惊",
+        "emotion_api": "surprised",
+        "delivery_notes": "表现“惊”语气，按标点自然停顿，保持角色口吻，不朗读演出说明。",
+        "revision": 2
+      },
+      {
+        "text": "老汉在这渡口撑了四十年船……二十年前，也是这么个起风的天，载过一个后生。",
+        "emotion": "回忆",
+        "emotion_api": "calm",
+        "delivery_notes": "表现“回忆”语气，按标点自然停顿，保持角色口吻，不朗读演出说明。",
+        "revision": 2
+      },
+      {
+        "text": "披着蓑衣，腰里别着短刀，一路上一句话也不说。那双眼睛——像刀子，看你一眼，你心里就发毛。",
+        "emotion": "讲述",
+        "emotion_api": "calm",
+        "delivery_notes": "表现“讲述”语气，按标点自然停顿，保持角色口吻，不朗读演出说明。",
+        "revision": 2
+      }
+    ],
+    "beggar": [
+      {
+        "text": "讨口饭吃哟～好心人赏几个铜板？",
+        "emotion": "讨饭",
+        "emotion_api": "calm",
+        "delivery_notes": "表现“讨饭”语气，按标点自然停顿，保持角色口吻，不朗读演出说明。",
+        "revision": 2
+      },
+      {
+        "text": "哈哈哈，好小子，有胆色！",
+        "emotion": "赞",
+        "emotion_api": "happy",
+        "delivery_notes": "表现“赞”语气，按标点自然停顿，保持角色口吻，不朗读演出说明。",
+        "revision": 2
+      },
+      {
+        "text": "哎哟哟，老骨头要散了！这招「莲花落」教给你，算老叫化认栽。",
+        "emotion": "认输",
+        "emotion_api": "calm",
+        "delivery_notes": "表现“认输”语气，按标点自然停顿，保持角色口吻，不朗读演出说明。",
+        "revision": 2
+      },
+      {
+        "text": "这话老叫化今晚就递给城防营。往后碰见拿竹片的，报荆襄分舵吴某的名号。",
+        "emotion": "正色",
+        "emotion_api": "calm",
+        "delivery_notes": "表现“正色”语气，按标点自然停顿，保持角色口吻，不朗读演出说明。",
+        "revision": 2
+      }
+    ],
+    "soldier": [
+      {
+        "text": "站住！蒙古探子最近混进城里好几个，进城都得盘查。",
+        "emotion": "盘查",
+        "emotion_api": "calm",
+        "delivery_notes": "表现“盘查”语气，按标点自然停顿，保持角色口吻，不朗读演出说明。",
+        "revision": 2
+      },
+      {
+        "text": "……你是来消遣我的？",
+        "emotion": "不耐",
+        "emotion_api": "angry",
+        "delivery_notes": "表现“不耐”语气，按标点自然停顿，保持角色口吻，不朗读演出说明。",
+        "revision": 2
+      },
+      {
+        "text": "羊太傅庙那个老和尚？他当年在城头救过不少弟兄。进去吧。",
+        "emotion": "放行",
+        "emotion_api": "calm",
+        "delivery_notes": "表现“放行”语气，按标点自然停顿，保持角色口吻，不朗读演出说明。",
+        "revision": 2
+      },
+      {
+        "text": "……你这小子说话倒有几分道理。守城靠的是上下一心。",
+        "emotion": "服气",
+        "emotion_api": "happy",
+        "delivery_notes": "表现“服气”语气，按标点自然停顿，保持角色口吻，不朗读演出说明。",
+        "revision": 2
+      }
+    ],
+    "gossip": [
+      {
+        "text": "哟，小兄弟面生得很，第一次进城？",
+        "emotion": "搭话",
+        "emotion_api": "happy",
+        "delivery_notes": "表现“搭话”语气，按标点自然停顿，保持角色口吻，不朗读演出说明。",
+        "revision": 2
+      },
+      {
+        "text": "这消息可只卖给你一个人，嘘——",
+        "emotion": "神秘",
+        "emotion_api": "calm",
+        "delivery_notes": "压低声势，保留停顿，避免念成公告。",
+        "revision": 2
+      },
+      {
+        "text": "耳目最灵的侯七，街坊都叫我「包打听」。江湖上的消息，只要你给得起价钱……",
+        "emotion": "自夸",
+        "emotion_api": "happy",
+        "delivery_notes": "表现“自夸”语气，按标点自然停顿，保持角色口吻，不朗读演出说明。",
+        "revision": 2
+      },
+      {
+        "text": "不买？那就回头再来，消息可不等人。",
+        "emotion": "送客",
+        "emotion_api": "calm",
+        "delivery_notes": "表现“送客”语气，按标点自然停顿，保持角色口吻，不朗读演出说明。",
+        "revision": 2
+      }
+    ],
+    "smith": [
+      {
+        "text": "不买也来看看，俺这炉火不收钱。",
+        "emotion": "招揽",
+        "emotion_api": "happy",
+        "delivery_notes": "表现“招揽”语气，按标点自然停顿，保持角色口吻，不朗读演出说明。",
+        "revision": 2
+      },
+      {
+        "text": "好眼力！这口剑俺淬了七遍火，出去可别给俺丢人。",
+        "emotion": "夸",
+        "emotion_api": "happy",
+        "delivery_notes": "表现“夸”语气，按标点自然停顿，保持角色口吻，不朗读演出说明。",
+        "revision": 2
+      },
+      {
+        "text": "铁臂帮？哼，那帮孙子上月来俺这儿打了四副铁护臂，到今儿还欠着账！",
+        "emotion": "骂",
+        "emotion_api": "angry",
+        "delivery_notes": "表现“骂”语气，按标点自然停顿，保持角色口吻，不朗读演出说明。",
+        "revision": 2
+      },
+      {
+        "text": "你要去找他们麻烦？好！俺这儿的东西，今天给你便宜——啊不，价钱照旧，但俺在心里给你喝彩！",
+        "emotion": "豪爽",
+        "emotion_api": "happy",
+        "delivery_notes": "表现“豪爽”语气，按标点自然停顿，保持角色口吻，不朗读演出说明。",
+        "revision": 2
+      }
+    ],
+    "lady": [
+      {
+        "text": "瞧你眉清目秀的，读过书没有？",
+        "emotion": "打量",
+        "emotion_api": "calm",
+        "delivery_notes": "表现“打量”语气，按标点自然停顿，保持角色口吻，不朗读演出说明。",
+        "revision": 2
+      },
+      {
+        "text": "三娘出四副上联，你都对得上，这笼羊肉馒头就送你！",
+        "emotion": "出题",
+        "emotion_api": "calm",
+        "delivery_notes": "表现“出题”语气，按标点自然停顿，保持角色口吻，不朗读演出说明。",
+        "revision": 2
+      },
+      {
+        "text": "哎哟，才子又来啦？三娘这儿的馒头管够！",
+        "emotion": "热络",
+        "emotion_api": "happy",
+        "delivery_notes": "表现“热络”语气，按标点自然停顿，保持角色口吻，不朗读演出说明。",
+        "revision": 2
+      },
+      {
+        "text": "前天疤脸刘还放话：「不给钱，就给命。」——你说巧不巧？",
+        "emotion": "嚼舌",
+        "emotion_api": "calm",
+        "delivery_notes": "表现“嚼舌”语气，按标点自然停顿，保持角色口吻，不朗读演出说明。",
+        "revision": 2
+      }
+    ],
+    "liu": [
+      {
+        "text": "哎，别用那眼神看我。这叫「例钱」，不叫抢。抢是黑风寨干的——我们铁臂帮，正经帮派！",
+        "emotion": "狡辩",
+        "emotion_api": "calm",
+        "delivery_notes": "表现“狡辩”语气，按标点自然停顿，保持角色口吻，不朗读演出说明。",
+        "revision": 2
+      },
+      {
+        "text": "嘿，是个愣头青。正好，爷爷手痒！",
+        "emotion": "挑衅",
+        "emotion_api": "angry",
+        "delivery_notes": "表现“挑衅”语气，按标点自然停顿，保持角色口吻，不朗读演出说明。",
+        "revision": 2
+      },
+      {
+        "text": "废物！看爷爷的铁臂功！",
+        "emotion": "战斗",
+        "emotion_api": "angry",
+        "delivery_notes": "表现“战斗”语气，按标点自然停顿，保持角色口吻，不朗读演出说明。",
+        "revision": 2
+      },
+      {
+        "text": "好汉饶命！毒……毒是上头给的，我就是个跑腿的！",
+        "emotion": "求饶",
+        "emotion_api": "fearful",
+        "delivery_notes": "表现“求饶”语气，按标点自然停顿，保持角色口吻，不朗读演出说明。",
+        "revision": 2
+      }
+    ],
+    "langli": [
+      {
+        "text": "站住！哪条道上的？这芦苇荡不是你来的地方。",
+        "emotion": "喝止",
+        "emotion_api": "angry",
+        "delivery_notes": "表现“喝止”语气，按标点自然停顿，保持角色口吻，不朗读演出说明。",
+        "revision": 2
+      },
+      {
+        "text": "哈！寨里的新兄弟？……牌子是真的。",
+        "emotion": "打量",
+        "emotion_api": "calm",
+        "delivery_notes": "表现“打量”语气，按标点自然停顿，保持角色口吻，不朗读演出说明。",
+        "revision": 2
+      },
+      {
+        "text": "「风起云涌」。记住喽，光报暗号不顶用，还得亮令牌——寨门那帮狗东西，只认牌子。",
+        "emotion": "交代",
+        "emotion_api": "calm",
+        "delivery_notes": "表现“交代”语气，按标点自然停顿，保持角色口吻，不朗读演出说明。",
+        "revision": 2
+      },
+      {
+        "text": "令牌？嘿……老子那块挂在棚里，谁敢偷……呼……",
+        "emotion": "醉",
+        "emotion_api": "calm",
+        "delivery_notes": "表现“醉”语气，按标点自然停顿，保持角色口吻，不朗读演出说明。",
+        "revision": 2
+      }
+    ],
+    "chief": [
+      {
+        "text": "哼，哪里来的小崽子，敢闯我黑风寨？",
+        "emotion": "喝问",
+        "emotion_api": "angry",
+        "delivery_notes": "表现“喝问”语气，按标点自然停顿，保持角色口吻，不朗读演出说明。",
+        "revision": 2
+      },
+      {
+        "text": "哈哈哈！好兄弟！先喝了这碗酒！",
+        "emotion": "豪笑",
+        "emotion_api": "happy",
+        "delivery_notes": "表现“豪笑”语气，按标点自然停顿，保持角色口吻，不朗读演出说明。",
+        "revision": 2
+      },
+      {
+        "text": "不知死活！老子这把鬼头刀，今天又要见血了！",
+        "emotion": "战斗",
+        "emotion_api": "angry",
+        "delivery_notes": "表现“战斗”语气，按标点自然停顿，保持角色口吻，不朗读演出说明。",
+        "revision": 2
+      },
+      {
+        "text": "你……你到底是什么人……",
+        "emotion": "败",
+        "emotion_api": "sad",
+        "delivery_notes": "表现“败”语气，按标点自然停顿，保持角色口吻，不朗读演出说明。",
+        "revision": 2
+      }
+    ],
+    "ye": [
+      {
+        "text": "按住他的手，别让他乱动。",
+        "emotion": "救治",
+        "emotion_api": "calm",
+        "delivery_notes": "利落清楚，留意病人，避免夸张喊叫。",
+        "revision": 2
+      },
+      {
+        "text": "这瓶药的来路，总得问清楚。",
+        "emotion": "调查",
+        "emotion_api": "calm",
+        "delivery_notes": "表现“调查”语气，按标点自然停顿，保持角色口吻，不朗读演出说明。",
+        "revision": 2
+      },
+      {
+        "text": "别怕，有我们在。",
+        "emotion": "温柔",
+        "emotion_api": "happy",
+        "delivery_notes": "轻轻安抚，带一点安心的笑意，避免兴奋欢呼。",
+        "revision": 3
+      }
+    ],
+    "zhou": [
+      {
+        "text": "多谢……多谢两位姑娘。",
+        "emotion": "醒来",
+        "emotion_api": "sad",
+        "delivery_notes": "刚醒气弱，感谢轻声说出，避免满腔活力。",
+        "revision": 2
+      },
+      {
+        "text": "我的担子……还在街上呢。",
+        "emotion": "牵挂",
+        "emotion_api": "fearful",
+        "delivery_notes": "气息仍弱，担心丢失担子，断续说出牵挂，避免尖叫。",
+        "revision": 3
+      },
+      {
+        "text": "咳……能给我一口水么？",
+        "emotion": "虚弱",
+        "emotion_api": "sad",
+        "delivery_notes": "病中气短，保留停顿，避免中气十足。",
+        "revision": 2
+      }
+    ],
+    "pipi": [
+      {
+        "text": "小子，这书匣你也想拿？",
+        "emotion": "轻佻",
+        "emotion_api": "calm",
+        "delivery_notes": "表现“轻佻”语气，按标点自然停顿，保持角色口吻，不朗读演出说明。",
+        "revision": 2
+      },
+      {
+        "text": "别打了，我交，我交！",
+        "emotion": "慌张",
+        "emotion_api": "fearful",
+        "delivery_notes": "表现“慌张”语气，按标点自然停顿，保持角色口吻，不朗读演出说明。",
+        "revision": 2
+      },
+      {
+        "text": "嘿，识相些就好。",
+        "emotion": "得意",
+        "emotion_api": "happy",
+        "delivery_notes": "表现“得意”语气，按标点自然停顿，保持角色口吻，不朗读演出说明。",
+        "revision": 2
+      }
+    ],
+    "merchant": [
+      {
+        "text": "我的货还在船上！",
+        "emotion": "焦急",
+        "emotion_api": "calm",
+        "delivery_notes": "担心货物，节奏稍急，避免恐慌或怒吼。",
+        "revision": 2
+      },
+      {
+        "text": "多谢少侠，救了我这一船货。",
+        "emotion": "感激",
+        "emotion_api": "happy",
+        "delivery_notes": "表现“感激”语气，按标点自然停顿，保持角色口吻，不朗读演出说明。",
+        "revision": 2
+      },
+      {
+        "text": "这回总算能安心回家了。",
+        "emotion": "释然",
+        "emotion_api": "happy",
+        "delivery_notes": "表现“释然”语气，按标点自然停顿，保持角色口吻，不朗读演出说明。",
+        "revision": 2
+      }
+    ],
+    "water_neighbor": [
+      {
+        "text": "井水不急，慢慢来。",
+        "emotion": "平和",
+        "emotion_api": "calm",
+        "delivery_notes": "表现“平和”语气，按标点自然停顿，保持角色口吻，不朗读演出说明。",
+        "revision": 2
+      },
+      {
+        "text": "那人往巷子里去了。",
+        "emotion": "指路",
+        "emotion_api": "calm",
+        "delivery_notes": "表现“指路”语气，按标点自然停顿，保持角色口吻，不朗读演出说明。",
+        "revision": 2
+      },
+      {
+        "text": "哎哟，可别再闹出人命了。",
+        "emotion": "担忧",
+        "emotion_api": "fearful",
+        "delivery_notes": "表现“担忧”语气，按标点自然停顿，保持角色口吻，不朗读演出说明。",
+        "revision": 2
+      }
+    ],
+    "trainer": [
+      {
+        "text": "下盘站稳，再出手。",
+        "emotion": "指点",
+        "emotion_api": "calm",
+        "delivery_notes": "表现“指点”语气，按标点自然停顿，保持角色口吻，不朗读演出说明。",
+        "revision": 2
+      },
+      {
+        "text": "不错，这身手练过。",
+        "emotion": "认可",
+        "emotion_api": "happy",
+        "delivery_notes": "表现“认可”语气，按标点自然停顿，保持角色口吻，不朗读演出说明。",
+        "revision": 2
+      },
+      {
+        "text": "收招，今日到此为止。",
+        "emotion": "果断",
+        "emotion_api": "calm",
+        "delivery_notes": "表现“果断”语气，按标点自然停顿，保持角色口吻，不朗读演出说明。",
+        "revision": 2
+      }
+    ],
+    "tang-zhaoxue": [
+      {
+        "text": "你先把经过说清楚。",
+        "emotion": "端正听你陈述",
+        "emotion_api": "calm",
+        "delivery_notes": "明亮清楚的成年女声；利落直说，夸招不拐弯，受挫嘴硬有短顿，不全程喊叫。；本状态：端正听你陈述。不朗读动作说明。",
+        "revision": 1
+      },
+      {
+        "text": "这一招，确实比上次好了。",
+        "emotion": "正式认可一招",
+        "emotion_api": "happy",
+        "delivery_notes": "明亮清楚的成年女声；利落直说，夸招不拐弯，受挫嘴硬有短顿，不全程喊叫。；本状态：正式认可一招。不朗读动作说明。",
+        "revision": 1
+      },
+      {
+        "text": "赢就是赢，输就是输。不能改记录。",
+        "emotion": "按住尚未出鞘的剑",
+        "emotion_api": "angry",
+        "delivery_notes": "明亮清楚的成年女声；利落直说，夸招不拐弯，受挫嘴硬有短顿，不全程喊叫。；本状态：按住尚未出鞘的剑。不朗读动作说明。",
+        "revision": 1
+      }
+    ],
+    "duan-mingtang": [
+      {
+        "text": "行，你说需要多少人手。",
+        "emotion": "抱臂听个明白",
+        "emotion_api": "calm",
+        "delivery_notes": "扎实开朗的成年女声；笑声痛快，工钱问题咬字认真，带爽直气息，避免娇嗲。；本状态：抱臂听个明白。不朗读动作说明。",
+        "revision": 1
+      },
+      {
+        "text": "干得漂亮，这顿我请。",
+        "emotion": "大方夸你一声",
+        "emotion_api": "happy",
+        "delivery_notes": "扎实开朗的成年女声；笑声痛快，工钱问题咬字认真，带爽直气息，避免娇嗲。；本状态：大方夸你一声。不朗读动作说明。",
+        "revision": 1
+      },
+      {
+        "text": "工钱一文也不能拿人情抵。",
+        "emotion": "拳头压在腿侧",
+        "emotion_api": "angry",
+        "delivery_notes": "扎实开朗的成年女声；笑声痛快，工钱问题咬字认真，带爽直气息，避免娇嗲。；本状态：拳头压在腿侧。不朗读动作说明。",
+        "revision": 1
+      }
+    ],
+    "wen-shutong": [
+      {
+        "text": "这条路，你是亲自走过的吗？",
+        "emotion": "先把路听清楚",
+        "emotion_api": "calm",
+        "delivery_notes": "沉静略低的清晰成年女声；轻声慢句，核路时具体，拒交避难地图时有界限，避免气声魅惑。；本状态：先把路听清楚。不朗读动作说明。",
+        "revision": 1
+      },
+      {
+        "text": "这次核过了，普通人也走得过去。",
+        "emotion": "把可走的路标给你",
+        "emotion_api": "happy",
+        "delivery_notes": "沉静略低的清晰成年女声；轻声慢句，核路时具体，拒交避难地图时有界限，避免气声魅惑。；本状态：把可走的路标给你。不朗读动作说明。",
+        "revision": 1
+      },
+      {
+        "text": "避难的人住在哪里，我不会画给你。",
+        "emotion": "收起不该交出的地图",
+        "emotion_api": "angry",
+        "delivery_notes": "沉静略低的清晰成年女声；轻声慢句，核路时具体，拒交避难地图时有界限，避免气声魅惑。；本状态：收起不该交出的地图。不朗读动作说明。",
+        "revision": 1
+      }
+    ],
+    "cen-shuang": [
+      {
+        "text": "条件先放在这里，你慢慢说。",
+        "emotion": "不急着接你的话",
+        "emotion_api": "calm",
+        "delivery_notes": "成熟从容的成年女声；调笑用停顿与笑意，算账不含糊，承担责任时收住笑，不持续喘息。；本状态：不急着接你的话。不朗读动作说明。",
+        "revision": 1
+      },
+      {
+        "text": "好，这一回，咱们都少吃点亏。",
+        "emotion": "条件谈拢后的款待",
+        "emotion_api": "happy",
+        "delivery_notes": "成熟从容的成年女声；调笑用停顿与笑意，算账不含糊，承担责任时收住笑，不持续喘息。；本状态：条件谈拢后的款待。不朗读动作说明。",
+        "revision": 1
+      },
+      {
+        "text": "别拿“为我好”来抹掉这笔账。",
+        "emotion": "把账签横过来",
+        "emotion_api": "angry",
+        "delivery_notes": "成熟从容的成年女声；调笑用停顿与笑意，算账不含糊，承担责任时收住笑，不持续喘息。；本状态：把账签横过来。不朗读动作说明。",
+        "revision": 1
+      }
+    ],
+    "xu-lingyi": [
+      {
+        "text": "请从事情发生的那一天说起。",
+        "emotion": "等陈述落到实处",
+        "emotion_api": "calm",
+        "delivery_notes": "端整清晰的成年女声；措辞有层次，紧张时过于客气，放松后有自嘲；去掉持续播报腔。；本状态：等陈述落到实处。不朗读动作说明。",
+        "revision": 1
+      },
+      {
+        "text": "这次，他们的意见也记进去了。",
+        "emotion": "愿意把好消息告诉你",
+        "emotion_api": "happy",
+        "delivery_notes": "端整清晰的成年女声；措辞有层次，紧张时过于客气，放松后有自嘲；去掉持续播报腔。；本状态：愿意把好消息告诉你。不朗读动作说明。",
+        "revision": 1
+      },
+      {
+        "text": "这里写得明白。不能只凭身份压过去。",
+        "emotion": "把依据指给对方看",
+        "emotion_api": "angry",
+        "delivery_notes": "端整清晰的成年女声；措辞有层次，紧张时过于客气，放松后有自嘲；去掉持续播报腔。；本状态：把依据指给对方看。不朗读动作说明。",
+        "revision": 1
+      }
+    ],
+    "shen-yanhui": [
+      {
+        "text": "天亮前，还是天亮后？",
+        "emotion": "等你把时辰说清",
+        "emotion_api": "calm",
+        "delivery_notes": "紧凑干练的成年女声；问话落到时辰，守界限短句有分量，休值才轻快，避免全程怒吼。；本状态：等你把时辰说清。不朗读动作说明。",
+        "revision": 1
+      },
+      {
+        "text": "对上了。你可以从这边走。",
+        "emotion": "核对之后放行",
+        "emotion_api": "happy",
+        "delivery_notes": "紧凑干练的成年女声；问话落到时辰，守界限短句有分量，休值才轻快，避免全程怒吼。；本状态：核对之后放行。不朗读动作说明。",
+        "revision": 1
+      },
+      {
+        "text": "人先留下。证词不能让你带走改。",
+        "emotion": "横棍守住这条界限",
+        "emotion_api": "angry",
+        "delivery_notes": "紧凑干练的成年女声；问话落到时辰，守界限短句有分量，休值才轻快，避免全程怒吼。；本状态：横棍守住这条界限。不朗读动作说明。",
+        "revision": 1
+      }
+    ],
+    "yan-xiaolou": [
+      {
+        "text": "这里人多，我们往旁边说。",
+        "emotion": "台下认真听",
+        "emotion_api": "calm",
+        "delivery_notes": "接话快、有节奏的成年女声；台前会接梗，台下低平认真，创作署名被夺时收笑，避免幼态嬉闹。；本状态：台下认真听。不朗读动作说明。",
+        "revision": 1
+      },
+      {
+        "text": "来得正好，今天有一段新词。",
+        "emotion": "公开招呼新观众",
+        "emotion_api": "happy",
+        "delivery_notes": "接话快、有节奏的成年女声；台前会接梗，台下低平认真，创作署名被夺时收笑，避免幼态嬉闹。；本状态：公开招呼新观众。不朗读动作说明。",
+        "revision": 1
+      },
+      {
+        "text": "这段是我写的。名字不能只写班主。",
+        "emotion": "把自己的稿子抱回来",
+        "emotion_api": "angry",
+        "delivery_notes": "接话快、有节奏的成年女声；台前会接梗，台下低平认真，创作署名被夺时收笑，避免幼态嬉闹。；本状态：把自己的稿子抱回来。不朗读动作说明。",
+        "revision": 1
+      }
+    ],
+    "qiao-xingzhou": [
+      {
+        "text": "先说清楚，你想载多少人。",
+        "emotion": "先看你打算怎么做",
+        "emotion_api": "calm",
+        "delivery_notes": "中低区稳实的成年女声；话直接，承认不懂坦然，超载拒绝果断，干完活笑得放松。；本状态：先看你打算怎么做。不朗读动作说明。",
+        "revision": 1
+      },
+      {
+        "text": "成，袖子一卷，我们一起弄。",
+        "emotion": "卷袖准备帮你",
+        "emotion_api": "happy",
+        "delivery_notes": "中低区稳实的成年女声；话直接，承认不懂坦然，超载拒绝果断，干完活笑得放松。；本状态：卷袖准备帮你。不朗读动作说明。",
+        "revision": 1
+      },
+      {
+        "text": "超了就是超了。再加人，我不撑这船。",
+        "emotion": "撑篙守住载重线",
+        "emotion_api": "angry",
+        "delivery_notes": "中低区稳实的成年女声；话直接，承认不懂坦然，超载拒绝果断，干完活笑得放松。；本状态：撑篙守住载重线。不朗读动作说明。",
+        "revision": 1
+      }
+    ],
+    "liu-hanyan": [
+      {
+        "text": "请说，我在听。",
+        "emotion": "抱琴安静听",
+        "emotion_api": "calm",
+        "delivery_notes": "轻柔但吐字完整的成年女声；拒绝明确，不气若游丝；遇真心关心迟疑后再答，避免统一媚音。；本状态：抱琴安静听。不朗读动作说明。",
+        "revision": 1
+      },
+      {
+        "text": "这一段，我也很喜欢。",
+        "emotion": "斜琴轻点弦",
+        "emotion_api": "happy",
+        "delivery_notes": "轻柔但吐字完整的成年女声；拒绝明确，不气若游丝；遇真心关心迟疑后再答，避免统一媚音。；本状态：斜琴轻点弦。不朗读动作说明。",
+        "revision": 1
+      },
+      {
+        "text": "这席我不接，请让开。",
+        "emotion": "侧身护琴拒席",
+        "emotion_api": "angry",
+        "delivery_notes": "轻柔但吐字完整的成年女声；拒绝明确，不气若游丝；遇真心关心迟疑后再答，避免统一媚音。；本状态：侧身护琴拒席。不朗读动作说明。",
+        "revision": 1
+      }
+    ],
+    "qin-feiyuan": [
+      {
+        "text": "哟，今天舍得来坐坐了？",
+        "emotion": "先看是谁来了",
+        "emotion_api": "calm",
+        "delivery_notes": "明艳外放的成熟成年女声；接话快且带笑，轻佻是试探，保护人或说真话时笑意立即收住。；本状态：先看是谁来了。不朗读动作说明。",
+        "revision": 1
+      },
+      {
+        "text": "这席我接了，你也别躲得那么远。",
+        "emotion": "开扇把场子接住",
+        "emotion_api": "happy",
+        "delivery_notes": "明艳外放的成熟成年女声；接话快且带笑，轻佻是试探，保护人或说真话时笑意立即收住。；本状态：开扇把场子接住。不朗读动作说明。",
+        "revision": 1
+      },
+      {
+        "text": "我在这儿。手往哪儿放，你想清楚。",
+        "emotion": "合扇挡住要伸来的手",
+        "emotion_api": "angry",
+        "delivery_notes": "明艳外放的成熟成年女声；接话快且带笑，轻佻是试探，保护人或说真话时笑意立即收住。；本状态：合扇挡住要伸来的手。不朗读动作说明。",
+        "revision": 1
+      }
+    ],
+    "ruan-qingque": [
+      {
+        "text": "你在找钱袋，还是在找我？",
+        "emotion": "先试探半句",
+        "emotion_api": "calm",
+        "delivery_notes": "敏捷清亮的成年女声；半句玩笑试探，短句利落，认真直接承认，不能演成小女孩。；本状态：先试探半句。不朗读动作说明。",
+        "revision": 1
+      },
+      {
+        "text": "这回是赚的，可不是顺来的。",
+        "emotion": "把手艺亮给你看",
+        "emotion_api": "happy",
+        "delivery_notes": "敏捷清亮的成年女声；半句玩笑试探，短句利落，认真直接承认，不能演成小女孩。；本状态：把手艺亮给你看。不朗读动作说明。",
+        "revision": 1
+      },
+      {
+        "text": "我认我偷过的。不认你栽给我的。",
+        "emotion": "把伸出去的手收回来",
+        "emotion_api": "angry",
+        "delivery_notes": "敏捷清亮的成年女声；半句玩笑试探，短句利落，认真直接承认，不能演成小女孩。；本状态：把伸出去的手收回来。不朗读动作说明。",
+        "revision": 1
+      }
+    ],
+    "shi-changgeng": [
+      {
+        "text": "活怎么做，你先讲清楚。",
+        "emotion": "抱臂等个准话",
+        "emotion_api": "calm",
+        "delivery_notes": "爽直可靠的成年男声；有生活气，记得饭钱，挺身时响亮但不粗暴，不演老头。；本状态：抱臂等个准话。不朗读动作说明。",
+        "revision": 1
+      },
+      {
+        "text": "行，我也来搭把手。",
+        "emotion": "说好一起把活干完",
+        "emotion_api": "happy",
+        "delivery_notes": "爽直可靠的成年男声；有生活气，记得饭钱，挺身时响亮但不粗暴，不演老头。；本状态：说好一起把活干完。不朗读动作说明。",
+        "revision": 1
+      },
+      {
+        "text": "有话冲我说，别扣他的工钱。",
+        "emotion": "先把人护到身后",
+        "emotion_api": "angry",
+        "delivery_notes": "爽直可靠的成年男声；有生活气，记得饭钱，挺身时响亮但不粗暴，不演老头。；本状态：先把人护到身后。不朗读动作说明。",
+        "revision": 1
+      }
+    ],
+    "qi-zheng": [
+      {
+        "text": "报酬、时限，分开说。",
+        "emotion": "抱臂听清价码",
+        "emotion_api": "calm",
+        "delivery_notes": "低平克制的成年男声；报酬时限分开讲，算风险有停顿，难过不煽情，不用反派嘶哑音。；本状态：抱臂听清价码。不朗读动作说明。",
+        "revision": 1
+      },
+      {
+        "text": "数对上了。下一趟照这个算。",
+        "emotion": "把谈妥的一笔收好",
+        "emotion_api": "happy",
+        "delivery_notes": "低平克制的成年男声；报酬时限分开讲，算风险有停顿，难过不煽情，不用反派嘶哑音。；本状态：把谈妥的一笔收好。不朗读动作说明。",
+        "revision": 1
+      },
+      {
+        "text": "没写清的那一笔，我不接。",
+        "emotion": "把这场交易停下",
+        "emotion_api": "angry",
+        "delivery_notes": "低平克制的成年男声；报酬时限分开讲，算风险有停顿，难过不煽情，不用反派嘶哑音。；本状态：把这场交易停下。不朗读动作说明。",
+        "revision": 1
+      }
+    ],
+    "lu-heng": [
+      {
+        "text": "路程和同行的人，你都说说。",
+        "emotion": "先确认一起走的路",
+        "emotion_api": "calm",
+        "delivery_notes": "稳健温厚的成年男声；护送指令短而清楚，先确认同行安全，轻松时能开朴实玩笑。；本状态：先确认一起走的路。不朗读动作说明。",
+        "revision": 1
+      },
+      {
+        "text": "从这边走，天黑前就能到。",
+        "emotion": "确认前路后指给你",
+        "emotion_api": "happy",
+        "delivery_notes": "稳健温厚的成年男声；护送指令短而清楚，先确认同行安全，轻松时能开朴实玩笑。；本状态：确认前路后指给你。不朗读动作说明。",
+        "revision": 1
+      },
+      {
+        "text": "后面的人先走，这里我来交涉。",
+        "emotion": "挡在退路和来人之间",
+        "emotion_api": "angry",
+        "delivery_notes": "稳健温厚的成年男声；护送指令短而清楚，先确认同行安全，轻松时能开朴实玩笑。；本状态：挡在退路和来人之间。不朗读动作说明。",
+        "revision": 1
+      }
+    ],
+    "huo-zhuchen": [
+      {
+        "text": "拿来我看看，哪一处不顺？",
+        "emotion": "随手扶住工具腰带",
+        "emotion_api": "calm",
+        "delivery_notes": "自然略粗的成年男声；爱拆解会多说两句，检修判断具体，对自己修过的器具认真负责。；本状态：随手扶住工具腰带。不朗读动作说明。",
+        "revision": 1
+      },
+      {
+        "text": "行了，先别急着拆第二回。",
+        "emotion": "边擦手边说修好了",
+        "emotion_api": "happy",
+        "delivery_notes": "自然略粗的成年男声；爱拆解会多说两句，检修判断具体，对自己修过的器具认真负责。；本状态：边擦手边说修好了。不朗读动作说明。",
+        "revision": 1
+      },
+      {
+        "text": "这销子都没锁住，你就敢让人用了？",
+        "emotion": "把松动的零件摆到眼前",
+        "emotion_api": "angry",
+        "delivery_notes": "自然略粗的成年男声；爱拆解会多说两句，检修判断具体，对自己修过的器具认真负责。；本状态：把松动的零件摆到眼前。不朗读动作说明。",
+        "revision": 1
+      }
+    ],
+    "pei-zhigu": [
+      {
+        "text": "嗯，我听着。这页先不翻。",
+        "emotion": "走神后倾听",
+        "emotion_api": "calm",
+        "delivery_notes": "自然松缓的成年女声；日常慢半拍、回神直白，发现史料会兴奋连说具体事实，不娇嗲、不半眯魅惑腔。；本状态：走神后倾听。不朗读动作说明。",
+        "revision": 1
+      },
+      {
+        "text": "找着了！这回是能对上的，不是我猜的。",
+        "emotion": "查实欣喜",
+        "emotion_api": "happy",
+        "delivery_notes": "自然松缓的成年女声；日常慢半拍、回神直白，发现史料会兴奋连说具体事实，不娇嗲、不半眯魅惑腔。；本状态：查实欣喜。不朗读动作说明。",
+        "revision": 1
+      },
+      {
+        "text": "旧本还在，你不能替他们改名字。",
+        "emotion": "据理护证",
+        "emotion_api": "angry",
+        "delivery_notes": "自然松缓的成年女声；日常慢半拍、回神直白，发现史料会兴奋连说具体事实，不娇嗲、不半眯魅惑腔。；本状态：据理护证。不朗读动作说明。",
+        "revision": 1
+      }
+    ],
+    "zhouyan": [
+      {
+        "text": "不用。我给住处，不收你家的东西。",
+        "emotion": "说明",
+        "emotion_api": "calm",
+        "delivery_notes": "温厚有界限，不替他人决定的独立游侠；救援短促，收留饭桌回到日常。；保持吐字和句间停顿，不朗读说明。",
+        "revision": 1
+      },
+      {
+        "text": "趁热吃。吃完碗放着，今晚别争谁洗。",
+        "emotion": "说明",
+        "emotion_api": "calm",
+        "delivery_notes": "温厚有界限，不替他人决定的独立游侠；救援短促，收留饭桌回到日常。；保持吐字和句间停顿，不朗读说明。",
+        "revision": 1
+      },
+      {
+        "text": "收剑，救人！",
+        "emotion": "紧急断喝",
+        "emotion_api": "angry",
+        "delivery_notes": "温厚有界限，不替他人决定的独立游侠；救援短促，收留饭桌回到日常。；保持吐字和句间停顿，不朗读说明。",
+        "revision": 1
+      }
+    ],
+    "chengduo": [
+      {
+        "text": "征的是药，没让你扣她整个家。列药名、列数目，病人手上的先留着。",
+        "emotion": "说明",
+        "emotion_api": "calm",
+        "delivery_notes": "成熟利落的巡江司带队人；先救人再固定证据，承认自己的权限有限。；保持吐字和句间停顿，不朗读说明。",
+        "revision": 1
+      },
+      {
+        "text": "这次先拦住了。后头怎么查，得看证人和公文。我不能说一句就算办完。",
+        "emotion": "说明",
+        "emotion_api": "calm",
+        "delivery_notes": "成熟利落的巡江司带队人；先救人再固定证据，承认自己的权限有限。；保持吐字和句间停顿，不朗读说明。",
+        "revision": 1
+      },
+      {
+        "text": "人还在里面！",
+        "emotion": "紧急断喝",
+        "emotion_api": "angry",
+        "delivery_notes": "成熟利落的巡江司带队人；先救人再固定证据，承认自己的权限有限。；保持吐字和句间停顿，不朗读说明。",
+        "revision": 1
+      }
+    ],
+    "wukui": [
+      {
+        "text": "叶家的？玉匣在哪儿？",
+        "emotion": "说明",
+        "emotion_api": "calm",
+        "delivery_notes": "急躁强硬的归烬堂抢匣者；逞凶和慌张有差别，不演妖魔怪物。；保持吐字和句间停顿，不朗读说明。",
+        "revision": 1
+      },
+      {
+        "text": "谁跟你说买了？那匣子本来就该回归烬堂。",
+        "emotion": "说明",
+        "emotion_api": "calm",
+        "delivery_notes": "急躁强硬的归烬堂抢匣者；逞凶和慌张有差别，不演妖魔怪物。；保持吐字和句间停顿，不朗读说明。",
+        "revision": 1
+      },
+      {
+        "text": "岑霜！他们要带匣子跑！",
+        "emotion": "紧急断喝",
+        "emotion_api": "fearful",
+        "delivery_notes": "急躁强硬的归烬堂抢匣者；逞凶和慌张有差别，不演妖魔怪物。；保持吐字和句间停顿，不朗读说明。",
+        "revision": 1
+      }
+    ],
+    "aunt": [
+      {
+        "text": "先坐，杵在门口风大。陈伯，把那张榻腾出来。",
+        "emotion": "坚定日常",
+        "emotion_api": "calm",
+        "delivery_notes": "朴实利落的中年村民，照应吃穿，关心实际，不演成高人。；按完整原文自然停顿，保持身份与当前事件的分寸。",
+        "revision": 1
+      }
+    ],
+    "chen": [
+      {
+        "text": "就两捆绳，我搬走。",
+        "emotion": "坚定日常",
+        "emotion_api": "calm",
+        "delivery_notes": "朴实沉稳的老木匠，说话具体，有生活气，不神秘说教。；按完整原文自然停顿，保持身份与当前事件的分寸。",
+        "revision": 1
+      }
+    ],
+    "apothecary": [
+      {
+        "text": "那几件药具是我收的。有人问，我就说了……箱子我没见过。",
+        "emotion": "坚定日常",
+        "emotion_api": "calm",
+        "delivery_notes": "略带心虚的药商，澄清传话时躲闪，但不夸张奸笑。；按完整原文自然停顿，保持身份与当前事件的分寸。",
+        "revision": 1
+      }
+    ],
+    "steward": [
+      {
+        "text": "听说令尊留下一部医武功法，外头已经有人打它的主意。姑娘没练过，留在手里反而危险。",
+        "emotion": "坚定日常",
+        "emotion_api": "calm",
+        "delivery_notes": "正道盟索谱管事；客气话里施压，措辞从容，不暴露幕后身份。；按完整原文自然停顿，保持身份与当前事件的分寸。",
+        "revision": 1
+      }
+    ],
+    "procurement": [
+      {
+        "text": "既然人找到了，把药箱一并带走验。",
+        "emotion": "坚定日常",
+        "emotion_api": "calm",
+        "delivery_notes": "急于交差的征药采办使，催逼中带公事腔，不和管事共用角色身份。；按完整原文自然停顿，保持身份与当前事件的分寸。",
+        "revision": 1
+      }
+    ]
+  }
+}
