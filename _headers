@@ -1,0 +1,10 @@
+# Cloudflare Pages 缓存规则（2026-10-17 线上卡顿整改）
+# 图片、音频按文件名区分版本（新素材另起带日期的文件名），浏览器缓存 1 天，过期后 7 天内先用旧的、后台再更新。
+/assets/*
+  Cache-Control: public, max-age=86400, stale-while-revalidate=604800
+# 脚本不缓存：有的脚本没有 ?v= 版本号，缓存会让新旧脚本混用。
+# 页面本身每次都向服务器确认，保证拿到最新版本号。
+/index.html
+  Cache-Control: no-cache
+/
+  Cache-Control: no-cache

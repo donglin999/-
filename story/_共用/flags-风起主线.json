@@ -1,0 +1,235 @@
+{
+  "说明": "2026-10-19 风起主线批次的存档标记登记（迁移方案 §8.2）。路径都在 S.qiheChapter 下，由 js/qihe-chapter.js 建立；字段含义见 meaning。",
+  "flags": {
+    "qiheChapter.records.stranger_deal": {
+      "type": "enum",
+      "values": [
+        "accepted",
+        "asked_first"
+      ],
+      "default": null,
+      "part": "开始",
+      "meaning": "宋先生第一段：萧白怎么答应替他看着（直接答应／先问他为什么不自己去说）；两支都接受委托",
+      "setBy": [
+        "风起-竹匾"
+      ],
+      "readBy": [],
+      "recordOnly": true
+    },
+    "qiheChapter.records.basket": {
+      "type": "bool",
+      "values": [
+        true,
+        false
+      ],
+      "default": false,
+      "part": "开始",
+      "meaning": "已从后山倒木旁收回周婶的竹匾（宋先生第一段结束时）",
+      "setBy": [
+        "风起-竹匾"
+      ],
+      "readBy": [],
+      "recordOnly": true
+    },
+    "qiheChapter.records.stranger_report": {
+      "type": "enum",
+      "values": [
+        "full",
+        "partial"
+      ],
+      "default": null,
+      "part": "开始",
+      "meaning": "宋先生第二段：正道盟的人数站位说全了还是只说大概；决定谢礼修为（40／30）",
+      "setBy": [
+        "风起-后山回话一"
+      ],
+      "readBy": [],
+      "legacyRead": [
+        "js/qihe-chapter.js（谢礼修为 songGift）"
+      ]
+    },
+    "qiheChapter.records.stranger_told_departure": {
+      "type": "bool",
+      "values": [
+        true,
+        false
+      ],
+      "default": false,
+      "part": "开始",
+      "meaning": "宋先生第三段：有没有告诉他叶家今晚就走；不改变起火是否发生",
+      "setBy": [
+        "风起-后山回话二"
+      ],
+      "readBy": [],
+      "recordOnly": true
+    },
+    "qiheChapter.packing": {
+      "type": "enum",
+      "values": [
+        "wrap",
+        "ask"
+      ],
+      "default": null,
+      "part": "开始",
+      "meaning": "收拾药箱：笔记和药签分开包／问要不要告诉周先生",
+      "setBy": [
+        "风起-收拾药箱"
+      ],
+      "readBy": [],
+      "recordOnly": true
+    },
+    "qiheChapter.rescue": {
+      "type": "enum",
+      "values": [
+        "chen",
+        "cart"
+      ],
+      "default": null,
+      "part": "开始",
+      "meaning": "起火时萧白去救陈伯还是去护车；决定救人台词、撤离第一句、陈伯伤情与物资",
+      "setBy": [
+        "风起-起火"
+      ],
+      "readBy": [
+        "风起-起火"
+      ],
+      "legacyRead": [
+        "js/qihe-chapter.js（fireBody 只在未选时问；chenCare、supplies 计算）",
+        "js/qihe-representatives.js 等测试"
+      ],
+      "routeValues": [
+        "chen",
+        "cart"
+      ]
+    },
+    "qiheChapter.choices.practice": {
+      "type": "enum",
+      "values": [
+        "learned"
+      ],
+      "default": null,
+      "part": "开始",
+      "meaning": "村中活动：学过《护路棍法》（做过即记）",
+      "setBy": [
+        "风起-学棍"
+      ],
+      "readBy": [],
+      "legacyRead": [
+        "js/qihe-chapter.js（activityBody 已做过判断、mainOffer 剩余件数）"
+      ]
+    },
+    "qiheChapter.choices.transport": {
+      "type": "enum",
+      "values": [
+        "cart",
+        "elders"
+      ],
+      "default": null,
+      "part": "开始",
+      "meaning": "村中活动：修车（cart）／先送老人家去邻村（elders）",
+      "setBy": [
+        "风起-修车认路"
+      ],
+      "readBy": [
+        "风起-收拾药箱"
+      ],
+      "legacyRead": [
+        "js/qihe-chapter.js（supplies 计算、已做过判断）",
+        "js/qihe-expansion.js（选 elders 后村口老人不再在村里）"
+      ],
+      "routeValues": [
+        "elders",
+        "cart",
+        null
+      ]
+    },
+    "qiheChapter.choices.clinic": {
+      "type": "enum",
+      "values": [
+        "pack",
+        "visits"
+      ],
+      "default": null,
+      "part": "开始",
+      "meaning": "村中活动：药棚帮忙，分药包／陪着送药",
+      "setBy": [
+        "风起-药棚帮忙"
+      ],
+      "readBy": [],
+      "legacyRead": [
+        "js/qihe-chapter.js（已做过判断；铜针囊赠物）"
+      ]
+    },
+    "qiheChapter.choices.relic_help": {
+      "type": "enum",
+      "values": [
+        "copy",
+        "pack"
+      ],
+      "default": null,
+      "part": "开始",
+      "meaning": "村中活动：整理旧屋，抄笔记／包母亲的东西",
+      "setBy": [
+        "风起-整理旧屋"
+      ],
+      "readBy": [],
+      "legacyRead": [
+        "js/qihe-chapter.js（已做过判断）"
+      ]
+    },
+    "qiheChapter.choices.inquiry": {
+      "type": "enum",
+      "values": [
+        "friend",
+        "court"
+      ],
+      "default": null,
+      "part": "开始",
+      "meaning": "村中活动：问讯，问周砚（friend）／问沈雁回（court）",
+      "setBy": [
+        "风起-村口问讯"
+      ],
+      "readBy": [],
+      "legacyRead": [
+        "js/qihe-chapter.js（已做过判断；问过后周砚改说另一句）"
+      ]
+    },
+    "qiheChapter.choices.market": {
+      "type": "enum",
+      "values": [
+        "help",
+        "rumor"
+      ],
+      "default": null,
+      "part": "开始",
+      "meaning": "村中活动：集市帮忙，收拾货（help，多一份物资）／问药商（rumor）",
+      "setBy": [
+        "风起-集市帮忙"
+      ],
+      "readBy": [],
+      "legacyRead": [
+        "js/qihe-chapter.js（supplies 计算、已做过判断）"
+      ]
+    },
+    "qiheChapter.talkCycle": {
+      "type": "enum",
+      "values": [
+        0,
+        1,
+        2
+      ],
+      "default": 0,
+      "part": "开始",
+      "meaning": "路人、三方随从搭话的轮换计数：每搭一次话换下一句（0→1→2→0），只影响随口一句的措辞",
+      "setBy": [
+        "风起-随口一句",
+        "风起-村中路人"
+      ],
+      "readBy": [
+        "风起-随口一句",
+        "风起-村中路人"
+      ],
+      "recordOnly": false
+    }
+  }
+}

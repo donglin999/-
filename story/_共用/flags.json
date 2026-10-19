@@ -1,0 +1,479 @@
+{
+  "说明": "选择后果登记表（迁移方案 §8.2）。ink 里 flag()/set_flag() 用到的每个存档标记都要在这里登记。part：该标记所属部分（开始/培养/游历/终局），用于“设置之前就读取”的先后检查。setBy/readBy 由构建脚本核对，不手填也行，但手填的会与实际比对。 2026-10-18 第 2 期补充：setByExternal 写“设置它的游戏函数”；legacySet 写“未迁移的 JS 里设置它的地方”；legacyRead 写“未迁移的 JS 里读取它的地方”；recordOnly=true 表示只是存档记录、目前没有读取方（构建不报断线，但要在更新记录里列出）；routeValues 是路线遍历时用来分支的代表取值（不写就用 values 全部）。",
+  "flags": {
+    "prologue.arrival.borrowed": {
+      "type": "bool",
+      "values": [
+        true,
+        false
+      ],
+      "default": false,
+      "part": "开始",
+      "meaning": "萧白已在药棚换上村里借来的粗布衣（现代装 → 村装）",
+      "setBy": [
+        "序章-进村第一夜"
+      ],
+      "readBy": [
+        "序章-进村第一夜"
+      ],
+      "legacyRead": [
+        "js/qihe-characters.js（决定主角立绘是现代装还是村装）",
+        "js/prologue-arrival.js（play() 开场时决定是否用现代装演出）"
+      ],
+      "setByExternal": [
+        "change_into_village_clothes（淡出过程中设置，保证立绘在黑场里换装）"
+      ]
+    },
+    "prologue.arrival.stage": {
+      "type": "enum",
+      "values": [
+        "encounter",
+        "water",
+        "dog",
+        "lodging",
+        "done"
+      ],
+      "default": "encounter",
+      "part": "开始",
+      "meaning": "序章进度：后山相遇 → 递水 → 遇狼 → 进村第一夜 → 完成（encounter 为初值；water 为登记的历史取值，现行流程不单独设置）",
+      "setBy": [
+        "序章-后山相遇",
+        "序章-遇狼",
+        "序章-进村第一夜"
+      ],
+      "readBy": [],
+      "legacyRead": [
+        "js/prologue-arrival.js（play() 判断序章是否结束）",
+        "js/qihe-map-trial.js（行程栏）"
+      ]
+    },
+    "prologue.arrival.originExpression": {
+      "type": "enum",
+      "values": [
+        "A",
+        "B",
+        "C"
+      ],
+      "default": null,
+      "part": "开始",
+      "meaning": "递水时回答“你是哪儿人”的三选一：A 记不清了／B 说来话长／C 城里的楼；只决定第一夜睡前那句心里话，并随交接记录带进风起栖河",
+      "setBy": [],
+      "readBy": [
+        "第一夜-过夜"
+      ],
+      "setByExternal": [
+        "water_scene（递水剧本经 water_branch 交回选择，由后山相遇的游戏函数记入存档；递水用于审读回放时不写存档）"
+      ],
+      "legacyRead": [
+        "js/qihe-map-trial.js（hand_off_first_night 写入 S.prologue.handoff.origin）"
+      ]
+    },
+    "prologue.arrival.dogResult": {
+      "type": "enum",
+      "values": [
+        "win"
+      ],
+      "default": null,
+      "part": "开始",
+      "meaning": "后山遇狼的结果（只有打赢才会往下走，所以只有 win）",
+      "setBy": [
+        "序章-遇狼"
+      ],
+      "readBy": [],
+      "recordOnly": true,
+      "note": "2026-10-18 搬运时发现：原 JS 也只写不读，属于存档记录，列入待用户确认"
+    },
+    "prologue.wolf_disturbance_observed": {
+      "type": "bool",
+      "values": [
+        true,
+        false
+      ],
+      "default": false,
+      "part": "开始",
+      "meaning": "已看出狼是被山里的生人撵下来的（靴印、狗叫）",
+      "setBy": [
+        "序章-遇狼"
+      ],
+      "readBy": [],
+      "recordOnly": true,
+      "legacySet": [
+        "js/qihe-expansion.js（风起栖河北坡查看靴印时也会设置）"
+      ],
+      "note": "2026-10-18 搬运时发现：目前没有任何地方读取，属于存档记录，列入待用户确认"
+    },
+    "prologue.arrival.greeted.周婶": {
+      "type": "bool",
+      "values": [
+        true,
+        false
+      ],
+      "default": false,
+      "part": "开始",
+      "meaning": "进村第一夜后已经跟周婶寒暄过（只寒暄一次）",
+      "setBy": [
+        "第一夜-问候"
+      ],
+      "readBy": [],
+      "legacyRead": [
+        "js/prologue-arrival.js（bindGreetings 判断是否先播寒暄）",
+        "js/qihe-journal.js（江湖人物“已结识”）"
+      ]
+    },
+    "prologue.arrival.greeted.陈伯": {
+      "type": "bool",
+      "values": [
+        true,
+        false
+      ],
+      "default": false,
+      "part": "开始",
+      "meaning": "进村第一夜后已经跟陈伯寒暄过（只寒暄一次）",
+      "setBy": [
+        "第一夜-问候"
+      ],
+      "readBy": [],
+      "legacyRead": [
+        "js/prologue-arrival.js（bindGreetings 判断是否先播寒暄）",
+        "js/qihe-journal.js（江湖人物“已结识”）"
+      ]
+    },
+    "prologue.arrival.greeted.叶蘅": {
+      "type": "bool",
+      "values": [
+        true,
+        false
+      ],
+      "default": false,
+      "part": "开始",
+      "meaning": "进村第一夜后已经跟叶蘅寒暄过（只寒暄一次）",
+      "setBy": [
+        "第一夜-问候"
+      ],
+      "readBy": [],
+      "legacyRead": [
+        "js/prologue-arrival.js（bindGreetings 判断是否先播寒暄）",
+        "js/qihe-journal.js（江湖人物“已结识”）"
+      ]
+    },
+    "prologue.rested": {
+      "type": "bool",
+      "values": [
+        true,
+        false
+      ],
+      "default": false,
+      "part": "开始",
+      "meaning": "第一夜已经过完（开始部分“山村来客”结束，进入风起栖河）",
+      "setBy": [
+        "第一夜-过夜"
+      ],
+      "readBy": [
+        "第一夜-问候",
+        "第一夜-周婶托付",
+        "第一夜-过夜"
+      ],
+      "legacyRead": [
+        "js/qihe-map-trial.js（rest() 转风起栖河、行程栏、夜色）",
+        "js/qihe-journal.js",
+        "js/qihe-ui-review.js",
+        "js/qihe-chapter-presentation-review.js"
+      ]
+    },
+    "prologue.ending": {
+      "type": "bool",
+      "values": [
+        true,
+        false
+      ],
+      "default": false,
+      "part": "开始",
+      "meaning": "已确认“回屋睡觉”、正在过夜途中（读档时据此续播过夜，叶家夜里的周婶、陈伯也据此出现）",
+      "setBy": [
+        "第一夜-过夜"
+      ],
+      "readBy": [],
+      "legacyRead": [
+        "js/qihe-map-trial.js（start() 续播过夜、夜里人物显示、行程栏）",
+        "js/qihe-outsiders.js",
+        "js/qh-pre-hangao.js"
+      ]
+    },
+    "prologue.relicSeen": {
+      "type": "bool",
+      "values": [
+        true,
+        false
+      ],
+      "default": false,
+      "part": "开始",
+      "meaning": "已经帮叶蘅收好药箱（P-04 必经），之后才能回屋过夜",
+      "setBy": [
+        "第一夜-收药箱"
+      ],
+      "readBy": [
+        "第一夜-收药箱",
+        "第一夜-过夜"
+      ],
+      "legacyRead": [
+        "js/qihe-map-trial.js（叶家门口与过夜榻的显示、行程栏）",
+        "js/qihe-expansion.js",
+        "js/qihe-journal.js"
+      ]
+    },
+    "prologue.yeHousePermission": {
+      "type": "bool",
+      "values": [
+        true,
+        false
+      ],
+      "default": false,
+      "part": "开始",
+      "meaning": "叶蘅已在门口请萧白进门帮忙（之后点叶家门直接进屋）",
+      "setBy": [
+        "第一夜-问候"
+      ],
+      "readBy": [
+        "第一夜-问候"
+      ]
+    },
+    "prologue.errands.bowls": {
+      "type": "enum",
+      "values": [
+        "none",
+        "accepted",
+        "done",
+        "closed"
+      ],
+      "default": "none",
+      "routeValues": [
+        "none",
+        "accepted",
+        "done"
+      ],
+      "part": "开始",
+      "meaning": "周婶托的小事“还碗”：none 未接／accepted 已接／done 已交还／closed 过夜时没办完，由周婶收尾",
+      "setBy": [
+        "第一夜-周婶托付",
+        "第一夜-还碗",
+        "第一夜-过夜"
+      ],
+      "readBy": [
+        "第一夜-周婶托付",
+        "第一夜-还碗",
+        "第一夜-过夜"
+      ],
+      "legacyRead": [
+        "js/qihe-map-trial.js（pending() 待交还清单、行程栏与江湖菜单）",
+        "js/qihe-journal.js",
+        "js/qihe-outsiders.js",
+        "js/qihe-expansion.js"
+      ]
+    },
+    "prologue.errands.cloth": {
+      "type": "enum",
+      "values": [
+        "none",
+        "accepted",
+        "collected",
+        "done",
+        "closed"
+      ],
+      "default": "none",
+      "routeValues": [
+        "none",
+        "accepted",
+        "collected",
+        "done"
+      ],
+      "part": "开始",
+      "meaning": "周婶托的小事“取布”：none 未接／accepted 已接／collected 已取到／done 已交还／closed 过夜时没办完，由周婶收尾",
+      "setBy": [
+        "第一夜-周婶托付",
+        "第一夜-取布",
+        "第一夜-过夜"
+      ],
+      "readBy": [
+        "第一夜-周婶托付",
+        "第一夜-取布",
+        "第一夜-过夜"
+      ],
+      "legacyRead": [
+        "js/qihe-map-trial.js（pending() 待交还清单、行程栏与江湖菜单）",
+        "js/qihe-journal.js",
+        "js/qihe-outsiders.js",
+        "js/qihe-expansion.js"
+      ]
+    },
+    "prologue.errands.medicine": {
+      "type": "enum",
+      "values": [
+        "none",
+        "accepted",
+        "delivered",
+        "done",
+        "closed"
+      ],
+      "default": "none",
+      "routeValues": [
+        "none",
+        "accepted",
+        "delivered",
+        "done"
+      ],
+      "part": "开始",
+      "meaning": "周婶托的小事“送药与还篮”：none 未接／accepted 已接／delivered 药已送到、竹篮未还／done 已交还／closed 过夜时没办完，由周婶收尾",
+      "setBy": [
+        "第一夜-周婶托付",
+        "第一夜-送药",
+        "第一夜-过夜"
+      ],
+      "readBy": [
+        "第一夜-周婶托付",
+        "第一夜-送药",
+        "第一夜-过夜"
+      ],
+      "legacyRead": [
+        "js/qihe-map-trial.js（pending() 待交还清单、行程栏与江湖菜单）",
+        "js/qihe-journal.js",
+        "js/qihe-outsiders.js",
+        "js/qihe-expansion.js"
+      ]
+    },
+    "prologue.heard.skill": {
+      "type": "bool",
+      "values": [
+        true,
+        false
+      ],
+      "default": false,
+      "part": "开始",
+      "meaning": "第一夜旁听到：陈伯家门厅里周砚打听温家功法（过夜时可以说给叶蘅）",
+      "setBy": [
+        "第一夜-还碗"
+      ],
+      "readBy": [
+        "第一夜-过夜"
+      ],
+      "legacyRead": [
+        "js/qihe-map-trial.js（hand_off_first_night 写入交接记录 handoff.heard）",
+        "js/qihe-outsiders.js"
+      ]
+    },
+    "prologue.heard.box": {
+      "type": "bool",
+      "values": [
+        true,
+        false
+      ],
+      "default": false,
+      "part": "开始",
+      "meaning": "第一夜旁听到：客栈里帮众说叶家肯卖玉匣（过夜时可以说给叶蘅）",
+      "setBy": [
+        "第一夜-取布"
+      ],
+      "readBy": [
+        "第一夜-过夜"
+      ],
+      "legacyRead": [
+        "js/qihe-map-trial.js（hand_off_first_night 写入交接记录 handoff.heard）",
+        "js/qihe-outsiders.js"
+      ]
+    },
+    "prologue.heard.inspection": {
+      "type": "bool",
+      "values": [
+        true,
+        false
+      ],
+      "default": false,
+      "part": "开始",
+      "meaning": "第一夜旁听到：村口老人转述采办随从说叶家的药早验过了（过夜时可以说给叶蘅）",
+      "setBy": [
+        "第一夜-送药"
+      ],
+      "readBy": [
+        "第一夜-过夜"
+      ],
+      "legacyRead": [
+        "js/qihe-map-trial.js（hand_off_first_night 写入交接记录 handoff.heard）",
+        "js/qihe-outsiders.js"
+      ],
+      "legacySet": [
+        "js/qihe-outsiders.js（风起栖河“药单”任务里差役作证时也会设置）"
+      ]
+    },
+    "prologue.outsiders.quests.letter.stage": {
+      "type": "enum",
+      "values": [
+        "none",
+        "accepted",
+        "checked",
+        "witnessed",
+        "done"
+      ],
+      "default": "none",
+      "routeValues": [
+        "none",
+        "checked"
+      ],
+      "part": "开始",
+      "meaning": "风起栖河外来者委托“拜帖”的进度；第一夜追问时若已查证，叶蘅、萧白换成查证后的说法",
+      "setBy": [],
+      "readBy": [
+        "第一夜-过夜"
+      ],
+      "legacySet": [
+        "js/qihe-outsiders.js（外来者委托，第 3 期迁移）"
+      ]
+    },
+    "prologue.outsiders.quests.account.stage": {
+      "type": "enum",
+      "values": [
+        "none",
+        "accepted",
+        "checked",
+        "witnessed",
+        "done"
+      ],
+      "default": "none",
+      "routeValues": [
+        "none",
+        "checked"
+      ],
+      "part": "开始",
+      "meaning": "风起栖河外来者委托“药罐账”的进度；第一夜追问时若已查证，叶蘅、萧白换成查证后的说法",
+      "setBy": [],
+      "readBy": [
+        "第一夜-过夜"
+      ],
+      "legacySet": [
+        "js/qihe-outsiders.js（外来者委托，第 3 期迁移）"
+      ]
+    },
+    "prologue.outsiders.quests.ledger.stage": {
+      "type": "enum",
+      "values": [
+        "none",
+        "accepted",
+        "checked",
+        "witnessed",
+        "done"
+      ],
+      "default": "none",
+      "routeValues": [
+        "none",
+        "witnessed"
+      ],
+      "part": "开始",
+      "meaning": "风起栖河外来者委托“药单”的进度；第一夜追问时若已查证，叶蘅、萧白换成查证后的说法",
+      "setBy": [],
+      "readBy": [
+        "第一夜-过夜"
+      ],
+      "legacySet": [
+        "js/qihe-outsiders.js（外来者委托，第 3 期迁移）"
+      ]
+    }
+  }
+}

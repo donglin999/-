@@ -1,0 +1,121 @@
+{
+  "说明": "由 tools_story/build_ink.cjs 从 xiaojianghu/bible/人物/（及 bible/物品/ 的名牌）生成，不手改",
+  "speakers": {
+    "乌魁": {
+      "bible": "xiaojianghu/bible/人物/乌魁.md",
+      "moods": []
+    },
+    "叶蘅": {
+      "bible": "xiaojianghu/bible/人物/叶蘅.md",
+      "moods": [
+        "angry",
+        "battle",
+        "hurt",
+        "shy",
+        "smile",
+        "surprise",
+        "worry"
+      ]
+    },
+    "叶蘅 · 心想": {
+      "bible": "xiaojianghu/bible/人物/叶蘅.md",
+      "moods": [
+        "angry",
+        "battle",
+        "hurt",
+        "shy",
+        "smile",
+        "surprise",
+        "worry"
+      ],
+      "aliasOf": "叶蘅"
+    },
+    "周婶": {
+      "bible": "xiaojianghu/bible/人物/周婶.md",
+      "moods": []
+    },
+    "周砚": {
+      "bible": "xiaojianghu/bible/人物/周砚.md",
+      "moods": []
+    },
+    "宋先生": {
+      "bible": "xiaojianghu/bible/人物/宋先生.md",
+      "moods": [
+        "firm",
+        "worry"
+      ]
+    },
+    "岑霜": {
+      "bible": "xiaojianghu/bible/人物/岑霜.md",
+      "moods": []
+    },
+    "差役": {
+      "bible": "xiaojianghu/bible/人物/差役.md",
+      "moods": []
+    },
+    "帮众": {
+      "bible": "xiaojianghu/bible/人物/帮众.md",
+      "moods": []
+    },
+    "店家": {
+      "bible": "xiaojianghu/bible/人物/店家.md",
+      "moods": []
+    },
+    "徐令仪": {
+      "bible": "xiaojianghu/bible/人物/徐令仪.md",
+      "moods": []
+    },
+    "护院": {
+      "bible": "xiaojianghu/bible/人物/护院.md",
+      "moods": []
+    },
+    "村口老人": {
+      "bible": "xiaojianghu/bible/人物/村口老人.md",
+      "moods": []
+    },
+    "沈雁回": {
+      "bible": "xiaojianghu/bible/人物/沈雁回.md",
+      "moods": []
+    },
+    "管事": {
+      "bible": "xiaojianghu/bible/人物/管事.md",
+      "moods": []
+    },
+    "药商": {
+      "bible": "xiaojianghu/bible/人物/药商.md",
+      "moods": []
+    },
+    "萧白": {
+      "bible": "xiaojianghu/bible/人物/萧白.md",
+      "moods": [
+        "firm",
+        "hurt",
+        "smile",
+        "surprise",
+        "worry",
+        "guard"
+      ]
+    },
+    "采办使": {
+      "bible": "xiaojianghu/bible/人物/采办使.md",
+      "moods": []
+    },
+    "采办随从": {
+      "bible": "xiaojianghu/bible/人物/采办随从.md",
+      "moods": []
+    },
+    "陆衡": {
+      "bible": "xiaojianghu/bible/人物/陆衡.md",
+      "moods": []
+    },
+    "陈伯": {
+      "bible": "xiaojianghu/bible/人物/陈伯.md",
+      "moods": []
+    },
+    "路牌": {
+      "bible": "xiaojianghu/bible/物品/栖河村路牌.md",
+      "moods": [],
+      "kind": "物品"
+    }
+  }
+}

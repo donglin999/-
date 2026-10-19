@@ -1,0 +1,169 @@
+{
+  "说明": "用户审过的剧本指纹（迁移方案 §8.4）。改动已批准的剧本会让构建停止并列出改动，用户确认后运行 node tools_story/build_ink.cjs --approve <文件> 更新。不手改。",
+  "files": {
+    "01-开始/序章-进村第一夜.ink": {
+      "sha256": "35a07349325d207c475acf9be022dfebdc1d325fd4c16fccaf18b1a226e484e2",
+      "approvedAt": "2026-10-19"
+    },
+    "01-开始/三方-侧口对峙.ink": {
+      "sha256": "4208b0e4084d61027bf03ae29d3b91944ef3c1c59d0982bff4dd381c52a5cdde",
+      "approvedAt": "2026-10-19"
+    },
+    "01-开始/三方-对证.ink": {
+      "sha256": "14eadb90df2abbaff0588cb4633500e10dadb0d57e6a1d1f7e3430e8997a0d6a",
+      "approvedAt": "2026-10-19"
+    },
+    "01-开始/三方-徐令仪上门.ink": {
+      "sha256": "c314399c3f2347b128f5161b06ff927dae531ecf15203ef370c7f647d58a142e",
+      "approvedAt": "2026-10-19"
+    },
+    "01-开始/三方-找人交谈.ink": {
+      "sha256": "d2914b8a976c59deb52c4cba70a9fafdd8bd1676331b0a2cec388541cc0ab452",
+      "approvedAt": "2026-10-19"
+    },
+    "01-开始/三方-装卸路.ink": {
+      "sha256": "713027d83217bcc9411ea97e600413788ca66ce3c9c1f4c5b2626eb1bb62084b",
+      "approvedAt": "2026-10-19"
+    },
+    "01-开始/三方-跑腿-拜帖.ink": {
+      "sha256": "ff655ea7d6f47ced30532459a6a1e6b38132436b13ff51e6f6943ed024d8dadd",
+      "approvedAt": "2026-10-19"
+    },
+    "01-开始/三方-跑腿-旧货账.ink": {
+      "sha256": "82e25909bd60e752bfbbdb279896f12a890089039dd6953d460a1d54c853647a",
+      "approvedAt": "2026-10-19"
+    },
+    "01-开始/三方-跑腿-药单.ink": {
+      "sha256": "6fbba8aac14ad4bebcd5c5681c6e6621ee9617bb6f9ad78954bc5ee871d22b56",
+      "approvedAt": "2026-10-19"
+    },
+    "01-开始/序章-后山相遇.ink": {
+      "sha256": "39d08a33bf4e2689e95d982eceb8faf0308d5b7c266cfb29aa3e1c6563c75674",
+      "approvedAt": "2026-10-19"
+    },
+    "01-开始/序章-递水.ink": {
+      "sha256": "dd237943a75222e1e3e16c67c45956566c24f8137ac4cd7564e70c4b1f0f70a8",
+      "approvedAt": "2026-10-19"
+    },
+    "01-开始/序章-遇狼.ink": {
+      "sha256": "0de82de0a3ecd4847bdcea840077dc8a4848402b56b50650dd960ccf6d712f77",
+      "approvedAt": "2026-10-19"
+    },
+    "01-开始/第一夜-取布.ink": {
+      "sha256": "ba32498a0072244fa3a000575ed8ebbb757bebfa8f06a554f5a0c30f9684c338",
+      "approvedAt": "2026-10-19"
+    },
+    "01-开始/第一夜-周婶托付.ink": {
+      "sha256": "475d55b67a964f497662560029510339825eb9028470bab563e654316e529c42",
+      "approvedAt": "2026-10-19"
+    },
+    "01-开始/第一夜-收药箱.ink": {
+      "sha256": "058ef674b09922951ff5fed7b5a129ba07f6f47398e50c6dbb548191ae775624",
+      "approvedAt": "2026-10-19"
+    },
+    "01-开始/第一夜-村中查看.ink": {
+      "sha256": "51afe8bb944ec012ed4766983d8e72649dfee358b50ebc0d1cb5abe490aab7e4",
+      "approvedAt": "2026-10-19"
+    },
+    "01-开始/第一夜-过夜.ink": {
+      "sha256": "f4ba5fe6f05ba0f2d3f72ba30bae13f9137bc73316e30f9951737aea74f452b5",
+      "approvedAt": "2026-10-19"
+    },
+    "01-开始/第一夜-还碗.ink": {
+      "sha256": "5f5ba62b3c6649bb8f44155a4cba573758408879e20ec0ebd150c56d77b543e5",
+      "approvedAt": "2026-10-19"
+    },
+    "01-开始/第一夜-送药.ink": {
+      "sha256": "ab991bc15da97f76b98c2177de44405c820143d012de2269634bb94436e6230c",
+      "approvedAt": "2026-10-19"
+    },
+    "01-开始/第一夜-问候.ink": {
+      "sha256": "19d7c0a6558816e7baffe8efa1939c6fa8ee5a2035e0c5074bcb26feb998e7ef",
+      "approvedAt": "2026-10-19"
+    },
+    "01-开始/风起-主线找人.ink": {
+      "sha256": "e75760ca751781771252f9ab5f176d5d0c7a624d221150c63372aa0751946122",
+      "approvedAt": "2026-10-19"
+    },
+    "01-开始/风起-修车认路.ink": {
+      "sha256": "3387d6e1f9c6eb47e066a724f119c7529e5f8a5f8ae9fb1a420e7def433c6991",
+      "approvedAt": "2026-10-19"
+    },
+    "01-开始/风起-后山回话一.ink": {
+      "sha256": "bb1bc1e8e58d8263fea899561582ed55976756b28869501ab51651598e4d1591",
+      "approvedAt": "2026-10-19"
+    },
+    "01-开始/风起-后山回话二.ink": {
+      "sha256": "ee05a1090cd81e91db45b6df8dcbff082e78cbc56c88e82efcd6d53157746237",
+      "approvedAt": "2026-10-19"
+    },
+    "01-开始/风起-商量去处.ink": {
+      "sha256": "b4ae51f61e97fc4a88b2fad208b4f5a2bfc7f7c7688c46e8f11a018c331be28c",
+      "approvedAt": "2026-10-19"
+    },
+    "01-开始/风起-学棍.ink": {
+      "sha256": "1c2c2d5375dbc8e4a2e02387d7159e7142f3d2fa1b283738b055da4c4b36278a",
+      "approvedAt": "2026-10-19"
+    },
+    "01-开始/风起-守路.ink": {
+      "sha256": "aba7f2e5eac58a7064e5c60600f41c15494822fc4cae8ff53251a93bee529cd1",
+      "approvedAt": "2026-10-19"
+    },
+    "01-开始/风起-宋先生闲话.ink": {
+      "sha256": "52333c4e260aecf68dc2c2e6e680184d5891dc203b3164634b5c2a89339ef5c8",
+      "approvedAt": "2026-10-19"
+    },
+    "01-开始/风起-山居.ink": {
+      "sha256": "74cdbc906dd8bc382ae93072947f61dc1dc1dede668c781632297257e6661383",
+      "approvedAt": "2026-10-19"
+    },
+    "01-开始/风起-收拾药箱.ink": {
+      "sha256": "6280bb3547f5d59297e1e195cf8756fc512ec412e274eb7dbc718d1bff9debd7",
+      "approvedAt": "2026-10-19"
+    },
+    "01-开始/风起-整理旧屋.ink": {
+      "sha256": "28776bec2be6992696ce374383e3904ec4c0e17b1c03d662a9ca49f8d63fb863",
+      "approvedAt": "2026-10-19"
+    },
+    "01-开始/风起-村中路人.ink": {
+      "sha256": "63939c313fc9e7bcdab210dccab30119e91b358bd3a31e6e8a72acfb68b945b5",
+      "approvedAt": "2026-10-19"
+    },
+    "01-开始/风起-村口问讯.ink": {
+      "sha256": "d8819bdd05e6780b152b53d22938e453f1f31ea1dcd8c5cae2fee663f1b2962f",
+      "approvedAt": "2026-10-19"
+    },
+    "01-开始/风起-次日药摊.ink": {
+      "sha256": "c5383bbc349aa4035ee3b9ea43a5be226e199cea994c511767547e4715f5d459",
+      "approvedAt": "2026-10-19"
+    },
+    "01-开始/风起-竹匾.ink": {
+      "sha256": "17a107d2d58dc27b0a47676210e6ae3a1d82e2a13b7ec7194dc5a3d155771aa2",
+      "approvedAt": "2026-10-19"
+    },
+    "01-开始/风起-红绳.ink": {
+      "sha256": "2eec5bbe6cacb6ddf9c26ba75fb58695fe04747a99bb88be10d873d6bb352496",
+      "approvedAt": "2026-10-19"
+    },
+    "01-开始/风起-药棚帮忙.ink": {
+      "sha256": "6a69054f83021149b7507f169b47e27cddd3316fda1cfbb348cc092806324133",
+      "approvedAt": "2026-10-19"
+    },
+    "01-开始/风起-赠物.ink": {
+      "sha256": "57fdf64c77461a08d85a23bbc7879bc7bfb6916f1129285e144239285e451125",
+      "approvedAt": "2026-10-19"
+    },
+    "01-开始/风起-起火.ink": {
+      "sha256": "234f26b498f1af9f6752ea68eadea68d5c658e98d6a3159ea0b0b8d8ec70a82e",
+      "approvedAt": "2026-10-19"
+    },
+    "01-开始/风起-随口一句.ink": {
+      "sha256": "c02fba9cf8d190ee346480f88e8b456f6f0afb0955f6772cbc84fe86d1faa851",
+      "approvedAt": "2026-10-19"
+    },
+    "01-开始/风起-集市帮忙.ink": {
+      "sha256": "d7960bea27e1f14fc1fbfdaf2ffdadf2e8e250f8b16f7c222e55654772ba4ed9",
+      "approvedAt": "2026-10-19"
+    }
+  }
+}
