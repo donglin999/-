@@ -1,0 +1,25 @@
+{
+  "passed": 19,
+  "kind": "real pure cultivation state machine; browser tested separately",
+  "checks": [
+    "every profiled character (eleven with 裴知古) has three distinct gift replies",
+    "gift consumes one actual resource with feedback and no immediate return",
+    "letters have individual replies and relationship separate from correspondence",
+    "cannot read or claim before arrival",
+    "read and return applied once after reload",
+    "duplicate resolve cannot duplicate relationship or reply",
+    "same recipient same period gift rejects without consuming",
+    "recent duplicate gift drops 3 to 1 to 0 with custom feedback",
+    "monthly mixed gifts cannot exceed four points",
+    "bottleneck caps score without storing overflow",
+    "distinct story requirements cannot be bypassed by another character facts",
+    "zhou and ye second gate require actual training/records",
+    "no recurring return promise or reward after first response",
+    "legacy letters preserve original text and grant no invented gifts",
+    "invalid return record does not partially grant",
+    "final period has no impossible delayed delivery",
+    "state validation rejects forged relationship scores",
+    "gift preview is read-only and reports real capped gain",
+    "actual UI transaction rolls back failed return write and can retry"
+  ]
+}

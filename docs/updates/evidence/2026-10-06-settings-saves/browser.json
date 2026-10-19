@@ -1,0 +1,25 @@
+{
+  "status": "pass",
+  "entry": "http://127.0.0.1:8792/index.html",
+  "checks": [
+    "Settings shows Save management and Return home",
+    "Create independent manual checkpoint",
+    "Rename manual checkpoint",
+    "Load checkpoint into a new journey, retain original",
+    "Return home and continue same journey",
+    "Click ground after continuing moves hero",
+    "Empty save name stays in form with visible error",
+    "Archive, restore, and archive test records",
+    "Quick save reports success",
+    "Original journey loads normally",
+    "Test checkpoint and test journey retained in trash"
+  ],
+  "warnings": [],
+  "screenshots": [
+    "settings.png",
+    "manager.png",
+    "home.png",
+    "resumed-movement.png",
+    "trash.png"
+  ]
+}

@@ -1,0 +1,57 @@
+{
+  "scope": "local HTTP reads, existing docs/voice HTML availability, build fail-closed gate",
+  "checks": [
+    {
+      "url": "http://127.0.0.1:8792/__runtime.json",
+      "status": 200,
+      "expected_content": "qihe-current",
+      "cache_control": "no-store",
+      "runtime_header": "qihe-current"
+    },
+    {
+      "url": "http://127.0.0.1:8792/",
+      "status": 200,
+      "expected_content": "xjh-runtime",
+      "cache_control": "no-store",
+      "runtime_header": "qihe-current"
+    },
+    {
+      "url": "http://127.0.0.1:8766/",
+      "status": 200,
+      "expected_content": "archive-prototype",
+      "cache_control": null,
+      "runtime_header": null
+    },
+    {
+      "url": "http://127.0.0.1:8786/",
+      "status": 200,
+      "expected_content": "archive-prototype",
+      "cache_control": null,
+      "runtime_header": null
+    },
+    {
+      "url": "http://127.0.0.1:8123/",
+      "status": 200,
+      "expected_content": "archive-prototype",
+      "cache_control": null,
+      "runtime_header": null
+    },
+    {
+      "url": "http://127.0.0.1:8794/review/docs/",
+      "status": 200,
+      "expected_content": "文档",
+      "cache_control": "no-cache",
+      "runtime_header": null
+    },
+    {
+      "url": "http://127.0.0.1:8765/review/voice_pick.html",
+      "status": 200,
+      "expected_content": "",
+      "cache_control": "no-store",
+      "runtime_header": null
+    },
+    {
+      "historical_default_build": "refused with exit 1 before modifying output"
+    }
+  ]
+}

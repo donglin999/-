@@ -1,0 +1,617 @@
+{
+ "face": 20.2,
+ "face_choice": 17.5,
+ "line": 59.0,
+ "line_choice": 63.5,
+ "anchor_source": "art_sources/guiyun-performance-fix-20261012/face-anchors.json",
+ "actors": {
+  "hero": {
+   "top": 28.13,
+   "height": 97.57,
+   "top_choice": 36.75,
+   "height_choice": 84.53,
+   "dx": -2.69,
+   "face": [
+    0.213,
+    0.42,
+    0.527
+   ]
+  },
+  "dou": {
+   "top": 33.5,
+   "height": 90.46,
+   "top_choice": 41.61,
+   "height_choice": 78.37,
+   "dx": 0.49,
+   "face": [
+    0.187,
+    0.41,
+    0.495
+   ]
+  },
+  "fang": {
+   "top": 29.24,
+   "height": 76.05,
+   "top_choice": 37.72,
+   "height_choice": 65.88,
+   "dx": -10.11,
+   "face": [
+    0.258,
+    0.524,
+    0.601
+   ]
+  },
+  "goose": {
+   "top": 45.0,
+   "height": 55.0,
+   "dx": 0.0,
+   "manual": true
+  },
+  "hero_long": {
+   "top": 28.13,
+   "height": 97.57,
+   "top_choice": 36.75,
+   "height_choice": 84.53,
+   "dx": -2.69,
+   "face": [
+    0.213,
+    0.42,
+    0.527
+   ]
+  },
+  "hero_mid": {
+   "top": 27.85,
+   "height": 93.46,
+   "top_choice": 36.51,
+   "height_choice": 80.96,
+   "dx": -1.37,
+   "face": [
+    0.225,
+    0.441,
+    0.514
+   ]
+  },
+  "hero_short": {
+   "top": 29.08,
+   "height": 84.31,
+   "top_choice": 37.58,
+   "height_choice": 73.04,
+   "dx": 5.32,
+   "face": [
+    0.235,
+    0.475,
+    0.447
+   ]
+  },
+  "lu": {
+   "top": 28.48,
+   "height": 112.83,
+   "top_choice": 37.06,
+   "height_choice": 97.75,
+   "dx": 9.57,
+   "face": [
+    0.181,
+    0.36,
+    0.404
+   ]
+  },
+  "man": {
+   "top": 31.26,
+   "height": 88.4,
+   "top_choice": 40.0,
+   "height_choice": 76.58,
+   "dx": -4.59,
+   "face": [
+    0.245,
+    0.473,
+    0.546
+   ]
+  },
+  "meng_zhiwei": {
+   "top": 33.13,
+   "height": 93.17,
+   "top_choice": 41.09,
+   "height_choice": 80.72,
+   "dx": -3.32,
+   "face": [
+    0.169,
+    0.386,
+    0.533
+   ]
+  },
+  "mo_songnian": {
+   "top": 27.56,
+   "height": 102.74,
+   "top_choice": 36.26,
+   "height_choice": 89.01,
+   "dx": 1.9,
+   "face": [
+    0.208,
+    0.404,
+    0.481
+   ]
+  },
+  "neighbor": {
+   "top": 38.8,
+   "height": 118.82,
+   "top_choice": 46.0,
+   "height_choice": 102.94,
+   "dx": 3.0,
+   "face": [
+    0.085,
+    0.255,
+    0.47
+   ]
+  },
+  "pei": {
+   "top": 25.52,
+   "height": 109.78,
+   "top_choice": 34.49,
+   "height_choice": 95.11,
+   "dx": -3.5,
+   "face": [
+    0.213,
+    0.397,
+    0.535
+   ]
+  },
+  "peishu": {
+   "top": 36.3,
+   "height": 78.35,
+   "top_choice": 43.83,
+   "height_choice": 67.88,
+   "dx": 1.51,
+   "face": [
+    0.161,
+    0.419,
+    0.485
+   ]
+  },
+  "shimu": {
+   "top": 33.63,
+   "height": 77.1,
+   "top_choice": 41.52,
+   "height_choice": 66.79,
+   "dx": -8.6,
+   "face": [
+    0.198,
+    0.46,
+    0.586
+   ]
+  },
+  "ye": {
+   "top": 28.22,
+   "height": 96.19,
+   "top_choice": 36.83,
+   "height_choice": 83.33,
+   "dx": 3.0,
+   "face": [
+    0.215,
+    0.425,
+    0.47
+   ]
+  },
+  "yin": {
+   "top": 30.68,
+   "height": 90.18,
+   "top_choice": 38.97,
+   "height_choice": 78.13,
+   "dx": -10.7,
+   "face": [
+    0.202,
+    0.426,
+    0.607
+   ]
+  },
+  "zhaochuan_courier": {
+   "top": 21.78,
+   "height": 107.36,
+   "top_choice": 31.26,
+   "height_choice": 93.01,
+   "dx": -2.54,
+   "face": [
+    0.253,
+    0.441,
+    0.525
+   ]
+  },
+  "zhong": {
+   "top": 29.47,
+   "height": 73.87,
+   "top_choice": 37.92,
+   "height_choice": 64.0,
+   "dx": 8.74,
+   "face": [
+    0.263,
+    0.536,
+    0.413
+   ]
+  },
+  "zhou": {
+   "top": 36.47,
+   "height": 74.58,
+   "top_choice": 43.98,
+   "height_choice": 64.62,
+   "dx": -0.88,
+   "face": [
+    0.167,
+    0.438,
+    0.509
+   ]
+  },
+  "recipient": {
+   "top": 38.8,
+   "height": 118.82,
+   "top_choice": 46.0,
+   "height_choice": 102.94,
+   "dx": 3.0,
+   "face": [
+    0.085,
+    0.255,
+    0.47
+   ]
+  }
+ },
+ "moods": {
+  "dou_fun": {
+   "top": 37.47,
+   "height": 85.95,
+   "top_choice": 45.05,
+   "height_choice": 74.46,
+   "dx": -0.54,
+   "face": [
+    0.150390625,
+    0.3854166666666667,
+    0.50537109375
+   ]
+  },
+  "fang_fun": {
+   "top": 28.59,
+   "height": 81.22,
+   "top_choice": 37.16,
+   "height_choice": 70.37,
+   "dx": 0.78,
+   "face": [
+    0.25,
+    0.4986979166666667,
+    0.4921875
+   ]
+  },
+  "fang_hurt_normal": {
+   "top": 24.58,
+   "height": 81.22,
+   "top_choice": 33.68,
+   "height_choice": 70.37,
+   "dx": -3.32,
+   "face": [
+    0.2994791666666667,
+    0.5481770833333334,
+    0.533203125
+   ]
+  },
+  "fang_hurt_sad": {
+   "top": 24.58,
+   "height": 81.22,
+   "top_choice": 33.68,
+   "height_choice": 70.37,
+   "dx": -3.32,
+   "face": [
+    0.2994791666666667,
+    0.5481770833333334,
+    0.533203125
+   ]
+  },
+  "fang_hurt_serious": {
+   "top": 24.58,
+   "height": 81.22,
+   "top_choice": 33.68,
+   "height_choice": 70.37,
+   "dx": -3.32,
+   "face": [
+    0.2994791666666667,
+    0.5481770833333334,
+    0.533203125
+   ]
+  },
+  "fang_hurt_smile": {
+   "top": 24.58,
+   "height": 81.22,
+   "top_choice": 33.68,
+   "height_choice": 70.37,
+   "dx": -3.32,
+   "face": [
+    0.2994791666666667,
+    0.5481770833333334,
+    0.533203125
+   ]
+  },
+  "hero_mid_fun": {
+   "top": 18.6,
+   "height": 141.03,
+   "top_choice": 28.5,
+   "height_choice": 122.18,
+   "dx": 1.66,
+   "face": [
+    0.21484375,
+    0.3580729166666667,
+    0.4833984375
+   ]
+  },
+  "hero_short_fun": {
+   "top": 29.85,
+   "height": 84.31,
+   "top_choice": 38.25,
+   "height_choice": 73.04,
+   "dx": 8.69,
+   "face": [
+    0.22591145833333334,
+    0.4654947916666667,
+    0.4130859375
+   ]
+  },
+  "hero_short_sleep": {
+   "top": 25.94,
+   "height": 92.07,
+   "top_choice": 34.86,
+   "height_choice": 79.76,
+   "dx": 5.91,
+   "face": [
+    0.24934895833333334,
+    0.46875,
+    0.44091796875
+   ]
+  },
+  "pei_fun": {
+   "top": 25.77,
+   "height": 108.6,
+   "top_choice": 34.71,
+   "height_choice": 94.09,
+   "dx": -3.2,
+   "face": [
+    0.213,
+    0.399,
+    0.532
+   ]
+  },
+  "pei_sad": {
+   "top": 25.49,
+   "height": 103.59,
+   "top_choice": 34.47,
+   "height_choice": 89.74,
+   "dx": -3.4,
+   "face": [
+    0.226,
+    0.421,
+    0.534
+   ]
+  },
+  "pei_serious": {
+   "top": 26.46,
+   "height": 106.88,
+   "top_choice": 35.31,
+   "height_choice": 92.59,
+   "dx": -3.3,
+   "face": [
+    0.21,
+    0.399,
+    0.533
+   ]
+  },
+  "pei_smile": {
+   "top": 27.13,
+   "height": 104.66,
+   "top_choice": 35.89,
+   "height_choice": 90.67,
+   "dx": -3.9,
+   "face": [
+    0.208,
+    0.401,
+    0.539
+   ]
+  },
+  "pei_surprise": {
+   "top": 27.13,
+   "height": 104.66,
+   "top_choice": 35.89,
+   "height_choice": 90.67,
+   "dx": -4.0,
+   "face": [
+    0.208,
+    0.401,
+    0.54
+   ]
+  },
+  "pei_worry": {
+   "top": 25.94,
+   "height": 106.32,
+   "top_choice": 34.86,
+   "height_choice": 92.11,
+   "dx": -3.9,
+   "face": [
+    0.216,
+    0.406,
+    0.539
+   ]
+  },
+  "shimu_fun": {
+   "top": 34.47,
+   "height": 80.16,
+   "top_choice": 42.25,
+   "height_choice": 69.44,
+   "dx": -8.6,
+   "face": [
+    0.18,
+    0.432,
+    0.586
+   ]
+  },
+  "shimu_angry": {
+   "top": 33.58,
+   "height": 82.79,
+   "top_choice": 41.48,
+   "height_choice": 71.72,
+   "dx": -3.8,
+   "face": [
+    0.185,
+    0.429,
+    0.538
+   ]
+  },
+  "shimu_sad": {
+   "top": 33.02,
+   "height": 77.1,
+   "top_choice": 40.99,
+   "height_choice": 66.79,
+   "dx": -9.8,
+   "face": [
+    0.206,
+    0.468,
+    0.598
+   ]
+  },
+  "shimu_serious": {
+   "top": 33.59,
+   "height": 77.69,
+   "top_choice": 41.49,
+   "height_choice": 67.31,
+   "dx": -9.6,
+   "face": [
+    0.197,
+    0.457,
+    0.596
+   ]
+  },
+  "shimu_smile": {
+   "top": 34.18,
+   "height": 78.29,
+   "top_choice": 42.0,
+   "height_choice": 67.83,
+   "dx": -8.6,
+   "face": [
+    0.188,
+    0.446,
+    0.586
+   ]
+  },
+  "shimu_surprise": {
+   "top": 33.71,
+   "height": 79.53,
+   "top_choice": 41.59,
+   "height_choice": 68.9,
+   "dx": -8.6,
+   "face": [
+    0.191,
+    0.445,
+    0.586
+   ]
+  },
+  "shimu_worry": {
+   "top": 33.91,
+   "height": 77.69,
+   "top_choice": 41.76,
+   "height_choice": 67.31,
+   "dx": -8.6,
+   "face": [
+    0.193,
+    0.453,
+    0.586
+   ]
+  },
+  "yin_fun": {
+   "top": 33.13,
+   "height": 92.24,
+   "top_choice": 41.09,
+   "height_choice": 79.91,
+   "dx": -9.6,
+   "face": [
+    0.171,
+    0.39,
+    0.596
+   ]
+  },
+  "yin_angry": {
+   "top": 30.75,
+   "height": 85.23,
+   "top_choice": 39.02,
+   "height_choice": 73.84,
+   "dx": -3.4,
+   "face": [
+    0.213,
+    0.45,
+    0.534
+   ]
+  },
+  "yin_sad": {
+   "top": 27.74,
+   "height": 87.07,
+   "top_choice": 36.42,
+   "height_choice": 75.43,
+   "dx": -15.3,
+   "face": [
+    0.243,
+    0.475,
+    0.653
+   ]
+  },
+  "yin_serious": {
+   "top": 30.8,
+   "height": 91.4,
+   "top_choice": 39.07,
+   "height_choice": 79.19,
+   "dx": -3.8,
+   "face": [
+    0.198,
+    0.419,
+    0.538
+   ]
+  },
+  "yin_smile": {
+   "top": 30.03,
+   "height": 95.28,
+   "top_choice": 38.41,
+   "height_choice": 82.55,
+   "dx": -4.5,
+   "face": [
+    0.198,
+    0.41,
+    0.545
+   ]
+  },
+  "yin_surprise": {
+   "top": 33.37,
+   "height": 79.22,
+   "top_choice": 41.3,
+   "height_choice": 68.63,
+   "dx": -4.1,
+   "face": [
+    0.196,
+    0.451,
+    0.541
+   ]
+  },
+  "yin_worry": {
+   "top": 27.53,
+   "height": 97.58,
+   "top_choice": 36.24,
+   "height_choice": 84.54,
+   "dx": -3.5,
+   "face": [
+    0.219,
+    0.426,
+    0.535
+   ]
+  },
+  "zhong_fun": {
+   "top": 29.24,
+   "height": 74.76,
+   "top_choice": 37.71,
+   "height_choice": 64.77,
+   "dx": 2.34,
+   "face": [
+    0.2630208333333333,
+    0.533203125,
+    0.4765625
+   ]
+  }
+ }
+}

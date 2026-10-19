@@ -1,0 +1,8 @@
+{
+  "passed": 2,
+  "checks": [
+    "real skill strike sets stun on successful roll and spends MP",
+    "real battleLoop skips enemy action once and clears stun"
+  ],
+  "scope": "engine integration; presentation calls stubbed"
+}

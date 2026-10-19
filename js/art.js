@@ -8,7 +8,7 @@ window.ART={frames:{},scale:{
 // 精灵表：assets/s_{char}.webp，4 行(d,l,r,u) × 4 列(帧 0..3)，单元格 [宽,高]
 ART.sheet={"hero": [90, 141], "monk": [96, 141], "soldier": [99, 141], "gossip": [96, 141], "oldman": [114, 141], "smith": [105, 141], "lady": [75, 141], "beggar": [93, 141], "boatman": [111, 141], "bandit": [87, 141], "chief": [144, 141], "villager": [90, 141], "child": [78, 141], "merchant": [114, 141], "dog": [138, 141], "rooster": [99, 141], "snake": [159, 141], "wolf": [129, 141], "suzhi": [72, 141], "ye": [75, 141], "liu": [90, 141], "zhou": [120, 141], "langli": [90, 141]};
 
-// 道具图标：assets/i_icons.webp 图集，ART.icons[key]=[x,y,w,h]（96x96，32px像素x3，请用 imageSmoothingEnabled=false 绘制）
+// 道具图标：assets/production/icons-and-props/i_icons.webp 图集，ART.icons[key]=[x,y,w,h]（96x96，32px像素x3，请用 imageSmoothingEnabled=false 绘制）
 ART.icons={"bun": [0, 0, 96, 96], "pill": [96, 0, 96, 96], "wine": [192, 0, 96, 96], "shovel": [288, 0, 96, 96], "book": [384, 0, 96, 96], "gall": [480, 0, 96, 96], "token": [0, 96, 96, 96], "wood": [96, 96, 96, 96], "iron": [192, 96, 96, 96], "rusty": [288, 96, 96, 96], "cloth": [384, 96, 96, 96], "vest": [480, 96, 96, 96], "k_quan": [0, 192, 96, 96], "k_zhang": [96, 192, 96, 96], "k_bian": [192, 192, 96, 96], "k_tui": [288, 192, 96, 96], "k_nei": [384, 192, 96, 96], "k_jian": [480, 192, 96, 96], "tea_bowl": [0, 288, 96, 96], "jieyao": [96, 288, 96, 96], "ledger": [192, 288, 96, 96], "ferry_tag": [288, 288, 96, 96]};
 //@@EXPLORE 由 tools_fx/rig/explore.py build 生成（工作流 K：Q 版白模帧动画管线，docs/anim-pipeline.md §6），勿手改
 // 行走 12 帧（接触-下沉-过渡-腾起 ×2，单腿支撑 56%）；奔跑 10 帧（支撑 36% + 两次腾空）；4 行 d,l,r,u；脚底基线在单元底边上 3 像素（×3），与 s_{c} 一致

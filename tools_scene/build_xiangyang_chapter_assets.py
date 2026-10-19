@@ -2,7 +2,7 @@
 
 Inputs live in raw_scene/xiangyang_source (local generation originals, ignored by Git).
 Run from the repository root after generating the sources listed in
-docs/design/xiangyang-art-prompts.md.
+docs/archive/design/xiangyang-art-prompts.md.
 """
 
 from pathlib import Path

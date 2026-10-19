@@ -1,0 +1,79 @@
+{
+  "version": 5,
+  "date": "2026-10-05",
+  "generator": "built-in image_gen",
+  "promptRecord": "art_sources/jianghu-ui-v5/prompts.json",
+  "assets": [
+    {
+      "file": "assets/ui/jianghu-v5/icons-atlas.png",
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGBA",
+      "bytes": 2746206,
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "sha256": "930bfaebdd3d8add0137f8edba69b73d00f655e68d8a09686ec72209489c607c"
+    },
+    {
+      "file": "assets/ui/jianghu-v5/portrait-frame.png",
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "bytes": 2676307,
+      "alphaExtrema": [
+        0,
+        254
+      ],
+      "sha256": "d3f6b0986d4def57302880c713cb163fd3e55e420e10d821ef60751a59448974"
+    },
+    {
+      "file": "assets/ui/jianghu-v5/wide-frame.png",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGBA",
+      "bytes": 2294949,
+      "alphaExtrema": [
+        0,
+        254
+      ],
+      "sha256": "1c478ccd31e24bbc0acf1763e88013a750c4f80851e1a8a91cb1eeffc2162388"
+    }
+  ],
+  "atlas": {
+    "file": "assets/ui/jianghu-v5/icons-atlas.png",
+    "columns": 4,
+    "rows": 4,
+    "cellPixels": 313.5,
+    "keys": [
+      "attr",
+      "skill",
+      "bag",
+      "equip",
+      "party",
+      "quest",
+      "sys",
+      "pet",
+      "str",
+      "con",
+      "agi",
+      "wil",
+      "wis",
+      "weapon",
+      "armor",
+      "acc"
+    ],
+    "sampling": "CSS background-size:400% 400%; no resampling of source"
+  },
+  "fileChecks": {
+    "passed": true,
+    "checks": [
+      "All three files are original RGBA images",
+      "All three have actual transparent alpha",
+      "Atlas native cell size exceeds 256 pixels",
+      "Actual dimensions recorded; no upscaling claimed"
+    ]
+  },
+  "runtimeEvidence": "art_sources/jianghu-ui-v5/runtime-results.json"
+}

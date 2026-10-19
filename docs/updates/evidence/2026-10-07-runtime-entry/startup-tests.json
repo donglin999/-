@@ -1,0 +1,16 @@
+{
+  "passed": 10,
+  "scope": "actual startup, engine load/save and fresh/resume transitions in local VM; browser verified separately",
+  "checks": [
+    "ordinary entry with old save shows start choice instead of resuming the village",
+    "new journey uses a distinct valid key and leaves old data byte-identical",
+    "new run invokes the actual initial encounter with modern costume",
+    "explicit play reload resumes its checkpoint rather than replaying completed encounter",
+    "ordinary entry exposes newest journey and original progress separately",
+    "continuing original progress restores its scene without playing P-01 again",
+    "all four review contexts remain isolated and cannot replace latest player journey",
+    "invalid save is retained and returned to launcher instead of overwritten",
+    "normal homepage uses current Qihe entry",
+    "Xiangyang entry keeps its original isolated storage"
+  ]
+}

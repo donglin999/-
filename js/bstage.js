@@ -1,5 +1,5 @@
 'use strict';
-// ───────────────────────── 战斗舞台与镜头（工作流 A，见 docs/battle-v2.md）─────────────────────────
+// ───────────────────────── 战斗舞台与镜头（工作流 A，见 docs/archive/battle-v2.md）─────────────────────────
 // 覆盖 battle.js：drawBattleBg / drawStageFront / layoutUnits / unitH，赋值 CAM。
 //  · 背景：优先 assets/bb_{scene}.webp（战斗专用，低地平线、中场空旷、偏暗），缺则回退 bg_{scene} 并压暗调色。
 //    共用低饱和/对比度基准、景深、场景调色和地平线薄雾预渲染到离屏画布；环境色也轻覆角色，UI 保持原色。
@@ -13,35 +13,25 @@ const BSTAGE=(()=>{
   const BLEED=28;                               // 背景四周外扩，震屏时不露边
   // 场景氛围：tint 整体调色（叠加）、pool 脚下光斑颜色、fx 前景粒子、mist 雾色、dark 回退图压暗量
   const SC={
-    street:     {hz:.51,tint:'rgba(40,30,70,.10)', pool:'255,190,120', fx:['ember','dust'], mist:'150,140,170', dark:.42},
-    temple_out: {hz:.56,tint:'rgba(70,40,40,.10)', pool:'255,200,140', fx:['leaf','dust'],  mist:'170,150,150', dark:.40},
-    temple:     {hz:.58,tint:'rgba(50,35,30,.12)', pool:'255,190,120', fx:['dust','ember'], mist:'150,130,120', dark:.42},
-    gate:       {hz:.53,tint:'rgba(50,40,70,.10)', pool:'255,200,140', fx:['dust','leaf'],  mist:'160,150,170', dark:.40},
-    alley:      {hz:.59,tint:'rgba(30,40,80,.12)', pool:'190,210,255', fx:['dust','fly'],   mist:'130,150,190', dark:.45},
-    ferry:      {hz:.53,tint:'rgba(70,40,50,.08)', pool:'255,190,130', fx:['fly','dust'],   mist:'180,160,170', dark:.38},
-    bandit_gate:{hz:.52,tint:'rgba(70,25,20,.12)', pool:'255,170,100', fx:['ember','dust'], mist:'150,120,110', dark:.42},
-    bandit_cave:{hz:.56,tint:'rgba(40,20,20,.14)', pool:'255,160,90',  fx:['ember','dust'], mist:'120,100,95',  dark:.48},
-    road:       {hz:.56,tint:'rgba(50,45,60,.10)', pool:'255,200,140', fx:['leaf','dust'],  mist:'160,160,165', dark:.40},
-    river:      {hz:.60,tint:'rgba(60,40,40,.10)', pool:'255,190,120', fx:['dust'],        mist:'170,150,140', dark:.40},   // 渡船甲板（crossing 江心截船，工作流 F）
+    qh_training:{hz:.36,tint:'rgba(65,60,35,.04)',pool:'230,222,168',fx:['dust'],mist:'180,190,155',dark:.15},
+    qh_evacuation:{hz:.38,tint:'rgba(50,45,65,.04)',pool:'220,193,153',fx:['dust'],mist:'160,150,145',dark:.15},
+    prologue_backhill:{hz:.55,tint:'rgba(55,65,35,.06)',pool:'230,222,168',fx:['leaf','dust'],mist:'180,190,155',dark:.25},
+    // 未登记场景（如交锋 bb_qh_faction_clash_*）沿用的默认氛围：数值即原襄阳街市一档，2026-10-19 襄阳战斗背景归档后改名保留，画面不变。
+    fallback:   {hz:.51,tint:'rgba(40,30,70,.10)', pool:'255,190,120', fx:['ember','dust'], mist:'150,140,170', dark:.42},
   };
-  // ── 背景键 → 战斗背景 bb_{name}（见 docs/battle-v2.md §背景映射）──
-  // 剧情可传 bb_* / bg_{scene} / m_{scene}(_v2)：去前缀与 _vN 后缀，探索场景 id 与战斗背景名不同的走 BB_ALIAS。
-  // 这样 m_gate/bg_gate→bb_gate、m_temple_out→bb_temple_out、m_bgate→bb_bandit_gate、m_cave→bb_bandit_cave、m_street_v2→bb_street、crossing→bb_river、ferry_e→bb_ferry。
-  const BB_ALIAS={bgate:'bandit_gate',cave:'bandit_cave',crossing:'river',ferry_e:'ferry'};   // 渡船 → bb_river；东岸芦苇荡 → bb_ferry（同一段江岸）
-  const BB_ASSET={alley:'bb_alley_v3'};       // 偏巷公井背景按既有 bb_* 的低明度、低饱和画风重制
-  const bbName=k=>{const s=String(k||'').replace(/^(bb|bg|m)_/,'').replace(/_v\d+$/,'');return BB_ALIAS[s]||s};
-  // 没有对应文件的旧键（battle.js 未传 bg 时按 'bg_'+S.scene 取图）：bb 载入后挂到这些键上，避免 404
-  const NOFILE={bg_bgate:'bb_bandit_gate',bg_cave:'bb_bandit_cave',bg_crossing:'bb_river',bg_ferry_e:'bb_ferry'};
-  const sceneOf=()=>bbName((B&&B.bg)||'')||bbName(S.scene)||'street';
-  const cfg=()=>SC[sceneOf()]||SC.street;
+  // ── 背景键 → 战斗背景 bb_{name}（见 docs/archive/battle-v2.md §背景映射）──
+  // 剧情可传 bb_* / bg_{scene} / m_{scene}(_v2)：去前缀与 _vN 后缀后查上表。2026-10-19 起襄阳/庙宇/黑风寨/渡口战斗背景随襄阳演示归档。
+  const BB_ASSET={qh_training:'bb_qh_training_v1',qh_evacuation:'bb_qh_evacuation_v1',prologue_backhill:'bb_prologue_backhill_v1'};
+  const bbName=k=>String(k||'').replace(/^(bb|bg|m)_/,'').replace(/_v\d+$/,'');
+  const sceneOf=()=>bbName((B&&B.bg)||'')||bbName(S.scene)||'fallback';
+  const cfg=()=>SC[sceneOf()]||SC.fallback;
   const cv=(w,h)=>{const c=document.createElement('canvas');c.width=w;c.height=h;return c};
 
   // ── 资源：bb_* 按需加载 ──
   const req=new Set();
-  function want(k){if(IMG[k]||req.has(k))return;req.add(k);loadOpt(k,k).then(okk=>{if(!okk){IMG[k]=null;return}
-    for(const[a,b]of Object.entries(NOFILE))if(b===k&&!IMG[a])IMG[a]=IMG[k]})}
+  function want(k){if(IMG[k]||req.has(k))return;req.add(k);loadOpt(k,k).then(okk=>{if(!okk)IMG[k]=null})}
   // 进入游戏空闲后预载全部战斗背景（很小），避免开战时闪一帧回退图
-  setTimeout(()=>{for(const k of Object.keys(SC))want(BB_ASSET[k]||'bb_'+k)},4000);
+  setTimeout(()=>{for(const k of Object.keys(BB_ASSET))want(BB_ASSET[k])},4000);
 
   // ── 背景预渲染缓存 ──
   const cache=new Map();                       // key → canvas (W+2B)×(H+2B)
@@ -82,7 +72,7 @@ const BSTAGE=(()=>{
     x.fillStyle=sg;x.fillRect(0,0,CW,CH);
     return c}
   function bgCanvas(){
-    const bg=(B&&B.bg)||'bg_street',nm=sceneOf(),bb=SC[nm]?(BB_ASSET[nm]||'bb_'+nm):null;if(bb)want(bb);   // 只请求登记过的 bb_*，杜绝 404
+    const bg=(B&&B.bg)||'',nm=sceneOf(),bb=BB_ASSET[nm]||null;if(bb)want(bb);   // 只请求登记过的 bb_*，杜绝 404
     let key,fb;
     if(bb&&ok(IMG[bb])){key=bb;fb=false}else{key=bg;fb=true}
     const ck=key+(ok(IMG[key])?'':'#map');
@@ -187,7 +177,7 @@ function layoutUnits(allies,foes,opt){
     CAM.focus&&CAM.focus(fx,fy,1.22,0);setTimeout(()=>{try{CAM.reset&&CAM.reset(1100)}catch(e){}},380)}catch(e){}}
 // 当前行动者：向敌方跨出一步，脚下金色光圈（每帧在背景层调用）
 function stageActive(now){if(!B)return;const dt=Math.min(50,now-(B._stT||now));B._stT=now;
-  for(const u of B.allies){if(u.bx==null)continue;const want=(B.cur===u&&u.hp>0)?-30:0;u.stepO+=(want-u.stepO)*Math.min(1,dt/90);if(Math.abs(want-u.stepO)<.3)u.stepO=want;u.x=u.bx+u.stepO}
+  for(const u of B.allies){if(u.bx==null)continue;const want=(B.cur===u&&u.hp>0&&!u.stationarySkill)?-30:0;u.stepO+=(want-u.stepO)*Math.min(1,dt/90);if(Math.abs(want-u.stepO)<.3)u.stepO=want;u.x=u.bx+u.stepO}
   const a=B.cur;if(!a||a.side!=='ally'||a.hp<=0)return;const r=unitH(a)*.42,p=.75+.25*Math.sin(now/260);
   g.save();const gr=g.createRadialGradient(a.x,a.y,2,a.x,a.y,r);gr.addColorStop(0,`rgba(255,214,120,${.42*p})`);gr.addColorStop(.6,`rgba(255,180,70,${.16*p})`);gr.addColorStop(1,'rgba(255,160,60,0)');
   g.fillStyle=gr;g.translate(a.x,a.y);g.scale(1,.28);g.translate(-a.x,-a.y);g.beginPath();g.arc(a.x,a.y,r,0,7);g.fill();g.restore()}
@@ -195,10 +185,11 @@ function stageActive(now){if(!B)return;const dt=Math.min(50,now-(B._stT||now));B
 // unitH 的语义统一为「可见身体高度」。表格的透明留白、持械宽度与素材来源均不参与角色身高。
 // 普通成人同深度保持在主角的 0.93–1.08；头目仅按明示角色单独放大。
 const BATTLE_ADULT_H=105;
-const BATTLE_ADULT=new Set(['hero','suzhi','ye','monk','soldier','gossip','oldman','smith','lady','beggar','boatman','bandit','villager','merchant','liu','zhou','langli']);
-const BATTLE_ADULT_RATIO={suzhi:.99,ye:.98,monk:1.03,soldier:1.02,gossip:.97,oldman:.96,smith:1.05,lady:.98,beggar:.98,boatman:1.02,liu:1.04,langli:1.04};
+const BATTLE_ADULT=new Set(['hero','hero_modern','hero_village','suzhi','ye','ye_initial','monk','soldier','gossip','oldman','smith','lady','beggar','boatman','bandit','villager','merchant','liu','zhou','langli']);
+const BATTLE_ADULT_RATIO={suzhi:.99,ye:.98,ye_initial:.90,monk:1.03,soldier:1.02,gossip:.97,oldman:.96,smith:1.05,lady:.98,beggar:.98,boatman:1.02,liu:1.04,langli:1.04};
 const BATTLE_BOSS_RATIO={chief:1.75,liu:1.14,langli:1.14,soldier:1.06,monk:1.08,beggar:1.08};
-const BATTLE_BEAST_H={dog:45,wolf:54,rooster:72,snake:99};
+// 2026-10-17 试玩反馈：狼原来 54，只到人膝盖、像小狗；按肩高约到人腰、耳尖到胸口，调到 76。
+const BATTLE_BEAST_H={dog:45,wolf:76,wilddog:70,rooster:72,snake:99};
 // 只量待机第 0 帧中央人体范围：横向伸出的刀、剑、棍不会改变身高。此值供 BFX 把格高换成身体高。
 function battleBodyBounds(A){const im=A&&IMG[A.file],ch=A&&A.cell&&A.cell[1],cw=A&&A.cell&&A.cell[0];if(!ch||!cw||!ok(im))return{height:ch||1,bottom:ch||1};
   if(A._bodyBounds&&A._bodyBounds.image===im)return A._bodyBounds;

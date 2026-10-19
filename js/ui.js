@@ -3,108 +3,63 @@
 let dlgBusy=false;
 const esc=t=>String(t).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 const FOES=['bandit','chief','snake','wolf','liu','langli'];
-// 只有贯穿章节的人物使用全身立绘。一次性反派与路人沿用探索精灵小像。
-const DIALOGUE_LEADS=new Set(['hero','ye','suzhi','monk','zhou']);
+// 主角、同伴及重要剧情人物使用立绘；普通服务和路人仍用探索小像。
+const DIALOGUE_LEADS=new Set(['hero','ye','suzhi','monk','beggar','chief','liu','langli','zhou']);
 function face(sp){if(!sp)return'none';const[k,e]=sp.replace(/^c_/,'').split(':');if(!DIALOGUE_LEADS.has(k)||!PORTS.includes(k))return'none';if(typeof OPT_PORTS!=='undefined'&&OPT_PORTS.includes(k)&&!ok(IMG['p_'+k]))return'none';
-  if(e&&ok(IMG[`p_${k}_${e}`]))return`url(assets/p_${k}_${e}.webp)`;return`url(assets/p_${k}.webp)`}
+  const emotion=e==='neutral'?'':e==='firm'&&!(EXPR[k]||[]).includes('firm')?'angry':e;
+  if(emotion&&ok(IMG[`p_${k}_${emotion}`]))return`url(${assetImagePath(`p_${k}_${emotion}`)})`;return`url(${assetImagePath('p_'+(k))})`}
 function whoType(who,sp){if(!who)return'narr';const k=(sp||'').replace(/^c_/,'').replace(/[_:].*/,'');
   if(k==='hero'||(typeof S!=='undefined'&&who===S.name))return'hero';if(FOES.includes(k))return'foe';if(!sp)return'thing';return'npc'}
 // 无立绘 NPC：把行走图正面站立帧画进小画框
 function miniSprite(sp){const im=IMG[sp+'_d']||IMG[sp+'_d_0']||IMG[sp];if(!im||!im.width&&!im.naturalWidth)return null;
   const c=document.createElement('canvas'),w=im.naturalWidth||im.width,h=im.naturalHeight||im.height,s=Math.min(96/w,96/h,1.2);
-  c.width=96;c.height=96;const x=c.getContext('2d');x.imageSmoothingEnabled=false;x.drawImage(im,(96-w*s)/2,96-h*s-2,w*s,h*s);return c}
+  c.width=96;c.height=96;const x=c.getContext('2d');x.imageSmoothingEnabled=false;drawImageAsset(x,im,(96-w*s)/2,96-h*s-2,w*s,h*s);return c}
 let lastSpeaker=null;
-function dlgSetup(who,sp,chooseMode){const d=$('dlg');const wasHidden=d.hidden;d.hidden=false;const f=face(sp),fe=d.querySelector('.face'),mi=d.querySelector('.mini');
+function dlgSetup(who,sp,chooseMode){const d=$('dlg');const wasHidden=d.hidden;d.hidden=false;const suppress=window.OpeningCharacters?.fullscreenCGActive()||false,f=suppress?'none':face(sp),fe=d.querySelector('.face'),mi=d.querySelector('.mini');
+  d.dataset.cgPortraitSuppressed=String(suppress);
   d.dataset.portrait=f==='none'?'none':(sp||'').replace(/^c_/,'').split(':')[0];
   const key=(who||'')+'|'+(sp||'').split(':')[0]/* 仅换表情不重播入场动画 */;const changed=wasHidden||key!==lastSpeaker;lastSpeaker=key;
   fe.style.backgroundImage=f;fe.hidden=f==='none';d.classList.toggle('hasface',f!=='none');d.classList.toggle('choose',!!chooseMode);
-  mi.innerHTML='';const ms=f==='none'&&sp?miniSprite(sp.split(':')[0]):null;if(ms)mi.appendChild(ms);mi.hidden=!ms;d.classList.toggle('hasmini',!!ms);
+  mi.innerHTML='';const ms=!suppress&&f==='none'&&sp?miniSprite(sp.split(':')[0]):null;if(ms)mi.appendChild(ms);mi.hidden=!ms;d.classList.toggle('hasmini',!!ms);
+  window.DialogueStage?.render(d,who,sp,{suppress,primary:fe});
   const ty=whoType(who,sp);d.dataset.type=ty;d.classList.toggle('narr',ty==='narr');
   if(changed){for(const e of[fe,mi]){e.style.animation='none';void e.offsetWidth;e.style.animation=''}}
   d.querySelector('.who').textContent=who||'';d.querySelector('.choices').innerHTML='';d.querySelector('.more').hidden=!!chooseMode;return d}
 const PAUSE={'，':90,'、':80,'；':120,'：':90,'。':220,'！':220,'？':220,'…':110,'—':60,'\n':160};
-function say(who,text,sp){return new Promise(res=>{dlgBusy=true;const d=dlgSetup(who,sp,false);text=String(text);
+function say(who,text,sp){sp=window.OpeningCharacters?.dialogueSprite(who,text,sp)||sp;return new Promise(res=>{dlgBusy=true;const d=dlgSetup(who,sp,false);text=String(text);
   const t=d.querySelector('.txt'),m=d.querySelector('.more');let i=0,done=false,tm=0;t.textContent='';m.style.visibility='hidden';
   const fin=()=>{clearTimeout(tm);t.textContent=text;done=true;m.style.visibility=''};
   const step=()=>{i++;t.textContent=text.slice(0,i);if(i>=text.length){fin();return}tm=setTimeout(step,26+(PAUSE[text[i-1]]||0))};
   tm=setTimeout(step,40);
   const go=()=>{if(!done){fin();return}d.onclick=null;window.removeEventListener('keydown',kd);d.hidden=true;dlgBusy=false;
-    setTimeout(()=>{if(d.hidden)lastSpeaker=null},80);res()};
+    window.DialogueStage?.closeLine();setTimeout(()=>{if(d.hidden)lastSpeaker=null},80);res()};
   const kd=e=>{if([' ','Enter','e','E'].includes(e.key)&&!e.repeat){e.preventDefault();go()}};
   d.onclick=go;setTimeout(()=>window.addEventListener('keydown',kd),50)})}
-function choose(who,text,opts,sp){return new Promise(res=>{dlgBusy=true;const d=dlgSetup(who,sp,true);d.onclick=null;
+function choose(who,text,opts,sp){sp=window.OpeningCharacters?.dialogueSprite(who,text,sp)||sp;return new Promise(res=>{dlgBusy=true;const d=dlgSetup(who,sp,true);d.onclick=null;
   d.querySelector('.txt').textContent=text||'';
   const c=d.querySelector('.choices');
-  opts.forEach((o,i)=>{const b=document.createElement('button');b.innerHTML=`<span class="n">${i+1}</span>${esc(o)}`;b.onmouseenter=()=>b.focus();b.onclick=e=>{e.stopPropagation();window.removeEventListener('keydown',kd);d.hidden=true;dlgBusy=false;lastSpeaker=null;res(i)};c.appendChild(b)});
+  opts.forEach((o,i)=>{const b=document.createElement('button');b.innerHTML=`<span class="n">${i+1}</span>${esc(o)}`;b.onmouseenter=()=>b.focus();b.onclick=e=>{e.stopPropagation();window.removeEventListener('keydown',kd);d.hidden=true;dlgBusy=false;lastSpeaker=null;window.DialogueStage?.closeLine();res(i)};c.appendChild(b)});
   const kd=e=>{const n=+e.key;if(n>=1&&n<=opts.length){e.preventDefault();c.children[n-1].click();return}
     const bs=[...c.children],k=bs.indexOf(document.activeElement);
     if(e.key==='ArrowDown'||e.key==='s'){e.preventDefault();bs[(k+1)%bs.length].focus()}
     if(e.key==='ArrowUp'||e.key==='w'){e.preventDefault();bs[(k-1+bs.length)%bs.length].focus()}
     if((e.key===' '||e.key==='e')&&k>=0){e.preventDefault();bs[k].click()}};
   window.addEventListener('keydown',kd);c.firstChild?.focus()})}
-async function talk(npc,...lines){for(const l of lines)if(l)await say(npc.name,l,npc.sp)}
+async function talk(npc,...lines){const play=async()=>{for(const l of lines)if(l)await say(npc.name,l,npc.sp)};if(!window.DialogueStage)return play();return DialogueStage.withCast({id:'talk:'+npc.id,cast:[{who:S.name||'萧白',sp:'c_hero',slot:'left'},{who:npc.name,sp:npc.sp,slot:'right'}]},play)}
 const narr=t=>say('',t);
 function gain(txt){return toast(txt,1200)}
 function giveItem(k,n=1){S.bag[k]=(S.bag[k]||0)+n;return gain(`获得 ${ITEMS[k].name}${n>1?' ×'+n:''}`)}
 function learn(k){if(S.skills[k])return;S.skills[k]=1;return toast(`习得武学「${SKILLS[k].name}」`,1600)}
 function moral(d){S.moral=clamp(S.moral+d,0,30);return gain(`道德 ${d>0?'+':''}${d}`)}
 
-// ───────────────────────── 大地图 ─────────────────────────
-// 坐标对齐水墨舆图 m_world（tools_fx/world_map.py NODES/MARKS，改一处同步另一处）；方位依 01 §1.4 / 02 §2.1。
-// UI 遮挡区：顶栏 y<.12、左侧地点列表 x<.21&.14<y<.76、底栏 y>.88。at = 进场落点（贴通大地图的出口，见 02 §3）
-const NODES=[{id:'temple',name:'羊太傅庙',x:.605,y:.59,to:'temple_out',at:[27.15,28.3]},    // 岘山北麓，城南偏东
-  {id:'xiangyang',name:'襄阳城',x:.565,y:.445,to:'gate',at:[30,33.5]},                   // 汉水南岸；从南门外进
-  {id:'ferry',name:'东津渡',x:.715,y:.47,to:'ferry',at:[3,24.5]},                          // 城东汉水边
-  {id:'bandit',name:'黑风寨',x:.355,y:.675,to:'bgate',at:[15.9,28.05]}];                     // 城西南荆山余脉
-// 舆图地标：只叠淡墨字、不可点（后续章节地点 + 江河）
-const MAP_MARKS=[['樊城',.515,.18],['汉水',.33,.235],['白河',.715,.15],['岘山',.66,.68],['万山',.40,.40],
-  ['隆中',.31,.50],['鹿门山',.86,.56],['往均州',.27,.145],['往当阳',.53,.83]];
-let mapPick=null,mapHover=null,mapSel=null;
-function mapUI(){const box=$('mapui');const list=NODES.filter(n=>S.unlocked[n.id]);
-  box.innerHTML=`<div class="topbar frame"><span class="orn"></span>京西南路 · 襄阳府<span class="sub">已探明 <b>${list.length}</b> 处</span></div>
-   <button class="back" id="mback"><span class="key">Esc</span>返回</button>
-   <div class="mlist frame lite"><div class="mh">地点</div>${list.map(n=>`<button data-n="${n.id}" class="${mapSel===n?'on':''}">${n.name}</button>`).join('')}</div>
-   <div class="mbar"><span class="frame">${mapSel?`是否快速前往<b>${mapSel.name}</b>？`:'<span class="muted">请在地图上或左侧选择要前往的地点</span>'}</span><button id="mcancel">取消</button><button id="mok" class="pri" ${mapSel?'':'disabled'}>确认</button></div>`;
-  box.querySelectorAll('[data-n]').forEach(b=>b.onclick=()=>{mapSel=NODES.find(n=>n.id===b.dataset.n);mapUI()});
-  $('mcancel').onclick=()=>{if(mapSel){mapSel=null;mapUI()}else if(mapPick)mapPick(null)};
-  $('mback').onclick=()=>mapPick&&mapPick(null);$('mok').onclick=()=>mapSel&&mapPick&&mapPick(mapSel)}
-addEventListener('keydown',e=>{if(mode!=='map'||!mapPick||dlgBusy)return;
-  if(e.key==='Escape'){e.preventDefault();if(mapSel){mapSel=null;mapUI()}else mapPick(null)}
-  else if(e.key==='Enter'&&mapSel){e.preventDefault();mapPick(mapSel)}});
-// 取消大地图时的返回点：从进入点朝场景起点挪出出口区域，避免落回出口立刻再次触发
-function mapBackAt([id,x,y]){const sc=SC[id],st=sc.start,inEx=(x,y)=>(sc.exits||[]).some(e=>(!e.show||e.show())&&inR(Math.floor(x),Math.floor(y),e.r));
-  let extra=0;for(let i=0;i<80&&extra<3;i++){if(!inEx(x,y))extra++;const dx=st[0]-x,dy=st[1]-y,d=Math.hypot(dx,dy);if(d<.3)break;x+=dx/d*.3;y+=dy/d*.3}return[x,y]}
-async function openMap(){const back=[S.scene,player.x/TS,player.y/TS];await fade(async()=>{mode='map';mapSel=null;$('prompt').hidden=true;$('mapui').hidden=false;mapUI()});hud();
-  return new Promise(res=>{mapPick=async n=>{mapPick=null;$('mapui').hidden=true;
-    if(!n){mode='scene';await goScene(back[0],mapBackAt(back));res();return}
-    if(n.id==='ferry'&&!hasFlag('road_wolf')){setFlag('road_wolf');await narr('途经山道，几头饿狼从林中窜出！');await battle({bg:'bb_road',foes:[mk('wolf'),mk('wolf')]})}
-    mode='scene';await goScene(n.to,n.at);res()}})}
-function drawMap(t){if(ok(IMG.m_world))g.drawImage(IMG.m_world,0,0,W,H);else{g.fillStyle='#8a6a42';g.fillRect(0,0,W,H)}
-  g.fillStyle='rgba(60,35,10,.06)';g.fillRect(0,0,W,H);
-  // 地标淡墨字（后续章节地点与江河，不可点）
-  g.font='400 14px "Noto Serif SC","Songti SC",serif';g.textAlign='center';g.textBaseline='middle';
-  g.lineJoin='round';g.lineWidth=4;g.strokeStyle='rgba(236,224,198,.82)';   // 宣纸色描边，压在山皴上也读得清
-  for(const[nm,mx,my]of MAP_MARKS){const x=mx*W,y=my*H;g.strokeText(nm,x,y);g.fillStyle='rgba(38,26,14,.72)';g.fillText(nm,x,y)}
-  for(const n of NODES){if(!S.unlocked[n.id])continue;const x=n.x*W,y=n.y*H,on=mapSel===n||mapHover===n;
-    // 地点图标：方形印记
-    g.fillStyle='rgba(40,26,12,.9)';g.fillRect(x-9,y-9,18,18);g.strokeStyle=on?'#ffe2a0':'#ecdcb6';g.lineWidth=2;g.strokeRect(x-9,y-9,18,18);
-    g.fillStyle=on?'#ffe2a0':'#ecdcb6';g.fillRect(x-4,y-4,8,8);
-    g.font='500 15px "Noto Serif SC","Songti SC",serif';g.textAlign='center';g.textBaseline='middle';
-    const tw=g.measureText(n.name).width+26,ly=y-26;
-    const gr=g.createLinearGradient(x-tw/2,0,x+tw/2,0);gr.addColorStop(0,'rgba(30,20,10,0)');gr.addColorStop(.2,'rgba(30,20,10,.72)');gr.addColorStop(.8,'rgba(30,20,10,.72)');gr.addColorStop(1,'rgba(30,20,10,0)');
-    g.fillStyle=gr;g.fillRect(x-tw/2,ly-11,tw,22);g.fillStyle=on?'#ffe2a0':'#f3e6c8';g.fillText(n.name,x,ly+1)}
-  const s=mapSel||mapHover;if(s){const x=s.x*W,y=s.y*H,r=18+Math.sin(t/220)*2.5,l=6;g.strokeStyle='#ffe2a0';g.lineWidth=2;g.beginPath();
-    for(const[sx,sy]of[[-1,-1],[1,-1],[-1,1],[1,1]]){g.moveTo(x+sx*r,y+sy*(r-l));g.lineTo(x+sx*r,y+sy*r);g.lineTo(x+sx*(r-l),y+sy*r)}g.stroke()}
-  g.textBaseline='alphabetic'}
-
 // ───────────────────────── 面板通用 ─────────────────────────
 const ICO={bun:'食',pill:'药',wine:'酒',shovel:'铲',book:'书',gall:'胆',token:'令',wood:'剑',iron:'剑',rusty:'剑',cloth:'衣',vest:'甲'};
-// 图标：优先 ART.icons 图集（assets/i_icons.webp），缺失回落文字字形
+// 图标：优先 ART.icons 图集（assets/production/icons-and-props/i_icons.webp），缺失回落文字字形
 let icoImg=null,icoOK=false;
-function icoAtlas(){if(!window.ART||!ART.icons)return false;if(!icoImg){icoImg=new Image();icoImg.onload=()=>{icoOK=true;if(!$('panel').hidden&&panelRedraw)panelRedraw()};icoImg.src='assets/i_icons.webp'}return icoOK}
+function icoAtlas(){if(!window.ART||!ART.icons)return false;if(!icoImg){icoImg=new Image();icoImg.onload=()=>{icoOK=true;if(!$('panel').hidden&&panelRedraw)panelRedraw()};icoImg.src='assets/production/icons-and-props/i_icons.webp'}return icoOK}
 function icoHTML(k,glyph){const r=icoAtlas()&&ART.icons[k];
   if(r){const[x,y,w,h]=r,W0=icoImg.naturalWidth,H0=icoImg.naturalHeight;
-    return`<div class="ico img"><i style="background-image:url(assets/i_icons.webp);background-size:${W0/w*100}% ${H0/h*100}%;background-position:${W0===w?0:x/(W0-w)*100}% ${H0===h?0:y/(H0-h)*100}%"></i></div>`}
+    return`<div class="ico img"><i style="background-image:url(assets/production/icons-and-props/i_icons.webp);background-size:${W0/w*100}% ${H0/h*100}%;background-position:${W0===w?0:x/(W0-w)*100}% ${H0===h?0:y/(H0-h)*100}%"></i></div>`}
   return`<div class="ico">${glyph}</div>`}
 const ico=k=>icoHTML(k,ICO[k]||(ITEMS[k]?.name||'?')[0]);
 let panelRedraw=null,panelKind='';
@@ -146,7 +101,7 @@ function shop(n,list){return new Promise(res=>{const p=openPanel('shopx');const 
   const draw=()=>{panelKind='shop';const L=tab==='buy'?list:sellable();sel=clamp(sel,0,Math.max(0,L.length-1));const k=L[sel],it=k&&ITEMS[k],own=k?S.bag[k]||0:0;
     const unit=k?(tab==='buy'?it.price:sp(k)):0,st=k&&stackable(k);
     const maxQ=!k?1:tab==='buy'?(st?Math.max(1,Math.min(20,Math.floor(S.silver/unit))):1):own;qty=clamp(qty,1,Math.max(1,maxQ));const tot=unit*qty;
-    const why=!k?'':tab==='buy'?(it.key&&own?'此物你已经有了':S.silver<tot?`银两不足（还差 ${tot-S.silver} 两）`:''):'';
+    const why=!k?'':tab==='buy'?(it.key&&own?'此物你已经有了':S.silver<tot?`铜钱不足（还差 ${tot-S.silver} 文）`:''):'';
     const eqd=k&&(S.weapon===k||S.armor===k);
     const row=(k2,i)=>{const i2=ITEMS[k2],o=S.bag[k2]||0,pr=tab==='buy'?i2.price:sp(k2),poor=tab==='buy'&&(S.silver<pr||(i2.key&&o));
       return`<button class="srow${i===sel?' on':''}${poor?' poor':''}" data-i="${i}">${ico(k2)}<span class="nm">${i2.name}<small>${KINDN(i2)}</small></span><span class="own">${o?(tab==='buy'?'持 ':'×')+o:''}</span><span class="pr">${pr}<small>两</small></span></button>`};
@@ -160,7 +115,7 @@ function shop(n,list){return new Promise(res=>{const p=openPanel('shopx');const 
         ${conf?`<div class="cf">${tab==='buy'?'花':'换'} <b>${tot}</b> 两，${tab==='buy'?'购入':'卖掉'}「${it.name}」${qty>1?' ×'+qty:''}？</div><div class="btns"><button id="sok" class="pri">确认</button><button id="sno">再想想</button></div>`
           :`<button id="sgo" class="pri" ${why?'disabled':''}>${tab==='buy'?'买 下':'卖 出'}</button>`}
         ${why?`<div class="why">${why}</div>`:''}</div>`;
-    p.innerHTML=`<div class="topbar frame"><span class="orn"></span>${esc(n.name)} · 铁器铺<span class="sub">银两 <b class="coin"><i class="cn"></i>${S.silver}</b>${flash?`<em class="fly${flash>0?' plus':''}">${flash>0?'+':'−'}${Math.abs(flash)}</em>`:''}</span></div>
+    p.innerHTML=`<div class="topbar frame"><span class="orn"></span>${esc(n.name)} · 铁器铺<span class="sub">铜钱 <b class="coin"><i class="cn"></i>${S.silver}</b>${flash?`<em class="fly${flash>0?' plus':''}">${flash>0?'+':'−'}${Math.abs(flash)}</em>`:''}</span></div>
       <div class="tabs"><button data-tab="buy" class="${tab==='buy'?'on':''}"><span class="ic">买</span>买入</button><button data-tab="sell" class="${tab==='sell'?'on':''}"><span class="ic">卖</span>卖出</button><span class="sp"></span><button id="pc"><span class="ic">✕</span>离开</button></div>
       <div class="shopw"><div class="slist frame">${L.length?L.map(row).join(''):`<div class="empty">${tab==='buy'?'':'无可卖之物'}</div>`}</div><div class="sdet frame">${det}</div></div>`;
     flash=0;panelRedraw=draw;
@@ -171,11 +126,11 @@ function shop(n,list){return new Promise(res=>{const p=openPanel('shopx');const 
     on('sgo',()=>{conf=true;draw();p.querySelector('#sok')?.focus()});on('sno',()=>{conf=false;draw()});
     on('seq',()=>{equipItem(k);fresh=null;draw();toast(`${it.weapon?'佩上':'穿上'} ${it.name}`,900)});
     on('sok',()=>{conf=false;if(tab==='buy'){if(S.silver<tot)return;S.silver-=tot;S.bag[k]=(S.bag[k]||0)+qty;log.bought.push(k);log.spent+=tot;flash=-tot;fresh=k;toast(`购得 ${it.name}${qty>1?' ×'+qty:''}`,900)}
-      else{S.bag[k]-=qty;S.silver+=tot;log.sold.push(k);log.earned+=tot;flash=tot;toast(`卖出 ${it.name}${qty>1?' ×'+qty:''} · 得 ${tot} 两`,1000)}qty=1;draw()});
+      else{S.bag[k]-=qty;S.silver+=tot;log.sold.push(k);log.earned+=tot;flash=tot;toast(`卖出 ${it.name}${qty>1?' ×'+qty:''} · 得 ${tot} 文`,1000)}qty=1;draw()});
     on('pc',closePanel)};draw()})}
 
 // ───────────────────────── 街市小游戏：共用外壳（立绘 + 名牌 + 卷轴） ─────────────────────────
-function gpShell(p,n,title,sub){return`<div class="gp-por"><img src="assets/p_${n.sp.replace(/^c_/,'')}.webp" alt=""><div class="gp-tag frame">${esc(n.name)}</div></div>
+function gpShell(p,n,title,sub){return`<div class="gp-por"><img src="${assetImagePath('p_'+(n.sp.replace(/^c_/,'')))}" alt=""><div class="gp-tag frame">${esc(n.name)}</div></div>
   <div class="topbar frame"><span class="orn"></span>${title}<span class="sub">${sub||''}</span></div>`}
 const seal=(s)=>`<span class="seal ${s}">${s==='ok'?'妙':s==='ng'?'拙':''}</span>`;
 
@@ -232,10 +187,10 @@ function coupletGame(n,list,reward){return new Promise(res=>{const p=openPanel('
 function rumorBroker(n,R){return new Promise(res=>{const p=openPanel('gp bao');S.rumors=S.rumors||{};const got=[];let sel=R.findIndex(r=>!S.rumors[r.id]);if(sel<0)sel=0;let flash=0,newId=null;
   panelClose=()=>{hud();res(got)};
   const draw=()=>{panelKind='rumor';const r=R[sel];const known=R.filter(x=>S.rumors[x.id]);
-    p.innerHTML=gpShell(p,n,'包打听 · 消息铺',`银两 <b class="coin"><i class="cn"></i>${S.silver}</b>${flash?`<em class="fly">−${flash}</em>`:''}`)+
+    p.innerHTML=gpShell(p,n,'包打听 · 消息铺',`铜钱 <b class="coin"><i class="cn"></i>${S.silver}</b>${flash?`<em class="fly">−${flash}</em>`:''}`)+
       `<div class="gp-main frame"><div class="baow">
         <div class="menu"><h3>今日有售</h3>${R.map((x,j)=>{const k=S.rumors[x.id];return`<button class="rrow${j===sel?' on':''}${k?' known':''}" data-j="${j}"><span class="nm">${x.t}</span><span class="pr">${k?'已知':x.p+'<small>两</small>'}</span></button>`}).join('')}
-          <div class="rbuy">${S.rumors[r.id]?`<span class="${r.id===newId?'jade':'muted'}">${r.id===newId?'已记入右侧「江湖见闻」。':'这条你已经听过了。'}</span>`:`<div class="hint2">${r.tease}</div><button id="rb" class="pri" ${S.silver<r.p?'disabled':''}>付 ${r.p} 两 · 打听</button>${S.silver<r.p?'<div class="why">银两不够</div>':''}`}</div></div>
+          <div class="rbuy">${S.rumors[r.id]?`<span class="${r.id===newId?'jade':'muted'}">${r.id===newId?'已记入右侧「江湖见闻」。':'这条你已经听过了。'}</span>`:`<div class="hint2">${r.tease}</div><button id="rb" class="pri" ${S.silver<r.p?'disabled':''}>付 ${r.p} 文 · 打听</button>${S.silver<r.p?'<div class="why">铜钱不够</div>':''}`}</div></div>
         <div class="log"><h3>江湖见闻<small>${known.length}/${R.length}</small></h3>${known.length?known.map(x=>`<div class="note${x.id===newId?' new':''}"><div class="nt">${x.t}${x.tag?`<span class="tag">${x.tag}</span>`:''}</div><p>${x.txt}</p>${x.unlock?`<div class="ul">✦ ${x.unlock}</div>`:''}</div>`).join(''):'<div class="empty">尚未打听到任何消息</div>'}</div>
        </div></div><button id="pc" class="gp-close">离开</button>`;
     flash=0;panelRedraw=draw;
@@ -250,7 +205,7 @@ const TABS=[['quest','任务','志'],['attr','属性','人'],['skill','武学','
 let menuTab='attr';
 function bagPanel(tab){if(tab)menuTab=tab;else if(S.pts)menuTab='attr';const p=openPanel();panelClose=()=>hud();
   const draw=()=>{const d=derived();panelKind='menu';
-    p.innerHTML=`<div class="topbar frame"><span class="orn"></span>江湖 · ${TABS.find(t=>t[0]===menuTab)[1]}<span class="sub">第一章 · 襄阳风云　银两 <b>${S.silver}</b>　道德 <b>${S.moral}</b></span></div>
+    p.innerHTML=`<div class="topbar frame"><span class="orn"></span>江湖 · ${TABS.find(t=>t[0]===menuTab)[1]}<span class="sub">铜钱 <b>${S.silver}</b>　道德 <b>${S.moral}</b></span></div>
     <div class="tabs">${TABS.map(([k,n,i])=>`<button data-t="${k}" class="${menuTab===k?'on':''}"><span class="ic">${i}</span>${n}${k==='attr'&&S.pts?' <span style="color:var(--red)">●</span>':''}</button>`).join('')}<span class="sp"></span><button id="pc"><span class="ic">✕</span>返回</button></div>
     <div class="pbody frame">${TAB[menuTab](d)}</div>`;
     panelRedraw=draw;p.querySelectorAll('[data-t]').forEach(b=>b.onclick=()=>{menuTab=b.dataset.t;draw()});
@@ -265,8 +220,8 @@ function bagPanel(tab){if(tab)menuTab=tab;else if(S.pts)menuTab='attr';const p=o
       draw()});
     $('pc').onclick=closePanel};draw()}
 const TAB={
-  attr:d=>`<div class="attr"><div class="hero"><img src="assets/p_hero.webp" alt=""><div class="foot"><div class="nm">${esc(S.name)}</div><div class="or">${ORIGINS[S.origin].name} · 等级 ${S.lv}</div>
-    <div class="bars">${bar('气血',S.hp,d.mhp)}${bar('内力',S.mp,d.mmp,'mp')}${bar('修为',S.exp,S.lv*100,'xp')}</div></div></div>
+  attr:d=>`<div class="attr"><div class="hero"><img src="assets/production/portraits/p_hero.webp" alt=""><div class="foot"><div class="nm">${esc(S.name)}</div><div class="or">${ORIGINS[S.origin].name} · 等级 ${S.lv}</div>
+    <div class="bars">${bar('气血',S.hp,d.mhp)}${bar('内力',S.mp,d.mmp,'mp')}${(S.lv>=100?'<div class="exp-cap">已满级 · 100级</div>':bar('修为',S.exp,S.lv*100,'xp'))}</div></div></div>
    <div><h3>根基${S.pts?`<span class="jade" style="letter-spacing:.05em">可分配 ${S.pts} 点</span>`:''}</h3>
     <div class="kv">${Object.keys(STATN).map(k=>`<div title="${STATD[k]}"><span class="k">${STATN[k]}</span><span><b>${S.st[k]}</b>${S.pts?`<button data-s="${k}" aria-label="${STATN[k]}加一">＋</button>`:''}</span></div>`).join('')}<div><span class="k">道德</span><b>${S.moral}</b></div></div>
     <h3>战斗</h3><div class="kv"><div><span class="k">攻击</span><b>${d.atk}</b></div><div><span class="k">防御</span><b>${d.def}</b></div><div><span class="k">暴击</span><b>${d.crit}%</b></div><div><span class="k">闪避</span><b>${d.dodge}%</b></div><div><span class="k">身速</span><b>${d.spd}</b></div><div><span class="k">移动</span><b>${d.move}</b></div></div>
@@ -280,7 +235,7 @@ const TAB={
     <h3>可换装备</h3>${cand.length?`<div class="list">${cand.map(([k,n])=>`<div class="item">${ico(k)}<div><div class="nm">${ITEMS[k].name}<small>×${n}</small></div><div class="ds">${ITEMS[k].desc}</div></div><div class="rt"><button data-u="${k}">装备</button></div></div>`).join('')}</div>`:'<div class="empty" style="padding:1em">行囊中暂无可换装备</div>'}
     <p class="muted" style="font-size:.85em">攻击 <span class="gold">${d.atk}</span>　防御 <span class="gold">${d.def}</span>　暴击 <span class="gold">${d.crit}%</span></p>`},
   party:()=>`<div class="list"><div class="item"><div class="ico">侠</div><div><div class="nm">${esc(S.name)}<small>Lv ${S.lv}</small></div><div class="ds">${ORIGINS[S.origin].desc}</div></div><div class="rt muted" style="font-size:.85em">主角</div></div>
-    ${S.party.includes('ye')?`<div class="item comp"><img class="por" src="assets/p_ye.webp" alt=""><div><div class="nm">叶蘅<small>Lv ${S.lv} · 乡村医者</small></div><div class="ds">与萧白同行赴襄阳。善辨脉象、用针护人；自己的去向由她决定。</div></div><div class="rt muted" style="font-size:.85em">同伴</div></div>`:''}
+    ${S.party.includes('ye')?`<div class="item comp"><img class="por" src="assets/production/portraits/p_ye.webp" alt=""><div><div class="nm">叶蘅<small>Lv ${S.lv} · 乡村医者</small></div><div class="ds">与萧白同行赴汉皋。善辨脉象、用针护人；自己的去向由她决定。</div></div><div class="rt muted" style="font-size:.85em">同伴</div></div>`:''}
     ${S.party.includes('suzhi')?suzhiCard():''}
     ${S.pet==='dog'?`<div class="item"><div class="ico">犬</div><div><div class="nm">${DOG.name}<small>Lv ${S.lv}</small></div><div class="ds">自动参战；主角气血偏低时护主，危急时舔舐疗伤。</div></div><div class="rt muted" style="font-size:.85em">宠物</div></div>`:''}</div>
     ${S.party.length?'':'<div class="empty" style="padding:1em">江湖路远，尚无同行之人</div>'}`,
@@ -290,7 +245,7 @@ function suzhiCard(){const a=(S.aff&&S.aff.suzhi)||0,x=+(S.flags.xq||0);
   if(x>=3)bio.push('她认得「青蚨散」的气味，说那是她「以前」师门的东西。');
   if(S.flags.sz_white)bio.push('针包里的金针，针尾都刻着一只振翅的白鸟。');
   if(S.flags.chief_dead)bio.push('黑风寨覆灭那夜，她在洞口站了很久，什么也没说。');
-  const lv=a>=8?'知己':a>=5?'信赖':a>=2?'熟络':a>=0?'生疏':'冷淡',ph=(typeof ok==='function'&&ok(IMG.p_suzhi))?'<img class="por" src="assets/p_suzhi.webp" alt="">':'<div class="ico">医</div>';
+  const lv=a>=8?'知己':a>=5?'信赖':a>=2?'熟络':a>=0?'生疏':'冷淡',ph=(typeof ok==='function'&&ok(IMG.p_suzhi))?'<img class="por" src="assets/production/portraits/p_suzhi.webp" alt="">':'<div class="ico">医</div>';
   return`<div class="item comp">${ph}<div><div class="nm">苏芷<small>Lv ${S.lv} · 医师</small></div><div class="ds">${bio.join('<br>')}</div>
     <div class="aff"><span class="muted">好感</span><span class="hearts">${'♥'.repeat(clamp(Math.ceil(a/2),0,10))}<i>${'♡'.repeat(10-clamp(Math.ceil(a/2),0,10))}</i></span><span class="muted">${lv} · ${a}</span></div></div><div class="rt muted" style="font-size:.85em">同伴</div></div>`}
 
@@ -299,33 +254,6 @@ function hud(){const h=$('hud');if(mode!=='scene'){h.hidden=true;return}h.hidden
   const ql=window.questLine?questLine():'';h.innerHTML=`<div class="loc">${esc(cur?.name||'')}${ql?`<div class="quest"><span>◆</span>${esc(ql)}</div>`:''}</div><button class="menu frame" id="hb" aria-label="打开江湖菜单"><span class="orn"></span>江湖${S.pts?'<span class="dot"></span>':''}</button>`;
   $('hb').onclick=()=>{if(!dlgBusy&&!busy&&$('panel').hidden)bagPanel()}}
 
-// ───────────────────────── 开场：标题与角色创建 ─────────────────────────
+// ───────────────────────── 开场（旧标题与建角已于 2026-10-19 随襄阳演示归档；首页见 qihe-startup.js）─────────────────────────
 let mode='title';
-function titleScreen(){const p=openPanel('plain');panelClose=null;const sv=loadSave();
-  p.innerHTML=`<div class="tt"><div class="sky" aria-hidden="true"><i class="cl c1"></i><i class="cl c2"></i><i class="cl c3"></i><i class="bd b1"></i><i class="bd b2"></i><i class="bd b3"></i></div><div class="logo">小江湖</div><div class="chap">第一章 · 襄阳风云</div>
-   <div class="menu">${sv?'<button id="tc" class="pri">继续江湖</button>':''}<button id="tn" ${sv?'':'class="pri"'}>初入江湖</button></div>
-   <div class="foot">同人习作 · 致敬《大江湖之苍龙与白鸟》 · 美术由 AI 生成</div></div>`;
-  $('tn').onclick=creation;(sv?$('tc'):$('tn')).focus();
-  if(sv)$('tc').onclick=async()=>{S=sv;await fade(async()=>{p.hidden=true;resetPanel();mode='scene';cur=SC[S.scene];buildGrid(cur);player.x=S.x||cur.start[0]*TS;player.y=S.y||cur.start[1]*TS;player.trail=[];spawnWanderers();snapCam();hud()});placeName(cur.name)}}
 function resetPanel(){const p=$('panel');p.className='ui panel';p.style.background='';p.style.border=''}
-function creation(){resetPanel();S=newState();const p=openPanel('plain');panelClose=null;let pool=6;
-  const base={str:3,con:3,agi:3,wil:3,wis:3},OK=Object.keys(ORIGINS);
-  const nm=()=>{const i=$('cname');if(i)S.name=i.value};
-  const draw=()=>{const o=ORIGINS[S.origin];const st=Object.fromEntries(Object.keys(base).map(k=>[k,base[k]+(o.bonus[k]||0)]));
-    p.innerHTML=`<div class="cr"><div class="hd">初入江湖<small>定下你的名号、出身与根基</small></div><img class="por" src="assets/p_hero.webp" alt="">
-    <div class="opts">
-     <div class="opt"><span class="l">姓名</span><div class="sel"><input type="text" id="cname" maxlength="4" value="${esc(S.name==='无名'?'萧白':S.name)}" aria-label="姓名"></div></div>
-     <div class="opt"><span class="l">出身</span><div class="sel"><button data-oo="-1" aria-label="上一个出身">◀</button><span class="v">${o.name}</span><button data-oo="1" aria-label="下一个出身">▶</button></div></div>
-     ${Object.keys(STATN).map(k=>`<div class="opt" title="${STATD[k]}"><span class="l">${STATN[k]}</span><div class="sel"><button data-m="${k}" aria-label="${STATN[k]}减" ${base[k]<=1?'disabled':''}>◀</button><span class="v"><b>${st[k]}</b>${o.bonus[k]?`<i>出身 +${o.bonus[k]}</i>`:''}<i>${STATD[k]}</i></span><button data-p="${k}" aria-label="${STATN[k]}加" ${!pool||base[k]>=8?'disabled':''}>▶</button></div></div>`).join('')}
-     <div class="opt"><span class="l">道德</span><div class="sel"><button data-mo="-1" aria-label="道德减">◀</button><span class="v"><b id="cmv">${S.moral}</b><i>低者易结交邪道，高者更得正道青睐</i></span><button data-mo="1" aria-label="道德加">▶</button></div></div>
-     <div class="desc frame"><b>${o.name}</b>　${o.desc}<br>专属武学「<b>${SKILLS[o.skill].name}</b>」 · ${Object.entries(o.bonus).map(([a,b])=>STATN[a]+' +'+b).join(' · ')} · 初始银两 ${o.silver}</div>
-    </div>
-    <div class="foot"><span class="muted">剩余根基点 <span class="pool">${pool}</span></span><button id="cback">返回</button><button id="cgo" class="pri" ${pool?'disabled':''}>踏入江湖</button></div></div>`;
-    p.querySelectorAll('[data-oo]').forEach(b=>b.onclick=()=>{nm();S.origin=OK[(OK.indexOf(S.origin)+ +b.dataset.oo+OK.length)%OK.length];draw()});
-    p.querySelectorAll('[data-p]').forEach(b=>b.onclick=()=>{if(pool>0&&base[b.dataset.p]<8){base[b.dataset.p]++;pool--;nm();draw()}});
-    p.querySelectorAll('[data-m]').forEach(b=>b.onclick=()=>{if(base[b.dataset.m]>1){base[b.dataset.m]--;pool++;nm();draw()}});
-    p.querySelectorAll('[data-mo]').forEach(b=>b.onclick=()=>{nm();S.moral=clamp(S.moral+ +b.dataset.mo,3,15);draw()});
-    $('cback').onclick=titleScreen;
-    $('cgo').onclick=async()=>{S.name=($('cname').value.trim()||'萧白').slice(0,4);S.st=st;const o=ORIGINS[S.origin];S.silver=o.silver;S.skills[o.skill]=1;const d=derived();S.hp=d.mhp;S.mp=d.mmp;
-      await fade(async()=>{p.hidden=true;resetPanel();mode='scene';cur=SC.temple;buildGrid(cur);player.x=cur.start[0]*TS;player.y=cur.start[1]*TS;player.trail=[];spawnWanderers();snapCam();save();hud()});placeName(cur.name);busy=true;await cur.enter();busy=false;hud()}};
-  draw()}

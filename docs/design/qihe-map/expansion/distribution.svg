@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1230" viewBox="0 0 1600 1230"><rect width="100%" height="100%" fill="#f5f3ec"/>
+<text x="50" y="59" font-family="Arial Unicode MS, PingFang SC, sans-serif" font-size="34" fill="#26382f">栖河：把外来人的压力放进空间，把乡邻生活留在村里</text>
+<text x="50" y="95" font-family="Arial Unicode MS, PingFang SC, sans-serif" font-size="18" fill="#66766c">QH-EXP-01  ·  剧情与人物分布草案  ·  线为双向路线，位置是示意而非生成坐标  ·  2026-10-04</text>
+<polyline points="805,340 805,450" fill="none" stroke="#81958a" stroke-width="4"/>
+<circle cx="805" cy="340" r="5" fill="#81958a"/>
+<circle cx="805" cy="450" r="5" fill="#81958a"/>
+<text x="825" y="393" font-family="Arial Unicode MS, PingFang SC, sans-serif" font-size="19" fill="#26382f">采药归村</text>
+<polyline points="500,550 580,550" fill="none" stroke="#81958a" stroke-width="4"/>
+<circle cx="500" cy="550" r="5" fill="#81958a"/>
+<circle cx="580" cy="550" r="5" fill="#81958a"/>
+<polyline points="1030,550 1110,550" fill="none" stroke="#81958a" stroke-width="4"/>
+<circle cx="1030" cy="550" r="5" fill="#81958a"/>
+<circle cx="1110" cy="550" r="5" fill="#81958a"/>
+<polyline points="805,665 805,810" fill="none" stroke="#81958a" stroke-width="4"/>
+<circle cx="805" cy="665" r="5" fill="#81958a"/>
+<circle cx="805" cy="810" r="5" fill="#81958a"/>
+<text x="825" y="746" font-family="Arial Unicode MS, PingFang SC, sans-serif" font-size="19" fill="#26382f">外客来村</text>
+<polyline points="275,665 275,810" fill="none" stroke="#b38b55" stroke-width="4"/>
+<circle cx="275" cy="665" r="5" fill="#b38b55"/>
+<circle cx="275" cy="810" r="5" fill="#b38b55"/>
+<text x="65" y="728" font-family="Arial Unicode MS, PingFang SC, sans-serif" font-size="17" fill="#886739">D1 起便桥修复，可往返</text>
+<polyline points="450,665 540,755 630,810" fill="none" stroke="#81958a" stroke-width="4"/>
+<circle cx="450" cy="665" r="5" fill="#81958a"/>
+<circle cx="630" cy="810" r="5" fill="#81958a"/>
+<text x="362" y="782" font-family="Arial Unicode MS, PingFang SC, sans-serif" font-size="17" fill="#26382f">南西绕行</text>
+<polyline points="1335,665 1335,730 990,810" fill="none" stroke="#81958a" stroke-width="4"/>
+<circle cx="1335" cy="665" r="5" fill="#81958a"/>
+<circle cx="990" cy="810" r="5" fill="#81958a"/>
+<text x="1115" y="708" font-family="Arial Unicode MS, PingFang SC, sans-serif" font-size="18" fill="#26382f">装卸与客栈往来</text>
+<polyline points="50,900 24,900 24,230 50,230" fill="none" stroke="#b38b55" stroke-width="4"/>
+<circle cx="50" cy="900" r="5" fill="#b38b55"/>
+<circle cx="50" cy="230" r="5" fill="#b38b55"/>
+<rect x="580" y="450" width="450" height="215" rx="10" fill="#e7eee3" stroke="#c6d0c4" stroke-width="2"/>
+<text x="600" y="491" font-family="Arial Unicode MS, PingFang SC, sans-serif" font-size="27" fill="#26382f">A  栖河 · 生活核心</text>
+<text x="600" y="525" font-family="Arial Unicode MS, PingFang SC, sans-serif" font-size="18" fill="#26382f">周婶 · 陈伯 · 老人 · 叶蘅</text>
+<text x="600" y="558" font-family="Arial Unicode MS, PingFang SC, sans-serif" font-size="18" fill="#26382f">叶家 / 陈家客房 / 药铺</text>
+<text x="600" y="589" font-family="Arial Unicode MS, PingFang SC, sans-serif" font-size="18" fill="#26382f">外客只在剧情事件时进入</text>
+<text x="600" y="629" font-family="Arial Unicode MS, PingFang SC, sans-serif" font-size="17" fill="#7c6746">序章起开放</text>
+<rect x="580" y="125" width="450" height="215" rx="10" fill="#ffffff" stroke="#c6d0c4" stroke-width="2"/>
+<text x="600" y="166" font-family="Arial Unicode MS, PingFang SC, sans-serif" font-size="27" fill="#26382f">B  北 · 后山采药道</text>
+<text x="600" y="200" font-family="Arial Unicode MS, PingFang SC, sans-serif" font-size="18" fill="#26382f">开场：萧白 · 叶蘅 · 两只狼</text>
+<text x="600" y="233" font-family="Arial Unicode MS, PingFang SC, sans-serif" font-size="18" fill="#26382f">陌生靴印 / 折枝 / 远处犬吠</text>
+<text x="600" y="264" font-family="Arial Unicode MS, PingFang SC, sans-serif" font-size="18" fill="#26382f">换衣后可重访，第二天获得旁证</text>
+<text x="600" y="304" font-family="Arial Unicode MS, PingFang SC, sans-serif" font-size="17" fill="#7c6746">开场固定演出 → 换衣后自由探索</text>
+<rect x="580" y="810" width="450" height="215" rx="10" fill="#ffffff" stroke="#c6d0c4" stroke-width="2"/>
+<text x="600" y="851" font-family="Arial Unicode MS, PingFang SC, sans-serif" font-size="27" fill="#26382f">C  南 · 村口与客栈外院</text>
+<text x="600" y="885" font-family="Arial Unicode MS, PingFang SC, sans-serif" font-size="18" fill="#26382f">店家 · 药商 · 乌魁与帮众</text>
+<text x="600" y="918" font-family="Arial Unicode MS, PingFang SC, sans-serif" font-size="18" fill="#26382f">正道盟管事与护院在北侧歇脚棚</text>
+<text x="600" y="949" font-family="Arial Unicode MS, PingFang SC, sans-serif" font-size="18" fill="#26382f">陆衡卸货；客栈两门通同一室内</text>
+<text x="600" y="989" font-family="Arial Unicode MS, PingFang SC, sans-serif" font-size="17" fill="#7c6746">序章外来客 → 第一章明确诉求</text>
+<rect x="1110" y="450" width="450" height="215" rx="10" fill="#ffffff" stroke="#c6d0c4" stroke-width="2"/>
+<text x="1130" y="491" font-family="Arial Unicode MS, PingFang SC, sans-serif" font-size="27" fill="#26382f">D  东 · 河埠与晒药场</text>
+<text x="1130" y="525" font-family="Arial Unicode MS, PingFang SC, sans-serif" font-size="18" fill="#26382f">采办使 · 随从 · 程铎与差役</text>
+<text x="1130" y="558" font-family="Arial Unicode MS, PingFang SC, sans-serif" font-size="18" fill="#26382f">药货登记 / 取水 / 晒药</text>
+<text x="1130" y="589" font-family="Arial Unicode MS, PingFang SC, sans-serif" font-size="18" fill="#26382f">D2拦路冲突；保留公共绕行通路</text>
+<text x="1130" y="629" font-family="Arial Unicode MS, PingFang SC, sans-serif" font-size="17" fill="#7c6746">序章随从 → 第一章采办使到场</text>
+<rect x="50" y="450" width="450" height="215" rx="10" fill="#ffffff" stroke="#c6d0c4" stroke-width="2"/>
+<text x="70" y="491" font-family="Arial Unicode MS, PingFang SC, sans-serif" font-size="27" fill="#26382f">E  西 · 田埂与护路练场</text>
+<text x="70" y="525" font-family="Arial Unicode MS, PingFang SC, sans-serif" font-size="18" fill="#26382f">陆衡授课 · 陈伯修车</text>
+<text x="70" y="558" font-family="Arial Unicode MS, PingFang SC, sans-serif" font-size="18" fill="#26382f">学习丙级《护路棍法》（暂名）</text>
+<text x="70" y="589" font-family="Arial Unicode MS, PingFang SC, sans-serif" font-size="18" fill="#26382f">白天认路；夜间撤离与守路战</text>
+<text x="70" y="629" font-family="Arial Unicode MS, PingFang SC, sans-serif" font-size="17" fill="#7c6746">序章可探 → 第一章授课与接应</text>
+<rect x="50" y="810" width="450" height="215" rx="10" fill="#f0e6d6" stroke="#c6d0c4" stroke-width="2"/>
+<text x="70" y="851" font-family="Arial Unicode MS, PingFang SC, sans-serif" font-size="27" fill="#26382f">F  邻村 · 接应院</text>
+<text x="70" y="885" font-family="Arial Unicode MS, PingFang SC, sans-serif" font-size="18" fill="#26382f">周婶 · 陈伯 · 老人 · 接应村民</text>
+<text x="70" y="918" font-family="Arial Unicode MS, PingFang SC, sans-serif" font-size="18" fill="#26382f">岑霜救助处 / 程铎登记桌 / 周砚休息院</text>
+<text x="70" y="949" font-family="Arial Unicode MS, PingFang SC, sans-serif" font-size="18" fill="#26382f">三处分别邀约；仅归云谷线可确认</text>
+<text x="70" y="989" font-family="Arial Unicode MS, PingFang SC, sans-serif" font-size="17" fill="#7c6746">第一章可送老人 → 火后安置</text>
+<rect x="50" y="125" width="450" height="215" rx="10" fill="#f0e6d6" stroke="#c6d0c4" stroke-width="2"/>
+<text x="70" y="166" font-family="Arial Unicode MS, PingFang SC, sans-serif" font-size="27" fill="#26382f">G  归云谷 · 前径与客院</text>
+<text x="70" y="200" font-family="Arial Unicode MS, PingFang SC, sans-serif" font-size="18" fill="#26382f">周砚 · 萧白 · 叶蘅；陆衡送达后离开</text>
+<text x="70" y="233" font-family="Arial Unicode MS, PingFang SC, sans-serif" font-size="18" fill="#26382f">第一章：分房、晚饭、暂住一夜</text>
+<text x="70" y="264" font-family="Arial Unicode MS, PingFang SC, sans-serif" font-size="18" fill="#26382f">第二章：萧白拜师，叶蘅暂住，开启培养</text>
+<text x="70" y="304" font-family="Arial Unicode MS, PingFang SC, sans-serif" font-size="17" fill="#7c6746">选择山居后开放</text>
+<text x="1115" y="176" font-family="Arial Unicode MS, PingFang SC, sans-serif" font-size="23" fill="#26382f">阶段变化</text>
+<text x="1115" y="219" font-family="Arial Unicode MS, PingFang SC, sans-serif" font-size="20" fill="#26382f">序章：少量陌生面孔与声响</text>
+<text x="1115" y="254" font-family="Arial Unicode MS, PingFang SC, sans-serif" font-size="20" fill="#26382f">第一天：问消息，开始索物</text>
+<text x="1115" y="289" font-family="Arial Unicode MS, PingFang SC, sans-serif" font-size="20" fill="#26382f">第二天：拦路，药货受阻</text>
+<text x="1115" y="324" font-family="Arial Unicode MS, PingFang SC, sans-serif" font-size="20" fill="#26382f">第三夜：三方才聚到装车点</text>
+<rect x="1110" y="810" width="450" height="215" rx="10" fill="#e9eee9" stroke="#c6d0c4" stroke-width="2"/>
+<text x="1130" y="850" font-family="Arial Unicode MS, PingFang SC, sans-serif" font-size="23" fill="#26382f">站位与通路规则</text>
+<text x="1130" y="891" font-family="Arial Unicode MS, PingFang SC, sans-serif" font-size="19" fill="#26382f">每个角色按时段只出现一处</text>
+<text x="1130" y="927" font-family="Arial Unicode MS, PingFang SC, sans-serif" font-size="19" fill="#26382f">NPC留在路侧，门与主路可绕行</text>
+<text x="1130" y="963" font-family="Arial Unicode MS, PingFang SC, sans-serif" font-size="19" fill="#26382f">火后沿已认识的西田埂撤离</text>
+<text x="1130" y="997" font-family="Arial Unicode MS, PingFang SC, sans-serif" font-size="17" fill="#7c6746">G路线：F选择山居后开放</text>
+<polyline points="50,1070 1560,1070" fill="none" stroke="#c6d0c4" stroke-width="2"/>
+<circle cx="50" cy="1070" r="5" fill="#c6d0c4"/>
+<circle cx="1560" cy="1070" r="5" fill="#c6d0c4"/>
+<text x="50" y="1110" font-family="Arial Unicode MS, PingFang SC, sans-serif" font-size="20" fill="#26382f">人物整改：短发便衣萧白按旧动作白模重生；先统一叶蘅 / 帮众同框；三方专属素材有候选、未接入。</text>
+<text x="50" y="1148" font-family="Arial Unicode MS, PingFang SC, sans-serif" font-size="20" fill="#26382f">剧情衔接：狼被惊扰 → 生面孔变多 → 三方索物 → 村火撤离 → 山居暂住 → 次晨主动求学与首期培养。</text>
+<text x="50" y="1192" font-family="Arial Unicode MS, PingFang SC, sans-serif" font-size="18" fill="#7c6746">此图为设计产物。未生成正式地图、未替换运行素材，第一章与第二章入口仍待开发。</text>
+</svg>

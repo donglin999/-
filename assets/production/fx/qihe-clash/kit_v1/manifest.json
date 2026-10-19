@@ -1,0 +1,38 @@
+{
+  "kit_ring": {
+    "w": 90,
+    "h": 63,
+    "blend": "add",
+    "file": "fx_qh_clash_kit_ring.webp",
+    "source": "art_sources/vfx_kit_v1/kit_ring.png",
+    "source_sha256": "5d2870960c2fadd4da01695b295398a5605dd03509cc4590e9957cc7d747c6d7",
+    "reference_concept": "gy_p3_a.png"
+  },
+  "kit_qi": {
+    "w": 70,
+    "h": 70,
+    "blend": "add",
+    "file": "fx_qh_clash_kit_qi.webp",
+    "source": "art_sources/vfx_kit_v1/kit_qi.png",
+    "source_sha256": "07df335b55a9cada349906b0a786a7d02b3f2f56585858a9c809e3430593f1a6",
+    "reference_concept": "hui_q4a_a.png"
+  },
+  "kit_rise": {
+    "w": 60,
+    "h": 188,
+    "blend": "add",
+    "file": "fx_qh_clash_kit_rise.webp",
+    "source": "art_sources/vfx_kit_v1/kit_rise.png",
+    "source_sha256": "151ea7508671de2cdca47c48b8c4d303b239616bb3dfbb668d0bc45640f26168",
+    "reference_concept": "hui_q4a_b.png"
+  },
+  "kit_burst": {
+    "w": 80,
+    "h": 76,
+    "blend": "add",
+    "file": "fx_qh_clash_kit_burst.webp",
+    "source": "art_sources/vfx_kit_v1/kit_burst.png",
+    "source_sha256": "c6d37468347309d2b4ef90b5f68442832d1fe8e2444acbbb1598c3265c6b7ac7",
+    "reference_concept": "hc_s3_a.png"
+  }
+}

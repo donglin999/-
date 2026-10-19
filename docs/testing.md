@@ -1,10 +1,25 @@
 # 测试与评审
 
+状态：现行　最后核对：2026-10-19
+
+> **2026-10-19：** `#street`、`#streetbright`、`#xiangyang` 襄阳演示入口与旧标题／建角流程已撤除，访问这些后缀直接进入栖河首页；`js/story.js` 的襄阳剧情、`quests.js`、`xiangyang-*.js`、`npc-*`、`containers.js` 已移入 `_attic/2026-10-19-deprecated/`。本页涉及它们的内容只作历史记录，见[弃用入口清理](updates/2026-10-19-deprecated-entries.md)。
+> 评审入口（`battleReview`、`storyReview`、`uiReview`、`chapterPresentationReview` 等）只在本机 8792 可用；`scripts/build-pages.cjs` 构建的发布包不含评审脚本并会删掉这些参数。
+
+2026-10-12 归云谷人物与对白：`node tests/guiyun-performance.test.cjs` 检查 90 段 × 384 条件的作者名单、延迟登场、独处、换场、表情；`node tests/guiyun-performance-browser.test.cjs` 在 8792 一次性隔离旅程逐句播放 171 分支，补查日常/入门/旧送药，三窗口留 24 张截图。`node tests/guiyun-performance-preview.test.cjs` 检查 7 个预览场景可切换/继续且没有写正式保存键。`node tests/guiyun-performance-bounds.test.cjs` 用新图真实 alpha 与实际位置核对所有表情、站位、选择状态的可见轮廓。结果见 [acceptance.json](../review/guiyun-performance-fix-20261012/acceptance.json) 和[更新记录](updates/2026-10-12-guiyun-performance-fix.md)；程序检查不能代替全部人工台词/画风验收。
+
 项目以 Node 内置测试、**无头浏览器驱动真实页面**（Playwright + Chromium）、碰撞审计与截图人工评审验证。
 
-2026-09-30 起的桌面视觉整改按[视觉与交互验收合同](design/visual-acceptance.md)的 V01–V09 逐项判定。`debug.pdf` 的参考图不是运行结果；必须在同一待发布包中取得实际截图、碰撞叠图和交互记录。独立验收者记录每项通过/失败及证据路径，失败项修复并重测后才能发布。`tests/menu-icons.test.cjs` 只能证明图标映射与加载，不能证明语义和 UI 观感；碰撞审计也不能代替浅色地面与不可见阻挡的目视核对。
+2026-10-10行记接入验收：`node --test tests/qihe-journal.test.cjs`覆盖真实任务状态、知识解锁、旧档推断和只读快照；`node tests/qihe-journal-browser.test.cjs`访问8792真实游戏，在一次性浏览器上下文使用显式`uiReview=1`独立存档。后者覆盖四个尺寸、追踪保存与载入、文书与关联跳转、其他菜单、导航、主线取消和真实对白的图鉴记录。可用`PLAYWRIGHT_PATH`、`CHROMIUM_PATH`指定现有运行时；`QIHE_TEST_URL`必须仍指向独立UI验收入口，脚本在修改fixture前核对保存键。证据在`review/qihe-journal-adoption-20261010/`，本轮10项数据测试与浏览器检查通过；不读取或写入用户浏览器中的正式旅程。
 
-襄阳片段回归（2026-09-29）：在项目目录依次运行 `node --test tests/toast.test.cjs tests/npc-actions.test.cjs`、`node tests/battle-error-regression.cjs`、`node tests/xiangyang-slice.test.cjs`、`node tools_scene/xiangyang_regression.cjs`、`node tests/xiangyang-combat-balance.cjs`。分别检查提示与 NPC 菜单、战斗异常、单片段角色／存档／结算、剧情状态分支和正常数值战斗抽样。`tools_scene/street_flow.cjs <截图目录> '#xiangyang'` 通过真实寻路和键盘对话走街市流程，但为了聚焦场景交互会把敌人 HP 压到 1；它不用于证明战斗平衡。战斗抽样使用原战斗逻辑、固定种子与自动选招，详情见[襄阳测试范围](design/xiangyang-test.md)。
+同日追加相识／行迹提示验收：`node --test tests/qihe-journal.test.cjs tests/qihe-journal-notices.test.cjs`共18项通过，新增8项覆盖旧档静默、新相识与身份合并、正向知识变化、真实关联任务进展、重复与位置补全不提示、任务退出目录、保存一次及旅程切换。`node tests/qihe-journal-notices-browser.test.cjs`在上述一次性验收环境通过真实沈雁回身份对白和周婶药单核实，检查对白后提示、多人合并、正常保存、L及查看按钮直达、剧情作用域／菜单隐藏与计时暂停、重复交谈／载入静默和740px卡片布局。提示截图与报告在`review/qihe-journal-notices-20261010/`；页面错误和缺资源均0。原行记四尺寸浏览器回归另行通过。普通内置浏览器仅继续原档并阅读菜单，未通过fixture改动其状态；此检查不等于全部剧情逐段重放。
+
+提示渐变／缩小阶段的深灰绿证据使用`QIHE_NOTICE_REVIEW_DIR=review/qihe-journal-notices-soft-20261010 node tests/qihe-journal-notices-browser.test.cjs`，1600与740px流程均通过，页面错误／缺资源0。该变量只改变证据输出目录，用于保留旧版截图；不改变游戏入口与存档隔离。捕获会等淡入动画完成，保存全图与带周围场景的局部图；报告记录实际尺寸、字体与渐变。桌面初识提示286×87px，见[当轮样式记录](updates/2026-10-10-journal-notices-soft-style.md)。
+
+当前浅黄色提醒通过`QIHE_NOTICE_REVIEW_DIR=review/qihe-journal-notices-pale-yellow-20261010 node tests/qihe-journal-notices-browser.test.cjs`检查，桌面与740px流程、多人更新、真实NPC及图鉴操作通过；画像正常、无溢出，页面错误／缺资源0。保留首次窄窗导航12秒超时记录，脚本只延长导航等候至30秒，控件等候仍12秒，完整重跑通过；详见[浅黄色配色更新](updates/2026-10-10-journal-notices-pale-yellow.md)。本轮仅改通知颜色，未新增数据测试或重跑全部主线。
+
+2026-09-30 起的桌面视觉整改按[视觉与交互验收合同](../../xiaojianghu/docs/design/visual-acceptance.md)的 V01–V09 逐项判定。`debug.pdf` 的参考图不是运行结果；必须在同一待发布包中取得实际截图、碰撞叠图和交互记录。独立验收者记录每项通过/失败及证据路径，失败项修复并重测后才能发布。`tests/menu-icons.test.cjs` 只能证明图标映射与加载，不能证明语义和 UI 观感；碰撞审计也不能代替浅色地面与不可见阻挡的目视核对。
+
+襄阳片段回归（2026-09-29）：在项目目录依次运行 `node --test tests/toast.test.cjs tests/npc-actions.test.cjs`、`node tests/battle-error-regression.cjs`、`node tests/xiangyang-slice.test.cjs`、`node tools_scene/xiangyang_regression.cjs`、`node tests/xiangyang-combat-balance.cjs`。分别检查提示与 NPC 菜单、战斗异常、单片段角色／存档／结算、剧情状态分支和正常数值战斗抽样。`tools_scene/street_flow.cjs <截图目录> '#xiangyang'` 通过真实寻路和键盘对话走街市流程，但为了聚焦场景交互会把敌人 HP 压到 1；它不用于证明战斗平衡。战斗抽样使用原战斗逻辑、固定种子与自动选招，详情见襄阳测试范围（已删除）。
 
 ## 1. Playwright 环境
 
@@ -71,7 +86,7 @@ node tools_fx/bt_smoke.cjs review/scene_v2/bt 30000 5000 bandits    # 战斗冒�
 - `exit_frames.cjs`：把主角放在每个出口前、寻路走进去，逐帧截图并记录场景/坐标/朝向/alpha，末帧须在目标场景、朝向等于走出方向。每步打印 ✓/✗ 与状态，最后 `{"errors":[]}`。
 - 2026-09 审计前后对比：`review/scene_v2/before/`（改前）与 `review/scene_v2/audit_*.png`（改后）；场景 v3 重排（02 文档落地）：`review/scene_v3/before/`、`review/scene_v3/after/`、`review/scene_v3/audit_*.png`、`review/scene_v3/exits/*_strip.png`。
 
-1. **离线**：v2 场景看 `review/scene_v2/<id>_layout_dbg.png`（`tools_scene/build_scene.py` 输出），（2026-09 S1 起第一章 8 个场景全部是程序排布，旧版 5 图的 `masks.py` 手标 mask 已退役），修改布局/多边形后重跑（数据块自动写回 `story.js`）。
+1. **离线**：v2 场景看 `review/scene_v2/<id>_layout_dbg.png`（`tools_scene/build_scene.py` 输出），（2026-09 S1 起旧襄阳演示 8 个场景全部是程序排布，旧版 5 图的 `masks.py` 手标 mask 已退役），修改布局/多边形后重跑（数据块自动写回 `story.js`）。
 2. **在线采样**：在页面中遍历网格，用引擎自己的判定函数找可疑区域：
 
 ```js

@@ -1,7 +1,7 @@
 'use strict';
-// ───────────────────────── 战斗演出（工作流 C · 见 docs/battle-v2.md / docs/vfx.md） ─────────────────────────
+// ───────────────────────── 战斗演出（工作流 C · 见 docs/archive/battle-v2.md / docs/vfx.md） ─────────────────────────
 // 覆盖 battle.js：drawUnit lunge boostFx doAttack doSkill foeAct hurt heal doBreak drawParts drawBreakFlash
-// 规则与数值（伤害、命中/闪避、眩晕、流血、看破、蓄势、破势）逐行照搬原函数，只改表现与时序。
+// 规则与数值（伤害、命中/闪避、眩晕、流血、看破、蓄势、破势）保持原语义，只改表现与时序。
 //  · 动作：读 window.BART[u.art]（D 产出），按状态播 idle/dash/atk/atk2/hurt/cast/brk/dead/win，缺动作按契约回退；
 //    角色缺条目 → 原静态帧 + 呼吸 + 程序化姿态；主角在 BART 就绪前用 s_hero_battle 旧动作表（同一通用路径）。
 //  · 时间：一切位移/动作/特效走战斗时钟 BT（vfx.js），顿帧 BT.stop() 时画面整体冻结。
@@ -33,7 +33,12 @@ const BFXI=(()=>{
   const durOf=s=>msArr(s).reduce((a,b)=>a+b,0);
   function fidx(s,e,loop){const m=msArr(s),T=durOf(s)||1;if(loop)e=((e%T)+T)%T;else if(e>=T)return s.f[s.f.length-1];let a=0;for(let i=0;i<m.length;i++){a+=m[i];if(e<a)return s.f[i]}return s.f[s.f.length-1]}
   // 出招 → 命中的毫秒数（出招帧与命中对齐）：spec.hit 指定命中帧序号，缺省取中间帧
-  function impactMs(u,k){const A=artOf(u);if(!A)return k==='atk2'?50:90;const s=spec(A,k),m=msArr(s);const hi=s.hit!=null?s.hit:Math.min(s.f.length-1,Math.floor(s.f.length*.5));let t=0;for(let i=0;i<hi;i++)t+=m[i];return Math.max(40,t)}
+  function projectile(u,k){const A=artOf(u),s=A&&spec(A,k);if(!s?.projectile)return null;return{...s.projectile,releaseMs:msArr(s).slice(0,s.projectile.release).reduce((a,b)=>a+b,0)}}
+  function impactMs(u,k){const p=projectile(u,k);if(p)return p.releaseMs+p.flightMs;const A=artOf(u);if(!A)return k==='atk2'?50:90;const s=spec(A,k),m=msArr(s);const hi=s.hit!=null?s.hit:Math.min(s.f.length-1,Math.floor(s.f.length*.5));let t=0;for(let i=0;i<hi;i++)t+=m[i];return Math.max(40,t)}
+  function recoveryMs(u,k,fallback){const A=artOf(u),s=A&&spec(A,k);return s?.complete?Math.max(fallback,durOf(s)-impactMs(u,k)):fallback}
+  // Visual contacts share one logical hit; only resolve cues apply rules.
+  function contacts(u,k){const A=artOf(u),s=A&&spec(A,k);if(!s?.contacts)return[{ms:impactMs(u,k),resolve:true}];
+    const m=msArr(s);return s.contacts.map(c=>({...c,ms:m.slice(0,c.frame).reduce((a,b)=>a+b,0)}))}
   function act(u,k,hold){u.anim={k,t0:now(),hold:!!hold}}
   function stateOf(u,t){if(u.hp<=0)return{k:'dead',t0:u._dT??t,hold:1};
     const a=u.anim;if(a){if(a.hold)return a;const A=artOf(u),d=A?durOf(spec(A,a.k)):(STATIC_DUR[a.k]||300);if(t-a.t0<d)return a;u.anim=null}
@@ -41,13 +46,15 @@ const BFXI=(()=>{
     if(u.charging)return{k:'cast',t0:u._cT||0,hold:1};
     return{k:'idle',t0:-((u.id*7919)%1)*4000,loop:1}}
   function frameOf(u,t,h){const st=stateOf(u,t),want=u.side==='foe'?'r':'l',A=artOf(u);
-    if(A){const im=IMG[A.file],s=spec(A,st.k),[cw,ch]=A.cell,cols=A.cols||Math.max(1,Math.floor(im.naturalWidth/cw)),fi=fidx(s,t-st.t0,!!(st.loop||s.loop)&&!st.hold);
+    if(A){const im=IMG[A.file],s=spec(A,st.k),[cw,ch]=A.cell,cols=A.cols||Math.max(1,Math.floor(im.naturalWidth/cw)),fi=Number.isInteger(u._reviewFrame)&&typeof isQiheBattleReview==='function'&&isQiheBattleReview()?u._reviewFrame:fidx(s,t-st.t0,!!(st.loop||s.loop)&&!st.hold);
       const body=battleBodyBounds(A),dh=h*ch/body.height;
-      return{im,sx:(fi%cols)*cw,sy:Math.floor(fi/cols)*ch,sw:cw,sh:ch,dh,dw:dh*cw/ch,foot:(ch-body.bottom)*dh/ch,flip:(A.facing||want)!==want,sheet:1,st,has:k=>hasA(A,k),legacy:!!A.legacy}}
+      return{im,sx:(fi%cols)*cw,sy:Math.floor(fi/cols)*ch,sw:cw,sh:ch,dh,dw:dh*cw/ch,originX:A.anchor?A.anchor[0]*dh/ch:null,foot:(ch-body.bottom)*dh/ch,flip:(A.facing||want)!==want,sheet:1,st,has:k=>hasA(A,k),legacy:!!A.legacy}}
     const key=unitImg(u,want);if(!key)return{st,none:1,dh:h,dw:h*.4};const im=IMG[key],other=want==='l'?'r':'l',iw=im.naturalWidth||im.width,ih=im.naturalHeight||im.height;
     const bounds=typeof charBounds==='function'?charBounds(im):null;
     const dh=bounds?h*ih/bounds.height:h;
-    return{im,sx:0,sy:0,sw:iw,sh:ih,dh,dw:dh*iw/ih,foot:bounds?(ih-bounds.bottom)*dh/ih:0,flip:key.startsWith(`c_${u.art}_${other}`),sheet:0,st,has:()=>false}}
+    // 场景小人可能是图集里的子帧（core.js cut）：取回图集本体与子帧位置再画。
+    const sub=im._sheet;
+    return{im:sub?sub.image:im,sx:sub?sub.x:0,sy:sub?sub.y:0,sw:iw,sh:ih,dh,dw:dh*iw/ih,foot:bounds?(ih-bounds.bottom)*dh/ih:0,flip:key.startsWith(`c_${u.art}_${other}`),sheet:0,st,has:()=>false}}
 
   // ── 精灵绘制：着色（闪白/灰化/压暗）在复用的小离屏画布上按源分辨率完成，不逐帧新建画布 ──
   const SC=document.createElement('canvas');SC.width=SC.height=192;const sc=SC.getContext('2d');
@@ -59,10 +66,28 @@ const BFXI=(()=>{
     if(o.dark){sc.globalCompositeOperation='source-atop';sc.globalAlpha=o.dark;sc.fillStyle=o.dc||'#000';sc.fillRect(0,0,w,h)}
     if(o.white){sc.globalCompositeOperation='source-atop';sc.globalAlpha=Math.min(1,o.white);sc.fillStyle=o.wc||'#fff';sc.fillRect(0,0,w,h)}
     sc.globalCompositeOperation='source-over';sc.globalAlpha=1;return[SC,0,0,w,h]}
+  // ── 锐利双线性（2026-10-17）：精灵图是 k 倍最近邻放大存的。每个美术像素落到整数个屏幕像素时用最近邻；
+  //    不是整数时先按整数倍放大缓存、再平滑缩到目标尺寸，避免线条忽粗忽细、1 像素细节被跳过。
+  function artScale(im){if(im._artK!==undefined)return im._artK;im._artK=1;
+    try{const w=im.naturalWidth||im.width,h=im.naturalHeight||im.height;if(!w||!h)return 1;const c=document.createElement('canvas');c.width=w;c.height=h;const x=c.getContext('2d',{willReadFrequently:true});x.drawImage(im,0,0);const d=x.getImageData(0,0,w,h).data;
+      for(const k of [3,2]){if(w%k||h%k)continue;let ok=true,seen=0;for(let i=0;i<4000&&ok;i++){const bx=Math.floor(Math.random()*(w/k))*k,by=Math.floor(Math.random()*(h/k))*k,p=(by*w+bx)*4;if(!d[p+3])continue;seen++;
+          for(let dy=0;dy<k&&ok;dy++)for(let dx=0;dx<k;dx++){const q=((by+dy)*w+bx+dx)*4;if(d[q]!==d[p]||d[q+1]!==d[p+1]||d[q+2]!==d[p+2]||d[q+3]!==d[p+3]){ok=false;break}}}
+        if(ok&&seen>200){im._artK=k;break}}}catch(e){}
+    return im._artK}
+  const SHARP=new Map();
+  function sharpFrame(im,sx,sy,sw,sh,k,n){const key=(im.src||'')+'|'+sx+'|'+sy+'|'+sw+'|'+sh+'|'+n;let c=SHARP.get(key);
+    if(c){SHARP.delete(key);SHARP.set(key,c);return c}
+    const nw=Math.round(sw/k),nh=Math.round(sh/k);c=document.createElement('canvas');c.width=nw*n;c.height=nh*n;const x=c.getContext('2d');x.imageSmoothingEnabled=false;x.drawImage(im,sx,sy,sw,sh,0,0,c.width,c.height);
+    SHARP.set(key,c);if(SHARP.size>96)SHARP.delete(SHARP.keys().next().value);return c}
   function blit(fr,x,y,o={}){if(fr.none)return;const[src,sx,sy,sw,sh]=prep(fr,o);g.save();g.globalAlpha=o.alpha??1;if(o.comp)g.globalCompositeOperation=o.comp;g.imageSmoothingEnabled=false;
     g.translate(Math.round(x),Math.round(y+(fr.foot||0)));if(o.rot)g.rotate(o.rot);g.scale((fr.flip?-1:1)*(o.sx||1),o.sy||1);const dw=Math.round(fr.dw),dh=Math.round(fr.dh);
     if(fr.tone&&fr.tone!=='none')g.filter=fr.tone;
-    g.drawImage(src,sx,sy,sw,sh,-Math.round(dw/2),-dh,dw,dh);g.restore()}
+    const m=g.getTransform(),k=src===SC?artScale(fr.im):artScale(src),a=dh*Math.hypot(m.c,m.d)/sh*k;   // 每个美术像素占多少屏幕像素
+    let img=src,ix=sx,iy=sy,iw=sw,ih=sh;
+    if(!o.rot&&Math.abs(a-Math.round(a))>0.04){
+      if(a>1&&src!==SC){img=sharpFrame(src,sx,sy,sw,sh,k,Math.ceil(a));ix=0;iy=0;iw=img.width;ih=img.height}
+      g.imageSmoothingEnabled=true;g.imageSmoothingQuality=a<1?'high':'medium';}
+    g.drawImage(img,ix,iy,iw,ih,-Math.round(fr.originX??dw/2),-dh,dw,dh);g.restore()}
 
   // ── 像素图元（直接画在世界层 g 上，3px 网格） ──
   const sn=v=>Math.round(v/PX)*PX;
@@ -75,16 +100,24 @@ const BFXI=(()=>{
   const EASE={out:k=>1-(1-k)**3,io:k=>k<.5?2*k*k:1-(-2*k+2)**2/2,lin:k=>k,in:k=>k*k};
   function mvPos(u,t){const m=u.mv;if(!m)return{x:0,y:0};const e=EASE[m.ease||'out'](cl01((t-m.t0)/m.dur));return{x:m.x0+(m.x1-m.x0)*e,y:m.y0+(m.y1-m.y0)*e}}
   function moveTo(u,x1,y1,dur,arc=0,ease='out'){const t=now(),p=mvPos(u,t);u.mv={x0:p.x,y0:p.y,x1,y1,t0:t,dur,arc,ease};return bw(dur)}
+  // 击退：0–40ms 快出、40–260ms 慢回（docs/vfx.md §2.3）
+  const kbCurve=e=>e<40?EASE.out(e/40):1-EASE.io((e-40)/220);
   function offOf(u,t){let x=0,y=0,lift=0;const m=u.mv;
     if(m){const k=cl01((t-m.t0)/m.dur),e=EASE[m.ease||'out'](k);x=m.x0+(m.x1-m.x0)*e;y=m.y0+(m.y1-m.y0)*e;lift=m.arc*4*k*(1-k);if(k>=1&&!m.x1&&!m.y1)u.mv=null}
-    if(u.kbT!=null){const k=(t-u.kbT)/260;if(k<1&&k>=0)x+=(u.side==='foe'?-1:1)*12*Math.sin(k*Math.PI);else if(k>=1)u.kbT=null}
+    if(u.kbT!=null){const e=t-u.kbT;if(e<260&&e>=0)x+=(u.side==='foe'?-1:1)*(u._kbAmt??12)*kbCurve(e);else if(e>=260)u.kbT=null}
     if(u.dgT!=null){const k=(t-u.dgT)/340;if(k<1&&k>=0){const s=Math.sin(k*Math.PI);x+=(u.side==='foe'?-1:1)*34*s;lift+=12*s}else if(k>=1)u.dgT=null}
     return{x,gy:y,lift}}
   // 冲刺到目标前方：dash 帧 + 残影；返回时 u 停在目标跟前（y 略靠前，保证画在目标之前）
-  async function dashTo(u,t){if(!t||t===u)return;const dir=Math.sign(t.x-u.x)||face(u),hu=unitH(u),ht=unitH(t);
-    const gap=ht*.2+hu*.16+14;let tx=t.x-dir*gap-u.x;if(tx*dir<0)tx=0;const ty=(t.y+4)-u.y;
+  async function dashTo(u,t,k='atk'){if(!t||t===u)return;const dir=Math.sign(t.x-u.x)||face(u),hu=unitH(u),ht=unitH(t);
+    const A=artOf(u),sourceReach=contacts(u,k)[0].reach??A?.contactReach,reach=sourceReach?sourceReach*hu/battleBodyBounds(A).height:0;
+    const gap=Math.max(ht*.2+hu*.16+14,reach);let tx=t.x-dir*gap-u.x;if(tx*dir<0)tx=0;const ty=(t.y+4)-u.y;
     act(u,'dash',true);u.dashing=true;u._tr=[];bsfx('whoosh',.45,1.35);
     await moveTo(u,tx,ty,Math.round(170+Math.min(110,Math.abs(tx)*.18)),0,'out');u.dashing=false}
+  function aimReach(u,t,c,lead){const A=artOf(u);if(!A||c.reach==null||!t)return;
+    const dir=Math.sign(t.x-u.x)||face(u),hu=unitH(u),ht=unitH(t),gap=Math.max(ht*.2+hu*.16+14,c.reach*hu/battleBodyBounds(A).height);
+    const p=mvPos(u,now());u.mv={x0:p.x,y0:p.y,x1:t.x-dir*gap-u.x,y1:t.y+4-u.y,t0:now(),dur:Math.max(1,Math.min(120,lead)),arc:0,ease:'io'}}
+  function tipPoint(u,c){const A=artOf(u);if(!A||!c.point)return null;const o=offOf(u,now()),s=unitH(u)/battleBodyBounds(A).height;
+    return{x:u.x+o.x+(c.point[0]-A.anchor[0])*s*face(u)*-1,y:u.y+o.gy-o.lift+(c.point[1]-A.anchor[1])*s}}
   // 后跳回位（小抛物线）
   function hopBack(u){u.anim=null;u.dashing=false;return moveTo(u,0,0,300,30,'io')}
   function stepFwd(u,px=28){return moveTo(u,face(u)*px,0,170,0,'out')}
@@ -92,6 +125,7 @@ const BFXI=(()=>{
   function camOn(us,z=1.08,ms=260){const v=us.filter(Boolean);if(!v.length)return;
     const x=v.reduce((s,u)=>s+u.x,0)/v.length,y=v.reduce((s,u)=>s+u.y-unitH(u)*.45,0)/v.length;cam('focus',x,y,z,ms)}
   const camReset=(ms=380)=>cam('reset',ms);
+  function beginSkillPose(u){u.stationarySkill=true;u.stepO=0;if(u.bx!=null)u.x=u.bx;act(u,'cast',true)}
   // 原 lunge 语义（自包含：过去再回来）；k<1 为前踏半步（道具等）
   async function lunge(u,t,k=1){const tok=u._mvTok=(u._mvTok||0)+1;
     if(k<1){act(u,'cast');stepFwd(u,Math.min(34,110*k));await bw(230);(async()=>{await bw(240);if(u._mvTok===tok){u.anim=null;stepBack(u)}})();return}
@@ -133,6 +167,7 @@ const BFXI=(()=>{
     if(u._hlT!=null&&t-u._hlT<320){op.white=.35*(1-(t-u._hlT)/320);op.wc='#b0ffc8'}
     if(u._shT!=null&&t-u._shT<300){op.white=.7*(1-(t-u._shT)/300);op.wc='#bfe6ff'}
     if(u._flT!=null){const f=t-u._flT;if(f<70||(f>=120&&f<190)){op.white=f<70?1:.7;op.wc='#ffffff'}}
+    if(u._tapT!=null&&t-u._tapT<120){op.white=Math.max(op.white||0,(u._tapPower??.5)*(1-(t-u._tapT)/120));op.wc='#fff2d4'}
     if(u.hp<=0&&u._dT!=null&&t-u._dT<160){op.white=.8;op.wc='#fff'}
     if(fr.none){g.save();g.globalAlpha=.9;g.fillStyle='#0b0806';g.beginPath();g.ellipse(gx,y-h*.35,h*.18,h*.35,0,0,7);g.arc(gx,y-h*.82,h*.12,0,7);g.fill();g.restore();return}
     blit(fr,gx+dx,y-up,{rot,sx:sxs,sy:sys,...op,alpha:u.hp<=0?.9:1})}
@@ -151,7 +186,7 @@ const BFXI=(()=>{
   function snap(fr){try{const w=fr.sw,h=fr.sh;if(RC.width<w||RC.height<h){RC.width=Math.max(RC.width,w);RC.height=Math.max(RC.height,h)}rc.clearRect(0,0,w,h);rc.drawImage(fr.im,fr.sx,fr.sy,w,h,0,0,w,h);const d=rc.getImageData(0,0,w,h).data;
       const bs=Math.max(1,Math.round(h/44)),k2=fr.dh/h,out=[];let y0=1e9,y1=-1e9;
       for(let by=0;by<h;by+=bs)for(let bx=0;bx<w;bx+=bs){const px=Math.min(w-1,bx+(bs>>1)),py=Math.min(h-1,by+(bs>>1)),i=(py*w+px)*4;if(d[i+3]<110)continue;
-        const lx=fr.flip?(w-bx-bs):bx;out.push({x:lx*k2-fr.dw/2,y:(by-h)*k2,r:d[i],g:d[i+1],b:d[i+2],by});y0=Math.min(y0,by);y1=Math.max(y1,by)}
+        const lx=fr.flip?(w-bx-bs):bx,origin=fr.flip?fr.dw-(fr.originX??fr.dw/2):(fr.originX??fr.dw/2);out.push({x:lx*k2-origin,y:(by-h)*k2,r:d[i],g:d[i+1],b:d[i+2],by});y0=Math.min(y0,by);y1=Math.max(y1,by)}
       for(const b of out){const n=(b.by-y0)/Math.max(1,y1-y0);b.rel=n*560+Math.random()*110;b.vx=(b.x/Math.max(1,fr.dw/2))*.05+R(-.03,.03);b.vy=-R(.03,.09);b.life=R(420,720);
         b.c=`rgb(${b.r},${b.g},${b.b})`;b.cs=[0,1,2,3,4].map(j=>{const m=j/4;return`rgb(${Math.round(b.r+(255-b.r)*Math.min(1,m*1.6))},${Math.round(b.g+(170-b.g)*m)},${Math.round(b.b+(90-b.b)*m)})`})}
       return{b:out,s:Math.max(2,Math.ceil(bs*k2))}}catch(e){return false}}
@@ -254,10 +289,10 @@ const BFXI=(()=>{
       else{act(u,'cast',true);await moveTo(u,0,0,340,26,'lin');await moveTo(u,0,0,240,12,'lin');u.anim=null}})()});
     await bw(900)}
 
-  return{now,bw,act,cam,camOn,camReset,dashTo,hopBack,stepFwd,stepBack,moveTo,impactMs,lunge,drawUnit,drawParts,drawBreakFlash,onTurnStart,victoryPose,artOf,hasCast:k=>!!(k&&['bianfa','jinzhen','liuye','guafeng','ghost'].includes(k))}})();
+  return{now,bw,act,beginSkillPose,cam,camOn,camReset,dashTo,hopBack,stepFwd,stepBack,moveTo,impactMs,recoveryMs,projectile,contacts,aimReach,tipPoint,lunge,drawUnit,drawParts,drawBreakFlash,onTurnStart,victoryPose,artOf,hasCast:k=>!!(k&&['bianfa','jinzhen','liuye','guafeng','ghost'].includes(k))}})();
 window.BFX={victoryPose:BFXI.victoryPose,onTurnStart:BFXI.onTurnStart};
 
-// ───────── 覆盖 battle.js（规则/数值与原函数逐行一致） ─────────
+// ───────── 覆盖 battle.js（规则/数值保持原语义） ─────────
 function drawUnit(u,t){BFXI.drawUnit(u,t)}
 function drawParts(now){BFXI.drawParts(now)}
 function drawBreakFlash(now){BFXI.drawBreakFlash(now)}
@@ -265,8 +300,8 @@ function lunge(u,t,k=1){return BFXI.lunge(u,t,k)}
 async function boostFx(u,bp){B.boostT=performance.now();B.boostU=u;floatTxt(u,'蓄势 '+'◆'.repeat(bp),'#ffcf73',22);bsfx('chime',.6,1+bp*.1);
   u._boT=BT.now();u._boL=Math.min(3,bp);BFXI.act(u,'cast');if(bp>=3){B.shake=Math.max(B.shake,4);BFXI.cam('punch',1.04,220)}
   await BFXI.bw(380+Math.min(3,bp)*70)}
-function hurt(t,dmg,col,big){t.hp=Math.max(0,t.hp-dmg);t.flash=performance.now();t.ghT=performance.now();if(t.hp>0)BFXI.act(t,'hurt');t.kb=performance.now();t.kbT=BT.now();t._flT=BT.now();
-  B.shake=Math.max(B.shake,big?8:4);bsfx('advance',.9,.7+Math.random()*.2);
+function hurt(t,dmg,col,big,impact='advance'){if(t.buffs?.qhGuard)dmg=Math.max(1,Math.round(dmg*.85));t.hp=Math.max(0,t.hp-dmg);t.flash=performance.now();t.ghT=performance.now();if(t.hp>0)BFXI.act(t,'hurt');t.kb=performance.now();t.kbT=BT.now()-30;const needle=impact==='needle_hit_20261012';t._kbAmt=needle?6:12;t._flT=BT.now();
+  B.shake=Math.max(B.shake,needle?(big?3:2):(big?5:2));bsfx(impact,needle?.65:.9,needle?1:.7+Math.random()*.2);
   floatTxt(t,String(dmg),col,big?34:28);if(t.hp<=0){t.dieT=performance.now();t.intent=null;if(t.side==='ally'){t.bp=0;t.defend=false;t.stun=false}}renderCards()}
 function heal(t,n){const h=Math.min(n,t.mhp-t.hp);t.hp+=h;floatTxt(t,'+'+h,'#7fe0a0',28);t._hlT=BT.now();
   for(let i=0;i<10;i++)B.parts.push({x:t.x+rnd(-25,25),y:t.y-rnd(10,80),vx:0,vy:-rnd(.6,1.6),r:rnd(2,4),life:rnd(30,50),c:'#9ff0b0',glow:1});bsfx('chime',.5);renderCards()}
@@ -275,28 +310,47 @@ function doBreak(t){VFX.brk(t);t.broken=true;t.brokenUntil=B.round+1;t.charging=
   if(bn){try{bf(t)}catch(e){console.error(e)}}
   for(let i=0;i<26;i++){const a=rnd(0,Math.PI*2),s=rnd(2,7);B.parts.push({x:t.x,y:t.y-unitH(t)*.55,vx:Math.cos(a)*s,vy:Math.sin(a)*s-2,r:rnd(3,9),rot:rnd(0,6),vr:rnd(-.3,.3),life:rnd(40,70),c:Math.random()<.5?'#bfe6ff':'#ffe7a0'})}
   t._brkFx=BT.now();t._bnr=!bn;BT.stop(250);BFXI.cam('punch',1.12,320)}
-async function doAttack(u,t,bp){const hits=1+bp;if(bp)await boostFx(u,bp);
-  showName(u,u.atkName+(hits>1?` ×${hits}`:''));BFXI.camOn([u,t],1.18);await BFXI.dashTo(u,t);
-  for(let h=0;h<hits;h++){if(t.hp<=0)break;const a=h?'atk2':'atk';BFXI.act(u,a);await BFXI.bw(BFXI.impactMs(u,a));
-    strike(u,t,{pow:1,t:u.atkType});VFX.hit(u,t,u.atkType,null,bp);await BFXI.bw(hits>1?150:230)}
-  BFXI.camReset();await BFXI.hopBack(u);await wait(120)}
-async function doSkill(u,k,tgs,bp){const sk=SKILLS[k],bi=BSK[k]||{};u.mp-=sk.mp||0;renderCards();if(bp)await boostFx(u,bp);showName(u,sk.name);
-  const lvM=1+.15*(((u.skLv||{})[k]||1)-1);
-  if(sk.heal||bi.buff){BFXI.act(u,'cast',true);BFXI.camOn([u,...tgs],1.1);BFXI.stepFwd(u);await VFX.cast(u,k,tgs,bp)}
-  if(sk.heal){for(const t of tgs)if(t.hp>0)heal(t,Math.round(t.mhp*sk.heal*lvM*(1+bp*.5)));await BFXI.bw(280);u.anim=null;BFXI.camReset();await BFXI.stepBack(u);await wait(300);return}
-  if(bi.buff){for(const t of tgs){t.buffs.ding=2+bp;floatTxt(t,'定神 · 攻防提升','#ffe7a0',20)}renderCards();await BFXI.bw(280);u.anim=null;BFXI.camReset();await BFXI.stepBack(u);await wait(300);return}
-  const hits=(bi.hits||1)+(bi.hits?bp:0),pow=(sk.pow||1)*lvM*(bi.hits?1/Math.sqrt(bi.hits):1)*(bi.hits?1:1+bp*.8);
-  const ranged=bi.tgt==='foes'||BFXI.hasCast(k);
-  BFXI.camOn([u,...tgs],tgs.length>1?1.08:1.18);
-  if(ranged){BFXI.act(u,'atk');BFXI.stepFwd(u,36);await VFX.cast(u,k,tgs,bp)}
-  else{await VFX.cast(u,k,tgs,bp);await BFXI.dashTo(u,tgs[0])}
-  for(let h=0;h<hits;h++){if(h||!ranged){const a=h?'atk2':'atk';BFXI.act(u,a);await BFXI.bw(BFXI.impactMs(u,a))}
-    for(const t of tgs){if(t.hp<=0)continue;strike(u,t,{pow,t:bi.t,e:bi.e});VFX.hit(u,t,bi.t,k,bp);
+async function playAttackPose(u,a,tgs,ty,key,bp,resolve,fallback){BFXI.act(u,a);
+  const projectile=BFXI.projectile(u,a);
+  if(projectile){
+    await BFXI.bw(projectile.releaseMs);
+    const alive=tgs.filter(t=>t.hp>0),hand=BFXI.tipPoint(u,{point:projectile.hand});
+    if(alive.length){bsfx('needle_release_20261012',.45,1);for(const t of alive)VFX.needleFlight(hand,t,projectile.flightMs,bp);}
+    await BFXI.bw(projectile.flightMs);
+    for(const t of alive)if(t.hp>0){resolve(t);VFX.needleImpact(t,key,bp);}
+    await BFXI.bw(BFXI.recoveryMs(u,a,fallback));return;
+  }
+  let elapsed=0;
+  for(const c of BFXI.contacts(u,a)){const alive=tgs.filter(t=>t.hp>0);if(!alive.length)break;
+    const lead=c.ms-elapsed;BFXI.aimReach(u,alive[0],c,lead);await BFXI.bw(lead);elapsed=c.ms;
+    for(const t of alive){if(c.resolve){resolve(t);VFX.hit(u,t,ty,key,bp)}else{
+      const firm=c.weight==='firm';BFXI.act(t,'hurt');t.kbT=BT.now();t._kbAmt=firm?14:6;t._tapT=BT.now();t._tapPower=firm?.85:.45;
+      VFX.touch(u,t,BFXI.tipPoint(u,c),firm);bsfx('staff_hit_20261010',firm?1.05:.65,firm?1:1.15);
+      if(firm)BFXI.cam('punch',1.045,130)}}
+    if(c.resolve&&BFXI.contacts(u,a).length>1)BFXI.cam('punch',1.035,150)}
+  await BFXI.bw(BFXI.recoveryMs(u,a,fallback))}
+async function doAttack(u,t,bp){u.stationarySkill=false;const hits=1+bp;if(bp)await boostFx(u,bp);
+  const ranged=!!BFXI.projectile(u,'atk');
+  showName(u,u.atkName+(hits>1?` ×${hits}`:''));BFXI.camOn([u,t],1.18);if(ranged){BFXI.act(u,'dash',true);await BFXI.stepFwd(u,18);}else await BFXI.dashTo(u,t);
+  for(let h=0;h<hits;h++){if(t.hp<=0)break;const a=h?'atk2':'atk';
+    await playAttackPose(u,a,[t],u.atkType,null,bp,t=>strike(u,t,{pow:1,t:u.atkType}),hits>1?150:230)}
+  BFXI.camReset();if(ranged){u.anim=null;await BFXI.stepBack(u);}else await BFXI.hopBack(u);await wait(120)}
+async function doSkill(u,k,tgs,bp){const sk=SKILLS[k],bi=BSK[k]||{};if(window.QiheUIModel&&u.side==='ally'&&QiheUIModel.skillWhy(u,k))return;BFXI.beginSkillPose(u);u.mp-=window.QiheUIModel?QiheUIModel.skillCost(u,k):(sk.mp||0);renderCards();if(bp)await boostFx(u,bp);showName(u,sk.name);
+  const lvM=1+.15*(((u.skLv||{})[k]||1)-1),effect=window.QiheUIModel?.skillEffects(u,k,bp);
+  BFXI.act(u,'cast',true);BFXI.camOn([u,...tgs],tgs.length>1?1.08:1.12);
+  try{await VFX.cast(u,k,tgs,bp);
+  if(sk.heal){for(const t of tgs)if(t.hp>0)heal(t,Math.round(t.mhp*(effect?.heal??sk.heal*lvM*(1+bp*.5))));await BFXI.bw(280);return}
+  if(bi.buff){for(const t of tgs){t.buffs.ding=effect?.duration??2+bp;floatTxt(t,'定神 · 攻防提升','#ffe7a0',20)}renderCards();await BFXI.bw(280);return}
+  const hits=effect?.hits??(bi.hits||1)+(bi.hits?bp:0),pow=effect?.power??(sk.pow||1)*lvM*(bi.hits?1/Math.sqrt(bi.hits):1)*(bi.hits?1:1+bp*.8);
+  // Skills stay at their own station. Only doAttack uses weapon contacts/projectile-release poses.
+  await BFXI.bw(180);
+  for(let h=0;h<hits;h++){const resolve=t=>{strike(u,t,{pow,t:bi.t,e:bi.e});
       if(h===0&&bi.reveal&&t.hp>0)reveal(t,bi.reveal+(bp?1:0));
       if(bi.bleed&&t.hp>0)t.bleedN=3;
-      if(bi.stun&&t.hp>0&&!t.broken&&chance(sk.stun||25)){t.intent=null;floatTxt(t,'眩晕 · 失去行动','#e0c0ff',18)}}
-    await BFXI.bw(hits>1?170:230)}
-  BFXI.camReset();if(ranged)await BFXI.stepBack(u);else await BFXI.hopBack(u);await wait(150)}
+      if(bi.stun&&t.hp>0&&!t.broken&&chance(sk.stun||25)){t.stun=true;t.intent=null;floatTxt(t,'眩晕 · 失去行动','#e0c0ff',18)}};
+    for(const t of tgs)if(t.hp>0){resolve(t);VFX.hit(u,t,bi.t,k,bp)}await BFXI.bw(hits>1?200:300)}
+  if(k==='qh_hulu_staff'){u.buffs.qhGuard=true;floatTxt(u,'护身 · 减伤15%','#d8e6b3',18)}
+  }finally{u.anim=null;BFXI.camReset();}await wait(150)}
 async function foeAct(u){const it=u.intent||{};u.intent=null;
   if(it.charge){u.charging=true;floatTxt(u,'蓄力！','#ffe25a',24);bsfx('whoosh',.8,.7);BFXI.act(u,'cast');await wait(700);u.intent={sk:'ghost',all:true};return}
   u.charging=false;const sk=SKILLS[it.sk]||SKILLS.blade,info=BSK[it.sk]||{t:'刀'};
@@ -305,14 +359,14 @@ async function foeAct(u){const it=u.intent||{};u.intent=null;
   showName(u,sk.name);
   const near=tg.reduce((m,t)=>Math.abs(t.x-u.x)<Math.abs(m.x-u.x)?t:m,tg[0]);
   BFXI.camOn([u,it.all?near:tg[0]],it.all?1.08:1.16);
-  if(it.sk==='ghost'){BFXI.act(u,'cast',true);await VFX.cast(u,'ghost',tg,0)}
-  await BFXI.dashTo(u,it.all?near:tg[0]);
+  const basic=!it.all&&(sk.basicAttack===true||['blade','fist','bite','peck','palm_m','staff','gy_dou_basic'].includes(it.sk||'blade'));
+  if(basic){u.stationarySkill=false;await BFXI.dashTo(u,tg[0])}else{BFXI.beginSkillPose(u);await VFX.cast(u,it.sk,tg,0);await BFXI.bw(180)}
   const hits=info.hits||1;
-  for(let h=0;h<hits;h++){const a=h?'atk2':'atk';BFXI.act(u,a);await BFXI.bw(BFXI.impactMs(u,a));
+  for(let h=0;h<hits;h++){const a=h?'atk2':'atk';if(basic){BFXI.act(u,a);await BFXI.bw(BFXI.impactMs(u,a))}
     for(const t of tg){if(t.hp<=0)continue;
       if(!it.all&&chance(t.dodge*.6)){floatTxt(t,'闪','#bcd',24);t.dgT=BT.now();continue}
       let dmg=(u.atk*(sk.pow||1)*(hits>1?.65:1)*(it.all?.85:1))-t.def*.5;if(t.buffs.ding)dmg*=.8;if(t.defend)dmg*=.5;
       dmg=Math.max(1,Math.round(dmg*rnd(.9,1.1)));hurt(t,dmg,'#ff9c80');VFX.hit(u,t,info.t,it.sk,0);
       if(info.stun&&t.hp>0&&chance(sk.stun||25)){t.stun=true;floatTxt(t,'眩晕','#e0c0ff',20)}}
-    renderCards();await wait(260)}
-  BFXI.camReset();await BFXI.hopBack(u);await wait(100)}
+    renderCards();await BFXI.bw(basic?BFXI.recoveryMs(u,a,260):260)}
+  BFXI.camReset();if(basic)await BFXI.hopBack(u);else u.anim=null;await wait(100)}

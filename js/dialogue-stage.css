@@ -1,0 +1,41 @@
+/* Shared OC.4 portrait staging, loaded after the legacy dialogue stylesheet. */
+#dlg.dialogue-staged .face.dialogue-portrait{animation:none;aspect-ratio:auto;pointer-events:none;transition:filter .15s ease}
+#dlg.dialogue-staged .face.dialogue-portrait[data-speaking="false"]{filter:brightness(.72) drop-shadow(0 6px 14px rgba(0,0,0,.75))!important}
+#dlg.dialogue-staged .dialogue-cast{position:absolute;inset:0;pointer-events:none}
+#dlg.dialogue-staged.hasface::before{inset:20% 0 0;width:100%;height:auto;background:linear-gradient(90deg,rgba(10,8,6,.24),transparent 32%,transparent 68%,rgba(10,8,6,.24))}
+#dlg.dialogue-staged:not(.narr) .box{left:2%;right:2%;z-index:3;min-height:19%;max-height:40%}
+#dlg.dialogue-staged:not(.narr) .txt{padding-right:0;max-width:58em}
+#dlg.dialogue-staged .txt{font-size:20.5px;line-height:1.5}
+#dlg.dialogue-staged .choices button{font-size:19.2px;line-height:1.5}
+#dlg.dialogue-staged .dialogue-cast-rail{position:absolute;top:3%;left:29%;right:29%;display:flex;gap:.5em;justify-content:center;flex-wrap:wrap;z-index:2;pointer-events:none}
+#dlg.dialogue-staged .dialogue-cast-rail[hidden]{display:none}
+#dlg.dialogue-staged .dialogue-cast-tile{display:flex;align-items:center;gap:.35em;padding:.25em .5em;background:rgba(18,15,10,.88);border:1px solid var(--bz2);color:var(--paper);font-size:max(13px,.8em)}
+#dlg.dialogue-staged .dialogue-cast-avatar{width:2.8em;height:2.8em;background:transparent center/cover no-repeat}
+#dlg.dialogue-staged .dialogue-cast-avatar[data-avatar-type="portrait-fallback"]{background-size:auto 260%;background-position:center 12%}
+#dlg.dialogue-staged.cg-story .box{left:2%;right:2%}
+@media(prefers-reduced-motion:reduce){#dlg.dialogue-staged .face.dialogue-portrait{transition:none}}
+
+/* The CG shares the game's stacking context so dialogue always stays above it. */
+#dlg.cg-story:not(.choose) .box{height:auto;min-height:20%;padding:1em 2.2em}
+#dlg.cg-story.choose .box{height:auto;min-height:34%;max-height:45%}
+
+/* Keep every mouse choice inside the game, including the final return row. */
+#dlg.choose:not(.narr) .box{display:flex;flex-direction:column;height:auto;max-height:75%}
+#dlg.choose:not(.narr) .txt{flex-shrink:0}
+#dlg.choose:not(.narr) .choices{flex:0 1 auto;min-height:0;max-height:none;overflow-y:auto}
+/* 2026-10-17 试玩反馈：立绘对话时，身后的当地场景虚化压暗，衬出人物（模糊量按画面宽度比例，屏幕大小变化时观感一致） */
+#game #cv{transition:filter .22s ease}
+#game:has(#dlg.dialogue-staged.hasface:not([hidden])) #cv{filter:blur(.32cqw) brightness(.72) saturate(.85)}
+#game:has(#dlg.dialogue-staged.hasface:not([hidden])) .qh-name,#game:has(#dlg.dialogue-staged.hasface:not([hidden])) #hud{opacity:.35;transition:opacity .2s}
+/* 2026-10-17 第三轮试玩反馈：立绘对话时对话框缩小、改成自上而下的透明渐变，能透出立绘下半身。 */
+#dlg.dialogue-staged.hasface:not(.narr) .box,#dlg.dialogue-staged.hasface:not(.narr) .box.frame{min-height:15%;padding:1.2em 2.2em .7em;box-shadow:none;background:linear-gradient(180deg,rgba(14,10,7,0) 0,rgba(14,10,7,.55) 2.2em,rgba(12,9,6,.78) 100%)}
+#dlg.dialogue-staged.hasface:not(.narr) .box.frame::before{background:linear-gradient(90deg,transparent,rgba(224,191,120,.45) 10%,rgba(224,191,120,.45) 80%,transparent) top/100% 1px no-repeat}
+#dlg.dialogue-staged.hasface .txt{font-size:18.5px;line-height:1.45;text-shadow:0 1px 2px #000,0 0 6px rgba(0,0,0,.8)}
+#dlg.dialogue-staged.hasface .choices{margin-top:.3em;gap:0}
+#dlg.dialogue-staged.hasface .choices button{font-size:17px;line-height:1.35;min-height:1.75em;padding:.12em .8em .12em 1.6em;text-shadow:0 1px 2px #000,0 0 6px rgba(0,0,0,.8)}
+#dlg.dialogue-staged.hasface .who{background:linear-gradient(90deg,rgba(14,10,7,.85),rgba(14,10,7,.55))}
+/* 2026-10-18 第三轮试玩反馈：没有大立绘的人（周婶、采办随从等）用小头像。上一条规则把对话框左内边距改小了，头像压住文字、名牌对不齐。
+   有小头像时恢复左边让位，名牌与文字左缘对齐，头像缩小一点放进变矮的对话框。 */
+#dlg.dialogue-staged.hasface.hasmini:not(.narr) .box,#dlg.dialogue-staged.hasface.hasmini:not(.narr) .box.frame{padding-left:7.2em;min-height:6.4em}
+#dlg.dialogue-staged.hasface.hasmini .mini{left:1.2em;width:4.6em;height:4.6em}
+#dlg.dialogue-staged.hasface.hasmini .who{left:6.4em}

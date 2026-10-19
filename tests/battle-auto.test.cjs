@@ -16,6 +16,9 @@ reset();u.skills=['heal','area'];u.mp=0;u.hp=10;assert.equal(c.ai.choose(u).kind
 reset();f.known=new Set();const signature=()=>{const a=c.ai.choose(u);return JSON.stringify([a.kind,a.skill,a.bp,a.score,a.reason])};const first=signature();f.weak=['剑'];assert.equal(signature(),first,'hidden weakness does not influence choices');
 reset();const dead={...f,hp:0};c.B.units.push(dead);assert.ok(!c.ai.choose(u).targets.includes(dead));
 reset();let submissions=0;c.ai.bind(u,()=>submissions++);assert.ok(timer==null);c.ai.toggle();assert.equal(typeof timer,'function');c.ai.toggle();assert.equal(timer,null);assert.equal(submissions,0);
+reset();c.B.opt={storyLesson:{}};assert.equal(c.ai.allowed(),false);c.ai.toggle();assert.ok(!c.B.auto,'guided lesson stays manual');
+c.B.opt.allowAuto=true;assert.equal(c.ai.allowed(),true);c.ai.toggle();assert.equal(c.B.auto,true,'explicit story encounter supports auto');c.ai.clear();
+reset();c.ai.bind(u,()=>submissions++);
 c.ai.toggle();const stale=timer;c.ai.clear();stale();assert.equal(submissions,0,'stale callback cannot submit');
 c.ai.bind(u,()=>submissions++);timer();assert.equal(submissions,1);c.ai.finish();assert.equal(c.B.auto,false);assert.equal(c.B.ended,true);assert.equal(c.B.autoPending,null);
 reset();c.B.auto=true;let failure;const choose=c.ai.choose;c.ai.choose=()=>{throw new Error('injected strategy failure')};c.ai.bind(u,()=>assert.fail('unexpected action'),e=>failure=e);timer();assert.equal(failure.message,'injected strategy failure');assert.equal(c.B.autoPending,null);c.ai.choose=choose;

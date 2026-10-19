@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "version": "classic-v1",
+  "approved_at": "2026-10-05",
+  "approved_by": "用户：可以，就按照这个去整改",
+  "source_of_truth": "art_sources/cultivation_mail_classic_previews_20261005/",
+  "interface": [
+    "js/cultivation-mail.js",
+    "js/cultivation-mail.css"
+  ],
+  "inventory": "Actual CultivationCore.resources plus read-only world S.bag; no preview samples",
+  "gift_rules": [
+    "food",
+    "herb",
+    "pouch"
+  ],
+  "assets": [
+    {
+      "source": "art_sources/cultivation_mail_classic_previews_20261005/ui/classic-paper-panel.png",
+      "file": "assets/cultivation/mail-classic/paper-panel.png",
+      "sha256": "1c1253dae68ec205f552988462c4f0c18f71d362d81a6bbf96e160a4dd7243a0",
+      "approvedPreviewBytes": true,
+      "media": "static UI/portrait"
+    },
+    {
+      "source": "art_sources/cultivation_mail_classic_previews_20261005/ui/mail-base-brush-v3.png",
+      "file": "assets/cultivation/mail-classic/mail-brush.png",
+      "sha256": "da772ad8f3ae651b11376da27e730fdc0e7a79a781f96c0e002c98b71525ae26",
+      "approvedPreviewBytes": true,
+      "media": "static UI/portrait"
+    },
+    {
+      "source": "art_sources/cultivation_mail_classic_previews_20261005/portraits/zhou-menu.png",
+      "file": "assets/cultivation/mail-classic/portraits/zhou-menu.png",
+      "sha256": "49279e4ac81c31439f50049a702e9ceb4cf7e826ea52de0d9da078b382ae7440",
+      "approvedPreviewBytes": true,
+      "media": "static UI/portrait"
+    },
+    {
+      "source": "art_sources/cultivation_mail_classic_previews_20261005/portraits/ye-menu.webp",
+      "file": "assets/cultivation/mail-classic/portraits/ye-menu.webp",
+      "sha256": "6cabc1cf9c8895d75248029c04de94e424c990e25793475c4d4c850427b86942",
+      "approvedPreviewBytes": true,
+      "media": "static UI/portrait"
+    },
+    {
+      "source": "art_sources/cultivation_mail_classic_previews_20261005/portraits/lu-menu.png",
+      "file": "assets/cultivation/mail-classic/portraits/lu-menu.png",
+      "sha256": "50aa23c11a8e79966e786e3d702bdd157d865bad5e93af1a529302e8e66e0e1a",
+      "approvedPreviewBytes": true,
+      "media": "static UI/portrait"
+    },
+    {
+      "source": "art_sources/cultivation_mail_classic_previews_20261005/portraits/neighbor-menu.png",
+      "file": "assets/cultivation/mail-classic/portraits/neighbor-menu.png",
+      "sha256": "de04865c9188bef707c24ba458c52421eb3095bf3570d0fe5be030ea801483e5",
+      "approvedPreviewBytes": true,
+      "media": "static UI/portrait"
+    }
+  ],
+  "motion": "Existing C01/C02 only, no new generated frames",
+  "validation": "review/cultivation_mail_classic_20261005/README.md",
+  "browser_visual_verified": false
+}

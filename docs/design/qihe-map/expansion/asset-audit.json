@@ -1,0 +1,1334 @@
+{
+  "date": "2026-10-04",
+  "scope": "design inspection, not production acceptance",
+  "source_root": "/Users/wuxiuxiang/project/luotuozhuan/xiaojianghu",
+  "branch_root": "/Users/wuxiuxiang/project/luotuozhuan/xiaojianghu-legacy-prologue",
+  "card_sha256": "32ef767a78f2f288fd0e36e22acbdf7142b89ec76213cef02a25a634b7c7e4ee",
+  "source_documents_sha256": {
+    "docs/design/map-development-standard.md": "c8c3225d691cfb477f719a2d95343a13131d90884ebf777cfa22831b251ec40e",
+    "docs/design/role-assets.md": "0a77ba9a36f02ea0064b910c0c9b403fc541121e41c800b28879ae0410b3f5f0",
+    "docs/design/character-walk-quality.md": "68fa69404b112386cc26dc5573a278ec60ef288b8a973c1ba30c7a2620987afb",
+    "docs/anim-pipeline.md": "3afe6bf28284becaadb1adeac1b8c93b1cc8061c24f31add019d65e782c85569",
+    "docs/design/chapter1-activities.md": "166b876776abb13227ed5d894c0f5a34f67f15eb898528f260ef433f493efada",
+    "docs/design/chapter1-pressure.md": "58ff267feec0100f7dced86ee6f993f9b58a46da302b84a8464d9eef4b1932d3",
+    "docs/design/chapter1-mountain.md": "129989f6d31800c0ce3b435e3dec1b7492e5dd4303b615819103a5475f04095c",
+    "docs/design/protagonist-sect.md": "3c004dfa2de10a132791c8d5346dd51ac4846f0b1de37edfcc1e18c14d9592ff",
+    "docs/design/cultivation.md": "b9d4a1f4a9c534b477b0edc75128e234e0a61db360d40a5e29e5c2fd70c9be88",
+    "docs/archive/design/ye-routes.md": "50bd499982fa244ef9d3facf3a3dec1af9b21a2a6808f69691554b17bfaaaaca"
+  },
+  "characters": [
+    {
+      "id": "hero",
+      "stage": "hero_modern",
+      "name": "萧白·现代装",
+      "source_role": "player",
+      "source_presence": "on_map",
+      "files": [
+        {
+          "path": "art_sources/opening_characters_20261003/native/hero_modern.png",
+          "asset_group": "identity",
+          "recorded_status": "accepted",
+          "source_exists": true,
+          "branch_exists": false,
+          "sha256": "7f19ae47a80bd10815957bfc1c7c12864bcbe3646563653dc49eeacead902c90",
+          "matches_recorded_hash": true,
+          "dimensions": [
+            1024,
+            1536
+          ]
+        },
+        {
+          "path": "assets/a_opening_hero_modern.webp",
+          "asset_group": "avatar",
+          "recorded_status": "accepted",
+          "source_exists": true,
+          "branch_exists": true,
+          "sha256": "a55b9fc6828c9c3ee9c52c7ba0c7998160f0115e8ac13d5786b3100ec49e29df",
+          "matches_recorded_hash": true,
+          "dimensions": [
+            256,
+            256
+          ]
+        },
+        {
+          "path": "assets/p_opening_hero_modern.webp",
+          "asset_group": "dialogue_neutral",
+          "recorded_status": "accepted",
+          "source_exists": true,
+          "branch_exists": true,
+          "sha256": "217ef31fda3061824803d0f73d27c6ce9b9ce9c5d3f6769cdce4638a474ea251",
+          "matches_recorded_hash": true,
+          "dimensions": [
+            480,
+            640
+          ]
+        },
+        {
+          "path": "assets/p_opening_hero_modern_smile.webp",
+          "asset_group": "dialogue_smile",
+          "recorded_status": "accepted",
+          "source_exists": true,
+          "branch_exists": true,
+          "sha256": "5eb2d1bc864c5810dadae6e9a1cd66aac0bf916fc28aa2d0bb1bcce577503378",
+          "matches_recorded_hash": true,
+          "dimensions": [
+            480,
+            640
+          ]
+        },
+        {
+          "path": "assets/p_opening_hero_modern_worry.webp",
+          "asset_group": "dialogue_worry",
+          "recorded_status": "accepted",
+          "source_exists": true,
+          "branch_exists": true,
+          "sha256": "f43dba3d7539ab42adcbd9ea3206f901d48d476bbc411966831f0504a61f1a80",
+          "matches_recorded_hash": true,
+          "dimensions": [
+            480,
+            640
+          ]
+        },
+        {
+          "path": "assets/p_opening_hero_modern_firm.webp",
+          "asset_group": "dialogue_firm",
+          "recorded_status": "accepted",
+          "source_exists": true,
+          "branch_exists": true,
+          "sha256": "b6790252aea0ec8caed05674cccd3e670c1f931dc1538fc5ecc42ed80e8927a4",
+          "matches_recorded_hash": true,
+          "dimensions": [
+            480,
+            640
+          ]
+        },
+        {
+          "path": "assets/p_opening_hero_modern_surprise.webp",
+          "asset_group": "dialogue_surprise",
+          "recorded_status": "accepted",
+          "source_exists": true,
+          "branch_exists": true,
+          "sha256": "4ec8908dfb0e0d26a91b529592f309fb120130eca28a5fb497bfd6ec106db2eb",
+          "matches_recorded_hash": true,
+          "dimensions": [
+            480,
+            640
+          ]
+        },
+        {
+          "path": "assets/p_opening_hero_modern_hurt.webp",
+          "asset_group": "dialogue_hurt",
+          "recorded_status": "accepted",
+          "source_exists": true,
+          "branch_exists": true,
+          "sha256": "2d6af064ca69869e8bffc7471c89fbc961773ac4f0c4ae4170559898b7c3ddce",
+          "matches_recorded_hash": true,
+          "dimensions": [
+            480,
+            640
+          ]
+        },
+        {
+          "path": "assets/p_opening_menu_hero_modern.webp",
+          "asset_group": "menu_portrait",
+          "recorded_status": "accepted",
+          "source_exists": true,
+          "branch_exists": false,
+          "sha256": "4654f3d80c5c3f0e5138327c0078ced8acd7e12d70766c9e4799c51d755a08d3",
+          "matches_recorded_hash": true,
+          "dimensions": [
+            1024,
+            1536
+          ]
+        },
+        {
+          "path": "assets/p_opening_hero_modern_guard.webp",
+          "asset_group": "story_pose",
+          "recorded_status": "accepted",
+          "source_exists": true,
+          "branch_exists": true,
+          "sha256": "7fe80874d45cf9da69e10a41c911f902f513c79adcd1506bffcdd20ddd3665c4",
+          "matches_recorded_hash": true,
+          "dimensions": [
+            480,
+            640
+          ]
+        },
+        {
+          "path": "assets/s_opening_hero_modern_v4.webp",
+          "asset_group": "exploration_fixed",
+          "recorded_status": "accepted_local_render_pending_live_browser",
+          "source_exists": true,
+          "branch_exists": false,
+          "sha256": "faba66032610715e5d9126b30ce6b4ed3cf77ca467744d1a078dc98a70c7cf6e",
+          "matches_recorded_hash": true,
+          "dimensions": [
+            528,
+            1128
+          ]
+        },
+        {
+          "path": "assets/b_hero_modern.webp",
+          "asset_group": "party_battle",
+          "recorded_status": "accepted_functional_test",
+          "source_exists": true,
+          "branch_exists": true,
+          "sha256": "ddaed22bb18934fb859cc6e8fd9f56261d88bf662b1e3581aface15d66742f33",
+          "matches_recorded_hash": true,
+          "dimensions": [
+            6360,
+            225
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hero",
+      "stage": "hero_village",
+      "name": "萧白·借来便衣",
+      "source_role": "player",
+      "source_presence": "on_map",
+      "files": [
+        {
+          "path": "art_sources/opening_characters_20261003/native/hero_village.png",
+          "asset_group": "identity",
+          "recorded_status": "accepted",
+          "source_exists": true,
+          "branch_exists": false,
+          "sha256": "937dbddad1a26e79d0bb43c3b3cb0e9b060bf66c86f941db595f275cd407f9d7",
+          "matches_recorded_hash": true,
+          "dimensions": [
+            1024,
+            1536
+          ]
+        },
+        {
+          "path": "assets/a_opening_hero_village.webp",
+          "asset_group": "avatar",
+          "recorded_status": "accepted",
+          "source_exists": true,
+          "branch_exists": false,
+          "sha256": "aec9c67f514ff7459e673a960815d5286637308217b9259ecbcfb916eb1548a2",
+          "matches_recorded_hash": true,
+          "dimensions": [
+            256,
+            256
+          ]
+        },
+        {
+          "path": "assets/p_opening_hero_village.webp",
+          "asset_group": "dialogue_neutral",
+          "recorded_status": "accepted",
+          "source_exists": true,
+          "branch_exists": false,
+          "sha256": "3d042abbf586cf03f810d8dfac022464986c5096c52d99257b47b19dc87e3e24",
+          "matches_recorded_hash": true,
+          "dimensions": [
+            480,
+            640
+          ]
+        },
+        {
+          "path": "assets/p_opening_hero_village_smile.webp",
+          "asset_group": "dialogue_smile",
+          "recorded_status": "accepted",
+          "source_exists": true,
+          "branch_exists": false,
+          "sha256": "145f3eea827b46e80178a60592b1f9ba4d17f4be93f72c850ceaf382d943176f",
+          "matches_recorded_hash": true,
+          "dimensions": [
+            480,
+            640
+          ]
+        },
+        {
+          "path": "assets/p_opening_hero_village_worry.webp",
+          "asset_group": "dialogue_worry",
+          "recorded_status": "accepted",
+          "source_exists": true,
+          "branch_exists": false,
+          "sha256": "6a924d48e5e5742f679734bbf86a23fa63ccdb1cb88d0010237802d28c9365f3",
+          "matches_recorded_hash": true,
+          "dimensions": [
+            480,
+            640
+          ]
+        },
+        {
+          "path": "assets/p_opening_hero_village_firm.webp",
+          "asset_group": "dialogue_firm",
+          "recorded_status": "accepted",
+          "source_exists": true,
+          "branch_exists": false,
+          "sha256": "18a284c18ef151b27dc43bda5a2d2b20c9cbe01b2c82c06a75acdde59010e6f2",
+          "matches_recorded_hash": true,
+          "dimensions": [
+            480,
+            640
+          ]
+        },
+        {
+          "path": "assets/p_opening_hero_village_surprise.webp",
+          "asset_group": "dialogue_surprise",
+          "recorded_status": "accepted",
+          "source_exists": true,
+          "branch_exists": false,
+          "sha256": "88f9698ac7885466fd1f66e417951ef827b76afa3746d57860a673f72fe4f4c0",
+          "matches_recorded_hash": true,
+          "dimensions": [
+            480,
+            640
+          ]
+        },
+        {
+          "path": "assets/p_opening_hero_village_hurt.webp",
+          "asset_group": "dialogue_hurt",
+          "recorded_status": "accepted",
+          "source_exists": true,
+          "branch_exists": false,
+          "sha256": "fa4aa2da22b5a607790aa47961e121ffcf94b20ace931316c44d0c2a2370e12c",
+          "matches_recorded_hash": true,
+          "dimensions": [
+            480,
+            640
+          ]
+        },
+        {
+          "path": "assets/p_opening_menu_hero_village.webp",
+          "asset_group": "menu_portrait",
+          "recorded_status": "accepted",
+          "source_exists": true,
+          "branch_exists": false,
+          "sha256": "2db629bb2c70e414704beab66fc13f6748cae458f882339d896df61847b85df7",
+          "matches_recorded_hash": true,
+          "dimensions": [
+            1024,
+            1536
+          ]
+        },
+        {
+          "path": "assets/s_opening_hero_village_v4.webp",
+          "asset_group": "exploration",
+          "recorded_status": "accepted_local_render_pending_live_browser",
+          "source_exists": true,
+          "branch_exists": false,
+          "sha256": "99464fe08fa8dfd1996cb6224cba77cda4d1e0a6179f4e176e8d4a14bd8488f3",
+          "matches_recorded_hash": true,
+          "dimensions": [
+            576,
+            1128
+          ]
+        },
+        {
+          "path": "assets/s_opening_hero_village_walk_v4.webp",
+          "asset_group": "walk",
+          "recorded_status": "technical_pass_motion_rework_required",
+          "source_exists": true,
+          "branch_exists": false,
+          "sha256": "dea149017849e9293ef386d43ebcd1411a7376513a064d33882b66a95bfa424d",
+          "matches_recorded_hash": true,
+          "dimensions": [
+            1104,
+            1128
+          ]
+        },
+        {
+          "path": "assets/b_hero_village.webp",
+          "asset_group": "party_battle",
+          "recorded_status": "accepted",
+          "source_exists": true,
+          "branch_exists": false,
+          "sha256": "a4a80f20fff12855075a3d4ccbaa8772748984c303f660961e3769b204fadf98",
+          "matches_recorded_hash": true,
+          "dimensions": [
+            6480,
+            225
+          ]
+        },
+        {
+          "path": "assets/s_opening_hero_village_run_v4.webp",
+          "asset_group": "exploration_run",
+          "recorded_status": "technical_pass_motion_rework_required",
+          "source_exists": true,
+          "branch_exists": false,
+          "sha256": "d3496082502c2307fb757dd8da52e89b986c1b3f53b9e9790e4df5dc9e468aa2",
+          "matches_recorded_hash": true,
+          "dimensions": [
+            1296,
+            1128
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ye",
+      "stage": "ye",
+      "name": "叶蘅",
+      "source_role": "companion",
+      "source_presence": "on_map",
+      "files": [
+        {
+          "path": "assets/p_ye.webp",
+          "asset_group": "existing_portraits",
+          "recorded_status": "accepted_reuse",
+          "source_exists": true,
+          "branch_exists": true,
+          "sha256": "9ba31d08c56e6a4cdb0ba7c799c7df9345cfa9d63339d2597b4c9c9aa73b9458",
+          "matches_recorded_hash": true,
+          "dimensions": [
+            306,
+            640
+          ]
+        },
+        {
+          "path": "assets/p_ye_smile.webp",
+          "asset_group": "existing_portraits",
+          "recorded_status": "accepted_reuse",
+          "source_exists": true,
+          "branch_exists": true,
+          "sha256": "735550b41d98170c8cc9e489678e9808423c8a678d03e0209adc0b9dca660e13",
+          "matches_recorded_hash": true,
+          "dimensions": [
+            306,
+            640
+          ]
+        },
+        {
+          "path": "assets/p_ye_worry.webp",
+          "asset_group": "existing_portraits",
+          "recorded_status": "accepted_reuse",
+          "source_exists": true,
+          "branch_exists": true,
+          "sha256": "73fd964e246933ea41cf57ec352ca39ceff5f081c8e813e4802378b8ee450f30",
+          "matches_recorded_hash": true,
+          "dimensions": [
+            306,
+            640
+          ]
+        },
+        {
+          "path": "assets/p_ye_angry.webp",
+          "asset_group": "existing_portraits",
+          "recorded_status": "accepted_reuse",
+          "source_exists": true,
+          "branch_exists": true,
+          "sha256": "41a58ff9289b92d7fe0660c2314d563fc3d0ba432f0a6257fca17fad283f7cb2",
+          "matches_recorded_hash": true,
+          "dimensions": [
+            306,
+            640
+          ]
+        },
+        {
+          "path": "assets/p_ye_surprise.webp",
+          "asset_group": "existing_portraits",
+          "recorded_status": "accepted_reuse",
+          "source_exists": true,
+          "branch_exists": true,
+          "sha256": "5e21c6a9c653414e9a520e301ba8ac9230fc022d1ce86881c265493f056ca246",
+          "matches_recorded_hash": true,
+          "dimensions": [
+            306,
+            640
+          ]
+        },
+        {
+          "path": "assets/p_ye_hurt.webp",
+          "asset_group": "existing_portraits",
+          "recorded_status": "accepted_reuse",
+          "source_exists": true,
+          "branch_exists": true,
+          "sha256": "4396c8b75f583fd7cddd063d03ea7ca4fbd9927c80cfc514dba1927c2c0c9cc1",
+          "matches_recorded_hash": true,
+          "dimensions": [
+            306,
+            640
+          ]
+        },
+        {
+          "path": "assets/p_ye_shy.webp",
+          "asset_group": "existing_portraits",
+          "recorded_status": "accepted_reuse",
+          "source_exists": true,
+          "branch_exists": true,
+          "sha256": "d99f1fc996b5e8afd93dd9fac70697ee35feeeb8cd85ff021ee536f44cd4e0aa",
+          "matches_recorded_hash": true,
+          "dimensions": [
+            306,
+            640
+          ]
+        },
+        {
+          "path": "assets/p_opening_menu_ye.webp",
+          "asset_group": "menu_portrait",
+          "recorded_status": "accepted",
+          "source_exists": true,
+          "branch_exists": false,
+          "sha256": "6cabc1cf9c8895d75248029c04de94e424c990e25793475c4d4c850427b86942",
+          "matches_recorded_hash": true,
+          "dimensions": [
+            1024,
+            1536
+          ]
+        },
+        {
+          "path": "assets/s_opening_ye_initial_v4.webp",
+          "asset_group": "exploration",
+          "recorded_status": "accepted_local_render_pending_live_browser",
+          "source_exists": true,
+          "branch_exists": false,
+          "sha256": "6b0cd4101572c19b155f6c11ac3584a5275f72d1e2fc87239f88f66bacbe21b6",
+          "matches_recorded_hash": true,
+          "dimensions": [
+            480,
+            1128
+          ]
+        },
+        {
+          "path": "assets/s_opening_ye_initial_walk_v4.webp",
+          "asset_group": "walk",
+          "recorded_status": "technical_pass_motion_rework_required",
+          "source_exists": true,
+          "branch_exists": false,
+          "sha256": "8ba5262c25b6678d929c630f61a5143282a40682f6f8139fcb1cd43be7885a02",
+          "matches_recorded_hash": true,
+          "dimensions": [
+            1008,
+            1128
+          ]
+        },
+        {
+          "path": "assets/b_ye_initial.webp",
+          "asset_group": "party_battle",
+          "recorded_status": "accepted_local_render_pending_live_browser",
+          "source_exists": true,
+          "branch_exists": true,
+          "sha256": "f5aa00409c2a2ac99ed9e48559dc842acf1e0e6a74ace34b47a61b605e9046e6",
+          "matches_recorded_hash": true,
+          "dimensions": [
+            5160,
+            204
+          ]
+        },
+        {
+          "path": "assets/s_opening_ye_initial_run_v4.webp",
+          "asset_group": "exploration_run",
+          "recorded_status": "technical_pass_motion_rework_required",
+          "source_exists": true,
+          "branch_exists": false,
+          "sha256": "0b1cbf409dd2793a57d9d088dfafcee4d61e86466aaa9fc6cf3956eece1c60be",
+          "matches_recorded_hash": true,
+          "dimensions": [
+            1248,
+            1128
+          ]
+        }
+      ]
+    },
+    {
+      "id": "zhouyan",
+      "stage": "zhouyan",
+      "name": "周砚",
+      "source_role": "important_npc",
+      "source_presence": "on_map",
+      "files": [
+        {
+          "path": "art_sources/opening_characters_20261003/native/zhouyan.png",
+          "asset_group": "identity",
+          "recorded_status": "accepted",
+          "source_exists": true,
+          "branch_exists": false,
+          "sha256": "6784a0b62f3432d710399e0bf0e203ed0948d16c9bba0f9897b5ded418284d72",
+          "matches_recorded_hash": true,
+          "dimensions": [
+            1024,
+            1536
+          ]
+        },
+        {
+          "path": "assets/a_opening_zhouyan.webp",
+          "asset_group": "avatar",
+          "recorded_status": "accepted",
+          "source_exists": true,
+          "branch_exists": false,
+          "sha256": "e508ec4e47afffc9c93c72b42d3754df0d66872dbe4ce236a84a8575571633ef",
+          "matches_recorded_hash": true,
+          "dimensions": [
+            256,
+            256
+          ]
+        },
+        {
+          "path": "assets/p_opening_zhouyan.webp",
+          "asset_group": "dialogue_neutral",
+          "recorded_status": "accepted",
+          "source_exists": true,
+          "branch_exists": false,
+          "sha256": "b43c39bcbe8f8488fadfe05b43175050f9934030f0837fefe2ab915517dc87d2",
+          "matches_recorded_hash": true,
+          "dimensions": [
+            480,
+            640
+          ]
+        },
+        {
+          "path": "assets/p_opening_zhouyan_firm.webp",
+          "asset_group": "dialogue_firm",
+          "recorded_status": "accepted",
+          "source_exists": true,
+          "branch_exists": false,
+          "sha256": "3cbc530ba13ff70819c06a41340e4ddb99bbdf64e42cb48cee643490fa363e01",
+          "matches_recorded_hash": true,
+          "dimensions": [
+            480,
+            640
+          ]
+        },
+        {
+          "path": "assets/p_opening_zhouyan_worry.webp",
+          "asset_group": "dialogue_worry",
+          "recorded_status": "accepted",
+          "source_exists": true,
+          "branch_exists": false,
+          "sha256": "e17b9fbf3dd9698e62c95bea8c9116cac4f0964c9477f3fcdd79e447478a23b0",
+          "matches_recorded_hash": true,
+          "dimensions": [
+            480,
+            640
+          ]
+        },
+        {
+          "path": "assets/s_opening_zhouyan.webp",
+          "asset_group": "exploration",
+          "recorded_status": "accepted",
+          "source_exists": true,
+          "branch_exists": false,
+          "sha256": "595ff87d20356eafd96e9289f96a09076cd4fe1d25467b02ad4ecf888d4fbd14",
+          "matches_recorded_hash": true,
+          "dimensions": [
+            264,
+            564
+          ]
+        }
+      ]
+    },
+    {
+      "id": "luheng",
+      "stage": "luheng",
+      "name": "陆衡",
+      "source_role": "companion",
+      "source_presence": "on_map",
+      "files": [
+        {
+          "path": "art_sources/opening_characters_20261003/native/luheng.png",
+          "asset_group": "identity",
+          "recorded_status": "accepted",
+          "source_exists": true,
+          "branch_exists": false,
+          "sha256": "433bc39be98de081907da71d9465f9e3005de22ff8255630ab886507992d90ae",
+          "matches_recorded_hash": true,
+          "dimensions": [
+            1024,
+            1536
+          ]
+        },
+        {
+          "path": "assets/a_opening_luheng.webp",
+          "asset_group": "avatar",
+          "recorded_status": "accepted",
+          "source_exists": true,
+          "branch_exists": false,
+          "sha256": "f2277c8c87cab4982711783cb4be53adce0ba8f04c5b1d828090b0dc714c7f8b",
+          "matches_recorded_hash": true,
+          "dimensions": [
+            256,
+            256
+          ]
+        },
+        {
+          "path": "assets/p_opening_luheng.webp",
+          "asset_group": "dialogue_neutral",
+          "recorded_status": "accepted",
+          "source_exists": true,
+          "branch_exists": false,
+          "sha256": "a3a87595877ab0e7cc10931febfacf41352f377146190eb58b2d0579d2449258",
+          "matches_recorded_hash": true,
+          "dimensions": [
+            480,
+            640
+          ]
+        },
+        {
+          "path": "assets/p_opening_luheng_firm.webp",
+          "asset_group": "dialogue_firm",
+          "recorded_status": "accepted",
+          "source_exists": true,
+          "branch_exists": false,
+          "sha256": "73d23fc3f83a9f50483f77bf1893b5aec959dd2bc0900516f5ecee2f1a35d4ca",
+          "matches_recorded_hash": true,
+          "dimensions": [
+            480,
+            640
+          ]
+        },
+        {
+          "path": "assets/p_opening_luheng_worry.webp",
+          "asset_group": "dialogue_worry",
+          "recorded_status": "accepted",
+          "source_exists": true,
+          "branch_exists": false,
+          "sha256": "d9c20b72a8070f4ae31eaa0614e3691613c3fe5acb80951c338cbdd2a93adffc",
+          "matches_recorded_hash": true,
+          "dimensions": [
+            480,
+            640
+          ]
+        },
+        {
+          "path": "assets/s_opening_luheng.webp",
+          "asset_group": "exploration",
+          "recorded_status": "accepted",
+          "source_exists": true,
+          "branch_exists": false,
+          "sha256": "5e51cb60076503ec2ffe79f435de731d43d5c70a7881b83cc6e139fe75fb592c",
+          "matches_recorded_hash": true,
+          "dimensions": [
+            288,
+            564
+          ]
+        },
+        {
+          "path": "assets/b_luheng.webp",
+          "asset_group": "party_battle",
+          "recorded_status": "accepted",
+          "source_exists": true,
+          "branch_exists": false,
+          "sha256": "f50945945060b07cb88e0c85e4336b8a775a47c305bf4d75ddbc500f86a3d4c8",
+          "matches_recorded_hash": true,
+          "dimensions": [
+            7440,
+            216
+          ]
+        }
+      ]
+    },
+    {
+      "id": "censhuang",
+      "stage": "censhuang",
+      "name": "岑霜",
+      "source_role": "companion",
+      "source_presence": "none",
+      "files": [
+        {
+          "path": "art_sources/opening_characters_20261003/native/censhuang.png",
+          "asset_group": "identity",
+          "recorded_status": "accepted",
+          "source_exists": true,
+          "branch_exists": false,
+          "sha256": "2704c40517c2770851552a9d9a7fba97ca6bb7a6abaf271c53813858235dfa84",
+          "matches_recorded_hash": true,
+          "dimensions": [
+            1024,
+            1536
+          ]
+        },
+        {
+          "path": "assets/a_opening_censhuang.webp",
+          "asset_group": "avatar",
+          "recorded_status": "accepted",
+          "source_exists": true,
+          "branch_exists": false,
+          "sha256": "eb662f18f3c40e37183fd10284235016ec6c07f544def05cc0e48a94d871e9ea",
+          "matches_recorded_hash": true,
+          "dimensions": [
+            256,
+            256
+          ]
+        },
+        {
+          "path": "assets/p_opening_censhuang.webp",
+          "asset_group": "dialogue_neutral",
+          "recorded_status": "accepted",
+          "source_exists": true,
+          "branch_exists": false,
+          "sha256": "a20711bef4a242ad103f25cdc2ce58b7ea144a282fd0c2385f0e5ff0a2dbbe20",
+          "matches_recorded_hash": true,
+          "dimensions": [
+            480,
+            640
+          ]
+        },
+        {
+          "path": "assets/p_opening_censhuang_firm.webp",
+          "asset_group": "dialogue_firm",
+          "recorded_status": "accepted",
+          "source_exists": true,
+          "branch_exists": false,
+          "sha256": "a0cc5a60df4018e5b31abb404f82b7b514306a39a068ed046a81642d16904d59",
+          "matches_recorded_hash": true,
+          "dimensions": [
+            480,
+            640
+          ]
+        },
+        {
+          "path": "assets/p_opening_censhuang_worry.webp",
+          "asset_group": "dialogue_worry",
+          "recorded_status": "accepted",
+          "source_exists": true,
+          "branch_exists": false,
+          "sha256": "f32a0ba1568010586e12b9998fc2213027173a9eae8787f57cc9677d24673cd2",
+          "matches_recorded_hash": true,
+          "dimensions": [
+            480,
+            640
+          ]
+        },
+        {
+          "path": "assets/s_opening_censhuang.webp",
+          "asset_group": "four_view_reference",
+          "recorded_status": "accepted",
+          "source_exists": true,
+          "branch_exists": false,
+          "sha256": "6b6bfd18e84f79b76a33726c7579dcb5a1cd0cf23a21d7884635a858cddd1b38",
+          "matches_recorded_hash": true,
+          "dimensions": [
+            264,
+            564
+          ]
+        }
+      ]
+    },
+    {
+      "id": "wukui",
+      "stage": "wukui",
+      "name": "乌魁",
+      "source_role": "important_npc",
+      "source_presence": "none",
+      "files": [
+        {
+          "path": "art_sources/opening_characters_20261003/native/wukui.png",
+          "asset_group": "identity",
+          "recorded_status": "accepted",
+          "source_exists": true,
+          "branch_exists": false,
+          "sha256": "6e524c0cf424a995f13b5174cbd2aa604811da60f6929f4c1bbdb3e92017f883",
+          "matches_recorded_hash": true,
+          "dimensions": [
+            1024,
+            1536
+          ]
+        },
+        {
+          "path": "assets/a_opening_wukui.webp",
+          "asset_group": "avatar",
+          "recorded_status": "accepted",
+          "source_exists": true,
+          "branch_exists": false,
+          "sha256": "a87fa0197f86a047ad80aa76c219f814bd3b39f2de322eb19a87385feaad1f6f",
+          "matches_recorded_hash": true,
+          "dimensions": [
+            256,
+            256
+          ]
+        },
+        {
+          "path": "assets/p_opening_wukui.webp",
+          "asset_group": "dialogue_neutral",
+          "recorded_status": "accepted",
+          "source_exists": true,
+          "branch_exists": false,
+          "sha256": "8683f22187f4c833a39d2199c4d71ad1bd6113946304716fea832c40caab497f",
+          "matches_recorded_hash": true,
+          "dimensions": [
+            480,
+            640
+          ]
+        },
+        {
+          "path": "assets/p_opening_wukui_firm.webp",
+          "asset_group": "dialogue_firm",
+          "recorded_status": "accepted",
+          "source_exists": true,
+          "branch_exists": false,
+          "sha256": "0f161835488b007a6e7233491a02fc52e0165196375958f58e23d5b62ef8dda8",
+          "matches_recorded_hash": true,
+          "dimensions": [
+            480,
+            640
+          ]
+        },
+        {
+          "path": "assets/p_opening_wukui_worry.webp",
+          "asset_group": "dialogue_worry",
+          "recorded_status": "accepted",
+          "source_exists": true,
+          "branch_exists": false,
+          "sha256": "66387a0262cb7ada3cf07aae3532d4be1fad405a3d55f48c415b3bff84b6fba8",
+          "matches_recorded_hash": true,
+          "dimensions": [
+            480,
+            640
+          ]
+        },
+        {
+          "path": "assets/s_opening_wukui.webp",
+          "asset_group": "four_view_reference",
+          "recorded_status": "accepted",
+          "source_exists": true,
+          "branch_exists": false,
+          "sha256": "b7feb2e8d6956a29f5aa79e3ee80e088d5fb3217c4a4c8da573a083182fa050c",
+          "matches_recorded_hash": true,
+          "dimensions": [
+            264,
+            564
+          ]
+        }
+      ]
+    },
+    {
+      "id": "chengduo",
+      "stage": "chengduo",
+      "name": "程铎",
+      "source_role": "important_npc",
+      "source_presence": "none",
+      "files": [
+        {
+          "path": "art_sources/opening_characters_20261003/native/chengduo.png",
+          "asset_group": "identity",
+          "recorded_status": "accepted",
+          "source_exists": true,
+          "branch_exists": false,
+          "sha256": "e464d5c1ff622dbe4c322cd1e160533bc6c19b048979b1105eb980c12431df67",
+          "matches_recorded_hash": true,
+          "dimensions": [
+            1024,
+            1536
+          ]
+        },
+        {
+          "path": "assets/a_opening_chengduo.webp",
+          "asset_group": "avatar",
+          "recorded_status": "accepted",
+          "source_exists": true,
+          "branch_exists": false,
+          "sha256": "37cc2a1401a365d24e2dfb2e0a4959963745c96872705508c95fe6fbbf4d789e",
+          "matches_recorded_hash": true,
+          "dimensions": [
+            256,
+            256
+          ]
+        },
+        {
+          "path": "assets/p_opening_chengduo.webp",
+          "asset_group": "dialogue_neutral",
+          "recorded_status": "accepted",
+          "source_exists": true,
+          "branch_exists": false,
+          "sha256": "24e961398b6c17e509f86a66bb146f8287eea85cebc86354beb8202c200e97b2",
+          "matches_recorded_hash": true,
+          "dimensions": [
+            480,
+            640
+          ]
+        },
+        {
+          "path": "assets/p_opening_chengduo_firm.webp",
+          "asset_group": "dialogue_firm",
+          "recorded_status": "accepted",
+          "source_exists": true,
+          "branch_exists": false,
+          "sha256": "10347e1412c107783ef71383213a7fe3cb5951e97ce5e85e8925f423a0f63709",
+          "matches_recorded_hash": true,
+          "dimensions": [
+            480,
+            640
+          ]
+        },
+        {
+          "path": "assets/p_opening_chengduo_worry.webp",
+          "asset_group": "dialogue_worry",
+          "recorded_status": "accepted",
+          "source_exists": true,
+          "branch_exists": false,
+          "sha256": "e5851031c0fa69ab2d307a526ce425b5e1e3149ee2e426cc73933ae1e46b1600",
+          "matches_recorded_hash": true,
+          "dimensions": [
+            480,
+            640
+          ]
+        },
+        {
+          "path": "assets/s_opening_chengduo.webp",
+          "asset_group": "four_view_reference",
+          "recorded_status": "accepted",
+          "source_exists": true,
+          "branch_exists": false,
+          "sha256": "6d5cef4f76e81cc5988bcfc858b04166c9481eb1988274171e1aa66d5c3b89f9",
+          "matches_recorded_hash": true,
+          "dimensions": [
+            264,
+            564
+          ]
+        }
+      ]
+    },
+    {
+      "id": "aunt",
+      "stage": "aunt",
+      "name": "周婶",
+      "source_role": "ordinary_npc",
+      "source_presence": "on_map",
+      "files": [
+        {
+          "path": "art_sources/opening_characters_20261003/exploration/aunt/stand-native.png",
+          "asset_group": "appearance_card",
+          "recorded_status": "accepted",
+          "source_exists": true,
+          "branch_exists": false,
+          "sha256": "50879a99d89dba3e6f066e51caffd21d4ee77cf34acf3f9d3faa3b6582fe5cda",
+          "matches_recorded_hash": true,
+          "dimensions": [
+            1536,
+            1024
+          ]
+        },
+        {
+          "path": "assets/s_opening_aunt.webp",
+          "asset_group": "exploration",
+          "recorded_status": "accepted",
+          "source_exists": true,
+          "branch_exists": false,
+          "sha256": "1ec25efd74ee2f5c90313d2a398e09e0b045e94087acd8045dea7caa5e68bbc6",
+          "matches_recorded_hash": true,
+          "dimensions": [
+            288,
+            564
+          ]
+        },
+        {
+          "path": "assets/a_opening_aunt.webp",
+          "asset_group": "avatar",
+          "recorded_status": "accepted",
+          "source_exists": true,
+          "branch_exists": false,
+          "sha256": "f3818c601c66d85223776663f09a6ec8de567e46eaad0afd9aef33d3e74bdcfb",
+          "matches_recorded_hash": true,
+          "dimensions": [
+            96,
+            96
+          ]
+        }
+      ]
+    },
+    {
+      "id": "chen",
+      "stage": "chen",
+      "name": "陈伯",
+      "source_role": "ordinary_npc",
+      "source_presence": "on_map",
+      "files": [
+        {
+          "path": "art_sources/opening_characters_20261003/exploration/chen/stand-native.png",
+          "asset_group": "appearance_card",
+          "recorded_status": "accepted",
+          "source_exists": true,
+          "branch_exists": false,
+          "sha256": "82338220749e831c3cc7db1133f8f393e1e17f85dac27ee73d366d6632e8bc08",
+          "matches_recorded_hash": true,
+          "dimensions": [
+            1536,
+            1024
+          ]
+        },
+        {
+          "path": "assets/s_opening_chen.webp",
+          "asset_group": "exploration",
+          "recorded_status": "accepted",
+          "source_exists": true,
+          "branch_exists": false,
+          "sha256": "fd900eaec3e594ee0969805e1accf96410794ace1197e63fd14c8a70920c9513",
+          "matches_recorded_hash": true,
+          "dimensions": [
+            240,
+            564
+          ]
+        },
+        {
+          "path": "assets/a_opening_chen.webp",
+          "asset_group": "avatar",
+          "recorded_status": "accepted",
+          "source_exists": true,
+          "branch_exists": false,
+          "sha256": "d42a0e2fe64b6d798423119e7d36021d87be5167a7843ec51f6212ff9274d4b3",
+          "matches_recorded_hash": true,
+          "dimensions": [
+            96,
+            96
+          ]
+        }
+      ]
+    },
+    {
+      "id": "steward",
+      "stage": "steward",
+      "name": "管事",
+      "source_role": "ordinary_npc",
+      "source_presence": "none",
+      "files": [
+        {
+          "path": "art_sources/opening_characters_20261003/exploration/steward/stand-native.png",
+          "asset_group": "appearance_card",
+          "recorded_status": "accepted",
+          "source_exists": true,
+          "branch_exists": false,
+          "sha256": "ddd9905b7e530ea7335371fdf92a7476762c92fb363308ecbce1e2fe5749be53",
+          "matches_recorded_hash": true,
+          "dimensions": [
+            1536,
+            1024
+          ]
+        },
+        {
+          "path": "assets/s_opening_steward.webp",
+          "asset_group": "four_view_reference",
+          "recorded_status": "accepted",
+          "source_exists": true,
+          "branch_exists": false,
+          "sha256": "070afac5353663627f5e2ecd2cc6f37eedeca84f8e6c34cdf8dfa64cd3031ac4",
+          "matches_recorded_hash": true,
+          "dimensions": [
+            240,
+            564
+          ]
+        },
+        {
+          "path": "assets/a_opening_steward.webp",
+          "asset_group": "avatar",
+          "recorded_status": "accepted",
+          "source_exists": true,
+          "branch_exists": false,
+          "sha256": "77e526e44d7dc84bbaf6eaebb54cfcfbc9f83dfacfa8aab829e73eed5c771846",
+          "matches_recorded_hash": true,
+          "dimensions": [
+            96,
+            96
+          ]
+        }
+      ]
+    },
+    {
+      "id": "retainer",
+      "stage": "retainer",
+      "name": "护院",
+      "source_role": "ordinary_npc",
+      "source_presence": "none",
+      "files": [
+        {
+          "path": "art_sources/opening_characters_20261003/exploration/retainer/stand-native.png",
+          "asset_group": "appearance_card",
+          "recorded_status": "accepted",
+          "source_exists": true,
+          "branch_exists": false,
+          "sha256": "286aaabb6d9246c6ad6998f4e1702f834806e0113f2b3d12c8fd9d8ca1b6658e",
+          "matches_recorded_hash": true,
+          "dimensions": [
+            1536,
+            1024
+          ]
+        },
+        {
+          "path": "assets/s_opening_retainer.webp",
+          "asset_group": "four_view_reference",
+          "recorded_status": "accepted",
+          "source_exists": true,
+          "branch_exists": false,
+          "sha256": "1458c8e5a4abd24df6c8f80f3e01aedf0b00e7bf45f189a9152951cad632497b",
+          "matches_recorded_hash": true,
+          "dimensions": [
+            264,
+            564
+          ]
+        },
+        {
+          "path": "assets/a_opening_retainer.webp",
+          "asset_group": "avatar",
+          "recorded_status": "accepted",
+          "source_exists": true,
+          "branch_exists": false,
+          "sha256": "e3086c0ba640fab390a7259db848f4c949d02438796be2ebafdeecf099b6b749",
+          "matches_recorded_hash": true,
+          "dimensions": [
+            96,
+            96
+          ]
+        }
+      ]
+    },
+    {
+      "id": "procurement",
+      "stage": "procurement",
+      "name": "采办使",
+      "source_role": "ordinary_npc",
+      "source_presence": "none",
+      "files": [
+        {
+          "path": "art_sources/opening_characters_20261003/exploration/procurement/stand-native.png",
+          "asset_group": "appearance_card",
+          "recorded_status": "accepted",
+          "source_exists": true,
+          "branch_exists": false,
+          "sha256": "ad7fac98c194a20c8ce5be7f9058cf34cfd9a89507cb32320196e7a644798c8f",
+          "matches_recorded_hash": true,
+          "dimensions": [
+            1536,
+            1024
+          ]
+        },
+        {
+          "path": "assets/s_opening_procurement.webp",
+          "asset_group": "four_view_reference",
+          "recorded_status": "accepted",
+          "source_exists": true,
+          "branch_exists": false,
+          "sha256": "f72168c53979b3b655640058b5169df1ec1fc388a03e6eea4bcf8e2c563fd252",
+          "matches_recorded_hash": true,
+          "dimensions": [
+            240,
+            564
+          ]
+        },
+        {
+          "path": "assets/a_opening_procurement.webp",
+          "asset_group": "avatar",
+          "recorded_status": "accepted",
+          "source_exists": true,
+          "branch_exists": false,
+          "sha256": "72fd05c650ca6885980ee31773bca7c26ba58f88be0a26a461114c78bd0a6017",
+          "matches_recorded_hash": true,
+          "dimensions": [
+            96,
+            96
+          ]
+        }
+      ]
+    },
+    {
+      "id": "procurement_aide",
+      "stage": "procurement_aide",
+      "name": "采办随从",
+      "source_role": "ordinary_npc",
+      "source_presence": "none",
+      "files": [
+        {
+          "path": "art_sources/opening_characters_20261003/exploration/procurement_aide/stand-native.png",
+          "asset_group": "appearance_card",
+          "recorded_status": "accepted",
+          "source_exists": true,
+          "branch_exists": false,
+          "sha256": "e378aa45f80264d00a3798a25465f514b7a05ad0a95b3c6601a5f5629a497e73",
+          "matches_recorded_hash": true,
+          "dimensions": [
+            1536,
+            1024
+          ]
+        },
+        {
+          "path": "assets/s_opening_procurement_aide.webp",
+          "asset_group": "four_view_reference",
+          "recorded_status": "accepted",
+          "source_exists": true,
+          "branch_exists": false,
+          "sha256": "6cf76b8d78affd061ed14e2dc00e846f1c40f86e0d1d44c0eaa9ff6e26881091",
+          "matches_recorded_hash": true,
+          "dimensions": [
+            264,
+            564
+          ]
+        },
+        {
+          "path": "assets/a_opening_procurement_aide.webp",
+          "asset_group": "avatar",
+          "recorded_status": "accepted",
+          "source_exists": true,
+          "branch_exists": false,
+          "sha256": "5b29962c118d76dc4fe8c86921f15b59aad14d670dedf5c8b2efe84df215cdf2",
+          "matches_recorded_hash": true,
+          "dimensions": [
+            96,
+            96
+          ]
+        }
+      ]
+    },
+    {
+      "id": "henchman",
+      "stage": "henchman",
+      "name": "帮众",
+      "source_role": "enemy",
+      "source_presence": "none",
+      "files": [
+        {
+          "path": "assets/s_bandit.webp",
+          "asset_group": "appearance_reuse",
+          "recorded_status": "accepted_reuse",
+          "source_exists": true,
+          "branch_exists": true,
+          "sha256": "dc064373aec41f8543ff6e35f7214b87ab91d0035084defe9b5cf69a4137b8a7",
+          "matches_recorded_hash": true,
+          "dimensions": [
+            348,
+            564
+          ]
+        },
+        {
+          "path": "assets/b_bandit.webp",
+          "asset_group": "enemy_battle",
+          "recorded_status": "accepted_reuse",
+          "source_exists": true,
+          "branch_exists": true,
+          "sha256": "7d492b802d06187c8f00fa77a851300dc7aa782c4f346499e8aceefdea909dc5",
+          "matches_recorded_hash": true,
+          "dimensions": [
+            6480,
+            204
+          ]
+        }
+      ]
+    }
+  ],
+  "wolf_candidates": [
+    {
+      "path": "assets/s_wolf.webp",
+      "source_exists": true,
+      "branch_exists": true,
+      "sha256": "69d96d4c2550c14f81c67390fc5ab167a01a84db10689c7a82fcd786b4a575fa",
+      "dimensions": [
+        516,
+        564
+      ]
+    },
+    {
+      "path": "assets/b_wolf.webp",
+      "source_exists": true,
+      "branch_exists": true,
+      "sha256": "4ad17f9d682233ec797089f9e4078f5e90dda129dd9308412cef622ce10571e7",
+      "dimensions": [
+        3108,
+        144
+      ]
+    }
+  ],
+  "runtime_evidence": {
+    "file": "js/qihe-characters.js",
+    "sha256": "dbe1ac982976c593130c05d3ccc765d681dc7037957265e6e023892cae039f3c",
+    "borrowed_clothes_sprite": "hero",
+    "henchman_dialogue": "c_bandit",
+    "procurement_aide_dialogue": "c_villager"
+  },
+  "limits": [
+    "File presence and old acceptance do not approve new scene style.",
+    "A reference sheet is not a walking animation.",
+    "No assets or game scripts were changed by this audit."
+  ]
+}

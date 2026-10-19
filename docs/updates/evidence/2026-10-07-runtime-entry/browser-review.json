@@ -1,0 +1,72 @@
+{
+  "scope": "actual local browser navigation; current-map and settings screenshots, isolated route VM tests are separate",
+  "routes": [
+    {
+      "from": "http://127.0.0.1:8766/",
+      "url": "http://127.0.0.1:8792/#qihe-map",
+      "currentHomepage": true
+    },
+    {
+      "from": "http://127.0.0.1:8786/index.html#prologue",
+      "url": "http://127.0.0.1:8792/#qihe-map",
+      "currentHomepage": true
+    },
+    {
+      "from": "http://127.0.0.1:8123/index.html#cultivation",
+      "url": "http://127.0.0.1:8792/#qihe-map",
+      "currentHomepage": true
+    },
+    {
+      "from": "http://127.0.0.1:8766/index.html#chapter1",
+      "url": "http://127.0.0.1:8792/#qihe-map",
+      "currentHomepage": true
+    },
+    {
+      "from": "http://127.0.0.1:8766/index.html#xiangyang",
+      "url": "http://127.0.0.1:8792/#qihe-map",
+      "currentHomepage": true
+    },
+    {
+      "from": "http://localhost:8792/index.html#prologue",
+      "url": "http://127.0.0.1:8792/#qihe-map",
+      "currentHomepage": true
+    },
+    {
+      "from": "http://127.0.0.1:8792/index.html#obsolete",
+      "url": "http://127.0.0.1:8792/index.html#qihe-map",
+      "currentHomepage": true
+    },
+    {
+      "from": "http://127.0.0.1:8766/dist/index.html",
+      "url": "http://127.0.0.1:8792/#qihe-map",
+      "currentHomepage": true
+    },
+    {
+      "from": "explicit prototype",
+      "url": "http://127.0.0.1:8766/index.html?runtimePrototype=1#prologue",
+      "historicalBanner": true,
+      "currentGameLink": true
+    },
+    {
+      "from": "continue original, refresh, settings, confirm return home",
+      "url": "http://127.0.0.1:8792/?v=qihe-saves-20261006#qihe-map",
+      "currentHomepage": true,
+      "hasContinue": true,
+      "hasStart": true
+    }
+  ],
+  "logs": [
+    {
+      "level": "warn",
+      "message": "[VFX 等级自检] Array(13)",
+      "timestamp": "2026-10-06T16:56:32.331Z",
+      "url": "http://127.0.0.1:8766/js/vfx.js"
+    }
+  ],
+  "finalUrl": "http://127.0.0.1:8792/?v=qihe-saves-20261006#qihe-map",
+  "screenshots": [
+    "homepage.png",
+    "current-map.png",
+    "settings.png"
+  ]
+}

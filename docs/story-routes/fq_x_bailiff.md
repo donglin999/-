@@ -1,0 +1,18 @@
+# 路线：fq_x_bailiff（01-开始/风起-村中路人.ink）
+
+生成物，由 tools_story/build_ink.cjs 遍历标记取值与全部选项得到，不手改。共 3 条路线。
+
+## 路线 1：qiheChapter.talkCycle=0
+
+- 差役：药车要从河埠过，门口这条路让一让。
+  〔set_flag("qiheChapter.talkCycle", 1)〕
+
+## 路线 2：qiheChapter.talkCycle=1
+
+- 差役：这两天来的人比赶集还多，我一个人哪看得过来。
+  〔set_flag("qiheChapter.talkCycle", 2)〕
+
+## 路线 3：qiheChapter.talkCycle=2
+
+- 差役：签字的事别找我，我只管守路。
+  〔set_flag("qiheChapter.talkCycle", 0)〕

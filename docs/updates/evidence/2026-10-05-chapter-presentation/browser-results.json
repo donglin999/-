@@ -1,0 +1,14 @@
+{
+  "handoff": {
+    "result": {
+      "type": "string",
+      "value": "{\"mode\":\"cultivation\",\"chapter\":2,\"silver\":17,\"owner\":\"叶蘅\",\"joined\":true,\"history\":[{\"id\":\"cultivation-1\",\"action\":\"B03\",\"name\":\"站位与发力\",\"period\":0,\"cost\":0,\"freePractice\":true,\"nominalCost\":5,\"gain\":8,\"choice\":null}],\"energy\":12,\"pending\":null}"
+    }
+  },
+  "logs": {
+    "cultivation": [],
+    "fire": [],
+    "guide": []
+  },
+  "scope": "Isolated chapter fixtures; mouse clicks through handoff, practice, result, refresh, martial menu return, mail view, rescue branches; no whole three-year playthrough."
+}

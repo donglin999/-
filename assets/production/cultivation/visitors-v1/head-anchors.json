@@ -1,0 +1,62 @@
+{
+  "measurement": "manual approximate painted hair/chin landmarks, native pixel coordinates",
+  "normal": {
+    "head_height_stage_percent": 28.6,
+    "hair_top_stage_percent": 36
+  },
+  "choice": {
+    "head_height_stage_percent": 25,
+    "hair_top_stage_percent": 46
+  },
+  "actors": {
+    "hero": {
+      "canvas": [
+        1145,
+        1374
+      ],
+      "hair_y": 8,
+      "chin_y": 627
+    },
+    "ye": {
+      "canvas": [
+        1145,
+        1374
+      ],
+      "hair_y": 8,
+      "chin_y": 597
+    },
+    "zhou": {
+      "canvas": [
+        1024,
+        1536
+      ],
+      "hair_y": 47,
+      "chin_y": 656
+    },
+    "mo_songnian": {
+      "canvas": [
+        1024,
+        1536
+      ],
+      "hair_y": 169,
+      "chin_y": 731
+    },
+    "meng_zhiwei": {
+      "canvas": [
+        1024,
+        1536
+      ],
+      "hair_y": 87,
+      "chin_y": 653
+    },
+    "zhaochuan_courier": {
+      "canvas": [
+        1024,
+        1536
+      ],
+      "hair_y": 113,
+      "chin_y": 655
+    }
+  },
+  "acceptance": "9 desktop casts visually checked; CSS contain maintains source aspect ratio"
+}

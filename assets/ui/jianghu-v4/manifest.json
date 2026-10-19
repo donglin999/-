@@ -1,0 +1,321 @@
+{
+  "version": 1,
+  "date": "2026-10-05",
+  "basePath": "assets/ui/jianghu-v4/",
+  "background": {
+    "file": "assets/ui/jianghu-v4/background.webp",
+    "source": "art_sources/jianghu-ui-implementation/background-native.png",
+    "measurements": {
+      "width": 1672,
+      "height": 941,
+      "mode": "RGB",
+      "bytes": 507892,
+      "sha256": "3e5b99630961c323e84769d6d4fa2a3605ea98cac7ea5443095fd353dd52c970",
+      "hasAlpha": false,
+      "alphaExtrema": [
+        255,
+        255
+      ],
+      "transparentFraction": 0.0,
+      "visibleBoundsAlpha64": [
+        0,
+        0,
+        1672,
+        941
+      ],
+      "fullyTransparentCorners": false
+    },
+    "fileChecks": "pass",
+    "visualChecks": {
+      "status": "pass",
+      "evidence": "Viewed native image: no people, text or UI; pale full-width terrace; distant tiny birds are decorative only."
+    },
+    "runtimeChecks": "pending"
+  },
+  "portraits": {
+    "hero-modern": {
+      "file": "assets/ui/jianghu-v4/portraits/hero-modern.webp",
+      "name": "萧白（现代）",
+      "source": "art_sources/jianghu-ui-implementation/hero-modern-native.png",
+      "sourceKind": "built-in imagegen identity-preserving background removal",
+      "measurements": {
+        "width": 1024,
+        "height": 1536,
+        "mode": "RGBA",
+        "bytes": 160100,
+        "sha256": "ff8bb55d4bf88b312cafdb6d28adc68bb9d8c6cc725aee9a31116b39ff5b3d61",
+        "hasAlpha": true,
+        "alphaExtrema": [
+          0,
+          254
+        ],
+        "transparentFraction": 0.7518,
+        "visibleBoundsAlpha64": [
+          299,
+          13,
+          750,
+          1514
+        ],
+        "fullyTransparentCorners": true
+      },
+      "maxDisplayHeightPx": 768,
+      "fileChecks": "pass",
+      "visualChecks": {
+        "status": "pass",
+        "evidence": "art_sources/jianghu-ui-implementation/alpha-contact-sheet.jpg",
+        "observed": [
+          "same identity and costume as source",
+          "complete hair, hands, clothing hem and feet",
+          "no rectangular background on ivory and dark gray"
+        ]
+      },
+      "runtimeChecks": "pending",
+      "resolutionException": null
+    },
+    "hero-village": {
+      "file": "assets/ui/jianghu-v4/portraits/hero-village.webp",
+      "name": "萧白（借衣）",
+      "source": "art_sources/jianghu-ui-implementation/hero-village-native.png",
+      "sourceKind": "built-in imagegen identity-preserving background removal",
+      "measurements": {
+        "width": 1024,
+        "height": 1536,
+        "mode": "RGBA",
+        "bytes": 239338,
+        "sha256": "44e831a60afe63a6998abab7c61d63c803f46ae25f9b2f47bd5621cc4ed228f4",
+        "hasAlpha": true,
+        "alphaExtrema": [
+          0,
+          254
+        ],
+        "transparentFraction": 0.712,
+        "visibleBoundsAlpha64": [
+          257,
+          15,
+          771,
+          1495
+        ],
+        "fullyTransparentCorners": true
+      },
+      "maxDisplayHeightPx": 768,
+      "fileChecks": "pass",
+      "visualChecks": {
+        "status": "pass",
+        "evidence": "art_sources/jianghu-ui-implementation/alpha-contact-sheet.jpg",
+        "observed": [
+          "same identity and costume as source",
+          "complete hair, hands, clothing hem and feet",
+          "no rectangular background on ivory and dark gray"
+        ]
+      },
+      "runtimeChecks": "pending",
+      "resolutionException": null
+    },
+    "ye": {
+      "file": "assets/ui/jianghu-v4/portraits/ye-menu-v2.png",
+      "name": "叶蘅",
+      "source": "../xiaojianghu/assets/p_opening_menu_ye.webp",
+      "sourceKind": "built-in imagegen background extraction from original menu portrait; dialogue state no longer used",
+      "measurements": {
+        "width": 1024,
+        "height": 1536,
+        "mode": "RGBA",
+        "bytes": 1851497,
+        "sha256": "2ce92f925a00b1e566d642c919b382b7c3eee3f8f1aeaef7a8c8de24c24bba49",
+        "hasAlpha": true,
+        "alphaExtrema": [
+          0,
+          254
+        ],
+        "transparentFraction": 0.7183971405029297,
+        "visibleBoundsAlpha1": [
+          51,
+          10,
+          962,
+          1506
+        ],
+        "visibleBoundsAlpha64": [
+          273,
+          13,
+          740,
+          1501
+        ],
+        "fullyTransparentCorners": true
+      },
+      "maxDisplayHeightPx": 768,
+      "fileChecks": "pass",
+      "visualChecks": {
+        "status": "pass",
+        "evidence": "art_sources/jianghu-ui-v6/ye-menu-fix/",
+        "checks": [
+          "original menu identity, upright stance and bandage pose reviewed",
+          "full body and feet visible",
+          "transparent background on actual menu scene"
+        ]
+      },
+      "runtimeChecks": {
+        "status": "pass",
+        "screens": [
+          "party-after.jpg",
+          "attribute-after.jpg"
+        ],
+        "partyCenterErrorPx": 0.00390625,
+        "consoleErrors": 0
+      },
+      "resolutionException": null,
+      "displayBounds": [
+        265,
+        5,
+        748,
+        1509
+      ]
+    },
+    "suzhi": {
+      "file": "assets/ui/jianghu-v4/portraits/suzhi.webp",
+      "name": "苏芷",
+      "source": "../xiaojianghu/assets/portraits/dialogue_states/su-zhi/state-neutral.webp",
+      "sourceKind": "existing cleaned full-body alpha reused unchanged",
+      "measurements": {
+        "width": 512,
+        "height": 768,
+        "mode": "RGBA",
+        "bytes": 179894,
+        "sha256": "2609e36e6650905f8ab9f608cbb56c0e3ef7f0884f7223b69b8324dfb585588e",
+        "hasAlpha": true,
+        "alphaExtrema": [
+          0,
+          255
+        ],
+        "transparentFraction": 0.6647,
+        "visibleBoundsAlpha64": [
+          96,
+          5,
+          405,
+          765
+        ],
+        "fullyTransparentCorners": true
+      },
+      "maxDisplayHeightPx": 768,
+      "fileChecks": "pass",
+      "visualChecks": {
+        "status": "pass",
+        "evidence": "art_sources/jianghu-ui-implementation/alpha-contact-sheet.jpg",
+        "observed": [
+          "same identity and costume as source",
+          "complete hair, hands, clothing hem and feet",
+          "no rectangular background on ivory and dark gray"
+        ]
+      },
+      "runtimeChecks": "pending",
+      "resolutionException": "Existing 512x768 clean export; retain original pixels; do not upscale beyond 768px display height. Native source exists at1024x1536 but has not been imported as higher-quality proof."
+    },
+    "censhuang": {
+      "file": "assets/ui/jianghu-v4/portraits/censhuang.webp",
+      "name": "岑霜",
+      "source": "../xiaojianghu/assets/portraits/dialogue_states/cen-shuang/state-neutral.webp",
+      "sourceKind": "existing cleaned full-body alpha reused unchanged",
+      "measurements": {
+        "width": 512,
+        "height": 768,
+        "mode": "RGBA",
+        "bytes": 318508,
+        "sha256": "ad67dd3bacaa5be7d47c2cce4e77178050aacddb5ecf3f62178aad7175fd00cb",
+        "hasAlpha": true,
+        "alphaExtrema": [
+          0,
+          255
+        ],
+        "transparentFraction": 0.5209,
+        "visibleBoundsAlpha64": [
+          34,
+          8,
+          481,
+          753
+        ],
+        "fullyTransparentCorners": true
+      },
+      "maxDisplayHeightPx": 768,
+      "fileChecks": "pass",
+      "visualChecks": {
+        "status": "pass",
+        "evidence": "art_sources/jianghu-ui-implementation/alpha-contact-sheet.jpg",
+        "observed": [
+          "same identity and costume as source",
+          "complete hair, hands, clothing hem and feet",
+          "no rectangular background on ivory and dark gray"
+        ]
+      },
+      "runtimeChecks": "pending",
+      "resolutionException": "Existing 512x768 clean export; retain original pixels; do not upscale beyond 768px display height. Native source exists at1024x1536 but has not been imported as higher-quality proof."
+    },
+    "hero-guiyun": {
+      "file": "assets/ui/jianghu-v4/portraits/hero-guiyun.webp",
+      "name": "萧白（归云谷）",
+      "source": "art_sources/guiyun-playtest-fix-20261011/jianghu/hero-guiyun-native.png",
+      "sourceKind": "codex exec 内置 image_gen（提示词请求 gpt-image-2.5，实际模型未披露）＋白底抠图",
+      "measurements": {
+        "width": 1024,
+        "height": 1536,
+        "mode": "RGBA",
+        "bytes": 707264,
+        "sha256": "5aee5efa448af6593c9a7d1d26a5c15984a7d26614563209bfd10480f60456f8",
+        "hasAlpha": true,
+        "alphaExtrema": [
+          0,
+          255
+        ],
+        "transparentFraction": 0.665,
+        "visibleBoundsAlpha64": [
+          164,
+          6,
+          815,
+          1499
+        ],
+        "fullyTransparentCorners": true
+      },
+      "maxDisplayHeightPx": 768,
+      "fileChecks": "pass",
+      "visualChecks": {
+        "status": "pass",
+        "evidence": "art_sources/guiyun-playtest-fix-20261011/jianghu/check-dark.png",
+        "observed": [
+          "归云谷弟子服、长发高束，与对白立绘 p_gy_hero_long 同一造型",
+          "头、手、衣摆、脚完整",
+          "深色底上无白底残留（人工看图）"
+        ]
+      },
+      "runtimeChecks": "pending",
+      "resolutionException": null
+    }
+  },
+  "icons": {
+    "nav": {
+      "attr": "assets/ui/jianghu-v4/icons/nav-attr.svg",
+      "skill": "assets/ui/jianghu-v4/icons/nav-skill.svg",
+      "bag": "assets/ui/jianghu-v4/icons/nav-bag.svg",
+      "equip": "assets/ui/jianghu-v4/icons/nav-equip.svg",
+      "party": "assets/ui/jianghu-v4/icons/nav-party.svg",
+      "quest": "assets/ui/jianghu-v4/icons/nav-quest.svg",
+      "sys": "assets/ui/jianghu-v4/icons/nav-sys.svg",
+      "pet": "assets/ui/jianghu-v4/icons/nav-pet.svg"
+    },
+    "stat": {
+      "str": "assets/ui/jianghu-v4/icons/stat-str.svg",
+      "con": "assets/ui/jianghu-v4/icons/stat-con.svg",
+      "agi": "assets/ui/jianghu-v4/icons/stat-agi.svg",
+      "wil": "assets/ui/jianghu-v4/icons/stat-wil.svg",
+      "wis": "assets/ui/jianghu-v4/icons/stat-wis.svg"
+    },
+    "slot": {
+      "weapon": "assets/ui/jianghu-v4/icons/slot-weapon.svg",
+      "armor": "assets/ui/jianghu-v4/icons/slot-armor.svg",
+      "acc": "assets/ui/jianghu-v4/icons/slot-acc.svg"
+    }
+  },
+  "iconAcceptance": {
+    "fileChecks": "16 valid SVGs; viewBox64x64; no dynamic baked text",
+    "visualChecks": "pending actual 32/48px browser inspection",
+    "source": "art_sources/jianghu-ui-implementation/build_icons.py",
+    "itemSkillSource": "assets/i_jianghu.webp via js/menu-icons.js existing atlas (mapping kept in frontend)"
+  }
+}

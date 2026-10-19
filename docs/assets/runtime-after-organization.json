@@ -1,0 +1,2625 @@
+{
+  "entry": "http://127.0.0.1:8792/index.html#qihe-map",
+  "registered": [
+    "bg_title",
+    "m_world",
+    "m_street_v2",
+    "m_street_v2_props",
+    "m_alley_v2",
+    "m_alley_v2_props",
+    "m_ferry_v2",
+    "m_ferry_v2_props",
+    "m_temple_v2",
+    "m_temple_v2_props",
+    "m_temple_out_v2",
+    "m_temple_out_v2_props",
+    "m_gate_v2",
+    "m_gate_v2_props",
+    "m_bgate_v2",
+    "m_bgate_v2_props",
+    "m_cave_v2",
+    "m_cave_v2_props",
+    "s_hero",
+    "s_monk",
+    "s_soldier",
+    "s_gossip",
+    "s_oldman",
+    "s_smith",
+    "s_lady",
+    "s_beggar",
+    "s_boatman",
+    "s_bandit",
+    "s_chief",
+    "s_villager",
+    "s_child",
+    "s_merchant",
+    "s_dog",
+    "s_rooster",
+    "s_snake",
+    "s_wolf",
+    "s_ye",
+    "s_liu",
+    "s_zhou",
+    "s_langli",
+    "p_hero",
+    "p_monk",
+    "p_soldier",
+    "p_gossip",
+    "p_oldman",
+    "p_smith",
+    "p_lady",
+    "p_beggar",
+    "p_boatman",
+    "p_bandit",
+    "p_chief",
+    "p_ye",
+    "p_liu",
+    "p_zhou",
+    "p_langli",
+    "m_crossing_v2",
+    "m_crossing_v2_props",
+    "m_crossing_far",
+    "m_ferry_e_v2",
+    "m_ferry_e_v2_props",
+    "containers_v1",
+    "s_opening_hero_modern",
+    "s_prologue_wilddog_v1",
+    "b_hero_modern",
+    "a_opening_hero_modern",
+    "p_opening_hero_modern",
+    "p_opening_hero_modern_guard",
+    "p_opening_hero_modern_smile",
+    "p_opening_hero_modern_worry",
+    "p_opening_hero_modern_firm",
+    "p_opening_hero_modern_surprise",
+    "p_opening_hero_modern_hurt",
+    "b_ye_initial",
+    "b_wilddog",
+    "bb_prologue_backhill_v1",
+    "s_opening_zhouyan",
+    "s_opening_luheng",
+    "s_opening_chengduo",
+    "s_opening_censhuang",
+    "s_opening_wukui",
+    "s_opening_aunt",
+    "s_opening_chen",
+    "s_opening_apothecary",
+    "s_opening_steward",
+    "s_opening_retainer",
+    "s_opening_procurement",
+    "s_opening_procurement_aide",
+    "s_opening_bailiff",
+    "s_qh_bandit",
+    "s_qh_hero_initial",
+    "a_opening_apothecary",
+    "a_opening_aunt",
+    "a_opening_bailiff",
+    "a_opening_censhuang",
+    "a_opening_chen",
+    "a_opening_chengduo",
+    "a_opening_hero_modern",
+    "a_opening_hero_village",
+    "a_opening_luheng",
+    "a_opening_procurement",
+    "a_opening_procurement_aide",
+    "a_opening_retainer",
+    "a_opening_steward",
+    "a_opening_wukui",
+    "a_opening_zhouyan",
+    "b_hero_village",
+    "b_luheng",
+    "b_wilddog",
+    "p_opening_censhuang",
+    "p_opening_censhuang_firm",
+    "p_opening_censhuang_worry",
+    "p_opening_chengduo",
+    "p_opening_chengduo_firm",
+    "p_opening_chengduo_worry",
+    "p_opening_hero_modern",
+    "p_opening_hero_modern_firm",
+    "p_opening_hero_modern_hurt",
+    "p_opening_hero_modern_smile",
+    "p_opening_hero_modern_surprise",
+    "p_opening_hero_modern_worry",
+    "p_opening_hero_village",
+    "p_opening_hero_village_firm",
+    "p_opening_hero_village_hurt",
+    "p_opening_hero_village_smile",
+    "p_opening_hero_village_surprise",
+    "p_opening_hero_village_worry",
+    "p_opening_luheng",
+    "p_opening_luheng_firm",
+    "p_opening_luheng_worry",
+    "p_opening_wukui",
+    "p_opening_wukui_firm",
+    "p_opening_wukui_worry",
+    "p_opening_zhouyan",
+    "p_opening_zhouyan_firm",
+    "p_opening_zhouyan_worry",
+    "b_hero_village",
+    "b_luheng",
+    "b_qh_luheng_v1",
+    "b_qh_raider_front_v1",
+    "b_qh_raider_rear_v1",
+    "bb_qh_training_v1",
+    "bb_qh_evacuation_v1",
+    "s_qh_merchant",
+    "s_qh_oldman",
+    "m_qihe_clinic_interior",
+    "m_qihe_clinic_interior_fg",
+    "m_qihe_ye_house",
+    "m_qihe_ye_house_fg",
+    "m_qihe_inn_interior",
+    "m_qihe_inn_interior_fg",
+    "m_qihe_chen_hall",
+    "m_qihe_chen_hall_fg",
+    "m_qihe_chen_guest",
+    "m_qihe_chen_guest_fg",
+    "m_qh_south",
+    "m_qh_south_fg",
+    "m_qh_east",
+    "m_qh_east_fg",
+    "m_qh_west",
+    "m_qh_west_fg",
+    "m_qh_north",
+    "m_qh_north_fg",
+    "m_qh_refuge",
+    "m_qh_refuge_fg",
+    "m_qh_mountain",
+    "m_qh_mountain_fg",
+    "m_qh_central",
+    "m_qh_central_fg",
+    "b_wolf",
+    "b_bandit",
+    "r_qh_branch_v1",
+    "r_qh_herb_v1",
+    "r_qh_reed_v1"
+  ],
+  "loaded": [
+    {
+      "key": "bg_title",
+      "path": "assets/production/shared/bg_title.webp"
+    },
+    {
+      "key": "m_world",
+      "path": "assets/production/maps/m_world.webp"
+    },
+    {
+      "key": "m_street_v2",
+      "path": "assets/production/maps/m_street_v2.webp"
+    },
+    {
+      "key": "m_street_v2_props",
+      "path": "assets/production/maps/m_street_v2_props.webp"
+    },
+    {
+      "key": "m_alley_v2",
+      "path": "assets/production/maps/m_alley_v2.webp"
+    },
+    {
+      "key": "m_alley_v2_props",
+      "path": "assets/production/maps/m_alley_v2_props.webp"
+    },
+    {
+      "key": "m_ferry_v2",
+      "path": "assets/production/maps/m_ferry_v2.webp"
+    },
+    {
+      "key": "m_ferry_v2_props",
+      "path": "assets/production/maps/m_ferry_v2_props.webp"
+    },
+    {
+      "key": "m_temple_v2",
+      "path": "assets/production/maps/m_temple_v2.webp"
+    },
+    {
+      "key": "m_temple_v2_props",
+      "path": "assets/production/maps/m_temple_v2_props.webp"
+    },
+    {
+      "key": "m_temple_out_v2",
+      "path": "assets/production/maps/m_temple_out_v2.webp"
+    },
+    {
+      "key": "m_temple_out_v2_props",
+      "path": "assets/production/maps/m_temple_out_v2_props.webp"
+    },
+    {
+      "key": "m_gate_v2",
+      "path": "assets/production/maps/m_gate_v2.webp"
+    },
+    {
+      "key": "m_gate_v2_props",
+      "path": "assets/production/maps/m_gate_v2_props.webp"
+    },
+    {
+      "key": "m_bgate_v2",
+      "path": "assets/production/maps/m_bgate_v2.webp"
+    },
+    {
+      "key": "m_bgate_v2_props",
+      "path": "assets/production/maps/m_bgate_v2_props.webp"
+    },
+    {
+      "key": "m_cave_v2",
+      "path": "assets/production/maps/m_cave_v2.webp"
+    },
+    {
+      "key": "m_cave_v2_props",
+      "path": "assets/production/maps/m_cave_v2_props.webp"
+    },
+    {
+      "key": "s_hero",
+      "path": "assets/production/characters/s_hero_bright.webp"
+    },
+    {
+      "key": "s_monk",
+      "path": "assets/production/characters/s_monk_bright.webp"
+    },
+    {
+      "key": "s_soldier",
+      "path": "assets/production/characters/s_soldier_bright.webp"
+    },
+    {
+      "key": "s_gossip",
+      "path": "assets/production/characters/s_gossip_bright.webp"
+    },
+    {
+      "key": "s_oldman",
+      "path": "assets/production/characters/s_oldman_bright.webp"
+    },
+    {
+      "key": "s_smith",
+      "path": "assets/production/characters/s_smith_bright.webp"
+    },
+    {
+      "key": "s_lady",
+      "path": "assets/production/characters/s_lady_bright.webp"
+    },
+    {
+      "key": "s_beggar",
+      "path": "assets/production/characters/s_beggar_bright.webp"
+    },
+    {
+      "key": "s_boatman",
+      "path": "assets/production/characters/s_boatman_bright.webp"
+    },
+    {
+      "key": "s_bandit",
+      "path": "assets/production/characters/s_bandit_bright.webp"
+    },
+    {
+      "key": "s_chief",
+      "path": "assets/production/characters/s_chief_bright.webp"
+    },
+    {
+      "key": "s_villager",
+      "path": "assets/production/characters/s_villager_bright.webp"
+    },
+    {
+      "key": "s_child",
+      "path": "assets/production/characters/s_child_bright.webp"
+    },
+    {
+      "key": "s_merchant",
+      "path": "assets/production/characters/s_merchant_bright.webp"
+    },
+    {
+      "key": "s_dog",
+      "path": "assets/production/characters/s_dog_bright.webp"
+    },
+    {
+      "key": "s_rooster",
+      "path": "assets/production/characters/s_rooster_bright.webp"
+    },
+    {
+      "key": "s_snake",
+      "path": "assets/production/characters/s_snake_bright.webp"
+    },
+    {
+      "key": "s_wolf",
+      "path": "assets/production/characters/s_wolf_bright.webp"
+    },
+    {
+      "key": "s_ye",
+      "path": "assets/production/characters/s_ye.webp"
+    },
+    {
+      "key": "s_liu",
+      "path": "assets/production/characters/s_liu.webp"
+    },
+    {
+      "key": "s_zhou",
+      "path": "assets/production/characters/s_zhou.webp"
+    },
+    {
+      "key": "s_langli",
+      "path": "assets/production/characters/s_langli.webp"
+    },
+    {
+      "key": "p_hero",
+      "path": "assets/production/portraits/p_hero.webp"
+    },
+    {
+      "key": "p_monk",
+      "path": "assets/production/portraits/p_monk.webp"
+    },
+    {
+      "key": "p_soldier",
+      "path": "assets/production/portraits/p_soldier.webp"
+    },
+    {
+      "key": "p_gossip",
+      "path": "assets/production/portraits/p_gossip.webp"
+    },
+    {
+      "key": "p_oldman",
+      "path": "assets/production/portraits/p_oldman.webp"
+    },
+    {
+      "key": "p_smith",
+      "path": "assets/production/portraits/p_smith.webp"
+    },
+    {
+      "key": "p_lady",
+      "path": "assets/production/portraits/p_lady.webp"
+    },
+    {
+      "key": "p_beggar",
+      "path": "assets/production/portraits/p_beggar.webp"
+    },
+    {
+      "key": "p_boatman",
+      "path": "assets/production/portraits/p_boatman.webp"
+    },
+    {
+      "key": "p_bandit",
+      "path": "assets/production/portraits/p_bandit.webp"
+    },
+    {
+      "key": "p_chief",
+      "path": "assets/production/portraits/p_chief.webp"
+    },
+    {
+      "key": "p_ye",
+      "path": "assets/production/portraits/p_ye.webp"
+    },
+    {
+      "key": "p_liu",
+      "path": "assets/production/portraits/p_liu.webp"
+    },
+    {
+      "key": "p_zhou",
+      "path": "assets/production/portraits/p_zhou.webp"
+    },
+    {
+      "key": "p_langli",
+      "path": "assets/production/portraits/p_langli.webp"
+    },
+    {
+      "key": "m_crossing_v2",
+      "path": "assets/production/maps/m_crossing_v2.webp"
+    },
+    {
+      "key": "m_crossing_v2_props",
+      "path": "assets/production/maps/m_crossing_v2_props.webp"
+    },
+    {
+      "key": "m_crossing_far",
+      "path": "assets/production/maps/m_crossing_far.webp"
+    },
+    {
+      "key": "m_ferry_e_v2",
+      "path": "assets/production/maps/m_ferry_e_v2.webp"
+    },
+    {
+      "key": "m_ferry_e_v2_props",
+      "path": "assets/production/maps/m_ferry_e_v2_props.webp"
+    },
+    {
+      "key": "containers_v1",
+      "path": "assets/production/shared/containers_v1.webp"
+    },
+    {
+      "key": "s_opening_hero_modern",
+      "path": "assets/production/characters/s_opening_hero_modern.webp"
+    },
+    {
+      "key": "s_prologue_wilddog_v1",
+      "path": "assets/production/characters/s_prologue_wilddog_v1.webp"
+    },
+    {
+      "key": "b_hero_modern",
+      "path": "assets/production/battle/b_hero_modern.webp"
+    },
+    {
+      "key": "a_opening_hero_modern",
+      "path": "assets/production/icons-and-props/a_opening_hero_modern.webp"
+    },
+    {
+      "key": "p_opening_hero_modern",
+      "path": "assets/production/portraits/p_opening_hero_modern.webp"
+    },
+    {
+      "key": "p_opening_hero_modern_guard",
+      "path": "assets/production/portraits/p_opening_hero_modern_guard.webp"
+    },
+    {
+      "key": "p_opening_hero_modern_smile",
+      "path": "assets/production/portraits/p_opening_hero_modern_smile.webp"
+    },
+    {
+      "key": "p_opening_hero_modern_worry",
+      "path": "assets/production/portraits/p_opening_hero_modern_worry.webp"
+    },
+    {
+      "key": "p_opening_hero_modern_firm",
+      "path": "assets/production/portraits/p_opening_hero_modern_firm.webp"
+    },
+    {
+      "key": "p_opening_hero_modern_surprise",
+      "path": "assets/production/portraits/p_opening_hero_modern_surprise.webp"
+    },
+    {
+      "key": "p_opening_hero_modern_hurt",
+      "path": "assets/production/portraits/p_opening_hero_modern_hurt.webp"
+    },
+    {
+      "key": "b_ye_initial",
+      "path": "assets/production/battle/b_ye_initial.webp"
+    },
+    {
+      "key": "b_wilddog",
+      "path": "assets/production/battle/b_wilddog.webp"
+    },
+    {
+      "key": "bb_prologue_backhill_v1",
+      "path": "assets/production/battle/bb_prologue_backhill_v1.webp"
+    },
+    {
+      "key": "s_opening_zhouyan",
+      "path": "assets/production/characters/s_opening_zhouyan.webp"
+    },
+    {
+      "key": "s_opening_luheng",
+      "path": "assets/production/characters/s_opening_luheng.webp"
+    },
+    {
+      "key": "s_opening_chengduo",
+      "path": "assets/production/characters/s_opening_chengduo.webp"
+    },
+    {
+      "key": "s_opening_censhuang",
+      "path": "assets/production/characters/s_opening_censhuang.webp"
+    },
+    {
+      "key": "s_opening_wukui",
+      "path": "assets/production/characters/s_opening_wukui.webp"
+    },
+    {
+      "key": "s_opening_aunt",
+      "path": "assets/production/characters/s_opening_aunt.webp"
+    },
+    {
+      "key": "s_opening_chen",
+      "path": "assets/production/characters/s_opening_chen.webp"
+    },
+    {
+      "key": "s_opening_apothecary",
+      "path": "assets/production/characters/s_opening_apothecary.webp"
+    },
+    {
+      "key": "s_opening_steward",
+      "path": "assets/production/characters/s_opening_steward.webp"
+    },
+    {
+      "key": "s_opening_retainer",
+      "path": "assets/production/characters/s_opening_retainer.webp"
+    },
+    {
+      "key": "s_opening_procurement",
+      "path": "assets/production/characters/s_opening_procurement.webp"
+    },
+    {
+      "key": "s_opening_procurement_aide",
+      "path": "assets/production/characters/s_opening_procurement_aide.webp"
+    },
+    {
+      "key": "s_opening_bailiff",
+      "path": "assets/production/characters/s_opening_bailiff.webp"
+    },
+    {
+      "key": "s_qh_bandit",
+      "path": "assets/production/characters/s_qh_bandit.webp"
+    },
+    {
+      "key": "s_qh_hero_initial",
+      "path": "assets/production/characters/s_qh_hero_initial.webp"
+    },
+    {
+      "key": "a_opening_apothecary",
+      "path": "assets/production/icons-and-props/a_opening_apothecary.webp"
+    },
+    {
+      "key": "a_opening_aunt",
+      "path": "assets/production/icons-and-props/a_opening_aunt.webp"
+    },
+    {
+      "key": "a_opening_bailiff",
+      "path": "assets/production/icons-and-props/a_opening_bailiff.webp"
+    },
+    {
+      "key": "a_opening_censhuang",
+      "path": "assets/production/icons-and-props/a_opening_censhuang.webp"
+    },
+    {
+      "key": "a_opening_chen",
+      "path": "assets/production/icons-and-props/a_opening_chen.webp"
+    },
+    {
+      "key": "a_opening_chengduo",
+      "path": "assets/production/icons-and-props/a_opening_chengduo.webp"
+    },
+    {
+      "key": "a_opening_hero_village",
+      "path": "assets/production/icons-and-props/a_opening_hero_village.webp"
+    },
+    {
+      "key": "a_opening_luheng",
+      "path": "assets/production/icons-and-props/a_opening_luheng.webp"
+    },
+    {
+      "key": "a_opening_procurement",
+      "path": "assets/production/icons-and-props/a_opening_procurement.webp"
+    },
+    {
+      "key": "a_opening_procurement_aide",
+      "path": "assets/production/icons-and-props/a_opening_procurement_aide.webp"
+    },
+    {
+      "key": "a_opening_retainer",
+      "path": "assets/production/icons-and-props/a_opening_retainer.webp"
+    },
+    {
+      "key": "a_opening_steward",
+      "path": "assets/production/icons-and-props/a_opening_steward.webp"
+    },
+    {
+      "key": "a_opening_wukui",
+      "path": "assets/production/icons-and-props/a_opening_wukui.webp"
+    },
+    {
+      "key": "a_opening_zhouyan",
+      "path": "assets/production/icons-and-props/a_opening_zhouyan.webp"
+    },
+    {
+      "key": "b_hero_village",
+      "path": "assets/production/battle/b_hero_village.webp"
+    },
+    {
+      "key": "b_luheng",
+      "path": "assets/production/battle/b_luheng.webp"
+    },
+    {
+      "key": "p_opening_censhuang",
+      "path": "assets/production/portraits/p_opening_censhuang.webp"
+    },
+    {
+      "key": "p_opening_censhuang_firm",
+      "path": "assets/production/portraits/p_opening_censhuang_firm.webp"
+    },
+    {
+      "key": "p_opening_censhuang_worry",
+      "path": "assets/production/portraits/p_opening_censhuang_worry.webp"
+    },
+    {
+      "key": "p_opening_chengduo",
+      "path": "assets/production/portraits/p_opening_chengduo.webp"
+    },
+    {
+      "key": "p_opening_chengduo_firm",
+      "path": "assets/production/portraits/p_opening_chengduo_firm.webp"
+    },
+    {
+      "key": "p_opening_chengduo_worry",
+      "path": "assets/production/portraits/p_opening_chengduo_worry.webp"
+    },
+    {
+      "key": "p_opening_hero_village",
+      "path": "assets/production/portraits/p_opening_hero_village.webp"
+    },
+    {
+      "key": "p_opening_hero_village_firm",
+      "path": "assets/production/portraits/p_opening_hero_village_firm.webp"
+    },
+    {
+      "key": "p_opening_hero_village_hurt",
+      "path": "assets/production/portraits/p_opening_hero_village_hurt.webp"
+    },
+    {
+      "key": "p_opening_hero_village_smile",
+      "path": "assets/production/portraits/p_opening_hero_village_smile.webp"
+    },
+    {
+      "key": "p_opening_hero_village_surprise",
+      "path": "assets/production/portraits/p_opening_hero_village_surprise.webp"
+    },
+    {
+      "key": "p_opening_hero_village_worry",
+      "path": "assets/production/portraits/p_opening_hero_village_worry.webp"
+    },
+    {
+      "key": "p_opening_luheng",
+      "path": "assets/production/portraits/p_opening_luheng.webp"
+    },
+    {
+      "key": "p_opening_luheng_firm",
+      "path": "assets/production/portraits/p_opening_luheng_firm.webp"
+    },
+    {
+      "key": "p_opening_luheng_worry",
+      "path": "assets/production/portraits/p_opening_luheng_worry.webp"
+    },
+    {
+      "key": "p_opening_wukui",
+      "path": "assets/production/portraits/p_opening_wukui.webp"
+    },
+    {
+      "key": "p_opening_wukui_firm",
+      "path": "assets/production/portraits/p_opening_wukui_firm.webp"
+    },
+    {
+      "key": "p_opening_wukui_worry",
+      "path": "assets/production/portraits/p_opening_wukui_worry.webp"
+    },
+    {
+      "key": "p_opening_zhouyan",
+      "path": "assets/production/portraits/p_opening_zhouyan.webp"
+    },
+    {
+      "key": "p_opening_zhouyan_firm",
+      "path": "assets/production/portraits/p_opening_zhouyan_firm.webp"
+    },
+    {
+      "key": "p_opening_zhouyan_worry",
+      "path": "assets/production/portraits/p_opening_zhouyan_worry.webp"
+    },
+    {
+      "key": "b_qh_luheng_v1",
+      "path": "assets/production/battle/b_qh_luheng_v1.webp"
+    },
+    {
+      "key": "b_qh_raider_front_v1",
+      "path": "assets/production/battle/b_qh_raider_front_v1.webp"
+    },
+    {
+      "key": "b_qh_raider_rear_v1",
+      "path": "assets/production/battle/b_qh_raider_rear_v1.webp"
+    },
+    {
+      "key": "bb_qh_training_v1",
+      "path": "assets/production/battle/bb_qh_training_v1.webp"
+    },
+    {
+      "key": "bb_qh_evacuation_v1",
+      "path": "assets/production/battle/bb_qh_evacuation_v1.webp"
+    },
+    {
+      "key": "s_qh_merchant",
+      "path": "assets/production/characters/s_qh_merchant.webp"
+    },
+    {
+      "key": "s_qh_oldman",
+      "path": "assets/production/characters/s_qh_oldman.webp"
+    },
+    {
+      "key": "m_qihe_clinic_interior",
+      "path": "assets/production/maps/m_qihe_clinic_interior.webp"
+    },
+    {
+      "key": "m_qihe_clinic_interior_fg",
+      "path": "assets/production/maps/m_qihe_clinic_interior_fg.webp"
+    },
+    {
+      "key": "m_qihe_ye_house",
+      "path": "assets/production/maps/m_qihe_ye_house.webp"
+    },
+    {
+      "key": "m_qihe_ye_house_fg",
+      "path": "assets/production/maps/m_qihe_ye_house_fg.webp"
+    },
+    {
+      "key": "m_qihe_inn_interior",
+      "path": "assets/production/maps/m_qihe_inn_interior.webp"
+    },
+    {
+      "key": "m_qihe_inn_interior_fg",
+      "path": "assets/production/maps/m_qihe_inn_interior_fg.webp"
+    },
+    {
+      "key": "m_qihe_chen_hall",
+      "path": "assets/production/maps/m_qihe_chen_hall.webp"
+    },
+    {
+      "key": "m_qihe_chen_hall_fg",
+      "path": "assets/production/maps/m_qihe_chen_hall_fg.webp"
+    },
+    {
+      "key": "m_qihe_chen_guest",
+      "path": "assets/production/maps/m_qihe_chen_guest.webp"
+    },
+    {
+      "key": "m_qihe_chen_guest_fg",
+      "path": "assets/production/maps/m_qihe_chen_guest_fg.webp"
+    },
+    {
+      "key": "m_qh_south",
+      "path": "assets/production/maps/m_qh_south.webp"
+    },
+    {
+      "key": "m_qh_south_fg",
+      "path": "assets/production/maps/m_qh_south_fg.webp"
+    },
+    {
+      "key": "m_qh_east",
+      "path": "assets/production/maps/m_qh_east.webp"
+    },
+    {
+      "key": "m_qh_east_fg",
+      "path": "assets/production/maps/m_qh_east_fg.webp"
+    },
+    {
+      "key": "m_qh_west",
+      "path": "assets/production/maps/m_qh_west.webp"
+    },
+    {
+      "key": "m_qh_west_fg",
+      "path": "assets/production/maps/m_qh_west_fg.webp"
+    },
+    {
+      "key": "m_qh_north",
+      "path": "assets/production/maps/m_qh_north.webp"
+    },
+    {
+      "key": "m_qh_north_fg",
+      "path": "assets/production/maps/m_qh_north_fg.webp"
+    },
+    {
+      "key": "m_qh_refuge",
+      "path": "assets/production/maps/m_qh_refuge.webp"
+    },
+    {
+      "key": "m_qh_refuge_fg",
+      "path": "assets/production/maps/m_qh_refuge_fg.webp"
+    },
+    {
+      "key": "m_qh_mountain",
+      "path": "assets/production/maps/m_qh_mountain.webp"
+    },
+    {
+      "key": "m_qh_mountain_fg",
+      "path": "assets/production/maps/m_qh_mountain_fg.webp"
+    },
+    {
+      "key": "m_qh_central",
+      "path": "assets/production/maps/m_qh_central.webp"
+    },
+    {
+      "key": "m_qh_central_fg",
+      "path": "assets/production/maps/m_qh_central_fg.webp"
+    },
+    {
+      "key": "b_wolf",
+      "path": "assets/production/battle/b_wolf.webp"
+    },
+    {
+      "key": "b_bandit",
+      "path": "assets/production/battle/b_bandit.webp"
+    },
+    {
+      "key": "r_qh_branch_v1",
+      "path": "assets/production/icons-and-props/r_qh_branch_v1.webp"
+    },
+    {
+      "key": "r_qh_herb_v1",
+      "path": "assets/production/icons-and-props/r_qh_herb_v1.webp"
+    },
+    {
+      "key": "r_qh_reed_v1",
+      "path": "assets/production/icons-and-props/r_qh_reed_v1.webp"
+    },
+    {
+      "key": "fx_poshi_seal",
+      "path": "assets/production/shared/fx_poshi_seal.webp"
+    },
+    {
+      "key": "fx_poshi_band",
+      "path": "assets/production/shared/fx_poshi_band.webp"
+    },
+    {
+      "key": "fx_poshi_po",
+      "path": "assets/production/shared/fx_poshi_po.webp"
+    },
+    {
+      "key": "fx_poshi_seal_s",
+      "path": "assets/production/shared/fx_poshi_seal_s.webp"
+    },
+    {
+      "key": "fx_poshi_ink",
+      "path": "assets/production/shared/fx_poshi_ink.webp"
+    },
+    {
+      "key": "p_hero_smile",
+      "path": "assets/production/portraits/p_hero_smile.webp"
+    },
+    {
+      "key": "p_hero_think",
+      "path": "assets/production/portraits/p_hero_think.webp"
+    },
+    {
+      "key": "p_hero_surprise",
+      "path": "assets/production/portraits/p_hero_surprise.webp"
+    },
+    {
+      "key": "p_hero_angry",
+      "path": "assets/production/portraits/p_hero_angry.webp"
+    },
+    {
+      "key": "p_hero_battle",
+      "path": "assets/production/portraits/p_hero_battle.webp"
+    },
+    {
+      "key": "p_hero_hurt",
+      "path": "assets/production/portraits/p_hero_hurt.webp"
+    },
+    {
+      "key": "p_suzhi_smile",
+      "path": "assets/production/portraits/p_suzhi_smile.webp"
+    },
+    {
+      "key": "p_suzhi_shy",
+      "path": "assets/production/portraits/p_suzhi_shy.webp"
+    },
+    {
+      "key": "p_suzhi_angry",
+      "path": "assets/production/portraits/p_suzhi_angry.webp"
+    },
+    {
+      "key": "p_suzhi_worry",
+      "path": "assets/production/portraits/p_suzhi_worry.webp"
+    },
+    {
+      "key": "p_suzhi_battle",
+      "path": "assets/production/portraits/p_suzhi_battle.webp"
+    },
+    {
+      "key": "p_suzhi_surprise",
+      "path": "assets/production/portraits/p_suzhi_surprise.webp"
+    },
+    {
+      "key": "p_ye_shy",
+      "path": "assets/production/portraits/p_ye_shy.webp"
+    },
+    {
+      "key": "p_ye_smile",
+      "path": "assets/production/portraits/p_ye_smile.webp"
+    },
+    {
+      "key": "p_ye_worry",
+      "path": "assets/production/portraits/p_ye_worry.webp"
+    },
+    {
+      "key": "p_ye_battle",
+      "path": "assets/production/portraits/p_ye_battle.webp"
+    },
+    {
+      "key": "p_ye_angry",
+      "path": "assets/production/portraits/p_ye_angry.webp"
+    },
+    {
+      "key": "p_ye_hurt",
+      "path": "assets/production/portraits/p_ye_hurt.webp"
+    },
+    {
+      "key": "p_ye_surprise",
+      "path": "assets/production/portraits/p_ye_surprise.webp"
+    },
+    {
+      "key": "s_hero_battle",
+      "path": "assets/production/characters/s_hero_battle.webp"
+    },
+    {
+      "key": "w_hero",
+      "path": "assets/production/characters/s_hero_walk_bright.webp"
+    },
+    {
+      "key": "w_suzhi",
+      "path": "assets/production/characters/s_suzhi_walk_bright.webp"
+    },
+    {
+      "key": "w_dog",
+      "path": "assets/production/characters/s_dog_walk_bright.webp"
+    },
+    {
+      "key": "w_qh_hero_initial",
+      "path": "assets/production/characters/s_qh_hero_initial_walk_bright.webp"
+    },
+    {
+      "key": "r_hero",
+      "path": "assets/production/characters/s_hero_run_bright.webp"
+    },
+    {
+      "key": "i_hero",
+      "path": "assets/production/characters/s_hero_idle_bright.webp"
+    },
+    {
+      "key": "r_qh_hero_initial",
+      "path": "assets/production/characters/s_qh_hero_initial_run_bright.webp"
+    },
+    {
+      "key": "r_suzhi",
+      "path": "assets/production/characters/s_suzhi_run_bright.webp"
+    },
+    {
+      "key": "r_dog",
+      "path": "assets/production/characters/s_dog_run_bright.webp"
+    },
+    {
+      "key": "i_dog",
+      "path": "assets/production/characters/s_dog_idle_bright.webp"
+    },
+    {
+      "key": "i_qh_hero_initial",
+      "path": "assets/production/characters/s_qh_hero_initial_idle_bright.webp"
+    },
+    {
+      "key": "s_suzhi",
+      "path": "assets/production/characters/s_suzhi_bright.webp"
+    },
+    {
+      "key": "i_suzhi",
+      "path": "assets/production/characters/s_suzhi_idle_bright.webp"
+    },
+    {
+      "key": "p_suzhi",
+      "path": "assets/production/portraits/p_suzhi.webp"
+    },
+    {
+      "key": "s_hero_bright",
+      "path": "assets/production/characters/s_hero_bright.webp"
+    },
+    {
+      "key": "s_monk_bright",
+      "path": "assets/production/characters/s_monk_bright.webp"
+    },
+    {
+      "key": "s_soldier_bright",
+      "path": "assets/production/characters/s_soldier_bright.webp"
+    },
+    {
+      "key": "s_gossip_bright",
+      "path": "assets/production/characters/s_gossip_bright.webp"
+    },
+    {
+      "key": "s_oldman_bright",
+      "path": "assets/production/characters/s_oldman_bright.webp"
+    },
+    {
+      "key": "s_smith_bright",
+      "path": "assets/production/characters/s_smith_bright.webp"
+    },
+    {
+      "key": "s_lady_bright",
+      "path": "assets/production/characters/s_lady_bright.webp"
+    },
+    {
+      "key": "s_boatman_bright",
+      "path": "assets/production/characters/s_boatman_bright.webp"
+    },
+    {
+      "key": "s_beggar_bright",
+      "path": "assets/production/characters/s_beggar_bright.webp"
+    },
+    {
+      "key": "s_bandit_bright",
+      "path": "assets/production/characters/s_bandit_bright.webp"
+    },
+    {
+      "key": "s_chief_bright",
+      "path": "assets/production/characters/s_chief_bright.webp"
+    },
+    {
+      "key": "s_villager_bright",
+      "path": "assets/production/characters/s_villager_bright.webp"
+    },
+    {
+      "key": "s_child_bright",
+      "path": "assets/production/characters/s_child_bright.webp"
+    },
+    {
+      "key": "s_dog_bright",
+      "path": "assets/production/characters/s_dog_bright.webp"
+    },
+    {
+      "key": "s_merchant_bright",
+      "path": "assets/production/characters/s_merchant_bright.webp"
+    },
+    {
+      "key": "s_suzhi_bright",
+      "path": "assets/production/characters/s_suzhi_bright.webp"
+    },
+    {
+      "key": "s_snake_bright",
+      "path": "assets/production/characters/s_snake_bright.webp"
+    },
+    {
+      "key": "s_wolf_bright",
+      "path": "assets/production/characters/s_wolf_bright.webp"
+    },
+    {
+      "key": "s_rooster_bright",
+      "path": "assets/production/characters/s_rooster_bright.webp"
+    },
+    {
+      "key": "m_prologue_backhill_v1",
+      "path": "assets/production/maps/m_prologue_backhill_v1.webp"
+    },
+    {
+      "key": "c_prologue_wilddog_r",
+      "path": "assets/production/characters/s_prologue_wilddog_v1.webp"
+    }
+  ],
+  "scenes": [
+    {
+      "id": "temple",
+      "bg": "m_temple_v2",
+      "propImg": "m_temple_v2_props"
+    },
+    {
+      "id": "temple_out",
+      "bg": "m_temple_out_v2",
+      "propImg": "m_temple_out_v2_props"
+    },
+    {
+      "id": "gate",
+      "bg": "m_gate_v2",
+      "propImg": "m_gate_v2_props"
+    },
+    {
+      "id": "street",
+      "bg": "m_street_v2",
+      "propImg": "m_street_v2_props"
+    },
+    {
+      "id": "alley",
+      "bg": "m_alley_v2",
+      "propImg": "m_alley_v2_props"
+    },
+    {
+      "id": "ferry",
+      "bg": "m_ferry_v2",
+      "propImg": "m_ferry_v2_props"
+    },
+    {
+      "id": "bgate",
+      "bg": "m_bgate_v2",
+      "propImg": "m_bgate_v2_props"
+    },
+    {
+      "id": "cave",
+      "bg": "m_cave_v2",
+      "propImg": "m_cave_v2_props"
+    },
+    {
+      "id": "crossing",
+      "bg": "m_crossing_v2",
+      "propImg": "m_crossing_v2_props"
+    },
+    {
+      "id": "ferry_e",
+      "bg": "m_ferry_e_v2",
+      "propImg": "m_ferry_e_v2_props"
+    },
+    {
+      "id": "qihe_trial",
+      "bg": "m_qh_central",
+      "fg": "m_qh_central_fg",
+      "playerSp": "opening_hero_modern"
+    },
+    {
+      "id": "prologue_clinic_interior",
+      "bg": "m_qihe_clinic_interior",
+      "fg": "m_qihe_clinic_interior_fg"
+    },
+    {
+      "id": "prologue_ye_house",
+      "bg": "m_qihe_ye_house",
+      "fg": "m_qihe_ye_house_fg"
+    },
+    {
+      "id": "prologue_inn_interior",
+      "bg": "m_qihe_inn_interior",
+      "fg": "m_qihe_inn_interior_fg"
+    },
+    {
+      "id": "prologue_chen_hall",
+      "bg": "m_qihe_chen_hall",
+      "fg": "m_qihe_chen_hall_fg"
+    },
+    {
+      "id": "prologue_chen_guest",
+      "bg": "m_qihe_chen_guest",
+      "fg": "m_qihe_chen_guest_fg"
+    },
+    {
+      "id": "prologue_backhill",
+      "bg": "m_prologue_backhill_v1",
+      "playerSp": "opening_hero_modern"
+    },
+    {
+      "id": "qh_south",
+      "bg": "m_qh_south",
+      "fg": "m_qh_south_fg"
+    },
+    {
+      "id": "qh_east",
+      "bg": "m_qh_east",
+      "fg": "m_qh_east_fg"
+    },
+    {
+      "id": "qh_west",
+      "bg": "m_qh_west",
+      "fg": "m_qh_west_fg"
+    },
+    {
+      "id": "qh_north",
+      "bg": "m_qh_north",
+      "fg": "m_qh_north_fg"
+    },
+    {
+      "id": "qh_refuge",
+      "bg": "m_qh_refuge",
+      "fg": "m_qh_refuge_fg"
+    },
+    {
+      "id": "qh_mountain",
+      "bg": "m_qh_mountain",
+      "fg": "m_qh_mountain_fg"
+    }
+  ],
+  "walks": [
+    {
+      "id": "hero",
+      "walk": {
+        "n": 12,
+        "cell": [
+          78,
+          141
+        ],
+        "order": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11
+        ],
+        "file": "s_hero_walk",
+        "bright": "s_hero_walk_bright",
+        "stride": 0.175,
+        "ms": null
+      },
+      "run": {
+        "n": 10,
+        "cell": [
+          90,
+          141
+        ],
+        "order": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "file": "s_hero_run",
+        "bright": "s_hero_run_bright",
+        "stride": 0.23,
+        "ms": null
+      },
+      "idle": {
+        "n": 6,
+        "cell": [
+          90,
+          141
+        ],
+        "order": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "file": "s_hero_idle",
+        "bright": "s_hero_idle_bright",
+        "stride": 0,
+        "ms": [
+          420,
+          180,
+          380,
+          200,
+          260,
+          200
+        ]
+      }
+    },
+    {
+      "id": "monk",
+      "walk": null,
+      "run": null,
+      "idle": null
+    },
+    {
+      "id": "soldier",
+      "walk": null,
+      "run": null,
+      "idle": null
+    },
+    {
+      "id": "gossip",
+      "walk": null,
+      "run": null,
+      "idle": null
+    },
+    {
+      "id": "oldman",
+      "walk": null,
+      "run": null,
+      "idle": null
+    },
+    {
+      "id": "smith",
+      "walk": null,
+      "run": null,
+      "idle": null
+    },
+    {
+      "id": "lady",
+      "walk": null,
+      "run": null,
+      "idle": null
+    },
+    {
+      "id": "beggar",
+      "walk": null,
+      "run": null,
+      "idle": null
+    },
+    {
+      "id": "boatman",
+      "walk": null,
+      "run": null,
+      "idle": null
+    },
+    {
+      "id": "bandit",
+      "walk": null,
+      "run": null,
+      "idle": null
+    },
+    {
+      "id": "chief",
+      "walk": null,
+      "run": null,
+      "idle": null
+    },
+    {
+      "id": "villager",
+      "walk": null,
+      "run": null,
+      "idle": null
+    },
+    {
+      "id": "child",
+      "walk": null,
+      "run": null,
+      "idle": null
+    },
+    {
+      "id": "merchant",
+      "walk": null,
+      "run": null,
+      "idle": null
+    },
+    {
+      "id": "dog",
+      "walk": {
+        "n": 12,
+        "cell": [
+          138,
+          141
+        ],
+        "order": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11
+        ],
+        "file": "s_dog_walk",
+        "bright": "s_dog_walk_bright",
+        "stride": 0.17,
+        "ms": null
+      },
+      "run": {
+        "n": 10,
+        "cell": [
+          138,
+          141
+        ],
+        "order": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "file": "s_dog_run",
+        "bright": "s_dog_run_bright",
+        "stride": 0.29,
+        "ms": null
+      },
+      "idle": {
+        "n": 6,
+        "cell": [
+          138,
+          141
+        ],
+        "order": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "file": "s_dog_idle",
+        "bright": "s_dog_idle_bright",
+        "stride": 0,
+        "ms": [
+          170,
+          130,
+          210,
+          130,
+          200,
+          150
+        ]
+      }
+    },
+    {
+      "id": "rooster",
+      "walk": null,
+      "run": null,
+      "idle": null
+    },
+    {
+      "id": "snake",
+      "walk": null,
+      "run": null,
+      "idle": null
+    },
+    {
+      "id": "wolf",
+      "walk": null,
+      "run": null,
+      "idle": null
+    },
+    {
+      "id": "suzhi",
+      "walk": {
+        "n": 12,
+        "cell": [
+          72,
+          141
+        ],
+        "order": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11
+        ],
+        "file": "s_suzhi_walk",
+        "bright": "s_suzhi_walk_bright",
+        "stride": 0.175,
+        "ms": null
+      },
+      "run": {
+        "n": 10,
+        "cell": [
+          90,
+          141
+        ],
+        "order": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "file": "s_suzhi_run",
+        "bright": "s_suzhi_run_bright",
+        "stride": 0.23,
+        "ms": null
+      },
+      "idle": {
+        "n": 6,
+        "cell": [
+          72,
+          141
+        ],
+        "order": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "file": "s_suzhi_idle",
+        "bright": "s_suzhi_idle_bright",
+        "stride": 0,
+        "ms": [
+          420,
+          180,
+          380,
+          200,
+          260,
+          200
+        ]
+      }
+    },
+    {
+      "id": "ye",
+      "walk": null,
+      "run": null,
+      "idle": null
+    },
+    {
+      "id": "liu",
+      "walk": null,
+      "run": null,
+      "idle": null
+    },
+    {
+      "id": "zhou",
+      "walk": null,
+      "run": null,
+      "idle": null
+    },
+    {
+      "id": "langli",
+      "walk": null,
+      "run": null,
+      "idle": null
+    },
+    {
+      "id": "opening_hero_modern",
+      "walk": null,
+      "run": null,
+      "idle": null
+    },
+    {
+      "id": "opening_zhouyan",
+      "walk": null,
+      "run": null,
+      "idle": null
+    },
+    {
+      "id": "opening_luheng",
+      "walk": null,
+      "run": null,
+      "idle": null
+    },
+    {
+      "id": "opening_chengduo",
+      "walk": null,
+      "run": null,
+      "idle": null
+    },
+    {
+      "id": "opening_censhuang",
+      "walk": null,
+      "run": null,
+      "idle": null
+    },
+    {
+      "id": "opening_wukui",
+      "walk": null,
+      "run": null,
+      "idle": null
+    },
+    {
+      "id": "opening_aunt",
+      "walk": null,
+      "run": null,
+      "idle": null
+    },
+    {
+      "id": "opening_chen",
+      "walk": null,
+      "run": null,
+      "idle": null
+    },
+    {
+      "id": "opening_apothecary",
+      "walk": null,
+      "run": null,
+      "idle": null
+    },
+    {
+      "id": "opening_steward",
+      "walk": null,
+      "run": null,
+      "idle": null
+    },
+    {
+      "id": "opening_retainer",
+      "walk": null,
+      "run": null,
+      "idle": null
+    },
+    {
+      "id": "opening_procurement",
+      "walk": null,
+      "run": null,
+      "idle": null
+    },
+    {
+      "id": "opening_procurement_aide",
+      "walk": null,
+      "run": null,
+      "idle": null
+    },
+    {
+      "id": "opening_bailiff",
+      "walk": null,
+      "run": null,
+      "idle": null
+    },
+    {
+      "id": "qh_hero_initial",
+      "walk": {
+        "n": 12,
+        "cell": [
+          78,
+          147
+        ],
+        "order": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11
+        ],
+        "file": "s_qh_hero_initial_walk",
+        "bright": "s_qh_hero_initial_walk_bright",
+        "stride": 0.175,
+        "ms": null
+      },
+      "run": {
+        "n": 10,
+        "cell": [
+          84,
+          147
+        ],
+        "order": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "file": "s_qh_hero_initial_run",
+        "bright": "s_qh_hero_initial_run_bright",
+        "stride": 0.23,
+        "ms": null
+      },
+      "idle": {
+        "n": 6,
+        "cell": [
+          78,
+          147
+        ],
+        "order": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "file": "s_qh_hero_initial_idle",
+        "bright": "s_qh_hero_initial_idle_bright",
+        "stride": 0,
+        "ms": [
+          420,
+          180,
+          380,
+          200,
+          260,
+          200
+        ]
+      }
+    },
+    {
+      "id": "qh_bandit",
+      "walk": null,
+      "run": null,
+      "idle": null
+    },
+    {
+      "id": "qh_merchant",
+      "walk": null,
+      "run": null,
+      "idle": null
+    },
+    {
+      "id": "qh_oldman",
+      "walk": null,
+      "run": null,
+      "idle": null
+    }
+  ],
+  "requests": [
+    {
+      "path": "assets/production/shared/fx_poshi_seal.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/shared/fx_poshi_band.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/shared/fx_poshi_po.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/shared/fx_poshi_seal_s.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/shared/fx_poshi_ink.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/portraits/p_hero_smile.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/portraits/p_hero_think.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/portraits/p_hero_surprise.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/portraits/p_hero_angry.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/portraits/p_hero_battle.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/portraits/p_hero_hurt.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/portraits/p_suzhi_shy.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/portraits/p_suzhi_smile.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/ui/jianghu-v4/manifest.json",
+      "status": 200
+    },
+    {
+      "path": "assets/production/portraits/p_suzhi_angry.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/portraits/p_suzhi_worry.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/portraits/p_suzhi_battle.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/portraits/p_suzhi_surprise.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/portraits/p_ye_shy.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/portraits/p_ye_smile.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/portraits/p_ye_worry.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/portraits/p_ye_angry.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/portraits/p_ye_battle.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/portraits/p_ye_surprise.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/portraits/p_ye_hurt.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/portraits/p_opening_hero_modern_smile.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/portraits/p_opening_hero_modern_worry.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/portraits/p_opening_hero_modern_firm.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/portraits/p_opening_hero_modern_surprise.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/portraits/p_opening_hero_village_smile.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/portraits/p_opening_hero_modern_hurt.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/portraits/p_opening_hero_village_worry.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/portraits/p_opening_hero_village_firm.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/portraits/p_opening_hero_village_surprise.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/portraits/p_opening_hero_village_hurt.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/portraits/p_opening_zhouyan_worry.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/portraits/p_opening_zhouyan_firm.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/portraits/p_opening_luheng_worry.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/portraits/p_opening_chengduo_firm.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/portraits/p_opening_luheng_firm.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/portraits/p_opening_censhuang_worry.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/portraits/p_opening_censhuang_firm.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/portraits/p_opening_chengduo_worry.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/portraits/p_opening_wukui_firm.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/portraits/p_opening_wukui_worry.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/characters/s_hero_battle.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/maps/m_world.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/shared/bg_title.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/maps/m_street_v2.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/maps/m_street_v2_props.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/maps/m_alley_v2.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/maps/m_alley_v2_props.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/maps/m_ferry_v2.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/maps/m_temple_v2.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/maps/m_temple_out_v2.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/maps/m_temple_v2_props.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/maps/m_ferry_v2_props.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/maps/m_temple_out_v2_props.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/maps/m_gate_v2.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/maps/m_cave_v2_props.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/maps/m_bgate_v2.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/maps/m_bgate_v2_props.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/maps/m_gate_v2_props.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/maps/m_cave_v2.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/characters/s_hero.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/characters/s_soldier.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/characters/s_oldman.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/characters/s_monk.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/characters/s_gossip.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/characters/s_smith.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/characters/s_lady.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/characters/s_boatman.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/characters/s_bandit.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/characters/s_beggar.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/characters/s_chief.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/characters/s_villager.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/characters/s_child.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/characters/s_merchant.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/characters/s_rooster.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/characters/s_dog.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/characters/s_snake.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/characters/s_wolf.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/characters/s_liu.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/characters/s_ye.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/characters/s_zhou.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/characters/s_langli.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/portraits/p_hero.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/portraits/p_monk.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/portraits/p_gossip.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/portraits/p_oldman.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/portraits/p_smith.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/portraits/p_soldier.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/portraits/p_lady.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/portraits/p_beggar.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/portraits/p_boatman.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/portraits/p_chief.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/portraits/p_liu.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/portraits/p_bandit.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/portraits/p_zhou.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/portraits/p_ye.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/portraits/p_langli.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/maps/m_crossing_v2.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/maps/m_crossing_v2_props.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/maps/m_crossing_far.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/maps/m_ferry_e_v2.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/maps/m_ferry_e_v2_props.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/shared/containers_v1.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/characters/s_opening_hero_modern.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/battle/b_hero_modern.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/characters/s_prologue_wilddog_v1.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/portraits/p_opening_hero_modern.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/portraits/p_opening_hero_modern_guard.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/icons-and-props/a_opening_hero_modern.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/battle/b_wilddog.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/battle/b_ye_initial.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/battle/bb_prologue_backhill_v1.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/characters/s_opening_zhouyan.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/characters/s_opening_luheng.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/characters/s_opening_chengduo.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/characters/s_opening_wukui.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/characters/s_opening_censhuang.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/characters/s_opening_aunt.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/characters/s_opening_chen.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/characters/s_opening_apothecary.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/characters/s_opening_steward.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/characters/s_opening_retainer.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/characters/s_opening_procurement_aide.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/characters/s_opening_bailiff.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/characters/s_opening_procurement.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/characters/s_qh_bandit.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/characters/s_qh_hero_initial.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/icons-and-props/a_opening_apothecary.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/icons-and-props/a_opening_aunt.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/icons-and-props/a_opening_bailiff.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/icons-and-props/a_opening_censhuang.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/icons-and-props/a_opening_hero_village.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/icons-and-props/a_opening_chengduo.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/icons-and-props/a_opening_luheng.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/icons-and-props/a_opening_chen.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/icons-and-props/a_opening_wukui.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/icons-and-props/a_opening_steward.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/icons-and-props/a_opening_procurement.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/icons-and-props/a_opening_procurement_aide.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/icons-and-props/a_opening_retainer.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/icons-and-props/a_opening_zhouyan.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/battle/b_hero_village.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/battle/b_luheng.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/portraits/p_opening_censhuang.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/portraits/p_opening_chengduo.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/portraits/p_opening_hero_village.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/portraits/p_opening_luheng.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/portraits/p_opening_zhouyan.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/battle/b_qh_luheng_v1.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/portraits/p_opening_wukui.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/battle/b_qh_raider_front_v1.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/battle/bb_qh_training_v1.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/battle/b_qh_raider_rear_v1.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/battle/bb_qh_evacuation_v1.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/characters/s_qh_merchant.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/maps/m_qihe_clinic_interior_fg.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/characters/s_qh_oldman.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/maps/m_qihe_ye_house.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/maps/m_qihe_clinic_interior.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/maps/m_qihe_ye_house_fg.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/maps/m_qihe_inn_interior.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/maps/m_qihe_inn_interior_fg.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/maps/m_qihe_chen_hall.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/maps/m_qihe_chen_hall_fg.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/maps/m_qihe_chen_guest.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/maps/m_qihe_chen_guest_fg.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/maps/m_qh_south.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/maps/m_qh_south_fg.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/maps/m_qh_east.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/maps/m_qh_east_fg.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/maps/m_qh_west.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/maps/m_qh_west_fg.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/maps/m_qh_north_fg.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/maps/m_qh_north.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/maps/m_qh_refuge.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/maps/m_qh_refuge_fg.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/maps/m_qh_mountain.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/maps/m_qh_mountain_fg.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/maps/m_qh_central.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/maps/m_qh_central_fg.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/battle/b_wolf.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/battle/b_bandit.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/icons-and-props/r_qh_branch_v1.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/icons-and-props/r_qh_reed_v1.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/icons-and-props/r_qh_herb_v1.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/characters/s_hero_walk_bright.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/characters/s_suzhi_walk_bright.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/characters/s_dog_walk_bright.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/characters/s_qh_hero_initial_walk_bright.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/characters/s_hero_run_bright.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/characters/s_suzhi_run_bright.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/characters/s_qh_hero_initial_run_bright.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/characters/s_dog_run_bright.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/characters/s_hero_idle_bright.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/characters/s_dog_idle_bright.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/characters/s_qh_hero_initial_idle_bright.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/s_suzhi.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/characters/s_suzhi_idle_bright.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/portraits/p_suzhi.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/characters/s_hero_bright.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/characters/s_monk_bright.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/characters/s_soldier_bright.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/characters/s_gossip_bright.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/characters/s_oldman_bright.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/characters/s_smith_bright.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/characters/s_lady_bright.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/characters/s_boatman_bright.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/characters/s_beggar_bright.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/characters/s_bandit_bright.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/characters/s_chief_bright.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/characters/s_villager_bright.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/characters/s_child_bright.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/characters/s_dog_bright.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/characters/s_merchant_bright.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/characters/s_suzhi_bright.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/characters/s_snake_bright.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/characters/s_wolf_bright.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/characters/s_rooster_bright.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/p_opening_hero_modern.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/production/maps/m_prologue_backhill_v1.webp",
+      "status": 200
+    },
+    {
+      "path": "assets/ui/jianghu-v5/icons-atlas.png",
+      "status": 200
+    }
+  ],
+  "errors": []
+}

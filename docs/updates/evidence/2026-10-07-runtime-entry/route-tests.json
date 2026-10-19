@@ -1,0 +1,17 @@
+{
+  "passed": 10,
+  "route_cases": 105,
+  "scope": "entry guard VM and source contracts; browser and server checks recorded separately",
+  "checks": [
+    "guard copies and early HTML identities agree",
+    "every local library port and default hash reaches current homepage",
+    "wrong workspace on the canonical port fails closed without a redirect loop",
+    "file-opening either workspace reaches current origin without playing",
+    "current alternate origin preserves only a valid journey and does not auto-resume",
+    "current canonical fresh, continue and review URLs remain unchanged",
+    "unknown current hashes cannot boot the old title or carry play/review flags",
+    "explicit historical preview remains available with a permanent current-game link",
+    "hosted runtimes do not redirect visitors to their own localhost",
+    "both engines refuse to initialize gameplay while redirecting"
+  ]
+}

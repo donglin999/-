@@ -1,5 +1,9 @@
 # 内容编写指南
 
+状态：现行　最后核对：2026-10-19
+
+> **2026-10-19：** `#street`、`#streetbright`、`#xiangyang` 襄阳演示入口与旧标题／建角流程已撤除，访问这些后缀直接进入栖河首页；`js/story.js` 的襄阳剧情、`quests.js`、`xiangyang-*.js`、`npc-*`、`containers.js` 已移入 `_attic/2026-10-19-deprecated/`。本页涉及它们的内容只作历史记录，见[弃用入口清理](updates/2026-10-19-deprecated-entries.md)。
+
 所有剧情内容在 `js/story.js`，数据表在 `js/core.js`（`SKILLS` `ITEMS` `ORIGINS`）与 `js/battle.js`（`BSK` `FOE_DEF` `PARTY_DEF`）。剧情脚本是 `async` 函数，依次 `await` 对话/选择/战斗。
 
 ## 1. 场景定义 `SC[id]`
@@ -89,7 +93,7 @@ SC.myscene={name:'地名',bg:'m_myscene',start:[24,20],region:'xiangyang',
 | `await learn(k)` | 习得武学（已会则无事） |
 | `await moral(d)` | 道德 ±d，夹在 0–30 |
 | `hasFlag(f)` / `setFlag(f,v=1)` | 剧情标记，存于 `S.flags` |
-| `await battle(opt)` | 见 [battle.md](battle.md) |
+| `await battle(opt)` | 见 [battle.md](archive/battle.md) |
 | `await goScene(id,at)` / `openMap()` | 切场景 / 大地图 |
 | `hud()` | 刷新 HUD（任务行变化后调用） |
 
@@ -217,3 +221,20 @@ FOE_DEF={bandit:{shield:3,weak:['拳','棍','暗器','阳'],drops:{bun:25}},
 | `rumorBroker(n,R)` | `RUMORS`：`[{id,t,p,tag,tease,txt,unlock?,on?()}]`，已买记在 `S.rumors` | 本次新买的 id 数组；买入时调用 `on()` |
 
 它们都通过 `openPanel()` 打开 `#panel`，`gpShell()` 统一绘制左侧 NPC 立绘（`assets/p_{sp}.webp`）与卷轴标题。
+
+## 10. 培养模式剧情：时间、地点、闲逛与节奏（2026-10-08）
+
+适用于归云谷培养里的所有剧情（师门、主线、来客、闲逛支线）。设计细则与当前一览见 [归云谷一家](design/qihe-map/expansion/guiyun-household.md)。
+
+**每段剧情必须声明**
+- `place`（地点键或中文别名，须在 `js/qh-mode-cultivation-scenes.js` 场景总表里登记）与 `time`（`day`／`dusk`／`night`）。背景、地点牌、夜间人物压暗都由总表解析，剧情里不写图片路径。剧情中途换景用 `card('当晚',{place,time})`。
+- 开放窗口 `window:[起,止]`（slot＝(月−1)×5＋时段，第二年加 60）。不得跨整月历练（五、十、十六……月）与三月中旬送药（slot 12）。
+- 关系加成：每个选项都要给关系值（`bonds`），可以同时给多人；选项之间的数值要有差别，后续剧情会按关系值分歧。人物须在 `qh-mode-cultivation-relations.js` 有往来档案。
+- 立绘：现有表情不合场面（受伤、睡着等）时，不要硬套，另做状态档（如 `fang` 的 `hurt_*`、`dou` 的 `sleep`），在剧情定义用 `state:{人物:'状态'}` 或单句 `moods` 指定；新图以本人正式 Q 版为底图编辑，抠图后按头肩轮廓对齐底图。
+
+**闲逛与节奏规则（用户定）**
+- 闲逛先选地点；该地点此刻有未完成、条件满足的剧情就开场，多段同时可遇按确定性随机抽一段；没有就是纯逛，不触发任何内容。
+- **每个时段闲逛最多遇一段**剧情。
+- **触发完一段时间里的全部闲逛剧情，约需该段自由时段的四分之三**。以“第一次去汉皋前”（原写作“第一次去襄阳前”；第一年正月–四月，自由时段 19 个）为基准；之后每段（两次整月历练之间、或年末）按同一比例编排。可遇剧情数 ÷ 自由时段数须在 0.65～0.85 之间：超出就把支线挪到别的时段、改为到期自动开场或删减；不足就补支线。
+- 自由时段：处于谷中日常（`mode==='home'`）的时段；整月历练和占整期的剧情（三月中旬送药）不算。
+- 校验：`tools_scene/qihe/verify_household.cjs` 的节奏模拟（`PACE=1` 打印各段比例）按“每段自由时段只遇一段、优先去最快到期的地点”从头玩到第二年三月，要求每段剧情全部遇到且比例在区间内。新增或移动剧情后必须跑一次。

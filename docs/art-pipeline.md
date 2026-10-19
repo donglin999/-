@@ -1,19 +1,23 @@
 # 美术管线
 
+状态：现行　最后核对：2026-10-19
+
+人物立绘、差分、战斗角色与独立道具的现行原生透明规范见[文档库·当前出图接口约定](../../xiaojianghu/docs/art-pipeline.md#人物原生透明输出2026-10-13-用户要求纳入开发规范)。内置`image_gen`设置`transparent_background: true`，提示词明确真实RGBA与发丝空隙alpha=0，并验深浅叠底、完整轮廓和浅色衣饰。下文旧白底/品红抠图管线保留作历史追溯，不作为新人物默认出图方法。
+
 ## 当前出图接口约定
 
-襄阳体验章节本轮按用户最新决定使用 Codex 内置 `image_gen` 直接生成；全部采用稿、身份参考、提示词和后处理记录在[襄阳生图记录](design/xiangyang-art-prompts.md)。此前 `tools_common/flatimg.py` 是旧素材和接口对照稿的制作路径，历史来源按各自记录保留，不倒写成同一模型。后续其他章节的出图接口按该章节用户要求确定。
+旧襄阳体验章节（2026-10-19 已撤除）当时按用户决定使用 Codex 内置 `image_gen` 直接生成；全部采用稿、身份参考、提示词和后处理记录在[襄阳生图记录](archive/design/xiangyang-art-prompts.md)。此前 `tools_common/flatimg.py` 是旧素材和接口对照稿的制作路径，历史来源按各自记录保留，不倒写成同一模型。后续其他章节的出图接口按该章节用户要求确定。
 
-美术资源有不同批次：早期整图与角色素材使用 HY-Image-V3.0；当前街市单体管线 `tools_scene/gen_props.py` 使用 `tools_common/flatimg.py`，模型与参数以该脚本的 `PARAMS` 为准，再经本仓库的 Python（Pillow + numpy，部分用 scipy）脚本抠图、像素化、切帧、排布和打包。运行时读取 `assets/` 下的 webp。**所有脚本都以仓库根目录为工作目录运行**（路径写死为相对路径）。襄阳的设定与审图标准见[城设定](design/xiangyang-city.md)、[素材规范](design/xiangyang-art.md)；本页描述技术管线。
+美术资源有不同批次：早期整图与角色素材使用 HY-Image-V3.0；当前街市单体管线 `tools_scene/gen_props.py` 使用 `tools_common/flatimg.py`，模型与参数以该脚本的 `PARAMS` 为准，再经本仓库的 Python（Pillow + numpy，部分用 scipy）脚本抠图、像素化、切帧、排布和打包。运行时读取 `assets/` 下的 webp。**所有脚本都以仓库根目录为工作目录运行**（路径写死为相对路径）。襄阳的设定与审图标准见[城设定](archive/design/xiangyang-city.md)、素材规范（已删除）；本页描述技术管线。
 
-江湖菜单专用图标 v2 单独使用精细手绘管线，规范见[江湖图标](design/jianghu-icons.md)。`tools_scene/menu_icons_v2_manifest.json` 逐件列出 65 个物品、招式、心法的主体描述；`tools_scene/gen_menu_icons_v2.py` 经现有 FlatRouter 异步接口生成缺失的高分辨率原稿，保存在本地忽略目录 `raw_menu_icons/` 并记录参数；`tools_scene/build_menu_icons_v2.py` 对不透明白底图执行透明化、平滑缩小并打包为 `assets/i_jianghu.webp`，同步生成 `js/menu-icons.js` 坐标。构建器遇到缺图会直接失败，不会混入旧的像素图标。游戏旧图集 `assets/i_icons.webp` 仍供其他既有用途使用。
+江湖菜单专用图标 v2 单独使用精细手绘管线，规范见[江湖图标](../../xiaojianghu/docs/design/jianghu-icons.md)。`tools_scene/menu_icons_v2_manifest.json` 逐件列出 65 个物品、招式、心法的主体描述；`tools_scene/gen_menu_icons_v2.py` 经现有 FlatRouter 异步接口生成缺失的高分辨率原稿，保存在本地忽略目录 `raw_menu_icons/` 并记录参数；`tools_scene/build_menu_icons_v2.py` 对不透明白底图执行透明化、平滑缩小并打包为 `assets/i_jianghu.webp`，同步生成 `js/menu-icons.js` 坐标。构建器遇到缺图会直接失败，不会混入旧的像素图标。游戏旧图集 `assets/i_icons.webp` 仍供其他既有用途使用。
 
 ## 1. 资源格式与命名
 
 | 命名 | 尺寸 | 用途 | 生成 |
 |---|---|---|---|
 | `m_{scene}.webp` | 640×360（现存 `m_world` 为 1280×720） | 场景地图，运行时最近邻绘制到 1920×1080 世界；`m_world` 为大地图，拉伸到画布 960×540 | `pixmaps.py`（注意：重跑会把 `m_world` 也输出为 640×360） |
-| `m_{scene}_v2.webp` | 源像素 = 世界/3（街市 880×520、偏巷/渡口 800×440、南门 800×480、庙外/寨门/山洞 720×400、庙内 640×360） | **v2 程序排布地图**（第一章全部 8 个探索场景）：程序化地面 + 投影 + 全部单体素材已烘焙；运行时绘制到 `WW×WH` 世界 | `tools_scene/build_scene.py`（见 §场景管线 v2） |
+| `m_{scene}_v2.webp` | 源像素 = 世界/3（街市 880×520、偏巷/渡口 800×440、南门 800×480、庙外/寨门/山洞 720×400、庙内 640×360） | **v2 程序排布地图**（旧襄阳演示全部 8 个探索场景）：程序化地面 + 投影 + 全部单体素材已烘焙；运行时绘制到 `WW×WH` 世界 | `tools_scene/build_scene.py`（见 §场景管线 v2） |
 | `m_{scene}_v2_props.webp` | 宽 1024 的图集 | v2 地图的单体素材图集（建筑/树/摊位…），运行时按底边 y 与角色深度排序重画（屋檐/树冠遮挡），条目在 `SC.{scene}.props` | 同上 |
 | `m_street.webp` `m_street_bright.webp` `m_street_fg.webp` `m_alley.webp` `m_ferry.webp` | 640×360 | 旧版街市 / 偏巷 / 渡口地图，**运行时已不再加载**，保留作前后对比（`review/scene_v2/street_before.png`） | `pixmaps.py` / `pix_bright.py` / `street_layers.py` |
 | `s_{char}.webp` | 4 列 × 4 行 | 角色精灵表：行 `d,l,r,u`，列 = 帧 0..3（0 站立，1 迈步 A，2 过渡，3 迈步 B）；单元格尺寸在 `ART.sheet[char]=[w,h]`（高均为 141 = 47 像素 ×3） | `pack.py`（苏芷：`tools_bright/suzhi_sheet.py`） |
@@ -54,7 +58,7 @@ ART.idle[c]={frames:6, cell:[w,141],rows:'dlru',file:'s_hero_idle',bright:'s_her
 
 ## 2. 早期出图：HY-Image
 
-本节记录旧批次出图方法，不适用于当前 `tools_scene/gen_props.py` 的街市单体。新单体的提示词、参考图和参数记录见该脚本及[襄阳素材规范](design/xiangyang-art.md)。
+本节记录旧批次出图方法，不适用于当前 `tools_scene/gen_props.py` 的街市单体。新单体的提示词、参考图和参数记录见该脚本及襄阳素材规范（已删除）。
 
 客户端：`/home/user/juesheng/tools/hy_image.py`（仓库外，参数实测见 `/home/user/juesheng/tools/HY_API_参数实测.md`）。
 
@@ -198,7 +202,7 @@ v1 厚涂立绘 AI 感重、构图不一，已全部替换。新管线：
 ### 表情差分（男女主）
 
 - **生成**：`python3 tools_por/gen_por.py hero:all suzhi:all`（或单张 `suzhi_shy`）。以 `raw_por/p_{角色}.png` 为参考图走 edits（异步 `/images/edits/async`），提示词 = `VARIANT_BASE`（锁定同脸同装同构图）+ 表情/手势描述 + 原 STYLE 与角色描述；清单在 `gen_por.py` 的 `VARIANTS`。输出 `raw_por/p_{角色}_{表情}.png`，再 `post_por.py` 转 `assets/p_{角色}_{表情}.webp`。
-- **清单**：hero = smile / angry / surprise / think / hurt / battle；suzhi = smile / shy / angry / worry / surprise / battle。叶蘅 = smile / shy / angry / worry / surprise / battle / hurt，采用内置生图及[独立提示词](design/ye-expression-prompts.md)，不走此处的 FlatRouter `VARIANTS`。新增运行时表情均需在 `js/core.js` 的 `EXPR` 登记。
+- **清单**：hero = smile / angry / surprise / think / hurt / battle；suzhi = smile / shy / angry / worry / surprise / battle。叶蘅 = smile / shy / angry / worry / surprise / battle / hurt，采用内置生图及[独立提示词](../../xiaojianghu/docs/design/ye-expression-prompts.md)，不走此处的 FlatRouter `VARIANTS`。新增运行时表情均需在 `js/core.js` 的 `EXPR` 登记。
 - **运行时**：`EXPR` 中的差分在 `loadAll()` 开头后台加载，不计入进度条。对话 `say/choose` 的 `sp` 写作 `'c_suzhi:shy'`（story.js 里用 `SE('shy')` / `HE('think')`），缺图回退基础立绘；同一说话人仅换表情时不重播入场动画。战斗卡片 `porKey()`：默认 `battle`，气血 <30% 换 `hurt`（无则 `worry`）。
 - 苏芷 v2 基准图重做过（药囊改为宽布背带斜挎、贴腰胯承重），旧基准原图在 `raw_por/suzhi_v1/`。
 
@@ -219,7 +223,7 @@ v1 厚涂立绘 AI 感重、构图不一，已全部替换。新管线：
 
 - 坐标一律是**源像素**（世界 = ×3，格 = 世界/40）；地图宽高须为 40 的倍数（街市 880×520 = 66×39 格）。
 - 地面：`S.rect/region(poly, mat)` 设材质（1 石板、2 广场大石板、3 水面、4 草地、5 木栈桥、6 土路；缺省泥地）→ `S.paint_ground()` 程序铺装（石板逐块随机色、上沿受光下沿阴影、裂纹苔草；石板与泥地交界自动加路缘；水面横向波带 + 高光；泥地石子/杂色），之后可 `S.backwall()`（矮院墙）、`S.pier()`（木栈桥）、`S.tufts()`（草丛）。
-- **编排先看设计**：新场景先查[势力与世界](design/world.md)、[生活与外出](design/life.md)及[表现规范](design/presentation.md)；场景函数仍须写明功能分区、动线、物件来由与出入方向。
+- **编排先看设计**：新场景先查[势力与世界](archive/design/world.md)、[生活与外出](archive/design/life.md)及[表现规范](../../xiaojianghu/docs/design/presentation.md)；场景函数仍须写明功能分区、动线、物件来由与出入方向。
 - 素材：`S.place(key, x, base, width, fp=…, sort=…, crop=…, flip=…, shadow=…, cx=…, weather=…)`（`weather` 0~1 做旧：去饱和 + 压暗，用于兵火废宅）：`base` 为素材底边 y（触地线）；`width` 为目标宽度（源像素，决定像素密度：主角约 31 源像素高、门洞约 35–45）。缩小用预乘 alpha 的 BOX（避免品红渗色）+ 每素材 40 色量化 + 硬 alpha。
   - `fp` 占地（不可走）：`band:D` 触地列 × 底部 D 高（D≤1 为比例，建筑取 0.5–0.62）、`cols:D` 只挡各触地段（柱脚/架子腿）、`trunk` 树干小椭圆、`solid` 每列从素材顶到最低像素（城墙/残墙）、`rect:x0,y0,x1,y1`（素材局部比例，`rect:0,0,1,1` = 整块，用于靠墙/靠水、背后不该钻进去的亭子/草屋）、`none`，可用 `|` 组合。
   - **小型家具**（`sheet_props/stalls/alley/war`、码头杂物）用 `band` 时占地自动向下多留 `FURN_MARGIN`=2 源像素（6 世界像素），桌凳/摊架建议直接 `rect:0,0.1~0.3,1,1.05` 盖住整个触地面；NPC 站位离家具 ≥10px（audit 检查）。

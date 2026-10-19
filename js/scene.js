@@ -14,7 +14,7 @@ const CHAR_H=92;
 // 相对主角身高（ART.scale 优先）；动物明显更小
 const SIZE={hero:1,monk:1.02,soldier:1,gossip:1,oldman:.98,smith:1.03,lady:1,beggar:1,boatman:1,bandit:1,chief:1.07,
   villager:1,child:.75,merchant:1,dog:.6,rooster:.5,snake:.8,wolf:.7,suzhi:1,ye:1,liu:1.02,zhou:1,langli:1};
-const SPEED=.27,FOLLOW_GAP=52,RUN_MUL=1.7,RUN_PATH=8*40,RUN_PATH_TOUCH=5*40;
+const SPEED=.27,FOLLOW_GAP=52,RUN_MUL=1.88,RUN_PATH=8*40,RUN_PATH_TOUCH=5*40;
 const SC={};
 let cur=null,player={x:0,y:0,dir:'d',walk:0,vx:0,vy:0,moving:false,path:null,goal:null,trail:[],talkTo:null,running:false,runPath:false,runK:0},
   keys={},particles=[],cam={x:0,y:0},camC={x:0,y:0},wanderers=[],followers=[];
@@ -30,7 +30,7 @@ const cellOk=(c,r)=>c>=0&&r>=0&&c<GW&&r<GH&&cur.grid[r*GW+c];
 const ptOk=(x,y)=>(cur._m?mOk(cur,x,y):cellOk(Math.floor(x/TS),Math.floor(y/TS)))&&!(typeof ContainerSystem!=='undefined'&&ContainerSystem.blocks(cur,x,y));
 // 脚底碰撞盒：左右各 7px，前后 3/5px（宽松：宁可略微贴边重叠，也不要空气墙）
 const FOOT_X=7;
-function standOk(x,y){return ptOk(x,y)&&ptOk(x-FOOT_X,y)&&ptOk(x+FOOT_X,y)&&ptOk(x,y+3)&&ptOk(x,y-5)}
+function standOk(x,y){const half=cur.footX||FOOT_X;return ptOk(x,y)&&ptOk(x-half,y)&&ptOk(x+half,y)&&ptOk(x,y+3)&&ptOk(x,y-5)}
 const spKey=sp=>sp.replace(/^c_/,'');
 function charH(sp){const k=spKey(sp),a=window.ART&&ART.scale&&ART.scale[k];return CHAR_H*(a||SIZE[k]||1)}
 function npcH(n){return n.sp?(n.h||charH(n.sp)):24}
@@ -77,7 +77,7 @@ function spawnWanderers(){placeFix();cur._npcs=npcsOf(cur);wanderers=[];bubbles.
 // sc.noFollow：同伴在该场景以剧情 NPC 身份出现（02 §3.5，如渡船 crossing），不再跟随
 const partyHere=()=>{if(cur&&cur.noFollow)return[];if(S&&typeof petEnsure==='function')petEnsure();
   // 跟随队列按主角 → 人物同伴 → 宠物排列；宠物固定在队尾，不参与人物排序。
-  const people=(S&&S.party||[]).filter(k=>k!==S.pet);return S&&S.pet?[...people,S.pet]:people};
+  const people=(S&&S.party||[]).filter(k=>k!==S.pet).slice(0,3);return S&&S.pet?[...people,S.pet]:people};
 function resetFollowers(){followers=[];const party=partyHere();if(!party.length)return;seedTrail(FOLLOW_GAP*(party.length+1));party.forEach((m,i)=>{followers.push(makeFollower(m,i))})}
 // 入场：沿主角背后铺一段可走的虚拟足迹，同伴排在身后，之后自然接上真实足迹
 function seedTrail(len){if(player.trail.length>2)return;const back={d:[0,-1],u:[0,1],l:[1,0],r:[-1,0]}[player.dir]||[0,-1];player.trail=[[player.x,player.y,player.dir]];
@@ -102,16 +102,14 @@ function stepAnim(dt){const A=player.anim;if(!A)return false;A.t=Math.min(A.ms,A
   player.x=A.x0+A.dx*k;player.y=A.y0+A.dy*k;player.alpha=A.a0+(A.a1-A.a0)*k;const md=Math.hypot(player.x-ox,player.y-oy);player.moving=md>0;player.walk+=md;if(md>0)footDust(player,'hero');
   if(md>0){const t0=player.trail[0];if(!t0||Math.hypot(t0[0]-player.x,t0[1]-player.y)>=4){player.trail.unshift([player.x,player.y,player.dir]);if(player.trail.length>90)player.trail.pop()}}
   if(A.t>=A.ms){player.anim=null;player.moving=false;player.walk=0;A.res()}return true}
-// 大地图入场点：sc.mapIn（格）给出时，大地图节点（ui.js NODES）的 at 一律换成 mapIn——场景改版换了网格/出口位置时不必同步改 NODES（02 §3.2）
-const mapNodeAt=(id,at)=>at&&typeof NODES!=='undefined'&&NODES.some(n=>n.to===id&&n.at===at);
 async function goScene(id,at,dir){let enter=null;
-  if(SC[id]&&SC[id].mapIn&&mapNodeAt(id,at))at=SC[id].mapIn;
+  if(typeof ensureSceneAssets==='function')await ensureSceneAssets(id);   // 按场景加载：目标地图未到先等（2026-10-17）
   await fade(async()=>{cur=SC[id];buildGrid(cur);S.scene=id;if(cur.mapv)(S.mapv=S.mapv||{})[id]=cur.mapv;const p=at||cur.start;
     const d=at?entryDir(cur,p,dir):(cur.startDir||player.dir),v=DV[d];player.dir=d;
     player.x=p[0]*TS;player.y=p[1]*TS;player.vx=player.vy=0;player.path=null;player.goal=null;player.trail=[];player.anim=null;particles=[];spawnWanderers();S.unlocked[cur.region||id]=1;
     // 入场：从入口点背后走进来（placeFix 之后的落点为终点）
-    const tx=player.x,ty=player.y;if(at){player.x=tx-v[0]*ENTER_WALK;player.y=ty-v[1]*ENTER_WALK;player.alpha=0;enter=animWalk(v[0]*ENTER_WALK,v[1]*ENTER_WALK,520,0,1)}
-    camC.x=tx;camC.y=ty-CHAR_H*.45;cam.x=clamp(camC.x-VW/2,0,WW-VW);cam.y=clamp(camC.y-VH/2,0,WH-VH);save()});
+    const tx=player.x,ty=player.y;if(at&&cur.arrivalWalk!==false){player.x=tx-v[0]*ENTER_WALK;player.y=ty-v[1]*ENTER_WALK;player.alpha=0;enter=animWalk(v[0]*ENTER_WALK,v[1]*ENTER_WALK,520,0,1)}
+    camC.x=tx;camC.y=ty-CHAR_H*.45;cam.x=clamp(camC.x-VW/2,0,WW-VW);cam.y=clamp(camC.y-VH/2,0,WH-VH);S.x=tx;S.y=ty;save()});
   if(enter){busy=true;await enter;busy=false}player.alpha=1;
   placeName(cur.name);hud();if(cur.enter){busy=true;await cur.enter();busy=false;hud()}}
 let busy=false;
@@ -126,17 +124,24 @@ async function interact(target){if(busy||dlgBusy||mode!=='scene')return;const n=
 async function takeExit(e){busy=true;player.path=null;player.goal=null;player.vx=player.vy=0;keys={};$('prompt').hidden=true;
   const d=exitDir(e),v=DV[d];player.dir=d;
   try{await animWalk(v[0]*EXIT_WALK,v[1]*EXIT_WALK,300,1,0);   // 走进出口方向并淡出（门洞里不会被建筑"吞"掉）
-    if(e.to==='map')await openMap();else await goScene(e.to,e.at,d)}finally{player.alpha=1;busy=false;hud()}}
+    await goScene(e.to,e.at,d)}finally{player.alpha=1;busy=false;hud()}}
 // 直线可达（用于路径拉直）
-function lineOk(x0,y0,x1,y1){const d=Math.hypot(x1-x0,y1-y0),n=Math.ceil(d/8);for(let i=1;i<=n;i++){const t=i/n;if(!standOk(x0+(x1-x0)*t,y0+(y1-y0)*t))return false}return true}
+function lineOk(x0,y0,x1,y1){const d=Math.hypot(x1-x0,y1-y0),n=Math.ceil(d/(cur.preciseNav?2:8));for(let i=1;i<=n;i++){const t=i/n;if(!standOk(x0+(x1-x0)*t,y0+(y1-y0)*t))return false}return true}
+function pathLineOk(x0,y0,x1,y1){if(!lineOk(x0,y0,x1,y1))return false;if(!cur.preciseNav)return true;const n=Math.max(1,Math.ceil(Math.hypot(x1-x0,y1-y0)/2));for(let i=1;i<=n;i++){
+  const x=x0+(x1-x0)*i/n,y=y0+(y1-y0)*i/n;
+  if(npcBlock(x,y))return false;
+  // Preview masks have sharp raster corners. Reserve a one-world-pixel
+  // clearance so a smoothed route cannot graze a corner and stop mid-walk.
+  if(cur.previewKey&&(!standOk(x-1,y)||!standOk(x+1,y)||!standOk(x,y-1)||!standOk(x,y+1)))return false;
+ }return true}
 // A*：规划网格 NS（有精细 mask 时 16px，按脚底碰撞盒判可站；否则 40px 格），二叉堆开放表
-function navOf(){if(cur._nav)return cur._nav;const NS=cur._m?16:TS,nw=Math.ceil(WW/NS),nh=Math.ceil(WH/NS),ok=new Uint8Array(nw*nh);
+function navOf(){if(cur._nav)return cur._nav;const NS=cur._m?(cur.preciseNav?8:16):TS,nw=Math.ceil(WW/NS),nh=Math.ceil(WH/NS),ok=new Uint8Array(nw*nh);
   for(let r=0;r<nh;r++)for(let c=0;c<nw;c++)ok[r*nw+c]=cur._m?(standOk(c*NS+NS/2,r*NS+NS/2)?1:0):(cellOk(c,r)?1:0);return cur._nav={NS,nw,nh,ok}}
 function findPath(tx,ty){const{NS,nw,nh,ok:ok0}=navOf();
   // 寻路时把站立的剧情 NPC 视为障碍（目标点附近除外），避免路径穿人后卡死
   const ok=ok0.slice?ok0.slice():Array.from(ok0);for(const n of cur._npcs){if(!n.sp)continue;const r=Math.max(12,npcH(n)*.15)+8,nx=n.x*TS,ny=n.y*TS;
-    if(Math.hypot(nx-tx,ny-ty)<r+NS)continue;if(Math.hypot(nx-player.x,ny-player.y)<r+2)continue;
-    for(let yy=Math.floor((ny-r/1.8)/NS);yy<=Math.floor((ny+r/1.8)/NS);yy++)for(let xx=Math.floor((nx-r)/NS);xx<=Math.floor((nx+r)/NS);xx++)if(xx>=0&&yy>=0&&xx<nw&&yy<nh)ok[yy*nw+xx]=0}
+    if(!cur.preciseNav){if(Math.hypot(nx-tx,ny-ty)<r+NS)continue;if(Math.hypot(nx-player.x,ny-player.y)<r+2)continue;}
+    for(let yy=Math.floor((ny-r/1.8)/NS);yy<=Math.floor((ny+r/1.8)/NS);yy++)for(let xx=Math.floor((nx-r)/NS);xx<=Math.floor((nx+r)/NS);xx++)if(xx>=0&&yy>=0&&xx<nw&&yy<nh&&(!cur.preciseNav||npcBlock(xx*NS+NS/2,yy*NS+NS/2)))ok[yy*nw+xx]=0}
   const okc=(c,r)=>c>=0&&r>=0&&c<nw&&r<nh&&ok[r*nw+c]===1;
   let sc=Math.floor(player.x/NS),sr=Math.floor(player.y/NS);let tc=Math.floor(tx/NS),tr=Math.floor(ty/NS);
   const near=(c0,r0)=>{let best=null,bd=1e9;for(let r=0;r<nh;r++)for(let c=0;c<nw;c++)if(ok[r*nw+c]){const d=(c-c0)**2+(r-r0)**2;if(d<bd){bd=d;best=[c,r]}}return best};
@@ -148,14 +153,14 @@ function findPath(tx,ty){const{NS,nw,nh,ok:ok0}=navOf();
   const pop=()=>{const k=heap[0],lk=heap.pop(),lf=hf.pop();if(heap.length){heap[0]=lk;hf[0]=lf;let i=0;for(;;){const l=i*2+1,r=l+1;let m=i;if(l<heap.length&&hf[l]<hf[m])m=l;if(r<heap.length&&hf[r]<hf[m])m=r;if(m===i)break;[heap[m],heap[i]]=[heap[i],heap[m]];[hf[m],hf[i]]=[hf[i],hf[m]];i=m}}return k};
   const s0=sr*nw+sc,goal=tr*nw+tc;gs[s0]=0;push(s0,0);let found=false;
   while(heap.length){const k=pop();if(closed[k])continue;closed[k]=1;if(k===goal){found=true;break}const c=k%nw,r=(k/nw)|0;
-    for(const[dc,dr]of NB8){const nc=c+dc,nr=r+dr;if(!okc(nc,nr))continue;if(dc&&dr&&(!okc(c+dc,r)||!okc(c,r+dr)))continue;const nk=nr*nw+nc,ng=gs[k]+(dc&&dr?1.414:1);
+    for(const[dc,dr]of NB8){const nc=c+dc,nr=r+dr;if(!okc(nc,nr))continue;if(dc&&dr&&(!okc(c+dc,r)||!okc(c,r+dr)))continue;if(cur.preciseNav&&!pathLineOk(c*NS+NS/2,r*NS+NS/2,nc*NS+NS/2,nr*NS+NS/2))continue;const nk=nr*nw+nc,ng=gs[k]+(dc&&dr?1.414:1);
       if(ng<gs[nk]){gs[nk]=ng;from[nk]=k;push(nk,ng+Math.hypot(nc-tc,nr-tr))}}}
   if(!found)return null;
   const cells=[];let kk=goal;while(kk!==s0&&kk>=0){cells.unshift(kk);kk=from[kk]}
   const pts=cells.map(k=>[(k%nw)*NS+NS/2,((k/nw)|0)*NS+NS/2]);if(pts.length)pts[pts.length-1]=[tx,ty];else pts.push([tx,ty]);
   // 拉直：从当前点起尽量跳到最远的可直达路点
   // 拉直时同样避开剧情 NPC（只查 standOk 会把路径拉成直线穿过站着的 NPC，走到跟前被挡住卡死）
-  const lineN=(x0,y0,x1,y1)=>{if(!lineOk(x0,y0,x1,y1))return false;const d=Math.hypot(x1-x0,y1-y0),n=Math.ceil(d/8);
+  const lineN=(x0,y0,x1,y1)=>{if(!pathLineOk(x0,y0,x1,y1))return false;const d=Math.hypot(x1-x0,y1-y0),n=Math.ceil(d/8);
     for(let i=1;i<n;i++){const t=i/n,c=Math.floor((x0+(x1-x0)*t)/NS),r=Math.floor((y0+(y1-y0)*t)/NS);if(!okc(c,r)&&ok0[r*nw+c])return false}return true};
   const out=[];let px=player.x,py=player.y,i=0;while(i<pts.length){let j=pts.length-1;while(j>i&&!lineN(px,py,pts[j][0],pts[j][1]))j--;out.push(pts[j]);[px,py]=pts[j];i=j+1}
   return out}
@@ -226,20 +231,22 @@ function updateScene(dt){setDims(cur);
   if(!frozen){ix=(keys.right?1:0)-(keys.left?1:0);iy=(keys.down?1:0)-(keys.up?1:0);
     if(ix||iy){player.path=null;player.goal=null;player.talkTo=null}
     else if(player.path&&player.path.length){const[tx,ty]=player.path[0];const dx=tx-player.x,dy=ty-player.y,d=Math.hypot(dx,dy),last=player.path.length===1;
-      if(d<(last?2:10)){player.path.shift();if(!player.path.length)endPath()}else{ix=dx/d;iy=dy/d;if(last)arrive=Math.min(1,d/28+.15)}}}
+      if(d<(last?2:cur.preciseNav?.5:10)){if(cur.preciseNav&&pathLineOk(player.x,player.y,tx,ty)){player.x=tx;player.y=ty}player.path.shift();if(!player.path.length)endPath()}else{ix=dx/d;iy=dy/d;if(last||cur.preciseNav)arrive=Math.min(1,d/28+.15)}}}
   const kbd=!frozen&&(keys.left||keys.right||keys.up||keys.down),wantRun=!frozen&&(kbd?!!(walkRunToggle||keys.run):!!(player.path&&(walkRunToggle||player.runPath)));
   player.runK+=((wantRun?1:0)-player.runK)*(1-Math.exp(-dt/(wantRun?220:160)));
   const spd=SPEED*(1+(RUN_MUL-1)*player.runK),l=Math.hypot(ix,iy),tvx=l?ix/l*spd*arrive:0,tvy=l?iy/l*spd*arrive:0;
-  const k=1-Math.exp(-dt/(l?70:45));player.vx+=(tvx-player.vx)*k;player.vy+=(tvy-player.vy)*k;
+  const k=1-Math.exp(-dt/(l?70:45));if(cur.preciseNav&&player.path){player.vx=tvx;player.vy=tvy}else{player.vx+=(tvx-player.vx)*k;player.vy+=(tvy-player.vy)*k;}
   if(Math.hypot(player.vx,player.vy)<.004){player.vx=player.vy=0}
   const ox=player.x,oy=player.y;
-  if(player.vx||player.vy){const nx=player.x+player.vx*dt,ny=player.y+player.vy*dt,stuck=!standOk(player.x,player.y);
-    if(stuck||walkable(nx,ny))
+  if(player.vx||player.vy){const waypoint=cur.preciseNav&&player.path?.[0],reach=waypoint&&Math.hypot(waypoint[0]-player.x,waypoint[1]-player.y)<=Math.hypot(player.vx,player.vy)*dt;
+    const nx=reach?waypoint[0]:player.x+player.vx*dt,ny=reach?waypoint[1]:player.y+player.vy*dt,stuck=!standOk(player.x,player.y);
+    const canMove=(x,y)=>{if(!cur.preciseNav)return walkable(x,y);const steps=Math.max(1,Math.ceil(Math.hypot(x-player.x,y-player.y)/2));for(let i=1;i<=steps;i++)if(!walkable(player.x+(x-player.x)*i/steps,player.y+(y-player.y)*i/steps))return false;return true};
+    if(stuck||canMove(nx,ny))
       {player.x=nx;player.y=ny}
     else{// 沿墙滑动：分轴尝试；轴向被挡则给一点沿墙分量
       let moved=false;
-      if(Math.abs(player.vx)>.01&&walkable(nx,player.y)){player.x=nx;player.vy*=.5;moved=true}
-      else if(Math.abs(player.vy)>.01&&walkable(player.x,ny)){player.y=ny;player.vx*=.5;moved=true}
+      if(Math.abs(player.vx)>.01&&canMove(nx,player.y)){player.x=nx;player.vy*=.5;moved=true}
+      else if(Math.abs(player.vy)>.01&&canMove(player.x,ny)){player.y=ny;player.vx*=.5;moved=true}
       if(!moved){player.vx=player.vy=0;if(player.path){const tt=player.talkTo;endPath(tt&&Math.hypot(tt.x*TS-player.x,tt.y*TS-player.y)<110)}}}}
   const md=Math.hypot(player.x-ox,player.y-oy);player.moving=md>dt*.015;player.running=player.moving&&md>dt*SPEED*1.3;
   if(md>0){player.walk+=md;footDust(player,'hero');if(l)player.dir=dirOf(ix||player.vx,iy||player.vy,player.dir);
@@ -248,7 +255,7 @@ function updateScene(dt){setDims(cur);
   if(frozen)return;
   const c=Math.floor(player.x/TS),r=Math.floor(player.y/TS);const ex=exitsOf(cur).find(e=>inR(c,r,e.r));if(ex){takeExit(ex);return}
   const n=nearest(),p=$('prompt');if(n){const txt=n.type==='comp'?`<kbd>E</kbd> 交谈 · ${compName(n.o.m)}`:`<kbd>E</kbd> ${n.o.verb||'交谈'} · ${n.o.name}`;if(p.hidden)p.hidden=false;if(p._t!==txt){p._t=txt;p.innerHTML=txt}}else if(!p.hidden)p.hidden=true}
-function endPath(talk=true){player.path=null;player.goal=null;const t=player.talkTo;player.talkTo=null;if(t&&talk)interact(t)}
+function endPath(talk=true){if(cur.preciseNav)player.vx=player.vy=0;player.path=null;player.goal=null;const t=player.talkTo;player.talkTo=null;if(t&&talk)interact(t)}
 // ───────── 绘制角色：行走帧按走过的距离推进；静止时站立帧 + 轻微呼吸 ─────────
 function charImg(k,dir,f){const n=window.ART&&ART.frames&&ART.frames[k];
   if(n){const im=IMG[`c_${k}_${dir}_${f<n?f:0}`];if(ok(im))return im;const i0=IMG[`c_${k}_${dir}_0`];if(ok(i0))return i0}
@@ -256,7 +263,7 @@ function charImg(k,dir,f){const n=window.ART&&ART.frames&&ART.frames[k];
 // 精灵表的透明留白并不一致。按实际非透明轮廓计算接地点与站立身高，
 // 避免叶蘅背面等帧在同一世界脚底坐标上悬空，倒地人物只校正落点。
 function charBounds(im){if(im._charBounds)return im._charBounds;const iw=im.naturalWidth||im.width,ih=im.naturalHeight||im.height;
-  try{const c=document.createElement('canvas');c.width=iw;c.height=ih;const x=c.getContext('2d',{willReadFrequently:true});x.drawImage(im,0,0);const a=x.getImageData(0,0,iw,ih).data;let top=ih,bottom=0,left=iw,right=0;
+  try{const c=document.createElement('canvas');c.width=iw;c.height=ih;const x=c.getContext('2d',{willReadFrequently:true});drawImageAsset(x,im,0,0);const a=x.getImageData(0,0,iw,ih).data;let top=ih,bottom=0,left=iw,right=0;
     const bands=[];let band=null,total=0;
     for(let y=0;y<ih;y++){let count=0;for(let col=0;col<iw;col++)if(a[(y*iw+col)*4+3]>=48){count++;if(y<top)top=y;if(y+1>bottom)bottom=y+1;if(col<left)left=col;if(col+1>right)right=col+1}
       if(count){total+=count;if(!band){band={top:y,bottom:y+1,count:0};bands.push(band)}band.bottom=y+1;band.count+=count}else band=null}
@@ -285,7 +292,8 @@ function drawChar(sp,x,y,dir='d',walk=0,t=0,opts={}){const k=spKey(sp),h=opts.h|
   const box=im?charBounds(im):null,ih=im&&(im.naturalHeight||im.height),iw=im&&(im.naturalWidth||im.width);
   const prone=k==='zhou',upright=box&&box.height>ih*.62&&!['dog','wolf','rooster','snake'].includes(k);
   // 躺姿按头到脚的长轴对齐成年站姿；141px 站姿画布里的 29px 厚度不是身高。
-  const drawH=box&&prone?h*1.02*ih/(box.width||iw):upright?h*ih/box.height:h;
+  const anchor=window.ART?.motionAnchor?.[k];
+  const drawH=anchor?h*ih/anchor.body:box&&prone?h*1.02*ih/(box.width||iw):upright?h*ih/box.height:h;
   const w=im?drawH*iw/ih:h*.45;
   // 脚底阴影
   const shadowRx=prone&&box?drawH*box.width/ih*.5:Math.min(w*.42,h*.3);
@@ -294,10 +302,10 @@ function drawChar(sp,x,y,dir='d',walk=0,t=0,opts={}){const k=spKey(sp),h=opts.h|
   let bob=0,sy=1,sx=1;
   if(moving){if(n<=1&&!wk){const ph=walk/(h*.1);bob=Math.abs(Math.sin(ph))*h*.035;sy=1+Math.sin(ph*2)*.015;sx=1/sy}}
   else if(!IDLE[k]){const b=Math.sin(t/650+(opts.ph||0));sy=1+b*.012;sx=1-b*.005}
-  if(CHAR_GRADE_OK&&!BRIGHT)im=graded(im,(cur&&cur.grade)||CHAR_GRADE);g.save();g.translate(x,y);if(flip)sx=-sx;g.scale(sx,sy);
+  if(CHAR_GRADE_OK&&!BRIGHT)im=graded(im,(cur&&cur.grade)||CHAR_GRADE);g.save();g.translate(x,y);if(flip)sx=-sx;g.scale(sx,sy);g.imageSmoothingEnabled=false;
   // 长裙移动帧的鞋大多被裙摆遮没：从裙下连续画出承重小腿，再由原精灵盖住上半段。
   // 这段与人物共用脚点及缩放；不能另画一只孤立的「地面鞋」。
-  if(moving&&(k==='suzhi'||k==='ye')){
+  if(moving&&(k==='suzhi'||(k==='ye'&&!wk))){   // 叶蘅有专用行走/奔跑表（自带腿部动作）时不再补画小腿
     const phase=Math.floor(walk/(h*.23))&1,leg=h/92,side=dir==='l'||dir==='r';
     const cloth=k==='suzhi'?'#46443f':'#514b47',boot='#302d2e';
     g.save();g.scale(leg,leg);
@@ -315,13 +323,13 @@ function drawChar(sp,x,y,dir='d',walk=0,t=0,opts={}){const k=spKey(sp),h=opts.h|
     }
     g.restore();
   }
-  const footPad=box?(ih-box.bottom)*drawH/ih:0;
-  if(box&&box.trimBottom)g.drawImage(im,0,0,iw,box.bottom,-w/2,-drawH+footPad-bob,w,drawH*box.bottom/ih);
-  else g.drawImage(im,-w/2,-drawH+footPad-bob,w,drawH);g.restore()}
+  const footPad=anchor?(ih-anchor.foot)*drawH/ih:box?(ih-box.bottom)*drawH/ih:0;
+  if(box&&box.trimBottom)drawImageAsset(g,im,0,0,iw,box.bottom,-w/2,-drawH+footPad-bob,w,drawH*box.bottom/ih);
+  else drawImageAsset(g,im,-w/2,-drawH+footPad-bob,w,drawH);g.restore()}
 // 角色调色：略压亮度/饱和、微暖，让干净的精灵融入地图（场景可用 grade 覆盖）
 // 调色结果按 (帧,调色) 缓存成离屏画布：逐帧逐角色走 ctx.filter 很贵（软件渲染下人多的场景掉帧一半）
 function graded(im,f){const c=im._gr||(im._gr={});let o=c[f];if(o)return o;o=document.createElement('canvas');o.width=im.naturalWidth||im.width;o.height=im.naturalHeight||im.height;
-  const x=o.getContext('2d');x.filter=f;x.drawImage(im,0,0);o.naturalWidth=o.width;o.naturalHeight=o.height;o.complete=true;return c[f]=o}
+  const x=o.getContext('2d');x.filter=f;drawImageAsset(x,im,0,0);o.naturalWidth=o.width;o.naturalHeight=o.height;o.complete=true;return c[f]=o}
 const CHAR_GRADE='brightness(.9) saturate(.84) sepia(.1)',CHAR_GRADE_OK='filter' in CanvasRenderingContext2D.prototype;
 function label(txt,x,y,col='#f3e2b8'){g.font='18px "Noto Serif SC",serif';g.textAlign='center';g.lineWidth=3.5;g.strokeStyle='rgba(10,6,2,.85)';g.strokeText(txt,x,y);g.fillStyle=col;g.fillText(txt,x,y)}
 // 深度排序用的复用列表（避免每帧分配闭包）
@@ -333,7 +341,7 @@ function drawMarker(t){const gl=player.goal;if(!gl)return;const a=Math.min(1,gl.
   g.beginPath();g.ellipse(gl.x,gl.y,14-p*6,5.5-p*2.3,0,0,7);g.stroke();
   g.globalAlpha=(1-p)*.6*a;g.beginPath();g.ellipse(gl.x,gl.y,8+p*14,3+p*5.5,0,0,7);g.stroke();
   const b=Math.sin(t/160)*3;g.globalAlpha=.9*a;g.fillStyle='#ffe2a0';g.beginPath();g.moveTo(gl.x-6,gl.y-22+b);g.lineTo(gl.x+6,gl.y-22+b);g.lineTo(gl.x,gl.y-13+b);g.closePath();g.fill();g.restore()}
-function drawNpc(n,t,near){if(n.loot){ContainerSystem.draw(n,t,near);return}const x=n.x*TS,y=n.y*TS;
+function drawNpc(n,t,near){if(n.resource){QiheResources.draw(n,t,near);return}if(n.loot){ContainerSystem.draw(n,t,near);return}const x=n.x*TS,y=n.y*TS;
   if(n.sp){const h=npcH(n),id=typeof npcIdle==='function'?npcIdle(n,t,near):null;   // 待机活动见 js/idle.js
     drawChar(n.sp,x+(id?id.dx:0),y+(id?id.dy:0),id?id.dir:(n.dir||'d'),id?id.walk:0,t,{h,moving:!!(id&&id.moving),ph:n.x*1.7});if(id)npcIdleFx(n,t,x,y,h,near,id);const ty=y-(spKey(n.sp)==='zhou'?h*.42:h)-8;
     if(near&&near.o===n)label(n.name,x,ty);else if(n.mark&&n.mark()){const b=Math.sin(t/200)*2;g.fillStyle='#e9a23b';g.beginPath();g.arc(x,ty-6+b,10,0,7);g.fill();g.strokeStyle='#2a1a0a';g.lineWidth=2;g.stroke();g.fillStyle='#2a1a0a';g.font='bold 16px serif';g.textAlign='center';g.fillText('!',x,ty+b)}
@@ -348,7 +356,7 @@ function drawScene(t){setDims(cur);if(!cur._npcs)cur._npcs=npcsOf(cur);const fdt
   g.save();g.scale(ZOOM,ZOOM);g.translate(-cx,-cy);
   // sc.under(t,dt)：画在底图之下（底图该处透明），用于渡船场景的程序化江面与卷动远岸（02 §4.5b）
   if(cur.under)cur.under(t,fdt);
-  if(ok(IMG[cur.bg])){g.imageSmoothingEnabled=false;g.drawImage(IMG[cur.bg],0,0,WW,WH);g.imageSmoothingEnabled=true}else if(!cur.under){g.fillStyle='#1d1812';g.fillRect(0,0,WW,WH)}
+  if(ok(IMG[cur.bg])){g.imageSmoothingEnabled=false;drawImageAsset(g,IMG[cur.bg],0,0,WW,WH);g.imageSmoothingEnabled=true}else if(!cur.under){g.fillStyle='#1d1812';g.fillRect(0,0,WW,WH)}
   g.imageSmoothingQuality='high';
   if(cur.fx)cur.fx(t);
   drawWater(t,fdt);drawDucks(t,fdt);
@@ -371,8 +379,9 @@ function drawScene(t){setDims(cur);if(!cur._npcs)cur._npcs=npcsOf(cur);const fdt
     else if(e.kind===4)drawFg(fgi,o);
     else if(e.kind===5)drawCloth(o,t);
     else if(e.kind===6)drawProp(pim,o,cur.propK||3);
-    else{const a=player.alpha??1;if(a<=0)continue;if(a<1)g.globalAlpha=a;drawChar('hero',o.x,o.y,o.dir,o.walk,t,{moving:o.moving,running:o.running});g.globalAlpha=1}}
+    else{const a=player.alpha??1;if(a<=0)continue;if(a<1)g.globalAlpha=a;drawChar(cur.playerSp||'hero',o.x,o.y,o.dir,o.walk,t,{moving:o.moving,running:o.running});g.globalAlpha=1}}
   if(fgOk&&!cur.fgp)drawFg(fgi,[0,0,WW,WH]);
+  if(cur.over)cur.over(t);
   drawExits(t,1);   // 出口标签画在建筑/树之上，不被遮挡
   updParticles(t);drawParticles(t);drawBirds(t,fdt);drawBubbles(fdt);
   g.restore();drawLights(t);vignette(cur.tint)}
@@ -380,9 +389,16 @@ function drawScene(t){setDims(cur);if(!cur._npcs)cur._npcs=npcsOf(cur);const fdt
 // 站在底边以北（y 更小）的角色被屋檐/树冠/灯笼盖住，走到底边以南则画在其前面（与原作一致）
 // 单体素材（建筑/树/摊位…）：props:[[atlasX,atlasY,w,h,worldX,worldY,底边y]]（atlas 为源像素，世界尺寸 ×propK，缺省 3）。
 // 底图已烘焙同样的像素，这里按底边 y 与角色深度排序重画一遍：角色走到底边以北即被屋檐/树冠遮住
-function drawProp(im,q,k){g.imageSmoothingEnabled=false;g.drawImage(im,q[0],q[1],q[2],q[3],q[4],q[5],q[2]*k,q[3]*k);g.imageSmoothingEnabled=true}
-function drawPropsTo(x,sc,K){const im=IMG[sc.propImg];if(!ok(im))return;const k=sc.propK||3;x.imageSmoothingEnabled=false;for(const q of sc.props)x.drawImage(im,q[0],q[1],q[2],q[3],q[4]*K,q[5]*K,q[2]*k*K,q[3]*k*K)}
-function drawFg(im,q){const k=im.naturalWidth/WW;g.imageSmoothingEnabled=false;g.drawImage(im,q[0]*k,q[1]*k,q[2]*k,q[3]*k,q[0],q[1],q[2],q[3]);g.imageSmoothingEnabled=true}
+function drawProp(im,q,k){const w=q[2]*k,h=q[3]*k;
+  // 与 drawFg 相同：人物在物件排序线以北且与其外框重叠时淡化物件，避免主角被屋顶/树冠完全吞没（碰撞仍按占地）。
+  const reveal=cur.revealPlayer&&player.y<q[6]&&player.x+24>q[4]&&player.x-24<q[4]+w&&player.y>q[5]&&player.y-CHAR_H<q[5]+h;
+  g.save();if(reveal)g.globalAlpha*=.45;g.imageSmoothingEnabled=false;drawImageAsset(g,im,q[0],q[1],q[2],q[3],q[4],q[5],w,h);g.restore()}
+function drawPropsTo(x,sc,K){const im=IMG[sc.propImg];if(!ok(im))return;const k=sc.propK||3;x.imageSmoothingEnabled=false;for(const q of sc.props)drawImageAsset(x,im,q[0],q[1],q[2],q[3],q[4]*K,q[5]*K,q[2]*k*K,q[3]*k*K)}
+function drawFg(im,q){const k=im.naturalWidth/WW;
+  // Baked-map overlays must not erase the controlled actor. Fade the occluder
+  // while the actor is behind it; collision continues to use the solid footprint.
+  const reveal=cur.revealPlayer&&player.y<(q[4]??q[1]+q[3])&&player.x+24>q[0]&&player.x-24<q[0]+q[2]&&player.y>q[1]&&player.y-CHAR_H<q[1]+q[3];
+  g.save();if(reveal)g.globalAlpha*=.45;g.imageSmoothingEnabled=false;drawImageAsset(g,im,q[0]*k,q[1]*k,q[2]*k,q[3]*k,q[0],q[1],q[2],q[3]);g.restore()}
 // 随风摆动的布（晾衣/摊布/招幌）：cloths:[[x,y,w,h,'#色',底边y?,相位?]]，上沿固定，下沿像素化摆动
 function drawCloth(q,t){const[x,y,w,h,c]=q,ph=q[6]||x*.013,P=3;
   for(let yy=0;yy<h;yy+=P){const u=yy/h,off=Math.round((Math.sin(t/520+ph+u*2.2)*2.2+Math.sin(t/190+ph*1.7)*.8)*u*u/P*1.6)*P;
@@ -457,7 +473,7 @@ function drawLights(t){const L=cur.lights||[];if(!cur.dark&&!L.length)return;
   if(cur.dark){lx.globalCompositeOperation='source-over';lx.clearRect(0,0,W,H);lx.fillStyle=cur.dark;lx.fillRect(0,0,W,H);lx.globalCompositeOperation='destination-out';
     const pl=[...L.map((l,i)=>[sx(l[0]),sy(l[1]),fl(l,i)*1.25]),[sx(player.x),sy(player.y-40),(cur.heroLight||110)*ZOOM]];
     for(const[x,y,r]of pl){if(x<-r||x>W+r||y<-r||y>H+r)continue;const gr=lx.createRadialGradient(x,y,0,x,y,r);gr.addColorStop(0,'rgba(0,0,0,1)');gr.addColorStop(.45,'rgba(0,0,0,.55)');gr.addColorStop(1,'rgba(0,0,0,0)');lx.fillStyle=gr;lx.fillRect(x-r,y-r,r*2,r*2)}
-    g.drawImage(lc,0,0)}
+    drawImageAsset(g,lc,0,0)}
   g.save();g.globalCompositeOperation='lighter';
   L.forEach((l,i)=>{const x=sx(l[0]),y=sy(l[1]),r=fl(l,i);if(x<-r||x>W+r||y<-r||y>H+r)return;const gr=g.createRadialGradient(x,y,0,x,y,r);
     gr.addColorStop(0,`rgba(${l[3]||'255,150,60'},.30)`);gr.addColorStop(.35,`rgba(${l[3]||'255,150,60'},.12)`);gr.addColorStop(1,`rgba(${l[3]||'255,150,60'},0)`);g.fillStyle=gr;g.fillRect(x-r,y-r,r*2,r*2)});
@@ -493,8 +509,3 @@ function drawExits(t,pass){const seen={},a=.3+Math.sin(t/300)*.2,cx=cam.x+VW/2,c
     g.save();g.translate(Math.round(ax),Math.round(ay));g.rotate({d:0,u:Math.PI,l:Math.PI/2,r:-Math.PI/2}[dir]);g.translate(0,b);
     g.fillStyle='rgba(10,6,2,.85)';g.beginPath();g.moveTo(-8,-6);g.lineTo(8,-6);g.lineTo(0,7);g.closePath();g.fill();
     g.fillStyle='#ffe2a0';g.beginPath();g.moveTo(-5,-4);g.lineTo(5,-4);g.lineTo(0,3);g.closePath();g.fill();g.restore()}}
-
-// 评审直达：index.html#street 跳过标题与建角，以默认角色直接进入襄阳街市
-function reviewStart(){S=newState();S.name='萧白';S.st={str:4,con:4,agi:4,wil:3,wis:3};S.silver=40;S.skills.jingxin=1;
-  S.flags.gate_ok=1;S.unlocked.xiangyang=1;const d=derived();S.hp=d.mhp;S.mp=d.mmp;
-  mode='scene';cur=SC.street;buildGrid(cur);S.scene='street';if(cur.mapv)(S.mapv=S.mapv||{}).street=cur.mapv;player.x=cur.start[0]*TS;player.y=cur.start[1]*TS;player.dir=cur.startDir||'u';player.trail=[];spawnWanderers();snapCam();hud();placeName(cur.name)}

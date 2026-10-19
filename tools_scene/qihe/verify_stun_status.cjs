@@ -1,0 +1,12 @@
+const assert=require('node:assert/strict');const {boot}=require('./harness.cjs');
+(async()=>{const {run}=await boot();run(`S=newState();mnEnsure();
+renderCards=()=>{};floatTxt=()=>{};showName=()=>{};lunge=async()=>{};
+VFX.act=()=>{};VFX.cast=async()=>{};VFX.hit=()=>{};Math.random=()=>0;
+const gu={side:'ally',hp:100,mhp:100,mp:20,mmp:20,atk:19,def:9,crit:0,buffs:{},skLv:{},skills:['shuaibei'],bp:0,spd:3,x:700,y:400};
+const gt={side:'foe',hp:999,mhp:999,mp:20,atk:20,def:5,crit:0,buffs:{},weak:[],known:new Set(),shield:2,maxShield:2,spd:2,x:300,y:400};
+B={units:[gu,gt],allies:[gu],foes:[gt],shake:0,parts:[],round:0,opt:{storyLesson:{order:()=>[gt,gu],planIntent:()=>{}}}};
+`);
+await run('doSkill(gu,"shuaibei",[gt],0)');assert.equal(run('gt.stun'),true);assert.ok(run('gt.hp')<999);assert.equal(run('gu.mp'),13);
+run('globalThis.foeActions=0;foeAct=async()=>{foeActions++};allyTurn=async()=>"flee";endCheck=()=>null');const result=await run('battleLoop()');assert.equal(result,'flee');assert.equal(run('foeActions'),0);assert.equal(run('gt.stun'),false);
+console.log(JSON.stringify({passed:2,checks:['real skill strike sets stun on successful roll and spends MP','real battleLoop skips enemy action once and clears stun'],scope:'engine integration; presentation calls stubbed'},null,2));
+})().catch(e=>{console.error(e);process.exitCode=1});

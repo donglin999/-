@@ -1,0 +1,255 @@
+{
+  "version": "QH-EXP-01",
+  "date": "2026-10-05",
+  "status": "playable_prototype_local_engine_verified_browser_pending",
+  "coordinate_type": "diagram coordinates; actual runtime geometry in art_sources/qihe-expansion-v1/reviewed-layout.json",
+  "scenes": [
+    {
+      "id": "A",
+      "name": "栖河 · 生活核心",
+      "world": [
+        2400,
+        1600
+      ],
+      "box": [
+        580,
+        450,
+        450,
+        215
+      ],
+      "kind": "existing_rework",
+      "people": [
+        "周婶 · 陈伯 · 老人 · 叶蘅"
+      ],
+      "uses": [
+        "叶家 / 陈家客房 / 药铺",
+        "外客只在剧情事件时进入"
+      ],
+      "phase": "序章起开放"
+    },
+    {
+      "id": "B",
+      "name": "北 · 后山采药道",
+      "world": [
+        1440,
+        960
+      ],
+      "box": [
+        580,
+        125,
+        450,
+        215
+      ],
+      "kind": "new",
+      "people": [
+        "开场：萧白 · 叶蘅 · 两只狼"
+      ],
+      "uses": [
+        "陌生靴印 / 折枝 / 远处犬吠",
+        "换衣后可重访，第二天获得旁证"
+      ],
+      "phase": "开场固定演出 → 换衣后自由探索"
+    },
+    {
+      "id": "C",
+      "name": "南 · 村口与客栈外院",
+      "world": [
+        1536,
+        1024
+      ],
+      "box": [
+        580,
+        810,
+        450,
+        215
+      ],
+      "kind": "new",
+      "people": [
+        "店家 · 药商 · 乌魁与帮众"
+      ],
+      "uses": [
+        "正道盟管事与护院在北侧歇脚棚",
+        "陆衡卸货；客栈两门通同一室内"
+      ],
+      "phase": "序章外来客 → 第一章明确诉求"
+    },
+    {
+      "id": "D",
+      "name": "东 · 河埠与晒药场",
+      "world": [
+        1440,
+        960
+      ],
+      "box": [
+        1110,
+        450,
+        450,
+        215
+      ],
+      "kind": "new",
+      "people": [
+        "采办使 · 随从 · 程铎与差役"
+      ],
+      "uses": [
+        "药货登记 / 取水 / 晒药",
+        "D2拦路冲突；保留公共绕行通路"
+      ],
+      "phase": "序章随从 → 第一章采办使到场"
+    },
+    {
+      "id": "E",
+      "name": "西 · 田埂与护路练场",
+      "world": [
+        1440,
+        960
+      ],
+      "box": [
+        50,
+        450,
+        450,
+        215
+      ],
+      "kind": "new",
+      "people": [
+        "陆衡授课 · 陈伯修车"
+      ],
+      "uses": [
+        "学习丙级《护路棍法》（暂名）",
+        "白天认路；夜间撤离与守路战"
+      ],
+      "phase": "序章可探 → 第一章授课与接应"
+    },
+    {
+      "id": "F",
+      "name": "邻村 · 接应院",
+      "world": [
+        1200,
+        800
+      ],
+      "box": [
+        50,
+        810,
+        450,
+        215
+      ],
+      "kind": "new",
+      "people": [
+        "周婶 · 陈伯 · 老人 · 接应村民"
+      ],
+      "uses": [
+        "岑霜救助处 / 程铎登记桌 / 周砚休息院",
+        "三处分别邀约；仅归云谷线可确认"
+      ],
+      "phase": "第一章可送老人 → 火后安置"
+    },
+    {
+      "id": "G",
+      "name": "归云谷 · 前径与客院",
+      "world": [
+        1440,
+        960
+      ],
+      "box": [
+        50,
+        125,
+        450,
+        215
+      ],
+      "kind": "new",
+      "people": [
+        "周砚 · 萧白 · 叶蘅；陆衡送达后离开"
+      ],
+      "uses": [
+        "第一章：分房、晚饭、暂住一夜",
+        "第二章：萧白拜师，叶蘅暂住，开启培养"
+      ],
+      "phase": "选择山居后开放"
+    }
+  ],
+  "bidirectional_portals": [
+    {
+      "a": "A",
+      "b": "B",
+      "unlock": "after_borrowed_clothes",
+      "opening_exception": "fixed scene before free exploration"
+    },
+    {
+      "a": "A",
+      "b": "C",
+      "unlock": "after_borrowed_clothes"
+    },
+    {
+      "a": "A",
+      "b": "D",
+      "unlock": "after_borrowed_clothes"
+    },
+    {
+      "a": "A",
+      "b": "E",
+      "unlock": "after_borrowed_clothes"
+    },
+    {
+      "a": "C",
+      "b": "D",
+      "unlock": "after_borrowed_clothes"
+    },
+    {
+      "a": "C",
+      "b": "E",
+      "unlock": "after_borrowed_clothes"
+    },
+    {
+      "a": "E",
+      "b": "F",
+      "unlock": "chapter1_start",
+      "before_unlock_visible_reason": "bridge repair, mandatory story repair independent of cart activity"
+    },
+    {
+      "a": "F",
+      "b": "G",
+      "unlock": "mountain_route_and_both_consents"
+    }
+  ],
+  "inn_contract": {
+    "same_interior": true,
+    "entrances": [
+      "A",
+      "C"
+    ],
+    "return_to_used_entrance": true
+  },
+  "population_rule": "One actor per phase; event location overrides residency, no cloned NPCs.",
+  "design_changes": {
+    "enemy": "two wolves, existing normal combat tutorial",
+    "new_skill": {
+      "id": "qh_hulu_staff",
+      "name": "护路棍法",
+      "name_status": "proposed",
+      "grade": "丙",
+      "teacher": "陆衡",
+      "cost_half_days": 1,
+      "persistent": true
+    },
+    "hero": "short hair borrowed village clothes, whitebox referenced motion regeneration",
+    "cultivation": {
+      "months": 36,
+      "phases_per_month": 5,
+      "stamina_per_normal_phase": 10,
+      "first_chapter_uses_separate_half_days": 6,
+      "formal_hero_entry": "chapter2 month1",
+      "ye_route_choice": "end month12"
+    }
+  },
+  "production_gates": [
+    "story_layout_review",
+    "same_scale_cast_board",
+    "walkable_graybox",
+    "referenced_preview",
+    "partition_generation",
+    "geometry_calibration",
+    "actual_game_acceptance"
+  ],
+  "runtime_changes_this_turn": false,
+  "new_game_images_this_turn": 0,
+  "implementation": "implementation.md"
+}

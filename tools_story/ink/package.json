@@ -1,0 +1,6 @@
+{
+  "name": "xjh-story-tools",
+  "private": true,
+  "description": "ink 剧本编译工具（只在构建时用）",
+  "dependencies": { "inkjs": "2.4.0" }
+}

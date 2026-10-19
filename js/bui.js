@@ -1,5 +1,5 @@
 'use strict';
-// ───────────────────────── 战斗 UI · 武侠化（v3 工作流 G，见 docs/battle-v3.md；v2 工作流 B 的像素版在其上改造）─────────────────────────
+// ───────────────────────── 战斗 UI · 武侠化（v3 工作流 G，见 docs/archive/battle-v3.md；v2 工作流 B 的像素版在其上改造）─────────────────────────
 // 覆盖 battle.js 的 UI 层：battleCSS battleDom renderCards porFill hint tyTag pips allyTurn drawOrderBar headChip
 //   drawShieldRow drawUnitUI drawIntentLines ghostTick syncCardGhost floatTxt bpop bigText showName drawFloats drawBanner drawBig victory
 // 规则与数值逻辑与原函数一致，只改表现：
@@ -31,7 +31,7 @@ window.BUI=(function(){
 
   // ── 毛笔字体：注入 + 按需加载字形（CJK 字体按 unicode-range 分片，画布用到的字要显式 load）──
   let fgen=0,linkOK=false;const seen=new Set();
-  const PRELOAD='0123456789+-×~·？?!！第回合下一二三四五六七八九十攻击武学道具防御逃跑蓄势投入胜败脱身修为银两战利品境界突破层属性点继续击或按确定返回选择直选血内气力定神眩晕中毒倒破弱点看护盾恢复闪全体敌人同伴预计需装备不足群招煞小江湖失去行动攻防提升';
+  const PRELOAD='0123456789+-×~·？?!！第回合下一二三四五六七八九十攻击武学道具防御逃跑蓄势投入胜败脱身修为铜钱战利品境界突破层属性点继续击或按确定返回选择直选血内气力定神眩晕中毒倒破弱点看护盾恢复闪全体敌人同伴预计需装备不足群招煞小江湖失去行动攻防提升';
   function injectFonts(){if(document.getElementById('bui-fonts'))return;const l=document.createElement('link');l.id='bui-fonts';l.rel='stylesheet';
     l.href='https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&family=Zhi+Mang+Xing&family=Liu+Jian+Mao+Cao&display=swap';
     l.onload=()=>{linkOK=true;PRELOAD.split('').forEach(c=>seen.add(c));loadGlyphs([...seen].join(''))};document.head.appendChild(l)}
@@ -74,7 +74,7 @@ window.BUI=(function(){
     X.putImageData(id,0,0);
     // 纸色晕边：先铺一层略宽的淡色笔触（暗背景上显出墨迹轮廓与飞白丝缕）
     if(o.halo){const hl=swash(w,h,{...o,halo:0,seed:S+100,col:o.halo,a:o.haloA??.3,thick:Math.min(.99,thick+.14),dry:dry+.15,tail:Math.min(.6,tail+.06),pr});
-      const c2=canvasL(w,h,pr),X2=c2.getContext('2d');X2.drawImage(hl,0,0);X2.drawImage(c,0,0);return c2}
+      const c2=canvasL(w,h,pr),X2=c2.getContext('2d');drawImageAsset(X2,hl,0,0);drawImageAsset(X2,c,0,0);return c2}
     return c})}
   // 圆相（头像圈）：sz 直径，o:{seed,col,th,a0,span,dry}
   function enso(sz,o={}){return memo('en|'+sz+'|'+JSON.stringify(o),()=>{const c=canvasL(sz,sz),X=c.getContext('2d'),P=c.width,id=X.createImageData(P,P),d=id.data;
@@ -141,7 +141,7 @@ window.BUI=(function(){
     beggar:[.58,.18],soldier:[.52,.18],boatman:[.57,.12],oldman:[.56,.15],smith:[.52,.17],gossip:[.47,.19]};
   const autoFace=new Map();
   function faceBox(k,im){if(FACE[k])return FACE[k];if(autoFace.has(k))return autoFace.get(k);let r=FACE[k.split('_')[0]]||[.55,.17];
-    try{const w=48,h=Math.round(48*im.naturalHeight/im.naturalWidth),c=mkc(w,h),x=c.getContext('2d');x.drawImage(im,0,0,w,h);const d=x.getImageData(0,0,w,Math.round(h*.4)).data;
+    try{const w=48,h=Math.round(48*im.naturalHeight/im.naturalWidth),c=mkc(w,h),x=c.getContext('2d');drawImageAsset(x,im,0,0,w,h);const d=x.getImageData(0,0,w,Math.round(h*.4)).data;
       let sx=0,sy=0,n=0,y0=-1;for(let y=0;y<Math.round(h*.4);y++)for(let i=0;i<w;i++){const p=(y*w+i)*4,R=d[p],G=d[p+1],Bb=d[p+2],A=d[p+3];
         if(A>200&&R>150&&R>G+8&&G>Bb+5&&R-Bb>35){if(y0<0)y0=y;if(y<y0+h*.17){sx+=i;sy+=y;n++}}}
       if(n>12)r=[sx/n/w,Math.min(.3,sy/n/h+.01)]}catch(e){}
@@ -149,7 +149,9 @@ window.BUI=(function(){
   // 战斗精灵头部（BART 第 0 帧不透明包围盒）
   const sprBox=new Map();
   function spriteHead(u){const A=window.BART&&BART[u.art];if(A&&A.file&&A.cell&&ok(IMG[A.file])){const im=IMG[A.file],[cw,ch]=A.cell;
-      let bb=sprBox.get(u.art);if(!bb){bb=[0,0,cw,ch];try{const c=mkc(cw,ch),x=c.getContext('2d');x.drawImage(im,0,0,cw,ch,0,0,cw,ch);const d=x.getImageData(0,0,cw,ch).data;let x0=cw,x1=0,y0=ch,y1=0;
+      // Audited crops avoid tall cell padding / weapons shifting the order-bar face.
+      if(A.faceCrop)return{src:im,crop:A.faceCrop,key:'B|'+u.art+'|face-v1'};
+      let bb=sprBox.get(u.art);if(!bb){bb=[0,0,cw,ch];try{const c=mkc(cw,ch),x=c.getContext('2d');drawImageAsset(x,im,0,0,cw,ch,0,0,cw,ch);const d=x.getImageData(0,0,cw,ch).data;let x0=cw,x1=0,y0=ch,y1=0;
           for(let y=0;y<ch;y++)for(let i=0;i<cw;i++)if(d[(y*cw+i)*4+3]>60){if(i<x0)x0=i;if(i>x1)x1=i;if(y<y0)y0=y;if(y>y1)y1=y}
           if(x1>x0){let hx=0,hn=0;const hh=(y1-y0)*.14;for(let y=y0;y<y0+hh;y++)for(let i=x0;i<=x1;i++)if(d[(y*cw+i)*4+3]>60){hx+=i;hn++}
             const left=(A.facing||'r')==='l',ew=(x1-x0)*.22;let ty=-1;for(let y=y0;y<=y1&&ty<0;y++)for(let i=Math.round(left?x0:x1-ew);i<=(left?x0+ew:x1);i++)if(d[(y*cw+i)*4+3]>60){ty=y;break}
@@ -158,13 +160,16 @@ window.BUI=(function(){
       if(beast){const s=Math.min(H0*.7,x1-x0),left=(A.facing||'r')==='l',hy=bb[5];return{src:im,crop:[left?x0-s*.04:x1-s*.96,hy-s*.12,s,s],key:'B|'+u.art}}
       const s=H0*.3;return{src:im,crop:[hx-s/2,y0-s*.12,s,s],key:'B|'+u.art}}
     const im=IMG[`c_${u.art}_d_0`]||IMG[`c_${u.art}_d`]||IMG[`c_${u.art}_${u.side==='foe'?'r':'l'}_0`];if(!ok(im))return null;
-    const iw=im.naturalWidth,ih=im.naturalHeight,beast=/dog|wolf|snake|rooster/.test(u.art),cs=Math.min(iw,ih*.55)*(beast?1:.62);return{src:im,crop:[(iw-cs)/2,beast?ih*.2:ih*.02,cs,cs],key:'S|'+u.art}}
+    const iw=im.naturalWidth,ih=im.naturalHeight,beast=/dog|wolf|snake|rooster/.test(u.art),an=window.ART?.motionAnchor?.[u.art];
+    // 带脚点数据的 282 高精灵（叶蘅、主角、岑霜等）：格子上方留空较多，按实际头顶与身高裁头像
+    if(an&&!beast){const top=an.foot-an.body,cs=an.body*.3;return{src:im,crop:[(iw-cs)/2,top-cs*.02,cs,cs],key:'S|'+u.art}}
+    const cs=Math.min(iw,ih*.55)*(beast?1:.62);return{src:im,crop:[(iw-cs)/2,beast?ih*.2:ih*.02,cs,cs],key:'S|'+u.art}}
   function faceSrc(u){const pk=u.side==='ally'?porKey(u):(ok(IMG['p_'+u.art])?u.art:null);
     if(pk&&ok(IMG['p_'+pk])){const im=IMG['p_'+pk],[cx,cy]=faceBox(pk,im),s=im.naturalHeight*.235;return{src:im,crop:[cx*im.naturalWidth-s/2,cy*im.naturalHeight-s/2,s,s],key:'F|'+pk}}
     return spriteHead(u)}
   const faceKey=u=>{const f=faceSrc(u);return f?f.key:'-'+u.name};
   function face(u,sz){const f=faceSrc(u);if(!f)return null;return memo(f.key+'|'+sz,()=>{const c=canvasL(sz,sz),X=c.getContext('2d');
-    X.imageSmoothingEnabled=f.key[0]==='F'||f.crop[2]>=c.width*.9;X.imageSmoothingQuality='high';X.fillStyle=f.key[0]==='F'?'#efe4cc':'#2a211a';X.fillRect(0,0,c.width,c.height);X.drawImage(f.src,...f.crop,0,0,c.width,c.height);return c})}
+    X.imageSmoothingEnabled=f.key[0]==='F'||f.crop[2]>=c.width*.9;X.imageSmoothingQuality='high';X.fillStyle=f.key[0]==='F'?'#efe4cc':'#2a211a';X.fillRect(0,0,c.width,c.height);drawImageAsset(X,f.src,...f.crop,0,0,c.width,c.height);return c})}
 
   // ── 画布文字（毛笔字 + 墨边）──
   function text(s,col='#f3e6c8',size=28,o={}){s=String(s);glyphs(s);const key='tx|'+s+'|'+col+'|'+size+'|'+JSON.stringify(o)+fontKey();let c=cache.get(key);if(c)return c;
@@ -174,7 +179,7 @@ window.BUI=(function(){
     const cx=c.lw/2,cy=c.lh/2+size*.04;X.fillStyle='rgba(8,4,2,.55)';X.fillText(s,cx+size*.05,cy+size*.08);X.lineWidth=ow;X.strokeStyle=o.edge||'#140905';X.strokeText(s,cx,cy);
     if(/^#([0-9a-f]{3}|[0-9a-f]{6})$/i.test(col)){const gr=X.createLinearGradient(0,cy-size*.5,0,cy+size*.5);gr.addColorStop(0,lt(col,.35));gr.addColorStop(.55,col);gr.addColorStop(1,dk(col,.18));X.fillStyle=gr}else X.fillStyle=col;X.fillText(s,cx,cy);
     cache.set(key,c);return c}
-  const draw=(G,c,x,y,a)=>{if(!c)return;if(a!=null){const o=G.globalAlpha;G.globalAlpha=o*a;G.drawImage(c,x,y,c.lw,c.lh);G.globalAlpha=o}else G.drawImage(c,x,y,c.lw,c.lh)};
+  const draw=(G,c,x,y,a)=>{if(!c)return;if(a!=null){const o=G.globalAlpha;G.globalAlpha=o*a;drawImageAsset(G,c,x,y,c.lw,c.lh);G.globalAlpha=o}else drawImageAsset(G,c,x,y,c.lw,c.lh)};
 
   // ── 兵刃/内劲/指令 字徽 ──
   const GL={刀:'刀',剑:'剑',拳:'拳',棍:'棍',暗器:'暗',阳:'阳',阴:'阴',毒:'毒',雷:'雷',医:'医',内:'内',武:'武',药:'药',守:'守',走:'走'};
@@ -187,7 +192,7 @@ window.BUI=(function(){
   function breakBanner(u){if(!B||!u)return;const P=window.POSHI;if(P&&typeof P.banner==='function'&&P.banner!==api.breakBanner){try{return P.banner(u)}catch(e){console.error(e)}}
     B.fx.push({x:u.x,y:u.y-unitH(u)*.5,t:'破势',c:'#ff7a3a',size:38,t0:performance.now(),life:1300,pop:1,u})}   // 无 POSHI 时仅弹出书法小字
   function poshiSeal(sz){const P=window.POSHI;if(P&&typeof P.seal==='function'){try{const s=P.seal(sz);if(s)return s}catch(e){}}return seal('破',sz,sz)}
-  function drawAny(G,im,x,y,w,h){if(!im)return;if(im.lw)G.drawImage(im,x,y,w??im.lw,h??im.lh);else G.drawImage(im,x,y,w??(im.width||im.naturalWidth),h??(im.height||im.naturalHeight))}
+  function drawAny(G,im,x,y,w,h){if(!im)return;if(im.lw)drawImageAsset(G,im,x,y,w??im.lw,h??im.lh);else drawImageAsset(G,im,x,y,w??(im.width||im.naturalWidth),h??(im.height||im.naturalHeight))}
 
   // ── 主题 ──
   function setTheme(t){if(t!=='ink'&&t!=='scroll')return;theme=t;try{localStorage.setItem('bui.theme',t)}catch(e){}
@@ -216,7 +221,7 @@ function battleCSS(){if($('battle-css'))return;const U=BUI;U.injectFonts();const
   const papM=U.paper(220,300,{seed:3}),papH=U.paper(420,40,{seed:9,edge:6}),papW=U.paper(360,320,{seed:13}),rodH=U.rod(232,12),rodW=U.rod(392,16),rodS=U.rod(48,10);
   const ensoN=U.enso(60,{col:'#e3d3b0',seed:3}),ensoC=U.enso(60,{col:'#d8402a',seed:4,th:6}),ensoT=U.enso(60,{col:'#8fe0a8',seed:8,th:6});
   window.__buiCardSw=[0,1,2,3].map(i=>u(swCard(i)));window.__buiRowSw=[0,1,2,3,4].map(i=>u(swRow(i)));window.__buiEnso=[ensoN,ensoC,ensoT];
-  const rodV=(()=>{const c=U.canvasL(12,52),X=c.getContext('2d');X.translate(c.width,0);X.rotate(Math.PI/2);X.drawImage(U.rod(52,12),0,0);return c})();
+  const rodV=(()=>{const c=U.canvasL(12,52),X=c.getContext('2d');X.translate(c.width,0);X.rotate(Math.PI/2);drawImageAsset(X,U.rod(52,12),0,0);return c})();
   st.textContent=`
 #bt{position:absolute;left:0;top:0;width:960px;height:540px;transform-origin:0 0;pointer-events:none;font-family:var(--serif);color:var(--paper);
   --bb:${U.FB};--bc:${U.FC};--swcur:${u(swCur)};--swtgt:${u(swTgt)};--swsel:${u(swSel)};--swhd:${u(swHd)};--swhint:${u(swHint)};--swred:${u(swRed)};--swlv:${u(swLv)};
@@ -385,7 +390,7 @@ function renderCards(){const el=$('bt-cards');if(!el||!B)return;const U=BUI;
   B.allies.forEach((u,i)=>{const c=el.children[i];if(!c)return;const cur=B.cur===u,use=cur?B.bpUse:0,tg=!!(B.tgtList&&B.tgtList.includes(u)&&(B.tgtAll||B.tgtList[B.tsel]===u));
     c.classList.toggle('cur',cur);c.classList.toggle('tgt',tg);c.classList.toggle('dead',u.hp<=0);
     const fc=c.querySelector('.fc'),fk=U.faceKey(u)+(u.hp<=0);if(fc._k!==fk){fc._k=fk;fc.innerHTML='';porFill(fc,u)}
-    const st=[];if(u.hp<=0)st.push(['倒下']);else{if(u.defend)st.push(['防御']);if(u.guardBy&&u.guardBy.hp>0&&u.guardUntil>=B.round)st.push(['护主']);if(u.buffs.ding)st.push(['定神',u.buffs.ding]);if(u.stun)st.push(['眩晕']);if(u.bleedN>0)st.push(['中毒'])}
+    const st=window.CharacterCondition?CharacterCondition.inspect(u).map(c=>[c.name]):[];if(u.hp<=0)st.push(['倒下']);else{if(u.defend)st.push(['防御']);if(u.guardBy&&u.guardBy.hp>0&&u.guardUntil>=B.round)st.push(['护主']);if(u.buffs.ding)st.push(['定神',u.buffs.ding]);if(u.stun)st.push(['眩晕']);if(u.bleedN>0)st.push(['中毒'])}
     const sh=st.map(([t,n])=>{const[ch,col]=BUI_STAT[t];return U.tag(U.seal(ch,18,18,{col}),'','')+(n?`<span style="font:11px/18px var(--serif);color:#f3d58e;margin-left:-1px;text-shadow:0 1px 2px #000">${n}</span>`:'')}).join('')+'|'+U.fontGen();
     const se=c.querySelector('.st');if(se._h!==sh){se._h=sh;se.innerHTML=sh.split('|')[0];se.title=st.map(s=>s.join(' ')).join(' · ')}
     const ph=pips(u.bp,use);const pe=c.querySelector('.nm .pips');if(pe._h!==ph){pe._h=ph;pe.innerHTML=ph}
@@ -394,7 +399,7 @@ function renderCards(){const el=$('bt-cards');if(!el||!B)return;const U=BUI;
     hb.querySelector('i').style.width=100*u.hp/u.mhp+'%';hb.querySelector('.gh').style.width=100*(u.gh??u.hp)/u.mhp+'%';
     c.querySelector('.bar.mp i').style.width=100*u.mp/Math.max(1,u.mmp)+'%';c.title=`${u.name} 气血 ${u.hp}/${u.mhp} 内力 ${u.mp}/${u.mmp} 蓄势 ${u.bp}`});
   // 首回合按键提示（教学战全程）
-  const hp=$('bt-help');if(hp){if(!hp.querySelector('kbd')){hp.innerHTML='<span><kbd>↑</kbd><kbd>↓</kbd>选择</span><span><kbd>Enter</kbd>确定</span><span><kbd>Esc</kbd>返回</span><span><kbd>Q</kbd><kbd>E</kbd>蓄势</span><span><kbd>1</kbd>–<kbd>9</kbd>直选</span>'}
+  const hp=$('bt-help');if(hp){if(B.opt.storyLesson){hp.textContent='↑↓ / W/S 选择 · Enter / 空格 确认 · Esc 返回 · Q / E 蓄势 · 鼠标点击';hp.classList.add('on');return}if(!hp.querySelector('kbd')){hp.innerHTML='<span><kbd>↑</kbd><kbd>↓</kbd>选择</span><span><kbd>Enter</kbd>确定</span><span><kbd>Esc</kbd>返回</span><span><kbd>Q</kbd><kbd>E</kbd>蓄势</span><span><kbd>1</kbd>–<kbd>9</kbd>直选</span>'}
     hp.classList.toggle('on',!!(B.cur&&B.cur.side==='ally'&&!B.cur.pet&&(B.round<=1||B.opt.tutorial)))}}
 // 头像：立绘裁脸平滑缩小（缺立绘则取战斗精灵头部）
 function porFill(el,u){const f=BUI.face(u,52);if(!f)return;const c=document.createElement('canvas');c.width=f.width;c.height=f.height;c.getContext('2d').drawImage(f,0,0);el.appendChild(c)}
@@ -412,46 +417,47 @@ function allyTurn(u){return new Promise((res,reject)=>{B.bpUse=0;let committed=f
     if(typeof BattleAuto!=='undefined')BattleAuto.clear();
     cmd.hidden=true;B.key=null;B.click=null;B.pickCard=null;B.redraw=null;B.tgtList=null;B.pv=null;hint('');
     if(nob)B.bpUse=0;const use=clamp(B.bpUse,0,Math.min(3,u.bp));
-    try{if(use){u.bp-=use;u.boosted=true}B.bpUse=use;renderCards();const r=await fn(use);B.bpUse=0;res(r)}catch(e){reject(e)}};
+    try{if(use){u.bp-=use;u.boosted=true}B.bpUse=use;renderCards();const r=await fn(use);B.opt.storyLesson?.afterAction(u,use);B.bpUse=0;res(r)}catch(e){reject(e)}};
   const boostCtl=()=>`<div class="ft" style="--sw:${(window.__buiRowSw||[])[4]||'none'}"><span class="lb">蓄势</span><button data-b="-1" title="Q / ←">Q</button><span class="pips">${pips(u.bp,B.bpUse)}</span><button data-b="1" title="E / →">E</button><span class="n">投入 <b>${B.bpUse}</b></span></div>`;
   const setBp=d=>{const n=clamp(B.bpUse+d,0,Math.min(3,u.bp));if(n!==B.bpUse){B.bpUse=n;bsfx('select',.6,1+n*.15);renderCards();B.redraw&&B.redraw()}};
   const ptr=()=>BUI.tag(BUI.pointer(BUI.theme==='scroll'?'#f6e6c8':'#e0402a',16,'r'),'cur');
   // 通用菜单
-  const menu=(title,rows,back,onSel)=>{let sel=Math.max(0,rows.findIndex(r=>!r.dis));
+  const menu=(title,rows,back,onSel)=>{let sel=B.opt.storyLesson?0:Math.max(0,rows.findIndex(r=>!r.dis));
     const draw=()=>{const wasHidden=cmd.hidden;cmd.hidden=false;const rs=window.__buiRowSw||[];
       cmd.innerHTML=`<div class="hd"><b>${esc(u.name)}</b><span>${title}</span></div>`+
       rows.map((r,i)=>`<div class="row ${i===sel?'sel':''} ${r.dis?'dis':''}" data-i="${i}" style="--sw:${rs[i%4]||'none'}">${ptr()}<span class="kn">${i<9?i+1:''}</span><span class="ics">${r.ico||''}</span><span class="l">${r.label}</span>${r.why?`<span class="why">${r.why}</span>`:''}<span class="r">${r.right||''}</span></div>`).join('')+(title==='道具'?'':boostCtl());
       if(wasHidden){cmd.classList.remove('open');void cmd.offsetWidth;cmd.classList.add('open')}
-      cmd.querySelectorAll('.row').forEach(e=>{e.onpointerenter=()=>{const i=+e.dataset.i;if(i!==sel&&!rows[i].dis){sel=i;draw()}};e.onclick=()=>pick(+e.dataset.i)});
+      cmd.querySelectorAll('.row').forEach(e=>{e.onpointerenter=()=>{const i=+e.dataset.i;if(i!==sel&&(!rows[i].dis||B.opt.storyLesson)){sel=i;draw()}};e.onclick=()=>pick(+e.dataset.i,'mouse')});
       cmd.querySelectorAll('[data-b]').forEach(b=>b.onclick=e=>{e.stopPropagation();setBp(+b.dataset.b)});
       // 铜钱按钮：点第 i 枚 = 从这枚起投入（再点同一档取消）
       cmd.querySelectorAll('.ft .bt-pip').forEach(p=>p.onclick=e=>{e.stopPropagation();const i=+p.dataset.p;if(i>=u.bp)return;const want=u.bp-i;setBp((want===B.bpUse?0:want)-B.bpUse)});
-      place();const r=rows[sel];hint(r&&r.desc?r.desc:'')};
-    const pick=i=>{if(rows[i].dis){bsfx('menu_close',.5);return}bsfx('select');onSel(rows[i].val)};
+      place();const r=rows[sel];hint(r&&r.desc?r.desc:'');B.opt.storyLesson?.onMenu(u,title,rows,sel)};
+    const pick=(i,source='keyboard')=>{if(rows[i].dis){bsfx('menu_close',.5);B.opt.storyLesson?.wrong(u,rows[i]);return}B.opt.storyLesson?.confirm(u,rows[i].val,source);bsfx('select');onSel(rows[i].val)};
     B.redraw=draw;draw();
-    B.key=k=>{if(k==='up'||k==='down'){const d=k==='up'?-1:1;let i=sel;for(let n=0;n<rows.length;n++){i=(i+d+rows.length)%rows.length;if(!rows[i].dis)break}sel=i;draw();bsfx('blip',.6)}
+    B.key=k=>{if(k==='up'||k==='down'){const d=k==='up'?-1:1;let i=sel;for(let n=0;n<rows.length;n++){i=(i+d+rows.length)%rows.length;if(!rows[i].dis||B.opt.storyLesson)break}sel=i;draw();bsfx('blip',.6)}
       else if(k==='ok')pick(sel);else if(k==='back'&&back){bsfx('menu_close',.6);back()}else if(k==='left')setBp(-1);else if(k==='right')setBp(1);else if(k==='bm')setBp(-1);else if(k==='bp')setBp(1);
-      else if(k[0]==='n'){const i=+k.slice(1)-1;if(rows[i]&&!rows[i].dis){sel=i;draw();pick(i)}}}};
+      else if(k[0]==='n'){const i=+k.slice(1)-1;if(rows[i]&&(!rows[i].dis||B.opt.storyLesson)){sel=i;draw();pick(i)}}}};
   // 目标选择
   const target=(side,all,back,go,desc)=>{const list=side==='foe'?aliveOf('foe'):aliveOf('ally');if(!list.length){back();return}
     cmd.hidden=true;B.tgtList=list;B.tgtAll=all;B.tsel=side==='foe'?0:Math.max(0,list.indexOf(u));
     const fin=()=>{const tl=B.tgtList;B.tgtList=null;B.click=null;B.pickCard=null;B.pv=null;return tl};
     const info=()=>{const t=list[B.tsel];let s=`<span class="hl" style="font-family:var(--bb);font-size:17px">${desc}</span><span class="dm">·</span>`;
       if(all)s+=side==='foe'?'全体敌人':'全体同伴';else{s+=esc(t.name);if(side==='foe')s+=' <span class="ws">'+t.weak.map(w=>t.known.has(w)?BUI.img(w,18):BUI.img('?',18)).join('')+'</span>'}
-      if(side==='foe'&&B.pv){const v=B.pv(B.bpUse),ts=all?list:[t];const ests=ts.map(x=>estDmg(u,x,v));const wk=ts.some(x=>hitsWeak(x,v));
-        s+=`<span class="dm">·</span><span class="pv">预计 ${Math.min(...ests)}${Math.max(...ests)!==Math.min(...ests)?'~'+Math.max(...ests):''}${v.hits>1?' ×'+v.hits:''}</span>`+(wk?' <span class="wk">弱点！</span>':'')}
-      hint(s+`<span class="dm"> · 蓄势 ${B.bpUse}</span>`);renderCards()};
+      if(side==='foe'&&B.pv){const v=B.pv(B.bpUse),ts=all?list:[t];if(v){const ests=ts.map(x=>estDmg(u,x,v));const wk=ts.some(x=>hitsWeak(x,v));
+        s+=`<span class="dm">·</span><span class="pv">预计 ${Math.min(...ests)}${Math.max(...ests)!==Math.min(...ests)?'~'+Math.max(...ests):''}${v.hits>1?' ×'+v.hits:''}</span>`+(wk?' <span class="wk">弱点！</span>':'');}else s+='<span class="dm"> · 辅助 · 不造成伤害</span>';}
+      hint(s+`<span class="dm"> · 蓄势 ${B.bpUse}</span>`+(B.opt.storyLesson?' · Enter 确认 / Esc 返回':''));renderCards();B.opt.storyLesson?.onTarget(u,t)};
     B.redraw=info;info();
-    const ok2=()=>{const tl=fin();bsfx('select');go(all?tl:[tl[B.tsel]])};
+    const ok2=(source='keyboard')=>{const tl=fin();B.opt.storyLesson?.confirm(u,'target',source);bsfx('select');go(all?tl:[tl[B.tsel]])};
     B.key=k=>{if(k==='left'||k==='up'){if(!all){B.tsel=(B.tsel-1+list.length)%list.length;bsfx('blip',.6)}info()}
       else if(k==='right'||k==='down'){if(!all){B.tsel=(B.tsel+1)%list.length;bsfx('blip',.6)}info()}
       else if(k==='ok')ok2();else if(k==='back'){fin();bsfx('menu_close',.6);back()}else if(k==='bm')setBp(-1);else if(k==='bp')setBp(1)};
-    B.click=(x,y)=>{const hit=unitAt(x,y);if(hit&&list.includes(hit)){if(all||list[B.tsel]===hit)ok2();else{B.tsel=list.indexOf(hit);info()}}};
-    B.pickCard=hit=>{if(all||list[B.tsel]===hit)ok2();else{B.tsel=list.indexOf(hit);info()}}};
-  const main=()=>{B.tgtList=null;const flee=!B.opt.boss&&!B.opt.tutorial&&!B.opt.noFlee;
+    B.click=(x,y)=>{const hit=unitAt(x,y);if(hit&&list.includes(hit)){if(all||list[B.tsel]===hit)ok2('mouse');else{B.tsel=list.indexOf(hit);info()}}};
+    B.pickCard=hit=>{if(all||list[B.tsel]===hit)ok2('mouse');else{B.tsel=list.indexOf(hit);info()}}};
+  const main=()=>{B.tgtList=null;
+    const flee=!B.opt.boss&&!B.opt.tutorial&&!B.opt.noFlee;
     const inv=Object.entries(S.bag||{}).filter(([k,n])=>n>0&&ITEMS[k]&&(ITEMS[k].heal||ITEMS[k].mp));
     menu('第 '+B.round+' 回合',[
-      {label:'攻击',val:'atk',ico:tyTag(u.atkType),right:u.atkName,desc:`以${u.atkName}出手（${u.atkType}）· 蓄势可连击 ${1+B.bpUse} 次`},
+      {label:'攻击',val:'atk',ico:tyTag(u.atkType),right:u.atkName,desc:`以${u.atkName}出手${u.atkType?'（'+u.atkType+'）':''}· 蓄势可连击 ${1+B.bpUse} 次`},
       {label:'武学',val:'sk',ico:tyTag('武'),dis:!u.skills.length,desc:'施展武学，消耗内力'},
       {label:'道具',val:'it',ico:tyTag('药'),dis:!inv.length,desc:'使用行囊中的药物'},
       {label:'防御',val:'def',ico:tyTag('守'),desc:'本回合受伤减半，下回合率先行动'},
@@ -462,19 +468,19 @@ function allyTurn(u){return new Promise((res,reject)=>{B.bpUse=0;let committed=f
       else if(v==='def')done(async()=>{u.defend=true;u.prio=true;floatTxt(u,'防御','#9fd4ee',22);await wait(450)},1);
       else if(v==='run')done(async()=>{const fs=aliveOf('foe'),ps=aliveOf('ally');const p=clamp(55+(avg(ps,'spd')-avg(fs,'spd'))*6,20,90);
         if(chance(p)){bsfx('whoosh');return'flee'}floatTxt(u,'逃跑失败','#aaa',22);await wait(600)},1)})};
-  const skills=()=>{menu('武学',u.skills.map(k=>{const sk=SKILLS[k],bi=BSK[k]||{},need=sk.needWeapon&&u.isHero&&u.atkType!==sk.needWeapon,lack=u.mp<(sk.mp||0);
-      return{label:sk.name,val:k,ico:tyTag(bi.t||(sk.heal||bi.buff?'医':'内'))+(bi.e?tyTag(bi.e):''),right:sk.mp?`<span class="mpc ${lack?'no':''}">${sk.mp}</span>内`:'',
-        why:need?'需'+sk.needWeapon:lack?'内力不足':'',dis:lack||need,desc:(sk.desc||'')+(need?`（需装备${sk.needWeapon}）`:'')}}),main,k=>{
+  const skills=()=>{menu('武学',u.skills.map(k=>{const sk=SKILLS[k],bi=BSK[k]||{},need=window.QiheUIModel?QiheUIModel.skillWhy(u,k):(sk.needWeapon&&u.isHero&&u.atkType!==sk.needWeapon?'需装备'+sk.needWeapon:''),cost=window.QiheUIModel?QiheUIModel.skillCost(u,k):(sk.mp||0),lack=u.mp<cost;
+      return{label:sk.name,val:k,ico:tyTag(bi.t||(sk.heal||bi.buff?'医':'内'))+(bi.e?tyTag(bi.e):''),right:cost?`<span class="mpc ${lack?'no':''}">${cost}</span>内`:'',
+        why:need||(lack?'内力不足':''),dis:lack||!!need,desc:(sk.desc||'')+(need?`（${need}）`:'')}}),main,k=>{
       const bi=BSK[k]||{},tg=bi.tgt||(SKILLS[k].heal?'ally':'foe');
       const go=t=>done(bp=>doSkill(u,k,t,bp));B.pv=bp=>skillPv(u,k,bp);
       if(tg==='self')go([u]);else target(tg==='foe'||tg==='foes'?'foe':'ally',tg==='foes'||tg==='allies',skills,go,SKILLS[k].name)})};
   const items=inv=>{menu('道具',inv.map(([k,n])=>({label:ITEMS[k].name,val:k,ico:buiItem(k,22),right:'×'+n,desc:ITEMS[k].desc})),main,k=>target('ally',false,()=>items(inv),t=>done(async()=>{
       const it=ITEMS[k];S.bag[k]--;const x=t[0];await lunge(u,x,.3);if(it.heal){heal(x,it.heal)}if(it.mp){x.mp=Math.min(x.mmp,x.mp+it.mp);floatTxt(x,'内力+'+it.mp,'#8cf',22)}renderCards();await wait(500)},1),ITEMS[k].name))};
-  main();if(typeof BattleAuto!=='undefined')BattleAuto.bind(u,a=>{B.bpUse=a.bp;
+  main();if(typeof BattleAuto!=='undefined'&&BattleAuto.allowed())BattleAuto.bind(u,a=>{B.bpUse=a.bp;
     return done(bp=>a.kind==='skill'?doSkill(u,a.skill,a.targets,bp):doAttack(u,a.targets[0],bp))},reject)})}
 // 道具图标：ART.icons 图集（96px = 32 像素 ×3），缺失回落「药」字徽
 function buiItem(k,s=24){const r=window.ART&&ART.icons&&ART.icons[k];if(!r)return BUI.img('药',20);const[x,y,w,h]=r,f=s/w;
-  return`<i class="pxi" style="width:${s}px;height:${s}px;background:url(assets/i_icons.webp) ${-x*f}px ${-y*f}px/${576*f}px auto no-repeat;image-rendering:pixelated"></i>`}
+  return`<i class="pxi" style="width:${s}px;height:${s}px;background:url(assets/production/icons-and-props/i_icons.webp) ${-x*f}px ${-y*f}px/${576*f}px auto no-repeat;image-rendering:pixelated"></i>`}
 
 // ───────── 画布：行动顺序条（悬挂令牌）─────────
 const CN_NUM=n=>{const d='零一二三四五六七八九';if(n<=10)return n===10?'十':d[n];if(n<20)return'十'+d[n-10];if(n<100)return d[n/10|0]+'十'+(n%10?d[n%10]:'');return String(n)};
@@ -488,20 +494,20 @@ function buiPlaque(u,s,dim){const U=BUI,th=U.theme,h=Math.round(s*1.3),fo=u.side
     path();X.fillStyle=gr;X.fill();
     if(th==='scroll'){X.save();path();X.clip();X.strokeStyle='rgba(60,30,10,.35)';X.lineWidth=.6;for(let i=0;i<7;i++){X.beginPath();const x0=2+i*s/7+Math.sin(i*3)*1.5;X.moveTo(x0,0);X.bezierCurveTo(x0+2,h*.3,x0-2,h*.7,x0+1,h);X.stroke()}X.restore()}
     path();X.lineWidth=1.3;X.strokeStyle=th==='ink'?'#c9a56a':'#2a160a';X.stroke();
-    const cx=s/2,cy=s*.52,r=s*.37,f=U.face(u,Math.round(r*2));X.save();X.beginPath();X.arc(cx,cy,r,0,7);X.clip();X.fillStyle='#e6dac0';X.fillRect(cx-r,cy-r,r*2,r*2);if(f)X.drawImage(f,cx-r,cy-r,r*2,r*2);
+    const cx=s/2,cy=s*.52,r=s*.37,f=U.face(u,Math.round(r*2));X.save();X.beginPath();X.arc(cx,cy,r,0,7);X.clip();X.fillStyle='#e6dac0';X.fillRect(cx-r,cy-r,r*2,r*2);if(f)drawImageAsset(X,f,cx-r,cy-r,r*2,r*2);
     else{X.fillStyle='#2a1a10';X.font=`${r*1.1}px ${U.FB}`;X.textAlign='center';X.textBaseline='middle';X.fillText(u.name[0],cx,cy)}X.restore();
     X.beginPath();X.arc(cx,cy,r,0,7);X.lineWidth=1.2;X.strokeStyle=th==='ink'?'#e0c890':'#2a160a';X.stroke();
     // 阵营色签（底部小横纹）
     X.fillStyle=fo?'#e0503a':'#6fcf90';X.fillRect(s*.3,h-s*.2,s*.4,Math.max(1.5,s*.06));
     if(dim){path();X.fillStyle='rgba(8,5,3,.6)';X.fill()}
     return c})}
-function headChip(u,x,y,s,dim){const p=buiPlaque(u,s,dim);g.drawImage(p,x,y,p.lw,p.lh)}
+function headChip(u,x,y,s,dim){const p=buiPlaque(u,s,dim);drawImageAsset(g,p,x,y,p.lw,p.lh)}
 function drawOrderBar(now){if(!B.round)return;const U=BUI,th=U.theme;g.save();
   // 横梁：墨线（ink）/ 木轴（scroll）
-  if(th==='ink'){const bm=U.swash(900,12,{seed:21,halo:'#d8c49a',haloA:.4,a:.9,dry:.45,head:.02,tail:.3,thick:.66,wave:.25,pr:1});g.drawImage(bm,30,3,bm.lw,bm.lh)}
-  else{const bm=U.rod(920,10);g.drawImage(bm,20,4,bm.lw,bm.lh)}
+  if(th==='ink'){const bm=U.swash(900,12,{seed:21,halo:'#d8c49a',haloA:.4,a:.9,dry:.45,head:.02,tail:.3,thick:.66,wave:.25,pr:1});drawImageAsset(g,bm,30,3,bm.lw,bm.lh)}
+  else{const bm=U.rod(920,10);drawImageAsset(g,bm,20,4,bm.lw,bm.lh)}
   // 回合印
-  const rt=CN_NUM(B.round)+'回',rs=U.seal(rt,26,Math.max(48,[...rt].length*21+6),{col:U.CINNABAR});g.drawImage(rs,12,6,rs.lw,rs.lh);
+  const rt=CN_NUM(B.round)+'回',rs=U.seal(rt,26,Math.max(48,[...rt].length*21+6),{col:U.CINNABAR});drawImageAsset(g,rs,12,6,rs.lw,rs.lh);
   let x=50,idx=0;const cord=th==='ink'?'rgba(10,6,4,.9)':'#4a2e16';
   const draw=(list,cur,sz0)=>{for(const u of list){if(u.hp<=0&&!cur)continue;const done=cur&&(B.done.has(u)||u.hp<=0),isCur=cur&&u===B.cur,bk=u.side==='foe'&&u.broken;
       const s=isCur?sz0+10:sz0,p=buiPlaque(u,s,done||bk),px=x+s/2,top=isCur?14:16;idx++;
@@ -509,7 +515,7 @@ function drawOrderBar(now){if(!B.round)return;const U=BUI,th=U.theme;g.save();
       g.save();g.translate(px,8);g.rotate(ang);
       g.strokeStyle=cord;g.lineWidth=1.2;g.beginPath();g.moveTo(-3,0);g.lineTo(0,top-8+1);g.lineTo(3,0);g.stroke();
       if(isCur){g.shadowColor='rgba(255,190,90,.55)';g.shadowBlur=10}
-      g.drawImage(p,-s/2,top-8,p.lw,p.lh);g.shadowBlur=0;
+      drawImageAsset(g,p,-s/2,top-8,p.lw,p.lh);g.shadowBlur=0;
       // 流苏：当前行动者朱红长穗
       const ty=top-8+p.lh-1;g.strokeStyle=isCur?'#d8402a':cord;g.lineWidth=isCur?2:1;g.beginPath();g.moveTo(0,ty);g.lineTo(0,ty+(isCur?10:4));g.stroke();
       if(isCur){g.fillStyle='#d8402a';g.beginPath();g.moveTo(-3,ty+8);g.lineTo(3,ty+8);g.lineTo(0,ty+16);g.closePath();g.fill()}
@@ -518,28 +524,28 @@ function drawOrderBar(now){if(!B.round)return;const U=BUI,th=U.theme;g.save();
   draw(B.order,true,30);x+=4;
   // 「下回」竖排小字 + 墨线分隔
   g.fillStyle=th==='ink'?'rgba(20,12,8,.85)':'#4a2e16';g.fillRect(x,14,1.5,40);
-  ['下','回'].forEach((q,i)=>{const nx=U.text(q,'#d8c8a4',15,{edge:'#0d0806'});g.drawImage(nx,x+12-nx.lw/2,16+i*17,nx.lw,nx.lh)});x+=26;
+  ['下','回'].forEach((q,i)=>{const nx=U.text(q,'#d8c8a4',15,{edge:'#0d0806'});drawImageAsset(g,nx,x+12-nx.lw/2,16+i*17,nx.lw,nx.lh)});x+=26;
   g.globalAlpha=.78;draw(B.next.filter(u=>u.hp>0&&!(u.side==='foe'&&u.broken&&u.brokenUntil>=B.round+1)),false,26);g.globalAlpha=1;g.restore()}
 
 // ───────── 画布：敌人脚边（护盾小印 + 弱点圆点 / 展开字徽 + 血线）─────────
 const WSHORT=w=>w==='暗器'?'暗':w;
 function buiHpBar(bx,by,bw,u){const U=BUI,o={dry:.3,head:.12,tail:.3,tip:.6,thick:.9,wave:.12,a:1,pr:2},bh=7;
   const tr=U.swash(bw,bh,{...o,seed:81,col:'#0d0806',a:.75,dry:.2,thick:1}),gh=U.swash(bw,bh,{...o,seed:82,col:'#f3e0b0',a:.9}),hp=U.swash(bw,bh,{...o,seed:82,col:u.broken?'#ff7a3a':'#d63a22'});
-  g.drawImage(tr,bx,by,bw,bh);const clip=(c,k)=>{k=Math.max(0,Math.min(1,k));if(k<=0)return;g.drawImage(c,0,0,c.width*k,c.height,bx,by,bw*k,bh)};
+  drawImageAsset(g,tr,bx,by,bw,bh);const clip=(c,k)=>{k=Math.max(0,Math.min(1,k));if(k<=0)return;drawImageAsset(g,c,0,0,c.width*k,c.height,bx,by,bw*k,bh)};
   clip(gh,(u.gh??u.hp)/u.mhp);clip(hp,u.hp/u.mhp)}
 function drawShieldRow(u,t){const U=BUI,n=u.weak.length,tg=B.tgtList&&B.tgtList.includes(u)&&(B.tgtAll||B.tgtList[B.tsel]===u),hov=u._buiHov,big=!!(tg||hov);
   const pv=B.pv&&B.tgtList&&B.tgtList.includes(u)?B.pv(B.bpUse):null;
   const ss=big?20:16,bs=big?18:6,step=big?bs+3:8,w0=ss+5+n*step-(step-bs),x=Math.round(u.x-w0/2),y=Math.round(u.y+8);
   g.save();
   // 衬底淡墨
-  const bg=U.swash(w0+26,big?28:22,{seed:7+n+(big?5:0),a:big?.62:.5,dry:.5,head:.1,tail:.3,thick:.82,pr:1});g.drawImage(bg,x-13,Math.round(y+ss/2-bg.lh/2));
+  const bg=U.swash(w0+26,big?28:22,{seed:7+n+(big?5:0),a:big?.62:.5,dry:.5,head:.1,tail:.3,thick:.82,pr:1});drawImageAsset(g,bg,x-13,Math.round(y+ss/2-bg.lh/2));
   // 护盾小印（受击时放大一档；破势换「破」印）
   const hitA=u.shieldHit?Math.max(0,1-(t-u.shieldHit)/300):0,k=1+hitA*.5,sw=ss*k;
   const sl=u.broken?U.poshiSeal(ss):U.seal(String(u.shield),ss,ss,{col:'#1f3a5a',frame:1});U.drawAny(g,sl,x+ss/2-sw/2,y+ss/2-sw/2,sw,sw);
   let cx=x+ss+5;
   u.weak.forEach(w=>{const kn=u.known.has(w),fresh=kn&&u.revealT&&t-u.revealT<600,hit=kn&&pv&&(pv.t===w||pv.e===w),col=kn?WCOL[w]:'#6a625a';
-    if(big){const b=U.icon(kn?w:'?',bs,u.broken?'dim':''),by=y+(ss-bs)/2;g.drawImage(b,cx,by,bs,bs);
-      if(hit&&((t/160|0)%3)){g.strokeStyle='#ffe25a';g.lineWidth=2;g.beginPath();g.arc(cx+bs/2,by+bs/2,bs/2+2,0,7);g.stroke();const a=U.pointer('#ffe25a',10,'d');g.drawImage(a,cx+bs/2-5,by-12-((t/200|0)%2)*2,10,10)}
+    if(big){const b=U.icon(kn?w:'?',bs,u.broken?'dim':''),by=y+(ss-bs)/2;drawImageAsset(g,b,cx,by,bs,bs);
+      if(hit&&((t/160|0)%3)){g.strokeStyle='#ffe25a';g.lineWidth=2;g.beginPath();g.arc(cx+bs/2,by+bs/2,bs/2+2,0,7);g.stroke();const a=U.pointer('#ffe25a',10,'d');drawImageAsset(g,a,cx+bs/2-5,by-12-((t/200|0)%2)*2,10,10)}
       if(fresh&&((t/80|0)%2)){g.fillStyle='rgba(255,255,255,.55)';g.beginPath();g.arc(cx+bs/2,by+bs/2,bs/2,0,7);g.fill()}}
     else{const cy=y+ss/2;g.beginPath();g.arc(cx+3,cy,3.2,0,7);g.fillStyle=fresh&&((t/80|0)%2)?'#ffffff':u.broken?dkCol(col):col;g.fill();g.lineWidth=1;g.strokeStyle='rgba(8,5,3,.9)';g.stroke();
       if(hit&&((t/160|0)%3)){g.strokeStyle='#ffe25a';g.lineWidth=1.5;g.beginPath();g.arc(cx+3,cy,5.5,0,7);g.stroke()}}
@@ -567,17 +573,17 @@ function drawUnitUI(u,now){const U=BUI,h=unitH(u),x=u.x,y=u.y;const tg=B.tgtList
   if(u.side==='foe'&&u.hp>0){drawShieldRow(u,now);
     const it=u.intent;if(it&&!u.broken){g.save();
       const hot=it.charge||it.all,bs=hot?22:19,iy=Math.round(Math.max(96,y-h-bs-8));top=iy;
-      let ic;if(it.charge)ic=U.blot('蓄',(now/220|0)%2?'#e0402a':'#b3261e',bs);else if(it.all)ic=U.blot('群','#b3261e',bs);else{const bt=BSK[it.sk]&&BSK[it.sk].t;ic=U.blot(WSHORT(bt||'刀'),'#2a1d14',bs,{fg:'#eadcbc',ring:'rgba(200,170,120,.7)'})}
+      let ic;if(it.charge)ic=U.blot('蓄',(now/220|0)%2?'#e0402a':'#b3261e',bs);else if(it.all)ic=U.blot('群','#b3261e',bs);else{const bt=BSK[it.sk]&&BSK[it.sk].t;ic=U.blot(B.opt.storyLesson&&u.art==='wilddog'?'扑':WSHORT(bt||'刀'),'#2a1d14',bs,{fg:'#eadcbc',ring:'rgba(200,170,120,.7)'})}
       if(hot){g.shadowColor='rgba(255,80,40,.6)';g.shadowBlur=8}
-      g.drawImage(ic,Math.round(x-bs/2),iy,bs,bs);g.shadowBlur=0;
+      drawImageAsset(g,ic,Math.round(x-bs/2),iy,bs,bs);g.shadowBlur=0;
       // 文字：悬停或被选为目标时显示（小墨签）
       if(tg||u._buiHov){const lab=intentLabel(u),tx=U.text(lab,hot?'#ffc8b0':'#eee2c6',14,{font:U.FS,edge:'#0d0806'}),tw=tx.lw+26;
         const ly=iy-30>=90?iy-30:iy+bs+4;if(ly<iy)top=ly;const bgc=U.swash(Math.round(tw/2)*2,26,{seed:91,halo:hot?'#e07050':'#d8c49a',haloA:.3,col:hot?'#3a0a06':'#0d0806',a:.86,dry:.35,head:.06,tail:.25,thick:.86,pr:1});
-        g.drawImage(bgc,Math.round(x-bgc.lw/2),ly);g.drawImage(tx,Math.round(x-tx.lw/2),Math.round(ly+13-tx.lh/2),tx.lw,tx.lh)}
+        drawImageAsset(g,bgc,Math.round(x-bgc.lw/2),ly);drawImageAsset(g,tx,Math.round(x-tx.lw/2),Math.round(ly+13-tx.lh/2),tx.lw,tx.lh)}
       g.restore()}}
   if(tg){const fo=u.side==='foe',col=fo?'#e8402a':'#8fe0a8',a=U.pointer(col,22,'d'),by=Math.round(top-6-22-((now/180|0)%2)*3);
-    if(fo&&by<86){const p=U.pointer(col,22,'r');g.drawImage(p,Math.round(x-24-22-((now/180|0)%2)*3),Math.round(top+10),22,22)}
-    else g.drawImage(a,Math.round(x-11),Math.max(70,by),22,22)}}
+    if(fo&&by<86){const p=U.pointer(col,22,'r');drawImageAsset(g,p,Math.round(x-24-22-((now/180|0)%2)*3),Math.round(top+10),22,22)}
+    else drawImageAsset(g,a,Math.round(x-11),Math.max(70,by),22,22)}}
 
 // ───────── 浮字 / 横幅 / 大字 ─────────
 function floatTxt(u,t,c,size=26,slow){B.fx.push({x:u.x+rnd(-14,14),y:u.y-unitH(u)*.7-B.fx.filter(f=>f.u===u&&performance.now()-f.t0<300).length*22,t,c,size,t0:performance.now(),life:slow?1500:1000,u})}
@@ -589,54 +595,55 @@ function drawFloats(now){const U=BUI;g.save();
   for(const f of B.fx){const k=(now-f.t0)/f.life;if(k>=1)continue;const e=now-f.t0;const fade=k>.72?(1-k)/.28:1;
     if(f.kind==='weak'){const y=f.y-Math.min(k*3,1)*16,sc=e<90?1.35-e/90*.35:1,tx=U.text('弱点','#ffe25a',30,{edge:'#5a1606'});g.globalAlpha=fade;
       if(e<260){g.strokeStyle=`rgba(255,226,90,${.55*(1-e/260)})`;g.lineWidth=2;g.beginPath();g.arc(f.x,y,16+e/7,0,7);g.stroke()}
-      g.drawImage(tx,f.x-tx.lw*sc/2,y-tx.lh*sc/2,tx.lw*sc,tx.lh*sc);g.globalAlpha=1;continue}
+      drawImageAsset(g,tx,f.x-tx.lw*sc/2,y-tx.lh*sc/2,tx.lw*sc,tx.lh*sc);g.globalAlpha=1;continue}
     // 蓄势 ◆◆ → 铜钱
     const bm=/^蓄势\s*(◆+)$/.exec(f.t);if(bm){const y=f.y-k*30,tx=U.text('蓄势','#ffcf73',f.size),n=bm[1].length,cs=18,w=tx.lw+4+n*(cs+2);g.globalAlpha=fade;
-      g.drawImage(tx,f.x-w/2,y-tx.lh/2,tx.lw,tx.lh);for(let i=0;i<n;i++){const c=U.coin('use',cs);g.drawImage(c,f.x-w/2+tx.lw+4+i*(cs+2),y-cs/2,cs,cs)}g.globalAlpha=1;continue}
+      drawImageAsset(g,tx,f.x-w/2,y-tx.lh/2,tx.lw,tx.lh);for(let i=0;i<n;i++){const c=U.coin('use',cs);drawImageAsset(g,c,f.x-w/2+tx.lw+4+i*(cs+2),y-cs/2,cs,cs)}g.globalAlpha=1;continue}
     const num=/^\+?\d+$/.test(f.t);
     if(num){const BO=[0,-12,-20,-24,-22,-20];const y=f.y+(e<300?BO[Math.min(5,e/50|0)]:-20-(e-300)*.025);const big=f.size>=34;let sc=e<70?1.3:1;
       const tx=U.text(f.t,f.c||'#fff3e0',big?44:34,{font:U.FB});g.globalAlpha=fade;
-      if(e<90&&((e/30|0)%2===0)){const wt=U.text(f.t,'#ffffff',big?44:34,{font:U.FB});g.drawImage(wt,f.x-wt.lw*sc/2,y-wt.lh*sc/2,wt.lw*sc,wt.lh*sc)}else g.drawImage(tx,f.x-tx.lw*sc/2,y-tx.lh*sc/2,tx.lw*sc,tx.lh*sc);
+      if(e<90&&((e/30|0)%2===0)){const wt=U.text(f.t,'#ffffff',big?44:34,{font:U.FB});drawImageAsset(g,wt,f.x-wt.lw*sc/2,y-wt.lh*sc/2,wt.lw*sc,wt.lh*sc)}else drawImageAsset(g,tx,f.x-tx.lw*sc/2,y-tx.lh*sc/2,tx.lw*sc,tx.lh*sc);
       g.globalAlpha=1;continue}
     let y=f.y-k*30,sc=1;if(f.pop){y=f.y-Math.min(k*3,1)*16;sc=k<.15?.6+k/.15*.6:1.2-Math.min(.2,(k-.15))}
-    const tx=U.text(f.t,f.c||'#f3e6c8',Math.round(f.size*1.05));g.globalAlpha=fade;g.drawImage(tx,f.x-tx.lw*sc/2,y-tx.lh*sc/2,tx.lw*sc,tx.lh*sc)}
+    const tx=U.text(f.t,f.c||'#f3e6c8',Math.round(f.size*1.05));g.globalAlpha=fade;drawImageAsset(g,tx,f.x-tx.lw*sc/2,y-tx.lh*sc/2,tx.lw*sc,tx.lh*sc)}
   g.globalAlpha=1;B.fx=B.fx.filter(f=>now-f.t0<f.life);g.lineWidth=1;g.restore()}
 // 招式名横幅：墨迹题签（ink）/ 横卷轴（scroll），按文字缓存
 function drawBanner(now){if(!B.banner)return;const U=BUI,b=B.banner,k=(now-b.t0)/1100;if(k>=1){B.banner=null;return}
   const fo=b.side==='foe',th=U.theme,key=th+'|'+U.fontGen();U.glyphs(b.t);
   if(!b._c||b._k!==key){b._k=key;const m=mkcB(4,4).getContext('2d');m.font=`26px ${U.FB}`;const tw=Math.ceil(m.measureText(b.t).width),w=tw+(th==='ink'?140:96),h=48;
     const c=U.canvasL(w,h,2),X=c.getContext('2d');X.scale(2,2);
-    if(th==='ink'){const sw=U.swash(w,40,{seed:(b.t.length*13)%50+3,halo:fo?'#e07050':'#d8c49a',haloA:.38,col:fo?'#2e0806':'#0d0806',a:.92,dry:.42,head:.05,tail:.3,thick:.86});X.drawImage(sw,0,4,w,40);
-      const sl=U.seal(fo?'煞':'招',20,20,{col:U.CINNABAR});X.drawImage(sl,w/2+tw/2+10,14,20,20)}
-    else{const pp=U.paper(w-16,34,{seed:17,edge:5});X.shadowColor='rgba(0,0,0,.5)';X.shadowBlur=6;X.shadowOffsetY=2;X.drawImage(pp,8,7,w-16,34);X.shadowColor='transparent';
-      const rv=U.rod(46,10);for(const rx of[0,w-10]){X.save();X.translate(rx+10,1);X.rotate(Math.PI/2);X.drawImage(rv,0,0,46,10);X.restore()}}
-    const tx=U.text(b.t,th==='ink'?(fo?'#ffb49a':'#f6dca0'):(fo?'#9a1a10':'#1a0f08'),26,th==='ink'?{}:{edge:'rgba(0,0,0,0)'});X.drawImage(tx,w/2-tx.lw/2,24-tx.lh/2,tx.lw,tx.lh);b._c=c}
+    if(th==='ink'){const sw=U.swash(w,40,{seed:(b.t.length*13)%50+3,halo:fo?'#e07050':'#d8c49a',haloA:.38,col:fo?'#2e0806':'#0d0806',a:.92,dry:.42,head:.05,tail:.3,thick:.86});drawImageAsset(X,sw,0,4,w,40);
+      const sl=U.seal(fo?'煞':'招',20,20,{col:U.CINNABAR});drawImageAsset(X,sl,w/2+tw/2+10,14,20,20)}
+    else{const pp=U.paper(w-16,34,{seed:17,edge:5});X.shadowColor='rgba(0,0,0,.5)';X.shadowBlur=6;X.shadowOffsetY=2;drawImageAsset(X,pp,8,7,w-16,34);X.shadowColor='transparent';
+      const rv=U.rod(46,10);for(const rx of[0,w-10]){X.save();X.translate(rx+10,1);X.rotate(Math.PI/2);drawImageAsset(X,rv,0,0,46,10);X.restore()}}
+    const tx=U.text(b.t,th==='ink'?(fo?'#ffb49a':'#f6dca0'):(fo?'#9a1a10':'#1a0f08'),26,th==='ink'?{}:{edge:'rgba(0,0,0,0)'});drawImageAsset(X,tx,w/2-tx.lw/2,24-tx.lh/2,tx.lw,tx.lh);b._c=c}
   const cv=b._c,grow=th==='scroll'?Math.min(1,k/.14):Math.min(1,k/.08),a=k>.82?(1-k)/.18:1,w=cv.lw*grow,y=78;
-  g.save();g.globalAlpha=a;g.drawImage(cv,(cv.width-cv.width*grow)/2,0,cv.width*grow,cv.height,W/2-w/2,y,w,cv.lh);g.restore()}
+  g.save();g.globalAlpha=a;drawImageAsset(g,cv,(cv.width-cv.width*grow)/2,0,cv.width*grow,cv.height,W/2-w/2,y,w,cv.lh);g.restore()}
 const mkcB=(w,h)=>{const c=document.createElement('canvas');c.width=w;c.height=h;return c};
 // 胜 / 败 / 脱身：满宽墨带 + 书法大字 + 「小江湖」朱印（砸入）
 function drawBig(now){if(!B.big)return;const U=BUI,k=(now-B.big.t0)/B.big.ms;if(k>=1.4)return;const e=now-B.big.t0;
   const a=Math.min(1,k*5)*(k>1?Math.max(0,(1.4-k)/.4):1),c=B.big.c,cy=H/2;g.save();g.globalAlpha=a;
   const band=U.swash(W,170,{seed:33,halo:'#d8c49a',haloA:.3,a:.86,dry:.5,head:.03,tail:.28,thick:.8,wave:.05,pr:1}),gw=Math.min(1,e/180);
-  g.drawImage(band,0,0,band.width*gw,band.height,0,cy-85,W*gw,170);
+  drawImageAsset(g,band,0,0,band.width*gw,band.height,0,cy-85,W*gw,170);
   U.glyphs(B.big.t);const sc=e<90?1.6:e<150?1.18:e<200?.96:1,fs=B.big.t.length>1?112:136;
-  const tx=U.text(B.big.t,U.mix(c,'#fff4e0',.25),fs,{font:U.FC,edge:'#0d0604'});g.drawImage(tx,W/2-tx.lw*sc/2,cy-tx.lh*sc/2,tx.lw*sc,tx.lh*sc);
-  if(e<120){g.globalAlpha=a*(1-e/120);const wt=U.text(B.big.t,'#ffffff',fs,{font:U.FC});g.drawImage(wt,W/2-wt.lw*sc/2,cy-wt.lh*sc/2,wt.lw*sc,wt.lh*sc);g.globalAlpha=a}
-  if(e>260){const ss=Math.min(1,(e-260)/140),s2=1.7-.7*ss,sl=U.seal('小江湖',26,70,{col:U.CINNABAR});g.globalAlpha=a*ss;g.save();g.translate(W/2+tx.lw/2+14,cy+4);g.rotate(.06);g.drawImage(sl,-13*s2,-35*s2,26*s2,70*s2);g.restore()}
+  const tx=U.text(B.big.t,U.mix(c,'#fff4e0',.25),fs,{font:U.FC,edge:'#0d0604'});drawImageAsset(g,tx,W/2-tx.lw*sc/2,cy-tx.lh*sc/2,tx.lw*sc,tx.lh*sc);
+  if(e<120){g.globalAlpha=a*(1-e/120);const wt=U.text(B.big.t,'#ffffff',fs,{font:U.FC});drawImageAsset(g,wt,W/2-wt.lw*sc/2,cy-wt.lh*sc/2,wt.lw*sc,wt.lh*sc);g.globalAlpha=a}
+  if(e>260){const ss=Math.min(1,(e-260)/140),s2=1.7-.7*ss,sl=U.seal('小江湖',26,70,{col:U.CINNABAR});g.globalAlpha=a*ss;g.save();g.translate(W/2+tx.lw/2+14,cy+4);g.rotate(.06);drawImageAsset(g,sl,-13*s2,-35*s2,26*s2,70*s2);g.restore()}
   g.restore();g.lineWidth=1}
 
 // ───────── 胜利结算（结算与升级逻辑同 battle.js） ─────────
 async function victory(){await (window.BFX&&BFX.victoryPose?BFX.victoryPose():0);bsfx('chime');await bigText('胜','#f3d58e',900);
   let exp=0,sil=0;const drops={};for(const f of B.foes){exp+=f.exp;sil+=f.silver;for(const[k,p]of Object.entries(f.drops||{}))if(ITEMS[k]&&chance(p))drops[k]=(drops[k]||0)+1}
-  exp=Math.round(exp*(B.opt.tutorial?.5:1));S.exp+=exp;S.silver+=sil;for(const[k,n]of Object.entries(drops))S.bag[k]=(S.bag[k]||0)+n;
-  const lvl=[];while(S.exp>=S.lv*100){S.exp-=S.lv*100;S.lv++;S.pts+=3;const d=derived();S.hp=d.mhp;S.mp=d.mmp;lvl.push(S.lv)}
+  exp=Math.round(exp*(B.opt.tutorial?.5:1));S.silver+=sil;for(const[k,n]of Object.entries(drops))S.bag[k]=(S.bag[k]||0)+n;
+  const growth=CharacterGrowth.awardBattle(S,exp,B.allies.filter(u=>!u.isHero).map(u=>u.key),(r,id)=>settleCharacterLevels(r,id==='hero'?derived:()=>mnD(id)));const lvl=growth.hero.levels;for(const row of growth.mates)if(row.levels.length){const u=B.allies.find(u=>u.key===row.id);if(u)u.levelUpThisBattle=true;}
   if(sil)bsfx('coin');
   const U=BUI,w=document.createElement('div');w.id='bt-win';
   const dr=Object.entries(drops).map(([k,n])=>`<span class="it">${buiItem(k,24)}${esc(ITEMS[k].name)}×${n}</span>`).join('')||'—';
   w.innerHTML=`<div class="wt"><h2>胜</h2>${U.tag(U.seal('大捷',30,30,{col:U.CINNABAR}),'sl')}</div>
-    <div class="ln">${U.tag(U.blot('修','#6ccf8a',22))}<span>修为</span><b>+<em class="cnt" data-v="${exp}" style="font-style:normal">0</em></b></div>
-    <div class="ln">${U.tag(U.blot('银','#c8d0dc',22))}<span>银两</span><b>+<em class="cnt" data-v="${sil}" style="font-style:normal">0</em></b></div>
+    <div class="ln">${U.tag(U.blot('修','#6ccf8a',22))}<span>修为 · 历练领悟</span><b>${S.lv>=CHARACTER_LEVEL_CAP?'已满级':`+<em class="cnt" data-v="${growth.hero.amount}" style="font-style:normal">0</em>`}</b></div>
+    <div class="ln">${U.tag(U.blot('钱','#c8d0dc',22))}<span>铜钱</span><b>+<em class="cnt" data-v="${sil}" style="font-style:normal">0</em> 文</b></div>
     <div class="ln">${U.tag(U.blot('物','#d9b36c',22))}<span>战利品</span><b>${dr}</b></div>
+    ${growth.mates.map(row=>`<div class="ln"><span>${PARTY_DEF[row.id]?.name||row.id}</span><b>修为 +${row.amount}${row.factor>1?' · 共同研习':''}</b></div>`).join('')}
     ${lvl.map(l=>`<div class="lv">境界突破 · 第 ${l} 层<small>属性点 +3</small></div>`).join('')}
     <div class="go">点击或按 Enter 继续</div>`;
   $('bt').appendChild(w);
@@ -671,16 +678,19 @@ async function victory(){await (window.BFX&&BFX.victoryPose?BFX.victoryPose():0)
 #bt-cards .bt-card .ln.mp .v{font-size:12px!important}
 #bt-cards .bt-card .st{right:2px!important;top:-8px!important}
 #bt-cards .bt-card .tp{top:10px!important}
-/* 指令菜单：紧凑短列表（参照《八方旅人》） */
-.th-ink #bt-cmd{width:152px!important}
-.th-ink #bt-cmd .hd{height:25px!important;padding:0 8px 0 16px!important}
-.th-ink #bt-cmd .hd b{font-size:15px!important}
+/* 保留现有水墨外观，尺寸收紧约 9%；直接调排版，不再叠加 transform 缩放。 */
+.th-ink #bt-cmd{width:140px!important}
+.th-ink #bt-cmd .hd{height:23px!important;padding:0 7px 0 14px!important}
+.th-ink #bt-cmd .hd b{font-size:14px!important}
 .th-ink #bt-cmd .hd span{font-size:11px!important}
-.th-ink #bt-cmd .row{height:23px!important;margin:0!important;padding:0 8px 0 16px!important}
-.th-ink #bt-cmd .row .l{font-size:14px!important}
+.th-ink #bt-cmd .row{height:21px!important;margin:0!important;padding:0 7px 0 14px!important;gap:4px!important}
+.th-ink #bt-cmd .row .l{font-size:13px!important}
 .th-ink #bt-cmd .row .r{font-size:10px!important}
-.th-ink #bt-cmd .row .cur{left:1px!important;top:4px!important}
-.th-ink #bt-cmd .row.sel{transform:translateX(-8px)!important}
+.th-ink #bt-cmd .row .cur{left:1px!important;top:3px!important}
+.th-ink #bt-cmd .row.sel{transform:translateX(-7px)!important}
+.th-ink #bt-cmd .row .ics{min-width:18px!important}
+.th-ink #bt-cmd .row .ics .bi{width:18px;height:18px}
+.th-ink #bt-cmd .ft{height:27px!important;padding:0 7px 0 14px!important}
 #bt-cmd .kn{width:8px!important;font-size:9px!important}
 #bt-cmd .ft .lb{display:none!important}
 #bt-cmd .ft .n{font-size:0!important}#bt-cmd .ft .n b{font-size:13px!important}
@@ -739,11 +749,11 @@ async function victory(){await (window.BFX&&BFX.victoryPose?BFX.victoryPose():0)
 function buiDia(u,cx,cy,s,dim,big){const U=BUI;const hh=s/Math.SQRT2;g.save();g.translate(cx,cy);g.rotate(Math.PI/4);
   g.fillStyle=u.side==='foe'?'rgba(64,18,16,.92)':'rgba(16,38,56,.92)';g.fillRect(-hh/2,-hh/2,hh,hh);
   g.beginPath();g.rect(-hh/2,-hh/2,hh,hh);g.save();g.clip();g.rotate(-Math.PI/4);const f=U.face(u,Math.round(s*1.1));
-  if(f){g.imageSmoothingEnabled=true;g.drawImage(f,-s*.55,-s*.52,s*1.1,s*1.1)}else{g.fillStyle='#ddd';g.font=`${Math.round(s*.4)}px var(--serif),serif`;g.textAlign='center';g.fillText(u.name[0],0,s*.14)}
+  if(f){g.imageSmoothingEnabled=true;drawImageAsset(g,f,-s*.55,-s*.52,s*1.1,s*1.1)}else{g.fillStyle='#ddd';g.font=`${Math.round(s*.4)}px var(--serif),serif`;g.textAlign='center';g.fillText(u.name[0],0,s*.14)}
   if(dim){g.fillStyle='rgba(0,0,0,.5)';g.fillRect(-s,-s,2*s,2*s)}g.restore();
   g.strokeStyle=big?'#f4e2b0':u.side==='foe'?'#e08a74':'#9fd0e8';g.lineWidth=big?2:1.2;g.strokeRect(-hh/2,-hh/2,hh,hh);
   if(big){g.strokeStyle='rgba(244,226,176,.45)';g.lineWidth=1;g.strokeRect(-hh/2-5,-hh/2-5,hh+10,hh+10)}g.restore();
-  if(u.side==='foe'&&u.broken){const sl=U.poshiSeal?U.poshiSeal(Math.round(s*.46)):null;if(sl)g.drawImage(sl,cx-s*.1,cy+s*.02,s*.46,s*.46)}}
+  if(u.side==='foe'&&u.broken){const sl=U.poshiSeal?U.poshiSeal(Math.round(s*.46)):null;if(sl)drawImageAsset(g,sl,cx-s*.1,cy+s*.02,s*.46,s*.46)}}
 function drawOrderBar(now){if(!B||!B.round)return;g.save();
   const y=44,x0=46,cur=B.cur&&B.cur.hp>0?B.cur:null;
   const rest=B.order.filter(u=>u.hp>0&&!B.done.has(u)&&u!==cur),nxt=B.next.filter(u=>u.hp>0&&!(u.side==='foe'&&u.broken&&u.brokenUntil>=B.round+1));
@@ -771,6 +781,6 @@ function drawShieldRow(u,t){const U=BUI,x=u.x,y=u.y+8,n=u.weak.length,cs=15,gap=
   u.weak.forEach((wk,i)=>{const cx=bx+i*(cs+gap),kn=u.known.has(wk),hot=kn&&pv&&(pv.t===wk||pv.e===wk);
     g.fillStyle=u.broken?'rgba(40,40,40,.75)':'rgba(14,12,18,.78)';g.fillRect(cx,by,cs,cs);
     g.strokeStyle=hot?`rgba(255,226,90,${.6+.4*Math.sin(t/110)})`:kn?(WCOL[wk]||'#ccc'):'rgba(200,200,200,.55)';g.lineWidth=hot?2:1;g.strokeRect(cx+.5,by+.5,cs-1,cs-1);
-    if(kn){const ic=U.weakIcon(wk);if(ic)g.drawImage(ic,cx+1,by+1,cs-2,cs-2)}else{g.fillStyle='rgba(230,230,230,.85)';g.font='bold 11px sans-serif';g.textAlign='center';g.fillText('?',cx+cs/2,by+11.5)}});
+    if(kn){const ic=U.weakIcon(wk);if(ic)drawImageAsset(g,ic,cx+1,by+1,cs-2,cs-2)}else{g.fillStyle='rgba(230,230,230,.85)';g.font='bold 11px sans-serif';g.textAlign='center';g.fillText('?',cx+cs/2,by+11.5)}});
   const recent=u.ghT&&t-u.ghT<1500;if(tg||recent||(B.hover&&unitAt(...B.hover)===u)){g.fillStyle='rgba(0,0,0,.7)';g.fillRect(bx,by+cs+3,w,3);g.fillStyle='#d0402c';g.fillRect(bx,by+cs+3,w*u.hp/u.mhp,3)}
   g.restore()}

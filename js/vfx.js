@@ -27,7 +27,7 @@ const FXDEF={
   jinzhen:{tier:1,cls:'dmg'},sniff:{tier:1,cls:'dmg',hit:'咬'},fuhu:{tier:1,cls:'dmg'},shuaibei:{tier:1,cls:'dmg'},bianfa:{tier:1,cls:'dmg'},
   liuye:{tier:2,cls:'dmg'},lianhua:{tier:2,cls:'dmg'},guafeng:{tier:2,cls:'dmg'},
   dingshen:{tier:1,cls:'sup'},huichun:{tier:1,cls:'sup'},lick:{tier:1,cls:'sup'},jingxin:{tier:1,cls:'sup'},baicao:{tier:2,cls:'sup'},
-  ghost:{tier:3,cls:'dmg',boss:1},
+  ghost:{tier:3,cls:'dmg',boss:1},fanjiang:{tier:2,cls:'dmg',hit:'刀'},
   _break:{tier:3,cls:'sys'}};
 
 const VFX=(()=>{
@@ -38,7 +38,7 @@ const VFX=(()=>{
   let list=[],parts=[],clock=0,last=0,acc=0,dimA=0,flash={a:0,c:'#fff'};const overlays=[];
   // 调色板（白 → 亮 → 主色 → 暗 → 余烬）。v2 舞台偏暗：暗/余烬两阶整体提亮，避免粒子尾段直接"消失在黑里"
   const PAL={
-    拳:['#ffffff','#fff0b0','#ffb448','#e8682c','#8a3424'],阳:['#ffffff','#ffe9a0','#ffa040','#e8582c','#8a3024'],
+    音律:['#ffffff','#d5fff1','#8dd8c5','#3b998b','#23594f'],拳:['#ffffff','#fff0b0','#ffb448','#e8682c','#8a3424'],阳:['#ffffff','#ffe9a0','#ffa040','#e8582c','#8a3024'],
     刀:['#ffffff','#f4f0e4','#d8cfbb','#9a907e','#5a5044'],剑:['#ffffff','#d4f4ff','#7ad0ff','#4a7ae0','#2e3c80'],
     棍:['#ffffff','#f4dcaa','#d8a868','#906c48','#5a3a24'],暗器:['#ffffff','#fff4c0','#f0c860','#aa8a38','#5a4424'],
     阴:['#ffffff','#e4dcff','#b0a8ff','#7a60d0','#3e2c7a'],毒:['#ffffff','#e0ffc8','#98e868','#46a03a','#28542a'],
@@ -68,7 +68,7 @@ const VFX=(()=>{
   function bolt(x0,y0,x1,y1,seed,col,a=1,w=2){let s=seed;const rnd1=()=>(s=(s*9301+49297)%233280)/233280;let px=x0,py=y0;const n=9;
     for(let i=1;i<=n;i++){const t=i/n;const nx=x0+(x1-x0)*t+(i<n?(rnd1()-.5)*14:0),ny=y0+(y1-y0)*t;Ln(px,py,nx,ny,col,a,w);px=nx;py=ny}}
   // ── 实例与预算 ──
-  function budget(key,mp,bp){const d=FXDEF[key]||FXDEF._atk,T=VFX_TIER[d.tier];const[lo,hi]=T.mp;
+  function budget(key,mp,bp){const d=FXDEF[key]||FXDEF._atk,grade=SKILLS[key]?.grade,cap={丁:1,丙:2,乙:3,甲:3,绝:3}[grade]??3,T=VFX_TIER[d.cls==='sys'?d.tier:Math.min(d.tier,cap+(d.boss?1:0),tierCap(mp,d.boss))];const[lo,hi]=T.mp;
     const frac=hi>lo?Math.max(0,Math.min(1,((mp||0)-lo)/(hi-lo))):1;
     const s=Math.min(1,(.62+.3*frac)*(1+.08*(bp||0)));return{T,d,s,parts:Math.round(T.parts*s)}}
   function inst(key,mp,bp,dur,fn){const b=budget(key,mp,bp);const it={key,T:b.T,s:b.s,left:b.parts,t0:clock,dur:Math.min(dur||b.T.ms,b.T.ms),fn};list.push(it);return it}
@@ -90,6 +90,7 @@ const VFX=(()=>{
         if(k<.4){const r=4*Z*(1-k/.4);Ln(p.x-r,p.y,p.x+r,p.y,pal[0],1,2);Ln(p.x,p.y-r,p.x,p.y+r,pal[0],1,2)}};sparks(it,p.x,p.y,8,pal)}
     else if(ty==='棍'){it.fn=k=>{ring(p.x,p.y+6,(4+k*13)*Z,(2+k*4)*Z,pal[1],1-k,0,0,2);ring(p.x,p.y+6,(2+k*8)*Z,(1+k*2.5)*Z,pal[0],(1-k)*.8,0,0,2)};
       emit(it,8,()=>({k:'dust',x:foot(t).x+R(-8,8),y:foot(t).y,vx:R(-1.4,1.4),vy:-R(.2,.6),life:R(12,22)|0,pal:['#e8dcc8','#b8a898','#887868']}));sparks(it,p.x,p.y,6,pal)}
+    else if(ty==='音律'){it.fn=k=>{for(let i=0;i<3;i++){const q=Math.max(0,1-k-i*.15);ring(p.x,p.y,(4+k*14+i*3)*Z,(2+k*6+i)*Z,pal[i%2+1],q,.55,0,1)}};sparks(it,p.x,p.y,6,pal,[.5,1.5])}
     else if(ty==='暗器'){it.fn=k=>{for(let i=-1;i<=1;i++){const q=Math.max(0,1-k*2),x=p.x+i*4,y=p.y+i*6;if(q>0){Ln(x-5,y-5,x+5,y+5,pal[2],q,3);Ln(x-5,y-5,x+5,y+5,pal[0],q,1);Ln(x-3,y+3,x+3,y-3,pal[1],q,1)}}};sparks(it,p.x,p.y,6,pal,[1,3])}
     else if(ty==='咬'){it.fn=k=>{const g=Math.min(1,k*3),o=6*Z*(1-g);for(let i=-2;i<=2;i++){const x=p.x+i*3*Z;Ln(x,p.y-7*Z-o,x,p.y-3*Z-o,pal[0],1-k,2);Ln(x,p.y+7*Z+o,x,p.y+3*Z+o,pal[0],1-k,2)}};sparks(it,p.x,p.y,8,PAL.血)}
     else if(ty==='毒'){it.fn=k=>{ring(p.x,p.y,(3+k*9)*Z,(3+k*9)*Z,pal[2],1-k,.6,k*4,2);ring(p.x,p.y,(1+k*5)*Z,(1+k*5)*Z,pal[1],(1-k)*.8,0,0,2)};motes(it,p.x,p.y,8,pal,5)}
@@ -100,6 +101,7 @@ const VFX=(()=>{
 
   // ── 招式特效：cast(it,u,tgs,bp) 返回前摇毫秒；hit(it,u,t) 每次命中 ──
   const SK={
+    qh_hulu_staff:{cast(it,u){const f=foot(u),pal=PAL.棍;it.fn=k=>{ring(f.x,f.y-3,(8+k*3)*Z,(3+k)*Z,pal[1],(1-k)*.6,.7,0,1);ring(f.x,f.y-8,6*Z,3*Z,pal[2],(1-k)*.5,.7,0,1)};return 160}},
     fuhu:{hit(it,u,t){const p=ctr(t),pal=PAL.阳,d=Math.sign(t.x-u.x)||-1;
       it.fn=k=>{const r=(3+k*14)*Z;ring(p.x,p.y,r,r*.9,pal[2],1-k,0,0,3);ring(p.x,p.y,r*.6,r*.55,pal[0],(1-k)*.8,0,0,2);
         if(k<.65)for(let i=-1;i<=1;i++){const g=Math.min(1,k*4);Ln(p.x-7*Z*d+i*5*Z,p.y-9*Z,p.x-7*Z*d+i*5*Z+12*Z*d*g,p.y-9*Z+16*Z*g,i===0?'#ffffff':pal[1],1-k*1.3,3)}};
@@ -113,19 +115,19 @@ const VFX=(()=>{
         it.fn=k=>{const g=Math.min(1,k*2.2);let px=a.x,py=a.y;for(let i=1;i<=30;i++){const t=i/30*g,x=a.x+(b.x-a.x)*t,y=a.y+(b.y-a.y)*t+Math.sin(t*14-k*20)*6*(1-t*.5);Ln(px,py,x,y,i===30?'#ffffff':PAL.棍[1],1-Math.max(0,k-.6)*2.5,2);px=x;py=y}};return 240},
       hit(it,u,t){hitFx(it,t,'棍',Math.sign(t.x-u.x))}},
     jinzhen:{cast(it,u,tgs){const a=ctr(u),b=ctr(tgs[0]);it.fn=k=>{const g=Math.min(1,k*3.2);if(g<1)for(let i=-1;i<=1;i++){const x=a.x+(b.x-a.x)*g,y=a.y+(b.y-a.y)*g+i*7;Ln(x,y,x+(a.x-b.x)*.14,y,PAL.暗器[2],.8,1);Ln(x,y,x+(a.x-b.x)*.07,y,'#ffffff',1,1);P(x,y-2,'#ffffff');P(x,y+2,'#ffffff');P(x-2,y,'#fff4c0')}};return 200},
-      hit(it,u,t){const p=ctr(t);it.fn=k=>{const r=7*Z*(1-k);Ln(p.x-r,p.y,p.x+r,p.y,'#fff4c0',1-k,2);Ln(p.x,p.y-r,p.x,p.y+r,'#fff4c0',1-k,2);ring(p.x,p.y,(2+k*7)*Z,(2+k*7)*Z,PAL.暗器[2],1-k,0,0,2)};sparks(it,p.x,p.y,10,PAL.暗器,[1,3]);shake(it,3)}},
+      hit(it,u,t){const p=ctr(t);it.fn=k=>{const r=7*Z*(1-k);Ln(p.x-r,p.y,p.x+r,p.y,'#fff4c0',1-k,2);Ln(p.x,p.y-r,p.x,p.y+r,'#fff4c0',1-k,2);ring(p.x,p.y,(2+k*7)*Z,(2+k*7)*Z,PAL.暗器[2],1-k,0,0,2)};sparks(it,p.x,p.y,10,PAL.暗器,[1,3]);shake(it,5);hitStop(it,45)}},
     sniff:{hit(it,u,t){hitFx(it,t,'咬',Math.sign(t.x-u.x))}},
     liuye:{cast(it,u,tgs){const a=ctr(u),xs=tgs.map(t=>ctr(t));doDim(it,.25);const minX=Math.min(...xs.map(p=>p.x))-16;
         const lv=[...Array(11)].map((_,i)=>({y:a.y-14*Z+i*2.6*Z+R(-2,2),d:R(0,.25),ph:R(0,6)}));
         it.fn=k=>{for(const l of lv){const g=Math.max(0,Math.min(1,(k-l.d)*2.2));if(g<=0||g>=1)continue;const x=a.x+(minX-a.x)*g,y=l.y+Math.sin(g*9+l.ph)*5;
           Ln(x,y,x+8,y-3,'#62b884',1,3);Ln(x,y,x+8,y-3,'#c8f8d0',1,1);P(x,y,'#ffffff');Ln(x+9,y-3,x+16,y-5,'#9ae0a0',.5,1)}};return 330},
       hit(it,u,t){const p=ctr(t);it.fn=k=>{const g=Math.min(1,k*4),w=1-k;const x0=p.x+16*Z,y0=p.y-11*Z,dx=-32*Z*g,dy=22*Z*g;Ln(x0,y0,x0+dx,y0+dy,'#62b884',w,6);Ln(x0,y0,x0+dx,y0+dy,'#7ad0ff',w,4);Ln(x0,y0,x0+dx,y0+dy,'#ffffff',w,2)};
-        emit(it,8,()=>({k:'leaf',x:p.x,y:p.y,vx:R(-2.4,2.4),vy:R(-2.6,.4),g:.06,life:R(16,26)|0,pal:['#e0ffe0','#9ae0a0','#62b884']}));sparks(it,p.x,p.y,8,PAL.剑);shake(it,6);hitStop(it,60)}},
+        emit(it,8,()=>({k:'leaf',x:p.x,y:p.y,vx:R(-2.4,2.4),vy:R(-2.6,.4),g:.06,life:R(16,26)|0,pal:['#e0ffe0','#9ae0a0','#62b884']}));sparks(it,p.x,p.y,8,PAL.剑);shake(it,8);hitStop(it,60)}},
     lianhua:{hit(it,u,t){const p=ctr(t),pal=PAL.毒;doDim(it,.18);
       it.fn=k=>{const g=Math.min(1,k*2.5),q=1-Math.max(0,k-.5)*2;for(let i=0;i<8;i++){const a=i/8*Math.PI*2+k*.8,r=(3+g*10)*Z,ca=Math.cos(a),sa=Math.sin(a);
           for(let j=0;j<7;j++){const rr=r-j*1.6,wv=j<2||j>5?1:2;for(let o=-wv;o<=wv;o++)P(p.x+ca*rr-sa*o,p.y+(sa*rr+ca*o)*.8,j===0?'#ffe8f6':j<3?'#ff9ad0':j<5?'#e060a8':pal[2],q)}}
         ring(p.x,p.y,3*Z,3*Z,'#ffe25a',q,0,0,2);P(p.x,p.y,'#fff',q)};
-      emit(it,18,()=>({k:'bubble',x:p.x+R(-10,10)*Z,y:p.y+R(-2,8),vx:R(-.2,.2),vy:-R(.4,1),drag:1,life:R(20,32)|0,pal}));shake(it,6);hitStop(it,60)}},
+      emit(it,18,()=>({k:'bubble',x:p.x+R(-10,10)*Z,y:p.y+R(-2,8),vx:R(-.2,.2),vy:-R(.4,1),drag:1,life:R(20,32)|0,pal}));shake(it,8);hitStop(it,60)}},
     guafeng:{cast(it,u,tgs){const a=ctr(u);doDim(it,.3);it.fn=k=>{for(let i=0;i<3;i++){const g=Math.min(1,Math.max(0,k*2-i*.2));if(g<=0||g>=1)continue;crescent(a.x-g*130,a.y-6*Z+i*6*Z,11*Z,Math.PI,Math.PI*1.2,2.5*Z,PAL.雷,1-g*.8)}};return 300},
       hit(it,u,t){const p=ctr(t),seed=Math.random()*1e5|0;it.fn=k=>{if(k<.55&&((clock/50|0)&1)===0){bolt(p.x+R(-3,3),-2,p.x,p.y,seed,PAL.雷[2],1,4);bolt(p.x,-2,p.x,p.y,seed,'#ffffff',1,2)}ring(p.x,p.y,(2+k*11)*Z,(2+k*10)*Z,PAL.雷[2],1-k,0,0,2)};
         sparks(it,p.x,p.y,14,PAL.雷,[2,5]);doFlash(it,.2,'#fff8c0');shake(it,8);hitStop(it,70)}},
@@ -156,10 +158,21 @@ const VFX=(()=>{
     if(d){const it=inst(key,mpOf(key),bp);SK[key].hit(it,u,t)}
     else{const k0=key&&FXDEF[key]?key:'_atk',hk=FXDEF[k0].hit||ty||'拳';const it=inst(k0,mpOf(k0),bp);hitFx(it,t,hk,Math.sign(t.x-u.x)||1);
       if(hk==='暗器'&&u!==t)needleStreak(u,t,bp)}}
+  // Light contacts within one logical strike; no damage/shield resolution.
+  function touch(u,t,point,firm=false){const it=inst('_atk',0,0,firm?210:170),p=point?{x:L(point.x),y:L(point.y)}:ctr(t),pal=PAL.棍;
+    it.fn=k=>{ring(p.x,p.y,(1+k*(firm?9:6))*Z,(1+k*(firm?5:3))*Z,pal[1],(1-k)*.85,0,0,1)};
+    sparks(it,p.x,p.y,firm?8:4,pal,firm?[1.5,3.5]:[.8,2]);shake(it,firm?3:1.5);hitStop(it,firm?30:18)}
   // 针光：三枚银针的飞行光迹（小尺寸人物下细针看不清，用亮线 + 拖尾 + 针头星芒表现）
   function needleStreak(u,t,bp){const it=inst('_atk',0,bp,180),a=ctr(u),b=ctr(t);a.y-=4;
     it.fn=k=>{for(let i=-1;i<=1;i++){const g=Math.min(1,k*2.2+.15),x=a.x+(b.x-a.x)*g,y=a.y+(b.y-a.y)*g+i*7,tl=.16*(1-k),tx=x+(a.x-b.x)*tl,ty=y+(a.y-b.y)*tl;
       Ln(tx,ty,x,y,PAL.暗器[2],(1-k*.6)*.7,1);Ln(tx+(x-tx)*.5,ty+(y-ty)*.5,x,y,'#ffffff',1-k*.4,1);if(k<.7){P(x,y-1,'#ffffff');P(x,y+1,'#ffffff');P(x+1,y,'#fff4c0')}}}}
+  // Initial Ye's projectile starts at the authored release hand; rules resolve on arrival.
+  function needleFlight(hand,t,ms,bp){if(!hand)return;const it=inst('_atk',0,bp,ms),a={x:L(hand.x),y:L(hand.y)},b=ctr(t);
+    it.t0=BT.now();it.fn=k=>{const x=a.x+(b.x-a.x)*k,y=a.y+(b.y-a.y)*k,dx=b.x-a.x,dy=b.y-a.y,n=Math.hypot(dx,dy)||1;
+      Ln(x-dx/n*7,y-dy/n*7,x,y,'#bfe6ef',.9,1);P(x,y,'#ffffff',1);};}
+  function needleImpact(t,key,bp){const it=inst(key&&FXDEF[key]?key:'_atk',mpOf(key),bp,180),p=ctr(t),pal=['#ffffff','#d5edf0','#a2c4ce','#6e9cae','#395964'];
+    it.t0=BT.now();it.fn=k=>ring(p.x,p.y,1+k*5,1+k*3,pal[1],1-k,0,0,1);
+    sparks(it,p.x,p.y,key?7:4,pal,[.7,1.8]);shake(it,key?2:1);hitStop(it,key?35:20);}
   async function cast(u,key,tgs,bp){sigil(key,u,bp);if(!SK[key]||!SK[key].cast)return;const it=inst(key,mpOf(key),bp);const lead=SK[key].cast(it,u,tgs,bp)||0;if(lead)await btWait(lead)}
   function brk(t){const it=inst('_break',0,0);const p=ctr(t);it.fn=k=>{const r=(4+k*26)*Z;ring(p.x,p.y,r,r*.8,PAL.冰[3],1-k,0,0,3);ring(p.x,p.y,r*.7,r*.56,'#ffffff',(1-k)*.9,.35,k*3,2)};
     emit(it,40,()=>{const a=R(0,Math.PI*2),s=R(1.5,6);return{k:'shard',x:p.x,y:p.y,vx:Math.cos(a)*s,vy:Math.sin(a)*s-1,g:.1,life:R(16,28)|0,pal:PAL.冰}});doFlash(it,.12,'#e0f4ff');hitStop(it,100)}
@@ -167,7 +180,7 @@ const VFX=(()=>{
   // 按战斗时钟等待（顿帧期间顺延）
   async function btWait(ms){const end=BT.now()+ms;for(;;){const r=end-BT.now();if(r<=0)return;await wait(Math.max(4,Math.min(r,60)))}}
 
-  // ── 主角旧版战斗动作表（assets/s_hero_battle.webp）。bfx.js 在 BART.hero 未就绪时以同样数据走通用 drawUnit ──
+  // ── 主角旧版战斗动作表（assets/production/characters/s_hero_battle.webp）。bfx.js 在 BART.hero 未就绪时以同样数据走通用 drawUnit ──
   const HB={cell:[147,141],idle:[0,1,2,1,0,3],atk:[[0,4],[70,5],[140,6],[300,7],[380,8],[460,-1]],atk2:[[0,5],[50,6],[150,7],[220,-1]],hurt:[[0,9],[300,-1]],cast:[[0,10],[420,-1]]};
   function heroFrame(u,now){const a=u.anim;if(a&&HB[a.k]){const e=now-a.t0;let f=-1;for(const[t,fr]of HB[a.k])if(e>=t)f=fr;if(f>=0)return f;u.anim=null}
     return HB.idle[Math.floor(now/170)%HB.idle.length]}
@@ -216,7 +229,8 @@ const VFX=(()=>{
     for(const[k,d]of rows){const cap=tierCap(mpOf(k),d.boss);if(d.tier>cap)bad.push(`${k} tier ${d.tier} > 上限 ${cap}（mp ${mpOf(k)}）`)}
     for(const cls of['dmg','sup']){const r=rows.filter(([,d])=>d.cls===cls&&!d.boss).sort((a,b)=>mpOf(a[0])-mpOf(b[0]));
       for(let i=1;i<r.length;i++)if(r[i][1].tier<r[i-1][1].tier&&mpOf(r[i][0])>mpOf(r[i-1][0]))bad.push(`${r[i][0]}(mp ${mpOf(r[i][0])}) tier ${r[i][1].tier} < ${r[i-1][0]}(mp ${mpOf(r[i-1][0])}) tier ${r[i-1][1].tier}`)}
-    for(const k of Object.keys(BSK))if(SKILLS[k]&&!FXDEF[k])bad.push(`${k} 缺少 FXDEF`);
+    for(const k of Object.keys(SKILLS))if(!FXDEF[k])bad.push(`${k} 缺少 FXDEF`);
+    for(const[k,d]of rows){const cap={丁:1,丙:2,乙:3,甲:3,绝:3}[SKILLS[k].grade];if(cap!==undefined&&d.tier>Math.min(3,cap+(d.boss?1:0)))bad.push(`${k} 特效超过品阶预算`)}
     if(bad.length)console.warn('[VFX 等级自检]',bad);return bad}
-  return{hit,cast,brk,act,draw,drawHero,reset,audit,overlay,btWait,PAL,budget,HB,API}})();
+  return{hit,touch,needleFlight,needleImpact,cast,brk,act,draw,drawHero,reset,audit,overlay,btWait,PAL,budget,HB,API}})();
 setTimeout(()=>{try{VFX.audit()}catch(e){}},0);

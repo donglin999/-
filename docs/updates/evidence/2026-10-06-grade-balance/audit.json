@@ -1,0 +1,275 @@
+{
+  "kind": "real engine VM; no browser or statistical playthrough claim",
+  "passed": 14,
+  "checks": [
+    "every current skill and inner has an explicit grade",
+    "full skill VFX audit has zero warnings",
+    "first chapter quality visible without save migration",
+    "complete guard skill stays 丙 and is distinct from basic attack",
+    "MP and grade caps clamp even accidental higher definition",
+    "all skills stay within grade/MP bounds at every BP",
+    "system break keeps its independent T3 budget",
+    "new guard cast and music hit execute on real Canvas",
+    "music has own palette and battle color",
+    "enemy skill omitted by previous BSK audit now registered",
+    "buff text and BP preview match actual base duration",
+    "starter full set actual derived values",
+    "model and battle-derived stats agree",
+    "starter gear lowers but does not erase road damage"
+  ],
+  "balance": {
+    "base": {
+      "mhp": 114,
+      "mmp": 62,
+      "atk": 19,
+      "def": 9,
+      "spd": 3,
+      "crit": 11,
+      "dodge": 5,
+      "block": 3,
+      "move": 2,
+      "st": {
+        "str": 3,
+        "con": 3,
+        "agi": 3,
+        "wil": 3,
+        "wis": 3
+      },
+      "fx": {},
+      "xf": {
+        "pct": {},
+        "add": {},
+        "eb": {},
+        "heal": 0,
+        "prof": 0,
+        "tr": {},
+        "act": []
+      }
+    },
+    "starterSet": {
+      "mhp": 114,
+      "mmp": 79,
+      "atk": 24,
+      "def": 15,
+      "spd": 3,
+      "crit": 11,
+      "dodge": 5,
+      "block": 3,
+      "move": 2,
+      "st": {
+        "str": 3,
+        "con": 3,
+        "agi": 3,
+        "wil": 4,
+        "wis": 3
+      },
+      "fx": {
+        "atk": 5,
+        "def": 4,
+        "wil": 1,
+        "mmp": 10
+      },
+      "xf": {
+        "pct": {},
+        "add": {},
+        "eb": {},
+        "heal": 0,
+        "prof": 0,
+        "tr": {},
+        "act": []
+      }
+    },
+    "equipment": [
+      {
+        "id": "cloth",
+        "name": "粗布短打",
+        "grade": "丁级",
+        "price": 20,
+        "requirements": {},
+        "delta": {
+          "mhp": 0,
+          "mmp": 0,
+          "atk": 0,
+          "def": 4,
+          "crit": 0
+        }
+      },
+      {
+        "id": "club",
+        "name": "枣木短棍",
+        "grade": "丁级",
+        "price": 16,
+        "requirements": {},
+        "delta": {
+          "mhp": 0,
+          "mmp": 0,
+          "atk": 5,
+          "def": 0,
+          "crit": 0
+        }
+      },
+      {
+        "id": "qh_practice_staff",
+        "name": "练习棍",
+        "grade": "丁级",
+        "price": null,
+        "requirements": {},
+        "delta": {
+          "mhp": 0,
+          "mmp": 0,
+          "atk": 1,
+          "def": 0,
+          "crit": 0
+        }
+      },
+      {
+        "id": "needles",
+        "name": "铜针囊",
+        "grade": "丁级",
+        "price": 22,
+        "requirements": {},
+        "delta": {
+          "mhp": 0,
+          "mmp": 0,
+          "atk": 5,
+          "def": 0,
+          "crit": 4
+        }
+      },
+      {
+        "id": "charm",
+        "name": "平安符",
+        "grade": "丁级",
+        "price": 18,
+        "requirements": {},
+        "delta": {
+          "mhp": 0,
+          "mmp": 17,
+          "atk": 0,
+          "def": 2,
+          "crit": 0
+        }
+      },
+      {
+        "id": "knife",
+        "name": "厚背柴刀",
+        "grade": "丁级",
+        "price": 32,
+        "requirements": {
+          "str": 4
+        },
+        "delta": {
+          "mhp": 0,
+          "mmp": 0,
+          "atk": 8,
+          "def": 0,
+          "crit": 0
+        }
+      },
+      {
+        "id": "mianjia",
+        "name": "麻布夹袄",
+        "grade": "丙级",
+        "price": 38,
+        "requirements": {},
+        "delta": {
+          "mhp": 15,
+          "mmp": 0,
+          "atk": 0,
+          "def": 6,
+          "crit": 0
+        }
+      },
+      {
+        "id": "vest",
+        "name": "牛皮软甲",
+        "grade": "丙级",
+        "price": 70,
+        "requirements": {
+          "con": 4
+        },
+        "delta": {
+          "mhp": 0,
+          "mmp": 0,
+          "atk": 0,
+          "def": 10,
+          "crit": 0
+        }
+      },
+      {
+        "id": "jade",
+        "name": "青玉佩",
+        "grade": "丙级",
+        "price": 55,
+        "requirements": {},
+        "delta": {
+          "mhp": 0,
+          "mmp": 2,
+          "atk": 0,
+          "def": 0,
+          "crit": 5
+        }
+      },
+      {
+        "id": "iron",
+        "name": "精铁剑",
+        "grade": "丙级",
+        "price": 80,
+        "requirements": {
+          "str": 5
+        },
+        "delta": {
+          "mhp": 0,
+          "mmp": 0,
+          "atk": 14,
+          "def": 0,
+          "crit": 0
+        }
+      },
+      {
+        "id": "rusty",
+        "name": "井底锈剑",
+        "grade": "丙级",
+        "price": null,
+        "requirements": {},
+        "delta": {
+          "mhp": 0,
+          "mmp": 0,
+          "atk": 10,
+          "def": 0,
+          "crit": 5
+        }
+      },
+      {
+        "id": "wood",
+        "name": "桃木剑",
+        "grade": "丁级",
+        "price": 24,
+        "requirements": {},
+        "delta": {
+          "mhp": 0,
+          "mmp": 0,
+          "atk": 6,
+          "def": 0,
+          "crit": 0
+        }
+      }
+    ],
+    "foe": {
+      "hp": 161,
+      "atk": 11,
+      "def": 8,
+      "shield": 2
+    },
+    "heroSingleNoCrit": {
+      "bare": 15,
+      "clubWeak": 25,
+      "guardWeak": 28
+    },
+    "foeSingleNoCrit": {
+      "bare": 7,
+      "cloth": 5,
+      "fullSet": 4
+    }
+  }
+}

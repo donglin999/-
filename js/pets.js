@@ -36,7 +36,7 @@ function mkPet(id){petEnsure();const P=PARTY_DEF[id],p=S.pets[id];if(!P||!p)retu
 function petTarget(){return aliveOf('foe').sort((a,b)=>a.hp/a.mhp-b.hp/b.mhp)[0]}
 async function petTurn(u){
   const hero=B.allies.find(a=>a.isHero),cfg=PET_DEF[u.key],foe=petTarget();
-  if(!hero||!foe)return;
+  if(!foe)return;if(!hero||hero.hp<=0){await doAttack(u,foe,0);return}
   B.key=null;B.click=null;B.tgtList=null;
   const ratio=hero.hp/hero.mhp;
   if(ratio<=cfg.guardRatio&&u.mp>=cfg.guardMp&&(!hero.guardBy||hero.guardBy.hp<=0||hero.guardUntil<B.round)){
@@ -50,14 +50,14 @@ async function petTurn(u){
 }
 // 护主把主角受到的一半直接伤害转给宠物。只在敌方行动时触发。
 const petHurt0=hurt;
-hurt=function(t,dmg,col,big){
+hurt=function(t,dmg,col,big,impact){
   if(t.isHero&&B&&B.cur&&B.cur.side==='foe'&&t.guardBy&&t.guardBy.hp>0&&t.guardUntil>=B.round&&dmg>1){
     const saved=Math.floor(dmg/2),guard=t.guardBy;
     floatTxt(guard,'护主','#9fe0b5',19);
-    petHurt0(guard,saved,col,false);
-    return petHurt0(t,dmg-saved,col,big)
+    petHurt0(guard,saved,col,false,impact);
+    return petHurt0(t,dmg-saved,col,big,impact)
   }
-  return petHurt0(t,dmg,col,big)
+  return petHurt0(t,dmg,col,big,impact)
 };
 const petBattle0=battle;
 battle=async function(opt={}){petLive=null;let result;

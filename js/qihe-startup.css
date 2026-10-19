@@ -1,0 +1,14 @@
+.qihe-startup .tt{padding-left:8%;padding-right:8%;}
+.qihe-startup .logo{font-size:3.7em;}
+.qihe-startup .chap{letter-spacing:.16em;font-size:1em;}
+.qihe-start-note{color:var(--paper);font-size:.9em;line-height:1.7;}
+.qihe-startup .menu{width:min(31em,85%);margin-top:1.3em;gap:.6em;}
+.qihe-startup .menu button{letter-spacing:.12em;text-align:left;padding:.6em 1em;}
+.qihe-startup .menu small{display:block;font-family:var(--sans);font-size:.7em;letter-spacing:.02em;color:var(--dim);margin-top:.25em;line-height:1.4;}
+.qihe-startup .foot{font-size:.75em;}
+body.prologue-fixed-scene #hud,
+body.prologue-fixed-scene #qihe-journal,
+body.prologue-fixed-scene #npc-arts-button,
+body.prologue-fixed-scene .hint{visibility:hidden;pointer-events:none;}
+
+.qihe-start-version{font-size:.74em;color:var(--gold);letter-spacing:.12em;margin-bottom:.45em;}

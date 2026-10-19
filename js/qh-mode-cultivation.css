@@ -1,0 +1,215 @@
+/* V5 以 2026-10-04 简化预览为唯一构图基准。 */
+body.cultivation-view{padding:0;background:#171b16}
+body.cultivation-view #game{width:min(100vw,calc(100vh * 16 / 9));box-shadow:none;overflow:clip}
+/* 江湖行卷使用整个窗口，关闭后恢复16:9养成画面；窄侧栏也保留立绘及返回。 */
+body.cultivation-view #game:has(#panel.jm:not([hidden])){position:fixed;inset:0;width:100vw;height:100dvh;max-width:none;aspect-ratio:auto;z-index:100}
+@media (min-width:641px) and (max-width:900px){
+ body.cultivation-view #panel.jm{font-size:clamp(12px,1.6cqw,15px)}
+ body.cultivation-view #panel.jm .jm-topChapter{display:none}
+ body.cultivation-view #panel.jm .jm-sheet{grid-template-columns:minmax(12em,30%) minmax(0,1fr);padding:.7em .7em 1em}
+ body.cultivation-view #panel.jm .jm-side{max-height:30em;align-self:start;height:100%}
+ body.cultivation-view #panel.jm .jm-inventory-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+ body.cultivation-view #panel.jm .jm-equipBoard,body.cultivation-view #panel.jm .jm-martial{grid-template-columns:1fr}
+ body.cultivation-view #panel.jm .jm-pagehead p{display:none}
+ body.cultivation-view #panel.jm .jm-cats .cap{display:none}
+}
+body.cultivation-view>.hint,body.cultivation-view #sndbtn{display:none!important}
+#cultivation{position:absolute;inset:0;z-index:10;isolation:isolate;overflow:clip;color:#362b1c;background:#272b20;font:clamp(14px,1.35cqw,26px)/1.45 "Kaiti SC","STKaiti",var(--serif);letter-spacing:0}
+#cultivation[hidden]{display:none}
+#cultivation *{box-sizing:border-box;min-width:0}
+#cultivation :is(h2,h3,p){margin:0}
+#cultivation button{font:inherit;min-height:44px;padding:.4em .8em;border:2px solid #967448;border-radius:2px;background:#eee0bd;color:#392918;cursor:pointer;box-shadow:inset 0 0 0 1px #f9edce,0 2px 4px #30231133;letter-spacing:.02em}
+#cultivation button:hover:not(:disabled){filter:brightness(1.08)}
+#cultivation button:focus-visible,#cultivation select:focus-visible{outline:3px solid #d18d39;outline-offset:2px}
+#cultivation button:disabled{cursor:default;opacity:.48}
+#cultivation .cu-primary{background:#536942;color:#fff1c8;border-color:#88965e}
+.cu-scene{position:absolute;inset:0;overflow:hidden}
+.cu-background{width:100%;height:100%;object-fit:cover;display:block}
+.cu-ornament{position:absolute;left:50%;top:50%;width:var(--cu-art-size,100%);aspect-ratio:1;transform:translate(-50%,-50%);background:url('../assets/production/cultivation/ui/ornaments_v3.png') no-repeat;background-size:400% 200%;pointer-events:none}
+.cu-top{position:absolute;inset:0;z-index:2;pointer-events:none}
+.cu-calendar{position:absolute;left:-3.7cqw;top:.2cqw;width:14cqw;height:14cqw;--cu-art-size:100%}
+/* 日期、葫芦和挂签以原图方格为坐标；文字只落在纸面/圆腹留白内。 */
+.cu-calendar-copy{position:absolute;inset:23% 41% 26%;display:flex;flex-direction:row-reverse;align-items:center;justify-content:center;gap:.16em;font:700 .95cqw/1.12 "Kaiti SC","STKaiti",var(--serif)}
+.cu-calendar-copy>span{writing-mode:vertical-rl;text-orientation:upright;white-space:nowrap;letter-spacing:.05em}
+.cu-energy{position:absolute;left:5.4cqw;top:3.1cqw;width:6.5cqw;height:6.5cqw;--cu-art-size:100%;filter:drop-shadow(0 2px 2px #39261166)}
+.cu-energy strong{position:absolute;left:47%;top:66%;transform:translate(-50%,-50%);font:700 1.5cqw/1 var(--serif);font-variant-numeric:tabular-nums;white-space:nowrap}
+.cu-energy-label{position:absolute;left:6%;top:90%;width:82%;height:28%;--cu-art-size:100%;color:#fff1ce}
+.cu-energy-label>span:not(.cu-ornament){position:absolute;inset:0;display:grid;place-items:center;padding-top:.14cqw;font:700 .65cqw/1 "Kaiti SC","STKaiti",var(--serif);white-space:nowrap;text-shadow:0 1px 2px #21150a}
+.cu-mood{position:absolute;right:4.3%;top:.4cqw;width:10cqw;height:10cqw;z-index:2;pointer-events:none}
+.cu-mood-portrait{position:absolute;inset:0}
+.cu-mood-portrait>.cu-art{position:absolute;left:13%;top:12%;width:74%;aspect-ratio:1;border-radius:50%;background:#4d3826}
+.cu-mood-portrait>.cu-ornament{z-index:1}
+.cu-mood-name{position:absolute;left:-57%;top:39%;width:69%;height:29%;z-index:-1;--cu-art-size:100%;color:#fff1ce;font:700 .86cqw/1 "Kaiti SC","STKaiti",var(--serif)}
+.cu-mood-name>span:not(.cu-ornament){position:absolute;inset:0;display:grid;place-items:center;padding:.18cqw 6% 0 0;white-space:nowrap;text-shadow:0 1px 2px #21150a}
+.cu-mood-tag{position:absolute;left:-13.5%;top:84%;width:5.5cqw;height:5.5cqw;--cu-art-size:100%}
+.cu-mood-copy{position:absolute;inset:21% 41% 37% 40%;display:grid;place-items:center}
+.cu-mood-copy>span{writing-mode:vertical-rl;text-orientation:upright;white-space:nowrap;font:500 .76cqw/1.05 "Kaiti SC","STKaiti",var(--serif);letter-spacing:.05em;color:#44301b}
+#cultivation .cu-settings-button{position:absolute;right:.5%;top:.4%;width:max(44px,4.3%);aspect-ratio:1;z-index:3;padding:0;min-height:0;border:0;background:none;box-shadow:none}
+.cu-settings-button>.cu-ornament{width:3.6cqw}
+/* 卷轴实绘区是源图 y=141..576/724。抵消透明边距后，可见栏高约17%，不再膨胀至约29%。 */
+.cu-bottom{position:absolute;left:0;right:0;bottom:0;height:17%;padding:1% 7% .8%;z-index:4;isolation:isolate;background:none}
+.cu-bottom:before{content:'';position:absolute;inset:-33% 0 -33%;z-index:-1;background:url('../assets/production/cultivation/ui/dock_scroll_v2.png') center/100% 100% no-repeat;pointer-events:none}
+.cu-categories{height:100%;display:flex;gap:1.5%;align-items:center}
+#cultivation .cu-categories button{position:relative;flex:1;height:100%;padding:0;border:0;background:none;box-shadow:none;display:block;transition:filter .15s}
+.cu-categories .cu-art{position:absolute;left:20%;top:50%;width:6.2cqw;height:6.2cqw;transform:translateY(-50%);object-fit:contain}
+.cu-ink-label{position:absolute;left:0;top:12%;height:76%;padding:.35em .22em;writing-mode:vertical-rl;text-orientation:upright;background:#211c16;color:#fff2d6;font:1.05cqw/1.12 "Kaiti SC","STKaiti",var(--serif);clip-path:polygon(6% 2%,25% 0,45% 3%,68% 0,91% 3%,100% 10%,96% 91%,84% 100%,58% 97%,37% 100%,18% 96%,3% 99%,0 12%);letter-spacing:.08em}
+.cu-submenu{display:flex;height:100%;gap:1.4%;align-items:center;overflow:visible}
+#cultivation .cu-submenu>button{position:relative;height:100%;flex:0 0 10.3%;padding:0;border:0;background:none;box-shadow:none;min-height:44px}
+.cu-submenu .cu-art{position:absolute;left:20%;top:50%;width:6.2cqw;height:6.2cqw;transform:translateY(-50%);object-fit:contain}
+.cu-submenu .cu-ink-label{font-size:1cqw}
+/* Candidate gameplay entry uses natural vertical text height, as reviewed. */
+html[data-cultivation-motion="rig-trial-v1"] .cu-ink-label{top:50%;transform:translateY(-50%);height:auto;width:auto;white-space:nowrap;padding:.3em .18em;letter-spacing:.06em}
+.cu-course-card:before{content:'';position:absolute;inset:0;border:2px solid #b55032;box-shadow:inset 0 0 0 2px #f6e4bc;opacity:0;pointer-events:none}
+.cu-course-card:is(:hover,:focus-visible,[aria-pressed=true]):before{opacity:1}
+.cu-submenu .cu-unavailable .cu-art{filter:grayscale(1);opacity:.6}
+.cu-submenu .cu-unavailable{cursor:default!important}
+.cu-tooltip{position:absolute;left:50%;bottom:calc(100% + 1.5cqw);transform:translateX(-50%);width:max-content;max-width:32cqw;writing-mode:horizontal-tb;text-orientation:mixed;padding:.35em .8em;background:#f2e3bd;border:2px solid #8b693b;border-radius:4px;box-shadow:0 2px 4px #38281644;color:#382816;font-size:clamp(12px,1.3cqw,24px);line-height:1.3;white-space:normal;opacity:0;pointer-events:none;z-index:5}
+.cu-tooltip:after{content:'';position:absolute;left:45%;top:100%;border:7px solid transparent;border-top-color:#8b693b}
+.cu-course-card:is(:hover,:focus-visible):not(:disabled) .cu-tooltip{opacity:1}
+.cu-empty{font-size:clamp(14px,1.6cqw,28px);margin-left:3%!important;color:#765e3e}
+.cu-training-frame{position:absolute;left:33.7%;top:18.7%;width:32.6%;height:49.2%;z-index:3;background:#eadbb8;border:clamp(5px,.7cqw,14px) ridge #9a6e35;box-shadow:0 3px 5px #30241166;overflow:hidden}
+.cu-training-frame:has(>[data-art=frame]:not(.cu-art-missing)){border:0}
+.cu-training-frame>[data-art=frame]{position:absolute;inset:0;display:block;width:100%;height:100%;pointer-events:none}
+.cu-illustration{position:absolute;left:50%;top:50%;width:56.25%;height:66.18%;transform:translate(-50%,-50%);pointer-events:none}
+.cu-illustration>.cu-art{display:block;width:100%;height:100%;object-fit:contain}
+html[data-cultivation-motion="rig-trial-v1"] .cu-training-frame:has([data-action="G01"],[data-action="G02"],[data-action="D01"]) .cu-illustration{inset:6%;width:auto;height:auto;transform:none}
+.cu-environment{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.cu-playing{opacity:1}
+.cu-story-frame{left:29%;top:14%;width:40%;height:48%}
+.cu-story-caption{position:absolute;left:21%;right:21%;bottom:25%;z-index:5;background:#f2e4c6;border:3px ridge #a47c45;padding:.8% 1.5%;box-shadow:0 2px 5px #30231144}
+.cu-story-caption h2{font-size:clamp(15px,1.5cqw,28px)}
+.cu-story-caption p{font-size:clamp(14px,1.25cqw,24px);margin:.35em 0!important}
+.cu-choices{display:flex;align-items:center;justify-content:flex-end;gap:.6em}
+.cu-story-choice{position:absolute;left:29%;right:29%;bottom:25%;display:flex;gap:1em;z-index:5;justify-content:center}
+#cultivation .cu-story-choice button{font-size:clamp(14px,1.25cqw,24px)}
+#cultivation .cu-teaching-pick{display:flex;gap:.5em;align-items:center;padding:.2em .5em}
+.cu-teaching-pick .cu-art{width:3.6cqw;height:3.6cqw;object-fit:contain}
+.cu-gain{position:absolute;left:32%;right:32%;bottom:26%;z-index:5;text-align:center;background:#f4e8cb;border:2px solid #a47c45;padding:.5% 1%;pointer-events:none;box-shadow:0 2px 5px #30231144}
+.cu-gain strong{color:#56763d}.cu-gain span{margin-left:1em}.cu-gain small{display:block;font-size:.8em}
+html[data-cultivation-motion="rig-trial-v1"] .cu-gain{top:70%;bottom:auto;font-size:clamp(10px,1.25cqw,24px);line-height:1.2;padding:.25% .6%}
+.cu-mail-menu>button.cu-course-card{flex-basis:16%}
+.cu-overlay{position:absolute;left:27%;right:27%;top:25%;bottom:27%;z-index:6;display:flex;flex-direction:column;padding:1.5%;background:#f0e1be;border:6px ridge #96703d;box-shadow:0 4px 10px #201a1366}
+.cu-overlay>header{display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #bda577;padding-bottom:.5em;gap:1em;flex:none}
+.cu-overlay h2{font-size:clamp(16px,1.7cqw,32px)}
+.cu-overlay header button{font-size:clamp(14px,1.2cqw,23px)!important}
+.cu-panel-body{overflow:auto;min-height:0;flex:1;padding-top:.6em;display:flex;flex-direction:column;align-items:flex-start;gap:.7em}
+.cu-panel-body p{font-size:clamp(14px,1.3cqw,24px);line-height:1.5}
+.cu-rest-picture{position:absolute;right:10%;bottom:8%;width:30%;height:43%;pointer-events:none;opacity:.6}.cu-rest-picture .cu-art{width:100%;height:100%;object-fit:contain}
+.cu-settings-note{color:#7c6748;font-size:.85em!important}
+.cu-games{left:10%;right:10%;top:22%;bottom:25%}
+.cu-games .cu-panel-body{display:block}
+.cu-travel{left:15%;right:15%;top:19%;bottom:25%}
+.cu-record{width:100%;overflow:auto;max-height:11cqw}
+.cu-record p{display:flex;justify-content:space-between;width:100%}
+.cu-message{position:absolute;left:25%;right:25%;bottom:26%;z-index:9;padding:.4em .8em;background:#f4e5c5;border:2px solid #9b7645;text-align:center;font-size:clamp(14px,1.3cqw,25px)}
+#cultivation-status{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
+.cu-art-missing{background:#e7d7b5;outline:1px dashed #9d8054}
+@media(prefers-reduced-motion:reduce){#cultivation *{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+@media(max-width:900px){.cu-story-caption{left:16%;right:16%}.cu-overlay{left:20%;right:20%;top:21%;bottom:25%}.cu-overlay.cu-games{left:6%;right:6%;top:19%}.cu-mail-menu>button.cu-course-card{flex-basis:15%}#cultivation select{font-size:12px;padding:.15em .25em}.cu-tooltip{min-width:18cqw;max-width:35cqw}.cu-story-choice{left:18%;right:18%}}
+@media(max-width:640px){#cultivation .cu-categories button,#cultivation .cu-submenu>button{min-height:0}}
+
+/* 小游戏仅候选试玩，视觉素材与养成共用；所有控件有键盘等价操作。 */
+.cu-game-host{flex:1;min-height:0;overflow:auto;padding-top:.5em;outline:none}.mg-intro,.mg-note{text-align:center}.mg-note{font-size:.8em;color:#7d6c4b;margin:.5em 0!important}.mg-catalog{display:grid;grid-template-columns:repeat(4,1fr);gap:.6em;margin:.7em 0}.mg-catalog button{display:flex;flex-direction:column;align-items:center;text-align:left;gap:.3em}.mg-catalog .cu-painted-icon{width:4em}.mg-catalog strong{font:1.2em var(--serif)}.mg-catalog small{font-size:.75em!important;line-height:1.5}.mg-top{display:flex;justify-content:space-between;align-items:flex-start;gap:1em}.mg-top h3{font-size:1.1em}.mg-top small{font-size:.74em!important;display:block}.mg-top button{flex:none;font-size:.8em!important}.mg-play{display:flex;flex-direction:column;align-items:center;gap:.35em;padding:.4em}.mg-board{display:grid;width:12em;gap:5px}.mg-grid3{grid-template-columns:repeat(3,1fr)}.mg-grid4{grid-template-columns:repeat(4,1fr)}#cultivation .mg-board button{padding:0;aspect-ratio:1;min-height:44px;background:linear-gradient(#b6ab83,#94875d);border-color:#716345;position:relative}.mg-target{box-shadow:inset 0 0 0 3px #e9b32f!important;background:linear-gradient(#dbc786,#c3b063)!important}.mg-current{color:#fff4bd!important;text-shadow:0 2px 4px #1d2415!important;box-shadow:inset 0 0 0 3px #517641!important;font-size:1.3em!important}.mg-road{background:linear-gradient(#e6d2a2,#c7b17f)!important}.mg-mud{background:repeating-linear-gradient(45deg,#726641,#726641 9px,#847650 10px,#847650 12px)!important;color:#bcb290!important}.mg-play>p{font-size:.8em}.mg-buttons{display:flex;gap:.7em}.mg-move-pool{display:grid;grid-template-columns:repeat(4,1fr);gap:.7em;width:90%}.mg-move-pool button{display:flex;align-items:center;flex-direction:column}.mg-move-pool .cu-painted-icon{width:2.8em}.mg-move-tray{display:grid;grid-template-columns:repeat(4,1fr);gap:.4em;width:90%;border:2px dashed #977947;padding:.5em;min-height:3em}.mg-move-tray span{display:flex;align-items:center;justify-content:center;padding:.2em;background:#aa955b38;font-family:var(--serif)}.mg-materials{display:grid;grid-template-columns:repeat(6,1fr);width:95%;gap:.5em}.mg-materials button{display:flex;align-items:center;flex-direction:column;gap:.3em}.mg-materials [aria-pressed=true]{outline:3px solid #668248}.mg-material{height:1.8em;width:1em;display:block;background:linear-gradient(110deg,#647b45,#9caa65);border:2px solid #506c3d;box-shadow:1px 3px 4px #3327}.mg-leaf{border-radius:90% 5% 85% 8%;transform:rotate(30deg)}.mg-seed{width:1.3em;height:1.3em;background:linear-gradient(#c2a46d,#926e43);border-color:#876b40;border-radius:50%}.mg-root{width:.7em;background:linear-gradient(90deg,#d3b477,#a4844d);border-color:#977546;transform:rotate(-15deg);border-radius:4px 7px 12px 15px}.mg-baskets{display:grid;grid-template-columns:repeat(3,1fr);width:80%;gap:1em}.mg-baskets button{display:flex;flex-direction:column;align-items:center}.mg-baskets .cu-painted-icon{width:3em}.mg-footer{display:flex;align-items:center;justify-content:space-between;gap:1em;padding-top:.3em;border-top:1px solid #b9a573;font-size:.82em}.mg-footer button{font-size:.9em!important}
+#cultivation .cu-overlay:has(.cu-game-host){top:27%;bottom:21%;left:8%;right:8%}.cu-game-host:has(.mg-play){font-size:.86em}.mg-trail .mg-board{width:11em}.mg-stance .mg-board{width:10em}
+
+.mg-player{display:inline-block;width:2.25em;height:2.25em;background:url('../assets/production/cultivation/animations/action_stroll_v2.png') 0 0/200% 200% no-repeat;vertical-align:middle;pointer-events:none}.mg-footprint{display:inline-block;width:.55em;height:1.1em;border-radius:50% 60% 40% 40%;background:#574329;transform:rotate(-15deg);box-shadow:.5em .2em 0 #574329;pointer-events:none}
+#cultivation .cu-overlay:has(.mg-play){top:22%;bottom:20%}.cu-game-host:has(.mg-play){display:grid;grid-template-rows:auto minmax(0,1fr) auto;overflow:hidden}.mg-play{min-height:0;overflow:auto}.mg-board{flex-shrink:0}.mg-footer{min-height:44px;flex-shrink:0;background:#ebddb9}.mg-catalog small{line-height:1.3}
+
+.mg-top h3{font-size:max(18px,1.1em)!important}.mg-top small{font-size:max(14px,.84em)!important}.mg-count{font:.8em var(--sans);color:#79633d;margin-left:1em}#cultivation .mg-board .mg-target{outline:2px solid #d7ac45;outline-offset:1px}
+
+
+.cu-game-host .cu-painted-icon{display:block;background:url(../assets/production/cultivation/ui/dock_icons_v2.png) no-repeat;background-size:400% 200%;aspect-ratio:1;width:4em}
+.cu-game-host{height:100%}
+
+.cu-submenu .cu-course-card:last-of-type .cu-tooltip{left:auto;right:0;transform:none}
+/* 通信 V7：物件图标原生透明，人物→物品两步图像交互。 */
+#cultivation .cu-mail-menu>button{flex-basis:13%}
+.cu-mail-menu .cu-course-card:before{display:none}
+.cu-mail-menu .cu-course-card:is(:hover,:focus-visible) .cu-art{filter:drop-shadow(0 0 3px #b97622)}
+.cu-gift-picker{position:absolute;left:18%;right:18%;top:24%;bottom:22%;z-index:3;display:flex;flex-direction:column;gap:1cqw;padding:1.3cqw;background:#f2e3bded;border:3px ridge #997747;box-shadow:0 4px 12px #20150766}
+.cu-gift-picker h2{align-self:center;font-size:1.55cqw;line-height:1.2}
+.cu-gift-npcs{display:flex;justify-content:center;gap:1.2cqw;flex:1;min-height:0;overflow:auto}
+#cultivation .cu-npc-card{display:flex;flex-direction:column;flex:1;max-width:16cqw;align-items:center;padding:.4cqw .6cqw;border:1px solid #bba173;background:linear-gradient(#f7edcf88,#dcc398aa);box-shadow:none;min-height:0}
+.cu-npc-card img{display:block;width:100%;height:calc(100% - 2.7cqw);object-fit:contain;min-height:0;flex:1}
+.cu-npc-card span{font-size:1.5cqw;line-height:1.25;padding:.3cqw}
+.cu-gift-selection{display:flex;gap:1.6cqw;min-height:0;flex:1;align-items:stretch}
+.cu-gift-person{width:23%;height:100%;display:flex;flex-direction:column;align-items:center}
+.cu-gift-person img{width:100%;min-height:0;flex:1;object-fit:contain}
+.cu-gift-person strong{font-size:1.5cqw;line-height:1.4}
+.cu-gift-items{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1cqw;flex:1;align-items:stretch;height:100%;min-height:0}
+#cultivation .cu-item-card{display:flex;flex-direction:column;align-items:center;position:relative;padding:.7cqw .3cqw;background:#f6e9c888;box-shadow:none;min-height:0}
+.cu-item-card img{display:block;width:100%;height:0;min-height:0;flex:1;object-fit:contain}
+.cu-item-card span{font-size:1.3cqw;line-height:1.3}
+.cu-item-card small{font:700 1.2cqw/1.2 var(--serif);padding-top:.3cqw;color:#775029}
+.cu-item-card em{font-style:normal;font-size:1cqw;line-height:1.3;margin-top:.4cqw}
+@media(max-width:640px){
+ .cu-gift-picker{left:8%;right:8%;top:22%;bottom:22%;padding:2cqw;gap:1cqw}
+ .cu-gift-picker h2{font-size:14px}
+ #cultivation .cu-npc-card{max-width:none;padding:1cqw;min-width:0}
+ .cu-npc-card span,.cu-gift-person strong{font-size:12px}
+ .cu-npc-card img{height:calc(100% - 18px)}
+ .cu-gift-selection{gap:1cqw}
+ .cu-gift-items{gap:1cqw}
+ #cultivation .cu-item-card{padding:1cqw .5cqw}
+ .cu-item-card span{font-size:11px}.cu-item-card small{font-size:11px}.cu-item-card em{font-size:10px}
+}
+
+/* Training results remain readable until acknowledged; no extra artwork. */
+.cu-gain{pointer-events:auto;left:24%;right:24%;max-height:38%;overflow:auto;font-size:clamp(13px,1.1cqw,20px)}
+.cu-gain p{margin:.35em 0;line-height:1.45}.cu-gain span{display:block;margin:0;font-size:.85em}.cu-gain button{margin-top:.4em;padding:.3em 1em}
+html[data-cultivation-motion="rig-trial-v1"] .cu-gain{top:auto;bottom:23%;max-height:40%}
+
+/* 点头像打开江湖页（2026-10-11） */
+#cultivation .cu-mood-open{position:absolute;inset:6%;z-index:3;min-height:0;padding:0;border-radius:50%;border:0;background:none!important;box-shadow:none!important;cursor:pointer;pointer-events:auto}
+#cultivation .cu-mood-open:hover,#cultivation .cu-mood-open:focus-visible{outline:2px solid #e8c877;outline-offset:1px}
+#cultivation .cu-mood-open:disabled{cursor:default}
+.cu-debug-tag{margin:0 0 .3em;font-size:.8em;opacity:.6;letter-spacing:.1em}
+
+/* 选项条统一（2026-10-11 用户：图标要专门做、文字在下；第二轮：卡片框太突出，要和卷轴底融为一体）。cu-card-v3
+   不画边框和底色：人物动作图直接落在卷轴纸面上；地点小景用正片叠底＋边缘渐隐融进纸里；文字用墨色，不加黑底。 */
+#cultivation .cu-submenu{gap:.6%;overflow-x:auto;overflow-y:visible;scrollbar-width:none}
+#cultivation .cu-submenu>button.cu-course-card{flex:0 0 7.6%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1%;padding:0}
+#cultivation .cu-submenu .cu-course-card .cu-art{position:static;transform:none;width:auto;height:50%;max-width:100%;aspect-ratio:1;object-fit:contain;border:0;border-radius:0;background:none;box-shadow:none}
+#cultivation .cu-submenu .cu-course-card .cu-place-icon{object-fit:cover;mix-blend-mode:multiply;-webkit-mask-image:radial-gradient(closest-side,#000 58%,transparent 98%);mask-image:radial-gradient(closest-side,#000 58%,transparent 98%)}
+#cultivation .cu-submenu .cu-course-card .cu-ink-label,html[data-cultivation-motion] #cultivation .cu-submenu .cu-course-card .cu-ink-label{position:static;transform:none;top:auto;left:auto;height:auto;width:auto;max-width:112%;writing-mode:horizontal-tb;text-orientation:mixed;clip-path:none;padding:0 .2em;background:none;color:#3b2a17;font-weight:700;font-size:.95cqw;line-height:1.2;letter-spacing:.06em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;text-shadow:0 0 .25em #f4e8cc,0 0 .25em #f4e8cc}
+#cultivation .cu-submenu .cu-course-card:before{inset:14% 6% 13%;border:0;border-bottom:2px solid #b55032;box-shadow:none;border-radius:0}
+#cultivation .cu-submenu .cu-unavailable .cu-art{filter:grayscale(1);opacity:.5}
+#cultivation .cu-submenu .cu-unavailable .cu-ink-label{opacity:.6}
+
+/* 闲逛地点此刻有剧情可遇：图标右上角一个小红点（2026-10-11 用户） */
+#cultivation .cu-submenu .cu-course-card .cu-story-dot{position:absolute;right:24%;top:17%;width:.62cqw;height:.62cqw;min-width:6px;min-height:6px;border-radius:50%;background:#c8371f;box-shadow:0 0 0 1.5px #f6ecd3,0 1px 2px #3a1a1088;pointer-events:none}
+
+/* 每项活动的体力消耗：图标左上角的小数字（2026-10-11 恢复体力限制） */
+#cultivation .cu-submenu .cu-course-card .cu-cost{position:absolute;left:22%;top:15%;min-width:1.25em;padding:0 .2em;border-radius:.7em;background:#3b2a17d9;color:#fff2d6;font:700 .78cqw/1.35 var(--serif);text-align:center;pointer-events:none}
+#cultivation .cu-submenu .cu-unavailable .cu-cost{opacity:.5}
+
+/* 心情头像（2026-10-12 用户：要有点动感；框淡一点，让整个头都出来，不要像被关在里面）。cu-mood-v2
+   淡的细圆环＋半透明底；头是透明底的独立美术，头顶和头发压在环上探出去，只有肩膀收在环里；四档各有一点循环动效。
+   画布约定见 art_sources/guiyun-playtest-fix-20261011/avatar_adopt.py：圆心在 (50%, 60.6%)，半径 37.9% 画布宽。 */
+#cultivation .cu-mood{--ring:6.6cqw}
+#cultivation .cu-mood-portrait>.cu-art,#cultivation .cu-mood-portrait>.cu-ornament{display:none}
+#cultivation .cu-mood-ring{position:absolute;left:50%;top:52%;width:var(--ring);height:var(--ring);transform:translate(-50%,-50%);border-radius:50%;background:radial-gradient(circle,#3a2a1a8c 0%,#2a1d1299 70%,#241910a6 100%);box-shadow:0 0 0 .14cqw #e3c98acc,0 0 0 .26cqw #7a5a2e66,0 .2cqw .5cqw #1c120a55,inset 0 0 .6cqw #0006}
+#cultivation .cu-mood-face{position:absolute;left:50%;top:52%;width:calc(var(--ring)*1.32);height:calc(var(--ring)*1.32);transform:translate(-50%,-60.6%);pointer-events:none;
+ -webkit-mask-image:linear-gradient(#000,#000),radial-gradient(circle calc(var(--ring)*.49) at 50% 60.6%,#000 98%,transparent 100%);mask-image:linear-gradient(#000,#000),radial-gradient(circle calc(var(--ring)*.49) at 50% 60.6%,#000 98%,transparent 100%);
+ -webkit-mask-size:100% 60.6%,100% 100%;mask-size:100% 60.6%,100% 100%;-webkit-mask-position:top,center;mask-position:top,center;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat}
+#cultivation .cu-mood-face img{position:absolute;inset:0;width:100%;height:100%;transform-origin:50% 78%;will-change:transform}
+#cultivation .cu-mood-open{inset:auto;left:50%;top:52%;width:var(--ring);height:var(--ring);transform:translate(-50%,-50%)}
+#cultivation .cu-mood-name{top:44%}
+/* 高兴：笑得一颠一颠，星星一闪一闪 */
+#cultivation .cu-mood[data-mood=happy] .cu-mood-head{animation:cuMoodLaugh .62s ease-in-out infinite alternate}
+#cultivation .cu-mood[data-mood=happy] .cu-mood-fx{animation:cuMoodTwinkle .9s ease-in-out infinite alternate}
+/* 正常：轻微的呼吸起伏 */
+#cultivation .cu-mood[data-mood=calm] .cu-mood-head{animation:cuMoodBreathe 3.4s ease-in-out infinite alternate}
+/* 低落：慢慢耷拉下去再抬起来，乌云跟着飘 */
+#cultivation .cu-mood[data-mood=low] .cu-mood-head{animation:cuMoodDroop 4.2s ease-in-out infinite alternate}
+#cultivation .cu-mood[data-mood=low] .cu-mood-fx{animation:cuMoodDrift 3s ease-in-out infinite alternate}
+/* 烦躁：一阵一阵地抖，涂鸦线跟着抖 */
+#cultivation .cu-mood[data-mood=annoyed] .cu-mood-head{animation:cuMoodFume 1.5s linear infinite}
+#cultivation .cu-mood[data-mood=annoyed] .cu-mood-fx{animation:cuMoodFume 1.5s linear infinite reverse}
+@keyframes cuMoodLaugh{from{transform:translateY(1.2%) rotate(-2.4deg)}to{transform:translateY(-1.6%) rotate(2.4deg)}}
+@keyframes cuMoodTwinkle{from{transform:scale(.82) rotate(-8deg);opacity:.55}to{transform:scale(1.12) rotate(8deg);opacity:1}}
+@keyframes cuMoodBreathe{from{transform:translateY(.5%) scale(.992)}to{transform:translateY(-.7%) scale(1.008)}}
+@keyframes cuMoodDroop{from{transform:translateY(-.4%) rotate(.6deg)}to{transform:translateY(2.2%) rotate(-2.2deg)}}
+@keyframes cuMoodDrift{from{transform:translate(-1.5%,.5%)}to{transform:translate(2%,-.8%)}}
+@keyframes cuMoodFume{0%,55%,100%{transform:translate(0,0) rotate(0)}60%{transform:translate(-1.3%,.3%) rotate(-1.2deg)}66%{transform:translate(1.3%,-.2%) rotate(1.2deg)}72%{transform:translate(-1.1%,.2%) rotate(-1deg)}78%{transform:translate(1.1%,0) rotate(1deg)}84%{transform:translate(-.6%,0) rotate(-.5deg)}90%{transform:translate(.4%,0) rotate(.3deg)}}
+@media(prefers-reduced-motion:reduce){#cultivation .cu-mood-face img{animation:none!important}}

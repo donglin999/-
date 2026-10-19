@@ -1,5 +1,11 @@
 # 小江湖 · 开发文档
 
+状态：现行　最后核对：2026-10-19
+
+> **2026-10-08 注意：本页以下内容是从主库继承的襄阳原型说明，不是栖河试玩版入口。** 栖河当前版本请依次读：[AGENTS.md](../AGENTS.md) → [更新流程](update-workflow.md) → [运行入口](design/runtime-entry.md) → [正式素材登记](assets/production-assets.md) → [栖河地图目录](design/qihe-map/README.md)。剧情与设定类文档以主库 `../xiaojianghu/docs` 为准。
+
+> **2026-10-19：** `#street`、`#streetbright`、`#xiangyang` 襄阳演示入口与旧标题／建角流程已撤除，访问这些后缀直接进入栖河首页；`js/story.js` 的襄阳剧情、`quests.js`、`xiangyang-*.js`、`npc-*`、`containers.js` 已移入 `_attic/2026-10-19-deprecated/`。本页涉及它们的内容只作历史记录，见[弃用入口清理](updates/2026-10-19-deprecated-entries.md)。
+
 > [新剧情与三年培养设计短链](design/README.md)是目标设计入口。下文记录**目前可运行的原型**；正式开局与三年培养尚未迁移。襄阳测试入口已先行接入新人物关系。
 
 襄阳单片段测试可打开 `index.html#xiangyang`：萧白与叶蘅初始同行，结算为地方事件，评审存档写入会话存储，不覆盖普通存档。`#street` 保留旧流程回归入口。
@@ -10,10 +16,10 @@
 
 | 项目 | 现行实现与边界 |
 |---|---|
-| 襄阳城 | `SC.gate`（南门外）、`SC.street`（街市）、`SC.alley`（偏巷）均采用程序排布的 `m_*_v2` 底图、单体图集与碰撞 mask。街市北门本片段封闭，南口接南门，东口接偏巷；场景拓扑见[襄阳城设定](design/xiangyang-city.md) |
+| 襄阳城 | `SC.gate`（南门外）、`SC.street`（街市）、`SC.alley`（偏巷）均采用程序排布的 `m_*_v2` 底图、单体图集与碰撞 mask。街市北门本片段封闭，南口接南门，东口接偏巷；场景拓扑见[襄阳城设定](archive/design/xiangyang-city.md) |
 | 渡口与寨子 | `SC.ferry`、`SC.crossing`、`SC.ferry_e`、`SC.bgate`、`SC.cave` 等仍为旧剧情流程中的可玩场景；目标案件允许救人后不打穿山寨 |
-| 角色和剧情 | 普通开局仍有羊太傅庙旧流程；`#xiangyang` 使用成年萧白和叶蘅初始同行，已接入青蚨散调查、共同救治和地方案件结算。三年培养尚未实现，细节见[襄阳章节脚本](design/xiangyang-chapter.md) |
-| 美术 | 探索场景使用明亮的三分之四俯视像素画；叶蘅、老周、疤脸刘、浪里鳅和关键证物已有独立素材，叶蘅另有七张表情差分，见[襄阳素材规范](design/xiangyang-art.md) |
+| 角色和剧情 | 普通开局仍有羊太傅庙旧流程；`#xiangyang` 使用成年萧白和叶蘅初始同行，已接入青蚨散调查、共同救治和地方案件结算。三年培养尚未实现，细节见[襄阳章节脚本](archive/design/xiangyang-chapter.md) |
+| 美术 | 探索场景使用明亮的三分之四俯视像素画；叶蘅、老周、疤脸刘、浪里鳅和关键证物已有独立素材，叶蘅另有七张表情差分，见襄阳素材规范（已删除） |
 | 音频 | 街市已有 BGM、环境音、打铁与倒茶点声源；其他城市场景差异音景尚待制作 |
 | 存档 | `#street`、`#streetbright`、`#xiangyang` 为评审入口，保存到 `sessionStorage['xjh.review.save']`；普通游戏使用 `localStorage['xjh.save']` |
 
@@ -50,7 +56,7 @@ js/
   core.js             资源加载、精灵表切片、工具函数、数据表(ORIGINS/SKILLS/ITEMS)、存档、画面基础
   ui.js               对话(say/choose)、大地图、面板(商店/小游戏/江湖菜单)、HUD、标题与建角
   scene.js            俯视探索：碰撞/寻路/镜头/路人/同伴/深度排序绘制/氛围特效/reviewStart
-  story.js            第一章所有场景定义 SC.*、剧情、敌人模板 mk()、结局、街市「青蚨散」支线、同伴闲谈
+  story.js            旧襄阳演示所有场景定义 SC.*、剧情、敌人模板 mk()、结局、街市「青蚨散」支线、同伴闲谈
   battle.js           战斗系统 battle(opt)（含自带 CSS 注入 #battle-css）
   main.js             输入（键盘/点击/触屏）、主循环 frame()、启动、自动存档
   audio.js            自包含音频层：包裹全局函数挂音效、场景音景、静音按钮
@@ -68,12 +74,12 @@ game.js, game.v2.js   拆分模块前的旧单文件版本，index.html 不再�
 | 文档 | 内容 |
 |---|---|
 | [design/README.md](design/README.md) | 新故事、叶蘅分支、三年休闲培养及各系统的短链入口 |
-| [design/xiangyang-city.md](design/xiangyang-city.md) | 襄阳城地理、生活、角色、案件与现行实现边界 |
-| [design/xiangyang-art.md](design/xiangyang-art.md) | 襄阳场景、角色、证物和音景的素材规格与验收 |
+| [design/xiangyang-city.md](archive/design/xiangyang-city.md) | 襄阳城地理、生活、角色、案件与现行实现边界 |
+| design/xiangyang-art.md（已删除） | 襄阳场景、角色、证物和音景的素材规格与验收 |
 | [architecture.md](architecture.md) | 模块职责与加载顺序、全局状态、主循环、场景生命周期、存档、坐标系、绘制顺序、输入/寻路、同伴跟随、音频钩子 |
 | [content-guide.md](content-guide.md) | 如何新增/修改内容：场景字段、对话 API、任务、道具、武学、敌人、同伴、青蚨散剧情、小游戏 |
-| [battle.md](battle.md) | 战斗系统规格 |
+| [battle.md](archive/battle.md) | 战斗系统规格 |
 | [art-pipeline.md](art-pipeline.md) | 资源格式与命名、出图与处理管线、重建顺序、已知美术问题 |
 | [audio.md](audio.md) | 音频设计、素材、增益、钩子、重新生成 |
 | [testing.md](testing.md) | Playwright 测试、碰撞审计、截图评审、发布检查 |
-| [roadmap.md](roadmap.md) | 已知问题、后续计划、打磨轮次 changelog |
+| roadmap.md（已删除） | 已知问题、后续计划、打磨轮次 changelog |

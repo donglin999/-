@@ -1,0 +1,12 @@
+{
+  "flow_count": 14,
+  "step_count": 55,
+  "local_link_errors": [],
+  "embedded_json_matches": true,
+  "javascript_syntax": "pass",
+  "preview_server": {
+    "status": 200,
+    "matches_local": true
+  },
+  "scope": "Document and guide validation only; game acceptance cases not executed"
+}

@@ -1,5 +1,9 @@
 # 架构
 
+状态：现行　最后核对：2026-10-19
+
+> **2026-10-19：** `#street`、`#streetbright`、`#xiangyang` 襄阳演示入口与旧标题／建角流程已撤除，访问这些后缀直接进入栖河首页；`js/story.js` 的襄阳剧情、`quests.js`、`xiangyang-*.js`、`npc-*`、`containers.js` 已移入 `_attic/2026-10-19-deprecated/`。本页涉及它们的内容只作历史记录，见[弃用入口清理](updates/2026-10-19-deprecated-entries.md)。
+
 ## 1. 模块与加载顺序
 
 `index.html` 末尾：
@@ -19,7 +23,7 @@
 | 4 | `scene.js` | 地图常量（`GW/GH/WW/WH` 按场景，`setDims`）、`SC={}`、`player cam keys`、碰撞/寻路、`goScene interact takeExit`、路人/同伴、`drawScene`、氛围特效、`reviewStart` | core, ui |
 | 5 | `story.js` | 填充 `SC.*`（8 个场景）、`mk()` 敌人模板、`ending()`、各场景氛围 `Object.assign`、文件末的生成数据块（`// <scene:id>` v2 地图的 gw/gh/mask/props，`// <mask:id>` 旧版地图的 mask；由 `tools_scene/` 脚本自动替换）、青蚨散支线、`COMPANIONS`、`onCompanionTalk`、`questLine/questLog` | 以上全部 |
 | 6 | `battle.js` | `battle(opt)` 及全部战斗逻辑/绘制；给 `SKILLS` 追加同伴招式 | core, ui |
-| 6b | `menu.js` | 江湖菜单与养成（W4）：重声明 `derived mkHero mkAlly bagPanel equipItem statRows ending`，包裹 `battle shop hud`；新增物品/栏位/词条、`S.mates`、8 页菜单（样式注入 `#jm-css`）。目标设计见[成长与战斗](design/growth-combat.md)、[队伍与宠物](design/party-pets.md)、[表现规范](design/presentation.md) | core, ui, story, battle, bui（`BUI.paper/swash/enso/seal/blot/face`） |
+| 6b | `menu.js` | 江湖菜单与养成（W4）：重声明 `derived mkHero mkAlly bagPanel equipItem statRows ending`，包裹 `battle shop hud`；新增物品/栏位/词条、`S.mates`、8 页菜单（样式注入 `#jm-css`）。目标设计见[成长与战斗](../../xiaojianghu/docs/design/growth-combat.md)、[队伍与宠物](../../xiaojianghu/docs/design/party-pets.md)、[表现规范](../../xiaojianghu/docs/design/presentation.md) | core, ui, story, battle, bui（`BUI.paper/swash/enso/seal/blot/face`） |
 | 7 | `main.js` | 画布/键盘/触屏输入、`frame()` 主循环、启动 `loadAll().then(...)`、5 秒自动存档 | 全部 |
 | 8 | `audio.js` | IIFE，自包含；**只包裹**全局函数（`say choose toast openPanel closePanel fade`）并轮询 `mode/cur/player/SC/S/TS`，不改其实现 | 全部 |
 
@@ -50,7 +54,7 @@
  skills:{fist:1}, weapon:null, armor:null, bag:{bun:2}, party:[], flags:{}, scene:'temple', x:480, unlocked:{temple:1}}
 ```
 
-运行中追加的字段：`y`（主循环每帧写 `S.x/S.y`）、`rumors`（已买消息 `{id:1}`）、`aff`（同伴好感 `{suzhi:n}`）、`quests`（W3 支线）；menu.js 惰性补齐（`mnEnsure()`，旧档无需迁移脚本）：`acc`（主角佩饰）、`load`/`skSeen`（主角武学栏 ≤6 与已见武学）、`chapter`（章节，第一章结算后为 2）、`mates`（同伴养成）：
+运行中追加的字段：`y`（主循环每帧写 `S.x/S.y`）、`rumors`（已买消息 `{id:1}`）、`aff`（同伴好感 `{suzhi:n}`）、`quests`（W3 支线）；menu.js 惰性补齐（`mnEnsure()`，旧档无需迁移脚本）：`acc`（主角佩饰）、`load`/`skSeen`（主角武学栏 ≤6 与已见武学）、`chapter`（章节，开始部分结算后为 2）、`mates`（同伴养成）：
 
 ```js
 S.mates.suzhi={st,pts,lvSeen,equip:{weapon,armor,acc},skills:{k:重},load:[..],skSeen:[..],hp:null|n,mp:null|n,mpBonus}  // hp/mp null=满

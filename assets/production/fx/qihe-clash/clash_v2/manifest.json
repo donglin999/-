@@ -1,0 +1,112 @@
+{
+ "am3_fan_jiangqing": {
+  "w": 300,
+  "h": 207,
+  "blend": "add",
+  "file": "fx_qh_clash_am3_fan_jiangqing.webp",
+  "source": "art_sources/qihe-clash-vfx-elements-v1/am3_fan_jiangqing.png",
+  "source_sha256": "196afbdf882b2d0ca837731114270f1bcc3933c769973ed882d2be1828cc0fde",
+  "reference_concept": "am_s3_b-1.png",
+  "background": "black",
+  "use": "明约合锋 260–520 主锋面"
+ },
+ "am3_edge_arc": {
+  "w": 123,
+  "h": 260,
+  "blend": "add",
+  "file": "fx_qh_clash_am3_edge_arc.webp",
+  "source": "art_sources/qihe-clash-vfx-elements-v1/am3_edge_arc.png",
+  "source_sha256": "745acfb667c164a7091da2e8ce183a10c95652e0853dc38f24a3b1e7b3752119",
+  "reference_concept": "am_s3_b-1.png",
+  "background": "black",
+  "use": "明约合锋 扇面前缘弧锋"
+ },
+ "am3_cross_hit": {
+  "w": 76,
+  "h": 69,
+  "blend": "add",
+  "file": "fx_qh_clash_am3_cross_hit.webp",
+  "source": "art_sources/qihe-clash-vfx-elements-v1/am3_cross_hit.png",
+  "source_sha256": "c3c8e2f290f9871080f053fd87fda2fdcfc58c4b4bcc8e68255e6d5d52f0ad7c",
+  "reference_concept": "am_s3_b-1.png",
+  "background": "black",
+  "use": "明约合锋 520 命中者交叉剑痕"
+ },
+ "am3_blade_glint": {
+  "w": 86,
+  "h": 13,
+  "blend": "add",
+  "file": "fx_qh_clash_am3_blade_glint.webp",
+  "source": "art_sources/qihe-clash-vfx-elements-v1/am3_blade_glint.png",
+  "source_sha256": "7238e415e67e0ca7cab878beee737b40661d7ea9f3bb9465930bd8b51e7a969c",
+  "reference_concept": "am_s3_a-1.png",
+  "background": "black",
+  "use": "明约合锋 0–260 剑身凝芒"
+ },
+ "cs1_wrist_lash": {
+  "w": 96,
+  "h": 92,
+  "blend": "normal",
+  "file": "fx_qh_clash_cs1_wrist_lash.webp",
+  "source": "art_sources/qihe-clash-vfx-elements-v1/cs1_wrist_lash.png",
+  "source_sha256": "acd4dfdd3737f448a44fcf397ba459a3e3eda883153294b7e8c3d31d0b1d8996",
+  "reference_concept": "cs_whip_s1_a-2.png",
+  "background": "alpha",
+  "use": "缠腕短打 150–600 缠腕鞭影"
+ },
+ "cs_copper_point": {
+  "w": 36,
+  "h": 26,
+  "blend": "add",
+  "file": "fx_qh_clash_cs_copper_point.webp",
+  "source": "art_sources/qihe-clash-vfx-elements-v1/cs_copper_point.png",
+  "source_sha256": "6dc43fbe2dd4fb1ff731fa1db493037dd2392b3331e6b376949e03d326eb8fc6",
+  "reference_concept": "cs_whip_s1_a-2.png",
+  "background": "black",
+  "use": "缠腕/回身掠影 铜色作用点"
+ },
+ "cs2_wisps": {
+  "w": 220,
+  "h": 114,
+  "blend": "normal",
+  "file": "fx_qh_clash_cs2_wisps.webp",
+  "source": "art_sources/qihe-clash-vfx-elements-v1/cs2_wisps.png",
+  "source_sha256": "03896489bb74ed83b40cfa273d55d46d56098a69e1fce76bf5d48c336404e38c",
+  "reference_concept": "cs_whip_s2_a-1.png",
+  "background": "alpha",
+  "use": "回身掠影 0–240 身周蓄势"
+ },
+ "cs2_whip_arc": {
+  "w": 420,
+  "h": 220,
+  "blend": "normal",
+  "file": "fx_qh_clash_cs2_whip_arc.webp",
+  "source": "art_sources/qihe-clash-vfx-elements-v1/cs2_whip_arc.png",
+  "source_sha256": "a8edf95424f41a4f8bd8c286a21ead954b4a9963ae6611691e839ea4026111db",
+  "reference_concept": "cs_whip_s2_b-2.png",
+  "background": "alpha",
+  "use": "回身掠影 240–920 墨紫长鞭大弧"
+ },
+ "cs2_ghost_red": {
+  "w": 340,
+  "h": 86,
+  "blend": "add",
+  "file": "fx_qh_clash_cs2_ghost_red.webp",
+  "source": "art_sources/qihe-clash-vfx-elements-v1/cs2_ghost_red.png",
+  "source_sha256": "88a5eb9ac2271fec0d64b9a3de3481d3af82277b1cea2000aa6b3d5017c898b5",
+  "reference_concept": "cs_whip_s2_b-2.png",
+  "background": "black",
+  "use": "回身掠影 两道暗红残影"
+ },
+ "cs_copper_sparks": {
+  "w": 96,
+  "h": 74,
+  "blend": "add",
+  "file": "fx_qh_clash_cs_copper_sparks.webp",
+  "source": "art_sources/qihe-clash-vfx-elements-v1/cs_copper_sparks.png",
+  "source_sha256": "55f913a2fecc5c66d00ac540f22f5fe088c0a045d4d41fe04dd0b1aeb7c6c218",
+  "reference_concept": "cs_whip_s2_b-2.png",
+  "background": "black",
+  "use": "回身掠影 520 三目标铜色碎点"
+ }
+}

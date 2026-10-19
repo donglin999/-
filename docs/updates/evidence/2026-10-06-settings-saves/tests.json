@@ -1,0 +1,20 @@
+{
+  "passed": 14,
+  "scope": "actual Qihe saves/storage/startup and engine in local VM; browser flow recorded separately",
+  "checks": [
+    "enumerates all journeys and excludes unrelated/review saves",
+    "manual checkpoint copies complete progress without overwriting journeys",
+    "load saves current progress and forks an immutable checkpoint into a fresh journey",
+    "real engine restores the checkpoint scene and position",
+    "renaming active journey survives automatic save",
+    "invalid names and keys do not overwrite stored records",
+    "current journey cannot be archived",
+    "trash is recoverable and archived journeys do not appear on startup",
+    "damaged records are shown and retained without loading",
+    "storage failure keeps memory, target checkpoint and current record and blocks navigation",
+    "battle and running dialogue block write/navigation",
+    "all review contexts cannot create or alter formal journeys",
+    "home writes progress and returns to current launcher with no auto-play or review params",
+    "home shows startup and continuing reloads the last active journey"
+  ]
+}

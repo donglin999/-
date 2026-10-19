@@ -1,4 +1,4 @@
-"""战斗专用背景 bb_{scene}.webp（工作流 A，见 docs/battle-v2.md）
+"""战斗专用背景 bb_{scene}.webp（工作流 A，见 docs/archive/battle-v2.md）
 
 HD-2D 式战斗舞台：地平线压低（约 55–60% 高度）、中场空旷供左右两侧站位、两侧建筑/山石框景、黄昏或夜色偏暗。
 用法（仓库根目录为工作目录）：
@@ -7,7 +7,7 @@ HD-2D 式战斗舞台：地平线压低（约 55–60% 高度）、中场空旷�
   python3 tools_fx/gen_battle_bg.py all                   # 全部场景：生图（异步接口，≤3 并发）+ 像素化
   python3 tools_fx/gen_battle_bg.py all temple gate road --raw S2   # 原图存 raw_battle/S2/（工作流 S2 补齐的一批）
 生图：tools_common/flatimg.py（FlatRouter 异步接口，密钥 tools_por/.env），模型 gpt-image-2.5-sunburst；原图与 params.json 存 raw_battle/{--raw}/（默认 A）。
-场景键 = bb_{键}；运行时映射（bg_*/m_* → bb_*）见 js/bstage.js BB_ALIAS 与 docs/battle-v2.md。
+场景键 = bb_{键}；运行时映射（bg_*/m_* → bb_*）见 js/bstage.js BB_ALIAS 与 docs/archive/battle-v2.md。
 """
 import argparse, json, os, sys, time
 import numpy as np

@@ -1,5 +1,5 @@
 'use strict';
-// 战斗精灵表规格与数据（battle v2 工作流 D 建立，v3 起由工作流 E 维护），格式见 docs/battle-v2.md §2.1，规格见 docs/battle-sprite-spec.md
+// 战斗精灵表规格与数据（battle v2 工作流 D 建立，v3 起由工作流 E 维护），格式见 docs/archive/battle-v2.md §2.1，规格见 docs/battle-sprite-spec.md
 // 所有表：assets/b_{char}.webp，1 行 N 帧，美术像素 ×3 最近邻；脚底贴单元底边、角色（按脚部锚点）水平居中。
 // h = cell[1] 是源表高度；运行时按待机可见身体高度归一，实际像素颗粒须在战斗镜头复核。
 // 动作条目：f 帧序号；ms 每帧毫秒（数字或逐帧数组）；loop 循环；hit 命中帧在 f 中的序号（出招伤害对齐）。
@@ -69,8 +69,10 @@ window.BART=window.BART||{};
     cast:{f:[13,14],ms:[260,260]},
     brk:{f:[15,16],ms:[420,420],loop:true},
     dead:{f:[12,15,17],ms:[140,160,400]}}};
-  // wolf：身高 36px，单元 74×48 美术像素（帧动画管线）
-  B.wolf={file:'b_wolf',cell:[222,144],cols:14,facing:'r',h:144,tier:'minion',anim:{
+  // wolf：2026-10-17 高密度重画（art_sources/wolf-hd-redraw-20261017）：每帧 480×324，2 倍最近邻（逻辑 240×162），
+  // 待机耳尖到脚底 65 逻辑像素，锚点在画布中线、脚底 304。帧序与旧 b_wolf（222×144，3 倍）一致，旧文件保留。
+  B.wolf={file:'b_wolf_hd_20261017',cell:[480,324],cols:14,px:[240,162],body:65,h:324,tier:'minion',facing:'r',anchor:[240,304],pixelScale:2,
+    frames:['idle','idle-inhale','idle-exhale','idle-flick','gallop-a','gallop-b','pounce-crouch','leap','bite','hurt','howl','stagger','pant','dead'],anim:{
     idle:{f:[0,1,2,1,0,3],ms:[200,180,220,180,200,240],loop:true},
     dash:{f:[4,5],ms:[90,120]},
     atk:{f:[6,7,8,0],ms:[150,90,170,130],hit:2},

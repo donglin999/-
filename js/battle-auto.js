@@ -1,8 +1,9 @@
 // 智能托管：只读取公开战况；通过原指令提交入口出招。
 const BattleAuto={
+  allowed(){return !B?.opt?.storyLesson||B.opt.allowAuto===true},
   choose(u){
     const allies=aliveOf('ally'),foes=aliveOf('foe');if(!foes.length)return null;
-    const usable=(u.skills||[]).filter(k=>SKILLS[k]&&u.mp>=(SKILLS[k].mp||0)&&!(SKILLS[k].needWeapon&&u.isHero&&u.atkType!==SKILLS[k].needWeapon));
+    const usable=(u.skills||[]).filter(k=>SKILLS[k]&&(window.QiheUIModel?!QiheUIModel.skillWhy(u,k):u.mp>=(SKILLS[k].mp||0)&&!(SKILLS[k].needWeapon&&u.isHero&&u.atkType!==SKILLS[k].needWeapon)));
     const maxBP=Math.min(3,u.bp||0),choices=[];
     // 救急优先；只治疗存活角色，不消耗背包药品。
     for(const k of usable){const sk=SKILLS[k],bi=BSK[k]||{};if(!sk.heal)continue;
@@ -33,11 +34,11 @@ const BattleAuto={
     }
     return choices.sort((a,b)=>b.score-a.score)[0]||null;
   },
-  sync(){const btn=$('bt-auto');if(!btn)return;btn.hidden=!B||B.round<1||B.ended;
+  sync(){const btn=$('bt-auto');if(!btn)return;btn.hidden=!B||B.round<1||B.ended||!this.allowed();
     btn.setAttribute('aria-pressed',String(!!B?.auto));btn.classList.toggle('on',!!B?.auto);
     btn.textContent=B?.auto?'暂停自动 · 手动接管':'智能自动战斗';
   },
-  toggle(){if(!B||B.ended||B.round<1)return;B.auto=!B.auto;
+  toggle(){if(!B||B.ended||B.round<1||!this.allowed())return;B.auto=!B.auto;
     if(B.auto)B.autoPending?.();else{clearTimeout(B.autoTimer);B.autoTimer=null}this.sync();
   },
   bind(u,submit,onError){const state=B;state.autoPending=()=>{clearTimeout(state.autoTimer);

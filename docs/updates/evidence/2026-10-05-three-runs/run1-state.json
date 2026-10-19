@@ -1,0 +1,293 @@
+{
+  "acc": null,
+  "armor": null,
+  "atkBonus": 0,
+  "bag": {
+    "bun": 2
+  },
+  "chapter": 2,
+  "exp": 0,
+  "flags": {},
+  "hp": 114,
+  "ji": {
+    "du": 0,
+    "shi": 10,
+    "yi": 0
+  },
+  "load": [],
+  "lv": 1,
+  "mapv": {
+    "prologue_backhill": 1,
+    "prologue_chen_guest": 2,
+    "prologue_chen_hall": 2,
+    "prologue_clinic_interior": 2,
+    "prologue_ye_house": 2,
+    "qh_east": 2,
+    "qh_mountain": 2,
+    "qh_refuge": 2,
+    "qh_south": 2,
+    "qh_west": 2,
+    "qihe_trial": 2
+  },
+  "mates": {
+    "ye": {
+      "equip": {
+        "acc": null,
+        "armor": null,
+        "weapon": null
+      },
+      "hp": null,
+      "ji": {
+        "du": 0,
+        "shi": 0,
+        "yi": 0
+      },
+      "load": [
+        "huichun",
+        "baicao"
+      ],
+      "lvSeen": 1,
+      "mp": null,
+      "mpBonus": 0,
+      "prof": {},
+      "profNote": {},
+      "pts": 0,
+      "skSeen": [
+        "huichun",
+        "baicao"
+      ],
+      "skills": {
+        "baicao": 1,
+        "huichun": 1
+      },
+      "st": {
+        "agi": 5,
+        "con": 4,
+        "str": 3,
+        "wil": 5,
+        "wis": 6
+      },
+      "xinfa": {
+        "known": [
+          "tuna"
+        ],
+        "lv": {
+          "tuna": 1
+        },
+        "main": "tuna",
+        "prog": {},
+        "subs": [],
+        "unstable": 0
+      },
+      "zy": {
+        "刀": 0,
+        "剑": 0,
+        "拳": 0,
+        "暗器": 0,
+        "棍": 0
+      }
+    }
+  },
+  "moral": 10,
+  "mp": 62,
+  "mpBonus": 0,
+  "name": "萧白",
+  "origin": "orphan",
+  "party": [
+    "ye"
+  ],
+  "pet": null,
+  "pets": {},
+  "prof": {},
+  "profNote": {},
+  "prologue": {
+    "arrival": {
+      "borrowed": true,
+      "dogResult": "win",
+      "greeted": {
+        "叶蘅": true
+      },
+      "originExpression": "A",
+      "stage": "done",
+      "version": 1
+    },
+    "carry": {},
+    "ending": false,
+    "errands": {
+      "bowls": "closed",
+      "cloth": "closed",
+      "medicine": "closed"
+    },
+    "handoff": {
+      "chapter": "风起栖河",
+      "heard": {},
+      "lodging": "陈伯独立客房",
+      "noteOwner": "叶蘅",
+      "origin": "A",
+      "relicOwner": "叶蘅"
+    },
+    "heard": {},
+    "relicSeen": true,
+    "rested": true,
+    "version": 2,
+    "wolf_cause_testimony_heard": true,
+    "wolf_disturbance_observed": true,
+    "wolf_testimony_source": "陆衡转述北坡车夫见闻",
+    "yeHousePermission": true
+  },
+  "pts": 0,
+  "qiheChapter": {
+    "chapter2Ready": true,
+    "chenCare": "擦伤已照护",
+    "choices": {},
+    "consent": {
+      "xiao": true,
+      "ye": true
+    },
+    "coreIntact": true,
+    "coreOwner": "叶蘅",
+    "events": {
+      "apprenticeship": true,
+      "arrival": true,
+      "fire-start": true,
+      "meal": true,
+      "medicine": true,
+      "packing": true,
+      "rescue": true,
+      "road-intro": true,
+      "settle": true,
+      "steward": true
+    },
+    "fireLit": true,
+    "granted": false,
+    "halfDay": 6,
+    "questions": {},
+    "rescue": "chen",
+    "roadResult": "win",
+    "route": "mountain",
+    "stage": "cultivation",
+    "supplies": 0,
+    "version": 1
+  },
+  "qiheCultivation": {
+    "energy": 0,
+    "facts": {
+      "joined": true
+    },
+    "history": [
+      {
+        "action": "B03",
+        "choice": 0,
+        "cost": 5,
+        "gain": 8,
+        "id": "cultivation-1",
+        "name": "站位与发力",
+        "period": 0
+      },
+      {
+        "action": "A02",
+        "choice": 0,
+        "cost": 3,
+        "gain": 6,
+        "id": "cultivation-2",
+        "name": "医案记录入门",
+        "period": 0
+      },
+      {
+        "action": "D02",
+        "choice": 0,
+        "cost": 2,
+        "gain": 2,
+        "id": "cultivation-3",
+        "name": "扫院与整理练场",
+        "period": 0
+      }
+    ],
+    "joined": true,
+    "journey": null,
+    "learned": {
+      "medical_notes": {
+        "period": 0,
+        "source": "A02"
+      },
+      "stance": {
+        "period": 0,
+        "source": "B03"
+      }
+    },
+    "letters": [],
+    "mode": "home",
+    "month": 1,
+    "mood": 60,
+    "pending": null,
+    "phase": 0,
+    "progress": {
+      "coordination": 2,
+      "foundation": 8,
+      "medical_notes": 6
+    },
+    "quotas": {},
+    "resources": {
+      "cloth": 2,
+      "food": 0,
+      "grain": 2,
+      "herb": 0,
+      "pouch": 0
+    },
+    "route": "mountain",
+    "screen": "hub",
+    "selection": {
+      "action": "D02",
+      "category": "chores"
+    },
+    "sequence": 3,
+    "summary": null,
+    "version": 1
+  },
+  "scene": "qh_mountain",
+  "sect": "guiyun",
+  "silver": 0,
+  "skSeen": [],
+  "skills": {
+    "fist": 1
+  },
+  "st": {
+    "agi": 3,
+    "con": 3,
+    "str": 3,
+    "wil": 3,
+    "wis": 3
+  },
+  "unlocked": {
+    "prologue_backhill": 1,
+    "qihe_trial": 1
+  },
+  "virtue": {
+    "ren": 0,
+    "xin": 0,
+    "yi": 0,
+    "yong": 0
+  },
+  "weapon": null,
+  "x": 770,
+  "xinfa": {
+    "known": [
+      "tuna"
+    ],
+    "lv": {
+      "tuna": 1
+    },
+    "main": "tuna",
+    "prog": {},
+    "subs": [],
+    "unstable": 0
+  },
+  "y": 470,
+  "zy": {
+    "刀": 0,
+    "剑": 0,
+    "拳": 5,
+    "暗器": 0,
+    "棍": 0
+  }
+}

@@ -16,7 +16,7 @@
 //     hp/mp 为 null 表示满；lvSeen 为已发放属性点的境界（与主角共享境界，每升一层 +3 点，入队时补发）
 
 // ───────── 数据：品质、栏位、成员规则、新增物品 ─────────
-const MN_Q=[['凡品','#6f6250'],['良品','#2f6b45'],['精品','#2d5a86'],['珍品','#6b3d8a'],['神兵','#b3561e']];
+const MN_Q=[['丁级','#6f6250'],['丙级','#2f6b45'],['乙级','#2d5a86'],['甲级','#6b3d8a'],['绝级','#b3561e']];
 const MN_SLOTS=[['weapon','兵器','刃'],['armor','护具','甲'],['acc','佩饰','佩']];
 const MN_LOAD=6;   // 武学栏格数（04 §4.7：每名角色 6 格），第一章即开放装配 UI，见 07 §4
 const MN_FXN={block:'格挡',atk:'攻击',def:'防御',crit:'暴击',dodge:'闪避',mhp:'气血',mmp:'内力',spd:'身速',str:'臂力',con:'根骨',agi:'身法',wil:'定力',wis:'悟性'};
@@ -31,8 +31,8 @@ const MN_MEM={
   dog:{wk:[],slots:['acc'],learn:[],role:'忠犬',noXf:1}};
 // 默认加点偏好（03 §7.1）：一键分配时循环取用
 const MN_PREF={suzhi:['wis','wil','con','wis','wil','agi'],dog:['str','agi','con'],orphan:['wil','wis','con'],beggar:['agi','con','str'],shepherd:['str','con','agi']};
-const mnCap=()=>8+(S.lv||1);                 // 单项上限 8+L（03 §5.1），装备加成不计
-const mnQOn=()=>(S&&S.chapter||1)>=3;         // 装备品质第三章开放（01 §4），此前只存数据不显示
+const mnCap=(w=mnWho)=>8+(w==='hero'?S.lv:S.mates?.[w]?.lv||1);                 // 单项上限 8+L（03 §5.1），装备加成不计
+const mnQOn=()=>true;         // 装备品质第三章开放（01 §4），此前只存数据不显示
 const mnDef=w=>MN_MEM[w]||{wk:null,slots:['weapon','armor','acc'],learn:[],role:'同伴'};
 Object.assign(ITEMS.wood,{q:0});Object.assign(ITEMS.iron,{q:1,req:{str:5}});Object.assign(ITEMS.rusty,{q:1});
 Object.assign(ITEMS.cloth,{q:0});Object.assign(ITEMS.vest,{q:1,req:{con:4}});
@@ -46,7 +46,7 @@ Object.assign(ITEMS,{
   jade:{name:'青玉佩',desc:'佩饰。成色一般的青玉，雕着一枝兰草。',acc:1,fx:{wis:1,crit:3},price:55,q:1},
   pelt:{name:'狼皮',desc:'野狼身上剥下的皮子，铁匠铺按半价收。',mat:1,price:16}});
 Object.assign(ICO,{club:'棍',knife:'刀',needles:'针',mianjia:'袄',charm:'符',collar:'铃',jade:'玉',pelt:'皮',jieyao:'瓶',ledger:'账'});
-if(typeof FOE_DEF!=='undefined'&&FOE_DEF.wolf)FOE_DEF.wolf.drops={pelt:60,bun:10};   // 野狼掉狼皮（卖 8 两），见 06 §6
+if(typeof FOE_DEF!=='undefined'&&FOE_DEF.wolf)FOE_DEF.wolf.drops={pelt:60,bun:10};   // 野狼掉狼皮（卖 8 文），见 06 §6
 const MN_SMITH=['club','wood','knife','needles','iron','cloth','mianjia','vest','charm','collar','jade'];
 
 // ───────── 物品工具 ─────────
@@ -66,10 +66,10 @@ function mnSync(r,sk,w){r.prof=r.prof||{};r.profNote=r.profNote||{};const old=(r
 function mnEnsure(){if(!S)return;const M=S.mates=S.mates||{};if(S.acc===undefined)S.acc=null;S.party=S.party||[];S.pts=S.pts||0;
   if(typeof petEnsure==='function')petEnsure();
   mnDimEnsure(S,'hero');mnSync(S,S.skills,'hero');mnXfEnsure(S,'hero');
-  for(const k of S.party){const P=typeof PARTY_DEF!=='undefined'&&PARTY_DEF[k];if(!P)continue;let m=M[k];
-    if(!m)m=M[k]={st:{...P.st},pts:0,lvSeen:1,equip:{weapon:null,armor:null,acc:null},skills:Object.fromEntries(P.skills.map(s=>[s,1])),hp:null,mp:null,mpBonus:0};
-    m.st=m.st||{...P.st};m.equip=m.equip||{weapon:null,armor:null,acc:null};m.skills=m.skills||{};m.pts=m.pts||0;mnDimEnsure(m,k);mnSync(m,m.skills,k);mnXfEnsure(m,k);
-    if(S.lv>(m.lvSeen||1)){m.pts+=(S.lv-(m.lvSeen||1))*3;m.lvSeen=S.lv;m.hp=null;m.mp=null}}}
+  for(const k of [...new Set([...(S.party||[]),...(S.qiheRoster?.members||[])])]){const P=typeof PARTY_DEF!=='undefined'&&PARTY_DEF[k];if(!P)continue;let m=M[k];
+    if(!m)m=M[k]={st:{...P.st},pts:0,lv:k==='ye'?3:(P.initialLevel||1),exp:0,lvSeen:1,equip:{weapon:null,armor:null,acc:null},skills:Object.fromEntries(P.skills.map(s=>[s,1])),hp:null,mp:null,mpBonus:0};
+    m.st=m.st||{...P.st};m.equip=m.equip||{weapon:null,armor:null,acc:null};m.skills=m.skills||{};m.pts=m.pts||0;if(window.CharacterGrowth)CharacterGrowth.ensure(m,k);mnDimEnsure(m,k);mnSync(m,m.skills,k);mnXfEnsure(m,k);
+    if(window.CharacterGrowth)CharacterGrowth.ensure(m,k)}}
 
 // 派生属性（覆盖 core.js）：兵器 atk/crit、护具 armor→def、所有装备的 fx 词条（五维或派生值）。公式本体与 core.js 相同，见 03/08
 function derived(u=S){if(u===S)mnEnsure();const b={};
@@ -80,7 +80,7 @@ function derived(u=S){if(u===S)mnEnsure();const b={};
   // 心法（04 §3.3、03 §3.2 的 X.add / X.pct）：先加值后乘百分比；第二章起（或调试开关）生效
   const xw=u.xw||(u===S?'hero':null),X=xw&&typeof mnXfSum==='function'?mnXfSum(xw):null;
   if(X&&X.act.length)for(const k of MN_DK)if(X.add[k]||X.pct[k])d[k]=Math.round((d[k]+(X.add[k]||0))*(1+(X.pct[k]||0)));
-  if(X)d.xf=X;return d}
+  if(X)d.xf=X;return window.CharacterCondition?CharacterCondition.apply(d,u):d}
 
 // ───────── 成员访问 ─────────
 function mnMembers(){if(!S)return['hero'];mnEnsure();return['hero',...S.party.filter(k=>S.mates[k])]}
@@ -91,7 +91,7 @@ const mnSk=w=>w==='hero'?S.skills:S.mates[w].skills;
 const mnRec=w=>w==='hero'?S:S.mates[w];
 const mnEq=w=>w==='hero'?S:S.mates[w].equip;
 function mnUnit(w,mod={}){const e=mnEq(w),st={...mnSt(w)};if(mod.st)for(const k in mod.st)st[k]=(st[k]||0)+mod.st[k];
-  const r=w==='hero'?S:S.mates[w];return{st,lv:S.lv,weapon:e.weapon,armor:e.armor,acc:e.acc,...(mod.eq||{}),mpBonus:r.mpBonus||0,atkBonus:w==='hero'?S.atkBonus||0:0,xw:w}}
+  const r=w==='hero'?S:S.mates[w];return{st,lv:w==='hero'?S.lv:(r.lv||1),conditions:r.conditions,weapon:e.weapon,armor:e.armor,acc:e.acc,...(mod.eq||{}),mpBonus:r.mpBonus||0,atkBonus:w==='hero'?S.atkBonus||0:0,xw:w}}
 const mnD=(w,mod)=>derived(mnUnit(w,mod));
 function mnHP(w){const d=mnD(w);if(w==='hero')return{hp:Math.min(S.hp,d.mhp),mp:Math.min(S.mp,d.mmp),d};const m=S.mates[w];
   return{hp:m.hp==null?d.mhp:Math.min(m.hp,d.mhp),mp:m.mp==null?d.mmp:Math.min(m.mp,d.mmp),d}}
@@ -128,24 +128,25 @@ shop=function(n,list){if(n&&n.id==='smith'){const all=[...new Set([...MN_SMITH,.
 let mnLive=[];
 function mkHero(){mnEnsure();const u=statUnit({...S,name:S.name},'ally'),d=derived();Object.assign(u,{mhp:d.mhp,mmp:d.mmp,atk:d.atk,def:d.def,spd:d.spd,crit:d.crit,dodge:d.dodge,block:d.block});
   u.hp=clamp(S.hp,1,u.mhp);u.mp=clamp(S.mp,0,u.mmp);u.isHero=true;u.art=pickArt(['hero']);u.por='hero';
-  const w=S.weapon&&ITEMS[S.weapon]&&ITEMS[S.weapon].weapon;u.atkType=w?w.kind:'拳';u.atkName=w?ITEMS[S.weapon].name:'拳脚';
+  const w=S.weapon&&ITEMS[S.weapon]&&ITEMS[S.weapon].weapon;u.atkType=w?mnWeaponType(w.kind):'拳';u.atkName=w?ITEMS[S.weapon].name:'拳脚';
   u.skills=S.load.filter(k=>S.skills[k]&&SKILLS[k]);u.skLv=mnEffLv('hero');u.mw='hero';u.xf=mnXfSum('hero');return u}
 function mkAlly(key){const P=PARTY_DEF[key];if(!P)return null;mnEnsure();const m=S.mates[key];
-  if(!m){const u=statUnit({name:P.name,st:P.st,lv:Math.max(1,S.lv)},'ally');u.hp=u.mhp;u.mp=u.mmp;u.art=pickArt(P.art);u.por=P.por.find(p=>ok(IMG['p_'+p]))||P.por[0];u.key=key;u.atkType=P.atkType;u.atkName=P.atkName;u.skills=P.skills.slice();u.skLv={};return u}
-  const u=statUnit({name:P.name,st:m.st,lv:Math.max(1,S.lv)},'ally'),d=mnD(key);Object.assign(u,{mhp:d.mhp,mmp:d.mmp,atk:d.atk,def:d.def,spd:d.spd,crit:d.crit,dodge:d.dodge,block:d.block});
+  if(!m){const u=statUnit({name:P.name,st:P.st,lv:Math.max(1,key==='ye'?3:(P.initialLevel||1))},'ally');u.hp=u.mhp;u.mp=u.mmp;u.art=pickArt(P.art);u.por=P.por.find(p=>ok(IMG['p_'+p]))||P.por[0];u.key=key;u.atkType=P.atkType;u.atkName=P.atkName;u.skills=P.skills.slice();u.skLv={};return u}
+  const u=statUnit({name:P.name,st:m.st,conditions:m.conditions,lv:Math.max(1,m.lv||1)},'ally'),d=mnD(key);Object.assign(u,{mhp:d.mhp,mmp:d.mmp,atk:d.atk,def:d.def,spd:d.spd,crit:d.crit,dodge:d.dodge,block:d.block});
   u.hp=m.hp==null?u.mhp:clamp(m.hp,1,u.mhp);u.mp=m.mp==null?u.mmp:clamp(m.mp,0,u.mmp);
   u.art=pickArt(P.art);u.por=P.por.find(p=>ok(IMG['p_'+p]))||P.por[0];u.key=key;
-  const w=m.equip.weapon&&ITEMS[m.equip.weapon]&&ITEMS[m.equip.weapon].weapon;u.atkType=w?w.kind:P.atkType;u.atkName=w?ITEMS[m.equip.weapon].name:P.atkName;
+  const w=m.equip.weapon&&ITEMS[m.equip.weapon]&&ITEMS[m.equip.weapon].weapon;u.atkType=w?mnWeaponType(w.kind):P.atkType;u.atkName=w?ITEMS[m.equip.weapon].name:P.atkName;
   u.skills=m.load.filter(k=>m.skills[k]&&SKILLS[k]);u.skLv=mnEffLv(key);u.mw=key;u.xf=mnXfSum(key);mnLive.push([key,u]);return u}
 const mnBattle0=battle;
 battle=async function(opt={}){mnLive=[];mnProfLog={};mnZyLog={};mnSettled=false;const lv0=S?S.lv:1;let r;
   try{r=await mnBattle0.call(this,opt)}finally{
     // 败/逃：武学熟练按 50% 结算（04 §2.4）；心法不涨层；气脉未稳照常消耗一场
     // 战斗异常时底层会抛错并回滚主角状态；未取得结果就不能结算熟练或写回同伴残血。
-    if(r&&S&&!mnSettled){try{const ev=mnSettle(.5,0);const ups=ev.filter(e=>e.lv);if(ups.length)setTimeout(()=>toast(ups.map(e=>`「${SKILLS[e.k].name}」突破至第 ${e.lv} 重`).join('　'),1800),600)}catch(e){console.error(e)}}
+    if(r&&S&&!mnSettled&&!opt.training){try{const ev=mnSettle(.5,0);const ups=ev.filter(e=>e.lv);if(ups.length)setTimeout(()=>toast(ups.map(e=>`「${SKILLS[e.k].name}」突破至第 ${e.lv} 重`).join('　'),1800),600)}catch(e){console.error(e)}}
     if(r&&S){mnEnsure();for(const[k,u]of mnLive){const m=S.mates[k];if(!m)continue;
-        if(r==='lose'&&!opt.noLose){m.hp=null;m.mp=null;continue}
+        if(u.levelUpThisBattle||r==='lose'&&!opt.noLose){m.hp=null;m.mp=null;continue}
         m.hp=Math.max(1,u.hp,r==='lose'?Math.round(u.mhp*.3):0);m.mp=Math.max(0,u.mp);if(m.hp>=u.mhp)m.hp=null}
+      if(window.CharacterCondition)for(const id of ['hero',...mnLive.map(([key])=>key)]){const record=id==='hero'?S:S.mates[id];if(record&&CharacterCondition.inspect(record).some(c=>c.cleanse==='battle_end')){const base=derived({...mnUnit(id),conditions:[]});CharacterCondition.clear(record,'battle_end',base);}}
       if(S.lv>lv0)mnEnsure();
       // 品德·勇气：临阵脱逃 −1，战胜头目 +2（03 §9.4）
       try{mnDimEnsure(S,'hero');if(r==='flee')S.virtue.yong-=1;else if(r==='win'&&opt.boss)S.virtue.yong+=2}catch(e){}}
@@ -155,10 +156,11 @@ battle=async function(opt={}){mnLive=[];mnProfLog={};mnZyLog={};mnSettled=false;
 // ───────── 武学养成：熟练 → 重数；装配规则（工作流 X，设计见 04 §2.4 §2.9、08 §12 TBD-12/13/27–33） ─────────
 // 存档：r.prof[k] = 当前重数内累积的熟练（升重后扣除），r.profNote[k] = 已提示过"卡在门槛"的重数（避免每场重复提示）
 const mnLvM=n=>1+.15*Math.min(n-1,3)+.08*Math.max(0,n-4);          // 重数倍率（1–4 重与旧 1+.15(n−1) 一致）TBD-12
-const mnProfNeed=n=>6*n*n;                                           // n 重 → n+1 重所需熟练 TBD-13
+const mnProfNeed=(n,k)=>{const a=window.CultivationBalance?.artForSkill(k);if(a&&S?.cultivation){const v=CultivationBalance.thresholds(a);return n>=v.length?0:v[n]-v[n-1];}return 6*n*n};                                           // n 重 → n+1 重所需熟练 TBD-13
 const MN_GATE=[4,7];                                                 // 4→5、7→8 为"突破关"：熟练满也须残页 / 师父指点 / 奇遇
 const mnWisMul=wis=>clamp(1+.04*(wis-5),.8,2);                       // 悟性 → 熟练获取倍率 TBD-13
 const MN_LOAD_STEPS=[[1,3],[3,4],[6,5],[13,6]];                      // [境界层数, 武学栏格数] TBD-27（13 层 = 突破一「登堂入室」）
+const mnActorLevel=w=>w==='hero'?(S.lv||1):(S.mates?.[w]?.lv||1);
 const mnLoadCap=(lv=(S&&S.lv)||1)=>MN_LOAD_STEPS.filter(s=>lv>=s[0]).pop()[1];
 const MN_AOE_MAX=2;                                                  // 群攻（全体）武学至多装配 2 门 TBD-28
 const MN_MP_RATIO=5;                                                 // 单招内力 × 5 ≤ 内力上限，否则"驾驭不住" TBD-29
@@ -180,37 +182,38 @@ const mnReqTxt=req=>Object.entries(req||{}).map(([a,v])=>`${STATN[a]} ${v}`).joi
 function mnUpReq(k,n){const s=SKILLS[k],a=s.key||'wis';return[a,Math.max(3,((s.req||{})[a])||0)+Math.floor(1.5*(n-1))]}
 function mnHuo(k,n){const s=SKILLS[k],o={mp:0,pow:0,reveal:0};for(const[at,lv]of[['at5',5],['at10',10]])if(n>=lv&&s[at])for(const x in o)o[x]+=s[at][x]||0;return o}
 const mnHuoTxt=h=>h?[h.mp?`内力 ${h.mp}`:'',h.pow?`威力 +${Math.round(h.pow*100)}%`:'',h.reveal?`出手看破 ${h.reveal} 处`:''].filter(Boolean).join('，'):'—';
-const mnSkMp=(w,k)=>Math.max(0,(SKILLS[k].mp||0)+mnHuo(k,mnSk(w)[k]||1).mp);
+const mnSkMp=(w,k)=>Math.max(0,(SKILLS[k].mp||0)+mnHuo(k,mnSk(w)[k]||1).mp+(window.CultivationBalance?.mastery(k,mnSk(w)[k]||1).mp||0));
 // 装配校验：返回不能装配的原因（空串 = 可装配）。load 为"除它以外已装配的"列表
 function mnLoadWhy(w,k,load){const s=SKILLS[k];if(!s)return'未知武学';const r=mnRec(w);load=(load||r.load||[]).filter(x=>x!==k);
   const st=mnStE(w);for(const[a,v]of Object.entries(s.req||{}))if((st[a]||0)<v)return`未达门槛：需${STATN[a]} ${v}（现 ${st[a]||0}）`;
   const mp=mnSkMp(w,k),mmp=mnD(w).mmp;if(mp*MN_MP_RATIO>mmp)return`内力上限不足：需 ${mp*MN_MP_RATIO}（现 ${mmp}）`;
   if(mnIsAoe(k)&&load.filter(mnIsAoe).length>=MN_AOE_MAX)return`群攻武学至多装配 ${MN_AOE_MAX} 门`;
   if(s.needWeapon){const o=load.find(x=>SKILLS[x]&&SKILLS[x].needWeapon&&SKILLS[x].needWeapon!==s.needWeapon);if(o)return`与「${SKILLS[o].name}」兵刃不同，只能择一`}
-  if(load.length>=mnLoadCap()){const nx=MN_LOAD_STEPS.find(x=>x[0]>(S.lv||1));return`武学栏已满（${mnLoadCap()} 格${nx?`，境界 ${nx[0]} 层增至 ${nx[1]} 格`:''}）`}
+  if(load.length>=mnLoadCap(mnActorLevel(w))){const nx=MN_LOAD_STEPS.find(x=>x[0]>mnActorLevel(w));return`武学栏已满（${mnLoadCap(mnActorLevel(w))} 格${nx?`，境界 ${nx[0]} 层增至 ${nx[1]} 格`:''}）`}
   return''}
 // 升重校验（book=残页/师父指点：可越过突破关）
-function mnUpWhy(w,k,book){const n=mnSk(w)[k]||1,cap=MN_SKCAP();if(n>=10)return'已臻十重';if(n>=cap)return`本章重数上限 ${cap} 重`;
+function mnUpWhy(w,k,book){if(w==='hero'&&S.cultivation&&window.CultivationBalance?.artForSkill(k))return CultivationBalance.upgradeReason(S.cultivation,k);const n=mnSk(w)[k]||1,cap=MN_SKCAP();if(w==='hero'&&S.cultivation&&SKILLS[k]?.maxLevel&&n>=SKILLS[k].maxLevel)return'已达授课上限，进阶须另行传授';if(n>=10)return'已臻十重';if(n>=cap)return`本章重数上限 ${cap} 重`;
   if(!book&&MN_GATE.includes(n))return`第 ${n+1} 重为突破关：需残页或师父指点`;
   const[a,v]=mnUpReq(k,n+1),st=mnStE(w);if((st[a]||0)<v)return`需${STATN[a]} ${v}（现 ${st[a]||0}）`;
   const t=mnBsk(k).t;if(MN_ZY.includes(t)){const zv=Math.floor(((mnRec(w).zy||{})[t])||0),need=mnZyUp(n+1);if(zv<need)return`需${t}造诣 ${need}（现 ${zv}）`}return''}
 // 熟练入账并尝试升重；返回事件 [{w,k,lv}|{w,k,block}]
-function mnProfGain(w,k,raw){const r=mnRec(w),sk=mnSk(w);if(!r||!sk[k]||!SKILLS[k]||k==='fist')return[];r.prof=r.prof||{};r.profNote=r.profNote||{};
+function mnProfGain(w,k,raw){if(w==='hero'&&S.cultivation&&window.CultivationBalance?.artForSkill(k)){const a=CultivationBalance.artForSkill(k),e=CultivationBalance.addXp(S.cultivation,a.id,raw);CultivationCore.reconcileWorld(S);return e&&e.after>e.before?[{w,k,lv:e.after}]:[];}const r=mnRec(w),sk=mnSk(w);if(!r||!sk[k]||!SKILLS[k]||k==='fist')return[];r.prof=r.prof||{};r.profNote=r.profNote||{};
   const ev=[];let p=(r.prof[k]||0)+raw;
-  for(let g=0;g<10;g++){const n=sk[k],need=mnProfNeed(n);if(p<need)break;const why=mnUpWhy(w,k);
+  for(let g=0;g<10;g++){const n=sk[k],need=mnProfNeed(n,k);if(p<need)break;const why=mnUpWhy(w,k);
     if(why){p=need;if(r.profNote[k]!==n){r.profNote[k]=n;ev.push({w,k,block:why})}break}
     p-=need;sk[k]=n+1;delete r.profNote[k];ev.push({w,k,lv:n+1})}
   r.prof[k]=Math.round(p*10)/10;return ev}
 // 战斗中各成员武学的熟练记账：{w:{k:点}}（每次施展 +1；命中弱点 +1；每造成一次破势 +1）TBD-31
 let mnProfLog={},mnSettled=false;
 // 战斗倍率：重数 × (1 + 火候威力 + 心法同属/治疗加成)，折算成 bfx/battle 读取的 skLv（1+.15(lv−1)），不改那两处的公式
-function mnSkBonus(w,k){const s=SKILLS[k],n=mnSk(w)[k]||1,bi=mnBsk(k),X=mnXfSum(w);let b=mnHuo(k,n).pow;
+function mnSkBonus(w,k){const s=SKILLS[k],n=mnSk(w)[k]||1,bi=mnBsk(k),X=mnXfSum(w);let b=mnHuo(k,n).pow+(window.CultivationBalance?.mastery(k,n).pow||0);
   if(bi.e&&X.eb[bi.e])b+=X.eb[bi.e];if(s.heal&&X.heal)b+=X.heal;if(mnNiXi(w,k))b-=.10;return b}
 function mnEffLv(w){const sk=mnSk(w),o={};for(const k in sk){const m=mnLvM(sk[k])*(1+mnSkBonus(w,k));o[k]=Math.max(.1,Math.round((1+(m-1)/.15)*1e4)/1e4)}return o}
 
 // ───────── 江湖维度：兵刃造诣 / 技艺 / 品德 / 内息 / 格挡（工作流 X 追加；参考《大侠立志传》，设计见 03 §9、05 §6.4、08 §15） ─────────
 // 存档：r.zy = {刀,剑,拳,棍,暗器}（兵刃造诣 0–200）· r.ji = {yi 医术, du 毒术, shi 武学常识(底数)} · S.virtue = {ren,yi,xin,yong}（品德分项底数）
-const MN_ZY=['刀','剑','拳','棍','暗器'];                            // 后续：枪 鞭 扇（随 WTYPES 扩充）
+function mnWeaponType(t){return ['琴','箫','笛','音律'].includes(t)?'音律':t}
+const MN_ZY=['刀','剑','拳','棍','暗器','音律'];                            // 后续：枪 鞭 扇（随 WTYPES 扩充）
 const MN_ZY_MAX=200;
 const mnZyBonus=v=>Math.min(10,Math.floor((v||0)/20))/100;          // 造诣每 20 点该兵刃伤害 +1%，至多 +10% TBD-37
 const mnZyUp=n=>6*(n-1);                                             // 兵刃武学升至第 n 重需该兵刃造诣 TBD-38
@@ -239,7 +242,7 @@ strike=function(u,t,o){try{if(u&&u.side==='ally'&&u.mw&&o&&MN_ZY.includes(o.t)&&
     const b=mnZyBonus(r&&r.zy&&r.zy[o.t]);if(b)o={...o,pow:o.pow*(1+b)}}}catch(e){}return mnStrike0.call(this,u,t,o)};
 // 格挡：我方被敌方出手击中时，按格挡率受伤减半
 const mnHurt0=hurt;
-hurt=function(t,dmg,col,big){try{if(t&&t.side==='ally'&&B&&B.cur&&B.cur.side==='foe'&&t.block&&dmg>1&&chance(t.block)){dmg=Math.max(1,Math.round(dmg*.5));floatTxt(t,'格挡','#cfe3ff',18)}}catch(e){}return mnHurt0.call(this,t,dmg,col,big)};
+hurt=function(t,dmg,col,big,impact){try{if(t&&t.side==='ally'&&B&&B.cur&&B.cur.side==='foe'&&t.block&&dmg>1&&chance(t.block)){dmg=Math.max(1,Math.round(dmg*.5));floatTxt(t,'格挡','#cfe3ff',18)}}catch(e){}return mnHurt0.call(this,t,dmg,col,big,impact)};
 // 侠义事件同时记入"仁德"分项
 const mnMoral0=moral;
 moral=function(d){try{if(S){mnDimEnsure(S,'hero');S.virtue.ren+=d}}catch(e){}return mnMoral0.apply(this,arguments)};
@@ -253,9 +256,10 @@ function mnDimSettle(mul){const ev=[];for(const[w,L]of Object.entries(mnZyLog)){
 const mnXfDebug=()=>{try{return !!window.DEBUG_XINFA||/[?&]debug=[^&#]*xinfa/.test(location.search)}catch(e){return false}};
 const mnXfOn=()=>((S&&S.chapter)||1)>=2||mnXfDebug();
 const MN_SECT={yuquan:'玉泉寺',gaibang:'丐帮',lumen:'鹿门书院',taihe:'太和观',yiyong:'京湖义勇',chuanbang:'汉江船帮',baixian:'白鹇谷'};
-const mnSubCap=(lv=(S&&S.lv)||1)=>lv>=39?3:lv>=25?2:lv>=13?1:0;   // 辅修槽：突破一/二/三（03 §6.2，以境界层数代行，剧情突破实装后改读 S.realm）
+const mnSubCap=(lv=(S&&S.lv)||1)=>Math.max(S?.cultivation?.learned.xf_guanlan?1:0,lv>=39?3:lv>=25?2:lv>=13?1:0);   // 辅修槽：突破一/二/三（03 §6.2，以境界层数代行，剧情突破实装后改读 S.realm）
 const MN_XF_EB=.03;        // 主修同属内劲武学威力 +3%/层 TBD-34
 const MN_XF_SWAP=3;        // 改修主修：气脉未稳场数（期间主修效果减半、特性失效），并清空当前内力 TBD-35
+function mnXfProgressNeed(w,id,n){const a=w==='hero'&&S.cultivation&&window.CultivationBalance?.artById(id);if(a){const t=CultivationBalance.thresholds(a);return n>=CultivationBalance.cap(S.cultivation,a)?0:t[n]-t[n-1];}return mnXfStep(n);}
 const mnXfStep=n=>.8*n;    // n 层 → n+1 层所需进度（以"一级修为"计）TBD-14
 // per：每层 {pct:{派生:比例}, add:{派生:值}, heal:治疗, prof:熟练获取}；t3/t5：3/5 层特性（键见 mnXfSum）；todo:1 = 特性已登记、第二章实装
 const XINFA={
@@ -284,14 +288,14 @@ const XINFA={
   bx_xin:{name:'本草经',slot:'main',sect:'baixian',xing:'中',e:['毒'],req:{wis:6},per:{heal:.08,pct:{mmp:.04}},t3:{todo:1},t5:{allRegen:.03},
     d3:'治疗附带解除 1 个异常',d5:'自身回合结束时全队回复 3% 气血',desc:'白鹇谷医经，医毒同源。仅正式弟子可修。'},
   bx_du:{name:'毒经',slot:'sub',sect:'baixian',xing:'阴',e:[],req:{wis:5},per:{},t3:{todo:1},t5:{todo:1},
-    d3:'中毒持续 +1 跳',d5:'施加中毒时看破 1 处',desc:'白鹇谷毒方，每层令中毒/流血每跳 +10%（第二章实装）。'}};
-Object.assign(ITEMS,{xf_can:{name:'心法残卷',desc:'前人练功的手札残篇。使用后令一门心法进一层（第二章开放）。',xfbook:1}});ICO.xf_can='卷';
+    d3:'中毒持续 +1 跳',d5:'施加中毒时看破 1 处',desc:'白鹇谷毒方，每层令中毒/流血每跳 +10%。'}};
+Object.assign(ITEMS,{xf_can:{name:'心法残卷',desc:'前人练功的手札残篇。使用后令一门心法进一层（暂未开放）。',xfbook:1}});ICO.xf_can='卷';
 const mnXf=w=>mnRec(w).xinfa;
 function mnXfEnsure(r,w){const x=r.xinfa=r.xinfa||{};x.main=x.main||null;x.subs=Array.isArray(x.subs)?x.subs.filter(id=>XINFA[id]):[];x.lv=x.lv||{};x.prog=x.prog||{};
   x.known=Array.isArray(x.known)?x.known.filter(id=>XINFA[id]):[];x.unstable=x.unstable||0;if(x.main&&!XINFA[x.main])x.main=null;
   if(mnDef(w).noXf)return;
   const add=id=>{if(!x.known.includes(id)){x.known.push(id);x.lv[id]=x.lv[id]||1}};
-  if(((S&&S.chapter)||1)>=2){add('tuna');if(w==='suzhi')add('bx_xin');if(!x.main)x.main=w==='suzhi'?'bx_xin':'tuna'}   // 第二章开篇：人人得吐纳法；苏芷为白鹇谷正式弟子
+  if(((S&&S.chapter)||1)>=2){if(!(w==='hero'&&typeof isQiheEntry==='function'&&isQiheEntry()&&!S.cultivation?.learned.breathing))add('tuna');if(w==='suzhi')add('bx_xin');if(!x.main&&x.known.includes(w==='suzhi'?'bx_xin':'tuna'))x.main=w==='suzhi'?'bx_xin':'tuna'}   // 第二章开篇：人人得吐纳法；苏芷为白鹇谷正式弟子
   if(mnXfDebug())for(const id in XINFA)add(id)}
 const mnXfList=w=>mnDef(w).noXf?[]:(mnXf(w).known||[]).filter(id=>XINFA[id]);
 const mnSect=w=>w==='hero'?(S.sect||null):mnDef(w).sect||null;
@@ -308,11 +312,11 @@ function mnXfSum(w){const o={pct:{},add:{},eb:{},heal:0,prof:0,tr:{},act:[]};if(
       if(a==='add'){for(const[b,u]of Object.entries(v))o.add[b]=(o.add[b]||0)+u}else o.tr[a]=Math.max(o.tr[a]||0,v)}}
   return o}
 // 能否运转：返回原因（空串 = 可以）。slot: 'main'|'sub'
-function mnXfWhy(w,id,slot){const f=XINFA[id];if(!f)return'未知心法';if(!mnXfOn())return'心法【第二章开放】';if(mnDef(w).noXf)return`${mnName(w)}不修心法`;
+function mnXfWhy(w,id,slot){const f=XINFA[id];if(!f)return'未知心法';if(!mnXfOn())return'心法【入谷培养后开放】';if(mnDef(w).noXf)return`${mnName(w)}不修心法`;
   const x=mnXf(w);if(!x.known.includes(id))return'尚未习得';
   if(f.slot!==slot)return f.slot==='main'?'此为主修心法':'此为辅修心法';
   if(slot==='main'&&f.sect&&f.sect!==mnSect(w))return`须为${MN_SECT[f.sect]}门下方可主修`;
-  if(slot==='sub'){const cap=mnSubCap();if(!cap)return'辅修须境界突破「登堂入室」（13 层）';if(!x.subs.includes(id)&&x.subs.length>=cap)return`辅修已满（${cap} 门）`}
+  if(slot==='sub'){const cap=mnSubCap(mnActorLevel(w));if(!cap)return'辅修须境界突破「登堂入室」（13 层）';if(!x.subs.includes(id)&&x.subs.length>=cap)return`辅修已满（${cap} 门）`}
   const st=mnStE(w);for(const[a,v]of Object.entries(f.req||{}))if((st[a]||0)<v)return`未达门槛：需${STATN[a]} ${v}（现 ${st[a]||0}）`;
   const others=[slot==='main'?null:x.main,...x.subs.filter(s=>slot==='main'||s!==id)].filter(s=>s&&s!==id&&XINFA[s]);
   if(f.xing!=='中'){const c=others.find(s=>XINFA[s].xing!=='中'&&XINFA[s].xing!==f.xing);if(c)return`与「${XINFA[c].name}」阴阳相冲`}
@@ -328,8 +332,8 @@ function mnXfMain(w,id){const x=mnXf(w),why=mnXfWhy(w,id,'main');if(why){toast(w
     if(c===0){mnXfSetMain(w,id);await toast(`${mnName(w)} 改修「${XINFA[id].name}」· 气脉未稳`,1400)}})}
 // 心法修炼：胜利修为折算为"级"的进度；主修全额、辅修一半；n → n+1 层需 0.8n 级
 function mnXfGain(w,exp,lv){if(!mnXfOn()||mnDef(w).noXf)return[];const x=mnXf(w),ev=[],need=(typeof needExp==='function'?needExp(lv):lv*100);   // 升级所需修为：与 bui.js victory 现行 L×100 一致（08 §2.1 目标公式落地后改读 needExp）
-  for(const id of[x.main,...x.subs].filter(Boolean)){let n=x.lv[id]||1;if(n>=5)continue;let p=(x.prog[id]||0)+exp/need*(id===x.main?1:.5);
-    while(n<5&&p>=mnXfStep(n)){p-=mnXfStep(n);n++;ev.push({w,xf:id,lv:n})}x.lv[id]=n;x.prog[id]=n>=5?0:Math.round(p*1000)/1000}
+  for(const id of[x.main,...x.subs].filter(Boolean)){if(w==='hero'&&S.cultivation&&window.CultivationBalance?.artById(id)){const e=CultivationBalance.addXp(S.cultivation,id,exp/need*30*(id===x.main?1:.5));CultivationCore.reconcileWorld(S);if(e&&e.after>e.before)ev.push({w,xf:id,lv:e.after});continue;}let n=x.lv[id]||1;const cap=w==='hero'&&S.cultivation&&id==='tuna'?2:5;if(n>=cap)continue;let p=(x.prog[id]||0)+exp/need*(id===x.main?1:.5);
+    while(n<cap&&p>=mnXfStep(n)){p-=mnXfStep(n);n++;ev.push({w,xf:id,lv:n})}x.lv[id]=n;x.prog[id]=n>=cap?0:Math.round(p*1000)/1000}
   return ev}
 // 战后结算：熟练（按倍率）、心法层数、战后调息、气脉未稳计数。mul：胜 1、败/逃 .5
 function mnSettle(mul,exp,lv0){mnSettled=true;const ev=[];if(!S)return ev;mnEnsure();ev.push(...mnDimSettle(mul));
@@ -364,7 +368,7 @@ doSkill=async function(u,k,tgs,bp){const w=u&&u.side==='ally'&&u.mw?u.mw:null;co
   if(w&&S){let weak=0,brk=0;for(const[t,sh,br]of snap){if(!br&&t.broken)brk++;if((!br&&t.broken)||t.shield<sh)weak=1}
     const L=mnProfLog[w]=mnProfLog[w]||{};L[k]=(L[k]||0)+1+weak+brk;
     const Z=mnZyLog[w]=mnZyLog[w]||{};if(SKILLS[k].heal)Z['@yi']=(Z['@yi']||0)+1;if(mnBsk(k).e==='毒')Z['@du']=(Z['@du']||0)+1;
-    const h=mnHuo(k,mnSk(w)[k]||1);if(h.mp<0&&SKILLS[k].mp)u.mp=Math.min(u.mmp,u.mp-Math.max(h.mp,-SKILLS[k].mp));
+    const h=mnHuo(k,mnSk(w)[k]||1);if(!window.QiheUIModel&&h.mp<0&&SKILLS[k].mp)u.mp=Math.min(u.mmp,u.mp-Math.max(h.mp,-SKILLS[k].mp));
     const t0=snap.map(s=>s[0]).find(t=>t.hp>0);if(h.reveal&&t0&&typeof reveal==='function')reveal(t0,h.reveal);try{renderCards()}catch(e){}}
   return r};
 const mnVictory0=victory;
@@ -408,10 +412,10 @@ function mnPaper(){return mnMk('paper',()=>{const U=mnB(),w=1000,h=580,p=U.paper
   // 淡墨晕：左上一抹远山
   x.globalCompositeOperation='source-atop';const gr=x.createRadialGradient(w*.9,h*.08,10,w*.9,h*.08,w*.35);gr.addColorStop(0,'rgba(60,45,30,.10)');gr.addColorStop(1,'rgba(60,45,30,0)');x.fillStyle=gr;x.fillRect(0,0,w,h);
   return c.toDataURL('image/jpeg',.88).length>0?c.toDataURL('image/png'):''})}
-function mnFace(w){return mnMk('face'+w,()=>{const U=mnB();let u;
-  if(w==='hero')u={side:'ally',por:'hero',art:'hero',hp:1,mhp:1};else{const P=PARTY_DEF[w];u={side:'ally',por:P.por.find(p=>ok(IMG['p_'+p]))||P.por[0],art:pickArt(P.art),hp:1,mhp:1}}
+function mnFace(w){const portrait=window.QiheMenu?.portraitKey(w);return mnMk('face'+w+(portrait||''),()=>{const U=mnB();let u;
+  if(w==='hero')u={side:'ally',por:portrait||'hero',art:'hero',hp:1,mhp:1};else{const P=PARTY_DEF[w];u={side:'ally',por:P.por.find(p=>ok(IMG['p_'+p]))||P.por[0],art:pickArt(P.art),hp:1,mhp:1}}
   const c=U.face(u,72);if(c)return U.url(c);const m=miniSprite('c_'+u.art);return m?m.toDataURL():''})}
-function mnPor(w){if(w==='hero')return'assets/p_hero.webp';const P=PARTY_DEF[w];const p=P.por.find(p=>ok(IMG['p_'+p]));if(p)return`assets/p_${p}.webp`;
+function mnPor(w){const portrait=window.QiheMenu?.portraitKey(w);if(portrait)return`${assetImagePath('p_'+(portrait))}`;if(w==='hero')return'assets/production/portraits/p_hero.webp';const P=PARTY_DEF[w];const p=P.por.find(p=>ok(IMG['p_'+p]));if(p)return`${assetImagePath('p_'+(p))}`;
   return mnMk('spr'+w,()=>{const m=miniSprite('c_'+pickArt(P.art));return m?m.toDataURL():''})}
 function mnSideGear(w){const e=mnEq(w),D=mnDef(w),ghost={weapon:'iron',armor:'vest',acc:'jade'};
   return`<div class="jm-sideGear" aria-label="身上装备位置">${MN_SLOTS.map(([slot,name])=>{const k=e[slot],can=D.slots.includes(slot);
@@ -420,7 +424,7 @@ const MN_KCOL={拳:'#b8612c',掌:'#a0522d',剑:'#2f6f8f',刀:'#6b6356',棍:'#8a6
 function mnBlot(ch,col,sz=30){return mnMk(`bl${ch}${col}${sz}`,()=>mnB().url(mnB().blot(ch,col,sz)))}
 function mnAtlasIco(kind,k,sz){const a=window.MENU_ICONS,r=a&&a[kind]&&a[kind][k];if(!r)return'';
   const[x,y]=r,px=a.cols>1?x/(a.cols-1)*100:0,py=a.rows>1?y/(a.rows-1)*100:0;
-  return`<span class="jm-blot jm-pxi" style="width:${sz}px;height:${sz}px;background-image:url(assets/i_jianghu.webp?v=3);background-size:${a.cols*100}% ${a.rows*100}%;background-position:${px}% ${py}%" aria-hidden="true"></span>`}
+  return`<span class="jm-blot jm-pxi" style="width:${sz}px;height:${sz}px;background-image:url(assets/production/icons-and-props/i_jianghu.webp?v=3);background-size:${a.cols*100}% ${a.rows*100}%;background-position:${px}% ${py}%" aria-hidden="true"></span>`}
 function mnIco(k,sz=30){const art=mnAtlasIco('item',k,sz);if(art)return art;if(icoAtlas()&&window.ART&&ART.icons&&ART.icons[k])return ico(k).replace('class="ico img"',`class="ico img jm-ai" style="width:${sz/16}em;height:${sz/16}em"`);const g=ICO[k]||(ITEMS[k]?.name||'?')[0];return`<img class="jm-blot" src="${mnBlot(g,mnQ(k)[1],sz)}" alt="">`}
 function mnSkIco(k,sz=30){const art=mnAtlasIco('skill',k,sz);if(art)return art;const s=SKILLS[k];const ch=(s.name||s.kind)[0];return`<img class="jm-blot" src="${mnBlot(ch,MN_KCOL[s.kind]||'#3b2c1b',sz)}" alt="">`}
 function mnXfIco(k,sz=30){return mnAtlasIco('xinfa',k,sz)||`<img class="jm-blot" src="${mnBlot('心','#3a4f8a',sz)}" alt="">`}
@@ -443,9 +447,9 @@ function mnDraw(){const p=$('panel');if(!p||p.hidden||!p.classList.contains('jm'
   const navArt={attr:['skill','jingxin'],skill:['item','book'],bag:['item','shuxia'],equip:['item','iron'],party:['skill','lick'],quest:['item','bf_note'],sys:['skill','dingshen']};
   const tabs=TABS.map(([k,n,i],j)=>{const dot=(k==='attr'&&mnMembers().some(w=>mnPts(w))),a=navArt[k];return`<button data-a="tab" data-k="${k}" class="${menuTab===k?'on':''}" aria-label="${n}"><span class="n">${j+1}</span><span class="jm-navmark">${a?mnAtlasIco(a[0],a[1],26):i}</span><span class="jm-navlabel">${n}</span>${dot?'<i class="jm-dot"></i>':''}</button>`}).join('');
   const mem=mnMemTab(menuTab)?`<div class="jm-mem">${mnMembers().map(w=>`<button data-a="who" data-w="${w}" class="jm-mc${w===mnWho?' on':''}" aria-label="${esc(mnName(w))}"><span class="f" style="background-image:url(${mnFace(w)})"></span><span class="r" style="background-image:url(${mnMk('enso'+(w===mnWho),()=>mnB().url(mnB().enso(64,{col:w===mnWho?'#a8261c':'#2b1e12',seed:w.length+3})))})"></span><span class="nm">${esc(mnName(w))}</span>${mnPts(w)?'<i class="jm-dot"></i>':''}</button>`).join('')}<span class="jm-memk">Z / C 切换</span></div>`:'';
-  const side=mem&&matchMedia('(min-width:761px)').matches?(()=>{const {hp,mp,d}=mnHP(mnWho);return`<aside class="jm-side"><div class="jm-sideCaption">人物 · ${String(mnMembers().indexOf(mnWho)+1).padStart(2,'0')}</div><div class="jm-sidePortrait" style="background-image:url(${mnPor(mnWho)})"></div>${menuTab==='equip'?mnSideGear(mnWho):''}<div class="jm-sideName">${esc(mnName(mnWho))}</div><div class="jm-sideRole">${mnDef(mnWho).role} · 境界 ${S.lv} 层</div><div class="jm-sideVitals">${mnBar('气血',hp,d.mhp,'#b3261e','sidehp')}${mnBar('内力',mp,d.mmp,'#2d4f73','sidemp')}</div><div class="jm-sideLabel">同行人物</div>${mem}</aside>`})():mem;
+  const side=mem&&matchMedia('(min-width:761px)').matches?(()=>{const {hp,mp,d}=mnHP(mnWho);return`<aside class="jm-side"><div class="jm-sideCaption">人物 · ${String(mnMembers().indexOf(mnWho)+1).padStart(2,'0')}</div><div class="jm-sidePortrait" style="background-image:url(${mnPor(mnWho)})"></div>${menuTab==='equip'?mnSideGear(mnWho):''}<div class="jm-sideName">${esc(mnName(mnWho))}</div><div class="jm-sideRole">${mnDef(mnWho).role} · 境界 ${mnWho==='hero'?S.lv:mnRec(mnWho).lv} 层</div><div class="jm-sideVitals">${mnBar('气血',hp,d.mhp,'#b3261e','sidehp')}${mnBar('内力',mp,d.mmp,'#2d4f73','sidemp')}</div><div class="jm-sideLabel">同行人物</div>${mem}</aside>`})():mem;
   let body='';try{body=MN_TAB[menuTab]()}catch(e){console.error(e);body=`<div class="jm-empty">此页出错：${esc(e.message)}</div>`}
-  p.innerHTML=`<div class="jm-top"><span class="jm-ttl">江湖行卷</span><span class="jm-topChapter">襄阳风云 · ${S.chapter||1} 卷</span><span class="jm-stat"><span><img src="${mnMk('coin',()=>mnB().url(mnB().coin('on',18)))}" alt="">银两 <b>${S.silver}</b></span><span>侠义 <b>${S.moral}</b></span><span>境界 <b>${S.lv}</b> 层</span></span><button class="jm-desktop-close" data-a="close" aria-label="返回江湖">×<small>Esc</small></button><button class="jm-mobile-close" data-a="close" aria-label="返回江湖">返回</button></div>
+  p.innerHTML=`<div class="jm-top"><span class="jm-ttl">江湖行卷</span><span class="jm-topChapter">${window.QiheMenu?esc(QiheMenu.title()):'江湖行卷'}</span><span class="jm-stat"><span><img src="${mnMk('coin',()=>mnB().url(mnB().coin('on',18)))}" alt="">铜钱 <b>${S.silver}文</b></span><span>侠义 <b>${S.moral}</b></span><span>境界 <b>${S.lv}</b> 层</span></span><button class="jm-desktop-close" data-a="close" aria-label="返回江湖">×<small>Esc</small></button><button class="jm-mobile-close" data-a="close" aria-label="返回江湖">返回</button></div>
    <nav class="jm-tabs" style="--sw:url(${mnSw(200,44,{col:'#0d0806',a:.94,dry:.4,seed:9,halo:'#d8c49a',haloA:.28},'tab')})">${tabs}<button data-a="close" class="jm-close" aria-label="返回">返回<small>Esc</small></button></nav>
    <section class="jm-sheet jm-screen-${menuTab}" style="background-image:url(${mnPaper()})"><header class="jm-pagehead"><div class="jm-pageid">江 湖 行 卷 <span>·</span> ${String(TABS.findIndex(t=>t[0]===menuTab)+1).padStart(2,'0')} / ${String(TABS.length).padStart(2,'0')}</div><div class="jm-pageTitle">${T[1]}</div><p>${pageNote}</p><img src="${mnSeal(T[2],44)}" alt=""></header>${side}<div class="jm-body jm-${menuTab}">${body}</div></section>
    <div class="jm-keys">Q / E 翻页 · 1–${TABS.length} 直达 · Esc 返回</div><div class="jm-float" hidden></div>`;
@@ -495,7 +499,7 @@ function mnUse(k,w){const it=ITEMS[k];if(!(S.bag[k]>0))return;
     if(!sk.length){const r0=all.map(s=>`${SKILLS[s].name}：${mnUpWhy(w,s,true)}`)[0];toast(all.length?`无法参悟 · ${r0}`:'尚无可参悟的武学',1600);return}
     mnWithHidden(async()=>{const c=await choose('',`${mnName(w)}参悟哪门武学？`,[...sk.map(s=>`${SKILLS[s].name}（${mnSk(w)[s]} 重 → ${mnSk(w)[s]+1} 重）`),'算了']);if(c>=sk.length)return;
       mnSk(w)[sk[c]]++;S.bag[k]--;mnEnsure();await toast(`「${SKILLS[sk[c]].name}」突破至第 ${mnSk(w)[sk[c]]} 重`)});return}
-  if(it.xfbook){const L=mnXfList(w).filter(id=>(mnXf(w).lv[id]||1)<5);if(!mnXfOn()||!L.length){toast(mnXfOn()?'尚无可精进的心法':'心法【第二章开放】',1200);return}
+  if(it.xfbook){const L=mnXfList(w).filter(id=>(mnXf(w).lv[id]||1)<5);if(!mnXfOn()||!L.length){toast(mnXfOn()?'尚无可精进的心法':'心法【入谷培养后开放】',1200);return}
     mnWithHidden(async()=>{const X=mnXf(w),c=await choose('',`${mnName(w)}参悟哪门心法？`,[...L.map(id=>`${XINFA[id].name}（第 ${X.lv[id]||1} 层）`),'算了']);if(c>=L.length)return;
       X.lv[L[c]]=(X.lv[L[c]]||1)+1;X.prog[L[c]]=0;S.bag[k]--;await toast(`「${XINFA[L[c]].name}」进至第 ${X.lv[L[c]]} 层`)});return}
   if(it.gall){const r=w==='hero'?S:S.mates[w];r.mpBonus=(r.mpBonus||0)+30;S.bag[k]--;toast(`${mnName(w)} 内力上限 +30`,1000);mnDraw();return}
@@ -512,8 +516,8 @@ attr(){const w=mnWho,P=w==='hero'?null:PARTY_DEF[w],pts=mnPts(w),pend=mnPend&&mn
   const sub=w==='hero'?`${ORIGINS[S.origin].name} · ${mnDef(w).role}`:mnDef(w).role;const a=w==='hero'?null:((S.aff||{})[w]);
   const aff=a==null?'':`<div class="jm-aff"><span class="l">好感</span><span class="h">${'♥'.repeat(clamp(Math.ceil(a/2),0,10))}<i>${'♡'.repeat(10-clamp(Math.ceil(a/2),0,10))}</i></span><span class="v">${a>=8?'知己':a>=5?'信赖':a>=2?'熟络':a>=0?'生疏':'冷淡'}</span></div>`;
   return`<div class="jm-card"><div class="por${P&&!P.por.some(p=>ok(IMG['p_'+p]))?' spr':''}" style="background-image:url(${mnPor(w)})"></div>
-    <div class="nmw"><div class="nm">${esc(mnName(w))}</div><div class="or">${sub} · 境界 ${S.lv} 层${mnNeixi(w)!=='—'?` · 内息 <b class="jm-nx">${mnNeixi(w)}</b>`:''}</div></div>
-    <div class="jm-bars">${mnBar('气血',hp,d.mhp,'#b3261e','hp')}${mnBar('内力',mp,d.mmp,'#2d4f73','mp')}${w==='hero'?mnBar('修为',S.exp,S.lv*100,'#b08a3a','xp'):''}</div>${aff}<div class="jm-dims one">${mnDimsHTML(w,1)}</div></div>
+    <div class="nmw"><div class="nm">${esc(mnName(w))}</div><div class="or">${sub} · 境界 ${w==='hero'?S.lv:mnRec(w).lv} 层${mnNeixi(w)!=='—'?` · 内息 <b class="jm-nx">${mnNeixi(w)}</b>`:''}</div></div>
+    <div class="jm-bars">${mnBar('气血',hp,d.mhp,'#b3261e','hp')}${mnBar('内力',mp,d.mmp,'#2d4f73','mp')}${w==='hero'?(S.lv>=100?'<div class="jm-exp-cap">已满级 · 100级</div>':mnBar('修为',S.exp,S.lv*100,'#b08a3a','xp')):''}</div>${aff}<div class="jm-dims one">${mnDimsHTML(w,1)}</div></div>
    <div class="jm-cols"><h4>根基${pts?`<img class="jm-seal" src="${mnSeal('待分',24)}" alt=""><span class="jm-red">可分配 ${pts-used} / ${pts} 点</span>`:'<span class="jm-dim">升一层境界得 3 点</span>'}</h4>
     <div class="jm-stats">${Object.keys(STATN).map(s=>{const eqb=d.st[s]-base[s],ad=pend[s]||0;return`<div class="row" title="${STATD[s]}"><span class="k">${STATN[s]}</span>
       <b>${base[s]+ad}</b><span class="ex">${ad?`<em class="up">+${ad}</em>`:''}${eqb?`<span class="eqb">装备 ${eqb>0?'+':''}${eqb}</span>`:''}</span><span class="ds">${STATD[s]}</span>
@@ -522,7 +526,7 @@ attr(){const w=mnWho,P=w==='hero'?null:PARTY_DEF[w],pts=mnPts(w),pend=mnPend&&mn
     <h4>武斗<span class="jm-dim">格挡：被击中时按此率受伤减半 · 命中、连击、反击【后续】</span></h4><div class="jm-der">${MN_DK.map(k=>`<div><span class="k">${MN_FXN[k]}</span><b>${d[k]}${MN_PCT[k]?'%':''}</b>${mnArrow(dn[k]-d[k])}</div>`).join('')}</div>
     <div class="jm-dims">${mnDimsHTML(w,0)}</div>
    </div>`},
-skill(){const w=mnWho,r=mnRec(w),sk=mnSk(w),e=mnEq(w),wk=e.weapon&&ITEMS[e.weapon]?ITEMS[e.weapon].weapon.kind:null,cap=mnLoadCap(),chCap=MN_SKCAP(),st=mnStE(w);
+skill(){const w=mnWho,r=mnRec(w),sk=mnSk(w),e=mnEq(w),wk=e.weapon&&ITEMS[e.weapon]?ITEMS[e.weapon].weapon.kind:null,cap=mnLoadCap(mnActorLevel(w)),chCap=MN_SKCAP(),st=mnStE(w);
   const list=Object.keys(sk).filter(k=>SKILLS[k]&&k!=='fist');
   const slot=i=>{const k=r.load[i];if(k)return`<button class="jm-ls on" data-a="ld" data-k="${k}" title="点击卸下">${mnSkIco(k,34)}<span class="nm">${SKILLS[k].name}</span><small>${sk[k]} 重 · 卸下</small></button>`;
     if(i>=cap){const s=MN_LOAD_STEPS.find(x=>x[1]===i+1);return`<div class="jm-ls lk"><span class="em">锁</span><small>${s?(s[0]>=13?'登堂入室':`境界 ${s[0]} 层`):''}</small></div>`}
@@ -532,11 +536,11 @@ skill(){const w=mnWho,r=mnRec(w),sk=mnSk(w),e=mnEq(w),wk=e.weapon&&ITEMS[e.weapo
   return`<div class="jm-martial"><section class="jm-martial-art"><h4>招式装配<span class="jm-dim">${r.load.length} / ${cap} 格${nx?` · 境界 ${nx[0]} 层增至 ${nx[1]} 格`:''} · 普攻「${w==='hero'?(wk?ITEMS[e.weapon].name:'拳脚'):PARTY_DEF[w].atkName}」不占栏位</span></h4>
     <div class="jm-load">${[...Array(MN_LOAD).keys()].map(slot).join('')}</div>
     <details class="jm-rules"><summary>装配与精进规则</summary><p>群攻至多 ${MN_AOE_MAX} 门 · 需兵器的武学只择一种兵刃 · 单招内力 ×${MN_MP_RATIO} ≤ 内力上限 · 本章重数上限 ${chCap} 重 · 悟性 ${st.wis||0} → 熟练 ×${mnWisMul(st.wis||3).toFixed(2)}</p></details>
-    <h4>已学招式<span class="jm-dim">${list.length} 门 · 悬停查看招式与进度，点击装配或卸下</span></h4><div class="jm-skillgrid">${list.map(k=>mnSkillCard(k,w,r,sk)).join('')}${emptySkills}</div></section><section class="jm-martial-inner"><h4>内功心法<span class="jm-dim">${mnXfOn()?'运转内息，常驻加成':'第二章开放'}</span></h4>${MN_TAB.xinfa()}</section></div>`},
+    <h4>已学招式<span class="jm-dim">${list.length} 门 · 悬停查看招式与进度，点击装配或卸下</span></h4><div class="jm-skillgrid">${list.map(k=>mnSkillCard(k,w,r,sk)).join('')}${emptySkills}</div></section><section class="jm-martial-inner"><h4>内功心法<span class="jm-dim">${mnXfOn()?'运转内息，常驻加成':'入谷培养后开放'}</span></h4>${MN_TAB.xinfa()}</section></div>`},
 xinfa(){if(!mnXfOn())return`<div class="jm-xf"><div class="slots">${['主修','辅修','辅修','辅修'].map((t,i)=>`<div class="c"><span class="mark">${i?'辅':'主'}</span><span>${t}</span><small>未开放</small></div>`).join('')}</div>
-  <div class="tx"><img src="${mnSeal('后续',30)}" alt=""><strong>内功篇 · 第二章开启</strong><p>主修与辅修的槽位已列于此。习得心法后，可在本页悬停查看加成、点击运转。</p></div></div>`;
+  <div class="tx"><img src="${mnSeal('后续',30)}" alt=""><strong>内功篇 · 暂未开放</strong><p>主修与辅修的槽位已列于此。习得心法后，可在本页悬停查看加成、点击运转。</p></div></div>`;
   const w=mnWho;if(mnDef(w).noXf)return`<div class="jm-empty">${esc(mnName(w))}是条狗，不修内功心法。<br>它的本事都在牙口与鼻子上。</div>`;
-  const x=mnXf(w),X=mnXfSum(w),subCap=mnSubCap(),L=mnXfList(w).map((id,i)=>[id,(x.main===id||x.subs.includes(id))?0:mnXfWhy(w,id,XINFA[id].slot)?2:1,i]).sort((a,b)=>a[1]-b[1]||a[2]-b[2]).map(a=>a[0]),XC={阳:'#b8612c',阴:'#3a4f8a',中:'#2f6b45'};
+  const x=mnXf(w),X=mnXfSum(w),subCap=mnSubCap(mnActorLevel(w)),L=mnXfList(w).map((id,i)=>[id,(x.main===id||x.subs.includes(id))?0:mnXfWhy(w,id,XINFA[id].slot)?2:1,i]).sort((a,b)=>a[1]-b[1]||a[2]-b[2]).map(a=>a[0]),XC={阳:'#b8612c',阴:'#3a4f8a',中:'#2f6b45'};
   const circ=(id,lab,lock)=>id?`<div class="xc on">${mnXfIco(id,40)}<b>${XINFA[id].name}</b><small>${lab} · 第 ${x.lv[id]||1} 层</small></div>`
     :`<div class="xc${lock?' lk':''}"><span class="em">${lock?'锁':'空'}</span><small>${lock||lab}</small></div>`;
   const subs=[0,1,2].map(i=>i<subCap?circ(x.subs[i],'辅修'):circ(null,'辅修',['登堂入室','融会贯通','出神入化'][i]));
@@ -550,7 +554,7 @@ xinfa(){if(!mnXfOn())return`<div class="jm-xf"><div class="slots">${['主修','�
     <div class="xr"><h4>已习心法<span class="jm-dim">${L.length} 门 · 悬停看加成，点击运转或停修</span></h4>${L.length?`<div class="jm-skillgrid jm-xfgrid">${L.map(id=>mnXinfaCard(id,w,x)).join('')}</div>`:'<div class="jm-empty sm">尚未习得心法</div>'}</div>
     <div class="jm-xfsummary"><h4>加成</h4><div class="jm-xsum">${sum.length?sum.map(t=>`<span>${t}</span>`).join(''):'<span class="jm-dim">尚无</span>'}${trs.length?`<div class="tr">特性：${trs.join('、')}</div>`:''}</div>
       ${x.unstable?`<div class="jm-red" style="font-size:.8em">气脉未稳 · 还有 ${x.unstable} 场战斗（主修效果减半、特性失效）</div>`:''}
-      <details class="jm-rules"><summary>修炼与改修规则</summary><p>战斗胜利：主修得全部修为进度、辅修一半；n 层升 n+1 层需 ${'0.8n'} 级修为 · 阳与阴相冲 · 改修主修：内力清空 + ${MN_XF_SWAP} 场气脉未稳</p></details></div></div>`},
+      <details class="jm-rules"><summary>修炼与改修规则</summary><p>战斗胜利：主修得全部修为进度、辅修一半；${w==='hero'&&S.cultivation?'课程与实战共用累计经验；下一层门槛见当前修习进度':'n 层升 n+1 层需 0.8n 级修为'} · 阳与阴相冲 · 改修主修：内力清空 + ${MN_XF_SWAP} 场气脉未稳</p></details></div></div>`},
 bag(){const cats=['全部','兵器','护具','佩饰','药食','杂物','要物'],own=Object.keys(S.bag).filter(k=>S.bag[k]>0&&ITEMS[k]);
   const cnt=c=>own.filter(k=>c==='全部'||mnCat(k)===c).length,L=own.filter(k=>mnBagCat==='全部'||mnCat(k)===mnBagCat);
   const order=['兵器','护具','佩饰','药食','杂物','要物'];L.sort((a,b)=>order.indexOf(mnCat(a))-order.indexOf(mnCat(b))||((ITEMS[b].q||0)-(ITEMS[a].q||0)));
@@ -562,7 +566,7 @@ equip(){const w=mnWho,e=mnEq(w),D=mnDef(w),{hp,mp,d}=mnHP(w);
     <span class="jm-wornicon">${k?mnIco(k,48):`<span class="jm-slotghost">${mnIco({weapon:'iron',armor:'vest',acc:'jade'}[s],48)}</span>`}</span><span class="jm-worntxt"><small>${n}</small><strong>${k?esc(ITEMS[k].name):can?'尚未装备':'不可使用'}</strong></span>
     ${k?`<button class="jm-b ghost sm" data-a="uneq" data-k="${s}">卸下</button>`:''}</div>`}).join('');
   const groups=MN_SLOTS.map(([s,n])=>{const items=Object.keys(S.bag).filter(k=>S.bag[k]>0&&mnSlot(k)===s);return`<section class="jm-gearGroup"><h4>${n}<span class="jm-dim">${items.length} 件 · 悬停比较，点击装备</span></h4><div class="jm-geargrid">${items.length?items.map(k=>mnBagTile(k,w)).join(''):`<div class="jm-gearEmpty"><span class="jm-slotghost">${mnIco({weapon:'iron',armor:'vest',acc:'jade'}[s],42)}</span><span>暂无可用${n}</span></div>`}</div></section>`}).join('');
-  return`<div class="jm-equipBoard"><div class="jm-equipHero"><div class="jm-equipIdentity"><span class="face" style="background-image:url(${mnFace(w)})"></span><div><strong>${esc(mnName(w))}</strong><small>${mnDef(w).role} · 境界 ${S.lv} 层</small></div></div>
+  return`<div class="jm-equipBoard"><div class="jm-equipHero"><div class="jm-equipIdentity"><span class="face" style="background-image:url(${mnFace(w)})"></span><div><strong>${esc(mnName(w))}</strong><small>${mnDef(w).role} · 境界 ${w==='hero'?S.lv:mnRec(w).lv} 层</small></div></div>
     ${mnBar('气血',hp,d.mhp,'#b3261e','eqhp')}${mnBar('内力',mp,d.mmp,'#2d4f73','eqmp')}
     <h4>身上装备</h4>${slots}<div class="jm-sum">${['atk','def','crit','dodge'].map(k=>`<span>${MN_FXN[k]} <b>${d[k]}${MN_PCT[k]?'%':''}</b></span>`).join('')}</div></div>
     <div class="jm-equipStock">${groups}</div></div>`},
@@ -592,13 +596,13 @@ party(){const M=mnMembers();
   return`<h4>人物同伴</h4><div class="jm-pgrid">${M.map((w,i)=>card(w,i-1)).join('')}${comps.length?'':'<div class="jm-pc empty"><div class="jm-empty">江湖路远<br>尚无同行之人</div></div>'}</div><h4>宠物</h4><div class="jm-pgrid">${petCard}</div>
     ${comps.length?`<h4>传授与请教<span class="jm-dim">把自己会的武学教给同伴，或向同伴讨教；好感越深，肯教的越多</span></h4>${teach||'<div class="jm-empty sm">眼下没有可传授的武学</div>'}`:''}`},
 quest(){const main=(window.questLog?questLog():[]),side=mnQuests(),goal=window.questLine?questLine():'',loc=cur?.name||'';
-  const known=typeof NODES==='undefined'?[]:NODES.filter(n=>S.unlocked?.[n.id]);
+  const known=window.QiheMenu?Object.entries(QiheExpansion.ids).filter(([,id])=>S.unlocked?.[id]||S.scene===id).map(([,id])=>({name:SC[id].name})):[];
   const step=(q,i)=>`<article class="jm-questStep${q.done?' done':' active'}"><div class="jm-questNode"><span>${String(i+1).padStart(2,'0')}</span><img src="${mnSeal(q.done?'毕':'行',29)}" alt=""></div><div class="jm-questText"><div class="jm-questTitle">${esc(q.t)}<small>${q.done?'已了结':'进行中'}</small></div><div class="jm-questDesc">${q.d||''}</div></div></article>`;
   const sideCard=q=>`<article class="jm-sideQuest${q.done?' done':''}"><div class="jm-sideQuestHead"><img src="${mnSeal(q.done?'毕':'行',27)}" alt=""><div><strong>${esc(q.t)}</strong><small>${q.kind?esc(q.kind)+' · ':''}${q.done?'已了结':q.stage?'第 '+q.stage+' 阶段':'进行中'}</small></div></div>${q.where?`<div class="jm-questPlace">${esc(q.where)}</div>`:''}<p>${q.d||''}</p>${q.giver?`<span class="jm-questGiver">委托 · ${esc(q.giver)}</span>`:''}</article>`;
   return`<div class="jm-questBoard"><section class="jm-questPrimary"><div class="jm-currentQuest"><span class="jm-currentKicker">当前行动${loc?` · 所在 ${esc(loc)}`:''}</span><strong>${esc(goal||'暂无进行中的目标')}</strong><span class="jm-currentProgress">主线记录 ${main.filter(q=>q.done).length} / ${main.length}</span></div>
     <h4>主线进程<span class="jm-dim">${main.length} 个已记录阶段</span></h4><div class="jm-mainPath">${main.length?main.map(step).join(''):'<div class="jm-empty sm">尚无要事</div>'}</div></section>
     <section class="jm-questBranch"><h4>支线札记<span class="jm-dim">已接 ${side.length} 件 · 有地点的任务标出行路方向</span></h4><div class="jm-sideQuestList">${side.length?side.map(sideCard).join(''):`<div class="jm-questNone"><img src="${mnSeal('待',46)}" alt=""><strong>尚无已接支线</strong><span>在城中交谈、探索后，已接之事会记在这里。</span></div>`}</div></section>
-    <section class="jm-questAtlas" aria-label="已探明地点舆图"><div class="jm-questMap" role="img" aria-label="襄阳周边舆图"></div><div class="jm-questMapList"><span class="jm-currentKicker">行路舆图</span><strong>已探明 ${known.length} 处</strong><div class="jm-questPlaces">${known.length?known.map(n=>`<span>${esc(n.name)}</span>`).join(''):'<span>尚未探明地点</span>'}</div><small>地点依当前探索记录显示</small></div></section></div>`},
+    <section class="jm-questAtlas" aria-label="已探明地点舆图"><div class="jm-questMapList"><span class="jm-currentKicker">行路舆图</span><strong>已探明 ${known.length} 处</strong><div class="jm-questPlaces">${known.length?known.map(n=>`<span>${esc(n.name)}</span>`).join(''):'<span>尚未探明地点</span>'}</div><small>地点依当前探索记录显示</small></div></section></div>`},
 sys(){let muted=false;try{muted=__audio.muted}catch(e){}const th=(window.BUI&&BUI.theme)||'ink';
   const key=(k,txt)=>`<div><kbd>${k}</kbd><span>${txt}</span></div>`;
   return`<div class="jm-sys"><div class="row"><span class="k">声音</span><button class="jm-b ghost" data-a="mute">${muted?'已静音 · 点击开启':'开启中 · 点击静音'}</button><small>M 键也可切换</small></div>
@@ -622,15 +626,15 @@ function mnTipItem(k,w){const it=ITEMS[k],sl=mnSlot(k),q=mnQ(k),fx=Object.entrie
    ${it.heal||it.mp?`<div class="jm-tipfx">${it.heal?`<span>气血 +${it.heal}</span>`:''}${it.mp?`<span>内力 +${it.mp}</span>`:''}</div>`:''}
    ${diff.length?`<div class="jm-tipcompare"><b>装备后变化</b>${diff.map(([a,o,n,d])=>`<div><span>${MN_FXN[a]}</span><span>${o}${MN_PCT[a]?'%':''} → ${n}${MN_PCT[a]?'%':''}</span>${mnArrow(d)}</div>`).join('')}</div>`:''}
    ${it.req?`<div class="jm-tipnote">需求 ${Object.entries(it.req).map(([a,v])=>`${STATN[a]} ${v}`).join(' · ')}</div>`:''}${why?`<div class="jm-tipwarn">${esc(why)}</div>`:''}
-   <div class="jm-tipfoot">${sl?'点击装备':it.heal||it.mp?'点击使用':it.book||it.xfbook?'点击参悟':it.gall?'点击服用':'随身携带'}${it.price&&!it.key?` · 市价 ${it.price} 两`:''}</div>`}
-function mnTipSkill(k,w){const s=SKILLS[k],n=mnSk(w)[k]||1,r=mnRec(w),on=r.load.includes(k),mp=mnSkMp(w,k),need=mnProfNeed(n),prof=Math.floor((r.prof||{})[k]||0),why=on?'':mnLoadWhy(w,k,r.load),up=mnUpWhy(w,k),[ua,uv]=mnUpReq(k,n+1),zt=mnBsk(k).t,zv=MN_ZY.includes(zt)?Math.floor((r.zy||{})[zt]||0):null;
+   <div class="jm-tipfoot">${sl?'点击装备':it.heal||it.mp?'点击使用':it.book||it.xfbook?'点击参悟':it.gall?'点击服用':'随身携带'}${it.price&&!it.key?` · 市价 ${it.price} 文`:''}</div>`}
+function mnTipSkill(k,w){const s=SKILLS[k],n=mnSk(w)[k]||1,r=mnRec(w),on=r.load.includes(k),mp=mnSkMp(w,k),need=mnProfNeed(n,k),prof=Math.floor((r.prof||{})[k]||0),why=on?'':mnLoadWhy(w,k,r.load),up=mnUpWhy(w,k),[ua,uv]=mnUpReq(k,n+1),zt=mnBsk(k).t,zv=MN_ZY.includes(zt)?Math.floor((r.zy||{})[zt]||0):null;
   return`<div class="jm-tipkind">${s.kind} · ${on?'已装配':'已习得'}</div><div class="jm-tiphead">${mnSkIco(k,44)}<div><strong>${esc(s.name)}</strong><small>第 ${n} 重${mnIsAoe(k)?' · 群攻':''} · 内力 ${mp||0}</small></div></div>
    <p>${esc(s.desc||'')}</p><div class="jm-tipfx"><span>熟练 ${Math.min(prof,need)} / ${need}</span><span>本章上限 ${MN_SKCAP()} 重</span></div>
    ${Object.keys(s.req||{}).length?`<div class="jm-tipnote">装配门槛 ${Object.entries(s.req).map(([a,v])=>`${STATN[a]} ${v}`).join(' · ')}</div>`:''}
    ${s.needWeapon?`<div class="jm-tipnote">施展兵刃：${s.needWeapon}</div>`:''}<div class="jm-tipnote">${n>=MN_SKCAP()?'已达本章重数上限':`升第 ${n+1} 重：${STATN[ua]} ${uv}${zv!=null?` · ${zt}造诣 ${zv}/${mnZyUp(n+1)}`:''}`}</div>
    <div class="jm-tipnote">五重：${esc(mnHuoTxt(s.at5))}<br>十重：${esc(mnHuoTxt(s.at10))}</div>
    ${why?`<div class="jm-tipwarn">${esc(why)}</div>`:prof>=need&&up?`<div class="jm-tipwarn">熟练已满 · ${esc(up)}</div>`:''}<div class="jm-tipfoot">点击${on?'卸下':'装配'}武学</div>`}
-function mnSkillCard(k,w,r,sk){const s=SKILLS[k],n=sk[k],on=r.load.includes(k),why=on?'':mnLoadWhy(w,k,r.load),need=mnProfNeed(n),prof=Math.floor((r.prof||{})[k]||0),pct=Math.min(100,Math.round(prof/Math.max(1,need)*100));
+function mnSkillCard(k,w,r,sk){const s=SKILLS[k],n=sk[k],on=r.load.includes(k),why=on?'':mnLoadWhy(w,k,r.load),need=mnProfNeed(n,k),prof=Math.floor((r.prof||{})[k]||0),pct=Math.min(100,Math.round(prof/Math.max(1,need)*100));
   return`<button class="jm-skillcard${on?' on':''}${why?' locked':''}" data-a="ld" data-k="${k}" data-tip-kind="skill" data-w="${w}" style="--kind:${MN_KCOL[s.kind]||'#3b2c1b'}" aria-label="${esc(s.name)}，${on?'点击卸下':'点击装配'}">
     <span class="jm-skillart">${mnSkIco(k,54)}</span><span class="jm-skillname">${esc(s.name)}</span><span class="jm-skillmeta">${s.kind} · ${n} 重${mnIsAoe(k)?' · 群攻':''}</span>
     <span class="jm-skillprog"><i style="width:${pct}%"></i></span><span class="jm-skillstate">${on?'已装配':why?'暂不可装':'点击装配'}</span></button>`}
@@ -638,13 +642,13 @@ function mnBagTile(k,w){const it=ITEMS[k],sl=mnSlot(k),active=sl||it.heal||it.mp
   return`<button class="jm-invcell${active?' action':''}" ${active?'data-a="bagact"':''} data-k="${k}" data-tip-kind="item" data-w="${w}" style="--kind:${q[1]}" aria-label="${esc(it.name)}${active?'，点击使用或装备':''}">
     <span class="jm-invicon">${mnIco(k,56)}</span><span class="jm-invcount">${S.bag[k]}</span>${wear?'<span class="jm-invwear">装</span>':''}
     <span class="jm-invname">${esc(it.name)}</span><span class="jm-invtype">${mnCat(k)}</span></button>`}
-function mnXinfaCard(id,w,x){const f=XINFA[id],n=x.lv[id]||1,run=x.main===id||x.subs.includes(id),why=run?'':mnXfWhy(w,id,f.slot),step=mnXfStep(n),pct=n>=5?100:Math.min(100,Math.round((x.prog[id]||0)/step*100)),col={阳:'#b8612c',阴:'#3a4f8a',中:'#2f6b45'}[f.xing];
+function mnXinfaCard(id,w,x){const f=XINFA[id],n=x.lv[id]||1,run=x.main===id||x.subs.includes(id),why=run?'':mnXfWhy(w,id,f.slot),step=mnXfProgressNeed(w,id,n),pct=!step?100:Math.min(100,Math.round((x.prog[id]||0)/step*100)),col={阳:'#b8612c',阴:'#3a4f8a',中:'#2f6b45'}[f.xing];
   return`<button class="jm-skillcard jm-xfcard${run?' on':''}${why?' locked':''}" data-a="${f.slot==='main'?'xfm':'xfs'}" data-k="${id}" data-w="${w}" data-tip-kind="xinfa" style="--kind:${col}" aria-label="${esc(f.name)}，${run?'运转中':'点击运转'}">
     <span class="jm-skillart">${mnXfIco(id,54)}</span><span class="jm-skillname">${esc(f.name)}</span><span class="jm-skillmeta">${f.slot==='main'?'主修':'辅修'} · 性${f.xing} · ${n} 层</span>
     <span class="jm-skillprog"><i style="width:${pct}%"></i></span><span class="jm-skillstate">${run?'运转中':why?'暂不可修':'点击运转'}</span></button>`}
 function mnTipXinfa(id,w){const f=XINFA[id],x=mnXf(w),n=x.lv[id]||1,run=x.main===id||x.subs.includes(id),why=run?'':mnXfWhy(w,id,f.slot),per=f.per||{},effects=[...Object.entries(per.add||{}).map(([a,v])=>`${MN_FXN[a]||a} +${v}`),...Object.entries(per.pct||{}).map(([a,v])=>`${MN_FXN[a]||a} +${Math.round(v*100)}%`)];
   return`<div class="jm-tipkind">${f.slot==='main'?'主修':'辅修'} · 性${f.xing}${f.sect?' · '+MN_SECT[f.sect]:''}</div><div class="jm-tiphead">${mnXfIco(id,44)}<div><strong>${esc(f.name)}</strong><small>第 ${n} 层 · ${run?'运转中':'已习得'}</small></div></div>
-    <p>${esc(f.desc)}</p><div class="jm-tipfx"><span>进度 ${x.prog[id]||0} / ${mnXfStep(n)}</span>${effects.map(t=>`<span>每层 ${t}</span>`).join('')}</div>
+    <p>${esc(f.desc)}</p><div class="jm-tipfx"><span>进度 ${x.prog[id]||0} / ${mnXfProgressNeed(w,id,n)||'当前已满'}</span>${effects.map(t=>`<span>每层 ${t}</span>`).join('')}</div>
     <div class="jm-tipnote">门槛 ${f.req?mnReqTxt(f.req):'无'}<br>三层：${esc(f.d3)}<br>五层：${esc(f.d5)}</div>${why?`<div class="jm-tipwarn">${esc(why)}</div>`:''}<div class="jm-tipfoot">${run&&f.slot==='main'?'主修中':`点击${run?'停修':f.slot==='main'?'主修或改修':'辅修'}`}</div>`}
 function mnHideHover(){const f=$('panel')?.querySelector('.jm-float');if(f)f.hidden=true}
 function mnHover(e){const p=$('panel'),f=p?.querySelector('.jm-float'),t=e.target?.closest?.('[data-tip-kind]');if(!f||!t||!p.contains(t)){mnHideHover();return}
@@ -833,7 +837,7 @@ em.up{font-style:normal;color:var(--jadek);font-size:.8em;font-weight:600}em.dn{
 @media (max-width:760px){.jm-sheet{padding:.7em 1.3em}.jm-attr{grid-template-columns:32% 1fr;gap:.8em}.jm-card .por{height:8em}.jm-stats .ds{display:none}.jm-stats .row{grid-template-columns:2.8em 1.6em 3.6em 1fr auto auto}
   .jm-bagw{grid-template-columns:1fr 12em}.jm-eqw{grid-template-columns:1fr 1fr;}.jm-cmp{grid-column:1/-1;padding-left:0;background:none}.jm-der{grid-template-columns:repeat(2,1fr)}.jm-load{gap:.3em}.jm-keys{display:none}}
 /* 行卷版式：标题、人物、内容三层；信息用淡墨分组，交互保留朱砂笔触。 */
-#panel.jm{font-size:clamp(14px,1.35cqw,18px)}
+#panel.jm{font-size:17.3px}
 .jm-top{left:2.7%;right:15.8%;top:1%;height:10%;align-items:center;padding:0}
 .jm-ttl{font-size:2em;letter-spacing:.28em;white-space:nowrap}
 .jm-stat{gap:1.2em;font-size:.82em}.jm-stat>span{display:inline-flex;align-items:center;gap:.3em;padding:.2em .5em;background:linear-gradient(90deg,rgba(233,220,192,.07),transparent);border-left:1px solid rgba(224,191,120,.35)}
@@ -929,7 +933,7 @@ em.up{font-style:normal;color:var(--jadek);font-size:.8em;font-weight:600}em.dn{
 /* 桌面版界面骨架：深墨顶栏 + 横向功能签 + 人物侧栏 + 宣纸内容台。 */
 .jm-topChapter,.jm-desktop-close{display:none}
 @media (min-width:761px){
- #panel.jm{background:radial-gradient(ellipse at 50% 36%,#493624 0%,#21170f 53%,#080604 100%);font-size:clamp(15px,1.35cqw,18px)}
+ #panel.jm{background:radial-gradient(ellipse at 50% 36%,#493624 0%,#21170f 53%,#080604 100%);font-size:17.3px}
  .jm-top{left:2.2%;right:2.2%;top:.7%;height:8.6%;display:flex;align-items:center;gap:1.2em;padding:0 1em;background:linear-gradient(90deg,rgba(13,10,8,.15),rgba(13,10,8,.55) 25%,rgba(13,10,8,.25));border-bottom:1px solid rgba(224,191,120,.38)}
  .jm-ttl{font-size:1.85em;letter-spacing:.2em}.jm-topChapter{display:inline-block;font:.78em var(--serif);letter-spacing:.24em;color:#b79b69;padding-left:1.3em;border-left:1px solid rgba(224,191,120,.4)}
  .jm-stat{margin-left:auto;font-size:.8em}.jm-stat>span{background:none;border:0;padding:0 .2em}.jm-desktop-close{display:flex!important;align-items:center;justify-content:center;gap:.35em;width:3.1em;height:2.4em;margin-left:1em;color:#e0bf78!important;font-size:1.2em!important;background:radial-gradient(ellipse,rgba(224,191,120,.14),transparent 70%)!important}.jm-desktop-close small{font:500 .5em var(--sans);opacity:.7}
@@ -1032,7 +1036,6 @@ em.up{font-style:normal;color:var(--jadek);font-size:.8em;font-weight:600}em.dn{
  .jm-questNone{grid-column:1/-1;min-height:12em;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.5em;background:linear-gradient(145deg,rgba(66,45,29,.94),rgba(25,18,13,.96));color:#f0dfc1;border:1px solid rgba(224,191,120,.4)}
  .jm-questNone img{width:3.5em;height:3.5em}.jm-questNone strong{font:1.25em var(--serif)}.jm-questNone span{max-width:20em;color:#cab48e;text-align:center;font-size:.78em;line-height:1.6}
  .jm-questAtlas{grid-column:1/-1;min-height:11em;display:grid;grid-template-columns:minmax(0,1.6fr) minmax(12em,.4fr);overflow:hidden;border:2px solid rgba(80,49,24,.46);background:#312219}
- .jm-questMap{background:url(assets/m_world.webp) center/cover no-repeat;min-height:11em}
  .jm-questMapList{display:flex;flex-direction:column;gap:.5em;padding:1em 1.15em;color:#efdcbb;border-left:2px solid #9c7041;background:linear-gradient(145deg,#4b3523,#221910)}
  .jm-questMapList strong{font:1.35em var(--serif)}.jm-questPlaces{display:flex;flex-wrap:wrap;align-content:flex-start;gap:.45em;overflow:auto}.jm-questPlaces span{font-size:.8em;padding:.3em .55em;border:1px solid rgba(224,191,120,.45);background:rgba(224,191,120,.1)}.jm-questMapList small{margin-top:auto;color:#bda785;font-size:.7em}
  .jm-gearEmpty{grid-column:1/-1;display:flex;align-items:center;gap:.8em;min-height:4em;padding:.4em .8em;background:linear-gradient(90deg,rgba(64,46,30,.16),rgba(64,46,30,.03));border:1px dashed rgba(103,68,34,.45);color:#765a3e;font-size:.82em}.jm-gearEmpty .jm-slotghost{width:2.8em;height:2.8em;display:grid;place-items:center;opacity:.45;filter:grayscale(1)}.jm-gearEmpty .jm-blot{width:2.6em!important;height:2.6em!important}
@@ -1044,24 +1047,7 @@ em.up{font-style:normal;color:var(--jadek);font-size:.8em;font-weight:600}em.dn{
 }
 `;document.head.appendChild(st)}
 
-// ───────── 章节结算（覆盖 story.js ending；01 §5.3 #12 #13 #22） ─────────
-// 正史结局：发放要物「苍龙白鸟图（上卷）」，S.chapter=2，存档保留以接第二章；落草结局为非正史，清档。
+// ───────── 旧襄阳章节要物（结局界面已于 2026-10-19 随襄阳演示归档；物品定义保留，避免旧存档背包里的条目失去名称） ─────────
 Object.assign(ITEMS,{canglong_map:{name:'苍龙白鸟图（上卷）',desc:'半张羊皮，画着盘龙与展翅的白鸟，边缘密密标着水道记号。另一半不知落在谁手里。',key:1}});
 if(ITEMS.rusty&&!/龙尾/.test(ITEMS.rusty.desc))ITEMS.rusty.desc+=' 剑格上隐约刻着半截龙尾。';
 ICO.canglong_map='图';
-async function ending(kind){await fade(async()=>{mode='end';$('hud').hidden=true;$('prompt').hidden=true});mnCSS();
-  const good=kind==='good';if(good){if(!S.bag.canglong_map)S.bag.canglong_map=1;S.chapter=Math.max(2,S.chapter||1);setFlag('ch1_done');save()}else{try{localStorage.removeItem('xjh.save')}catch(e){}}
-  const p=openPanel('jm jm-end');panelClose=null;panelKind='end';const a=(S.aff||{}).suzhi;
-  const mates=(S.party||[]).map(k=>((typeof PARTY_DEF!=='undefined'&&PARTY_DEF[k])||{}).name||k);
-  p.innerHTML=`<section class="jm-sheet jm-endw" style="background-image:url(${mnPaper()})"><img class="seal" src="${mnSeal(good?'完':'歧',54)}" alt="">
-    <div class="ttl">第一章 · ${good?'襄阳风云':'落草'}</div>
-    <p>${good?'黑风寨一夜覆灭，东津渡重归太平。<br>那半张画着苍龙与白鸟的羊皮图，将把你引向更广阔的江湖……':'你成了黑风寨的二当家。东津渡的百姓从此又多了一个要提防的名字。<br>羊皮图上的苍龙与白鸟，在火把下显得格外刺眼……'}</p>
-    <div class="sum"><span>境界 <b>${S.lv}</b> 层</span><span>侠义 <b>${S.moral}</b></span><span>武学 <b>${Object.keys(S.skills).filter(k=>k!=='fist').length}</b> 门</span><span>银两 <b>${S.silver}</b></span><span>同伴 <b>${mates.join('、')||'无'}</b></span><span>宠物 <b>${S.pet&&PARTY_DEF[S.pet]?PARTY_DEF[S.pet].name:'无'}</b></span>${a!=null&&S.party.includes('suzhi')?`<span>苏芷好感 <b>${a}</b></span>`:''}</div>
-    ${good?'<p class="jm-dim">获得要物「苍龙白鸟图（上卷）」。存档已保留，第二章「岘山夜雨」将从此处接续。</p>':'<p class="jm-red">此路不通往第二章（非正史结局），存档已清除。</p>'}
-    <div class="jm-acts" style="justify-content:center">${good?'<button class="jm-b ghost" data-a="roam">继续游历</button>':''}<button class="jm-b" data-a="title">回到标题</button></div></section>`;
-  p.onclick=e=>{const b=e.target.closest('[data-a]');if(!b)return;if(b.dataset.a==='title')location.reload();else if(b.dataset.a==='roam'){closePanel();mode='scene';hud()}}}
-(function(){const st=document.createElement('style');st.textContent=`
-#panel.jm-end .jm-endw{left:14%;right:14%;top:8%;bottom:8%;align-items:center;justify-content:center;text-align:center;gap:.6em;padding:2em 3em}
-.jm-endw .ttl{font:2.1em "Ma Shan Zheng","ZCOOL XiaoWei",var(--brush);letter-spacing:.3em}.jm-endw p{margin:.2em 0;line-height:1.9;max-width:30em}
-.jm-endw .seal{position:absolute;right:9%;top:10%;width:3.2em;transform:rotate(6deg)}
-.jm-endw .sum{width:100%;display:flex;flex-wrap:wrap;justify-content:center;gap:.3em 1.4em;margin:.5em 0;font-size:.92em;color:var(--dimk)}.jm-endw .sum b{color:var(--ink)}`;document.head.appendChild(st)})();

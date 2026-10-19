@@ -1,0 +1,7 @@
+{
+  "replaced_pid": 15841,
+  "previous_command": "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/Resources/Python.app/Contents/MacOS/Python -m http.server 8792 --bind 127.0.0.1",
+  "workspace_verified": true,
+  "scope": "only local current static server; voice/docs/prototype servers untouched",
+  "occupied_plain_server_refused": true
+}

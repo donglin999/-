@@ -9,8 +9,8 @@
 //    普攻 = 1+BP 连击；武学 = 威力/治疗量提升（多段武学增加段数）。
 // 模板可选字段：shield(盾值) weak:[..](弱点) drops:{item:百分比} hpMul atkMul
 let B=null;
-const WTYPES=['刀','剑','拳','棍','暗器','阳','阴','毒','雷'];
-const WCOL={刀:'#d8d2c0',剑:'#9fd4ee',拳:'#f0a868',棍:'#c89a60',暗器:'#b6c2d6',阳:'#ff8a3a',阴:'#9aa6ff',毒:'#86d65e',雷:'#ffe25a'};
+const WTYPES=['刀','剑','拳','棍','暗器','音律','阳','阴','毒','雷'];
+const WCOL={刀:'#d8d2c0',剑:'#9fd4ee',拳:'#f0a868',棍:'#c89a60',暗器:'#b6c2d6',音律:'#8dd8c5',阳:'#ff8a3a',阴:'#9aa6ff',毒:'#86d65e',雷:'#ffe25a'};
 const FOE_DEF={
   bandit:{shield:3,weak:['拳','棍','暗器','阳'],drops:{bun:25}},
   wolf:{shield:2,weak:['刀','剑','暗器','阳'],drops:{bun:10}},
@@ -26,7 +26,7 @@ Object.assign(SKILLS,{
   jinzhen:SKILLS.jinzhen||{name:'金针刺穴',kind:'暗器',mp:4,pow:1.0,desc:'银针点穴，并看破敌人一处弱点。'},
   huichun:SKILLS.huichun||{name:'回春散',kind:'医',mp:6,pow:0,heal:0.38,desc:'为一名同伴回复气血。'},
   baicao:SKILLS.baicao||{name:'百草露',kind:'医',mp:10,pow:0,heal:0.2,desc:'为全体同伴回复少量气血。'},
-  dingshen:SKILLS.dingshen||{name:'定神',kind:'医',mp:5,pow:0,desc:'令一名同伴心神安定：三回合内攻防提升。'},
+  dingshen:SKILLS.dingshen||{name:'定神',kind:'医',mp:5,pow:0,desc:'令一名同伴心神安定：持续2回合：造成伤害提高30%，受到伤害降低20%；每点BP延长1回合。'},
   sniff:SKILLS.sniff||{name:'嗅探',kind:'咬',mp:4,pow:.7,desc:'大黄嗅出敌人两处弱点。'}});
 const PARTY_DEF={
   suzhi:{name:'苏芷',art:['suzhi','lady'],por:['suzhi','lady'],st:{str:3,con:4,agi:6,wil:6,wis:6},skills:['jinzhen','huichun','baicao','dingshen'],atkType:'暗器',atkName:'飞针'},
@@ -40,8 +40,8 @@ function pickArt(list){for(const k of list)if(hasArt(k))return k;return list[0]}
 function unitImg(u,dir){const k=u.art;return[`c_${k}_${dir}_0`,`c_${k}_${dir}`,`c_${k}_${dir==='l'?'r':'l'}_0`,`c_${k}_d_0`].find(n=>ok(IMG[n]))||null}
 
 // ───────── 单位构造 ─────────
-function statUnit(src,side){const d=derived({st:src.st,lv:src.lv||1,weapon:src.weapon||null,armor:src.armor||null,atkBonus:src.atkBonus||0,mpBonus:src.mpBonus||0});
-  return{side,name:src.name,lv:src.lv||1,mhp:d.mhp,mmp:d.mmp,atk:d.atk,def:d.def,spd:d.spd,crit:d.crit,dodge:d.dodge,
+function statUnit(src,side){const d=derived({st:src.st,lv:src.lv||1,weapon:src.weapon||null,armor:src.armor||null,atkBonus:src.atkBonus||0,mpBonus:src.mpBonus||0,conditions:src.conditions});
+  return{side,name:src.name,conditions:(src.conditions||[]).map(c=>({...c})),lv:src.lv||1,mhp:d.mhp,mmp:d.mmp,atk:d.atk,def:d.def,spd:d.spd,crit:d.crit,dodge:d.dodge,
     bp:1,boosted:false,buffs:{},alpha:1,id:Math.random()}}
 function mkHero(){const u=statUnit({...S,name:S.name},'ally');const d=derived();Object.assign(u,{mhp:d.mhp,mmp:d.mmp,atk:d.atk,def:d.def,spd:d.spd,crit:d.crit,dodge:d.dodge});
   u.hp=clamp(S.hp,1,u.mhp);u.mp=clamp(S.mp,0,u.mmp);u.isHero=true;u.art=pickArt(['hero']);u.por='hero';
@@ -50,7 +50,7 @@ function mkHero(){const u=statUnit({...S,name:S.name},'ally');const d=derived();
 function mkAlly(key){const P=PARTY_DEF[key];if(!P)return null;const u=statUnit({name:P.name,st:P.st,lv:Math.max(1,S.lv)},'ally');
   u.hp=u.mhp;u.mp=u.mmp;u.art=pickArt(P.art);u.por=P.por.find(p=>ok(IMG['p_'+p]))||P.por[0];u.key=key;u.atkType=P.atkType;u.atkName=P.atkName;u.skills=P.skills.slice();u.skLv={};return u}
 function mkFoe(t,i){const k=(t.sp||'').replace(/^c_/,''),D=FOE_DEF[k]||{};const u=statUnit(t,'foe');
-  u.mhp=Math.round(u.mhp*(t.hpMul||.45)*1.8);u.hp=u.mhp;u.atk=Math.round(u.atk*(t.atkMul||.62));u.art=k;u.key=k;
+  u.mhp=Math.round(u.mhp*(t.hpMul||.45)*1.8);u.hp=u.mhp;u.atk=Math.round(u.atk*(t.atkMul??.62));u.art=k;u.key=k;
   u.maxShield=t.shield||D.shield||3;u.shield=u.maxShield;u.weak=(t.weak||D.weak||['拳','刀']).slice();u.known=new Set();
   u.skills=Object.keys(t.skills||{blade:1}).filter(s=>SKILLS[s]);u.drops=t.drops||D.drops||{};u.exp=t.exp??u.lv*20;u.silver=t.silver||0;
   u.bossy=!!t.boss||k==='chief';u.h=(t.h||160);return u}
@@ -131,29 +131,38 @@ function renderCards(){const el=$('bt-cards');if(!el||!B)return;
   el.querySelectorAll('.bt-card').forEach(c=>porFill(c.querySelector('.fc'),B.allies[+c.dataset.i]));
   el.querySelectorAll('.bt-card').forEach(c=>c.onpointerdown=e=>{e.stopPropagation();const u=B.allies[+c.dataset.i];if(B.tgtList&&B.tgtList.includes(u)&&B.pickCard)B.pickCard(u)})}
 // 有表情差分的角色：战斗中用持械姿态，气血 <30% 换负伤/担忧
-function porKey(u){const e=EXPR[u.por];if(!e)return u.por;const w=u.hp<u.mhp*.3?(e.includes('hurt')?'hurt':'worry'):'battle';return ok(IMG[`p_${u.por}_${w}`])?`${u.por}_${w}`:u.por}
-function porFill(el,u){const k=porKey(u);if(ok(IMG['p_'+k])){el.style.backgroundImage=`url(assets/p_${k}.webp)`;return}
+function porKey(u){if(B?.opt.storyLesson&&u.isHero&&u.por==='opening_hero_modern'){const key=u.por+(u.hp<u.mhp*.3?'_hurt':'_guard');if(ok(IMG['p_'+key]))return key}const e=EXPR[u.por];if(!e)return u.por;const w=u.hp<u.mhp*.3?(e.includes('hurt')?'hurt':'worry'):'battle';return ok(IMG[`p_${u.por}_${w}`])?`${u.por}_${w}`:u.por}
+function porFill(el,u){const k=porKey(u);if(ok(IMG['p_'+k])){el.style.backgroundImage=`url(${assetImagePath('p_'+(k))})`;return}
   const im=IMG[`c_${u.art}_l_0`]||IMG[`c_${u.art}_d_0`];if(!ok(im))return;const c=document.createElement('canvas');c.width=96;c.height=100;c.style.cssText='width:100%;height:100%;display:block';const x=c.getContext('2d');x.imageSmoothingEnabled=false;
-  const iw=im.naturalWidth,ih=im.naturalHeight,cs=Math.min(iw,ih)*.8;x.drawImage(im,(iw-cs)/2,ih*.05,cs,cs*100/96,0,0,96,100);el.appendChild(c)}
+  const iw=im.naturalWidth,ih=im.naturalHeight,cs=Math.min(iw,ih)*.8;drawImageAsset(x,im,(iw-cs)/2,ih*.05,cs,cs*100/96,0,0,96,100);el.appendChild(c)}
 function hint(html){const h=$('bt-hint');if(!h)return;if(!html){h.hidden=true;return}h.hidden=false;h.innerHTML=html}
 
 // ───────── 主入口 ─────────
 async function battle(opt={}){
+  if(opt.storyLesson)return battleStoryLesson(opt);
   const prevMode=mode;const el=battleDom();const tp=$('tpad'),tpd=tp?tp.style.display:'';
   const hpBefore=S.hp,mpBefore=S.mp,bagBefore={...(S.bag||{})};
-  const bgKey=opt.bg||('bg_'+(S.scene||'street'));
-  if(opt.bg&&!ok(IMG[bgKey]))await loadOpt(bgKey,bgKey);   // 未指定背景时由 bstage 按场景解析 bb_*（只请求登记过的文件，见 docs/battle-v2.md §4）
-  const ports=['p_hero',...(S.party||[]).flatMap(k=>(PARTY_DEF[k]||{por:[]}).por.filter(p=>PORTS.includes(p)).map(p=>'p_'+p))];   // 只预载登记过的立绘（大黄无立绘，头像取战斗精灵）
+  const bgKey=opt.bg||('bg_'+(S.scene||''));
+  if(opt.bg&&!ok(IMG[bgKey]))await loadOpt(bgKey,bgKey);   // 未指定背景时由 bstage 按场景解析 bb_*（只请求登记过的文件，见 docs/archive/battle-v2.md §4）
+  const ports=['p_'+(opt.heroPor||'hero'),...(S.party||[]).flatMap(k=>opt.allyPorts?.[k]?['p_'+opt.allyPorts[k]]:(PARTY_DEF[k]||{por:[]}).por.filter(p=>PORTS.includes(p)).map(p=>'p_'+p))];   // 只预载登记过的立绘（大黄无立绘，头像取战斗精灵）
   ports.push(...ports.flatMap(p=>(EXPR[p.slice(2)]||[]).map(e=>p+'_'+e)));
   // 战斗专用表必须在遮罩揭开前就绪，避免首帧先显示旧回退造型再突然换装。
-  const arts=['hero',...(opt.tutorial||opt.solo?[]:[...(S.party||[]).map(k=>PARTY_DEF[k]&&pickArt(PARTY_DEF[k].art)),S.pet]),
-    ...(opt.foes||[]).map(f=>(f.sp||'').replace(/^c_/,''))];
+  const arts=[opt.heroArt||'hero',...(opt.tutorial||opt.solo?[]:[...(S.party||[]).map(k=>opt.allyArts?.[k]||(PARTY_DEF[k]&&pickArt(PARTY_DEF[k].art))),S.pet]),
+    ...(opt.foes||[]).map(f=>(f.sp||'').replace(/^c_/,'')),...(opt.temporaryDou?['gy_luxiaodou']:[])];
   const battleSheets=[...new Set(arts.filter(Boolean).map(k=>window.BART&&BART[k]&&BART[k].file).filter(Boolean))];
   await Promise.all([...ports.filter(p=>!ok(IMG[p])).map(p=>loadOpt(p,p)),
     ...battleSheets.filter(k=>!ok(IMG[k])).map(k=>loadOpt(k,k))]);
+  if(opt.heroArt){
+    const requiredArts=[opt.heroArt,...(opt.tutorial||opt.solo?[]:(S.party||[]).map(k=>opt.allyArts?.[k]).filter(Boolean))];
+    for(const art of requiredArts){const sheet=window.BART?.[art]?.file;if(!sheet||!ok(IMG[sheet]))throw Error('当前衣装战斗素材未就绪：'+art)}
+    if(!ok(IMG['p_'+opt.heroPor]))throw Error('当前衣装战斗立绘未就绪：'+opt.heroPor);
+  }
+
   await fade(async()=>{mode='battle';$('prompt').hidden=true;$('hud').hidden=true;if(tp)tp.style.display='none';
     ['blog','border','bhud'].forEach(i=>{if($(i))$(i).hidden=true});
-    const allies=[mkHero()];if(!opt.tutorial&&!opt.solo){for(const k of(S.party||[])){const a=mkAlly(k);if(a)allies.push(a)}if(S.pet&&typeof mkPet==='function'){const p=mkPet(S.pet);if(p)allies.push(p)}}
+    const allies=[mkHero()];if(opt.heroArt)allies[0].art=opt.heroArt;if(opt.heroPor)allies[0].por=opt.heroPor;
+    if(!opt.tutorial&&!opt.solo){for(const k of(S.party||[]).slice(0,3)){const a=mkAlly(k);if(a){if(opt.allyArts?.[k])a.art=opt.allyArts[k];if(opt.allyPorts?.[k])a.por=opt.allyPorts[k];allies.push(a)}}if(S.pet&&typeof mkPet==='function'){const p=mkPet(S.pet);if(p)allies.push(p)}}
+    if(opt.temporaryDou&&window.GuiyunCombat)allies.push(GuiyunCombat.temporaryDou());
     const foes=opt.foes.map((f,i)=>mkFoe(f,i));
     layoutUnits(allies,foes,opt);
     B={opt,allies,foes,units:[...allies,...foes],bg:bgKey,round:0,fx:[],parts:[],shake:0,cur:null,order:[],next:[],done:new Set(),bpUse:0,
@@ -179,16 +188,55 @@ async function battle(opt={}){
   if(typeof BattleAuto!=='undefined')BattleAuto.finish();
   // 结算
   const hero=B.allies[0],d=derived();
-  S.hp=clamp(hero.hp,1,d.mhp);S.mp=clamp(hero.mp,0,d.mmp);
+  if(opt.training){S.hp=hpBefore;S.mp=mpBefore;S.bag=bagBefore;}
+  if(!opt.training){S.hp=clamp(hero.hp,1,d.mhp);S.mp=clamp(hero.mp,0,d.mmp);}
   $('bt-cmd').hidden=true;hint('');
   if(result==='win'){await victory()}
   else if(result==='lose'){await bigText('败','#d9553a',1100);
-    if(!opt.noLose){await fade(async()=>{el.hidden=true;B=null;mode='scene'});
-      await narr('你眼前一黑，倒在了地上……');await narr('醒来时，你已躺在羊太傅庙中。老僧说，是一位路过的船夫把你背了回来。');
-      S.hp=d.mhp;S.mp=d.mmp;S.silver=Math.floor(S.silver/2);if(tp)tp.style.display=tpd;await goScene('temple',[24,20.5]);hud();return'lose'}
+    // 旧「败后醒在羊太傅庙」分支已随襄阳演示归档（2026-10-19）；现行战斗均为 noLose，失败一律在原地以三成气血收场。
     S.hp=Math.max(S.hp,Math.round(d.mhp*.3))}
   else{await bigText('脱身','#9fd4ee',900)}
   await fade(async()=>{el.hidden=true;mode=prevMode==='map'||prevMode==='battle'?'scene':prevMode;B=null;if(tp)tp.style.display=tpd});hud();return result}
+
+// A story lesson shares the normal battle stage, turn loop and command UI, but never enters settlement.
+// The caller owns story progress/busy and restores its snapshot; this function owns all battle UI on every exit.
+async function battleStoryLesson(opt){
+  const previousMode=mode,el=battleDom(),tp=$('tpad'),display=tp?.style.display;
+  const previousDlgBusy=typeof dlgBusy!=='undefined'?dlgBusy:false,previousDlgHidden=$('dlg')?.hidden;
+  const hiddenBefore=new Map(['prompt','hud','blog','border','bhud'].map(id=>[id,$(id)?.hidden]));
+  try{
+    await fade(async()=>{
+      mode='battle';for(const id of hiddenBefore.keys())if($(id))$(id).hidden=true;
+      if(tp)tp.style.display='none';
+      const allies=opt.storyLesson.allies?opt.storyLesson.allies():[opt.storyLesson.hero()],foes=opt.storyLesson.foes?opt.storyLesson.foes():opt.foes.map((f,i)=>mkFoe(f,i));
+      layoutUnits(allies,foes,opt);
+      B={opt,allies,foes,units:[...allies,...foes],bg:opt.bg,round:0,fx:[],parts:[],shake:0,cur:null,order:[],next:[],done:new Set(),bpUse:0,
+        jit:new Map(),key:null,click:null,hover:null,tgtList:null,tsel:0,t0:performance.now(),log:''};
+      el.hidden=false;opt.storyLesson.mount?.();$('bt-help').textContent='↑↓ / W/S 选择 · Enter / 空格 确认 · Esc 返回 · 鼠标点击';
+      VFX.reset();newJit();renderCards();
+    });
+    bsfx('whoosh');
+    for(const line of [].concat(opt.intro||[]))await say('',line);
+    const result=opt.storyLesson.run?await opt.storyLesson.run():await battleLoop();
+    if(result==='win'){if(B.allies.some(u=>u.art==='ye_initial')&&window.BFX?.victoryPose)await BFX.victoryPose();bsfx('chime');await bigText('胜','#f3d58e',900)}
+    else if(result==='lose')await bigText('败','#d9553a',900);
+    return result;
+  }finally{
+    opt.storyLesson.clear?.();
+    if(typeof BattleAuto!=='undefined')BattleAuto.finish();
+    if(B){B.key=null;B.click=null;B.pickCard=null;B.redraw=null;B.tgtList=null;B.pv=null}
+    const clean=()=>{
+      for(const id of ['bt-cmd','bt-hint','bt-auto'])if($(id))$(id).hidden=true;
+      $('bt-win')?.remove();el.hidden=true;B=null;mode=previousMode;
+      if(tp)tp.style.display=display;
+      for(const [id,hidden] of hiddenBefore)if($(id))$(id).hidden=hidden;
+      if(typeof keys!=='undefined')keys={};
+      VFX.reset();if(typeof CAM!=='undefined')CAM.reset?.(0);
+      window.CharacterVoice?.stop();window.__audio?.stopBattleEffects?.();
+    };
+    try{await fade(clean)}finally{clean();if($('dlg'))$('dlg').hidden=previousDlgHidden;if(typeof dlgBusy!=='undefined')dlgBusy=previousDlgBusy;$('fade')?.classList.remove('on');hud()}
+  }
+}
 
 // ───────── 回合 ─────────
 const aliveOf=side=>B.units.filter(u=>u.hp>0&&(!side||u.side===side));
@@ -198,15 +246,15 @@ async function battleLoop(){
   while(true){B.round++;B.done=new Set();
     for(const u of B.allies)if(u.hp>0){if(B.round>1&&!u.boosted)u.bp=Math.min(5,u.bp+1);u.boosted=false}
     for(const u of B.foes)if(u.broken&&B.round>u.brokenUntil){u.broken=false;u.shield=u.maxShield;floatTxt(u,'护盾恢复','#9fd4ee',18)}
-    B.order=calcOrder();for(const u of B.order)u.prio=false;newJit();B.next=calcOrder();
-    for(const u of B.foes)if(u.hp>0)planIntent(u);
+    B.order=B.opt.storyLesson?.order?B.opt.storyLesson.order():B.opt.training?[...B.allies,...B.foes]:calcOrder();for(const u of B.order)u.prio=false;newJit();B.next=B.opt.storyLesson?.order?B.opt.storyLesson.order():B.opt.training?[...B.allies,...B.foes]:calcOrder();
+    for(const u of B.foes)if(u.hp>0){if(B.opt.storyLesson?.planIntent)B.opt.storyLesson.planIntent(u);else planIntent(u)}
     renderCards();await wait(250);
     for(const u of B.order){if(u.hp<=0){B.done.add(u);continue}
       const r=endCheck();if(r)return r;
-      B.cur=u;renderCards();
-      if(u.side==='foe'){if(u.broken){floatTxt(u,'破势中','#aaa',18);await wait(450)}
-        else{await foeAct(u);if(u.bossy&&u.hp>0&&u.hp<u.mhp*.5&&!u.broken&&!endCheck()){planIntent(u);await wait(300);await foeAct(u)}}}
-      else{u.defend=false;
+      B.cur=u;if(window.PeiCompanion)PeiCompanion.actionStart(u);renderCards();
+      if(u.side==='foe'){if(u.broken||u.stun){floatTxt(u,u.broken?'破势中':'眩晕',u.broken?'#aaa':'#e0c0ff',18);u.stun=false;await wait(450)}
+        else{if(B.opt.storyLesson?.beforeFoe)await B.opt.storyLesson.beforeFoe(u);await foeAct(u);if(B.opt.storyLesson)await B.opt.storyLesson.afterFoe(u);if(u.bossy&&u.hp>0&&u.hp<u.mhp*.5&&!u.broken&&!endCheck()){planIntent(u);await wait(300);await foeAct(u)}}}
+      else{u.defend=false;delete u.buffs.qhGuard;
         if(u.stun){u.stun=false;floatTxt(u,'眩晕','#e0c0ff',20);await wait(600)}
         else{const r2=u.pet?await petTurn(u):await allyTurn(u);if(r2==='flee')return'flee'}}
       tickBuffs(u);B.done.add(u);B.cur=null;renderCards();
@@ -230,7 +278,7 @@ async function foeAct(u){const it=u.intent||{};u.intent=null;
   u.charging=false;const sk=SKILLS[it.sk]||SKILLS.blade,info=BSK[it.sk]||{t:'刀'};
   const al=aliveOf('ally');if(!al.length)return;
   let tg=it.all?al:[it.tgt&&it.tgt.hp>0?it.tgt:al[ri(0,al.length-1)]];
-  showName(u,sk.name);if(it.sk==='ghost')await VFX.cast(u,'ghost',tg,0);await lunge(u,tg[0]);
+  showName(u,sk.name);const basic=!it.all&&(sk.basicAttack===true||['blade','fist','bite','peck','palm_m','staff','gy_dou_basic'].includes(it.sk||'blade'));if(basic)await lunge(u,tg[0]);else{VFX.act(u,'cast');await VFX.cast(u,it.sk,tg,0)}
   const hits=info.hits||1;
   for(let h=0;h<hits;h++){for(const t of tg){if(t.hp<=0)continue;
       if(!it.all&&chance(t.dodge*.6)){floatTxt(t,'闪','#bcd',24);continue}
@@ -265,8 +313,8 @@ function allyTurn(u){return new Promise(res=>{B.bpUse=0;const cmd=$('bt-cmd');
     const fin=()=>{const tl=B.tgtList;B.tgtList=null;B.click=null;B.pickCard=null;B.pv=null;return tl};
     const info=()=>{const t=list[B.tsel];let s=`<span style="color:var(--gold)">${desc}</span> · `;
       if(all)s+=side==='foe'?'全体敌人':'全体同伴';else{s+=esc(t.name);if(side==='foe')s+=' '+t.weak.map(w=>t.known.has(w)?`<span class="w" style="color:${WCOL[w]}">${w}</span>`:'<span class="w" style="color:#888">？</span>').join('')}
-      if(side==='foe'&&B.pv){const v=B.pv(B.bpUse),ts=all?list:[t];const ests=ts.map(x=>estDmg(u,x,v));const wk=ts.some(x=>hitsWeak(x,v));
-        s+=` · <span class="pv">预计 ${Math.min(...ests)}${ests.length>1||v.hits>1?'':''}${Math.max(...ests)!==Math.min(...ests)?'~'+Math.max(...ests):''}${v.hits>1?' ×'+v.hits:''}</span>`+(wk?' <span class="wk">弱点！</span>':'')}
+      if(side==='foe'&&B.pv){const v=B.pv(B.bpUse),ts=all?list:[t];if(v){const ests=ts.map(x=>estDmg(u,x,v));const wk=ts.some(x=>hitsWeak(x,v));
+        s+=` · <span class="pv">预计 ${Math.min(...ests)}${ests.length>1||v.hits>1?'':''}${Math.max(...ests)!==Math.min(...ests)?'~'+Math.max(...ests):''}${v.hits>1?' ×'+v.hits:''}</span>`+(wk?' <span class="wk">弱点！</span>':'');}else s+=' · 辅助 · 不造成伤害';}
       hint(s+`<span style="color:var(--dim);font-size:12px"> · 蓄势 ${B.bpUse}</span>`);renderCards()};
     B.redraw=info;info();
     const ok2=()=>{const tl=fin();bsfx('select');go(all?tl:[tl[B.tsel]])};
@@ -278,7 +326,7 @@ function allyTurn(u){return new Promise(res=>{B.bpUse=0;const cmd=$('bt-cmd');
   const main=()=>{B.tgtList=null;const flee=!B.opt.boss&&!B.opt.tutorial&&!B.opt.noFlee;
     const inv=Object.entries(S.bag||{}).filter(([k,n])=>n>0&&ITEMS[k]&&(ITEMS[k].heal||ITEMS[k].mp));
     menu('第 '+B.round+' 回合',[
-      {label:'攻击',val:'atk',ico:tyTag(u.atkType),right:u.atkName,desc:`以${u.atkName}出手（${u.atkType}）· 蓄势可连击 ${1+B.bpUse} 次`},
+      {label:'攻击',val:'atk',ico:tyTag(u.atkType),right:u.atkName,desc:`以${u.atkName}出手${u.atkType?'（'+u.atkType+'）':''}· 蓄势可连击 ${1+B.bpUse} 次`},
       {label:'武学',val:'sk',ico:tyTag('武'),dis:!u.skills.length,desc:'施展武学，消耗内力'},
       {label:'道具',val:'it',ico:tyTag('药'),dis:!inv.length,desc:'使用行囊中的药物'},
       {label:'防御',val:'def',ico:tyTag('守'),desc:'本回合受伤减半，下回合率先行动'},
@@ -289,8 +337,8 @@ function allyTurn(u){return new Promise(res=>{B.bpUse=0;const cmd=$('bt-cmd');
       else if(v==='def')done(async()=>{u.defend=true;u.prio=true;floatTxt(u,'防御','#9fd4ee',22);await wait(450)},1);
       else if(v==='run')done(async()=>{const fs=aliveOf('foe'),ps=aliveOf('ally');const p=clamp(55+(avg(ps,'spd')-avg(fs,'spd'))*6,20,90);
         if(chance(p)){bsfx('whoosh');return'flee'}floatTxt(u,'逃跑失败','#aaa',22);await wait(600)},1)})};
-  const skills=()=>{menu('武学',u.skills.map(k=>{const sk=SKILLS[k],bi=BSK[k]||{},need=sk.needWeapon&&u.isHero&&u.atkType!==sk.needWeapon;
-      return{label:sk.name,val:k,ico:tyTag(bi.t||(sk.heal||bi.buff?'医':'内'))+(bi.e?tyTag(bi.e):''),right:sk.mp?sk.mp+' 内':'',dis:u.mp<(sk.mp||0)||need,desc:(sk.desc||'')+(need?`（需装备${sk.needWeapon}）`:'')}}),main,k=>{
+  const skills=()=>{menu('武学',u.skills.map(k=>{const sk=SKILLS[k],bi=BSK[k]||{},need=window.QiheUIModel?QiheUIModel.skillWhy(u,k):(sk.needWeapon&&u.isHero&&u.atkType!==sk.needWeapon?'需装备'+sk.needWeapon:''),cost=window.QiheUIModel?QiheUIModel.skillCost(u,k):(sk.mp||0);
+      return{label:sk.name,val:k,ico:tyTag(bi.t||(sk.heal||bi.buff?'医':'内'))+(bi.e?tyTag(bi.e):''),right:cost?cost+' 内':'',dis:u.mp<cost||!!need,desc:(sk.desc||'')+(need?`（${need}）`:'')}}),main,k=>{
       const bi=BSK[k]||{},tg=bi.tgt||(SKILLS[k].heal?'ally':'foe');
       const go=t=>done(bp=>doSkill(u,k,t,bp));B.pv=bp=>skillPv(u,k,bp);
       if(tg==='self')go([u]);else target(tg==='foe'||tg==='foes'?'foe':'ally',tg==='foes'||tg==='allies',skills,go,SKILLS[k].name)})};
@@ -300,25 +348,27 @@ function allyTurn(u){return new Promise(res=>{B.bpUse=0;const cmd=$('bt-cmd');
 const avg=(l,f)=>l.reduce((s,u)=>s+u[f],0)/Math.max(1,l.length);
 
 // ───────── 出手结算 ─────────
-async function doAttack(u,t,bp){const hits=1+bp;if(bp)await boostFx(u,bp);
+async function doAttack(u,t,bp){u.stationarySkill=false;const hits=1+bp;if(bp)await boostFx(u,bp);
   showName(u,u.atkName+(hits>1?` ×${hits}`:''));VFX.act(u,'atk');await lunge(u,t);
   for(let h=0;h<hits;h++){if(t.hp<=0)break;if(h)VFX.act(u,'atk2');strike(u,t,{pow:1,t:u.atkType});VFX.hit(u,t,u.atkType,null,bp);await wait(hits>1?190:300)}
   await wait(300)}
-async function doSkill(u,k,tgs,bp){const sk=SKILLS[k],bi=BSK[k]||{};u.mp-=sk.mp||0;renderCards();if(bp)await boostFx(u,bp);showName(u,sk.name);
-  const lvM=1+.15*(((u.skLv||{})[k]||1)-1);
+async function doSkill(u,k,tgs,bp){const sk=SKILLS[k],bi=BSK[k]||{};if(window.QiheUIModel&&u.side==='ally'&&QiheUIModel.skillWhy(u,k))return;u.stationarySkill=true;u.stepO=0;if(u.bx!=null)u.x=u.bx;u.mp-=window.QiheUIModel?QiheUIModel.skillCost(u,k):(sk.mp||0);renderCards();if(bp)await boostFx(u,bp);showName(u,sk.name);
+  const lvM=1+.15*(((u.skLv||{})[k]||1)-1),effect=window.QiheUIModel?.skillEffects(u,k,bp);
   if(sk.heal||bi.buff){VFX.act(u,'cast');await VFX.cast(u,k,tgs,bp)}
-  if(sk.heal){await lunge(u,tgs[0],.3);for(const t of tgs)if(t.hp>0)heal(t,Math.round(t.mhp*sk.heal*lvM*(1+bp*.5)));await wait(600);return}
-  if(bi.buff){await lunge(u,tgs[0],.3);for(const t of tgs){t.buffs.ding=2+bp;floatTxt(t,'定神 · 攻防提升','#ffe7a0',20)}renderCards();await wait(600);return}
-  const hits=(bi.hits||1)+(bi.hits?bp:0),pow=(sk.pow||1)*lvM*(bi.hits?1/Math.sqrt(bi.hits):1)*(bi.hits?1:1+bp*.8);
-  VFX.act(u,'atk');await VFX.cast(u,k,tgs,bp);await lunge(u,tgs[0]);
-  for(let h=0;h<hits;h++){if(h)VFX.act(u,'atk2');for(const t of tgs){if(t.hp<=0)continue;strike(u,t,{pow,t:bi.t,e:bi.e});VFX.hit(u,t,bi.t,k,bp);
+  if(sk.heal){for(const t of tgs)if(t.hp>0)heal(t,Math.round(t.mhp*(effect?.heal??sk.heal*lvM*(1+bp*.5))));await wait(600);return}
+  if(bi.buff){for(const t of tgs){t.buffs.ding=effect?.duration??2+bp;floatTxt(t,'定神 · 攻防提升','#ffe7a0',20)}renderCards();await wait(600);return}
+  const hits=effect?.hits??(bi.hits||1)+(bi.hits?bp:0),pow=effect?.power??(sk.pow||1)*lvM*(bi.hits?1/Math.sqrt(bi.hits):1)*(bi.hits?1:1+bp*.8);
+  VFX.act(u,'cast');await VFX.cast(u,k,tgs,bp);
+  for(let h=0;h<hits;h++){for(const t of tgs){if(t.hp<=0)continue;strike(u,t,{pow,t:bi.t,e:bi.e});VFX.hit(u,t,bi.t,k,bp);
       if(h===0&&bi.reveal&&t.hp>0)reveal(t,bi.reveal+(bp?1:0));
       if(bi.bleed&&t.hp>0)t.bleedN=3;
-      if(bi.stun&&t.hp>0&&!t.broken&&chance(sk.stun||25)){t.intent=null;floatTxt(t,'眩晕 · 失去行动','#e0c0ff',18)}}
+      if(bi.stun&&t.hp>0&&!t.broken&&chance(sk.stun||25)){t.stun=true;t.intent=null;floatTxt(t,'眩晕 · 失去行动','#e0c0ff',18)}}
     await wait(hits>1?200:300)}
+  if(k==='qh_hulu_staff'){u.buffs.qhGuard=true;floatTxt(u,'护身 · 减伤15%','#d8e6b3',18)}
   await wait(300)}
 // 预估（与 doSkill/strike 同公式，不含暴击与浮动）
 function skillPv(u,k,bp){const sk=SKILLS[k],bi=BSK[k]||{},lvM=1+.15*(((u.skLv||{})[k]||1)-1);if(sk.heal||bi.buff)return null;
+  if(window.QiheUIModel){const e=QiheUIModel.skillEffects(u,k,bp);return{t:e.t,e:e.e,hits:e.hits,pow:e.power}}
   return{t:bi.t,e:bi.e,hits:(bi.hits||1)+(bi.hits?bp:0),pow:(sk.pow||1)*lvM*(bi.hits?1/Math.sqrt(bi.hits):1)*(bi.hits?1:1+bp*.8)}}
 const hitsWeak=(t,v)=>!!v&&[v.t,v.e].some(w=>w&&t.weak.includes(w)&&t.known.has(w));
 function estDmg(u,t,v){if(!v)return 0;let d=u.atk*v.pow*(u.buffs.ding?1.3:1)-t.def*.5;if(hitsWeak(t,v))d*=1.25;if(t.broken)d*=2;return Math.max(1,Math.round(d))}
@@ -328,10 +378,10 @@ function strike(u,t,{pow,t:ty,e}){
   let dmg=u.atk*pow*(u.buffs.ding?1.3:1)-t.def*.5;if(weakHit)dmg*=1.25;if(t.broken)dmg*=2;
   const cr=chance(u.crit);if(cr)dmg*=1.5;dmg=Math.max(1,Math.round(dmg*rnd(.92,1.08)));
   if(weakHit){bpop(t,'WEAK','#ffe25a');if(!t.broken&&t.shield>0){t.shield--;t.shieldHit=performance.now();if(t.shield===0)doBreak(t)}}
-  hurt(t,dmg,cr?'#ffd24a':t.broken?'#ff6a4a':'#fff3e0',cr)}
+  hurt(t,dmg,cr?'#ffd24a':t.broken?'#ff6a4a':'#fff3e0',cr,u.art==='ye_initial'&&ty==='暗器'?'needle_hit_20261012':ty==='棍'?'staff_hit_20261010':'advance')}
 function doBreak(t){VFX.brk(t);t.broken=true;t.brokenUntil=B.round+1;t.charging=false;t.intent=null;t.breakT=performance.now();B.shake=14;bsfx('whoosh',1,.6);
   bpop(t,'破 势','#ff7a3a',1);for(let i=0;i<26;i++){const a=rnd(0,Math.PI*2),s=rnd(2,7);B.parts.push({x:t.x,y:t.y-unitH(t)*.55,vx:Math.cos(a)*s,vy:Math.sin(a)*s-2,r:rnd(3,9),rot:rnd(0,6),vr:rnd(-.3,.3),life:rnd(40,70),c:Math.random()<.5?'#bfe6ff':'#ffe7a0'})}}
-function hurt(t,dmg,col,big){t.hp=Math.max(0,t.hp-dmg);t.flash=performance.now();t.ghT=performance.now();if(t.isHero&&t.hp>0)VFX.act(t,'hurt');t.kb=performance.now();B.shake=Math.max(B.shake,big?8:4);bsfx('advance',.9,.7+Math.random()*.2);
+function hurt(t,dmg,col,big){if(t.buffs?.qhGuard)dmg=Math.max(1,Math.round(dmg*.85));t.hp=Math.max(0,t.hp-dmg);t.flash=performance.now();t.ghT=performance.now();if(t.isHero&&t.hp>0)VFX.act(t,'hurt');t.kb=performance.now();B.shake=Math.max(B.shake,big?8:4);bsfx('advance',.9,.7+Math.random()*.2);
   floatTxt(t,String(dmg),col,big?34:28);if(t.hp<=0){t.dieT=performance.now();t.intent=null;if(t.side==='ally'){t.bp=0;t.defend=false;t.stun=false}}renderCards()}
 function heal(t,n){const h=Math.min(n,t.mhp-t.hp);t.hp+=h;floatTxt(t,'+'+h,'#7fe0a0',28);for(let i=0;i<10;i++)B.parts.push({x:t.x+rnd(-25,25),y:t.y-rnd(10,80),vx:0,vy:-rnd(.6,1.6),r:rnd(2,4),life:rnd(30,50),c:'#9ff0b0',glow:1});bsfx('chime',.5);renderCards()}
 async function boostFx(u,bp){B.boostT=performance.now();B.boostU=u;floatTxt(u,'蓄势 '+'◆'.repeat(bp),'#ffcf73',22);bsfx('chime',.6,1+bp*.1);await wait(420)}
@@ -344,12 +394,13 @@ async function bigText(t,c,ms){B.big={t,c,t0:performance.now(),ms};await wait(ms
 // ───────── 胜利结算 ─────────
 async function victory(){bsfx('chime');await bigText('胜','#f3d58e',900);
   let exp=0,sil=0;const drops={};for(const f of B.foes){exp+=f.exp;sil+=f.silver;for(const[k,p]of Object.entries(f.drops||{}))if(ITEMS[k]&&chance(p))drops[k]=(drops[k]||0)+1}
-  exp=Math.round(exp*(B.opt.tutorial?.5:1));S.exp+=exp;S.silver+=sil;for(const[k,n]of Object.entries(drops))S.bag[k]=(S.bag[k]||0)+n;
-  const lvl=[];while(S.exp>=S.lv*100){S.exp-=S.lv*100;S.lv++;S.pts+=3;const d=derived();S.hp=d.mhp;S.mp=d.mmp;lvl.push(S.lv)}
+  exp=Math.round(exp*(B.opt.tutorial?.5:1));S.silver+=sil;for(const[k,n]of Object.entries(drops))S.bag[k]=(S.bag[k]||0)+n;
+  const growth=CharacterGrowth.awardBattle(S,exp,B.allies.filter(u=>!u.isHero).map(u=>u.key),(r,id)=>settleCharacterLevels(r,id==='hero'?derived:()=>mnD(id)));const lvl=growth.hero.levels;for(const row of growth.mates)if(row.levels.length){const u=B.allies.find(u=>u.key===row.id);if(u)u.levelUpThisBattle=true;}
   if(sil)bsfx('coin');
   const w=document.createElement('div');w.id='bt-win';w.className='frame';
-  w.innerHTML=`<h2>胜</h2><div class="ln"><span>修为</span><b>+${exp}</b></div><div class="ln"><span>银两</span><b>+${sil}</b></div>
+  w.innerHTML=`<h2>胜</h2><div class="ln"><span>修为</span><b>${S.lv>=CHARACTER_LEVEL_CAP?'已满级':'＋'+growth.hero.amount+'（历练领悟）'}</b></div><div class="ln"><span>铜钱</span><b>+${sil} 文</b></div>
     <div class="ln"><span>战利品</span><b>${Object.entries(drops).map(([k,n])=>ITEMS[k].name+'×'+n).join('、')||'—'}</b></div>
+    ${growth.mates.map(row=>`<div class="ln"><span>${PARTY_DEF[row.id]?.name||row.id}</span><b>修为 +${row.amount}${row.factor>1?' · 共同研习':''}</b></div>`).join('')}
     ${lvl.map(l=>`<div class="lv">境界突破 · 第 ${l} 层 &nbsp;<span style="color:var(--dim);font-size:12px">属性点 +3</span></div>`).join('')}
     <div class="go">点击或按 Enter 继续</div>`;
   $('bt').appendChild(w);await wait(350);
@@ -367,15 +418,15 @@ addEventListener('keydown',e=>{if(mode!=='battle'||!B||!B.key||(typeof dlgBusy!=
 
 // ───────── 绘制 ─────────
 function drawBattleBg(){const k=B.bg;
-  if(ok(IMG[k])){g.drawImage(IMG[k],0,0,W,H)}
-  else{const m=IMG['m_'+(S.scene||'street')];g.fillStyle='#1d1812';g.fillRect(0,0,W,H);
-    if(ok(m)){const s=Math.max(W/m.naturalWidth,H/m.naturalHeight)*1.1;g.save();g.filter='blur(4px) brightness(.5) saturate(.8)';g.drawImage(m,(W-m.naturalWidth*s)/2,(H-m.naturalHeight*s)/2,m.naturalWidth*s,m.naturalHeight*s);g.restore()}}
+  if(ok(IMG[k])){drawImageAsset(g,IMG[k],0,0,W,H)}
+  else{const m=IMG['m_'+(S.scene||'')];g.fillStyle='#1d1812';g.fillRect(0,0,W,H);
+    if(ok(m)){const s=Math.max(W/m.naturalWidth,H/m.naturalHeight)*1.1;g.save();g.filter='blur(4px) brightness(.5) saturate(.8)';drawImageAsset(g,m,(W-m.naturalWidth*s)/2,(H-m.naturalHeight*s)/2,m.naturalWidth*s,m.naturalHeight*s);g.restore()}}
   const gr=g.createLinearGradient(0,0,0,H);gr.addColorStop(0,'rgba(8,5,3,.55)');gr.addColorStop(.18,'rgba(8,5,3,.1)');gr.addColorStop(.62,'rgba(8,5,3,.05)');gr.addColorStop(1,'rgba(8,5,3,.55)');g.fillStyle=gr;g.fillRect(0,0,W,H);
   // 地面线
   g.fillStyle='rgba(0,0,0,.18)';g.fillRect(0,372,W,H-372);g.strokeStyle='rgba(243,213,142,.18)';g.beginPath();g.moveTo(0,372.5);g.lineTo(W,372.5);g.stroke()}
 function headChip(u,x,y,s,dim){g.save();g.beginPath();g.rect(x,y,s,s);g.clip();g.fillStyle=u.side==='foe'?'#3a1a14':'#14261c';g.fillRect(x,y,s,s);
   const im=IMG[`c_${u.art}_d_0`]||IMG[`c_${u.art}_d`];
-  if(ok(im)){const iw=im.naturalWidth,ih=im.naturalHeight,cs=Math.min(iw,ih*.55)*(u.art==='dog'||u.art==='wolf'||u.art==='snake'?1:.62);const sx=(iw-cs)/2,sy=u.art==='dog'||u.art==='wolf'||u.art==='snake'?ih*.2:ih*.02;g.imageSmoothingEnabled=false;g.drawImage(im,sx,sy,cs,cs,x,y,s,s);g.imageSmoothingEnabled=true}
+  if(ok(im)){const iw=im.naturalWidth,ih=im.naturalHeight,cs=Math.min(iw,ih*.55)*(u.art==='dog'||u.art==='wolf'||u.art==='snake'?1:.62);const sx=(iw-cs)/2,sy=u.art==='dog'||u.art==='wolf'||u.art==='snake'?ih*.2:ih*.02;g.imageSmoothingEnabled=false;drawImageAsset(g,im,sx,sy,cs,cs,x,y,s,s);g.imageSmoothingEnabled=true}
   else{g.fillStyle='#000';g.beginPath();g.arc(x+s/2,y+s*.62,s*.34,0,7);g.fill();g.fillStyle='#ddd';g.font=`${s*.4}px var(--serif),serif`;g.textAlign='center';g.fillText(u.name[0],x+s/2,y+s*.7)}
   if(dim){g.fillStyle='rgba(0,0,0,.55)';g.fillRect(x,y,s,s)}g.restore();
   g.strokeStyle=u.side==='foe'?'#c4462f':'#5fa27c';g.lineWidth=1.5;g.strokeRect(x+.5,y+.5,s-1,s-1);g.lineWidth=1}
@@ -444,7 +495,7 @@ function drawUnitUI(u,now){const h=unitH(u),x=u.x,y=u.y;const tg=B.tgtList&&B.tg
       g.fillStyle='#eee2c6';g.textAlign='center';g.fillText(lab,x,ly+1)}}
   if(tg){const by=y-h-(u.side==='foe'?48:14)+Math.sin(now/140)*4;g.fillStyle=u.side==='foe'?'#ffd24a':'#8fe0a8';g.beginPath();g.moveTo(x-10,by-12);g.lineTo(x+10,by-12);g.lineTo(x,by);g.closePath();g.fill();g.strokeStyle='#000';g.stroke()}}
 // ───────── 绘制管线 ─────────
-// 各层都是独立的全局函数，可在 bstage.js / bui.js / bfx.js 中重新定义覆盖（分工见 docs/battle-v2.md），不要在这里改层内实现。
+// 各层都是独立的全局函数，可在 bstage.js / bui.js / bfx.js 中重新定义覆盖（分工见 docs/archive/battle-v2.md），不要在这里改层内实现。
 // 2D 镜头：update 每帧推进，apply 在世界层绘制前变换 g，toWorld 把画布坐标换回世界坐标（点击/悬停用）。bstage.js 覆盖。
 let CAM={update(now){},apply(){},toWorld(x,y){return[x,y]}};
 function drawStageFront(now){}   // 世界层前景（雾/尘/光束等），在单位与特效之后、单位 UI 之前（bstage.js）
@@ -475,9 +526,14 @@ function drawBig(now){
   if(B.big){const k=(now-B.big.t0)/B.big.ms;if(k<1.4){const a=Math.min(1,k*4)*(k>1?Math.max(0,(1.4-k)/.4):1);g.globalAlpha=a;g.fillStyle='rgba(0,0,0,.35)';g.fillRect(0,H/2-60,W,110);
     g.font='bold 86px "ZCOOL XiaoWei","Noto Serif SC",serif';g.textAlign='center';g.lineWidth=6;g.strokeStyle='#000';g.strokeText(B.big.t,W/2,H/2+28);g.fillStyle=B.big.c;g.fillText(B.big.t,W/2,H/2+28);g.globalAlpha=1;g.lineWidth=1}}
 }
+// 震屏：按真实时间衰减（60Hz 下等同每帧 ×0.85），x/y 两路不同频正弦（docs/vfx.md §2.3）
+let shakeLast=0;
+function shakeStep(now){const dt=shakeLast?Math.max(0,Math.min(100,now-shakeLast)):1000/60;shakeLast=now;if(!(B.shake>0))return;
+  const s=now/1000;g.translate(B.shake*Math.sin(s*Math.PI*2*29),B.shake*.6*Math.sin(s*Math.PI*2*21+1.3));
+  B.shake*=Math.pow(.85,dt/(1000/60));if(B.shake<.5)B.shake=0}
 function drawBattle(t){if(!B)return;const now=performance.now();
   CAM.update(now);
-  g.save();CAM.apply();if(B.shake>0){g.translate(rnd(-B.shake,B.shake),rnd(-B.shake,B.shake)*.6);B.shake*=.85;if(B.shake<.5)B.shake=0}
+  g.save();CAM.apply();shakeStep(now);
   drawBattleBg();
   drawIntentLines(now);
   for(const u of B.units.slice().sort((a,b)=>a.y-b.y))drawUnit(u,now);

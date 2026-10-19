@@ -1,5 +1,5 @@
 'use strict';
-// 「破势」演出素材与横幅（工作流 F），见 docs/battle-v3.md
+// 「破势」演出素材与横幅（工作流 F），见 docs/archive/battle-v3.md
 // 对外：window.POSHI = { banner(u), seal(size), draw() }；加载后 BUI.breakBanner = POSHI.banner
 //  · banner(u)：约 1.15s 的系统演出（T3 档，走真实时间，与 C 的 250ms 时停/拉镜叠加）：
 //      斜向刀光划屏 → 墨色横扫 + 宣纸飞白带展开 → 行草大字「破」砸入（放大回弹、墨点四溅、震屏）→ 朱印「势」盖章（轻震）→ 分阶淡出

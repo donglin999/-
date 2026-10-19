@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""「破势」演出素材（工作流 F，见 docs/battle-v3.md）。
+"""「破势」演出素材（工作流 F，见 docs/archive/battle-v3.md）。
 
 字体：Google Fonts 开源毛笔字体（SIL OFL 1.1），下载到 raw_battle/F/fonts/：
   · 志莽行书 Zhi Mang Xing —— 大字「破」（行草，粗重有力）
