@@ -72,7 +72,8 @@ function join(s){if(s.mode!=='home'||s.pending)throw Error('当前不能拜师�
 // 只列当前已有互动内容的人物；陆衡已在开篇相识，通信不要求当面来访。
 function giftRecipients(s){return D.giftRecipients.filter(n=>(n.id!=='zhou'||s.joined)&&(n.id!=='ye'||s.month<=12)&&(n.id!=='neighbor'||period(s)>=2)&&(n.id!=='shimu'||s.facts.gy_noodles_seen)&&(n.id!=='yin'||s.facts.gy_night_return_seen)&&(n.id!=='pei'||s.facts.gn_lamp_seen)&&(n.id!=='zhong'||s.facts.gy_prelude_tour_seen||s.facts.gy_noodles_seen)&&(n.id!=='fang'||s.facts.gy_fang_back_seen)&&(n.id!=='dou'||s.facts.gy_noodles_seen)&&(n.id!=='man'||s.facts.gy_noodles_seen));}
 // 寄信沿用当前已开放的往来对象，不创建未认识或没有互动内容的人物。
-function letterRecipients(s){return giftRecipients(s);}
+// 2026-10-20 用户同意：书信只寄给不在谷里的人（陆衡、邻村乡邻、溪东裴家、下山在外的方迟）；同住的人只能送礼、当面说。
+function letterRecipients(s){return giftRecipients(s).filter(n=>['lu','neighbor','pei'].includes(n.id)||(n.id==='fang'&&s.facts.gy_fang_leaves_seen&&!s.facts.gy_brother_hurt_seen));}
 function contactReason(s,id,recipient){if(recipient===undefined)return '';if(!(id==='C01'?letterRecipients(s):giftRecipients(s)).some(n=>n.name===recipient))return'尚未认识或不能投递给这位收件人。';const sent=s.history.some(h=>h.period===period(s)&&h.action===id&&(h.recipient||s.letters.find(l=>l.id===h.id)?.recipient||'陆衡')===recipient);return sent?`${recipient}本期已${id==='C01'?'收到一封近况信':'收到一份礼物'}，下期再${id==='C01'?'寄信':'赠送'}。`:'';}
 function availability(s,a,options={}){if(a?.id==='C02'&&options.gift){if(!['food','herb','pouch'].includes(options.gift))return'此物品不能投递。';a={...a,inputs:{[options.gift]:1}};}if(!a)return'没有这个培养项目。';if(s.pending)return'请先完成或关闭当前活动结果。';if(s.mode!=='home'&&!(a.storyMode&&a.storyMode===s.mode))return s.mode==='complete'?'三年培养已结束。':'本期用于行程，不能领取据点体力。';if(a.locked)return a.locked;const balanceGate=B.gate(s,a);if(balanceGate)return balanceGate;
  if(['sword','fist'].includes(a.learn)&&!s.learned[a.learn]&&s.learned[a.learn==='sword'?'fist':'sword'])return'先练好已学的基础功法；交叉修习需要另一次传艺，目前尚未开放。';

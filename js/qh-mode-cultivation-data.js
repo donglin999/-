@@ -56,23 +56,23 @@ for(const a of actions)if(['W05','W06','W07'].includes(a.id)){a.presentation='di
 function giftPortrait(teacher){return teacher==='陆衡'?'assets/production/cultivation/household-v1/lu.png':teacher==='周砚'?'assets/production/cultivation/household-v1/zhou.png':'assets/production/cultivation/household-v1/ye.png';}
 Object.assign(actions.find(a=>a.id==='W03'),{name:'袋底的木屑',teacher:'叶蘅',place:'谷中住处',window:[2,11],choice:['核实真正缺少的东西','回信说明下次能带什么'],feedback:'你们记下实际需求和未确定的事项。读信没有让陈伯痊愈，也不算已经完成实地回访。'});
 Object.assign(actions.find(a=>a.id==='W04'),{requires:['footwork'],costOverride:3,quota:true,quotaMessage:'本期观察成果已记录，可免费查看；下期再作新的观察。'});
-for(const [id,line] of Object.entries({W02:'这格先留着，余下的我们再问清。下次不确定，先告诉我。',W03:'这一项邻村已经借了，不用再送。没定的先写清，别替人答应。',W05:'这次改过的，写给两边看。别让一边以为我明天还到。',W06:'这一步是谁提醒你的，就记着这份帮忙。下次先看同伴站在哪里。',W07:'我也写下了自己想问的事。你的打算，你来说；能帮什么，我们先说清。'}))actions.find(a=>a.id===id).resultLine=line;
+for(const [id,line] of Object.entries({W02:'猜错一味，人家照着抓药就麻烦了。……你要闲着，帮我把这几张抄清楚。',W03:'那就麻绳和锄头。……陈伯的字越写越歪，腿怕是还疼。',W05:'日子我先不应。答应了到不了，比不答应还糟。',W06:'嗯。下回出门，先看清同伴站在哪儿，再迈脚。',W07:'你呢？进城想做什么，自己去跟周先生说。'}))actions.find(a=>a.id===id).resultLine=line;
 // 2026-10-08 去掉旁白：闲逛剧情开场改为逐句台词；萧白的念头用括号心声。W06 按首次送药的实际方式换开场。
 const strollIntro={
  W01:[['zhou','今天不练了，坐下说说。'],['zhou','修习里哪一处最难？挑一件，我们只把这一件谈透。']],
- W02:[['hero','（这张药签字都糊了……照旁边那张补上就是。）'],['ye','别动。这格还没问清，不能猜。']],
- W03:[['ye','乡邻来信了，陈伯还在信后批了几样器具。'],['hero','我念给你听：麻绳两捆，锄头一把，还有一口小铁锅……'],['ye','慢着。锅那一项，邻村那边已经解决了，不必重复寄送。']],
- W05:[['hero','陆大哥，乡邻那边还有几样东西，顺路的话能不能一并捎上？'],['lu','几件？送到哪儿？哪天要到？'],['lu','多走半天，也得有人知道我晚到半天。']],
- W06:[['zhou','护送的经过，从头说给我听。'],['zhou','那一步，是谁提醒你的？下一回出门，我先讲清你该负责哪一段。']],
- W07:[['ye','汉皋那边，有位受治者的见闻，我想当面核实。'],['ye','也想看看外地医者是怎么做的。我想去，不只是跟着你。']]
+ W02:[['hero','（这张药签字都糊了……照旁边那张补上就是。）'],['ye','别动。这张字糊了，得问过周婶才知道是哪一味。']],
+ W03:[['ye','乡邻来信了，陈伯还在信后批了几样器具。'],['hero','我念给你听：麻绳两捆，锄头一把，还有一口小铁锅……'],['ye','慢着，锅不用了。信后头说，邻村借到了一口。']],
+ W05:[['hero','陆大哥，乡邻那边还有几样东西，顺路的话能不能一并捎上？'],['lu','几件？送到哪儿？哪天要到？'],['lu','锄头一把，麻绳两捆，我记下了。哪天走，等我排好了再说。']],
+ W06:[['zhou','护送的经过，从头说给我听。'],['zhou','……那段泥坡，你是怎么过来的？']],
+ W07:[['ye','周先生问我进不进城。我说进。'],['ye','那户人家的事，我想自己去问。你在旁边就好，别替我开口。']]
 };
 const say=lines=>lines.map(([speaker,text])=>({speaker,text}));
 for(const [id,lines] of Object.entries(strollIntro))actions.find(a=>a.id===id).introLines=say(lines);
 actions.find(a=>a.id==='W01').resultLine='你的难处我听明白了。下一回练习，就从这儿改起。';
 actions.find(a=>a.id==='W06').introByDelivery={
- guided_footwork:say([['zhou','陆衡让你自己走的那一段，落脚点是怎么选的？'],['zhou','照实说就好。往后的练习，按你这回真走过的路来改。']]),
- assisted_carry:say([['zhou','你帮着分包的那一段，是在哪儿决定停下来求助的？'],['zhou','没练过的步法，路上走过一回也不算会了。这个要分清。']]),
- asked_for_guidance:say([['zhou','听说你路上请陆衡指点了。难在哪儿，先说清楚。'],['zhou','这份帮忙要记着。下一课，就从你遇到的实际问题开始。']])
+ guided_footwork:say([['zhou','陆衡让你自己走的那一段，落脚点是怎么选的？'],['zhou','明早拿两块石头摆出来，走给我看。']]),
+ assisted_carry:say([['zhou','分包那一段，是你先开的口？'],['zhou','嗯。脚下那几步，回来还得接着练。']]),
+ asked_for_guidance:say([['zhou','听说你路上叫住了陆衡。那段坡，难在哪儿？'],['zhou','说说看。下一课就从这儿练。']])
 };
 const notices=[
  {slot:2,id:'village_news',text:'乡邻捎来近况，陈伯仍按实际伤势休养，当地医者继续照应；谷中读信不等于已经回访。'},

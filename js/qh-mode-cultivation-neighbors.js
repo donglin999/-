@@ -42,8 +42,8 @@ const scripts={
    lm('peishu','所以我才知道这法子管用。来，从这一行起。','normal'),card('半个时辰后'),
    lm('hero','“……民夫三百，筑堤七里，凡四十日。”——先生，这三百个人，后来呢？','normal'),lm('peishu','后来？','surprise'),
    lm('pei','……','surprise')],
-  choices:[{key:'ask_on',text:'接着问：书上没写他们后来怎样吗？',lines:[lm('hero','堤修完了，这些人回家了吗？工钱给了没有？','normal'),lm('peishu','书上只记到“凡四十日”。写书的人，写到这里就停了。','serious'),lm('pei','爹，这句话我问过您。我九岁的时候。','normal'),lm('peishu','……是。你问过。我那时也是这么答的。','sad')]},
-   {key:'read_on',text:'觉得问多了，低头继续往下读',lines:[lm('hero','……我多嘴了。接着读。','worry'),lm('pei','不多。','serious'),lm('hero','嗯？','surprise'),lm('pei','这句话不多。读书的人里，十个有九个不问这一句。','normal')]}],
+  choices:[{key:'ask_on',text:'“书上没写他们后来怎样？”',lines:[lm('hero','堤修完了，这些人回家了吗？工钱给了没有？','normal'),lm('peishu','书上只记到“凡四十日”。写书的人，写到这里就停了。','serious'),lm('pei','爹，这句话我也问过您。','normal'),lm('peishu','……是。你问过。我那时也是这么答的。','sad')]},
+   {key:'read_on',text:'低头接着往下读',lines:[lm('hero','……我多嘴了。接着读。','worry'),lm('pei','不多。','serious'),lm('hero','嗯？','surprise'),lm('pei','这句话不多。读书的人里，十个有九个不问这一句。','normal')]}],
   closing:[lm('peishu','今天就到这里。明日再来，带上你自己写的字，我看看怪在哪里。','smile'),lm('hero','（最好别看。）','worry'),
    lm('pei','我送你到溪边。……“后来呢”这三个字，你往后要是还想问，来问我。我也想知道。','smile')]}),
  gn_chests:c=>({
