@@ -16,14 +16,21 @@
   {
    "id": "R-工作区-01",
    "area": "协作",
-   "rule": "两个独立工作区：xiaojianghu（文档库、设计权威、养成与旧原型）与 xiaojianghu-legacy-prologue（栖河试玩版，本地 8792，线上 luotuo-36x.pages.dev）。改动前先确认属于哪一个。",
+   "rule": "两个独立工作区：xiaojianghu（文档库：设计文档、设定圣经、现行文档工具；旧原型已于 2026-10-20 归档）与 xiaojianghu-legacy-prologue（栖河试玩版，本地 8792，线上 luotuo-36x.pages.dev）。改动前先确认属于哪一个。",
    "scope": "全部",
    "source": {
     "date": "早于 2026-10-07",
     "quote": "先确认改动属于哪一个",
     "doc": "CLAUDE.md"
    },
-   "status": "现行"
+   "status": "现行",
+   "history": [
+    {
+     "date": "2026-10-20",
+     "change": "文档库描述去掉“养成与旧原型”，注明旧原型已归档",
+     "approved_by": "用户：“同意，改吧”"
+    }
+   ]
   },
   {
    "id": "R-git-01",
