@@ -582,7 +582,7 @@
             },
             {
               "speaker": "萧白",
-              "text": "我也去？（头一回出远门……）",
+              "text": "我也去？（头一回走这么远……）",
               "voice": false,
               "emotion_api": "calm",
               "delivery_notes": "",
@@ -600,7 +600,7 @@
             },
             {
               "speaker": "萧白",
-              "text": "只在谷里走过。背两包，应该行。",
+              "text": "只走过下山赶集那段。背两包，应该行。",
               "voice": false,
               "emotion_api": "calm",
               "delivery_notes": "",
@@ -697,7 +697,7 @@
             },
             {
               "speaker": "萧白",
-              "text": "好。……前面那段坡，泥怎么是黑的？",
+              "text": "好。……前面那段坡，泥发黑。",
               "voice": false,
               "emotion_api": "calm",
               "delivery_notes": "",
@@ -2779,7 +2779,7 @@
     },
     {
       "id": "L-02",
-      "title": "多出来的半天",
+      "title": "说早了的日子",
       "group": "人物",
       "event_id": "lu_extra_halfday",
       "window": [
@@ -2802,77 +2802,51 @@
           "lines": [
             {
               "speaker": "陆衡",
-              "text": "乡邻回话了。器具不急，月底再送也行；布他们另找人捎。",
-              "voice": false,
-              "emotion_api": "calm",
-              "delivery_notes": "",
-              "id": "L-02-main-01",
-              "revision": 2
+              "text": "中旬那趟，我背篓里全是药。锄头麻绳带不了，得等月底。",
+              "id": "L-02-main-01"
             },
             {
               "speaker": "萧白",
-              "text": "那就没事了。我这几天一直悬着心。",
-              "voice": false,
-              "emotion_api": "calm",
-              "delivery_notes": "",
-              "id": "L-02-main-02",
-              "revision": 2
+              "text": "可我在给周婶的信里写了，陆大哥月中前就送到……",
+              "mood": "surprise",
+              "id": "L-02-main-02"
             },
             {
               "speaker": "陆衡",
-              "text": "还有一件。器具改了日子，得跟收东西的人说一声，不然人家明天还在门口等。",
-              "voice": false,
-              "emotion_api": "calm",
-              "delivery_notes": "",
-              "id": "L-02-main-03",
-              "revision": 2
+              "text": "我几时说定月中了？",
+              "mood": "serious",
+              "id": "L-02-main-03"
             },
             {
-              "speaker": "陆衡",
-              "text": "这么一来，中旬那趟药，我腾得出手了。",
-              "voice": true,
-              "emotion_api": "happy",
-              "delivery_notes": "",
-              "id": "L-02-main-04",
-              "revision": 2,
-              "mood": "smile"
+              "speaker": "萧白",
+              "text": "（是我说快了。那天他只问了几件、送哪儿，压根没应日子。）",
+              "id": "L-02-main-04"
+            },
+            {
+              "speaker": "萧白",
+              "text": "是我没问清就替你应下了。现在还补得回来么？",
+              "mood": "awkward",
+              "id": "L-02-main-05"
             }
           ],
           "effects": []
         },
         {
           "key": "A",
-          "label": "“改日子的事我去说。”：核对收件人与时间",
+          "label": "“我去跟周婶说是我说早了。”：自己收回许下的日子",
           "condition": "choice == 'check'",
           "kind": "branch",
           "group": "response",
           "lines": [
             {
               "speaker": "萧白",
-              "text": "我去跟托东西的乡邻、收东西的人都说一声，改到月底。",
-              "voice": false,
-              "emotion_api": "calm",
-              "delivery_notes": "",
-              "id": "L-02-A-01",
-              "revision": 2
+              "text": "我今晚就再写一封，跟周婶说日子是我说早了。",
+              "id": "L-02-A-01"
             },
             {
               "speaker": "陆衡",
-              "text": "说完问一句人家听清了没有，别只顾自己说完就走。",
-              "voice": false,
-              "emotion_api": "calm",
-              "delivery_notes": "",
-              "id": "L-02-A-02",
-              "revision": 2
-            },
-            {
-              "speaker": "萧白",
-              "text": "记下了。",
-              "voice": false,
-              "emotion_api": "calm",
-              "delivery_notes": "",
-              "id": "L-02-A-03",
-              "revision": 2
+              "text": "顺带说一句，锄头先借邻居的使。陈伯腿还下不了地，不急这几日。",
+              "id": "L-02-A-02"
             }
           ],
           "effects": [
@@ -2881,46 +2855,25 @@
         },
         {
           "key": "B",
-          "label": "“陆大哥，这些怎么记？”：请教交接怎样写清",
+          "label": "“陆大哥，下回我该怎么回人家？”：请教怎样回话",
           "condition": "choice == 'learn'",
           "kind": "branch",
           "group": "response",
           "lines": [
             {
               "speaker": "萧白",
-              "text": "我老记不住谁托了什么。陆大哥，你平时怎么记？",
-              "voice": false,
-              "emotion_api": "calm",
-              "delivery_notes": "",
-              "id": "L-02-B-01",
-              "revision": 2
+              "text": "陆大哥，下回乡邻再托东西，我该怎么回话？",
+              "id": "L-02-B-01"
             },
             {
               "speaker": "陆衡",
-              "text": "每件写三样：给谁、几件、哪天到。改过的另起一行，旧的别涂掉。",
-              "voice": false,
-              "emotion_api": "calm",
-              "delivery_notes": "",
-              "id": "L-02-B-02",
-              "revision": 2
+              "text": "就说日子要问过陆衡。说不准的，别替我应。",
+              "id": "L-02-B-02"
             },
             {
               "speaker": "萧白",
-              "text": "这样？我写一张你看看。",
-              "voice": false,
-              "emotion_api": "calm",
-              "delivery_notes": "",
-              "id": "L-02-B-03",
-              "revision": 2
-            },
-            {
-              "speaker": "陆衡",
-              "text": "行。就这么记。",
-              "voice": false,
-              "emotion_api": "calm",
-              "delivery_notes": "",
-              "id": "L-02-B-04",
-              "revision": 2
+              "text": "那今晚这封就这么写：日子是我说早了，要问过陆大哥。",
+              "id": "L-02-B-03"
             }
           ],
           "effects": [
@@ -2935,23 +2888,15 @@
           "group": null,
           "lines": [
             {
-              "speaker": "萧白",
-              "text": "下回乡邻再托东西，我先来问你。",
-              "voice": false,
-              "emotion_api": "calm",
-              "delivery_notes": "",
-              "id": "L-02-end-01",
-              "revision": 2
+              "speaker": "陆衡",
+              "text": "月底那趟，锄头麻绳我一齐带上。这回是我自己应的。",
+              "id": "L-02-end-01"
             },
             {
-              "speaker": "陆衡",
-              "text": "问我可以。我不在的时候，让乡邻自己托人，别替谁都应下。",
-              "voice": true,
-              "emotion_api": "calm",
-              "delivery_notes": "",
-              "id": "L-02-end-02",
-              "revision": 2,
-              "mood": "serious"
+              "speaker": "萧白",
+              "text": "多谢陆大哥……往后不替你胡说了。",
+              "mood": "smile",
+              "id": "L-02-end-02"
             }
           ],
           "effects": []
@@ -3246,66 +3191,28 @@
             {
               "speaker": "萧白",
               "text": "你这张纸上写的什么？",
-              "voice": false,
-              "emotion_api": "calm",
-              "delivery_notes": "",
-              "id": "Y-03-main-01",
-              "revision": 2
+              "id": "Y-03-main-01"
             },
             {
               "speaker": "叶蘅",
-              "text": "下回带给村里的东西，还有药圃要补的，都在这上头。",
-              "voice": false,
-              "emotion_api": "calm",
-              "delivery_notes": "",
-              "id": "Y-03-main-02",
-              "revision": 2
+              "text": "下回给村里带的，药圃要补的，都在上头。",
+              "id": "Y-03-main-02"
             },
             {
               "speaker": "萧白",
-              "text": "（写得真细……）最后这两个字，“以后”？",
-              "voice": false,
-              "emotion_api": "calm",
-              "delivery_notes": "",
-              "id": "Y-03-main-03",
-              "revision": 2
-            },
-            {
-              "speaker": "叶蘅",
-              "text": "是我自己想学的。每回有人缺点什么，它就往后挪一挪。",
-              "voice": false,
-              "emotion_api": "calm",
-              "delivery_notes": "",
-              "id": "Y-03-main-04",
-              "revision": 2
+              "text": "（写得真细……最后只有两个字：“以后”。）",
+              "id": "Y-03-main-03"
             },
             {
               "speaker": "萧白",
-              "text": "村里有大夫了，这回的药也送完了，能不能往前挪挪？",
-              "voice": false,
-              "emotion_api": "calm",
-              "delivery_notes": "",
-              "id": "Y-03-main-05",
-              "revision": 2
+              "text": "最后这个“以后”，是什么？",
+              "id": "Y-03-main-04"
             },
             {
               "speaker": "叶蘅",
-              "text": "我也这么想。可真闲下来，又不知道先学什么。",
-              "voice": false,
-              "emotion_api": "calm",
-              "delivery_notes": "",
-              "id": "Y-03-main-06",
-              "revision": 2
-            },
-            {
-              "speaker": "叶蘅",
-              "text": "别人的事都写得清清楚楚，就我自己这条，只有两个字。",
-              "voice": true,
-              "emotion_api": "calm",
-              "delivery_notes": "",
-              "id": "Y-03-main-07",
-              "revision": 2,
-              "mood": "serious"
+              "text": "是我自己想学的。可每回别人缺点什么，它就又往后挪了。",
+              "mood": "serious",
+              "id": "Y-03-main-05"
             }
           ],
           "effects": []
@@ -3319,41 +3226,20 @@
           "lines": [
             {
               "speaker": "萧白",
-              "text": "要是只能先挑一样，你最想学什么？",
-              "voice": false,
-              "emotion_api": "calm",
-              "delivery_notes": "",
-              "id": "Y-03-A-01",
-              "revision": 2
+              "text": "那你最想先学哪一样？",
+              "id": "Y-03-A-01"
             },
             {
               "speaker": "叶蘅",
-              "text": "想看看别处的大夫碰上治不了的病，是怎么找人商量的。",
-              "voice": false,
-              "emotion_api": "calm",
-              "delivery_notes": "",
-              "id": "Y-03-A-02",
-              "revision": 2
+              "text": "……镇上那几家，药是送到了。人吃了好不好，我只能等信。",
+              "mood": "sad",
+              "id": "Y-03-A-02"
             },
             {
               "speaker": "叶蘅",
-              "text": "在村里碰上这种事，我只能一个人干着急。",
-              "voice": true,
-              "emotion_api": "sad",
-              "delivery_notes": "",
-              "id": "Y-03-A-03",
-              "revision": 2,
-              "mood": "sad"
-            },
-            {
-              "speaker": "叶蘅",
-              "text": "就写这一条，写在“以后”前面。",
-              "voice": true,
-              "emotion_api": "happy",
-              "delivery_notes": "",
-              "id": "Y-03-A-04",
-              "revision": 2,
-              "mood": "smile"
+              "text": "我想学的就是这个：药送出去以后，还能接着看人。写在“以后”前头。",
+              "mood": "smile",
+              "id": "Y-03-A-03"
             }
           ],
           "effects": [
@@ -3369,40 +3255,19 @@
           "lines": [
             {
               "speaker": "萧白",
-              "text": "其实我也有个“以后”。想出去试试身手，又怕到了外头才发现，自己什么都不会。",
-              "voice": false,
-              "emotion_api": "calm",
-              "delivery_notes": "",
-              "id": "Y-03-B-01",
-              "revision": 2,
-              "mood": "awkward"
+              "text": "我也有个“以后”。想出去见见世面，又怕本事不够，给人添麻烦。",
+              "mood": "awkward",
+              "id": "Y-03-B-01"
             },
             {
               "speaker": "叶蘅",
-              "text": "那就先去看。看完回来，才知道差在哪儿。",
-              "voice": false,
-              "emotion_api": "calm",
-              "delivery_notes": "",
-              "id": "Y-03-B-02",
-              "revision": 2
-            },
-            {
-              "speaker": "萧白",
-              "text": "那你的呢？",
-              "voice": false,
-              "emotion_api": "calm",
-              "delivery_notes": "",
-              "id": "Y-03-B-03",
-              "revision": 2
+              "text": "那天在泥坡上，你也觉得过不去。后来不也过来了。",
+              "id": "Y-03-B-02"
             },
             {
               "speaker": "叶蘅",
-              "text": "我想看看别处的大夫遇上治不了的病怎么办。再接着问我爹的事。",
-              "voice": false,
-              "emotion_api": "calm",
-              "delivery_notes": "",
-              "id": "Y-03-B-04",
-              "revision": 2
+              "text": "那我也写一条：镇上那几家，后来好没好，我想知道。",
+              "id": "Y-03-B-03"
             }
           ],
           "effects": [
@@ -3419,30 +3284,18 @@
             {
               "speaker": "叶蘅",
               "text": "好了，折起来收着。",
-              "voice": false,
-              "emotion_api": "calm",
-              "delivery_notes": "",
-              "id": "Y-03-end-01",
-              "revision": 2
+              "id": "Y-03-end-01"
             },
             {
               "speaker": "萧白",
               "text": "要帮忙就叫我。",
-              "voice": false,
-              "emotion_api": "calm",
-              "delivery_notes": "",
-              "id": "Y-03-end-02",
-              "revision": 2
+              "id": "Y-03-end-02"
             },
             {
               "speaker": "叶蘅",
               "text": "那先帮我把这几包药搬上晾架——这个你总会吧？",
-              "voice": true,
-              "emotion_api": "happy",
-              "delivery_notes": "",
-              "id": "Y-03-end-03",
-              "revision": 2,
-              "mood": "smile"
+              "mood": "smile",
+              "id": "Y-03-end-03"
             }
           ],
           "effects": []
@@ -3507,7 +3360,7 @@
             },
             {
               "speaker": "周砚",
-              "text": "报我的名字，是说你从哪儿学的，不是说你已经学成了。",
+              "text": "报我的名字不丢人。打输了，也不丢人。",
               "voice": false,
               "emotion_api": "calm",
               "delivery_notes": "",
@@ -3662,7 +3515,7 @@
           "lines": [
             {
               "speaker": "周砚",
-              "text": "上了场，就看你自己了。",
+              "text": "到了城里，看见什么，回来跟我说。",
               "voice": false,
               "emotion_api": "calm",
               "delivery_notes": "",
@@ -3671,7 +3524,7 @@
             },
             {
               "speaker": "萧白",
-              "text": "嗯。输赢都算我自己的。",
+              "text": "嗯。",
               "voice": false,
               "emotion_api": "happy",
               "delivery_notes": "",

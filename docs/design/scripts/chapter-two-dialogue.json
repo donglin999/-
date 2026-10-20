@@ -453,7 +453,7 @@
     },
     {
       "id": "gy_l02",
-      "name": "多出来的半天",
+      "name": "说早了的日子",
       "place": "courtyard",
       "time": "day",
       "window": [
@@ -38640,7 +38640,7 @@
       "index": 3,
       "speaker": "hero_mid",
       "sourceText": "（摸了摸后脑勺）……好像是。",
-      "text": "（摸了摸后脑勺）……好像是。",
+      "text": "……好像是。",
       "previous": "咦，你小子头发长这么快？都能扎个揪了。",
       "cast": [
         "zhong",
@@ -110011,7 +110011,7 @@
     {
       "id": "gy_l02-intro-01-2915fc",
       "event": "gy_l02",
-      "title": "多出来的半天",
+      "title": "说早了的日子",
       "window": [
         10,
         11
@@ -110422,7 +110422,7 @@
     {
       "id": "gy_l02-intro-02-de06ca",
       "event": "gy_l02",
-      "title": "多出来的半天",
+      "title": "说早了的日子",
       "window": [
         10,
         11
@@ -110833,7 +110833,7 @@
     {
       "id": "gy_l02-intro-03-18f4ed",
       "event": "gy_l02",
-      "title": "多出来的半天",
+      "title": "说早了的日子",
       "window": [
         10,
         11
@@ -111244,7 +111244,7 @@
     {
       "id": "gy_l02-intro-04-6293a1",
       "event": "gy_l02",
-      "title": "多出来的半天",
+      "title": "说早了的日子",
       "window": [
         10,
         11
@@ -111655,7 +111655,7 @@
     {
       "id": "gy_l02-intro-05-a3a86d",
       "event": "gy_l02",
-      "title": "多出来的半天",
+      "title": "说早了的日子",
       "window": [
         10,
         11
@@ -112066,7 +112066,7 @@
     {
       "id": "gy_l02-intro-06-9b4c3e",
       "event": "gy_l02",
-      "title": "多出来的半天",
+      "title": "说早了的日子",
       "window": [
         10,
         11
@@ -112477,7 +112477,7 @@
     {
       "id": "gy_l02-intro-07-302a2a",
       "event": "gy_l02",
-      "title": "多出来的半天",
+      "title": "说早了的日子",
       "window": [
         10,
         11
@@ -112888,7 +112888,7 @@
     {
       "id": "gy_l02-choice-check-01-0e8d72",
       "event": "gy_l02",
-      "title": "多出来的半天",
+      "title": "说早了的日子",
       "window": [
         10,
         11
@@ -113299,7 +113299,7 @@
     {
       "id": "gy_l02-choice-check-02-476546",
       "event": "gy_l02",
-      "title": "多出来的半天",
+      "title": "说早了的日子",
       "window": [
         10,
         11
@@ -113710,7 +113710,7 @@
     {
       "id": "gy_l02-choice-check-03-b0e3e0",
       "event": "gy_l02",
-      "title": "多出来的半天",
+      "title": "说早了的日子",
       "window": [
         10,
         11
@@ -114121,7 +114121,7 @@
     {
       "id": "gy_l02-choice-check-04-e213ea",
       "event": "gy_l02",
-      "title": "多出来的半天",
+      "title": "说早了的日子",
       "window": [
         10,
         11
@@ -114532,7 +114532,7 @@
     {
       "id": "gy_l02-choice-learn-01-9787ca",
       "event": "gy_l02",
-      "title": "多出来的半天",
+      "title": "说早了的日子",
       "window": [
         10,
         11
@@ -114943,7 +114943,7 @@
     {
       "id": "gy_l02-choice-learn-02-287bf5",
       "event": "gy_l02",
-      "title": "多出来的半天",
+      "title": "说早了的日子",
       "window": [
         10,
         11
@@ -115354,7 +115354,7 @@
     {
       "id": "gy_l02-choice-learn-03-3fb44a",
       "event": "gy_l02",
-      "title": "多出来的半天",
+      "title": "说早了的日子",
       "window": [
         10,
         11
@@ -115765,7 +115765,7 @@
     {
       "id": "gy_l02-choice-learn-04-b8467c",
       "event": "gy_l02",
-      "title": "多出来的半天",
+      "title": "说早了的日子",
       "window": [
         10,
         11
@@ -116176,7 +116176,7 @@
     {
       "id": "gy_l02-closing-01-0ea8d0",
       "event": "gy_l02",
-      "title": "多出来的半天",
+      "title": "说早了的日子",
       "window": [
         10,
         11
@@ -116587,7 +116587,7 @@
     {
       "id": "gy_l02-closing-02-f20860",
       "event": "gy_l02",
-      "title": "多出来的半天",
+      "title": "说早了的日子",
       "window": [
         10,
         11
@@ -134041,7 +134041,7 @@
       "index": 1,
       "speaker": "man",
       "sourceText": "这个！",
-      "text": "这个！",
+      "text": "这个！叶背是紫的——紫苏！",
       "previous": "那你教我认，认对一个，我就不当萝卜。",
       "cast": [
         "man",
@@ -134451,9 +134451,9 @@
       ],
       "phase": "choice:teach",
       "index": 2,
-      "speaker": "ye",
+      "speaker": "hero",
       "sourceText": "……这个是你刚才说的紫苏。",
-      "text": "……这个是你刚才说的紫苏。",
+      "text": "那这个呢？叶背是绿的。",
       "previous": "这个！",
       "cast": [
         "man",
@@ -134865,7 +134865,7 @@
       "index": 3,
       "speaker": "man",
       "sourceText": "太阳都偏西了！我的篮子装满啦——全是认对了的！",
-      "text": "太阳都偏西了！我的篮子装满啦——全是认对了的！",
+      "text": "……薄荷！这回是真的！",
       "previous": "……这个是你刚才说的紫苏。",
       "cast": [
         "man",
@@ -136099,9 +136099,9 @@
       ],
       "phase": "choice:tease",
       "index": 2,
-      "speaker": "title",
+      "speaker": "hero",
       "sourceText": "当晚",
-      "text": "当晚",
+      "text": "（今晚的菜里，怕是要多一盘辣椒。）",
       "previous": "……她真会去告状的。",
       "cast": [
         "hero",
@@ -136925,7 +136925,7 @@
       "index": 0,
       "speaker": "ye",
       "sourceText": "她记性很好，只是急。你以后带她认药，先认叶背。",
-      "text": "她记性很好，只是急。你以后带她认药，先认叶背。",
+      "text": "你以后带她认药，先叫她翻叶背。",
       "previous": "",
       "cast": [
         "man",
@@ -140221,7 +140221,7 @@
       "index": 6,
       "speaker": "hero",
       "sourceText": "一个多月。",
-      "text": "一个多月。",
+      "text": "快四个月了。",
       "previous": "站桩站了多久？",
       "cast": [
         "fang",
@@ -157107,7 +157107,7 @@
       "index": 6,
       "speaker": "fang",
       "sourceText": "萧白，谷里就交给你和小豆了。",
-      "text": "萧白，谷里就交给你和小豆了。",
+      "text": "萧白，我不在，小豆就交给你了。",
       "previous": "弟子明白。",
       "cast": [
         "fang",
@@ -158346,7 +158346,7 @@
       "index": 0,
       "speaker": "hero",
       "sourceText": "一路上小心。我……我还没学会怎么去找人。",
-      "text": "一路上小心。我……我还没学会怎么去找人。",
+      "text": "一路上小心。要是你没按时回来……我上哪儿找你？",
       "previous": "",
       "cast": [
         "fang",
@@ -167394,7 +167394,7 @@
       "index": 0,
       "speaker": "hero",
       "sourceText": "我不敢乱猜。这三十文，会不会是赊出去的？",
-      "text": "我不敢乱猜。这三十文，会不会是赊出去的？",
+      "text": "这三十文我猜不出来。师母，这个月有人赊过账么？",
       "previous": "",
       "cast": [
         "hero",
@@ -172734,7 +172734,7 @@
       "index": 7,
       "speaker": "ye",
       "sourceText": "……二位，深更半夜的，在做什么？",
-      "text": "……二位，深更半夜的，在做什么？",
+      "text": "……好大的酒气。二位，深更半夜的，在做什么？",
       "previous": "新弟子？师兄收徒了？我怎么不知道——",
       "cast": [
         "hero",
@@ -174382,7 +174382,7 @@
       "index": 0,
       "speaker": "hero",
       "sourceText": "沉肩，转胯——……哎？！怎么转了半圈？",
-      "text": "沉肩，转胯——……哎？！怎么转了半圈？",
+      "text": "沉肩，坐胯——……哎？！怎么没挣开？",
       "previous": "",
       "cast": [
         "hero",
@@ -174794,7 +174794,7 @@
       "index": 1,
       "speaker": "yin",
       "sourceText": "咦，还会转？就是转错了方向。",
-      "text": "咦，还会转？就是转错了方向。",
+      "text": "咦，还会沉？就是沉错了地方。",
       "previous": "沉肩，转胯——……哎？！怎么转了半圈？",
       "cast": [
         "hero",
@@ -175206,7 +175206,7 @@
       "index": 2,
       "speaker": "yin",
       "sourceText": "我是殷红缨，你师父的小师妹。白天的步法别拿来晚上乱用——不过有这份胆子，比你那个只会喊的小师兄强。",
-      "text": "我是殷红缨，你师父的小师妹。白天的步法别拿来晚上乱用——不过有这份胆子，比你那个只会喊的小师兄强。",
+      "text": "我是殷红缨，你师父的小师妹。站桩的底子别拿来晚上乱用——不过有这份胆子，比你那个只会喊的小师兄强。",
       "previous": "咦，还会转？就是转错了方向。",
       "cast": [
         "hero",
@@ -177676,7 +177676,7 @@
       "index": 0,
       "speaker": "zhong",
       "sourceText": "我再说一遍：先练拳！拳是根，剑是梢。根都没扎稳，剑能往哪儿使？挑一个月水，再出拳，这叫笨功夫——",
-      "text": "我再说一遍：先练拳！拳是根，剑是梢。根都没扎稳，剑能往哪儿使？挑一个月水，再出拳，这叫笨功夫——",
+      "text": "我再说一遍：先练拳！拳是根，剑是梢。根都没扎稳，剑能往哪儿使？水再挑一个月，然后出拳，这叫笨功夫——",
       "previous": "",
       "cast": [
         "zhong",
@@ -183472,7 +183472,7 @@
       "index": 3,
       "speaker": "zhong",
       "sourceText": "……饭后来工棚一趟。我那儿有副护腕，练剑先把手腕护住。",
-      "text": "……饭后来工棚一趟。我那儿有副护腕，练剑先把手腕护住。",
+      "text": "……饭后来工棚一趟。我那儿有卷缠手的布条，练剑先把手腕缠上。",
       "previous": "唉！练坏了别来找我哭！",
       "cast": [
         "zhong",
@@ -433545,7 +433545,7 @@
       "index": 2,
       "speaker": "pei",
       "sourceText": "爹，这句话我问过您。我九岁的时候。",
-      "text": "爹，这句话我问过您。我九岁的时候。",
+      "text": "爹，这句话我也问过您。",
       "previous": "书上只记到“凡四十日”。写书的人，写到这里就停了。",
       "cast": [
         "peishu",
@@ -503329,7 +503329,7 @@
       "name": "周砚",
       "field": "letter",
       "sourceText": "周砚回信：你写的不稳之处，我看过了。下回练习先把它说清，不必只报做得好的。",
-      "text": "周砚回信：你说退步时右脚总慢半拍。下回把剑先搁下，空手退给我看。别的功课照旧。"
+      "text": "周砚在字条背面回了一行：你说退步时右脚总慢半拍。明早把剑先搁下，空手退给我看。"
     },
     {
       "id": "zhou-repeat",
@@ -503374,7 +503374,7 @@
       "name": "叶蘅",
       "field": "letter",
       "sourceText": "叶蘅回信：药圃今日又留了一格空签，是还没问清，不是忘了写。你的近况我看了。练完也记得吃饭，别总等我提醒。",
-      "text": "叶蘅回信：昨夜抄方子抄得迟，今早险些认错自己的字。你信里说的事，我记着了。回来帮我看一眼那株新长的紫苏？"
+      "text": "叶蘅回了张字条：昨夜抄方子抄得迟，今早险些认错自己的字。你说的事我记着了。得空帮我看一眼那株新紫苏？"
     },
     {
       "id": "ye-repeat",
@@ -503509,7 +503509,7 @@
       "name": "江采薇",
       "field": "letter",
       "sourceText": "师母回信：信写得工整，比你师父强。练功别空着肚子，厨房留了饭，自己去热。",
-      "text": "师母回信：信写得工整，比你师父强。练功别空着肚子，厨房留了饭，自己去热。"
+      "text": "师母在字条上回了一句：字写得工整，比你师父强。厨房留了饭，自己去热。"
     },
     {
       "id": "shimu-repeat",
@@ -503532,7 +503532,7 @@
       "field": "gifts",
       "gift": "herb",
       "sourceText": "师母：正好，库里的伤药快见底了。来源写清楚了，我分好了收起来，谁受伤谁来领。",
-      "text": "师母：正好，库里的伤药快见底了。来源写清楚了，我分好了收起来，谁受伤谁来领。"
+      "text": "师母：正好，库里的伤药快见底了。我收起来，谁受伤谁来领。"
     },
     {
       "id": "shimu-gift-pouch",
@@ -503599,7 +503599,7 @@
       "name": "殷红缨",
       "field": "letter",
       "sourceText": "小师叔回信：字太规矩，看得我犯困。下回写点好玩的——比如你今天又被将军啄了几口。",
-      "text": "小师叔回信：字太规矩，看得我犯困。下回写点好玩的——比如你今天又被将军啄了几口。"
+      "text": "小师叔在字条背面画了只鹅：字太规矩，看得我犯困。下回写点好玩的——比如你今天又被将军啄了几口。"
     },
     {
       "id": "yin-repeat",
@@ -503644,7 +503644,7 @@
       "name": "钟拙",
       "field": "letter",
       "sourceText": "二师叔回信：字写这么小，我得眯着眼看！下回写大点。木人桩又加了一条腿，回来试试。",
-      "text": "二师叔回信：字写这么小，我得眯着眼看！下回写大点。木人桩又加了一条腿，回来试试。"
+      "text": "二师叔回了张字条：字写这么小，我得眯着眼看！下回写大点。木人桩又加了一条腿，来试试。"
     },
     {
       "id": "zhong-repeat",
@@ -503689,7 +503689,7 @@
       "name": "方迟",
       "field": "letter",
       "sourceText": "大师兄回信：谷里的事有你和小豆，我放心。功课别落下，回来我要看你站桩。",
-      "text": "大师兄回信：谷里的事有你和小豆，我放心。功课别落下，回来我要看你站桩。"
+      "text": "大师兄回信：信收到了。功课别落下，我还要看你站桩。"
     },
     {
       "id": "fang-repeat",
@@ -503704,7 +503704,7 @@
       "field": "gifts",
       "gift": "food",
       "sourceText": "大师兄：路上正缺这个。你做的？比我做的强。",
-      "text": "大师兄：路上正缺这个。你做的？比我做的强。"
+      "text": "大师兄：你做的？比我做的强。"
     },
     {
       "id": "fang-gift-herb",
@@ -503734,7 +503734,7 @@
       "name": "卢小豆",
       "field": "letter",
       "sourceText": "小豆回信：我是师兄，回什么信！……好吧，收到了。将军今天又追我了。",
-      "text": "小豆回信：我是师兄，回什么信！……好吧，收到了。将军今天又追我了。"
+      "text": "小豆回了张字条：我是师兄，回什么信！……好吧，收到了。将军今天又追我了。"
     },
     {
       "id": "dou-repeat",
@@ -503779,7 +503779,7 @@
       "name": "周小满",
       "field": "letter",
       "sourceText": "小满回信：萧白哥的字没有我好看！但是我认得全。娘说让你回来吃饭。",
-      "text": "小满回信：萧白哥的字没有我好看！但是我认得全。娘说让你回来吃饭。"
+      "text": "小满回了张字条：萧白哥的字没有我好看！但是我认得全。娘说开饭了。"
     },
     {
       "id": "man-repeat",
@@ -504132,7 +504132,7 @@
           },
           {
             "speaker": "hero_short",
-            "text": "原来它也得听师母的。那我这声师兄，是不是叫得早了？",
+            "text": "原来它也得听师母的。那它算不算我师兄？",
             "id": "gy_noodles:opening:16",
             "cast": [
               "hero_short",
@@ -504582,7 +504582,7 @@
           {
             "id": "gn_lamp-intro-01-803444",
             "speaker": "title",
-            "text": "夜 · 溪边",
+            "text": "第二天 · 溪东",
             "cast": [
               "hero"
             ],
@@ -504592,23 +504592,12 @@
           {
             "id": "gn_lamp-intro-02-cd2423",
             "speaker": "hero",
-            "text": "（溪对岸那盏灯，三更了还亮着。）",
+            "text": "（昨夜溪对岸那盏灯，三更了还亮着……就是这家吧。）",
             "cast": [
               "hero"
             ],
             "phase": "intro",
             "mood": "normal"
-          },
-          {
-            "id": "gn_lamp-intro-03-d96851",
-            "speaker": "title",
-            "text": "第二天",
-            "cast": [
-              "pei",
-              "hero"
-            ],
-            "phase": "intro",
-            "mood": null
           },
           {
             "id": "gn_lamp-intro-04-2dffdd",
@@ -504692,7 +504681,7 @@
           {
             "id": "gn_lamp-closing-03-c63c10",
             "speaker": "pei",
-            "text": "方才你替我记页码的那张纸，我看了。横着写，字还缺笔画。",
+            "text": "方才你记页码的那张纸，我看了。横着写，字还缺笔画。",
             "cast": [
               "pei",
               "hero"
@@ -504753,13 +504742,23 @@
               {
                 "id": "gn_lamp-choice-wade-03-557e5c",
                 "speaker": "hero",
-                "text": "左边这张字还在。右边这张糊了。",
+                "text": "左边这张是十九，字还在。右边这张糊了，页角写着二十。",
                 "cast": [
                   "pei",
                   "hero"
                 ],
                 "phase": "choice:wade",
                 "mood": "normal"
+              },
+              {
+                "id": "gn_lamp-choice-wade-03b",
+                "speaker": "hero",
+                "text": "我把页码记在这张纸上，回头好对。",
+                "cast": [
+                  "pei",
+                  "hero"
+                ],
+                "phase": "choice:wade"
               },
               {
                 "id": "gn_lamp-choice-wade-04-5aa37f",
@@ -504946,7 +504945,7 @@
           },
           {
             "speaker": "zhou",
-            "text": "我再托人联系。约得上，进城时去见见。",
+            "text": "我再托人打听。约得上，就去见见。",
             "id": "gy_m03:opening:9",
             "cast": [
               "zhou",
@@ -504956,14 +504955,13 @@
           },
           {
             "speaker": "hero",
-            "text": "你想问什么，我帮你记着，免得到时候漏了。",
+            "text": "（她把后面两页叠起来了。我没再问。）",
             "id": "gy_m03:opening:10",
             "cast": [
               "zhou",
               "ye",
               "hero"
-            ],
-            "mood": "serious"
+            ]
           },
           {
             "speaker": "ye",
@@ -505106,7 +505104,7 @@
           {
             "id": "gn_terraces-closing-01-8ce318",
             "speaker": "shimu",
-            "text": "知古心细，就是心不在一处。归云谷的账要她记，也得有人替她记着她把账放哪儿了。",
+            "text": "知古心细，就是心不在一处。借谷种这本账我托了她，还得有人替她记着账放哪儿了。",
             "cast": [
               "shimu",
               "pei",
@@ -505226,7 +505224,7 @@
               {
                 "id": "gn_terraces-choice-recount-04-ccfc31",
                 "speaker": "hero",
-                "text": "还记得田头那两户吧？我陪你去，省得又漏问一家的。",
+                "text": "还记得田头那两户吧？我陪你去，省得漏问一家。",
                 "cast": [
                   "shimu",
                   "pei",
@@ -505273,7 +505271,31 @@
         "opening": [
           {
             "speaker": "dou",
-            "text": "停，前面两只。别往它们中间走。",
+            "text": "就这片。前天我的剑穗挂掉了，师母要是看见剑上光秃秃的……",
+            "id": "gy_bamboo_wolves:opening:0a",
+            "cast": [
+              "dou",
+              "hero"
+            ],
+            "moods": {
+              "hero": "worry"
+            }
+          },
+          {
+            "speaker": "hero",
+            "text": "小豆，地上这几个印子，是狗的？",
+            "id": "gy_bamboo_wolves:opening:0b",
+            "cast": [
+              "dou",
+              "hero"
+            ],
+            "moods": {
+              "hero": "worry"
+            }
+          },
+          {
+            "speaker": "dou",
+            "text": "……不是狗。停，前面两只。别往它们中间走。",
             "id": "gy_bamboo_wolves:opening:1",
             "cast": [
               "dou",
@@ -505444,18 +505466,19 @@
         "opening": [
           {
             "speaker": "ye",
-            "text": "又有信了。这回夹了三张，周婶一并捎来的。",
-            "id": "hg_aftercare:opening:1",
+            "text": "周婶捎来的信里，还夹了三封外头人写的。",
+            "id": "hg_aftercare:opening:r1",
             "cast": [
               "hero",
               "ye",
               "zhou"
-            ]
+            ],
+            "mood": "serious"
           },
           {
             "speaker": "hero",
-            "text": "村里的事有着落了？",
-            "id": "hg_aftercare:opening:2",
+            "text": "哪三家？",
+            "id": "hg_aftercare:opening:r2",
             "cast": [
               "hero",
               "ye",
@@ -505464,8 +505487,8 @@
           },
           {
             "speaker": "ye",
-            "text": "修棚的木料正在送。少了什么，周婶和陈伯还在一家家问。",
-            "id": "hg_aftercare:opening:3",
+            "text": "正道盟的徐令仪、归烬堂的岑霜、巡江司的沈雁回。",
+            "id": "hg_aftercare:opening:r3",
             "cast": [
               "hero",
               "ye",
@@ -505476,22 +505499,33 @@
         "letters": [
           {
             "author": "徐令仪",
-            "text": "修棚的头一批木料已经送去了。各家损失还在点，没点完之前，这事不算了结。漏了哪户，直接回信找我。"
+            "text": "修棚的木料已送至村口。若有短缺，可到盟中报与我，我来批。"
           },
           {
             "author": "岑霜",
-            "text": "村里这笔损失，归烬堂认一份。药商那边的争议我继续问。别让村民再替我们来回跑。"
+            "text": "砸的东西，我们认。那几个人我管着，再不会进村。"
           },
           {
             "author": "沈雁回",
-            "text": "病人的药先送，货药待单子补齐再走。转来的几张信已抄下，传话的人还要继续问。"
+            "text": "那张附页是假的，我当时没看出来。这一条，我已记下。"
           }
         ],
         "ending": [
           {
             "speaker": "hero",
-            "text": "三张都留着吧。以后问起来，总比只记得谁说过一句强。",
-            "id": "hg_aftercare:ending:1",
+            "text": "……三家都认了？",
+            "id": "hg_aftercare:ending:r1",
+            "cast": [
+              "hero",
+              "ye",
+              "zhou"
+            ],
+            "mood": "surprise"
+          },
+          {
+            "speaker": "ye",
+            "text": "嘴上都认了。木料真到了，才算数。",
+            "id": "hg_aftercare:ending:r2",
             "cast": [
               "hero",
               "ye",
@@ -505500,8 +505534,8 @@
           },
           {
             "speaker": "zhou",
-            "text": "留好。等进城，再问她们办到哪一步。",
-            "id": "hg_aftercare:ending:2",
+            "text": "收好。回周婶就行，那三家不必回。",
+            "id": "hg_aftercare:ending:r3",
             "cast": [
               "hero",
               "ye",
@@ -505510,8 +505544,8 @@
           },
           {
             "speaker": "ye",
-            "text": "我先回周婶。也让她知道，我们在这里都好。",
-            "id": "hg_aftercare:ending:3",
+            "text": "我这就给周婶回信，问木料到了没有，也说我们在山里都好。",
+            "id": "hg_aftercare:ending:r4",
             "cast": [
               "hero",
               "ye",
@@ -505563,9 +505597,19 @@
         "expiry": "沿原窗口与补看规则；候选不能替代正式迁移验证。",
         "opening": [
           {
+            "speaker": "mo_songnian",
+            "text": "周先生，对不住，图让雨打湿了一角。……我先把这口干粮咽下去。",
+            "id": "visitor_songfeng_route:opening:r1",
+            "cast": [
+              "hero",
+              "zhou",
+              "mo_songnian"
+            ]
+          },
+          {
             "speaker": "zhou",
-            "text": "萧白，来见见莫松年莫兄弟，松风观的。他常走附近的山路，这回特意给咱们带了张图。",
-            "id": "visitor_songfeng_route:opening:1",
+            "text": "萧白，过来。这是松风观的莫兄弟，常送路况来。湿的那块，你帮他抄一份。",
+            "id": "visitor_songfeng_route:opening:r2",
             "cast": [
               "hero",
               "zhou",
@@ -505574,8 +505618,8 @@
           },
           {
             "speaker": "hero",
-            "text": "莫大哥好。这条路明明近些，怎么又在旁边绕了这么大一圈？",
-            "id": "visitor_songfeng_route:opening:2",
+            "text": "莫大哥好。渡口这条近路，怎么画了个叉？",
+            "id": "visitor_songfeng_route:opening:r3",
             "cast": [
               "hero",
               "zhou",
@@ -505584,40 +505628,21 @@
           },
           {
             "speaker": "mo_songnian",
-            "text": "渡口涨水，近路过不去了。这条远路我走过，雨后绕过去，脚下踏实些。",
-            "id": "visitor_songfeng_route:opening:3",
+            "text": "渡口涨水，近路走不得。我是绕西边那条道回来的，多走两个时辰。",
+            "id": "visitor_songfeng_route:opening:r4",
             "cast": [
               "hero",
               "zhou",
               "mo_songnian"
-            ]
-          },
-          {
-            "speaker": "hero",
-            "text": "原来如此。可这几处画着问号，是您也没拿准？",
-            "id": "visitor_songfeng_route:opening:4",
-            "cast": [
-              "hero",
-              "zhou",
-              "mo_songnian"
-            ]
-          },
-          {
-            "speaker": "mo_songnian",
-            "text": "只是听人说过，还没亲自走。走过的添了日子，没走过的，可不敢把问号擦掉。",
-            "id": "visitor_songfeng_route:opening:5",
-            "cast": [
-              "hero",
-              "zhou",
-              "mo_songnian"
-            ]
+            ],
+            "mood": "serious"
           }
         ],
         "ending": [
           {
-            "speaker": "mo_songnian",
-            "text": "你这份收好，原图我还得带着赶路。周先生，我告辞了。",
-            "id": "visitor_songfeng_route:ending:1",
+            "speaker": "zhou",
+            "text": "萧白，去厨房跟你师母说，给莫兄弟热碗饭。",
+            "id": "visitor_songfeng_route:ending:r1",
             "cast": [
               "hero",
               "zhou",
@@ -505625,36 +505650,27 @@
             ]
           },
           {
-            "speaker": "zhou",
-            "text": "莫兄弟慢走，雨后路滑，多留神。",
-            "id": "visitor_songfeng_route:ending:2",
+            "speaker": "mo_songnian",
+            "text": "哎哟，啃了三天干粮，可算能吃口热乎的！",
+            "id": "visitor_songfeng_route:ending:r2",
             "cast": [
               "hero",
               "zhou",
               "mo_songnian"
-            ]
+            ],
+            "mood": "smile"
           }
         ],
         "choices": [
           {
             "id": "verify_notes",
-            "label": "帮莫松年抄图",
+            "label": "帮莫松年把湿的那块抄下来",
             "when": {},
             "lines": [
               {
-                "speaker": "hero",
-                "text": "我来抄一份。日子和问号都照着留，免得日后看图的人，把听来的当成走过的。",
-                "id": "visitor_songfeng_route:verify_notes:1",
-                "cast": [
-                  "hero",
-                  "zhou",
-                  "mo_songnian"
-                ]
-              },
-              {
                 "speaker": "mo_songnian",
-                "text": "好，笔给你。渡口这一处写清些，往后水退了，还得另添日子。",
-                "id": "visitor_songfeng_route:verify_notes:2",
+                "text": "哎，你只抄了去的路。我回来走的西边那条，还没画上呢。",
+                "id": "visitor_songfeng_route:verify_notes:r1",
                 "cast": [
                   "hero",
                   "zhou",
@@ -505663,25 +505679,26 @@
               },
               {
                 "speaker": "hero",
-                "text": "抄好了。您看看，远路是从这里绕出去，没画错吧？",
-                "id": "visitor_songfeng_route:verify_notes:3",
+                "text": "……只画近路，去了就回不来了。我这就补上。",
+                "id": "visitor_songfeng_route:verify_notes:r2",
                 "cast": [
                   "hero",
                   "zhou",
                   "mo_songnian"
-                ]
+                ],
+                "mood": "surprise"
               }
             ]
           },
           {
             "id": "route_questions",
-            "label": "请教雨后怎样绕路",
+            "label": "“雨后怎么看哪条路走不得？”",
             "when": {},
             "lines": [
               {
                 "speaker": "hero",
-                "text": "除了涨水，雨后遇见什么样的路，也该绕开？我怕自己看着能走，真上去却下不来。",
-                "id": "visitor_songfeng_route:route_questions:1",
+                "text": "莫大哥，雨后怎么看哪条路走不得？",
+                "id": "visitor_songfeng_route:route_questions:r1",
                 "cast": [
                   "hero",
                   "zhou",
@@ -505690,8 +505707,8 @@
               },
               {
                 "speaker": "mo_songnian",
-                "text": "先看坡上滑不滑，再看背得多重、同行的人跟不跟得上。拿不准就绕。来，这张抄页给你。",
-                "id": "visitor_songfeng_route:route_questions:2",
+                "text": "坡上的泥要是发黑，就是泡透了，踩上去滑，得绕。",
+                "id": "visitor_songfeng_route:route_questions:r2",
                 "cast": [
                   "hero",
                   "zhou",
@@ -505700,8 +505717,8 @@
               },
               {
                 "speaker": "hero",
-                "text": "多谢莫大哥。远路和渡口我记住了，这几个问号，等您下回走过了再添。",
-                "id": "visitor_songfeng_route:route_questions:3",
+                "text": "（坡泥发黑，踩不得。）记下了。",
+                "id": "visitor_songfeng_route:route_questions:r3",
                 "cast": [
                   "hero",
                   "zhou",
@@ -505852,7 +505869,7 @@
           {
             "id": "gn_chests-closing-03-0a8a49",
             "speaker": "pei",
-            "text": "四月底我要进一趟城，去书铺交抄稿。听说你们也是那时候走。",
+            "text": "四月底我要进一趟城，去书铺交抄稿。",
             "cast": [
               "pei",
               "hero"
@@ -505863,7 +505880,7 @@
           {
             "id": "gn_chests-closing-04-a15978",
             "speaker": "hero",
-            "text": "那就一道。",
+            "text": "城里？我还没去过。",
             "cast": [
               "pei",
               "hero"
@@ -505874,7 +505891,7 @@
           {
             "id": "gn_chests-closing-05-0a1465",
             "speaker": "pei",
-            "text": "我走路慢，会看着路边的碑就站住。先同你说一声。",
+            "text": "我也没去过几回。每回都走得慢，路边一块碑就能看半天。",
             "cast": [
               "pei",
               "hero"
@@ -506025,7 +506042,7 @@
           },
           {
             "speaker": "ye",
-            "text": "药都送到了。问消息的信也交给了接药的人。",
+            "text": "药都送到了。那户人家的老人不在镇上，要等回信。",
             "id": "gy_m06:opening:2",
             "cast": [
               "zhou",
@@ -506064,7 +506081,7 @@
           },
           {
             "speaker": "hero",
-            "text": "我们把包分开，绕了路。真上坡时，我还是得跟着陆大哥。",
+            "text": "我们把包分开，一趟一趟背过去的。真上坡时，我还是得跟着陆大哥。",
             "when": {
               "delivery": "assisted_carry"
             },
@@ -506190,942 +506207,161 @@
         "expiry": "沿原窗口与补看规则；候选不能替代正式迁移验证。",
         "opening": [
           {
-            "id": "visitor_whiteheron_records-intro-01-e35d1b",
+            "speaker": "meng_zhiwei",
+            "text": "白鹇谷孟知微，来对那批普通药材的单子。后头还有两处要赶。",
+            "id": "visitor_whiteheron_records:opening:r1",
+            "cast": [
+              "hero",
+              "ye",
+              "meng_zhiwei"
+            ],
+            "mood": "serious"
+          },
+          {
             "speaker": "ye",
-            "text": "药材都记在这里。寄出去的有回话了，这两份还没消息。",
+            "text": "单子在这儿。有两格是空的。",
+            "id": "visitor_whiteheron_records:opening:r2",
             "cast": [
               "hero",
               "ye",
               "meng_zhiwei"
-            ],
-            "phase": "intro",
-            "mood": null
+            ]
           },
           {
-            "id": "visitor_whiteheron_records-intro-02-8c9f15",
             "speaker": "meng_zhiwei",
-            "text": "先别填。我叫孟知微，白鹇谷的医案和复诊归我管。今日来对药材单子，劳烦你了。",
+            "text": "为什么空着？",
+            "id": "visitor_whiteheron_records:opening:r3",
             "cast": [
               "hero",
               "ye",
               "meng_zhiwei"
-            ],
-            "phase": "intro",
-            "mood": null
+            ]
           },
           {
-            "id": "visitor_whiteheron_records-intro-03-bbd5c7",
-            "speaker": "hero",
-            "text": "这些已经寄出去了，怎么还留着空格？",
-            "cast": [
-              "hero",
-              "ye",
-              "meng_zhiwei"
-            ],
-            "phase": "intro",
-            "mood": null
-          },
-          {
-            "id": "visitor_whiteheron_records-intro-04-b3d73f",
-            "speaker": "meng_zhiwei",
-            "text": "可得问问送到谁手里，有没有误了日子、用上没有。不然下回备多备少，谁也说不准。",
-            "cast": [
-              "hero",
-              "ye",
-              "meng_zhiwei"
-            ],
-            "phase": "intro",
-            "mood": null
-          },
-          {
-            "id": "visitor_whiteheron_records-intro-05-285ba2",
             "speaker": "ye",
-            "text": "是。我还想问问那边的大夫，病人近来好些没有。",
+            "text": "那两包托人捎去邻村，人我没见着，不知道用上没有。",
+            "id": "visitor_whiteheron_records:opening:r4",
             "cast": [
               "hero",
               "ye",
               "meng_zhiwei"
-            ],
-            "phase": "intro",
-            "mood": null
+            ]
           },
           {
-            "id": "visitor_whiteheron_records-intro-06-c64a64",
             "speaker": "meng_zhiwei",
-            "text": "那就写进信里。那边的大夫天天见着病人，比我们隔着一张纸猜要强。",
+            "text": "旁边几格都填了，这两格你怎么不照着填上？",
+            "id": "visitor_whiteheron_records:opening:r5",
             "cast": [
               "hero",
               "ye",
               "meng_zhiwei"
-            ],
-            "phase": "intro",
-            "mood": null
+            ]
           },
           {
-            "id": "visitor_whiteheron_records-intro-07-2b92a5",
             "speaker": "ye",
-            "text": "那先看眼前这批药签。没送过的那几份，等回话再说。",
+            "text": "没见着就是没见着。",
+            "id": "visitor_whiteheron_records:opening:r6",
             "cast": [
               "hero",
               "ye",
               "meng_zhiwei"
-            ],
-            "phase": "intro",
-            "mood": null,
-            "contextIndices": [
-              0,
-              1,
-              2,
-              3,
-              4,
-              5,
-              6,
-              7,
-              32,
-              33,
-              34,
-              35,
-              36,
-              37,
-              38,
-              39,
-              64,
-              65,
-              66,
-              67,
-              68,
-              69,
-              70,
-              71,
-              96,
-              97,
-              98,
-              99,
-              100,
-              101,
-              102,
-              103,
-              128,
-              129,
-              130,
-              131,
-              132,
-              133,
-              134,
-              135,
-              160,
-              161,
-              162,
-              163,
-              164,
-              165,
-              166,
-              167,
-              192,
-              193,
-              194,
-              195,
-              196,
-              197,
-              198,
-              199,
-              224,
-              225,
-              226,
-              227,
-              228,
-              229,
-              230,
-              231,
-              256,
-              257,
-              258,
-              259,
-              260,
-              261,
-              262,
-              263,
-              288,
-              289,
-              290,
-              291,
-              292,
-              293,
-              294,
-              295,
-              320,
-              321,
-              322,
-              323,
-              324,
-              325,
-              326,
-              327,
-              352,
-              353,
-              354,
-              355,
-              356,
-              357,
-              358,
-              359
-            ]
-          },
-          {
-            "id": "visitor_whiteheron_records-intro-07-64ef6b",
-            "speaker": "hero",
-            "text": "上回陆大哥教我走过一段坡。送到哪家、哪日到的，都记下了。",
-            "cast": [
-              "hero",
-              "ye",
-              "meng_zhiwei"
-            ],
-            "phase": "intro",
-            "mood": null,
-            "contextIndices": [
-              8,
-              9,
-              10,
-              11,
-              12,
-              13,
-              14,
-              15,
-              40,
-              41,
-              42,
-              43,
-              44,
-              45,
-              46,
-              47,
-              72,
-              73,
-              74,
-              75,
-              76,
-              77,
-              78,
-              79,
-              104,
-              105,
-              106,
-              107,
-              108,
-              109,
-              110,
-              111,
-              136,
-              137,
-              138,
-              139,
-              140,
-              141,
-              142,
-              143,
-              168,
-              169,
-              170,
-              171,
-              172,
-              173,
-              174,
-              175,
-              200,
-              201,
-              202,
-              203,
-              204,
-              205,
-              206,
-              207,
-              232,
-              233,
-              234,
-              235,
-              236,
-              237,
-              238,
-              239,
-              264,
-              265,
-              266,
-              267,
-              268,
-              269,
-              270,
-              271,
-              296,
-              297,
-              298,
-              299,
-              300,
-              301,
-              302,
-              303,
-              328,
-              329,
-              330,
-              331,
-              332,
-              333,
-              334,
-              335,
-              360,
-              361,
-              362,
-              363,
-              364,
-              365,
-              366,
-              367
-            ]
-          },
-          {
-            "id": "visitor_whiteheron_records-intro-08-13ab7d",
-            "speaker": "meng_zhiwei",
-            "text": "正好，拿出来看看。有不清楚的，下回问问陆衡。",
-            "cast": [
-              "hero",
-              "ye",
-              "meng_zhiwei"
-            ],
-            "phase": "intro",
-            "mood": null,
-            "contextIndices": [
-              8,
-              9,
-              10,
-              11,
-              12,
-              13,
-              14,
-              15,
-              40,
-              41,
-              42,
-              43,
-              44,
-              45,
-              46,
-              47,
-              72,
-              73,
-              74,
-              75,
-              76,
-              77,
-              78,
-              79,
-              104,
-              105,
-              106,
-              107,
-              108,
-              109,
-              110,
-              111,
-              136,
-              137,
-              138,
-              139,
-              140,
-              141,
-              142,
-              143,
-              168,
-              169,
-              170,
-              171,
-              172,
-              173,
-              174,
-              175,
-              200,
-              201,
-              202,
-              203,
-              204,
-              205,
-              206,
-              207,
-              232,
-              233,
-              234,
-              235,
-              236,
-              237,
-              238,
-              239,
-              264,
-              265,
-              266,
-              267,
-              268,
-              269,
-              270,
-              271,
-              296,
-              297,
-              298,
-              299,
-              300,
-              301,
-              302,
-              303,
-              328,
-              329,
-              330,
-              331,
-              332,
-              333,
-              334,
-              335,
-              360,
-              361,
-              362,
-              363,
-              364,
-              365,
-              366,
-              367
-            ]
-          },
-          {
-            "id": "visitor_whiteheron_records-intro-07-207486",
-            "speaker": "hero",
-            "text": "上回我们分了包一起送。包数我记着，可有几处收件的地方，还得问问同伴。",
-            "cast": [
-              "hero",
-              "ye",
-              "meng_zhiwei"
-            ],
-            "phase": "intro",
-            "mood": null,
-            "contextIndices": [
-              16,
-              17,
-              18,
-              19,
-              20,
-              21,
-              22,
-              23,
-              48,
-              49,
-              50,
-              51,
-              52,
-              53,
-              54,
-              55,
-              80,
-              81,
-              82,
-              83,
-              84,
-              85,
-              86,
-              87,
-              112,
-              113,
-              114,
-              115,
-              116,
-              117,
-              118,
-              119,
-              144,
-              145,
-              146,
-              147,
-              148,
-              149,
-              150,
-              151,
-              176,
-              177,
-              178,
-              179,
-              180,
-              181,
-              182,
-              183,
-              208,
-              209,
-              210,
-              211,
-              212,
-              213,
-              214,
-              215,
-              240,
-              241,
-              242,
-              243,
-              244,
-              245,
-              246,
-              247,
-              272,
-              273,
-              274,
-              275,
-              276,
-              277,
-              278,
-              279,
-              304,
-              305,
-              306,
-              307,
-              308,
-              309,
-              310,
-              311,
-              336,
-              337,
-              338,
-              339,
-              340,
-              341,
-              342,
-              343,
-              368,
-              369,
-              370,
-              371,
-              372,
-              373,
-              374,
-              375
-            ]
-          },
-          {
-            "id": "visitor_whiteheron_records-intro-08-c50e6a",
-            "speaker": "meng_zhiwei",
-            "text": "那就把同送的人也记上。回头找人问，才知道该找谁。",
-            "cast": [
-              "hero",
-              "ye",
-              "meng_zhiwei"
-            ],
-            "phase": "intro",
-            "mood": null,
-            "contextIndices": [
-              16,
-              17,
-              18,
-              19,
-              20,
-              21,
-              22,
-              23,
-              48,
-              49,
-              50,
-              51,
-              52,
-              53,
-              54,
-              55,
-              80,
-              81,
-              82,
-              83,
-              84,
-              85,
-              86,
-              87,
-              112,
-              113,
-              114,
-              115,
-              116,
-              117,
-              118,
-              119,
-              144,
-              145,
-              146,
-              147,
-              148,
-              149,
-              150,
-              151,
-              176,
-              177,
-              178,
-              179,
-              180,
-              181,
-              182,
-              183,
-              208,
-              209,
-              210,
-              211,
-              212,
-              213,
-              214,
-              215,
-              240,
-              241,
-              242,
-              243,
-              244,
-              245,
-              246,
-              247,
-              272,
-              273,
-              274,
-              275,
-              276,
-              277,
-              278,
-              279,
-              304,
-              305,
-              306,
-              307,
-              308,
-              309,
-              310,
-              311,
-              336,
-              337,
-              338,
-              339,
-              340,
-              341,
-              342,
-              343,
-              368,
-              369,
-              370,
-              371,
-              372,
-              373,
-              374,
-              375
-            ]
-          },
-          {
-            "id": "visitor_whiteheron_records-intro-07-52e859",
-            "speaker": "hero",
-            "text": "上回我没看懂，是陆大哥带着走的。单子上还有两处，想下回再请教他。",
-            "cast": [
-              "hero",
-              "ye",
-              "meng_zhiwei"
-            ],
-            "phase": "intro",
-            "mood": null,
-            "contextIndices": [
-              24,
-              25,
-              26,
-              27,
-              28,
-              29,
-              30,
-              31,
-              56,
-              57,
-              58,
-              59,
-              60,
-              61,
-              62,
-              63,
-              88,
-              89,
-              90,
-              91,
-              92,
-              93,
-              94,
-              95,
-              120,
-              121,
-              122,
-              123,
-              124,
-              125,
-              126,
-              127,
-              152,
-              153,
-              154,
-              155,
-              156,
-              157,
-              158,
-              159,
-              184,
-              185,
-              186,
-              187,
-              188,
-              189,
-              190,
-              191,
-              216,
-              217,
-              218,
-              219,
-              220,
-              221,
-              222,
-              223,
-              248,
-              249,
-              250,
-              251,
-              252,
-              253,
-              254,
-              255,
-              280,
-              281,
-              282,
-              283,
-              284,
-              285,
-              286,
-              287,
-              312,
-              313,
-              314,
-              315,
-              316,
-              317,
-              318,
-              319,
-              344,
-              345,
-              346,
-              347,
-              348,
-              349,
-              350,
-              351,
-              376,
-              377,
-              378,
-              379,
-              380,
-              381,
-              382,
-              383
-            ]
-          },
-          {
-            "id": "visitor_whiteheron_records-intro-08-a5e35e",
-            "speaker": "meng_zhiwei",
-            "text": "好，把那两处圈出来，下回就不会忘了问。",
-            "cast": [
-              "hero",
-              "ye",
-              "meng_zhiwei"
-            ],
-            "phase": "intro",
-            "mood": null,
-            "contextIndices": [
-              24,
-              25,
-              26,
-              27,
-              28,
-              29,
-              30,
-              31,
-              56,
-              57,
-              58,
-              59,
-              60,
-              61,
-              62,
-              63,
-              88,
-              89,
-              90,
-              91,
-              92,
-              93,
-              94,
-              95,
-              120,
-              121,
-              122,
-              123,
-              124,
-              125,
-              126,
-              127,
-              152,
-              153,
-              154,
-              155,
-              156,
-              157,
-              158,
-              159,
-              184,
-              185,
-              186,
-              187,
-              188,
-              189,
-              190,
-              191,
-              216,
-              217,
-              218,
-              219,
-              220,
-              221,
-              222,
-              223,
-              248,
-              249,
-              250,
-              251,
-              252,
-              253,
-              254,
-              255,
-              280,
-              281,
-              282,
-              283,
-              284,
-              285,
-              286,
-              287,
-              312,
-              313,
-              314,
-              315,
-              316,
-              317,
-              318,
-              319,
-              344,
-              345,
-              346,
-              347,
-              348,
-              349,
-              350,
-              351,
-              376,
-              377,
-              378,
-              379,
-              380,
-              381,
-              382,
-              383
             ]
           }
         ],
         "ending": [
           {
-            "id": "visitor_whiteheron_records-closing-01-a3eecf",
-            "speaker": "ye",
-            "text": "你们遇到治不好的病，是去请哪位先生？下回来，我想跟着看看。",
+            "speaker": "meng_zhiwei",
+            "text": "下月谷里有位老先生坐诊。你想来，可以在旁边看。",
+            "id": "visitor_whiteheron_records:ending:r1",
             "cast": [
               "hero",
               "ye",
               "meng_zhiwei"
-            ],
-            "phase": "closing",
-            "mood": null
+            ]
           },
           {
-            "id": "visitor_whiteheron_records-closing-02-bdb1b4",
-            "speaker": "meng_zhiwei",
-            "text": "好。下月有位老先生坐诊，你若来，我替你留个位子。带上你想问的那几页。",
+            "speaker": "ye",
+            "text": "……我真能去？",
+            "id": "visitor_whiteheron_records:ending:r2",
             "cast": [
               "hero",
               "ye",
               "meng_zhiwei"
             ],
-            "phase": "closing",
-            "mood": null
+            "mood": "surprise"
+          },
+          {
+            "speaker": "meng_zhiwei",
+            "text": "能。把这张单子也带上。",
+            "id": "visitor_whiteheron_records:ending:r3",
+            "cast": [
+              "hero",
+              "ye",
+              "meng_zhiwei"
+            ],
+            "mood": "smile"
           }
         ],
         "choices": [
           {
             "id": "check_receipt",
-            "label": "先核对日期与收件人",
+            "label": "“镇上那几包是我背去的。”",
             "lines": [
               {
-                "id": "visitor_whiteheron_records-choice-check_receipt-01-c12472",
                 "speaker": "hero",
-                "text": "这份只写了寄出的日子，还没有回信。先放在这边？",
+                "text": "那两格我也说不上来。不过镇上那几包是我背去的，收药的人当面点过数。",
+                "id": "visitor_whiteheron_records:check_receipt:r1",
                 "cast": [
                   "hero",
+                  "ye",
                   "meng_zhiwei"
-                ],
-                "phase": "choice:check_receipt",
-                "mood": null
+                ]
               },
               {
-                "id": "visitor_whiteheron_records-choice-check_receipt-02-3d3f97",
                 "speaker": "meng_zhiwei",
-                "text": "对。数目对不上也先圈着，查查是少装了，还是少收到一包。",
+                "text": "当面点过的，算数。那几格我勾了，这两格就空着。",
+                "id": "visitor_whiteheron_records:check_receipt:r2",
                 "cast": [
                   "hero",
+                  "ye",
                   "meng_zhiwei"
-                ],
-                "phase": "choice:check_receipt",
-                "mood": null
+                ]
               }
             ]
           },
           {
             "id": "prepare_questions",
-            "label": "整理下一封询问信的问题",
+            "label": "“那两家，我写信去问？”",
             "lines": [
               {
-                "id": "visitor_whiteheron_records-choice-prepare_questions-01-fefff7",
                 "speaker": "hero",
-                "text": "我问包数、哪天到的、有没有受潮。病人的近况，请那边的大夫说。",
+                "text": "那两家，我写信去问问？",
+                "id": "visitor_whiteheron_records:prepare_questions:r1",
                 "cast": [
                   "hero",
                   "ye",
                   "meng_zhiwei"
-                ],
-                "phase": "choice:prepare_questions",
-                "mood": null
+                ]
               },
               {
-                "id": "visitor_whiteheron_records-choice-prepare_questions-02-a89309",
                 "speaker": "ye",
-                "text": "写完给我看看。关于父亲的事，我另写一封。",
+                "text": "信我自己写，问得细些。你帮我捎去。",
+                "id": "visitor_whiteheron_records:prepare_questions:r2",
                 "cast": [
                   "hero",
                   "ye",
                   "meng_zhiwei"
-                ],
-                "phase": "choice:prepare_questions",
-                "mood": null
+                ]
               },
               {
-                "id": "visitor_whiteheron_records-choice-prepare_questions-03-43fcb0",
                 "speaker": "meng_zhiwei",
-                "text": "这样人家好答。写好落上名字，回信也知道该捎给谁。",
+                "text": "回信到了，抄一份捎来白鹇谷。",
+                "id": "visitor_whiteheron_records:prepare_questions:r3",
                 "cast": [
                   "hero",
                   "ye",
                   "meng_zhiwei"
-                ],
-                "phase": "choice:prepare_questions",
-                "mood": null
+                ]
               }
             ]
           }
@@ -507293,8 +506529,8 @@
         "opening": [
           {
             "speaker": "zhou",
-            "text": "送药时托问的事，有回音了。信是接药的人捎来的。",
-            "id": "hg_trace_reply:opening:1",
+            "text": "镇上收药的人，托人捎回信来了。",
+            "id": "hg_trace_reply:opening:r1",
             "cast": [
               "zhou",
               "ye",
@@ -507303,8 +506539,29 @@
           },
           {
             "speaker": "ye",
-            "text": "那家人肯见我么？",
-            "id": "hg_trace_reply:opening:2",
+            "text": "老人家回来了吗？",
+            "id": "hg_trace_reply:opening:r2",
+            "cast": [
+              "zhou",
+              "ye",
+              "hero"
+            ],
+            "mood": "surprise"
+          },
+          {
+            "speaker": "zhou",
+            "text": "还没回镇上。不过他五月要进城看病，到时在城里能见着。",
+            "id": "hg_trace_reply:opening:r3",
+            "cast": [
+              "zhou",
+              "ye",
+              "hero"
+            ]
+          },
+          {
+            "speaker": "ye",
+            "text": "……还要一个多月啊。",
+            "id": "hg_trace_reply:opening:r4",
             "cast": [
               "zhou",
               "ye",
@@ -507313,8 +506570,18 @@
           },
           {
             "speaker": "zhou",
-            "text": "还没约上。他说那户常去汉皋的义诊棚，可以先托坐诊的人带话。",
-            "id": "hg_trace_reply:opening:3",
+            "text": "想问什么，写张条子带着。见了面一急，就忘了。",
+            "id": "hg_trace_reply:opening:r5",
+            "cast": [
+              "zhou",
+              "ye",
+              "hero"
+            ]
+          },
+          {
+            "speaker": "ye",
+            "text": "我爹那时身子可还好？走的时候，说没说去哪儿。",
+            "id": "hg_trace_reply:opening:r6",
             "cast": [
               "zhou",
               "ye",
@@ -507323,38 +506590,8 @@
           },
           {
             "speaker": "hero",
-            "text": "比咱们挨门找强些。",
-            "id": "hg_trace_reply:opening:4",
-            "cast": [
-              "zhou",
-              "ye",
-              "hero"
-            ]
-          },
-          {
-            "speaker": "ye",
-            "text": "我先问该找谁，不说是已经约好的。",
-            "id": "hg_trace_reply:opening:5",
-            "cast": [
-              "zhou",
-              "ye",
-              "hero"
-            ]
-          },
-          {
-            "speaker": "zhou",
-            "text": "嗯。你要问你父亲什么，先记几件。真见了人，别急得忘了。",
-            "id": "hg_trace_reply:opening:6",
-            "cast": [
-              "zhou",
-              "ye",
-              "hero"
-            ]
-          },
-          {
-            "speaker": "ye",
-            "text": "我想问他那时身体好不好，走的时候，有没有提要去哪儿。",
-            "id": "hg_trace_reply:opening:7",
+            "text": "到时候要是去得成，我陪你。在边上等着。",
+            "id": "hg_trace_reply:opening:r7",
             "cast": [
               "zhou",
               "ye",
@@ -507364,24 +506601,15 @@
         ],
         "ending": [
           {
-            "speaker": "hero",
-            "text": "我帮你记着。到时候你问，我在旁边听。",
-            "id": "hg_trace_reply:ending:1",
-            "cast": [
-              "zhou",
-              "ye",
-              "hero"
-            ]
-          },
-          {
             "speaker": "ye",
-            "text": "好。信我自己收着，进城带上。",
-            "id": "hg_trace_reply:ending:2",
+            "text": "信我先收着。到时候，我自己问。",
+            "id": "hg_trace_reply:ending:r1",
             "cast": [
               "zhou",
               "ye",
               "hero"
-            ]
+            ],
+            "mood": "smile"
           }
         ],
         "effects": [
@@ -507481,7 +506709,7 @@
           },
           {
             "speaker": "ye",
-            "text": "我想看看那边的大夫怎么接病人。父亲的消息，也想再问问。",
+            "text": "那位老人家五月也在城里。……我去。",
             "id": "gy_m07:opening:6",
             "cast": [
               "zhou",
@@ -507612,7 +506840,7 @@
           {
             "id": "visitor_zhaochuan_greeting-intro-03-b310b2",
             "speaker": "zhaochuan_courier",
-            "text": "我是照川来送帖的。小兄弟练过什么？我给你挑两场。",
+            "text": "小兄弟练过什么？我给你挑两场。",
             "cast": [
               "hero",
               "zhou",
@@ -507650,7 +506878,7 @@
           {
             "id": "visitor_zhaochuan_greeting-closing-01-a8e082",
             "speaker": "zhaochuan_courier",
-            "text": "我还要把别处的帖送完。到了汉皋，你们再核一下告示，免得临时改了还照旧走。",
+            "text": "我还要把别处的帖送完。周先生，城里见。",
             "cast": [
               "hero",
               "zhou",
@@ -507691,7 +506919,7 @@
               {
                 "id": "visitor_zhaochuan_greeting-choice-rules_first-02-7bde59",
                 "speaker": "zhaochuan_courier",
-                "text": "先站在绳外看。叫停就得收手——这一条，参赛的和看热闹的都得记着。你若想报名，到了找门口执事。",
+                "text": "那就站在绳外看。看出点门道，想上场了，到了找门口执事。",
                 "cast": [
                   "hero",
                   "zhaochuan_courier"
@@ -508733,8 +507961,27 @@
         "opening": [
           {
             "speaker": "zhong",
-            "text": "护腕试过了？出门要带的家伙，也拿来我看看。",
-            "id": "hg_pack_review:opening:1",
+            "text": "哎，萧白，你那包收拾好了没有？",
+            "id": "hg_pack_review:opening:r1",
+            "cast": [
+              "hero",
+              "zhong"
+            ],
+            "mood": "fun"
+          },
+          {
+            "speaker": "hero",
+            "text": "塞满了，连水囊都快挤不下。",
+            "id": "hg_pack_review:opening:r2",
+            "cast": [
+              "hero",
+              "zhong"
+            ]
+          },
+          {
+            "speaker": "zhong",
+            "text": "我这木鸟精细得很。镇上那回一只没卖出去，是镇上人不识货——城里总有几个长眼的！",
+            "id": "hg_pack_review:opening:r3",
             "cast": [
               "hero",
               "zhong"
@@ -508742,99 +507989,118 @@
           },
           {
             "speaker": "hero",
-            "text": "带这把木剑。我练的就是它，别的拿着不顺手。",
+            "text": "（二师叔拎着一整串……这是要我全带上？）",
+            "id": "hg_pack_review:opening:r4",
+            "cast": [
+              "hero",
+              "zhong"
+            ]
+          },
+          {
+            "speaker": "hero",
+            "text": "木剑横在最上头，再塞就压着了。",
+            "id": "hg_pack_review:opening:r5",
+            "cast": [
+              "hero",
+              "zhong"
+            ],
             "when": {
               "route": "sword",
               "weapon": "ready"
-            },
-            "id": "hg_pack_review:opening:2",
-            "cast": [
-              "hero",
-              "zhong"
-            ]
+            }
           },
           {
             "speaker": "zhong",
-            "text": "剑尖别从包里露出来，系牢了。到了人多的地方，别一着急就拔。",
+            "text": "剑尖朝下，别从包口露出来。",
+            "id": "hg_pack_review:opening:r6",
+            "cast": [
+              "hero",
+              "zhong"
+            ],
             "when": {
               "route": "sword",
               "weapon": "ready"
-            },
-            "id": "hg_pack_review:opening:3",
-            "cast": [
-              "hero",
-              "zhong"
-            ]
+            }
           },
           {
             "speaker": "hero",
-            "text": "练剑用的是架上那把。我自己还没备剑。",
+            "text": "练剑那把是架上借的，我还没敢往包里放。",
+            "id": "hg_pack_review:opening:r7",
+            "cast": [
+              "hero",
+              "zhong"
+            ],
             "when": {
               "route": "sword",
               "weapon": "missing"
-            },
-            "id": "hg_pack_review:opening:4",
-            "cast": [
-              "hero",
-              "zhong"
-            ]
+            }
           },
           {
             "speaker": "zhong",
-            "text": "那先把借用的记清楚，再带走。别学了剑，出门才想起来手里空着。",
+            "text": "那把先问过你师父。",
+            "id": "hg_pack_review:opening:r8",
+            "cast": [
+              "hero",
+              "zhong"
+            ],
             "when": {
               "route": "sword",
               "weapon": "missing"
-            },
-            "id": "hg_pack_review:opening:5",
-            "cast": [
-              "hero",
-              "zhong"
-            ]
+            }
           },
           {
             "speaker": "hero",
-            "text": "我练拳，护腕带上就够了。再把绑带检查一遍。",
-            "when": {
-              "route": "fist"
-            },
-            "id": "hg_pack_review:opening:6",
+            "text": "护腕戴在手上，包里倒不占地方。",
+            "id": "hg_pack_review:opening:r9",
             "cast": [
               "hero",
               "zhong"
-            ]
+            ],
+            "when": {
+              "route": "fist"
+            }
           },
           {
             "speaker": "zhong",
-            "text": "别缠太紧，路上还得提东西。到了城里，拳头先收在袖子里。",
-            "when": {
-              "route": "fist"
-            },
-            "id": "hg_pack_review:opening:7",
+            "text": "那正好，空出来的地儿装鸟。",
+            "id": "hg_pack_review:opening:r10",
             "cast": [
               "hero",
               "zhong"
-            ]
+            ],
+            "mood": "fun",
+            "when": {
+              "route": "fist"
+            }
           },
           {
             "speaker": "hero",
-            "text": "我带绳子、干布和水囊。真碰上要动手的，先跟紧你们。",
-            "when": {
-              "route": "life"
-            },
-            "id": "hg_pack_review:opening:8",
+            "text": "绳子、干布、水囊，就这几样也塞满了。",
+            "id": "hg_pack_review:opening:r11",
             "cast": [
               "hero",
               "zhong"
-            ]
+            ],
+            "when": {
+              "route": "life"
+            }
           },
           {
             "speaker": "zhong",
-            "text": "能把这些管好也省心。别逞强扛重的，叫人搭手不丢脸。",
+            "text": "干布叠小点，鸟就塞得下。",
+            "id": "hg_pack_review:opening:r12",
+            "cast": [
+              "hero",
+              "zhong"
+            ],
             "when": {
               "route": "life"
-            },
-            "id": "hg_pack_review:opening:9",
+            }
+          },
+          {
+            "speaker": "hero",
+            "text": "……我把换洗的那身挤一挤，带一只。",
+            "id": "hg_pack_review:opening:r13",
             "cast": [
               "hero",
               "zhong"
@@ -508843,9 +508109,9 @@
         ],
         "ending": [
           {
-            "speaker": "hero",
-            "text": "二师叔还有什么要带的？",
-            "id": "hg_pack_review:ending:1",
+            "speaker": "zhong",
+            "text": "一只哪儿够！……算了算了。别把翅膀给我压折了！",
+            "id": "hg_pack_review:ending:r1",
             "cast": [
               "hero",
               "zhong"
@@ -508853,12 +508119,13 @@
           },
           {
             "speaker": "zhong",
-            "text": "把你自己带回来。护腕磨坏了我能修，人可别给我摔坏了。",
-            "id": "hg_pack_review:ending:2",
+            "text": "卖不掉就拿回来，我再捣鼓捣鼓。",
+            "id": "hg_pack_review:ending:r2",
             "cast": [
               "hero",
               "zhong"
-            ]
+            ],
+            "mood": "smile"
           }
         ],
         "effects": [
@@ -508978,7 +508245,7 @@
           },
           {
             "speaker": "zhou",
-            "text": "先不打。把这两包东西换个位置，再说说路上滑了该怎么办。",
+            "text": "先不打。上回那段泥坡，换你自己带人走，你怎么走？",
             "when": {
               "route": "life"
             },
@@ -509086,14 +508353,14 @@
           },
           {
             "id": "practical",
-            "label": "先站稳、分开搬，再问不懂的路",
+            "label": "“先看泥色，拿不准就叫人。”",
             "when": {
               "route": "life"
             },
             "lines": [
               {
                 "speaker": "hero",
-                "text": "包重就分开搬。路没看清，我先叫人，不能抱着它乱踩。",
+                "text": "先看泥是不是黑的。拿不准，就请陆大哥那样的人先探，我们在平地等。",
                 "id": "gy_zhou_test:practical:1",
                 "cast": [
                   "zhou",
@@ -509314,7 +508581,7 @@
         "ending": [
           {
             "speaker": "hero",
-            "text": "还带了本空的？",
+            "text": "包里那本空册子，做什么用？",
             "id": "gn_depart:ending:1",
             "cast": [
               "zhou",
@@ -509358,7 +508625,7 @@
           },
           {
             "speaker": "zhou",
-            "text": "那就一起走。进城先安顿，再各自办事。",
+            "text": "进了城先安顿，再各自办事。",
             "id": "gn_depart:ending:4",
             "cast": [
               "zhou",
@@ -509374,7 +508641,7 @@
         "productionChoices": [
           {
             "key": "join",
-            "text": "请她加入同行队伍",
+            "text": "“一起走，书我帮你看着。”",
             "lines": [
               {
                 "speaker": "hero",
@@ -509390,11 +508657,11 @@
           },
           {
             "key": "roster",
-            "text": "先加入名册，稍后安排上阵",
+            "text": "“你走得慢，城里客店再碰头。”",
             "lines": [
               {
                 "speaker": "hero",
-                "text": "到了客店，再一起安排。",
+                "text": "你走得慢，到了城里客店再碰头。",
                 "cast": [
                   "zhou",
                   "peishu",
@@ -509442,8 +508709,8 @@
         "opening": [
           {
             "speaker": "zhou",
-            "text": "进城先到南关迎客店落脚。走散了就回那里，不必满街找人。",
-            "id": "gy_m08:opening:1",
+            "text": "明早卯初，谷口集合。",
+            "id": "gy_m08:opening:r1",
             "cast": [
               "zhou",
               "ye",
@@ -509452,48 +508719,11 @@
               "yin"
             ],
             "mood": "serious"
-          },
-          {
-            "speaker": "ye",
-            "text": "我要先问义诊棚的消息。哪日能见到人，等回话再定。",
-            "id": "gy_m08:opening:2",
-            "cast": [
-              "zhou",
-              "ye",
-              "pei",
-              "hero",
-              "yin"
-            ],
-            "mood": "serious"
-          },
-          {
-            "speaker": "pei",
-            "text": "我去东市书铺交抄稿，再给爹配眼镜。若耽搁了，就托店里带句话。",
-            "id": "gy_m08:opening:3",
-            "cast": [
-              "zhou",
-              "ye",
-              "pei",
-              "hero",
-              "yin"
-            ]
-          },
-          {
-            "speaker": "hero",
-            "text": "那我先跟师父把东西交了。试艺什么时候能看，到城里再问。",
-            "id": "gy_m08:opening:4",
-            "cast": [
-              "zhou",
-              "ye",
-              "pei",
-              "hero",
-              "yin"
-            ]
           },
           {
             "speaker": "yin",
-            "text": "我送你们到城门。进了城，你们自己逛，别把我也算在里头。",
-            "id": "gy_m08:opening:5",
+            "text": "也算我一个。",
+            "id": "gy_m08:opening:r2",
             "cast": [
               "zhou",
               "ye",
@@ -509505,8 +508735,70 @@
           },
           {
             "speaker": "zhou",
-            "text": "知道。陆衡也有护运的活，到了再约他。",
-            "id": "gy_m08:opening:6",
+            "text": "……进城？",
+            "id": "gy_m08:opening:r3",
+            "cast": [
+              "zhou",
+              "ye",
+              "pei",
+              "hero",
+              "yin"
+            ]
+          },
+          {
+            "speaker": "yin",
+            "text": "小白脸都去了，我还不能送送？",
+            "id": "gy_m08:opening:r4",
+            "cast": [
+              "zhou",
+              "ye",
+              "pei",
+              "hero",
+              "yin"
+            ]
+          },
+          {
+            "speaker": "hero",
+            "text": "小师叔一起走？那敢情好，路上有照应。",
+            "id": "gy_m08:opening:r5",
+            "cast": [
+              "zhou",
+              "ye",
+              "pei",
+              "hero",
+              "yin"
+            ],
+            "mood": "smile"
+          },
+          {
+            "speaker": "yin",
+            "text": "送到城门。到了，我就回。",
+            "id": "gy_m08:opening:r6",
+            "cast": [
+              "zhou",
+              "ye",
+              "pei",
+              "hero",
+              "yin"
+            ],
+            "mood": "serious"
+          },
+          {
+            "speaker": "zhou",
+            "text": "嗯。",
+            "id": "gy_m08:opening:r7",
+            "cast": [
+              "zhou",
+              "ye",
+              "pei",
+              "hero",
+              "yin"
+            ]
+          },
+          {
+            "speaker": "pei",
+            "text": "城门那块碑……小师叔认得上面的字吗？",
+            "id": "gy_m08:opening:r8",
             "cast": [
               "zhou",
               "ye",
@@ -509518,9 +508810,21 @@
         ],
         "ending": [
           {
+            "speaker": "yin",
+            "text": "……没留意过。你到了自己看。",
+            "id": "gy_m08:opening:r9",
+            "cast": [
+              "zhou",
+              "ye",
+              "pei",
+              "hero",
+              "yin"
+            ]
+          },
+          {
             "speaker": "ye",
-            "text": "明早走？药和干粮我放外袋，你别把自己的水囊忘了。",
-            "id": "gy_m08:ending:1",
+            "text": "萧白，水囊自己带上。药和干粮我放外袋了。",
+            "id": "gy_m08:ending:r1",
             "cast": [
               "zhou",
               "ye",
@@ -509533,15 +508837,14 @@
           {
             "speaker": "hero",
             "text": "这就去装。",
-            "id": "gy_m08:ending:2",
+            "id": "gy_m08:ending:r2",
             "cast": [
               "zhou",
               "ye",
               "pei",
               "hero",
               "yin"
-            ],
-            "mood": "smile"
+            ]
           }
         ],
         "choices": [],
@@ -509625,7 +508928,7 @@
           },
           {
             "speaker": "man",
-            "text": "裴姐姐，回来给我讲城里的灯，不要只记书上的字。",
+            "text": "裴姐姐，城里的灯是什么样的？回来讲给我听。",
             "id": "hg_farewell:opening:5",
             "cast": [
               "shimu",
@@ -509638,7 +508941,7 @@
           },
           {
             "speaker": "pei",
-            "text": "好。我亲眼看见什么，就讲什么。",
+            "text": "好。……我要是光顾着看字，你就问叶蘅。",
             "id": "hg_farewell:opening:6",
             "cast": [
               "shimu",
@@ -509786,7 +509089,7 @@
               },
               {
                 "speaker": "hero",
-                "text": "我也摔过。先把自己站稳，再顾别的。",
+                "text": "那段泥坡上，我也是光顾着包，差点摔了。",
                 "id": "hg_road:steady:3",
                 "cast": [
                   "hero",
@@ -509831,7 +509134,7 @@
               },
               {
                 "speaker": "hero",
-                "text": "送过药就知道了，包带有时候比腿脚还要紧。",
+                "text": "送药那回，包带一松，比路滑还难走。",
                 "id": "hg_road:bind:3",
                 "cast": [
                   "hero",
@@ -509859,7 +509162,7 @@
           },
           {
             "speaker": "pei",
-            "text": "这件事我得记一笔。带书出门，先得知道怎么把书带住。",
+            "text": "……我得记一笔：下回换根新绳。",
             "id": "hg_road:ending:2",
             "cast": [
               "hero",
@@ -510026,7 +509329,7 @@
         "ending": [
           {
             "speaker": "zhou",
-            "text": "我们先进城。知古看着稿子，叶蘅，药包的单子收在手边。",
+            "text": "走吧，进城。都跟紧，别走散。",
             "id": "hg_gate:ending:1",
             "cast": [
               "hero",
@@ -510037,7 +509340,7 @@
           },
           {
             "speaker": "ye",
-            "text": "带着了。",
+            "text": "知古，抄稿给我拿一半。",
             "id": "hg_gate:ending:2",
             "cast": [
               "hero",
