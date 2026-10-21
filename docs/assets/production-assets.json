@@ -4430,6 +4430,46 @@
       }
     },
     {
+      "id": "s_qh_hero_blue_walk_20261021",
+      "path": "assets/production/characters/s_qh_hero_blue_walk_20261021.webp",
+      "original_path": "art_sources/hero-motion-video-20261021/out/s_qh_hero_blue_walk_20261021.webp",
+      "system": "characters",
+      "role": "registered-or-direct-runtime",
+      "sha256": "260c5f6c39cd8045a06fb1de44f7143888f6b44c71a21d6d1de15a28483830b0",
+      "references": [
+        "js/qihe-hero-blue-art.js",
+        "js/production-assets.js"
+      ],
+      "adoption": {
+        "date": "2026-10-21",
+        "authorization": "用户要求：直接替代吧，新版好太多了",
+        "source": "art_sources/hero-motion-video-20261021/out/walk_1x.png",
+        "source_sha256": "c0e39339194a667c8b07ed4620fc68157d544db819035e48dff29fd2658875de",
+        "identity_id": "xiaobai-blue-video-motion-20261021",
+        "evidence": "art_sources/hero-motion-video-20261021/manifest.json"
+      }
+    },
+    {
+      "id": "s_qh_hero_blue_run_20261021",
+      "path": "assets/production/characters/s_qh_hero_blue_run_20261021.webp",
+      "original_path": "art_sources/hero-motion-video-20261021/out/s_qh_hero_blue_run_20261021.webp",
+      "system": "characters",
+      "role": "registered-or-direct-runtime",
+      "sha256": "9b6ee7c0cbbaca2f58fae10a785e39faa317a5a0067f647a172d73aa50831102",
+      "references": [
+        "js/qihe-hero-blue-art.js",
+        "js/production-assets.js"
+      ],
+      "adoption": {
+        "date": "2026-10-21",
+        "authorization": "用户要求：直接替代吧，新版好太多了",
+        "source": "art_sources/hero-motion-video-20261021/out/run_1x.png",
+        "source_sha256": "44ea61aafec80f50a88ec0f96ce899e0bdd450e0b052effcb113f8cb2ee9a51e",
+        "identity_id": "xiaobai-blue-video-motion-20261021",
+        "evidence": "art_sources/hero-motion-video-20261021/manifest.json"
+      }
+    },
+    {
       "id": "cg_qh_backhill_rope_v1",
       "path": "assets/production/shared/cg_qh_backhill_rope_v1.webp",
       "original_path": "art_sources/qh-song-disguise-20261008/final/cg_qh_backhill_rope_v1.webp",

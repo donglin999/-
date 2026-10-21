@@ -268,6 +268,8 @@
 | s_qh_hero_blue_idle_20261010 | `assets/production/characters/s_qh_hero_blue_idle_20261010.webp` | `art_sources/hero-blue-formal-20261010/out/s_qh_hero_blue_idle_20261010.webp` | 6e606f343936 |
 | s_qh_hero_blue_run_20261010 | `assets/production/characters/s_qh_hero_blue_run_20261010.webp` | `art_sources/hero-blue-formal-20261010/out/s_qh_hero_blue_run_20261010.webp` | b7398353ce02 |
 | s_qh_hero_blue_walk_20261010 | `assets/production/characters/s_qh_hero_blue_walk_20261010.webp` | `art_sources/hero-blue-formal-20261010/out/s_qh_hero_blue_walk_20261010.webp` | 10a892a15249 |
+| s_qh_hero_blue_walk_20261021 | `assets/production/characters/s_qh_hero_blue_walk_20261021.webp` | `art_sources/hero-motion-video-20261021/out/s_qh_hero_blue_walk_20261021.webp` | 260c5f6c39cd |
+| s_qh_hero_blue_run_20261021 | `assets/production/characters/s_qh_hero_blue_run_20261021.webp` | `art_sources/hero-motion-video-20261021/out/s_qh_hero_blue_run_20261021.webp` | 9b6ee7c0cbba |
 | s_qh_song_seated | `assets/production/characters/s_qh_song_seated.webp` | `art_sources/qh-song-disguise-20261008/final/s_qh_song_seated.webp` | 597edc4198ae |
 | s_qh_song_story | `assets/production/characters/s_qh_song_story.webp` | `art_sources/qh-song-disguise-20261008/final/s_qh_song_story.webp` | 725280f9958c |
 | s_npc_opening_apothecary_20261010 | `assets/production/characters/s_npc_opening_apothecary_20261010.webp` | `art_sources/qihe-npc-refresh-20261010/out/opening_apothecary/s_npc_opening_apothecary_20261010.webp` | b199e2a768a2 |

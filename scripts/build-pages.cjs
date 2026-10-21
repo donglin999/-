@@ -22,7 +22,7 @@ fs.mkdirSync(out, { recursive: true });
 // 评审/测试入口只供本机 8792 使用：发布包不带评审专用脚本，并在页面最早阶段删掉评审/测试查询参数，
 // 线上玩家加任何后缀都只会进入正常栖河试玩。源码 index.html 与 js/ 不变，本地评审照常可用。
 // 新增评审脚本或 URL 开关时，同步登记到下面两张表（docs/updates/2026-10-19-deprecated-entries.md 有清单）。
-const REVIEW_SCRIPTS = ['qihe-ui-review.js', 'qihe-story-review.js', 'qihe-battle-review.js', 'hero-multiweapon-review.js', 'qihe-chapter-presentation-review.js', 'qihe-relationship-review.js'];
+const REVIEW_SCRIPTS = ['qihe-ui-review.js', 'qihe-story-review.js', 'qihe-battle-review.js', 'hero-multiweapon-review.js', 'qihe-chapter-presentation-review.js', 'qihe-relationship-review.js', 'qihe-hero-motion-review.js'];
 const REVIEW_PARAMS = ['battleReview', 'storyReview', 'uiReview', 'chapterPresentationReview', 'relationshipReview', 'martialCapacity', 'poseReview', 'holdReview', 'tail', 'weapon', 'uitheme', 'debug',
   'pixel90', 'pixel90roam', 'pixel90mask', 'heroRun', 'heroWalk', 'runVariant', 'heroMotion', 'heroReview', 'runtimePrototype', 'openingPrototype', 'openingReview', 'cultivationReview'];
 {
