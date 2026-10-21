@@ -285,6 +285,8 @@
 | s_npc_opening_zhouyan_20261010 | `assets/production/characters/s_npc_opening_zhouyan_20261010.webp` | `art_sources/qihe-npc-refresh-20261010/out/opening_zhouyan/s_npc_opening_zhouyan_20261010.webp` | 2e72389c89a4 |
 | s_npc_qh_bandit_20261010 | `assets/production/characters/s_npc_qh_bandit_20261010.webp` | `art_sources/qihe-npc-refresh-20261010/out/qh_bandit/s_npc_qh_bandit_20261010.webp` | 483324854db4 |
 | s_npc_qh_censhuang_story_20261010 | `assets/production/characters/s_npc_qh_censhuang_story_20261010.webp` | `art_sources/qihe-npc-refresh-20261010/out/qh_censhuang_story/s_npc_qh_censhuang_story_20261010.webp` | a48a735482b8 |
+| s_qh_censhuang_walk_20261021 | `assets/production/characters/s_qh_censhuang_walk_20261021.webp` | `art_sources/censhuang-motion-video-20261021/out/s_qh_censhuang_walk_20261021.webp` | 0fda4698cb1f |
+| s_qh_censhuang_run_20261021 | `assets/production/characters/s_qh_censhuang_run_20261021.webp` | `art_sources/censhuang-motion-video-20261021/out/s_qh_censhuang_run_20261021.webp` | e0261d95a423 |
 | s_npc_qh_chen_rest_story_20261010 | `assets/production/characters/s_npc_qh_chen_rest_story_20261010.webp` | `art_sources/qihe-npc-refresh-20261010/out/qh_chen_rest_story/s_npc_qh_chen_rest_story_20261010.webp` | e0bfaf702471 |
 | s_npc_qh_merchant_20261010 | `assets/production/characters/s_npc_qh_merchant_20261010.webp` | `art_sources/qihe-npc-refresh-20261010/out/qh_merchant/s_npc_qh_merchant_20261010.webp` | 00cd6f57b0c8 |
 | s_npc_qh_oldman_20261010 | `assets/production/characters/s_npc_qh_oldman_20261010.webp` | `art_sources/qihe-npc-refresh-20261010/out/qh_oldman/s_npc_qh_oldman_20261010.webp` | cc46e6ffca9c |

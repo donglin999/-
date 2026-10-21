@@ -5518,6 +5518,46 @@
       }
     },
     {
+      "id": "s_qh_censhuang_walk_20261021",
+      "path": "assets/production/characters/s_qh_censhuang_walk_20261021.webp",
+      "original_path": "art_sources/censhuang-motion-video-20261021/out/s_qh_censhuang_walk_20261021.webp",
+      "system": "characters",
+      "role": "registered-or-direct-runtime",
+      "sha256": "0fda4698cb1fe70d8f0be640a904dbebb1e0634762e884e2f78a27bb4f327258",
+      "references": [
+        "js/qihe-censhuang-motion-art.js",
+        "js/production-assets.js"
+      ],
+      "adoption": {
+        "date": "2026-10-21",
+        "authorization": "用户要求：把岑霜的走跑表正式入库登记，并接进游戏，她在地图上移动时用新的走跑帧",
+        "source": "art_sources/censhuang-motion-video-20261021/out/walk_1x.png",
+        "source_sha256": "f8d4a3937328e88b75c3e8515538f188eaaaeff55c68b9c943b2165ae9fcb282",
+        "identity_id": "censhuang-video-motion-20261021",
+        "evidence": "art_sources/censhuang-motion-video-20261021/manifest.json"
+      }
+    },
+    {
+      "id": "s_qh_censhuang_run_20261021",
+      "path": "assets/production/characters/s_qh_censhuang_run_20261021.webp",
+      "original_path": "art_sources/censhuang-motion-video-20261021/out/s_qh_censhuang_run_20261021.webp",
+      "system": "characters",
+      "role": "registered-or-direct-runtime",
+      "sha256": "e0261d95a423cbb64ff309dc875f88773197ae47f94d9853c3c69792fde82f44",
+      "references": [
+        "js/qihe-censhuang-motion-art.js",
+        "js/production-assets.js"
+      ],
+      "adoption": {
+        "date": "2026-10-21",
+        "authorization": "用户要求：把岑霜的走跑表正式入库登记，并接进游戏，她在地图上移动时用新的走跑帧",
+        "source": "art_sources/censhuang-motion-video-20261021/out/run_1x.png",
+        "source_sha256": "c06ec60d3468d92b12b1f160013e5a4a68213e52ec74d3d05d180ec473bc13c0",
+        "identity_id": "censhuang-video-motion-20261021",
+        "evidence": "art_sources/censhuang-motion-video-20261021/manifest.json"
+      }
+    },
+    {
       "id": "s_npc_qh_chen_rest_story_20261010",
       "path": "assets/production/characters/s_npc_qh_chen_rest_story_20261010.webp",
       "original_path": "art_sources/qihe-npc-refresh-20261010/out/qh_chen_rest_story/s_npc_qh_chen_rest_story_20261010.webp",
