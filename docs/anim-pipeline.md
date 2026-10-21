@@ -1,10 +1,10 @@
 # 帧动画管线：程序白模 → 参考生图 → 自动校验组表
 
-状态：现行　最后核对：2026-10-19
+状态：现行　最后核对：2026-10-21
 
 适用范围先由[角色类型与必需素材](design/role-assets.md)和[剧情表现规范](design/story-presentation.md)决定。本页用于实际需要的探索、战斗与已明确要求的主角系统动作；**普通 NPC 剧情不派专属帧动画**，任务通过对白或单张 CG 完成。脚本中的动作描写不是调用本管线的自动授权。
 
-栖河现行人物动作（2026-10-19 按 8792 实际运行核对）：萧白用蓝灰 C 包（[采用合同](../../xiaojianghu-legacy-prologue/docs/design/qihe-map/hero-blue-adoption.md)：四向，单元 96×116，步行 12 帧、跑 10 帧，可见身高约 83）；叶蘅与开始部分其他人物用像素统一表（`xiaojianghu-legacy-prologue/art_sources/character-pixel-fix-20261007/`，成人可见高约 80）。OC.4 grid94 与 OC.11 走跑是主库原型开篇的规格，已归档，只供追溯，不再作为标准。
+栖河现行人物动作（2026-10-19 按 8792 实际运行核对）：萧白站立用蓝灰 C 包，走、跑自 2026-10-21 起改用 Wan 3.0 视频后期版（[采用合同](../../xiaojianghu-legacy-prologue/docs/design/qihe-map/hero-blue-adoption.md)：四向，单元 96×116，步行 12 帧、跑 10 帧，可见身高约 83；视频版做法见 [更新记录](../../xiaojianghu-legacy-prologue/docs/updates/2026-10-21-hero-video-motion.md)）；叶蘅与开始部分其他人物用像素统一表（`xiaojianghu-legacy-prologue/art_sources/character-pixel-fix-20261007/`，成人可见高约 80）。OC.4 grid94 与 OC.11 走跑是主库原型开篇的规格，已归档，只供追溯，不再作为标准。
 
 ## 0. 原则：原型优先，程序给骨架，生图给皮肤
 
