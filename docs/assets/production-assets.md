@@ -238,8 +238,11 @@
 | b_wolf | `assets/production/battle/b_wolf.webp` | `assets/b_wolf.webp` | 4ad17f9d6822 |
 | b_ye | `assets/production/battle/b_ye.webp` | `assets/b_ye.webp` | 45acd205682c |
 | bb_prologue_backhill_v1 | `assets/production/battle/bb_prologue_backhill_v1.webp` | `assets/bb_prologue_backhill_v1.webp` | 2fc08f61b319 |
+| bb_prologue_backhill_atmo_20261023 | `assets/production/battle/bb_prologue_backhill_atmo_20261023.webp` | `art_sources/battle-atmosphere-20261023/out/bb_prologue_backhill_atmo_20261023.webp` | 853de854b20d |
 | bb_qh_evacuation_v1 | `assets/production/battle/bb_qh_evacuation_v1.webp` | `assets/bb_qh_evacuation_v1.webp` | c14aa8c43c22 |
+| bb_qh_evacuation_atmo_20261023 | `assets/production/battle/bb_qh_evacuation_atmo_20261023.webp` | `art_sources/battle-atmosphere-20261023/out/bb_qh_evacuation_atmo_20261023.webp` | de8c52a98f69 |
 | bb_qh_training_v1 | `assets/production/battle/bb_qh_training_v1.webp` | `assets/bb_qh_training_v1.webp` | 575c6f87a3f1 |
+| bb_qh_training_atmo_20261023 | `assets/production/battle/bb_qh_training_atmo_20261023.webp` | `art_sources/battle-atmosphere-20261023/out/bb_qh_training_atmo_20261023.webp` | 4a3492093dc0 |
 
 ### characters
 
@@ -829,6 +832,7 @@
 | ID | 正式文件 | 原件 | SHA-256前12位 |
 |---|---|---|---|
 | bb_qh_faction_clash_20261012 | `assets/production/battle/bb_qh_faction_clash_20261012.webp` | `art_sources/qihe-faction-clash-20261012/out/bb_qh_faction_clash_20261012.webp` | 9d34bbccc6ff |
+| bb_qh_faction_clash_atmo_20261023 | `assets/production/battle/bb_qh_faction_clash_atmo_20261023.webp` | `art_sources/battle-atmosphere-20261023/out/bb_qh_faction_clash_atmo_20261023.webp` | b898ef22702b |
 | fx_qh_clash_am_short_thrust | `assets/production/fx/qihe-clash/am_v1/fx_qh_clash_am_short_thrust.webp` | `art_sources/qihe-faction-clash-20261012/fx/am_v1/am_short_thrust.webp` | 94c7829edaab |
 | fx_qh_clash_am_guard_crescent | `assets/production/fx/qihe-clash/am_v1/fx_qh_clash_am_guard_crescent.webp` | `art_sources/qihe-faction-clash-20261012/fx/am_v1/am_guard_crescent.webp` | f307b597aa5c |
 | fx_qh_clash_am_stab_mark | `assets/production/fx/qihe-clash/am_v1/fx_qh_clash_am_stab_mark.webp` | `art_sources/qihe-faction-clash-20261012/fx/am_v1/am_stab_mark.webp` | aaec272b59c2 |

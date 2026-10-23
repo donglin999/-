@@ -79,7 +79,18 @@ const BFXI=(()=>{
     if(c){SHARP.delete(key);SHARP.set(key,c);return c}
     const nw=Math.round(sw/k),nh=Math.round(sh/k);c=document.createElement('canvas');c.width=nw*n;c.height=nh*n;const x=c.getContext('2d');x.imageSmoothingEnabled=false;x.drawImage(im,sx,sy,sw,sh,0,0,c.width,c.height);
     SHARP.set(key,c);if(SHARP.size>96)SHARP.delete(SHARP.keys().next().value);return c}
-  function blit(fr,x,y,o={}){if(fr.none)return;const[src,sx,sy,sw,sh]=prep(fr,o);g.save();g.globalAlpha=o.alpha??1;if(o.comp)g.globalCompositeOperation=o.comp;g.imageSmoothingEnabled=false;
+  const RIM=new Map();
+  function rimFrame(fr,col){const key=(fr.im.src||'')+'|'+fr.sx+'|'+fr.sy+'|'+fr.flip+'|'+col;let c=RIM.get(key);if(c)return c;
+    const w=fr.sw,h=fr.sh,k=artScale(fr.im);c=document.createElement('canvas');c.width=w;c.height=h;const x=c.getContext('2d',{willReadFrequently:true});
+    x.drawImage(fr.im,fr.sx,fr.sy,w,h,0,0,w,h);const id=x.getImageData(0,0,w,h),d=id.data,a=new Uint8Array(w*h);for(let i=0;i<w*h;i++)a[i]=d[i*4+3]>127;
+    const dx=(fr.flip?1:-1)*k,dy=-k,[r,gg,b]=col.split(',').map(Number),m=.5;   // 翻转时屏幕左上＝表内右上
+    for(let yy=0;yy<h;yy++)for(let xx=0;xx<w;xx++){const i=yy*w+xx;if(!a[i])continue;const nx=xx+dx,ny=yy+dy;
+      if(nx>=0&&nx<w&&ny>=0&&ny<h&&a[ny*w+nx])continue;const o=i*4;d[o]=d[o]*(1-m)+r*m;d[o+1]=d[o+1]*(1-m)+gg*m;d[o+2]=d[o+2]*(1-m)+b*m}
+    x.putImageData(id,0,0);c._artK=k;c.src='rim:'+key;   // src 供 sharpFrame 缓存区分帧
+    RIM.set(key,c);if(RIM.size>160)RIM.delete(RIM.keys().next().value);return c}
+  function blit(fr,x,y,o={}){if(fr.none)return;let[src,sx,sy,sw,sh]=prep(fr,o);
+    const at=fr.sheet&&src===fr.im?atmoOf():null;if(at&&at.rim){src=rimFrame(fr,at.rim);sx=0;sy=0}   // 着色（闪白、灰化）帧不加受光
+    g.save();g.globalAlpha=o.alpha??1;if(o.comp)g.globalCompositeOperation=o.comp;g.imageSmoothingEnabled=false;
     g.translate(Math.round(x),Math.round(y+(fr.foot||0)));if(o.rot)g.rotate(o.rot);g.scale((fr.flip?-1:1)*(o.sx||1),o.sy||1);const dw=Math.round(fr.dw),dh=Math.round(fr.dh);
     if(fr.tone&&fr.tone!=='none')g.filter=fr.tone;
     const m=g.getTransform(),k=src===SC?artScale(fr.im):artScale(src),a=dh*Math.hypot(m.c,m.d)/sh*k;   // 每个美术像素占多少屏幕像素
@@ -93,7 +104,13 @@ const BFXI=(()=>{
   const sn=v=>Math.round(v/PX)*PX;
   function pxEllipse(cx,cy,rx,ry,col,a=1,gap=0,rot=0){if(a<=0)return;g.save();g.globalAlpha=Math.min(1,a);g.fillStyle=col;const n=Math.max(12,Math.ceil((rx+ry)*Math.PI/PX*1.4)),seen=new Set();
     for(let i=0;i<n;i++){const an=i/n*Math.PI*2;if(gap&&(Math.floor((an+rot)/gap)&1))continue;const x=Math.round((cx+Math.cos(an)*rx)/PX),y=Math.round((cy+Math.sin(an)*ry)/PX),k=x*9999+y;if(seen.has(k))continue;seen.add(k);g.fillRect(x*PX,y*PX,PX,PX)}g.restore()}
-  function shadow(x,y,h,lift,a=1){const rx=Math.max(15,h*.19)*(1-Math.min(.45,lift/110)),ry=Math.max(4,h*.042);g.save();g.globalAlpha=.34*a*(1-Math.min(.5,lift/140));g.fillStyle='#000';
+  const atmoOf=()=>typeof BSTAGE!=='undefined'&&BSTAGE.atmo?BSTAGE.atmo():null;
+  function shadow(x,y,h,lift,a=1){const rx=Math.max(15,h*.19)*(1-Math.min(.45,lift/110)),ry=Math.max(4,h*.042);
+    if(atmoOf()){   // 氛围版背景：径向渐变柔影，比像素硬影更宽更实，把人“压”在地上
+      const k=1-Math.min(.5,lift/140),R=rx*1.45;g.save();g.translate(x,y);g.scale(1,ry*1.6/R);
+      const gr=g.createRadialGradient(0,0,0,0,0,R);gr.addColorStop(0,`rgba(8,5,3,${.55*a*k})`);gr.addColorStop(.55,`rgba(8,5,3,${.32*a*k})`);gr.addColorStop(1,'rgba(8,5,3,0)');
+      g.fillStyle=gr;g.beginPath();g.arc(0,0,R,0,7);g.fill();g.restore();return}
+    g.save();g.globalAlpha=.34*a*(1-Math.min(.5,lift/140));g.fillStyle='#000';
     for(let yy=-ry;yy<=ry;yy+=PX){const w=rx*Math.sqrt(Math.max(0,1-(yy/ry)**2));const x0=sn(x-w),x1=sn(x+w);if(x1>x0)g.fillRect(x0,sn(y-2+yy),x1-x0,PX)}g.restore()}
 
   // ── 位移（相对站位的偏移，全部走 BT） ──

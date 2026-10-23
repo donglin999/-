@@ -144,6 +144,7 @@ async function battle(opt={}){
   const hpBefore=S.hp,mpBefore=S.mp,bagBefore={...(S.bag||{})};
   const bgKey=opt.bg||('bg_'+(S.scene||''));
   if(opt.bg&&!ok(IMG[bgKey]))await loadOpt(bgKey,bgKey);   // 未指定背景时由 bstage 按场景解析 bb_*（只请求登记过的文件，见 docs/archive/battle-v2.md §4）
+  {const ab=typeof BSTAGE!=='undefined'&&BSTAGE.assetFor(bgKey);if(ab&&!ok(IMG[ab]))await loadOpt(ab,ab)}   // 氛围版背景开战前载好，避免首帧闪旧图
   const ports=['p_'+(opt.heroPor||'hero'),...(S.party||[]).flatMap(k=>opt.allyPorts?.[k]?['p_'+opt.allyPorts[k]]:(PARTY_DEF[k]||{por:[]}).por.filter(p=>PORTS.includes(p)).map(p=>'p_'+p))];   // 只预载登记过的立绘（大黄无立绘，头像取战斗精灵）
   ports.push(...ports.flatMap(p=>(EXPR[p.slice(2)]||[]).map(e=>p+'_'+e)));
   // 战斗专用表必须在遮罩揭开前就绪，避免首帧先显示旧回退造型再突然换装。

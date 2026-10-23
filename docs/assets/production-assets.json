@@ -8121,6 +8121,30 @@
       ]
     },
     {
+      "id": "bb_prologue_backhill_atmo_20261023",
+      "path": "assets/production/battle/bb_prologue_backhill_atmo_20261023.webp",
+      "original_path": "art_sources/battle-atmosphere-20261023/out/bb_prologue_backhill_atmo_20261023.webp",
+      "system": "battle",
+      "role": "registered-or-direct-runtime",
+      "sha256": "853de854b20dac8acd83bb9522d5096fe58f640419826ec46734b2d5e419105b",
+      "references": [
+        "js/bstage.js",
+        "js/production-assets.js"
+      ],
+      "adoption": {
+        "date": "2026-10-23",
+        "authorization": "用户确认：确认用“生图氛围背景＋人物受光”。给第一章所有战斗背景出氛围版，接进战斗渲染",
+        "replaces_at_runtime": "bb_prologue_backhill_v1",
+        "source": "art_sources/battle-atmosphere-20261023/raw/backhill.png",
+        "source_sha256": "1b6768664d57cd2d4871aad05a8603655851142cce4a921d7390b3d48e97f8fb",
+        "evidence": "art_sources/battle-atmosphere-20261023/README.md"
+      },
+      "actual_size": [
+        1672,
+        941
+      ]
+    },
+    {
       "id": "bb_qh_evacuation_v1",
       "path": "assets/production/battle/bb_qh_evacuation_v1.webp",
       "original_path": "assets/bb_qh_evacuation_v1.webp",
@@ -8131,6 +8155,30 @@
         "js/bstage.js",
         "js/production-assets.js",
         "js/qihe-chapter-battle-art.js"
+      ]
+    },
+    {
+      "id": "bb_qh_evacuation_atmo_20261023",
+      "path": "assets/production/battle/bb_qh_evacuation_atmo_20261023.webp",
+      "original_path": "art_sources/battle-atmosphere-20261023/out/bb_qh_evacuation_atmo_20261023.webp",
+      "system": "battle",
+      "role": "registered-or-direct-runtime",
+      "sha256": "de8c52a98f69f9ead89b782c8b6bf3a303b4cd44a72eb88ca740c9364e29d13b",
+      "references": [
+        "js/bstage.js",
+        "js/production-assets.js"
+      ],
+      "adoption": {
+        "date": "2026-10-23",
+        "authorization": "用户确认：确认用“生图氛围背景＋人物受光”。给第一章所有战斗背景出氛围版，接进战斗渲染",
+        "replaces_at_runtime": "bb_qh_evacuation_v1",
+        "source": "art_sources/battle-atmosphere-20261023/raw/road.png",
+        "source_sha256": "6fdf8c96b37982bfd7f3206a533947f226aa150fd72dda1ea62e21029117f229",
+        "evidence": "art_sources/battle-atmosphere-20261023/README.md"
+      },
+      "actual_size": [
+        1672,
+        941
       ]
     },
     {
@@ -8146,6 +8194,30 @@
         "js/production-assets.js",
         "js/audio.js",
         "js/qihe-chapter-battle-art.js"
+      ]
+    },
+    {
+      "id": "bb_qh_training_atmo_20261023",
+      "path": "assets/production/battle/bb_qh_training_atmo_20261023.webp",
+      "original_path": "art_sources/battle-atmosphere-20261023/out/bb_qh_training_atmo_20261023.webp",
+      "system": "battle",
+      "role": "registered-or-direct-runtime",
+      "sha256": "4a3492093dc0a42be93085f93d46efac1386e8061b7206d2e7dc285d75becca2",
+      "references": [
+        "js/bstage.js",
+        "js/production-assets.js"
+      ],
+      "adoption": {
+        "date": "2026-10-23",
+        "authorization": "用户确认：确认用“生图氛围背景＋人物受光”。给第一章所有战斗背景出氛围版，接进战斗渲染",
+        "replaces_at_runtime": "bb_qh_training_v1",
+        "source": "art_sources/battle-atmosphere-20261023/raw/training.png",
+        "source_sha256": "74938fdb802f129826bf2fc249207cdb72afd2ddba9bb4e5652c1719bd99a278",
+        "evidence": "art_sources/battle-atmosphere-20261023/README.md"
+      },
+      "actual_size": [
+        1672,
+        941
       ]
     },
     {
@@ -12781,6 +12853,30 @@
         "date": "2026-10-13",
         "authorization": "user_requested_chapter_one_3v3",
         "evidence": "art_sources/qihe-faction-clash-20261012/packing-evidence.json"
+      },
+      "actual_size": [
+        1672,
+        941
+      ]
+    },
+    {
+      "id": "bb_qh_faction_clash_atmo_20261023",
+      "path": "assets/production/battle/bb_qh_faction_clash_atmo_20261023.webp",
+      "original_path": "art_sources/battle-atmosphere-20261023/out/bb_qh_faction_clash_atmo_20261023.webp",
+      "system": "battle",
+      "role": "registered-or-direct-runtime",
+      "sha256": "b898ef22702b6596df8003351c742b0a4b44fc38ab9106b6ccfc5a8ae21ee265",
+      "references": [
+        "js/bstage.js",
+        "js/production-assets.js"
+      ],
+      "adoption": {
+        "date": "2026-10-23",
+        "authorization": "用户确认：确认用“生图氛围背景＋人物受光”。给第一章所有战斗背景出氛围版，接进战斗渲染",
+        "replaces_at_runtime": "bb_qh_faction_clash_20261012",
+        "source": "art_sources/battle-atmosphere-20261023/raw/clash.png",
+        "source_sha256": "f4bfa6afefb265897cdd869e66cd8ff13d927a0cc0ecbb89974c3a63c8b98fb9",
+        "evidence": "art_sources/battle-atmosphere-20261023/README.md"
       },
       "actual_size": [
         1672,

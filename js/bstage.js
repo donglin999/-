@@ -13,15 +13,22 @@ const BSTAGE=(()=>{
   const BLEED=28;                               // 背景四周外扩，震屏时不露边
   // 场景氛围：tint 整体调色（叠加）、pool 脚下光斑颜色、fx 前景粒子、mist 雾色、dark 回退图压暗量
   const SC={
-    qh_training:{hz:.36,tint:'rgba(65,60,35,.04)',pool:'230,222,168',fx:['dust'],mist:'180,190,155',dark:.15},
-    qh_evacuation:{hz:.38,tint:'rgba(50,45,65,.04)',pool:'220,193,153',fx:['dust'],mist:'160,150,145',dark:.15},
-    prologue_backhill:{hz:.55,tint:'rgba(55,65,35,.06)',pool:'230,222,168',fx:['leaf','dust'],mist:'180,190,155',dark:.25},
+    // atmo：生图氛围版背景（景深、光束、光斑已烘焙进图）。rim 人物迎光面（左上）受光色，vig 暗角强度。2026-10-23 用户确认“生图氛围背景＋人物受光”。
+    qh_training:{hz:.36,tint:'rgba(65,60,35,.04)',pool:'230,222,168',fx:['dust'],mist:'180,190,155',dark:.15,atmo:{rim:'255,226,150',vig:.42}},
+    qh_evacuation:{hz:.38,tint:'rgba(50,45,65,.04)',pool:'220,193,153',fx:['dust'],mist:'160,150,145',dark:.15,atmo:{rim:'255,172,96',vig:.5}},
+    prologue_backhill:{hz:.55,tint:'rgba(55,65,35,.06)',pool:'230,222,168',fx:['leaf','dust'],mist:'180,190,155',dark:.25,atmo:{rim:'255,226,150',vig:.42}},
+    // 栖河交锋（夜，左上灯笼）：原来走 fallback 一档，接氛围版后单列；粒子换成与氛围图一致的萤火
+    qh_faction_clash_20261012:{hz:.4,tint:'rgba(40,30,70,.06)',pool:'255,190,120',fx:['fly','dust'],mist:'150,140,170',dark:.42,atmo:{rim:'255,190,118',vig:.5}},
     // 未登记场景（如交锋 bb_qh_faction_clash_*）沿用的默认氛围：数值即原襄阳街市一档，2026-10-19 襄阳战斗背景归档后改名保留，画面不变。
     fallback:   {hz:.51,tint:'rgba(40,30,70,.10)', pool:'255,190,120', fx:['ember','dust'], mist:'150,140,170', dark:.42},
   };
   // ── 背景键 → 战斗背景 bb_{name}（见 docs/archive/battle-v2.md §背景映射）──
   // 剧情可传 bb_* / bg_{scene} / m_{scene}(_v2)：去前缀与 _vN 后缀后查上表。2026-10-19 起襄阳/庙宇/黑风寨/渡口战斗背景随襄阳演示归档。
-  const BB_ASSET={qh_training:'bb_qh_training_v1',qh_evacuation:'bb_qh_evacuation_v1',prologue_backhill:'bb_prologue_backhill_v1'};
+  // 2026-10-23 开始部分四张战斗背景换成生图氛围版（旧 bb_*_v1 / 交锋 20261012 保留，剧情仍可传旧键，按场景名映射到新图）。
+  const BB_ASSET={qh_training:'bb_qh_training_atmo_20261023',qh_evacuation:'bb_qh_evacuation_atmo_20261023',prologue_backhill:'bb_prologue_backhill_atmo_20261023',
+    qh_faction_clash_20261012:'bb_qh_faction_clash_atmo_20261023'};
+  const ATMO=new Set(Object.values(BB_ASSET).filter(k=>k.includes('_atmo_')));
+  let atmoOn=null;                              // 当前帧背景是否氛围版：其配置（受光、暗角），否则 null
   const bbName=k=>String(k||'').replace(/^(bb|bg|m)_/,'').replace(/_v\d+$/,'');
   const sceneOf=()=>bbName((B&&B.bg)||'')||bbName(S.scene)||'fallback';
   const cfg=()=>SC[sceneOf()]||SC.fallback;
@@ -39,19 +46,20 @@ const BSTAGE=(()=>{
     const im=IMG[key],CW=W+BLEED*2,CH=H+BLEED*2,c=cv(CW,CH),x=c.getContext('2d');
     const hz=BLEED+H*(cfg().hz||HORIZON);
     x.imageSmoothingEnabled=false;
-    x.filter='saturate(.90) contrast(1.03)'; // 所有背景共用；只在首次预渲染时计算
+    const atmo=ATMO.has(key);                  // 氛围版景深与雾已烘焙，不再叠加
+    x.filter=atmo?'none':'saturate(.90) contrast(1.03)'; // 其余背景共用；只在首次预渲染时计算
     if(im&&im.naturalWidth){x.drawImage(im,0,0,CW,CH)}
     else{ // 场景地图兜底
       const m=IMG[bstageMapKey(S.scene)]||IMG['m_'+S.scene];x.fillStyle='#1d1812';x.fillRect(0,0,CW,CH);
       if(ok(m)){const s=Math.max(CW/m.naturalWidth,CH/m.naturalHeight)*1.1;x.drawImage(m,(CW-m.naturalWidth*s)/2,(CH-m.naturalHeight*s)/2,m.naturalWidth*s,m.naturalHeight*s)}}
     x.filter='none';
     // 景深：远景（地平线以上）与最下缘前景虚化，中场清晰。模糊副本 + 渐变遮罩合成
-    const bl=cv(CW,CH),bx=bl.getContext('2d');bx.filter=`blur(${fallback?2.2:1.3}px)`;bx.drawImage(c,0,0);bx.filter='none';
+    if(!atmo){const bl=cv(CW,CH),bx=bl.getContext('2d');bx.filter=`blur(${fallback?2.2:1.3}px)`;bx.drawImage(c,0,0);bx.filter='none';
     bx.globalCompositeOperation='destination-in';
     const mk=bx.createLinearGradient(0,0,0,CH);
     mk.addColorStop(0,'rgba(0,0,0,.9)');mk.addColorStop((hz-60)/CH,'rgba(0,0,0,.75)');mk.addColorStop((hz+10)/CH,'rgba(0,0,0,0)');
     mk.addColorStop(.86,'rgba(0,0,0,0)');mk.addColorStop(1,'rgba(0,0,0,.7)');
-    bx.fillStyle=mk;bx.fillRect(0,0,CW,CH);x.drawImage(bl,0,0);
+    bx.fillStyle=mk;bx.fillRect(0,0,CW,CH);x.drawImage(bl,0,0)}
     // 调色：回退图先整体压暗降饱和；统一叠加场景色调
     const C=cfg();
     if(fallback){x.fillStyle=`rgba(10,8,14,${C.dark})`;x.fillRect(0,0,CW,CH);
@@ -63,9 +71,9 @@ const BSTAGE=(()=>{
     gr.addColorStop(.8,'rgba(6,4,10,.04)');gr.addColorStop(1,'rgba(6,4,10,.32)');
     x.fillStyle=gr;x.fillRect(0,0,CW,CH);
     // 地平线薄雾带（空气透视）
-    const hzg=x.createLinearGradient(0,hz-70,0,hz+40);const mc=C.mist;
+    if(!atmo){const hzg=x.createLinearGradient(0,hz-70,0,hz+40);const mc=C.mist;
     hzg.addColorStop(0,`rgba(${mc},0)`);hzg.addColorStop(.62,`rgba(${mc},.16)`);hzg.addColorStop(1,`rgba(${mc},0)`);
-    x.fillStyle=hzg;x.fillRect(0,hz-70,CW,110);
+    x.fillStyle=hzg;x.fillRect(0,hz-70,CW,110)}
     // 左右框景再压暗，把视线收到中场
     const sg=x.createLinearGradient(0,0,CW,0);
     sg.addColorStop(0,'rgba(4,3,8,.3)');sg.addColorStop(.12,'rgba(4,3,8,0)');sg.addColorStop(.88,'rgba(4,3,8,0)');sg.addColorStop(1,'rgba(4,3,8,.3)');
@@ -75,6 +83,7 @@ const BSTAGE=(()=>{
     const bg=(B&&B.bg)||'',nm=sceneOf(),bb=BB_ASSET[nm]||null;if(bb)want(bb);   // 只请求登记过的 bb_*，杜绝 404
     let key,fb;
     if(bb&&ok(IMG[bb])){key=bb;fb=false}else{key=bg;fb=true}
+    atmoOn=ATMO.has(key)?(cfg().atmo||null):null;
     const ck=key+(ok(IMG[key])?'':'#map');
     if(!cache.has(ck))cache.set(ck,build(key,fb));
     return cache.get(ck)}
@@ -88,6 +97,7 @@ const BSTAGE=(()=>{
 
   function drawBg(){
     const c=bgCanvas();g.imageSmoothingEnabled=true;g.drawImage(c,-BLEED,-BLEED);
+    if(atmoOn)return;                            // 氛围版：脚下柔影由 bfx.shadow 画，不再叠提亮光斑
     // 角色脚下柔和光斑（叠加提亮）
     const p=pool();g.save();g.globalCompositeOperation='lighter';
     for(const u of B.units){if(u.hp<=0&&u.side==='foe')continue;const h=unitH(u),w=Math.max(110,h*.9)*(u.hp>0?1:.7);
@@ -96,7 +106,11 @@ const BSTAGE=(()=>{
 
   function gradeWorld(){
     // 让单位与特效吃到同一场景环境色；在单位 UI 前绘制，不改变血条与文字。
-    g.save();g.globalCompositeOperation='soft-light';g.globalAlpha=.8;g.fillStyle=cfg().tint;g.fillRect(0,0,W,H);g.restore()}
+    g.save();g.globalCompositeOperation='soft-light';g.globalAlpha=.8;g.fillStyle=cfg().tint;g.fillRect(0,0,W,H);g.restore();
+    if(atmoOn)vignette(atmoOn.vig)}
+  function vignette(s){const[x0,y0]=CAM.toWorld(0,0),[x1,y1]=CAM.toWorld(W,H),cx=(x0+x1)/2,cy=y0+(y1-y0)*.55,r=Math.hypot(x1-x0,y1-y0)/2;
+    const gr=g.createRadialGradient(cx,cy,r*.45,cx,cy,r*1.05);gr.addColorStop(0,'rgba(6,4,8,0)');gr.addColorStop(1,`rgba(6,4,8,${s})`);
+    g.save();g.fillStyle=gr;g.fillRect(x0,y0,x1-x0,y1-y0);g.restore()}
 
   // ── 前景：像素粒子与低处薄雾 ──
   const LW=W/PX,LH=H/PX;
@@ -146,7 +160,9 @@ const BSTAGE=(()=>{
       else{g.globalAlpha=fade*(.25+.2*Math.sin(p.ph));g.fillStyle=`rgb(${p.c})`;g.fillRect(X,Y,PX,PX)}}
     g.restore()}
 
-  return {drawBg,drawFront,gradeWorld,sceneOf,HORIZON};
+  return {drawBg,drawFront,gradeWorld,sceneOf,HORIZON,
+    atmo:()=>atmoOn,                            // 当前氛围配置（bfx 画柔影、受光用）
+    assetFor:bg=>BB_ASSET[bbName(bg)]||null};   // 开战预载：剧情传的背景键对应的氛围版文件
 })();
 
 function drawBattleBg(){BSTAGE.drawBg();stageActive(performance.now())}
