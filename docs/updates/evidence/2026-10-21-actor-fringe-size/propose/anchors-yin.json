@@ -1,0 +1,322 @@
+{
+ "yin": {
+  "family": "right",
+  "ref": "yin_normal",
+  "anchor": [
+   0.1836,
+   0.3845,
+   0.5382
+  ],
+  "score": 0.65,
+  "current": {
+   "top": 33.13,
+   "height": 92.24,
+   "dx": -9.6
+  },
+  "proposed": {
+   "top": 30.44,
+   "height": 100.55,
+   "dx": -3.82
+  }
+ },
+ "yin_angry": {
+  "family": "right",
+  "ref": "yin_normal",
+  "anchor": [
+   0.2111,
+   0.4514,
+   0.5315
+  ],
+  "score": 0.793,
+  "current": {
+   "top": 30.75,
+   "height": 85.23,
+   "dx": -3.4
+  },
+  "proposed": {
+   "top": 31.15,
+   "height": 84.06,
+   "dx": -3.15
+  }
+ },
+ "yin_normal": {
+  "family": "right",
+  "ref": "yin_normal",
+  "anchor": [
+   0.202,
+   0.426,
+   0.607
+  ],
+  "score": 1.0,
+  "current": {
+   "top": 30.68,
+   "height": 90.18,
+   "dx": -10.7
+  },
+  "proposed": {
+   "top": 30.68,
+   "height": 90.18,
+   "dx": -10.7
+  }
+ },
+ "yin_sad": {
+  "family": "right",
+  "ref": "yin_normal",
+  "anchor": [
+   0.2433,
+   0.4796,
+   0.6642
+  ],
+  "score": 0.698,
+  "current": {
+   "top": 27.74,
+   "height": 87.07,
+   "dx": -15.3
+  },
+  "proposed": {
+   "top": 28.1,
+   "height": 85.48,
+   "dx": -16.42
+  }
+ },
+ "yin_serious": {
+  "family": "right",
+  "ref": "yin_normal",
+  "anchor": [
+   0.1865,
+   0.4171,
+   0.5382
+  ],
+  "score": 0.701,
+  "current": {
+   "top": 30.8,
+   "height": 91.4,
+   "dx": -3.8
+  },
+  "proposed": {
+   "top": 32.56,
+   "height": 87.6,
+   "dx": -3.82
+  }
+ },
+ "yin_smile": {
+  "family": "right",
+  "ref": "yin_normal",
+  "anchor": [
+   0.1919,
+   0.4225,
+   0.5453
+  ],
+  "score": 0.681,
+  "current": {
+   "top": 30.03,
+   "height": 95.28,
+   "dx": -4.5
+  },
+  "proposed": {
+   "top": 32.09,
+   "height": 87.6,
+   "dx": -4.53
+  }
+ },
+ "yin_surprise": {
+  "family": "right",
+  "ref": "yin_normal",
+  "anchor": [
+   0.1875,
+   0.4413,
+   0.5362
+  ],
+  "score": 0.68,
+  "current": {
+   "top": 33.37,
+   "height": 79.22,
+   "dx": -4.1
+  },
+  "proposed": {
+   "top": 33.98,
+   "height": 79.59,
+   "dx": -3.62
+  }
+ },
+ "yin_worry": {
+  "family": "right",
+  "ref": "yin_normal",
+  "anchor": [
+   0.1999,
+   0.4305,
+   0.5364
+  ],
+  "score": 0.711,
+  "current": {
+   "top": 27.53,
+   "height": 97.58,
+   "dx": -3.5
+  },
+  "proposed": {
+   "top": 31.39,
+   "height": 87.6,
+   "dx": -3.64
+  }
+ },
+ "yin_angry_left": {
+  "family": "left",
+  "ref": "yin_normal_left",
+  "anchor": [
+   0.2541,
+   0.4412,
+   0.3975
+  ],
+  "score": 0.73,
+  "current": {
+   "top": 19.64,
+   "height": 122.42,
+   "dx": 8.0
+  },
+  "proposed": {
+   "top": 21.47,
+   "height": 107.96,
+   "dx": 10.25
+  }
+ },
+ "yin_left": {
+  "family": "left",
+  "ref": "yin_normal_left",
+  "anchor": [
+   0.1804,
+   0.3706,
+   0.4613
+  ],
+  "score": 0.544,
+  "current": {
+   "top": 31.56,
+   "height": 102.06,
+   "dx": 4.79
+  },
+  "proposed": {
+   "top": 29.74,
+   "height": 106.2,
+   "dx": 3.87
+  }
+ },
+ "yin_normal_left": {
+  "family": "left",
+  "ref": "yin_normal_left",
+  "anchor": [
+   0.194,
+   0.404,
+   0.43
+  ],
+  "score": 1.0,
+  "current": {
+   "top": 30.26,
+   "height": 96.06,
+   "dx": 7.03
+  },
+  "proposed": {
+   "top": 30.24,
+   "height": 96.19,
+   "dx": 7.0
+  }
+ },
+ "yin_sad_left": {
+  "family": "left",
+  "ref": "yin_normal_left",
+  "anchor": [
+   0.223,
+   0.4581,
+   0.3715
+  ],
+  "score": 0.657,
+  "current": {
+   "top": 27.71,
+   "height": 89.67,
+   "dx": 13.53
+  },
+  "proposed": {
+   "top": 29.74,
+   "height": 85.92,
+   "dx": 12.85
+  }
+ },
+ "yin_serious_left": {
+  "family": "left",
+  "ref": "yin_normal_left",
+  "anchor": [
+   0.2011,
+   0.3823,
+   0.3989
+  ],
+  "score": 0.763,
+  "current": {
+   "top": 24.88,
+   "height": 123.17,
+   "dx": 9.8
+  },
+  "proposed": {
+   "top": 26.48,
+   "height": 111.48,
+   "dx": 10.11
+  }
+ },
+ "yin_smile_left": {
+  "family": "left",
+  "ref": "yin_normal_left",
+  "anchor": [
+   0.2021,
+   0.3905,
+   0.3862
+  ],
+  "score": 0.618,
+  "current": {
+   "top": 26.58,
+   "height": 108.49,
+   "dx": 10.99
+  },
+  "proposed": {
+   "top": 27.23,
+   "height": 107.22,
+   "dx": 11.38
+  }
+ },
+ "yin_surprise_left": {
+  "family": "left",
+  "ref": "yin_normal_left",
+  "anchor": [
+   0.2309,
+   0.4238,
+   0.3515
+  ],
+  "score": 0.644,
+  "current": {
+   "top": 24.4,
+   "height": 110.38,
+   "dx": 13.0
+  },
+  "proposed": {
+   "top": 24.72,
+   "height": 104.72,
+   "dx": 14.85
+  }
+ },
+ "yin_worry_left": {
+  "family": "left",
+  "ref": "yin_normal_left",
+  "anchor": [
+   0.2144,
+   0.4055,
+   0.3846
+  ],
+  "score": 0.64,
+  "current": {
+   "top": 26.71,
+   "height": 105.53,
+   "dx": 11.72
+  },
+  "proposed": {
+   "top": 26.24,
+   "height": 105.7,
+   "dx": 11.54
+  }
+ }
+}

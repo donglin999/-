@@ -4,14 +4,12 @@
 // 2026-10-19 风起主线批次：从 js/qihe-chapter.js strangerScene('c1-s1') 搬入。宋先生的身份不点破（F-0004）。
 // 2026-10-19 剧情三道关改写（戏眼卡 xiaojianghu/docs/design/scripts/briefs/fengqi-main-actors-brief.json）：补播旁白改成萧白心里话；宋先生追问后多一句“还有两家呢”（他已知道还有人要来）；给衣裳那句缩短。疑点（叫出徐令仪、听到周先生停手、回纹针脚）原样保留。
 // 2026-10-19 冷读审读后再改：给衣裳的理由改成“短打不挡风”（他已换了周婶给的短打）。
+// 2026-10-21 用户改定：宋先生线改为可选、可拒绝，不再挡主线、不再补播（opening-pei-disguise.md）。去掉补播的 auto 参数与开头心里话；只有答应过宋先生才会出现。
+// 2026-10-23 剧本三（归烬堂支线，qihe-mojiao-observer-sideline.md 第三节宋二／交叉点 X2）：认识蔺管事、听过“站位谁问都别给”的（records.lamp.warned），选项前多一句心里话，不加选项。待用户过目，未 --approve。
 INCLUDE ../_共用/externals.ink
 INCLUDE ../_共用/externals-风起主线.ink
-VAR auto = false // 参数：没主动上山，主线推进前补播
 
 === fq_song_report ===
-{ auto:
-    萧白：（宋先生说过明早还在倒木旁……先去一趟。） #id:C1-S1-00
-}
 萧白：（他还坐在那儿，像是从昨天起就没挪过窝。） #id:C1-S1-01
 宋先生：来了。昨晚药棚门口热闹，是哪一家？ #id:C1-S1-02
 萧白：正道盟。一个姓徐的执事，带着护院。 #id:C1-S1-03
@@ -19,6 +17,9 @@ VAR auto = false // 参数：没主动上山，主线推进前补播
 萧白：您认识她？ #id:C1-S1-05
 宋先生：正道盟的执事，跑账的谁没听说过几个。 #id:C1-S1-06
 宋先生：她带了几个护院？都站在哪儿？ #id:C1-S1-07 #mood:firm
+{ flag("qiheChapter.records.lamp.warned"):
+    萧白：（算命先生说过，站位谁问都别给……） #id:C1-S1-L1
+}
 * [“我都看清了。”]
     ~ set_flag("qiheChapter.records.stranger_report", "full")
     萧白：四个护院，两个守前路，两个跟着她。她要叶姑娘签封存的凭据，叶姑娘没签。 #id:C1-S1-A1

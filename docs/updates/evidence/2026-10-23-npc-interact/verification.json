@@ -1,0 +1,185 @@
+{
+ "date": "2026-10-23",
+ "entry": "http://127.0.0.1:8792/?uiReview=1&play=1#qihe-map",
+ "viewport": [
+  1600,
+  900
+ ],
+ "shots": [
+  {
+   "file": "07-first-night-south.png",
+   "note": "第一夜南村口：只有随从（护院、帮众）与店家、药商，徐令仪、岑霜不在图上"
+  },
+  {
+   "file": "01-ring-xu.png",
+   "note": "南村口靠近徐令仪：托（拜帖跑腿）朱印聚焦；教、比为淡墨空心印"
+  },
+  {
+   "file": "01b-ring-xu-bi.png",
+   "note": "同上，转到“比”：小签写原因（还不懂讨教的规矩）"
+  },
+  {
+   "file": "03-profile-xu-far.png",
+   "note": "查看徐令仪（萧白 1 级）：装备、随身物品看得见；武学只认路数；根基只分高中低；等级“高你许多”"
+  },
+  {
+   "file": "02-ring-luheng-teach.png",
+   "note": "西田埂陆衡：聚焦“教”（护路棍法 · 丙）；“比”淡墨（还不懂讨教的规矩）"
+  },
+  {
+   "file": "02b-teach-luheng.png",
+   "note": "请教卷：护路棍法一重·横杆护身，条件与所得；拜请指点进现有学棍过场"
+  },
+  {
+   "file": "04-profile-ye-clear.png",
+   "note": "查看叶蘅（萧白 1 级、叶蘅 3 级）：一眼看穿，根基精确"
+  },
+  {
+   "file": "05a-ring-retainer.png",
+   "note": "邻村护院：剧情首场“比”为朱印，小签“徐令仪已点头”；邻村没有现成台词，不出“谈”"
+  },
+  {
+   "file": "05-spar-invite-retainer.png",
+   "note": "切磋邀请卷：对手档位、收手规则、经验三档与历练、学会切磋"
+  },
+  {
+   "file": "05b-spar-result.png",
+   "note": "护院首场打完：胜／平／败、经验、历练，学会切磋"
+  },
+  {
+   "file": "06-spar-refuse-xu.png",
+   "note": "学会切磋后，徐令仪（22 级）差距过大：“比”淡墨，小签“差距过大 · 她不接”"
+  },
+  {
+   "file": "06b-spar-invite-bailiff.png",
+   "note": "差役（10 级）可切磋：普通邀请卷"
+  }
+ ],
+ "checks": {
+  "firstNight": {
+   "south": [
+    "返回 · 栖河村",
+    "前往 · 沿河装卸路",
+    "前往 · 田埂药车道",
+    "药商",
+    "店家",
+    "护院",
+    "帮众",
+    "枯枝",
+    "芦苇"
+   ],
+   "east": [
+    "返回 · 栖河村",
+    "返回 · 南村口 · 客栈外院",
+    "采办随从",
+    "差役",
+    "芦苇",
+    "芦苇",
+    "野草药"
+   ]
+  },
+  "day1": {
+   "day1": [],
+   "afterXu": [
+    "徐令仪"
+   ],
+   "letterOpen": true,
+   "accountOpen": false
+  },
+  "ringXu": {
+   "items": [
+    "托:story:拜帖跑腿",
+    "谈:normal:",
+    "观:normal:装备 · 随身 · 武学",
+    "礼:off:尚未开放",
+    "教:off:熟络之后再来",
+    "比:off:还不懂讨教的规矩"
+   ],
+   "focus": "tuo"
+  },
+  "profileXu": {
+   "tier": "rough",
+   "text": "高你许多",
+   "bag": [
+    "收货单附页",
+    "拜帖",
+    "金疮药",
+    "羊肉笼饼",
+    "短锋相照丙",
+    "笔管坠乙",
+    "银两"
+   ]
+  },
+  "ringLu": {
+   "items": [
+    "谈:normal:",
+    "观:normal:装备 · 随身 · 武学",
+    "礼:off:尚未开放",
+    "教:normal:护路棍法 · 丙",
+    "比:off:还不懂讨教的规矩"
+   ],
+   "focus": "jiao"
+  },
+  "clinic": [
+   "clinic_interior-out:药棚前门 · 回村",
+   "aunt:周婶",
+   "work:备药案",
+   "daily-ye:叶蘅"
+  ],
+  "yePos": {
+   "scene": "prologue_clinic_interior",
+   "near": "叶蘅"
+  },
+  "profileYe": {
+   "tier": "clear",
+   "text": "等级 3"
+  },
+  "ringRetainer": {
+   "items": [
+    "观:normal:装备 · 随身 · 武学",
+    "礼:off:尚未开放",
+    "比:story:徐令仪已点头"
+   ],
+   "focus": "bi"
+  },
+  "sparResult": {
+   "text": "败与护院切磋 · 经验 +15 · 江湖历练 +10学会「切磋」：此后可向大多数习武的人讨教。按 E 或点击继续",
+   "learned": true,
+   "insight": {
+    "story:evidence-v2": 80,
+    "spar:retainer:first:opening": 10
+   },
+   "rec": {
+    "count": 1,
+    "first": true,
+    "firstWin": false,
+    "stage": "opening",
+    "slots": {}
+   },
+   "hp": [
+    126,
+    126
+   ]
+  },
+  "ringXuRefuse": {
+   "items": [
+    "谈:normal:",
+    "观:normal:装备 · 随身 · 武学",
+    "礼:off:尚未开放",
+    "教:off:熟络之后再来",
+    "比:off:差距过大 · 她不接"
+   ],
+   "focus": "bi"
+  },
+  "ringBailiff": {
+   "items": [
+    "观:normal:装备 · 随身 · 武学",
+    "礼:off:尚未开放",
+    "教:off:切磋过再来",
+    "比:normal:点到为止"
+   ],
+   "focus": "guan"
+  }
+ },
+ "errors": []
+}

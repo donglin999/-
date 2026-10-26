@@ -5,7 +5,7 @@
 //   （戏眼卡 xiaojianghu/docs/design/scripts/briefs/fengqi-reps-actors-brief.json 场 S4-evidence-a/b/c）。删去重新核对“同一时辰同一侧口”（第三夜已当众说过）；
 //   字幕改为“邻村”（对证在撤离后的落脚处，主线 evidenceBody 换场到 refuge）；原底单的字幕卡改成周婶念出来。
 //   参数 met：之前见过三方（事件 three-meeting）；没见过的旧存档先补三人自报身份。
-//   参数 watched：萧白替宋先生数过人（事件 c1-00b），才有“路口那个人是谁的”一段和是否说出宋先生的选择。
+//   参数 watched：萧白答应过替宋先生数人（records.stranger_deal 为 accepted／asked_first，2026-10-21 起），才有“路口那个人是谁的”一段和是否说出宋先生的选择。
 //   参数 clash：交锋打过（p.clashVersion）时，徐令仪、岑霜认责的说法不同。
 //   参数 has_coat、has_abacus：萧白手上还留着宋先生给的青绫行衣、乌木算珠。
 INCLUDE ../_共用/externals.ink

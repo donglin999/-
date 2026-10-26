@@ -1,0 +1,162 @@
+{
+ "zhong": {
+  "family": "right",
+  "ref": "zhong_normal",
+  "anchor": [
+   0.2666,
+   0.5076,
+   0.4784
+  ],
+  "score": 0.672,
+  "current": {
+   "top": 29.24,
+   "height": 74.76,
+   "dx": 2.34
+  },
+  "proposed": {
+   "top": 26.55,
+   "height": 83.82,
+   "dx": 2.16
+  }
+ },
+ "zhong_angry": {
+  "family": "right",
+  "ref": "zhong_normal",
+  "anchor": [
+   0.2604,
+   0.5042,
+   0.4606
+  ],
+  "score": 0.757,
+  "current": {
+   "top": 29.47,
+   "height": 73.87,
+   "dx": 8.74
+  },
+  "proposed": {
+   "top": 27.32,
+   "height": 82.85,
+   "dx": 3.94
+  }
+ },
+ "zhong_normal": {
+  "family": "right",
+  "ref": "zhong_normal",
+  "anchor": [
+   0.263,
+   0.536,
+   0.413
+  ],
+  "score": 1.0,
+  "current": {
+   "top": 29.47,
+   "height": 73.87,
+   "dx": 8.74
+  },
+  "proposed": {
+   "top": 29.44,
+   "height": 73.99,
+   "dx": 8.7
+  }
+ },
+ "zhong_sad": {
+  "family": "right",
+  "ref": "zhong_normal",
+  "anchor": [
+   0.2713,
+   0.5422,
+   0.4137
+  ],
+  "score": 0.517,
+  "current": {
+   "top": 29.47,
+   "height": 73.87,
+   "dx": 8.74
+  },
+  "proposed": {
+   "top": 28.67,
+   "height": 74.57,
+   "dx": 8.63
+  }
+ },
+ "zhong_serious": {
+  "family": "right",
+  "ref": "zhong_normal",
+  "anchor": [
+   0.2729,
+   0.5261,
+   0.4592
+  ],
+  "score": 0.557,
+  "current": {
+   "top": 29.47,
+   "height": 73.87,
+   "dx": 8.74
+  },
+  "proposed": {
+   "top": 27.13,
+   "height": 79.78,
+   "dx": 4.08
+  }
+ },
+ "zhong_smile": {
+  "family": "right",
+  "ref": "zhong_normal",
+  "anchor": [
+   0.2571,
+   0.5067,
+   0.4562
+  ],
+  "score": 0.711,
+  "current": {
+   "top": 29.47,
+   "height": 73.87,
+   "dx": 8.74
+  },
+  "proposed": {
+   "top": 28.09,
+   "height": 80.93,
+   "dx": 4.38
+  }
+ },
+ "zhong_surprise": {
+  "family": "right",
+  "ref": "zhong_normal",
+  "anchor": [
+   0.2617,
+   0.5206,
+   0.4397
+  ],
+  "score": 0.642,
+  "current": {
+   "top": 29.47,
+   "height": 73.87,
+   "dx": 8.74
+  },
+  "proposed": {
+   "top": 28.48,
+   "height": 78.02,
+   "dx": 6.03
+  }
+ },
+ "zhong_worry": {
+  "family": "right",
+  "ref": "zhong_normal",
+  "anchor": [
+   0.275,
+   0.5445,
+   0.4159
+  ],
+  "score": 0.608,
+  "current": {
+   "top": 29.47,
+   "height": 73.87,
+   "dx": 8.74
+  },
+  "proposed": {
+   "top": 28.29,
+   "height": 74.95,
+   "dx": 8.41
+  }
+ }
+}

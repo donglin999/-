@@ -1,0 +1,164 @@
+/* 人物交互框架界面（2026-10-23 开发一）。照 ../xiaojianghu/docs/design/npc-interaction-v2.md 第 2.1 节甲「金石朱印」与渲染图
+   review/npc-interaction-v2/07、08、09、02、03、05b，review/npc-spar/01。尺寸按 1600×900 画面写，js 把整层按游戏区宽度等比缩放。
+   装饰概念图（石刻残边方印、乌木挂匾等，art_sources/npc-ring-menu-concept-20261022/）未采用，这里用 CSS 与 SVG 画同样的形，正式化时再换图集。 */
+#qn-layer{position:absolute;left:0;top:0;width:1600px;height:900px;z-index:58;pointer-events:none;font-family:"Songti SC","Noto Serif SC","STSong",serif;color:#1f1c16}
+#qn-layer[hidden]{display:none!important}
+#qn-layer *{box-sizing:border-box}
+#qn-layer .qn-catch{position:absolute;inset:0;pointer-events:auto;background:transparent}
+#qn-layer .qn-catch.dim{background:radial-gradient(ellipse at var(--fx,50%) var(--fy,50%),rgba(10,12,10,0) 26%,rgba(10,12,10,.34) 80%)}
+
+/* ── 墨印 ── */
+.qn-ring{position:absolute;left:0;top:0;width:0;height:0}
+.qn-arc{position:absolute;pointer-events:none;overflow:visible}
+.qn-arc path,.qn-arc line,.qn-arc rect{vector-effect:non-scaling-stroke}
+.qn-arc .draw{stroke-dasharray:var(--len,600);stroke-dashoffset:var(--len,600);animation:qn-draw .2s ease-out forwards}
+@keyframes qn-draw{to{stroke-dashoffset:0}}
+.qn-seal{position:absolute;width:36px;height:36px;margin:-18px 0 0 -18px;display:flex;align-items:center;justify-content:center;pointer-events:auto;cursor:pointer;
+ font-family:"Weibei SC","Weibei TC","STKaiti","Kaiti SC","Songti SC",serif;font-size:21px;line-height:1;color:#f1e3c2;
+ transform:rotate(var(--rot,0deg)) scale(var(--sc,1));transition:width .1s,height .1s,margin .1s,font-size .1s;filter:drop-shadow(0 2px 1.5px rgba(0,0,0,.55));
+ animation:qn-stamp .12s cubic-bezier(.3,1.6,.6,1) backwards;animation-delay:var(--delay,0ms)}
+@keyframes qn-stamp{from{opacity:0;transform:rotate(var(--rot,0deg)) scale(1.15)}to{opacity:1}}
+.qn-seal .face{position:absolute;inset:0;clip-path:var(--edge);background:
+  radial-gradient(circle at 30% 25%,rgba(255,255,255,.07),transparent 40%),
+  repeating-linear-gradient(37deg,rgba(255,255,255,.025) 0 2px,transparent 2px 5px),
+  radial-gradient(circle at 70% 80%,rgba(0,0,0,.25),transparent 55%),#1e231f}
+.qn-seal .face:after{content:"";position:absolute;inset:3.5px;border:1px solid #c4aa76;border-radius:1.5px;opacity:.9;clip-path:var(--edge2)}
+.qn-seal .g{position:relative;z-index:2;text-shadow:0 0 1px rgba(0,0,0,.6);transform:translateY(1px)}
+.qn-seal.story .face{background:radial-gradient(circle at 30% 25%,rgba(255,230,200,.12),transparent 42%),repeating-linear-gradient(-33deg,rgba(0,0,0,.05) 0 2px,transparent 2px 6px),#96302a}
+.qn-seal.story .face:after{border-color:#f3e6cc}
+.qn-seal.story{color:#fbefd6}
+.qn-seal.off{color:rgba(30,34,30,.78);filter:none}
+.qn-seal.off .face{background:rgba(244,236,216,.3);box-shadow:inset 0 0 0 2.4px rgba(24,28,24,.86)}
+.qn-seal.off .face:after{border-color:rgba(30,34,30,.55)}
+.qn-seal.off .g{text-shadow:0 0 3px rgba(244,234,210,.85),0 0 1px rgba(244,234,210,.9)}
+.qn-seal.focus{width:48px;height:48px;margin:-24px 0 0 -24px;font-size:28px;filter:drop-shadow(0 0 6px rgba(239,206,131,.65)) drop-shadow(0 2px 2px rgba(0,0,0,.55))}
+.qn-seal.focus:before{content:"";position:absolute;inset:-6px;border:1.5px solid #c4553d;border-radius:4px;box-shadow:0 0 0 1px rgba(255,236,190,.35) inset,0 0 7px 1px rgba(239,206,131,.55);animation:qn-breath 1.6s ease-in-out infinite}
+.qn-seal.off.focus{filter:drop-shadow(0 0 5px rgba(244,234,210,.7))}
+.qn-seal.off.focus:before{border-style:dashed;border-color:rgba(196,85,61,.9);box-shadow:none}
+@keyframes qn-breath{0%,100%{opacity:.7}50%{opacity:.5}}
+.qn-seal.press{--sc:.92}
+.qn-seal.nudge{animation:qn-nudge .22s}
+@keyframes qn-nudge{25%{translate:-3px 0}75%{translate:3px 0}}
+.qn-ring.closing .qn-seal,.qn-ring.closing .qn-arc,.qn-ring.closing .qn-name,.qn-ring.closing .qn-lab,.qn-ring.closing .qn-keys{transition:opacity .15s;opacity:0}
+
+/* 小签 */
+.qn-lab{position:absolute;height:34px;padding:0 14px 0 12px;display:flex;align-items:center;gap:9px;white-space:nowrap;pointer-events:none;
+ background:linear-gradient(90deg,rgba(247,239,220,.97),rgba(240,229,203,.97));clip-path:polygon(0 8%,3% 0,97% 4%,100% 50%,97% 96%,2% 100%,0 92%);
+ filter:drop-shadow(0 2px 3px rgba(0,0,0,.45));animation:qn-fade .1s ease-out}
+.qn-lab:before{content:"";position:absolute;inset:0;background:url(../assets/ui/jianghu-v4/background.webp) center/400px auto;opacity:.32;mix-blend-mode:multiply}
+.qn-lab:after{content:"";position:absolute;top:0;bottom:0;width:4px;background:#a33f2f}
+.qn-lab.l:after{right:0}.qn-lab.r:after{left:0}
+.qn-lab b{position:relative;font-size:18px;letter-spacing:5px;color:#1d1a15;font-weight:700}
+.qn-lab i{position:relative;font-style:normal;font-size:12.5px;letter-spacing:1.5px;color:#6b6150;border-left:1px solid rgba(107,97,80,.45);padding-left:9px}
+.qn-lab.off b{color:#8a3a2b}
+@keyframes qn-fade{from{opacity:0}}
+
+/* 名牌：乌木描金挂匾 104×44（含红绳），不挂穗、不加身份小字（第 10 节第 1、2 项） */
+.qn-name{position:absolute;width:104px;height:44px;margin-left:-52px;pointer-events:none;filter:drop-shadow(0 2px 2px rgba(0,0,0,.45))}
+.qn-name svg{position:absolute;left:0;top:0}
+.qn-name b{position:absolute;left:0;right:0;top:19px;text-align:center;font-weight:700;font-size:15px;letter-spacing:5px;padding-left:5px;color:#efd9a6;text-shadow:0 1px 0 #000}
+.qn-keys{position:absolute;display:flex;gap:6px;align-items:center;font-size:12px;letter-spacing:1px;color:#f2e5c9;text-shadow:0 0 3px #000,0 0 2px #000;white-space:nowrap;pointer-events:none}
+.qn-keys kbd{font:inherit;font-size:11px;min-width:16px;padding:0 4px;text-align:center;border:1px solid rgba(226,194,124,.7);background:rgba(16,20,17,.72);color:#efd9a6;border-radius:2px}
+
+/* ── 卷（请教、切磋）：撕边宣纸 ── */
+.qn-scroll{position:absolute;pointer-events:auto;isolation:isolate;color:#1f1c16;animation:qn-unroll .16s ease-out}
+@keyframes qn-unroll{from{opacity:0;transform:scaleX(.96)}}
+.qn-scroll:before{content:"";position:absolute;inset:0;z-index:-1;background:
+  radial-gradient(ellipse at 6% 40%,rgba(60,56,48,.22),transparent 26%),
+  linear-gradient(rgba(246,240,226,.9),rgba(240,232,212,.92)),url(../assets/ui/jianghu-v4/background.webp) center/cover,#f4ecd8;
+ clip-path:polygon(0.6% 3%,4% 1.2%,9% 2.4%,15% .6%,22% 2%,30% .8%,38% 2.2%,46% .4%,55% 1.8%,63% .6%,72% 2.4%,80% .8%,88% 2%,95% .6%,99.4% 3%,98.6% 12%,99.6% 22%,98.4% 34%,99.8% 46%,98.6% 58%,99.6% 70%,98.2% 82%,99.4% 92%,98.8% 97.6%,92% 99.2%,84% 98%,76% 99.6%,67% 98.2%,58% 99.4%,49% 98%,40% 99.6%,31% 98.4%,22% 99.8%,13% 98.2%,5% 99.4%,.8% 97.4%,1.6% 88%,.4% 76%,1.8% 64%,.6% 52%,1.6% 40%,.2% 28%,1.4% 16%);
+ filter:drop-shadow(0 6px 14px rgba(0,0,0,.35))}
+.qn-scroll .ph{display:flex;align-items:baseline;gap:16px}
+.qn-scroll .ph b{font-size:28px;letter-spacing:12px}
+.qn-scroll .ph span{font-size:13px;color:#7a7060;letter-spacing:2px}
+.qn-scroll .row{display:flex;gap:18px;margin-top:16px;align-items:flex-start}
+.qn-scroll .t1{font-size:21px;letter-spacing:3px;font-weight:700}
+.qn-scroll .t1 small{font-size:14px;font-weight:400;letter-spacing:2px;color:#4c463a;margin-left:8px}
+.qn-scroll .d{font-size:14px;line-height:1.7;color:#3b352a;margin-top:4px;max-width:390px}
+.qn-scroll .req{margin-top:8px;font-size:14px;line-height:1.9;letter-spacing:1px}
+.qn-scroll .ok{color:#2f5a4f;font-weight:700;margin-left:6px}
+.qn-scroll .no{color:#8a3a2b;font-weight:700;margin-left:6px}
+.qn-scroll .gain{font-size:14px;letter-spacing:1px;margin-top:2px}
+.qn-scroll .who{margin-top:14px;font-size:15px;letter-spacing:1.5px;display:flex;gap:14px;align-items:center}
+.qn-scroll .tier{display:inline-block;font-size:12px;padding:1px 7px;border:1px solid #3d6f62;color:#3d6f62;letter-spacing:2px}
+.qn-scroll .rule{margin-top:10px;font-size:13.5px;line-height:1.75;color:#3b352a;max-width:520px}
+.qn-scroll dl{margin:10px 0 0;display:grid;grid-template-columns:86px 1fr;row-gap:4px;font-size:14px;letter-spacing:1px}
+.qn-scroll dt{color:#7a7060}.qn-scroll dd{margin:0}.qn-scroll dd b{color:#1d1a15}
+.qn-scroll .grade{display:inline-block;font-size:12px;padding:1px 6px;border:1px solid currentColor;letter-spacing:1px;margin-left:6px;font-weight:400}
+.qn-scroll .first{margin-top:10px;font-size:14px;letter-spacing:1px;color:#8a3a2b;font-weight:700}
+.qn-scroll .foot{position:absolute;left:58px;right:52px;bottom:30px;display:flex;align-items:center;gap:22px}
+.qn-btn{display:flex;align-items:center;gap:10px;font-size:16px;letter-spacing:4px;cursor:pointer;background:none;border:0;padding:0;color:inherit;font-family:inherit}
+.qn-btn .qn-seal{position:relative;margin:0;animation:none;width:36px;height:36px;font-size:20px}
+.qn-btn.focus .qn-seal{box-shadow:0 0 0 2px rgba(196,85,61,.9),0 0 8px rgba(239,206,131,.6)}
+.qn-scroll .tip{margin-left:auto;font-size:12.5px;color:#7a7060;letter-spacing:1px;text-align:right;line-height:1.6;white-space:pre-line}
+.qn-ico{position:relative;flex:none;width:78px;height:78px;display:flex;align-items:center;justify-content:center}
+.qn-ico:before{content:"";position:absolute;inset:4px;border-radius:50%;border:5px solid rgba(34,32,28,.5);border-left-color:rgba(34,32,28,.16);border-bottom-color:rgba(34,32,28,.38);transform:rotate(var(--r,-20deg));filter:blur(.3px)}
+.qn-ico .gl{font-size:26px;font-weight:700;color:#3b352a;position:relative}
+.qn-ico .gl.dim{color:#9a917e}
+.qn-ico>span:not(.gl):not(.qty):not(.mk){position:relative}
+.qn-ico>img{position:relative;width:54px;height:54px;object-fit:contain}
+
+/* ── 查看页（逸剑观察页式，图 02、03） ── */
+.qn-page{position:absolute;inset:0;pointer-events:auto;overflow:hidden;animation:qn-fade .16s ease-out;
+ background:linear-gradient(rgba(246,240,226,.8),rgba(246,240,226,.8)),url(../assets/ui/jianghu-v4/background.webp) center/cover,#f3ecdc}
+.qn-page .wash{position:absolute;left:-80px;top:560px;width:720px;height:260px;opacity:.35;background:radial-gradient(ellipse at 40% 60%,rgba(40,44,40,.55),transparent 62%);filter:blur(6px)}
+.qn-page .por{position:absolute;left:-30px;bottom:-40px;height:900px;filter:drop-shadow(0 0 18px rgba(246,240,226,.9))}
+.qn-page .por.px{left:90px;bottom:90px;height:auto;width:360px;image-rendering:pixelated}
+.qn-page .por-wash{position:absolute;left:60px;bottom:40px;width:440px;height:620px;background:radial-gradient(ellipse at 50% 62%,rgba(34,38,34,.34),rgba(34,38,34,.08) 52%,transparent 70%);filter:blur(4px)}
+.qn-page .namecol{position:absolute;left:40px;top:110px;display:flex;gap:10px;align-items:flex-start}
+.qn-page .vname{writing-mode:vertical-rl;font-weight:700;letter-spacing:12px}
+.qn-page .vname.big{font-size:54px;letter-spacing:14px;color:#1b1a16;text-shadow:0 0 10px #f6f0e2,0 0 18px #f6f0e2}
+.qn-page .vname.idt{font-size:16px;letter-spacing:6px;color:#4c463a;margin-top:10px;font-weight:400;text-shadow:0 0 8px #f6f0e2}
+.qn-page .topbar{position:absolute;left:620px;top:40px;display:flex;align-items:baseline;gap:22px}
+.qn-page .topbar .t{font-size:34px;letter-spacing:14px;font-weight:700}
+.qn-page .topbar .place{font-size:15px;color:#7a7060;letter-spacing:4px}
+.qn-page .esc{position:absolute;right:60px;top:34px;display:flex;align-items:center;gap:10px;font-size:14px;color:#7a7060;letter-spacing:2px;cursor:pointer}
+.qn-page .col{position:absolute;top:118px}
+.qn-page .col.mid{left:620px;width:400px}
+.qn-page .col.right{left:1090px;width:460px}
+.qn-page h3{margin:0;font-size:22px;letter-spacing:10px;font-weight:700;display:flex;align-items:baseline;justify-content:space-between}
+.qn-page h3 .hs{font-size:12.5px;letter-spacing:2px;font-weight:400;color:#7a7060}
+.qn-page .brush{margin:4px 0 10px;height:9px;border-radius:50%;background:linear-gradient(90deg,rgba(30,30,26,.62),rgba(30,30,26,.45) 35%,rgba(30,30,26,.28) 75%,rgba(30,30,26,0));filter:blur(.6px);clip-path:polygon(0 40%,8% 20%,30% 30%,60% 18%,85% 35%,100% 50%,82% 70%,55% 78%,25% 70%,4% 80%)}
+.qn-page .power{display:flex;align-items:center;gap:16px;margin-bottom:22px}
+.qn-page .eye{position:relative;width:62px;height:62px;border-radius:50%;display:flex;align-items:center;justify-content:center;writing-mode:vertical-rl;font-size:19px;font-weight:700;letter-spacing:0;color:#f6ecd6;
+ background:radial-gradient(circle at 40% 35%,#a8473a,#7c2a20 70%);box-shadow:0 0 0 2px rgba(246,236,214,.6) inset,0 0 0 3px #8f3a2c,0 2px 4px rgba(0,0,0,.25)}
+.qn-page .eye.civil{background:radial-gradient(circle at 40% 35%,#4a4e48,#2a2d29 70%);box-shadow:0 0 0 2px rgba(246,236,214,.5) inset,0 0 0 3px #3a3d38}
+.qn-page .eye sup{position:absolute;right:-8px;top:-6px;writing-mode:horizontal-tb;font-size:12px;width:20px;height:20px;border-radius:50%;background:#2f5a4f;color:#f6ecd6;display:flex;align-items:center;justify-content:center}
+.qn-page .pl{font-size:24px;letter-spacing:4px;font-weight:700}
+.qn-page .small{font-size:13px;color:#7a7060;letter-spacing:1px}
+.qn-page .eqrow{display:flex;gap:26px;padding-left:4px}
+.qn-page .eq{text-align:center;width:118px;display:flex;flex-direction:column;align-items:center}
+.qn-page .it{display:flex;flex-direction:column;align-items:center;width:96px;position:relative}
+.qn-page .it .nm{font-size:14px;letter-spacing:1px;margin-top:2px;white-space:nowrap}
+.qn-page .it .nm.dim{color:#9a917e}
+.qn-page .it .sb{font-size:12px;color:#8f3a2c;letter-spacing:1px;white-space:nowrap}
+.qn-page .eq .sl{font-size:12px;color:#7a7060;letter-spacing:3px;margin-top:1px}
+.qn-page .qty{position:absolute;right:0;bottom:2px;font-size:13px;color:#1f1c16;background:rgba(246,240,226,.85);padding:0 3px;border-radius:6px}
+.qn-page .mk{position:absolute;left:-4px;top:-2px;font-size:11px;color:#f6ecd6;background:#8f3a2c;border-radius:50%;width:30px;height:30px;display:flex;align-items:center;justify-content:center;transform:rotate(-12deg)}
+.qn-page .mk.look{background:#4c463a;width:auto;height:18px;padding:0 6px;border-radius:9px;left:-10px;top:0;transform:rotate(-8deg);font-size:10.5px}
+.qn-page .esc .qn-seal{position:relative;margin:0;animation:none;width:44px;height:44px;font-size:19px}
+.qn-page .grade{display:inline-block;font-size:12px;padding:1px 6px;border:1px solid currentColor;letter-spacing:1px;margin-left:6px;font-weight:400}
+.qn-page .g-甲,.qn-scroll .g-甲{color:#a0642a}.qn-page .g-乙{color:#5a4f8a}.qn-page .g-丙,.qn-scroll .g-丙{color:#3d6f62}.qn-page .g-丁{color:#6d6656}.qn-page .g-绝{color:#8a2a2a}.qn-scroll .g-常识{color:#6d6656}
+.qn-page .radar{margin-left:50px}
+.qn-page .arts{display:flex;flex-direction:column;gap:12px;padding-left:6px}
+.qn-page .art .an{display:flex;align-items:baseline;gap:8px}
+.qn-page .art .an b{font-size:19px;letter-spacing:3px}
+.qn-page .art .lv{margin-left:auto;font-size:15px;letter-spacing:2px}
+.qn-page .art .mv{font-size:13.5px;color:#4c463a;letter-spacing:1px;margin-top:3px;padding-left:2px}
+.qn-page .dim{color:#9a917e!important}
+.qn-page .bag{display:flex;flex-wrap:wrap;gap:14px 8px;padding-left:2px}
+.qn-page .acts{position:absolute;left:620px;bottom:44px;display:flex;align-items:center;gap:22px}
+.qn-page .act{display:flex;align-items:center;gap:8px;cursor:pointer}
+.qn-page .act .qn-seal{position:relative;margin:0;animation:none;width:46px;height:46px;font-size:25px}
+.qn-page .act .al{font-size:16px;letter-spacing:4px;white-space:nowrap}
+.qn-page .act .al i{display:block;font-style:normal;font-size:11.5px;letter-spacing:1px;color:#7a7060;max-width:120px;overflow:hidden;text-overflow:ellipsis}
+.qn-page .act.focus .qn-seal{box-shadow:0 0 0 2px rgba(196,85,61,.9),0 0 9px rgba(239,206,131,.65)}
+.qn-page .act.off .al{color:#9a917e}
+.qn-page .swap{font-size:13px;color:#7a7060;letter-spacing:1px;margin-left:18px}
+.qn-page .empty{font-size:14px;color:#9a917e;letter-spacing:2px;padding:10px 4px}
+
+/* ── 切磋结果小卷 ── */
+.qn-result{position:absolute;left:50%;top:38%;width:420px;margin-left:-210px;padding:30px 44px 26px;pointer-events:auto}
+.qn-result h4{margin:0;font-size:30px;letter-spacing:14px}
+.qn-result p{margin:10px 0 0;font-size:15px;line-height:1.8;letter-spacing:1px}
+.qn-result .go{margin-top:12px;font-size:12px;color:#7a7060;letter-spacing:2px}

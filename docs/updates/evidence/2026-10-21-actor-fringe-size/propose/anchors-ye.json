@@ -1,0 +1,162 @@
+{
+ "ye": {
+  "family": "right",
+  "ref": "ye_normal",
+  "anchor": [
+   0.215,
+   0.425,
+   0.47
+  ],
+  "score": 0.98,
+  "current": {
+   "top": 28.22,
+   "height": 96.19,
+   "dx": 3.0
+  },
+  "proposed": {
+   "top": 28.22,
+   "height": 96.19,
+   "dx": 3.0
+  }
+ },
+ "ye_angry": {
+  "family": "right",
+  "ref": "ye_normal",
+  "anchor": [
+   0.215,
+   0.425,
+   0.47
+  ],
+  "score": 0.962,
+  "current": {
+   "top": 28.22,
+   "height": 96.19,
+   "dx": 3.0
+  },
+  "proposed": {
+   "top": 28.22,
+   "height": 96.19,
+   "dx": 3.0
+  }
+ },
+ "ye_normal": {
+  "family": "right",
+  "ref": "ye_normal",
+  "anchor": [
+   0.215,
+   0.425,
+   0.47
+  ],
+  "score": 1.0,
+  "current": {
+   "top": 28.22,
+   "height": 96.19,
+   "dx": 3.0
+  },
+  "proposed": {
+   "top": 28.22,
+   "height": 96.19,
+   "dx": 3.0
+  }
+ },
+ "ye_sad": {
+  "family": "right",
+  "ref": "ye_normal",
+  "anchor": [
+   0.215,
+   0.425,
+   0.47
+  ],
+  "score": 0.83,
+  "current": {
+   "top": 28.22,
+   "height": 96.19,
+   "dx": 3.0
+  },
+  "proposed": {
+   "top": 28.22,
+   "height": 96.19,
+   "dx": 3.0
+  }
+ },
+ "ye_serious": {
+  "family": "right",
+  "ref": "ye_normal",
+  "anchor": [
+   0.215,
+   0.425,
+   0.47
+  ],
+  "score": 0.968,
+  "current": {
+   "top": 28.22,
+   "height": 96.19,
+   "dx": 3.0
+  },
+  "proposed": {
+   "top": 28.22,
+   "height": 96.19,
+   "dx": 3.0
+  }
+ },
+ "ye_smile": {
+  "family": "right",
+  "ref": "ye_normal",
+  "anchor": [
+   0.215,
+   0.425,
+   0.47
+  ],
+  "score": 0.969,
+  "current": {
+   "top": 28.22,
+   "height": 96.19,
+   "dx": 3.0
+  },
+  "proposed": {
+   "top": 28.22,
+   "height": 96.19,
+   "dx": 3.0
+  }
+ },
+ "ye_surprise": {
+  "family": "right",
+  "ref": "ye_normal",
+  "anchor": [
+   0.2124,
+   0.4224,
+   0.47
+  ],
+  "score": 0.925,
+  "current": {
+   "top": 28.22,
+   "height": 96.19,
+   "dx": 3.0
+  },
+  "proposed": {
+   "top": 28.47,
+   "height": 96.19,
+   "dx": 3.0
+  }
+ },
+ "ye_worry": {
+  "family": "right",
+  "ref": "ye_normal",
+  "anchor": [
+   0.2124,
+   0.4224,
+   0.47
+  ],
+  "score": 0.928,
+  "current": {
+   "top": 28.22,
+   "height": 96.19,
+   "dx": 3.0
+  },
+  "proposed": {
+   "top": 28.47,
+   "height": 96.19,
+   "dx": 3.0
+  }
+ }
+}

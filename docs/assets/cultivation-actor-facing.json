@@ -1,0 +1,14 @@
+{
+ "说明": "培养 Q 版立绘的脸朝向（看向画面哪一侧）。R＝朝右，L＝朝左，F＝近正面。2026-10-20 按头部 3/4 转向目视判定（看哪侧露耳、五官偏向哪侧），各表情档沿用本人底图的朝向。新立绘入库时在这里登记；这里登记的是本人底图朝向，有朝左版（*_left.png）的人见 js/qh-mode-cultivation-story.js 的 LEFT_READY，站右位时运行时换图；tools_scene/qihe/check_facing.cjs 用它检查剧情站位。",
+ "actors": {
+  "hero": "R", "hero_long": "R", "hero_mid": "R", "hero_short": "R",
+  "zhou": "R", "shimu": "R", "yin": "R", "pei": "R", "peishu": "R",
+  "mo_songnian": "R", "meng_zhiwei": "R", "zhaochuan_courier": "R",
+  "ye": "F", "neighbor": "F", "dou": "F", "man": "F", "goose": "F",
+  "zhong": "L", "fang": "L", "lu": "L"
+ },
+ "duo": {
+  "duo_gn_lamp_father_trial": "R",
+  "duo_gn_lamp_father_left": "L"
+ }
+}

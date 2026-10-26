@@ -21,7 +21,7 @@
   const offsets=[[-110,-25],[110,-30],[-190,70],[180,75],[0,-125],[-80,110],[90,120],[-210,-100],[210,-90]];
   for(const name of cast){const old=original.find(n=>n.name===name&&(!n.show||n.show()));let pos=old&&Math.hypot(old.x*TS-player.x,old.y*TS-player.y)<250?[old.x*TS,old.y*TS]:null;
    if(!pos)for(const[dx,dy]of offsets){const a=[player.x+dx,player.y+dy];if(standOk(...a)&&placed.every(n=>Math.hypot(n.x*TS-a[0],n.y*TS-a[1])>55)){pos=a;break}}
-   if(pos)placed.push({id:'staged-'+name,name,sp:name==='宋先生'&&old?old.sp:spriteOf(name),x:pos[0]/TS,y:pos[1]/TS,dir:pos[0]<player.x?'r':'l',fixed:true,idle:false,act:async()=>{}});
+   if(pos)placed.push({id:'staged-'+name,name,sp:name==='宋先生'&&old?old.sp:spriteOf(name),x:pos[0]/TS,y:pos[1]/TS,dir:pos[0]<player.x?'r':'l',fixed:true,idle:false,cast:true,act:async()=>{}});   // cast：剧情临时站位，引擎按 OCCLUSION.actors.cast 处理被挡半透明（js/scene.js）
   }
   sc.npcs=[...others,...placed];sc._npcs=npcsOf(sc);return()=>{sc.npcs=original;sc._npcs=npcsOf(sc)}}
  async function sayAll(rows){const restore=placeCast(rows.map(r=>r[0].split(' · ')[0]));
@@ -43,7 +43,6 @@
    fq_go_local:(place,anchor)=>anchor?QihePrologue.goLocal(place,anchor):QihePrologue.goLocal(place),
    fq_cg_begin:shot=>{cgShot=shot;cgRows=[]},
    fq_cg_end:async()=>{const shot=cgShot,rows=cgRows;cgShot=null;cgRows=[];await QiheFireCinematic.play(shot,rows)},
-   fq_track:npc=>window.QiheNavigation?.trackNpc?.(npc),
    checkpoint:()=>savePoint()};
   const ext={fq_answer:v=>{answer=v},mark:id=>{promptId=id}};
   for(const[k,fn]of Object.entries({...base,...externals}))ext[k]=async(...a)=>{await flush();return fn(...a)};
@@ -71,15 +70,21 @@
  function purchaseEquipment(id){if(state().stage!=='days'||!STARTER_STOCK.includes(id))return {ok:false,reason:'当前无法购买此装备'};const price=ITEMS[id]?.price;if(!Number.isFinite(price)||price<=0)return {ok:false,reason:'价格暂不可用'};if((S.silver||0)<price)return {ok:false,reason:'铜钱不足，需要 '+price+' 文'};return equipmentWrite(()=>{S.silver-=price;S.bag||={};S.bag[id]=(S.bag[id]||0)+1})}
  async function equipmentShop(){const rows=STARTER_STOCK.map(id=>`${ITEMS[id].name} · ${ITEMS[id].price} 文`);const n=await ask('店家',`都是行路能用的普通家当。你身上有 ${S.silver||0} 文；看清兵器和根基要求，再决定。`,[...rows,'先不买']);const id=STARTER_STOCK[n];if(!id)return;const it=ITEMS[id];if(await ask('店家',`${it.name}：${it.desc}\n花 ${it.price} 文买一件？`,['买一件','再看看'])!==0)return;const result=purchaseEquipment(id);await line('店家',result.ok?'收好了。买来先放包裹，合不合身、使不使得动，还要你自己挑。':result.reason);if(result.ok)await line('获得',`${it.name} ×1 · 花费 ${it.price} 文。江湖→装备，双击穿戴。`)}
  const learned=()=>!!S.skills?.qh_hulu_staff;
- const activities=[['clinic','药棚帮忙','central'],['transport','修车认路','west'],['relic_help','整理旧屋','central'],['practice','学习丙级《护路棍法》','west'],['inquiry','村口问讯','central'],['market','集市帮忙','south']];
- // 2026-10-08 乔装账房「宋先生」（../xiaojianghu/docs/design/opening-pei-disguise.md）。三场后山对话不推进 halfDay；未主动上山时，继续主线确认前补播。
- const STRANGER=[['c1-00b',0,null],['c1-s1',2,'c1-00b'],['c1-s2',4,'c1-s1']];
+ // 2026-10-21 用户评审：删去“整理旧屋”“村口问讯”（选项不影响任何事，内容与收药箱、徐令仪上门重复），剧本归档在 luotuozhuan/_attic/2026-10-21-opening-trim/。
+ // 2026-10-21 用户：“任务也是有时限的，不然就永远挂在那里了”。第四项是时限：halfDay 小于它才能做（../xiaojianghu/docs/design/opening-state.md 2a 节）。
+ const activities=[['clinic','药棚帮忙','central',4],['transport','修车认路','west',4],['practice','学习丙级《护路棍法》','west',4],['market','集市帮忙','south',5]];
+ const DEADLINE_LABELS={2:'第一天傍晚前',4:'第二天傍晚前',5:'第三天收拾药箱前'};
+ const activityOpen=id=>{const p=S?.qiheChapter,a=activities.find(x=>x[0]===id);return !!p&&p.stage==='days'&&!!a&&(p.halfDay||0)<a[3]};
+ const activityDeadline=id=>DEADLINE_LABELS[activities.find(x=>x[0]===id)?.[3]]||'';
+ // 2026-10-08 乔装账房「宋先生」（../xiaojianghu/docs/design/opening-pei-disguise.md）。三场后山对话不推进 halfDay。
+ // 2026-10-21 用户改定：整条线是可选剧情、可以拒绝；不挡主线、不补播。后两段只以“答应过”为门槛，不以前一段为前置。
+ const STRANGER=[['c1-00b',0],['c1-s1',2],['c1-s2',4]];
+ const strangerAccepted=(p=S?.qiheChapter)=>['accepted','asked_first'].includes(p?.records?.stranger_deal);
  const records=()=>state().records||(state().records={});
- function strangerPending(){const p=S?.qiheChapter;if(!p||p.stage!=='days')return null;const e=p.events||{};const row=STRANGER.find(([id,h,need])=>p.halfDay===h&&!e[id]&&(!need||e[need]));return row?row[0]:null}
- function strangerVisible(){const p=S?.qiheChapter;if(!p||p.stage!=='days'||p.halfDay>=5)return false;const e=p.events||{};if(e['c1-s2'])return false;return p.halfDay===0||!!e['c1-00b']}
+ function strangerPending(){const p=S?.qiheChapter;if(!p||p.stage!=='days')return null;const e=p.events||{};const row=STRANGER.find(([id,h])=>p.halfDay===h&&!e[id]&&(id==='c1-00b'||strangerAccepted(p)));return row?row[0]:null}
+ function strangerVisible(){const p=S?.qiheChapter;if(!p||p.stage!=='days'||p.halfDay>=5)return false;const e=p.events||{};if(e['c1-s2'])return false;return p.halfDay===0||strangerAccepted(p)}
  // 周砚第二、三日改在西田埂，避免与宋先生同场。
  function zhouAtWest(){const p=S?.qiheChapter;return !!p&&p.stage==='days'&&[2,4].includes(p.halfDay)}
- async function atLog(){if(S.scene!=='qh_north'){await goScene('qh_north',[870/TS,372/TS]);cur.dark=null;savePoint()}}
  // 宋先生的谢礼（opening-pei-disguise.md「奖励」节）：每份只发一次，记 records.stranger_gifts；介绍只写可见外观。
  ITEMS.qh_song_coat={name:'青绫行衣',desc:'护具。青色细绫面、絮了里子的行路长衣，跑账人常穿，厚实挡风。衣襟内有一段细密的回纹缝记。',armor:12,fx:{mhp:20},price:120,q:2};
  ITEMS.qh_song_abacus={name:'乌木算珠',desc:'佩饰。一串磨得油亮的乌木算珠，正中一颗青玉珠。',acc:1,fx:{wil:1,wis:1,mmp:15},price:90,q:2};
@@ -90,17 +95,16 @@
   gifts[key]={exp,items:{...items},levels:lvl};savePoint();
   const got=Object.entries(items).map(([id,n])=>ITEMS[id].name+' ×'+n);await line('获得',[...got,S.lv>=CHARACTER_LEVEL_CAP?'已满级':'修为 +'+exp].join(' · ')+(got.length?' · 江湖→装备／行囊查看':''));
   for(const l of lvl)await line('','境界突破 · 第 '+l+' 层 · 属性点 +3');return lvl}
- // 三段对话不推进 halfDay；没主动上山时，下一步主线确认前补播（auto）。谢礼：c1-00b 金疮药×2＋30；c1-s1 青绫行衣＋40（只说大概 30）；c1-s2 乌木算珠＋50。
+ // 三段对话不推进 halfDay，不补播。谢礼：c1-00b 金疮药×2＋30；c1-s1 青绫行衣＋40（只说大概 30）；c1-s2 乌木算珠＋50。
  const SONG_KNOTS={'c1-00b':'fq_song_basket','c1-s1':'fq_song_report','c1-s2':'fq_song_departure'};
  const SONG_GIFTS={'c1-00b':[30,{pill:2}],'c1-s1':[null,{qh_song_coat:1}],'c1-s2':[50,{qh_song_abacus:1}]};
  function songGift(key){const[exp,items]=SONG_GIFTS[key];return strangerGift(key,exp??(records().stranger_report==='partial'?30:40),items)}
- async function strangerScene(id,auto){const p=state();
-  if(auto)await atLog();
-  await play(SONG_KNOTS[id],{fq_song_gift:songGift},{auto:!!auto});
+ async function strangerScene(id){const p=state();
+  await play(SONG_KNOTS[id],{fq_song_gift:songGift});
   p.events[id]=true;savePoint();QiheExpansion.refresh();
  }
- async function strangerTalk(){const pending=strangerPending();if(pending)return strangerScene(pending,false);if(!strangerVisible())return;
-  return play('fq_song_idle',{},{first_day:state().halfDay===0});}
+ async function strangerTalk(){const pending=strangerPending();if(pending)return strangerScene(pending);if(!strangerVisible())return;
+  return play('fq_song_idle',{},{first_day:state().halfDay===0,declined:records().stranger_deal==='declined'});}
  async function packingBody(){await QihePrologue.goLocal('ye_house');await play('fq_packing')}
  async function backhillRope(){await play('fq_rope',{},{told:!!state().records?.told_about_stranger})}
  async function beginBody(){const p=state();if(p.stage!=='opening')return resumeBody();
@@ -110,30 +114,31 @@
   await line('','可以在村里自由走动、帮忙和问话。主线的下一步写在左上角行程里；想学武，去西田埂找陆衡。')}
  async function begin(){return guarded(beginBody)}
  async function activity(id){return guarded(()=>activityBody(id))}
- const ACTIVITY_KNOTS={practice:'fq_act_practice',transport:'fq_act_transport',clinic:'fq_act_clinic',relic_help:'fq_act_relic',inquiry:'fq_act_inquiry',market:'fq_act_market'};
+ const ACTIVITY_KNOTS={practice:'fq_act_practice',transport:'fq_act_transport',clinic:'fq_act_clinic',market:'fq_act_market'};
  async function lessonBattle(){while(await storyBattle('lesson')!=='win'){if(await play('fq_lesson_retry')==='stop')break}}
- async function activityBody(id){const p=state();if(p.stage!=='days')return play('fq_act_busy');if(p.choices[id])return play('fq_act_done');const a=activities.find(x=>x[0]===id);if(!a)return;
+ async function activityBody(id){const p=state();if(p.stage!=='days')return play('fq_act_busy');if(p.choices[id])return play('fq_act_done');const a=activities.find(x=>x[0]===id);if(!a)return;if(!activityOpen(id))return play('fq_act_late');
   if(await ask('行程',a[1]+'。'+(id==='practice'?'陆衡会传授第一层，赠送练习棍与本人笔记。':''),['现在开始','再想想'])!==0)return;
-  await play(ACTIVITY_KNOTS[id],{fq_lesson_battle:lessonBattle,fq_grant_lesson:()=>{grantLesson()}},{shen_open:p.halfDay>=2,zhou_west:zhouAtWest(),met_zhou:!!p.events['xu-meeting']});
+  await play(ACTIVITY_KNOTS[id],{fq_lesson_battle:lessonBattle,fq_grant_lesson:()=>{grantLesson()}});
   if(id==='practice')await line('','已学：丙级《护路棍法》第一层 · 横杆护身。守路战及后续招式培养可使用。');
   const rewards=grantStarterEquipment();if(rewards.includes('club')){await play('fq_gift_club');await line('获得','枣木短棍 ×1 · 可替换练习棍，仍可施展横杆护身。')}if(rewards.includes('needles')){await play('fq_gift_needles');await line('获得','铜针囊 ×1 · 装备页切换人物，再双击穿戴。')}savePoint();await line('行程','这件事办完了。');
  }
  // ── 主线任务推进（2026-10-17 试玩反馈：剧情不能靠主角睡觉推进）。
- // 自由走访阶段每一段主线都有明确的人和地点；找到对方，由对方先开口（剧本 fq_main_<to>），选项里出现【主线】，选了再提示“即将进入下一阶段”。
+ // 2026-10-21 用户：不再先找人、选【主线】再确认。走进当前主线的地点（scene）就弹“进入下一时段”，选“再等等”后本时段不再自动弹；
+ // 找对应的人说话，她先说一句（剧本 fq_main_<to>，不带选项）再弹确认。确认框不列没做完的事，只有离村那步提醒回不了村。
  const MAIN_STEPS=[
-  {to:2,npc:'ye',who:'叶蘅',title:'去药棚见来客',where:'村中药棚（周婶那里）'},
-  {to:4,npc:'ye',who:'叶蘅',title:'陪叶蘅去东埠送药',where:'东埠装卸路'},
-  {to:5,npc:'ye',who:'叶蘅',title:'回药棚收拾药箱',where:'村中药棚（周婶那里）'},
-  {to:6,npc:'luheng',who:'陆衡',title:'傍晚随药车离村',where:'西田埂'}];
+  {to:2,npc:'ye',who:'叶蘅',title:'去药棚见来客',where:'村中药棚（周婶那里）',scene:'prologue_clinic_interior'},
+  {to:4,npc:'ye',who:'叶蘅',title:'陪叶蘅去东埠送药',where:'东埠装卸路',scene:'qh_east'},
+  {to:5,npc:'ye',who:'叶蘅',title:'回叶家收拾药箱',where:'村西北 · 叶家',scene:'prologue_ye_house'},
+  {to:6,npc:'luheng',who:'陆衡',title:'傍晚随药车离村',where:'西田埂',scene:'qh_west'}];
  function mainStep(p=S?.qiheChapter){if(p?.stage!=='days')return null;
-  // 宋先生每一段都在推进前（萧白替他留意来人），没看过时，主线下一步就是去后山。
-  const pend=strangerPending();if(pend)return {pre:pend,npc:'stranger',who:'宋先生',title:pend==='c1-00b'?'替周婶取回竹匾':'去后山倒木旁见宋先生',where:'后山倒木旁'};
   return MAIN_STEPS.find(m=>m.to>(p.halfDay||0))||null}
- async function mainOffer(m){if(strangerPending())return false;const p=state(),left=activities.filter(a=>!p.choices[a[0]]).length;
-  const tail=m.to===6?(left?'离村后村里的事就做不了了，还有'+left+'件没做。':'离村后村里的事就做不了了。'):(left?'村里还有'+left+'件小事没做，之后仍可回来做。':'');
-  if(await ask('主线','即将进入下一阶段：'+m.title+'。'+tail,['开始','再等等'])!==0)return false;
-  p.halfDay=m.to;savePoint();await advanceEvents();return true}
- async function rest(){return guarded(async()=>{const p=state();if(p.pendingEvent)return resumeBody();if(p.stage==='mountain')return mountainEnd();if(p.stage==='ended')return cultivationBegin();if(p.stage==='cultivation')return QiheCultivationBridge.enter();if(p.stage==='days'){const pending=strangerPending();if(pending)await strangerScene(pending,true);const m=mainStep(p);if(m){await play('fq_rest_hint',{},{title:m.title,where:m.where,who:m.who});window.QiheNavigation?.trackNpc?.(m.npc)}return}return resumeBody()})}
+ async function mainOffer(m){const p=state();
+  if(await ask('主线','进入下一时段：'+m.title+'。'+(m.to===6?'离村后就不能再回村里了。':''),['开始','再等等'])!==0){p.mainDismissed=p.halfDay;savePoint();return false}
+  delete p.mainDismissed;p.halfDay=m.to;savePoint();await advanceEvents();return true}
+ // 走进主线地点：剧情演出途中换场（running）不弹；本时段选过“再等等”也不再自动弹。
+ async function arrive(id){const p=S?.qiheChapter;if(running||!p||p.stage!=='days'||p.mainDismissed===p.halfDay)return;const m=mainStep(p);if(m?.scene!==id)return;return guarded(()=>mainOffer(m))}
+ for(const id of new Set(MAIN_STEPS.map(m=>m.scene))){const sc=SC[id];if(!sc)continue;const old=sc.enter;sc.enter=async(...a)=>{if(old)await old(...a);await arrive(id)}}
+ async function rest(){return guarded(async()=>{const p=state();if(p.pendingEvent)return resumeBody();if(p.stage==='mountain')return mountainEnd();if(p.stage==='ended')return cultivationBegin();if(p.stage==='cultivation')return QiheCultivationBridge.enter();if(p.stage==='days'){const m=mainStep(p);if(m){await play('fq_rest_hint',{},{title:m.title,where:m.where,who:m.who});window.QiheNavigation?.trackNpc?.(m.npc)}return}return resumeBody()})}
  async function event(id,fn){if(state().events[id])return;state().pendingEvent=id;savePoint();await fn();state().events[id]=true;delete state().pendingEvent;savePoint()}
  async function advanceEvents(){const p=state();if(p.halfDay>=2)await event('xu-meeting',async()=>{await QihePrologue.goLocal('village','clinic');await QiheRepresentatives.pressure(representativeContext());p.events.steward=true;});
   if(p.halfDay>=4)await event('three-meeting',async()=>{await go('east','loading');await QiheRepresentatives.medicine(representativeContext());S.prologue.wolf_cause_testimony_heard=true;S.prologue.wolf_testimony_source='陆衡转述北坡车夫见闻';p.events.medicine=true;});
@@ -171,8 +176,9 @@
   p.consent={xiao:true,ye:true};p.route='mountain';savePoint();await event('farewell-v2',()=>play('fq_farewell'));p.stage='mountain';savePoint();await mountainEnd()
  }
  // 2026-10-07 归云谷地图弃用（docs/design/qihe-map/expansion/training.md）：章末不切地图，以归云谷庭院为背景演出，随后自动拜师进入培养。
- async function courtyard(fn){const dlg=$('dlg'),old=dlg.style.zIndex,wasCinematic=document.body.classList.contains('qh-cinematic');let el;try{const im=new Image();im.src='assets/production/cultivation/bg_mountain_spring_v1.png';try{await im.decode()}catch(e){}el=document.createElement('section');el.className='qh-fire-cg';el.dataset.shot='guiyun-courtyard';el.setAttribute('role','img');el.setAttribute('aria-label','归云谷庭院');im.alt='';el.appendChild(im);$('game').appendChild(el);document.body.classList.add('qh-cinematic');dlg.style.zIndex='65';dlg.classList.add('qh-cg-dialogue');keys={};player.path=null;return await fn()}finally{el?.remove();dlg.classList.remove('qh-cg-dialogue');dlg.style.zIndex=old;if(!wasCinematic)document.body.classList.remove('qh-cinematic')}}
- async function mountainEnd(){const p=state();if(p.stage==='mountain'){if(p.events['c1-00b'])await event('backhill-rope',backhillRope);await courtyard(async()=>{await event('settle',()=>play('fq_settle'));await event('meal',()=>play('fq_meal',{},{learned:learned()}));p.stage='ended';p.chapter2Ready=true;savePoint();await line('','江湖经历记下一笔：山居安身。进度已保存。')})}return cultivationBegin()}
+ // 2026-10-23 整改第 15 项：庭院背景只当场景卡（qh-backdrop），不当 CG，立绘照常显示；原先借用 qh-cinematic 把周砚等人的立绘都藏掉了。
+ async function courtyard(fn){const dlg=$('dlg'),old=dlg.style.zIndex,wasBackdrop=document.body.classList.contains('qh-backdrop');let el;try{const im=new Image();im.src='assets/production/cultivation/bg_mountain_spring_v1.png';try{await im.decode()}catch(e){}el=document.createElement('section');el.className='qh-fire-cg';el.dataset.shot='guiyun-courtyard';el.setAttribute('role','img');el.setAttribute('aria-label','归云谷庭院');im.alt='';el.appendChild(im);$('game').appendChild(el);document.body.classList.add('qh-backdrop');dlg.style.zIndex='65';keys={};player.path=null;return await fn()}finally{el?.remove();dlg.style.zIndex=old;if(!wasBackdrop)document.body.classList.remove('qh-backdrop')}}
+ async function mountainEnd(){const p=state();if(p.stage==='mountain'){if(strangerAccepted(p))await event('backhill-rope',backhillRope);await courtyard(async()=>{await event('settle',()=>play('fq_settle'));await event('meal',()=>play('fq_meal',{},{learned:learned()}));p.stage='ended';p.chapter2Ready=true;savePoint();await line('','江湖经历记下一笔：山居安身。进度已保存。')})}return cultivationBegin()}
  async function storyBattle(kind){const snapshot=JSON.parse(JSON.stringify(S)),previousMode=mode;let result='fail';try{
   await QiheChapterBattleArt.preload(kind);
   const lesson=PrologueStoryBattle.makeLesson();lesson.guidance=false;
@@ -195,12 +201,9 @@
    return play(({aunt:'fq_refuge_aunt',chen:'fq_refuge_chen',luheng:'fq_refuge_luheng'})[id]||'fq_refuge_other')}
   if(p.stage==='days'){
    const m=mainStep(p);
-   if(m?.pre&&(id==='ye'||id==='luheng')){const n=await play('fq_main_pre',{},{basket:m.pre==='c1-00b',is_ye:id==='ye'});
-    if(n==='normal')return activityBody(id==='ye'?'clinic':'practice');return}
-   if(m&&!m.pre&&m.npc===id){const n=await play('fq_main_'+m.to);
-    if(n==='main')return mainOffer(m);if(n==='normal')return activityBody(id==='ye'?'clinic':'practice');return}
+   if(m&&m.npc===id){await play('fq_main_'+m.to);if(await mainOffer(m))return;const rel=id==='ye'?'clinic':'practice';if(activityOpen(rel)&&!p.choices[rel])return activityBody(rel);return}
    const activityMap={luheng:'practice',lesson:'practice',cart:'transport',apothecary:'market'};if(activityMap[id])return activityBody(activityMap[id]);
-   if(id==='innkeeper'){const n=await play('fq_inn');return n==='shop'?equipmentShop():n==='help'?activityBody('market'):undefined;}if(id==='zhouyan'){if(p.choices.inquiry)return play('fq_zhou_after_inquiry',{},{shen_open:p.halfDay>=2});return activityBody('inquiry');}if(id==='ye')return activityBody('clinic');
+   if(id==='innkeeper'){const n=await play('fq_inn');return n==='shop'?equipmentShop():n==='help'?activityBody('market'):undefined;}if(id==='zhouyan')return play('fq_zhou_idle',{},{shen_open:p.halfDay>=2,met_zhou:!!p.events['xu-meeting']});if(id==='ye')return activityBody('clinic');
    return play(id==='wukui'?'fq_wukui':id==='steward'?'fq_steward':'fq_procurement')}
   if(id==='ye')return play('fq_ye_settled');
   return play('fq_tonight')})}
@@ -215,5 +218,5 @@
  async function menu(){if(!busy&&!dlgBusy&&$('panel').hidden)QiheJianghuUI.open('quest')}
  const oldJournal=QihePrologue.journal;QihePrologue.journal=async()=>{if(!S.qiheChapter&&!window.QiheOutsiders?.available())return oldJournal();if(busy||dlgBusy||!$('panel').hidden)return;await menu()};
  const prevQuest=questLine;questLine=function(){const p=S?.qiheChapter;if(!p)return prevQuest();const m=mainStep(p);return p.stage==='days'?(m?'主线 · '+m.title+' · '+m.where+'找'+m.who:'自由探索 · J 查看任务'):p.stage==='refuge'?(p.events?.['evidence-v2']?'对证已记 · 与周砚商量去处':'安置伤者后 · 核对三份来件'):p.stage==='ended'?'J 继续上山':p.stage==='cultivation'?'自由练习与交谈':'J 继续当前剧情'};window.questLine=questLine;
- window.QiheChapter={mainStep,MAIN_STEPS,grantStarterEquipment,purchaseEquipment,starterStock:STARTER_STOCK.slice(),activities,initial,state,applyCultivationReward,begin,rest,activity,interact,routes,evidence,menu,grantLesson,learned,storyBattle,restoreScene,strangerPending,strangerVisible,zhouAtWest,resume:()=>guarded(resumeBody),get running(){return running}};
+ window.QiheChapter={mainStep,MAIN_STEPS,grantStarterEquipment,purchaseEquipment,starterStock:STARTER_STOCK.slice(),activities,initial,state,applyCultivationReward,begin,rest,activity,interact,routes,evidence,menu,grantLesson,learned,storyBattle,restoreScene,strangerPending,strangerVisible,strangerAccepted,activityOpen,activityDeadline,zhouAtWest,resume:()=>guarded(resumeBody),get running(){return running}};
 })();

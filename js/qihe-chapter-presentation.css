@@ -10,7 +10,7 @@
 #game:has(#dlg:not([hidden])) .qh-minimap{display:none}
 .qh-fire-cg{position:absolute;inset:0;z-index:55;overflow:hidden;background:#101514;animation:qh-cg-enter .5s ease-out both;pointer-events:none;display:grid;place-items:center}
 .qh-fire-cg img{width:100%;height:100%;object-fit:contain}
-body.qh-cinematic #hud,body.qh-cinematic #qihe-journal,body.qh-cinematic #npc-arts-button{visibility:hidden!important;pointer-events:none!important}
+body.qh-cinematic #hud,body.qh-cinematic #qihe-journal,body.qh-cinematic #npc-arts-button,body.qh-backdrop #hud,body.qh-backdrop #qihe-journal,body.qh-backdrop #npc-arts-button{visibility:hidden!important;pointer-events:none!important}
 body.qh-cinematic #dlg .face,body.qh-cinematic #dlg .mini,body.qh-cinematic #dlg .dialogue-cast,body.qh-cinematic #dlg .dialogue-cast-rail,#dlg.qh-cg-dialogue:before{display:none!important}
 #dlg.qh-cg-dialogue .box{left:4%;right:4%;bottom:3%;min-height:0;background:linear-gradient(90deg,#101817e8,#101817bc);border:0;border-left:2px solid #d0a66d;padding:14px 24px}
 #dlg.qh-cg-dialogue .txt{font:clamp(15px,1.25vw,20px)/1.6 var(--serif);max-width:none;padding:0}

@@ -3,7 +3,7 @@ const {boot}=require('./harness.cjs'),assert=require('node:assert/strict'),fs=re
  const {c,run,root,cv,canvas,events,local,node}=await boot();const out=path.join(root,'art_sources/qihe-resources-v1/review');fs.mkdirSync(out,{recursive:true});
  const report={scope:'Production scripts, real movement/collision, pointer handlers and Canvas in local VM; not browser DOM acceptance.',checks:[],issues:[],renders:[]};
  async function test(name,fn){try{await fn();report.checks.push({name,pass:true});console.log('PASS',name)}catch(e){report.issues.push({name,error:e.stack});console.log('FAIL',name,e.message)}}
- function fresh(){run("S=newState();S.name='萧白';S.prologue=QihePrologue.fresh();S.prologue.arrival.borrowed=true;S.prologue.arrival.stage='done';S.prologue.rested=true;S.qiheChapter=QiheChapter.initial();S.qiheChapter.stage='days';S.qiheChapter.halfDay=3;S.qiheCultivation={energy:7};mode='scene';busy=false;dlgBusy=false;keys={};$('panel').hidden=true;")}
+ function fresh(){run("S=newState();S.name='萧白';S.prologue=QihePrologue.fresh();S.prologue.arrival.borrowed=true;S.prologue.arrival.stage='done';S.prologue.rested=true;S.qiheChapter=QiheChapter.initial();S.qiheChapter.stage='days';S.qiheChapter.halfDay=3;S.qiheChapter.mainDismissed=3;/* 2026-10-21 起走进主线地点会弹确认；本测试只测采集 */S.qiheCultivation={energy:7};mode='scene';busy=false;dlgBusy=false;keys={};$('panel').hidden=true;")}
  fresh();const R=c.QiheResources;
  await test('16 distinct nodes across seven outdoor scenes; no collision props or owned supplies',()=>{
   assert.equal(R.nodes.length,16);assert.equal(new Set(R.nodes.map(n=>n.id)).size,16);assert.equal(new Set(R.nodes.map(n=>n.scene)).size,7);

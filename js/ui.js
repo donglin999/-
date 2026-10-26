@@ -11,9 +11,13 @@ function face(sp){if(!sp)return'none';const[k,e]=sp.replace(/^c_/,'').split(':')
 function whoType(who,sp){if(!who)return'narr';const k=(sp||'').replace(/^c_/,'').replace(/[_:].*/,'');
   if(k==='hero'||(typeof S!=='undefined'&&who===S.name))return'hero';if(FOES.includes(k))return'foe';if(!sp)return'thing';return'npc'}
 // 无立绘 NPC：把行走图正面站立帧画进小画框
+// 2026-10-26：先按不透明像素裁出人形再放大，孩子这类小个子也能看清（以前按整帧缩放，人只占框的一小块）
+function miniBox(im){try{const w=im.naturalWidth||im.width,h=im.naturalHeight||im.height,t=document.createElement('canvas');t.width=w;t.height=h;const g=t.getContext('2d');drawImageAsset(g,im,0,0,w,h);const d=g.getImageData(0,0,w,h).data;let x0=w,y0=h,x1=-1,y1=-1;
+  for(let y=0;y<h;y++)for(let x=0;x<w;x++)if(d[(y*w+x)*4+3]>24){if(x<x0)x0=x;if(x>x1)x1=x;if(y<y0)y0=y;if(y>y1)y1=y}return x1<0?null:{c:t,x:x0,y:y0,w:x1-x0+1,h:y1-y0+1}}catch(e){return null}}
 function miniSprite(sp){const im=IMG[sp+'_d']||IMG[sp+'_d_0']||IMG[sp];if(!im||!im.width&&!im.naturalWidth)return null;
-  const c=document.createElement('canvas'),w=im.naturalWidth||im.width,h=im.naturalHeight||im.height,s=Math.min(96/w,96/h,1.2);
-  c.width=96;c.height=96;const x=c.getContext('2d');x.imageSmoothingEnabled=false;drawImageAsset(x,im,(96-w*s)/2,96-h*s-2,w*s,h*s);return c}
+  const c=document.createElement('canvas');c.width=96;c.height=96;const x=c.getContext('2d');x.imageSmoothingEnabled=false;const b=miniBox(im);
+  if(b){const s=Math.min(84/b.w,88/b.h,2.4);x.drawImage(b.c,b.x,b.y,b.w,b.h,(96-b.w*s)/2,94-b.h*s,b.w*s,b.h*s);return c}
+  const w=im.naturalWidth||im.width,h=im.naturalHeight||im.height,s=Math.min(96/w,96/h,1.2);drawImageAsset(x,im,(96-w*s)/2,96-h*s-2,w*s,h*s);return c}
 let lastSpeaker=null;
 function dlgSetup(who,sp,chooseMode){const d=$('dlg');const wasHidden=d.hidden;d.hidden=false;const suppress=window.OpeningCharacters?.fullscreenCGActive()||false,f=suppress?'none':face(sp),fe=d.querySelector('.face'),mi=d.querySelector('.mini');
   d.dataset.cgPortraitSuppressed=String(suppress);
@@ -235,7 +239,7 @@ const TAB={
     <h3>可换装备</h3>${cand.length?`<div class="list">${cand.map(([k,n])=>`<div class="item">${ico(k)}<div><div class="nm">${ITEMS[k].name}<small>×${n}</small></div><div class="ds">${ITEMS[k].desc}</div></div><div class="rt"><button data-u="${k}">装备</button></div></div>`).join('')}</div>`:'<div class="empty" style="padding:1em">行囊中暂无可换装备</div>'}
     <p class="muted" style="font-size:.85em">攻击 <span class="gold">${d.atk}</span>　防御 <span class="gold">${d.def}</span>　暴击 <span class="gold">${d.crit}%</span></p>`},
   party:()=>`<div class="list"><div class="item"><div class="ico">侠</div><div><div class="nm">${esc(S.name)}<small>Lv ${S.lv}</small></div><div class="ds">${ORIGINS[S.origin].desc}</div></div><div class="rt muted" style="font-size:.85em">主角</div></div>
-    ${S.party.includes('ye')?`<div class="item comp"><img class="por" src="assets/production/portraits/p_ye.webp" alt=""><div><div class="nm">叶蘅<small>Lv ${S.lv} · 乡村医者</small></div><div class="ds">与萧白同行赴汉皋。善辨脉象、用针护人；自己的去向由她决定。</div></div><div class="rt muted" style="font-size:.85em">同伴</div></div>`:''}
+    ${S.party.includes('ye')?`<div class="item comp"><img class="por" src="${assetImagePath('p_ye')}" alt=""><div><div class="nm">叶蘅<small>Lv ${S.lv} · 乡村医者</small></div><div class="ds">与萧白同行赴汉皋。善辨脉象、用针护人；自己的去向由她决定。</div></div><div class="rt muted" style="font-size:.85em">同伴</div></div>`:''}
     ${S.party.includes('suzhi')?suzhiCard():''}
     ${S.pet==='dog'?`<div class="item"><div class="ico">犬</div><div><div class="nm">${DOG.name}<small>Lv ${S.lv}</small></div><div class="ds">自动参战；主角气血偏低时护主，危急时舔舐疗伤。</div></div><div class="rt muted" style="font-size:.85em">宠物</div></div>`:''}</div>
     ${S.party.length?'':'<div class="empty" style="padding:1em">江湖路远，尚无同行之人</div>'}`,

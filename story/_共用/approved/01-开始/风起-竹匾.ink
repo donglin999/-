@@ -4,14 +4,11 @@
 // 2026-10-19 风起主线批次：从 js/qihe-chapter.js strangerScene('c1-00b') 搬入。宋先生的身份不点破（F-0004）。
 // 2026-10-19 剧情三道关改写（戏眼卡 xiaojianghu/docs/design/scripts/briefs/fengqi-main-actors-brief.json）：补播旁白改成萧白心里话；“叶姑娘家收留你”改成“听说是叶姑娘领回来的”（萧白住陈伯家，F-0002）；萧白先问一句“您怎么知道这么多”，再被“打听父亲”打动。
 // 2026-10-19 冷读审读后再改：宋先生开口不再连问两遍“外边来的吧”；选“您为什么不自己去说”时，萧白在答应里顺带问要不要告诉叶蘅，不再在汇合后重问一遍（C1-00B-14 挪进直接答应那一支），并留一句“我只看，不掺和别的”。
+// 2026-10-21 用户改定：宋先生线改为可选、可拒绝，不再挡主线、不再补播（opening-pei-disguise.md）。去掉补播的 auto 参数与开头心里话；加“不掺和”一支（declined：不给谢礼，后面两段回话和“在路口数人”的分支都不会有），问过“为什么不自己说”后也能再拒绝。
 INCLUDE ../_共用/externals.ink
 INCLUDE ../_共用/externals-风起主线.ink
-VAR auto = false // 参数：没主动上山，主线推进前补播
 
 === fq_song_basket ===
-{ auto:
-    萧白：（周婶的竹匾还在后山……先跑一趟再说。） #id:C1-00B-00
-}
 萧白：（倒木上坐着个人在翻账本……周婶的竹匾就在他脚边。他一抬头，衣领下露出一截红绳。） #id:C1-00B-01
 宋先生：竹匾我替你看了半天了。是你家的？ #id:C1-00B-02
 萧白：是周婶的，谢谢您。您是…… #id:C1-00B-03
@@ -31,14 +28,28 @@ VAR auto = false // 参数：没主动上山，主线推进前补播
     宋先生：远远看着就行，别往前凑。 #id:C1-00B-A2
     萧白：要不要先跟叶姑娘说一声？ #id:C1-00B-14
 * [“您为什么不自己去跟她说？”]
-    ~ set_flag("qiheChapter.records.stranger_deal", "asked_first")
     宋先生：我一个外路人进村问这些，容易招人起疑。你借住在村里，哪儿走动都自然。 #id:C1-00B-B1
-    萧白：……成吧，我只看，不掺和别的。叶姑娘那边，我总得说一声吧？ #id:C1-00B-B2
+    ** [“……成吧，我只看。”]
+        ~ set_flag("qiheChapter.records.stranger_deal", "asked_first")
+        萧白：……成吧，我只看，不掺和别的。叶姑娘那边，我总得说一声吧？ #id:C1-00B-B2
+    ** [“那还是算了。”]
+        -> declined
+* [“这事我不掺和。”]
+    -> declined
 - ~ fq_beat()
 宋先生：先别惊动她，她够难了。等我请到人，再一起跟她说。 #id:C1-00B-15
 宋先生：明早我还在这儿。她父亲的事，我记着。 #id:C1-00B-16
 宋先生：这包金疮药拿着。你脸色还白着呢，路上用得着。 #id:C1-00B-17
 ~ fq_song_gift("c1-00b")
 萧白：（回头一看，他又在记账了。红绳……塞回领子里了？） #id:C1-00B-18
+~ set_flag("qiheChapter.records.basket", true)
+-> END
+
+= declined
+~ set_flag("qiheChapter.records.stranger_deal", "declined")
+萧白：我昨天才到，村里人还认不全。替人盯梢这种事，我做不来。 #id:C1-00B-C1
+宋先生：……也是，难为你了。当我没说。 #id:C1-00B-C2
+宋先生：竹匾拿好，下山路滑。 #id:C1-00B-C3
+萧白：（他又低头翻账了。……领口那截红绳，被他随手塞回去了。） #id:C1-00B-C4
 ~ set_flag("qiheChapter.records.basket", true)
 -> END

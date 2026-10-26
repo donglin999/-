@@ -1,0 +1,149 @@
+{
+ "shots": [
+  {
+   "name": "树冠-主角-before",
+   "spot": "树冠",
+   "actor": "主角",
+   "scene": "south",
+   "at": [
+    1448,
+    676
+   ],
+   "standable": true,
+   "player": [
+    1448,
+    676
+   ],
+   "occStats": null
+  },
+  {
+   "name": "树冠-普通NPC-before",
+   "spot": "树冠",
+   "actor": "普通NPC",
+   "scene": "south",
+   "at": [
+    1448,
+    676
+   ],
+   "standable": true,
+   "player": [
+    1388,
+    796
+   ],
+   "occStats": null
+  },
+  {
+   "name": "树冠-剧情站位NPC-before",
+   "spot": "树冠",
+   "actor": "剧情站位NPC",
+   "scene": "south",
+   "at": [
+    1448,
+    676
+   ],
+   "standable": true,
+   "player": [
+    1388,
+    796
+   ],
+   "occStats": null
+  },
+  {
+   "name": "屋檐-主角-before",
+   "spot": "屋檐",
+   "actor": "主角",
+   "scene": "central",
+   "at": [
+    1231,
+    397
+   ],
+   "standable": true,
+   "player": [
+    1231,
+    397
+   ],
+   "occStats": null
+  },
+  {
+   "name": "屋檐-普通NPC-before",
+   "spot": "屋檐",
+   "actor": "普通NPC",
+   "scene": "central",
+   "at": [
+    1231,
+    397
+   ],
+   "standable": true,
+   "player": [
+    1231,
+    517
+   ],
+   "occStats": null
+  },
+  {
+   "name": "屋檐-剧情站位NPC-before",
+   "spot": "屋檐",
+   "actor": "剧情站位NPC",
+   "scene": "central",
+   "at": [
+    1231,
+    397
+   ],
+   "standable": true,
+   "player": [
+    1231,
+    517
+   ],
+   "occStats": null
+  },
+  {
+   "name": "凉棚-主角-before",
+   "spot": "凉棚",
+   "actor": "主角",
+   "scene": "east",
+   "at": [
+    643,
+    244
+   ],
+   "standable": true,
+   "player": [
+    643,
+    244
+   ],
+   "occStats": null
+  },
+  {
+   "name": "凉棚-普通NPC-before",
+   "spot": "凉棚",
+   "actor": "普通NPC",
+   "scene": "east",
+   "at": [
+    643,
+    244
+   ],
+   "standable": true,
+   "player": [
+    643,
+    364
+   ],
+   "occStats": null
+  },
+  {
+   "name": "凉棚-剧情站位NPC-before",
+   "spot": "凉棚",
+   "actor": "剧情站位NPC",
+   "scene": "east",
+   "at": [
+    643,
+    244
+   ],
+   "standable": true,
+   "player": [
+    643,
+    364
+   ],
+   "occStats": null
+  }
+ ],
+ "errors": []
+}

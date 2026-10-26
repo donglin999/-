@@ -1,0 +1,82 @@
+{
+ "neighbor": {
+  "family": "right",
+  "ref": "neighbor_normal",
+  "anchor": [
+   0.19,
+   0.39,
+   0.44
+  ],
+  "score": 1.0,
+  "current": {
+   "top": 29.71,
+   "height": 101.0,
+   "dx": 6.0
+  },
+  "proposed": {
+   "top": 29.71,
+   "height": 101.0,
+   "dx": 6.0
+  }
+ },
+ "neighbor_normal": {
+  "family": "right",
+  "ref": "neighbor_normal",
+  "anchor": [
+   0.19,
+   0.39,
+   0.44
+  ],
+  "score": 1.0,
+  "current": {
+   "top": 29.71,
+   "height": 101.0,
+   "dx": 6.0
+  },
+  "proposed": {
+   "top": 29.71,
+   "height": 101.0,
+   "dx": 6.0
+  }
+ },
+ "neighbor_smile": {
+  "family": "right",
+  "ref": "neighbor_normal",
+  "anchor": [
+   0.19,
+   0.39,
+   0.44
+  ],
+  "score": 0.934,
+  "current": {
+   "top": 29.71,
+   "height": 101.0,
+   "dx": 6.0
+  },
+  "proposed": {
+   "top": 29.71,
+   "height": 101.0,
+   "dx": 6.0
+  }
+ },
+ "neighbor_worry": {
+  "family": "right",
+  "ref": "neighbor_normal",
+  "anchor": [
+   0.1895,
+   0.389,
+   0.4383
+  ],
+  "score": 0.854,
+  "current": {
+   "top": 29.71,
+   "height": 101.0,
+   "dx": 6.0
+  },
+  "proposed": {
+   "top": 29.71,
+   "height": 101.25,
+   "dx": 6.17
+  }
+ }
+}

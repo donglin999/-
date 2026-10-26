@@ -1,0 +1,306 @@
+{
+  "说明": "归烬堂支线（蔺管事线，qihe-mojiao-observer-sideline.md）与对证断线版的存档标记登记（2026-10-23 剧本三）。路径都在 S.qiheChapter.records 下；JS 读写方见各条 legacyRead／legacySet（本轮未改 JS，接口见共用笔记 42-剧本三.md）。",
+  "flags": {
+    "qiheChapter.records.lamp.met": {
+      "type": "bool",
+      "values": [
+        true,
+        false
+      ],
+      "default": false,
+      "part": "开始",
+      "meaning": "灯一：萧白在算命摊接下蔺管事的托付（去河埠问黑衣脚夫的来路）。之后的灯二～灯四都只以它为门槛（R-剧情-07，不一断全断）",
+      "setBy": [
+        "支线-蔺管事-测字"
+      ],
+      "readBy": [
+        "风起-后山回话二"
+      ],
+      "legacyRead": [
+        "js/qihe-lamp-watcher.js（待开发：归烬堂支线任务、结局判定，见笔记 42）：问船家、回话一、跟脚夫、灯四是否开放；结局判定（只要为真就不是结局 1）"
+      ]
+    },
+    "qiheChapter.records.lamp.warned": {
+      "type": "bool",
+      "values": [
+        true,
+        false
+      ],
+      "default": false,
+      "part": "开始",
+      "meaning": "灯一：答应过宋先生的萧白听到“你在路口看见谁站在哪，谁问都别给”",
+      "setBy": [
+        "支线-蔺管事-测字"
+      ],
+      "readBy": [
+        "风起-后山回话一"
+      ]
+    },
+    "qiheChapter.records.lamp.boatman": {
+      "type": "bool",
+      "values": [
+        true,
+        false
+      ],
+      "default": false,
+      "part": "开始",
+      "meaning": "问过东埠船家：黑衣脚夫坐下水船从汉皋来、天亮上后山、天黑回船上睡",
+      "setBy": [
+        "支线-蔺管事-问船家"
+      ],
+      "readBy": [
+        "风起-后山回话二"
+      ],
+      "legacyRead": [
+        "js/qihe-lamp-watcher.js（待开发：归烬堂支线任务、结局判定，见笔记 42）：回话一是否开放"
+      ]
+    },
+    "qiheChapter.records.lamp.briefed": {
+      "type": "bool",
+      "values": [
+        true,
+        false
+      ],
+      "default": false,
+      "part": "开始",
+      "meaning": "回话一：蔺管事亮明身份，托付看岑霜传讯的封皮、等三家到齐跟脚夫一回",
+      "setBy": [
+        "支线-蔺管事-回话一"
+      ],
+      "readBy": [
+        "支线-蔺管事-看封皮"
+      ],
+      "legacyRead": [
+        "js/qihe-lamp-watcher.js（待开发：归烬堂支线任务、结局判定，见笔记 42）：跟脚夫是否开放；完美条件 2（须在半日 3 之前，即装卸路之前）",
+        "js/qihe-representatives.js（待开发）：岑霜交谈多一项“你那封传讯，能给我看一眼吗？”，转到 qh_lamp_seal"
+      ]
+    },
+    "qiheChapter.records.lamp.taught": {
+      "type": "bool",
+      "values": [
+        true,
+        false
+      ],
+      "default": false,
+      "part": "开始",
+      "meaning": "回话一（答应过宋先生的）：蔺管事教他别站路口数人、在药车边搭手看",
+      "setBy": [
+        "支线-蔺管事-回话一"
+      ],
+      "readBy": [
+        "三方-装卸路"
+      ]
+    },
+    "qiheChapter.records.lamp.hidden_watch": {
+      "type": "bool",
+      "values": [
+        true,
+        false
+      ],
+      "default": false,
+      "part": "开始",
+      "meaning": "装卸路：照蔺管事的法子在药车边看（没被三家注意）；完美条件 4",
+      "setBy": [
+        "三方-装卸路"
+      ],
+      "readBy": [],
+      "legacyRead": [
+        "js/qihe-lamp-watcher.js（待开发：归烬堂支线任务、结局判定，见笔记 42）：结局判定"
+      ]
+    },
+    "qiheChapter.records.song_watched": {
+      "type": "bool",
+      "values": [
+        true,
+        false
+      ],
+      "default": false,
+      "part": "开始",
+      "meaning": "装卸路“在路口数人”那段（R2-W）真的播过，三家把萧白当成别家眼线（F-0039）。取代旧的“答应过就算数过人”",
+      "setBy": [
+        "三方-装卸路"
+      ],
+      "readBy": [
+        "风起-后山回话二",
+        "三方-对证"
+      ]
+    },
+    "qiheChapter.records.song_asked_side": {
+      "type": "bool",
+      "values": [
+        true,
+        false
+      ],
+      "default": false,
+      "part": "开始",
+      "meaning": "后山回话二播过：宋先生问过叶家是不是从装卸侧口走",
+      "setBy": [
+        "风起-后山回话二"
+      ],
+      "readBy": [
+        "三方-对证",
+        "支线-蔺管事-灯四"
+      ]
+    },
+    "qiheChapter.records.lamp.seal": {
+      "type": "enum",
+      "values": [
+        "seen",
+        "asked_openly"
+      ],
+      "default": null,
+      "part": "开始",
+      "meaning": "灯二：看到岑霜那封传讯的封皮（seen）／说出“有人托我来看”被她追问出算命先生（asked_openly，同时 lamp.sold=cen）",
+      "setBy": [
+        "支线-蔺管事-看封皮"
+      ],
+      "readBy": [
+        "支线-蔺管事-灯四",
+        "支线-蔺管事-留话"
+      ],
+      "legacyRead": [
+        "js/qihe-lamp-watcher.js（待开发：归烬堂支线任务、结局判定，见笔记 42）：完美条件 5、结局 2 奖励档位",
+        "js/qihe-representatives.js（待开发）：灯二入口在 seal 为空时才出现"
+      ],
+      "routeValues": [
+        null,
+        "seen",
+        "asked_openly"
+      ]
+    },
+    "qiheChapter.records.lamp.sold": {
+      "type": "enum",
+      "values": [
+        "song",
+        "cen"
+      ],
+      "default": null,
+      "part": "开始",
+      "meaning": "出卖蔺管事：向宋先生（回话二）或岑霜（看封皮时）说出了算命先生；结局 2d",
+      "setBy": [
+        "风起-后山回话二",
+        "支线-蔺管事-看封皮"
+      ],
+      "readBy": [],
+      "legacyRead": [
+        "js/qihe-lamp-watcher.js（待开发：归烬堂支线任务、结局判定，见笔记 42）：灯四不再开放（他当天撤走）、结局 2d、留话改挑夫传话"
+      ]
+    },
+    "qiheChapter.records.lamp.porter_seen": {
+      "type": "bool",
+      "values": [
+        true,
+        false
+      ],
+      "default": false,
+      "part": "开始",
+      "meaning": "第三天天亮看见脚夫在倒木见宋先生、带走一个油纸包（后山回话二开场或跟脚夫）",
+      "setBy": [
+        "风起-后山回话二",
+        "支线-蔺管事-跟脚夫"
+      ],
+      "readBy": [
+        "支线-蔺管事-灯四"
+      ],
+      "legacyRead": [
+        "js/qihe-lamp-watcher.js（待开发：归烬堂支线任务、结局判定，见笔记 42）：完美条件 6"
+      ]
+    },
+    "qiheChapter.records.lamp.t3": {
+      "type": "enum",
+      "values": [
+        "hill",
+        "tail"
+      ],
+      "default": null,
+      "part": "开始",
+      "meaning": "第三天上午二选一：去后山赴宋先生的约（hill）／从河埠跟着脚夫（tail，三家营地都看见萧白）",
+      "setBy": [
+        "风起-后山回话二",
+        "支线-蔺管事-跟脚夫"
+      ],
+      "readBy": [],
+      "legacyRead": [
+        "js/qihe-lamp-watcher.js（待开发：归烬堂支线任务、结局判定，见笔记 42）：半日 4 互斥锁；tail 记 lamp.noticed=tailed"
+      ]
+    },
+    "qiheChapter.records.lamp.deduce": {
+      "type": "enum",
+      "values": [
+        "ok",
+        "fail"
+      ],
+      "default": null,
+      "part": "开始",
+      "meaning": "灯四推断：指认后山账房并拿出一条有效凭据（ok）／说不准或没说服（fail）",
+      "setBy": [
+        "支线-蔺管事-灯四"
+      ],
+      "readBy": [],
+      "legacyRead": [
+        "js/qihe-lamp-watcher.js（待开发：归烬堂支线任务、结局判定，见笔记 42）：完美条件 8"
+      ]
+    },
+    "qiheChapter.records.lamp.handoff": {
+      "type": "enum",
+      "values": [
+        "blade_order",
+        "blade_direct",
+        "confront",
+        "cen",
+        "unsure"
+      ],
+      "default": null,
+      "part": "开始",
+      "meaning": "灯四交付：先拿船再上山（blade_order）／现在就上山（blade_direct）／自己去问（confront）／告诉岑霜（cen）／推断不成立（unsure）",
+      "setBy": [
+        "支线-蔺管事-灯四"
+      ],
+      "readBy": [],
+      "legacyRead": [
+        "js/qihe-lamp-watcher.js（待开发：归烬堂支线任务、结局判定，见笔记 42）：完美条件 9；非 blade_order 的记 lamp.noticed=rumored（cen 另记蔺管事暴露）"
+      ]
+    },
+    "qiheChapter.records.lamp.ending": {
+      "type": "enum",
+      "values": [
+        "zhou",
+        "noticed",
+        "blade"
+      ],
+      "default": null,
+      "part": "开始",
+      "meaning": "归烬堂支线结局：1 周砚主持（两条线都没碰）／2 被盯上／3 借刀。由 JS 在对证前按支线稿第三节判定（结局 3 ＞ 2 ＞ 1）；旧存档：答应过宋先生的按 noticed，否则 zhou",
+      "setBy": [],
+      "readBy": [
+        "三方-对证",
+        "风起-商量去处"
+      ],
+      "legacySet": [
+        "js/qihe-lamp-watcher.js（待开发：归烬堂支线任务、结局判定，见笔记 42）：对证开场前写入"
+      ]
+    },
+    "qiheChapter.records.lamp.noticed": {
+      "type": "enum",
+      "values": [
+        "tailed",
+        "rumored"
+      ],
+      "default": null,
+      "part": "开始",
+      "meaning": "结局 2 里三家怎么注意到萧白（路口数人另看 song_watched）：tailed 跟着脚夫转过三家营地；rumored 宋先生让脚夫递话“借住的外乡人在替别家盯你们”（交付有误、自己去问、出卖给宋先生）或告诉岑霜后乌魁先盯上",
+      "setBy": [],
+      "readBy": [
+        "三方-对证"
+      ],
+      "legacySet": [
+        "js/qihe-lamp-watcher.js（待开发：归烬堂支线任务、结局判定，见笔记 42）：对证开场前写入"
+      ],
+      "routeValues": [
+        null,
+        "tailed",
+        "rumored"
+      ]
+    }
+  }
+}

@@ -1,0 +1,194 @@
+{
+ "shots": [
+  {
+   "name": "树冠-主角-after",
+   "spot": "树冠",
+   "actor": "主角",
+   "scene": "south",
+   "at": [
+    1448,
+    676
+   ],
+   "standable": true,
+   "player": [
+    1448,
+    676
+   ],
+   "occStats": {
+    "ms": 0.20000004768371582,
+    "actors": 7,
+    "hits": 1,
+    "ghosts": 1
+   }
+  },
+  {
+   "name": "树冠-普通NPC-after",
+   "spot": "树冠",
+   "actor": "普通NPC",
+   "scene": "south",
+   "at": [
+    1448,
+    676
+   ],
+   "standable": true,
+   "player": [
+    1388,
+    796
+   ],
+   "occStats": {
+    "ms": 0.20000004768371582,
+    "actors": 8,
+    "hits": 1,
+    "ghosts": 1
+   }
+  },
+  {
+   "name": "树冠-剧情站位NPC-after",
+   "spot": "树冠",
+   "actor": "剧情站位NPC",
+   "scene": "south",
+   "at": [
+    1448,
+    676
+   ],
+   "standable": true,
+   "player": [
+    1388,
+    796
+   ],
+   "occStats": {
+    "ms": 0.20000004768371582,
+    "actors": 8,
+    "hits": 1,
+    "ghosts": 1
+   }
+  },
+  {
+   "name": "屋檐-主角-after",
+   "spot": "屋檐",
+   "actor": "主角",
+   "scene": "central",
+   "at": [
+    1231,
+    397
+   ],
+   "standable": true,
+   "player": [
+    1231,
+    397
+   ],
+   "occStats": {
+    "ms": 0.10000014305114746,
+    "actors": 1,
+    "hits": 1,
+    "ghosts": 1
+   }
+  },
+  {
+   "name": "屋檐-普通NPC-after",
+   "spot": "屋檐",
+   "actor": "普通NPC",
+   "scene": "central",
+   "at": [
+    1231,
+    397
+   ],
+   "standable": true,
+   "player": [
+    1231,
+    517
+   ],
+   "occStats": {
+    "ms": 0.09999990463256836,
+    "actors": 2,
+    "hits": 1,
+    "ghosts": 1
+   }
+  },
+  {
+   "name": "屋檐-剧情站位NPC-after",
+   "spot": "屋檐",
+   "actor": "剧情站位NPC",
+   "scene": "central",
+   "at": [
+    1231,
+    397
+   ],
+   "standable": true,
+   "player": [
+    1231,
+    517
+   ],
+   "occStats": {
+    "ms": 0.2999999523162842,
+    "actors": 2,
+    "hits": 1,
+    "ghosts": 1
+   }
+  },
+  {
+   "name": "凉棚-主角-after",
+   "spot": "凉棚",
+   "actor": "主角",
+   "scene": "east",
+   "at": [
+    643,
+    244
+   ],
+   "standable": true,
+   "player": [
+    643,
+    244
+   ],
+   "occStats": {
+    "ms": 0.19999980926513672,
+    "actors": 4,
+    "hits": 1,
+    "ghosts": 1
+   }
+  },
+  {
+   "name": "凉棚-普通NPC-after",
+   "spot": "凉棚",
+   "actor": "普通NPC",
+   "scene": "east",
+   "at": [
+    643,
+    244
+   ],
+   "standable": true,
+   "player": [
+    643,
+    364
+   ],
+   "occStats": {
+    "ms": 0.3000001907348633,
+    "actors": 5,
+    "hits": 1,
+    "ghosts": 1
+   }
+  },
+  {
+   "name": "凉棚-剧情站位NPC-after",
+   "spot": "凉棚",
+   "actor": "剧情站位NPC",
+   "scene": "east",
+   "at": [
+    643,
+    244
+   ],
+   "standable": true,
+   "player": [
+    643,
+    364
+   ],
+   "occStats": {
+    "ms": 0.20000004768371582,
+    "actors": 5,
+    "hits": 1,
+    "ghosts": 1
+   }
+  }
+ ],
+ "errors": []
+}

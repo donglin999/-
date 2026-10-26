@@ -19,7 +19,7 @@ function state(v) {
   const relations = Object.fromEntries(REL_KEYS.map(k => [k, { score: v.rel }]));
   return { month: v.month, phase: 2, joined: true,
     learned: { footwork: v.route !== 'none', fist: v.route === 'fist' || v.route === 'both', sword: v.route === 'sword' || v.route === 'both' },
-    facts: { first_delivery: v.delivery ? { method: v.delivery } : undefined, gn_chests_choice: v.chests, gn_lamp_seen: v.chests ? {} : undefined,
+    facts: { first_delivery: v.delivery ? { method: v.delivery } : undefined, gn_lamp_seen: v.chests ? {} : undefined, gn_letter_seen: v.chests === 'own' ? {} : undefined,
       departure_goals: v.rel > 0, herb_labels: v.rel > 0, gy_ledger_seen: v.rel > 0, spar_log: { wins: v.rel > 0 ? 6 : 0 } },
     relations, qhOrigin: { chenCare: v.chen }, preHangao: { weapon: v.weapon, participants: [] } };
 }

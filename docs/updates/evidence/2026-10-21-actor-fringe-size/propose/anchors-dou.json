@@ -1,0 +1,182 @@
+{
+ "dou": {
+  "family": "right",
+  "ref": "dou_normal",
+  "anchor": [
+   0.1591,
+   0.3868,
+   0.5109
+  ],
+  "score": 0.584,
+  "current": {
+   "top": 37.47,
+   "height": 85.95,
+   "dx": -0.54
+  },
+  "proposed": {
+   "top": 36.29,
+   "height": 88.71,
+   "dx": -1.09
+  }
+ },
+ "dou_angry": {
+  "family": "right",
+  "ref": "dou_normal",
+  "anchor": [
+   0.1889,
+   0.3967,
+   0.5117
+  ],
+  "score": 0.693,
+  "current": {
+   "top": 33.5,
+   "height": 90.46,
+   "dx": 0.49
+  },
+  "proposed": {
+   "top": 32.04,
+   "height": 97.21,
+   "dx": -1.17
+  }
+ },
+ "dou_normal": {
+  "family": "right",
+  "ref": "dou_normal",
+  "anchor": [
+   0.187,
+   0.41,
+   0.495
+  ],
+  "score": 1.0,
+  "current": {
+   "top": 33.5,
+   "height": 90.46,
+   "dx": 0.49
+  },
+  "proposed": {
+   "top": 33.46,
+   "height": 90.58,
+   "dx": 0.5
+  }
+ },
+ "dou_sad": {
+  "family": "right",
+  "ref": "dou_normal",
+  "anchor": [
+   0.229,
+   0.4358,
+   0.5207
+  ],
+  "score": 0.513,
+  "current": {
+   "top": 33.5,
+   "height": 90.46,
+   "dx": 0.49
+  },
+  "proposed": {
+   "top": 28.03,
+   "height": 97.68,
+   "dx": -2.07
+  }
+ },
+ "dou_serious": {
+  "family": "right",
+  "ref": "dou_normal",
+  "anchor": [
+   0.1846,
+   0.4047,
+   0.4931
+  ],
+  "score": 0.755,
+  "current": {
+   "top": 33.5,
+   "height": 90.46,
+   "dx": 0.49
+  },
+  "proposed": {
+   "top": 33.46,
+   "height": 91.78,
+   "dx": 0.69
+  }
+ },
+ "dou_sleep": {
+  "family": "right",
+  "ref": "dou_normal",
+  "anchor": [
+   0.1943,
+   0.4167,
+   0.497
+  ],
+  "score": 0.631,
+  "current": {
+   "top": 33.5,
+   "height": 90.46,
+   "dx": 0.49
+  },
+  "proposed": {
+   "top": 32.75,
+   "height": 90.83,
+   "dx": 0.3
+  }
+ },
+ "dou_smile": {
+  "family": "right",
+  "ref": "dou_normal",
+  "anchor": [
+   0.1789,
+   0.3893,
+   0.5156
+  ],
+  "score": 0.57,
+  "current": {
+   "top": 33.5,
+   "height": 90.46,
+   "dx": 0.49
+  },
+  "proposed": {
+   "top": 33.22,
+   "height": 96.01,
+   "dx": -1.56
+  }
+ },
+ "dou_surprise": {
+  "family": "right",
+  "ref": "dou_normal",
+  "anchor": [
+   0.1571,
+   0.3784,
+   0.5028
+  ],
+  "score": 0.586,
+  "current": {
+   "top": 33.5,
+   "height": 90.46,
+   "dx": 0.49
+  },
+  "proposed": {
+   "top": 36.06,
+   "height": 91.28,
+   "dx": -0.28
+  }
+ },
+ "dou_worry": {
+  "family": "right",
+  "ref": "dou_normal",
+  "anchor": [
+   0.2015,
+   0.4151,
+   0.5083
+  ],
+  "score": 0.664,
+  "current": {
+   "top": 33.5,
+   "height": 90.46,
+   "dx": 0.49
+  },
+  "proposed": {
+   "top": 31.34,
+   "height": 94.57,
+   "dx": -0.83
+  }
+ }
+}

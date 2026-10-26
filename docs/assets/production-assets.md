@@ -1,6 +1,6 @@
 # 当前版本正式素材清单
 
-状态：现行　最后核对：2026-10-20
+状态：现行　最后核对：2026-10-25
 
 基准：用户确认四向通行栖河村。工作区为 `xiaojianghu-legacy-prologue`，本地入口端口 8792。
 
@@ -12,6 +12,7 @@
 - 新素材先放 `art_sources/<批次>/`，记录参考原图、提示词、模型与实际尺寸。经核对后更新正式清单、独立目录和运行映射；不得覆盖旧版本原件。
 - 正式清单表示程序当前登记使用；不代表每份图片已通过人工风格验收。候选/历史/未证实动态引用在 inventory.json 单独列出，不自动删除或转为正式。
 - 修改素材后运行 `python3 tools_assets/organize_assets.py --adopt-reviewed` 和 `python3 tools_assets/check_production.py`。
+- **透明素材镂空检查（2026-10-25 起，发布构建必过）**：`check_production.py` 调用 `tools_assets/check_prop_holes.py`，对地图道具切片、精灵、立绘、战斗表、培养素材、图标等带透明通道的正式图找"封闭透明洞"（四面被不透明像素包住、面积 ≥16 像素），地图道具切片另查"窄缺口"（半径 5 闭运算补得上、面积 ≥60、最厚 ≥2.5 像素的透明豁口，例如切件时把木料、阴影当地面抠掉）。特效、界面、地图底图与前景层不查。窗格、栅栏、车轮辐条、枝杈间、手臂与身体之间这类有意镂空，登记到 `docs/assets/prop-holes-allow.json`（key、原因、允许的洞外框；看过可视化的写 `status: reviewed`）；未登记的洞直接报错。新素材入库前先跑 `python3 tools_assets/check_prop_holes.py --report <证据目录>` 看红（封闭洞）橙（窄缺口）标色图：是抠图错误就修图（从未抠的原件补像素或重切），确属造型才登记白名单，不得为过检查整批登记。
 
 ## 按系统记录
 
@@ -216,6 +217,95 @@
 | staff_hit_20261010 | `assets/audio/staff_hit_20261010.wav` | `art_sources/hero-staff-combo-20261010/audio/staff_hit_20261010.wav` | a7f793494da9 |
 | needle_release_20261012 | `assets/audio/needle_release_20261012.wav` | `art_sources/ye-needle-battle-20261012/audio/needle_release_20261012.wav` | 5cc320b16878 |
 | needle_hit_20261012 | `assets/audio/needle_hit_20261012.wav` | `art_sources/ye-needle-battle-20261012/audio/needle_hit_20261012.wav` | a6969278b721 |
+| clash_blade_hit_20261012 | `assets/audio/clash_blade_hit_20261012.wav` | `art_sources/qihe-faction-clash-20261012/audio/clash_blade_hit_20261012.wav` | 102204e5c0b3 |
+| clash_qi_transfer_20261012 | `assets/audio/clash_qi_transfer_20261012.wav` | `art_sources/qihe-faction-clash-20261012/audio/clash_qi_transfer_20261012.wav` | 10badc684e42 |
+| clash.whip.opening.0 | `assets/audio/voices/xu-lingyi-45bf9797fd06d5f05a86.mp3` | `art_sources/qihe-whip-clash-20261014/audio/xu-lingyi-45bf9797fd06d5f05a86.mp3` | 45bf9797fd06 |
+| clash.whip.opening.1 | `assets/audio/voices/cen-shuang-01c5022aa0c967a8840a.mp3` | `art_sources/qihe-whip-clash-20261014/audio/cen-shuang-01c5022aa0c967a8840a.mp3` | 01c5022aa0c9 |
+| clash.whip.stopping.0 | `assets/audio/voices/shen-yanhui-dddec471247494647080.mp3` | `art_sources/qihe-whip-clash-20261014/audio/shen-yanhui-dddec471247494647080.mp3` | dddec4712474 |
+| clash.whip.stopping.1 | `assets/audio/voices/xu-lingyi-4dde8f0a0d4f7161be19.mp3` | `art_sources/qihe-whip-clash-20261014/audio/xu-lingyi-4dde8f0a0d4f7161be19.mp3` | 4dde8f0a0d4f |
+| clash.whip.stopping.2 | `assets/audio/voices/cen-shuang-96f55d1b295bdf5dca0a.mp3` | `art_sources/qihe-whip-clash-20261014/audio/cen-shuang-96f55d1b295bdf5dca0a.mp3` | 96f55d1b295b |
+| clash.whip.beam | `assets/audio/voices/xu-lingyi-5073662de466a2323adb.mp3` | `art_sources/qihe-whip-clash-20261014/audio/xu-lingyi-5073662de466a2323adb.mp3` | 5073662de466 |
+| clash.whip.responsibility.xu | `assets/audio/voices/xu-lingyi-84e11cc2dd7b4d7b3351.mp3` | `art_sources/qihe-whip-clash-20261014/audio/xu-lingyi-84e11cc2dd7b4d7b3351.mp3` | 84e11cc2dd7b |
+| clash.whip.responsibility.cen | `assets/audio/voices/cen-shuang-dcad95c45a70b155987d.mp3` | `art_sources/qihe-whip-clash-20261014/audio/cen-shuang-dcad95c45a70b155987d.mp3` | dcad95c45a70 |
+| prehg.ye.17dad18eabceae | `assets/audio/voices/ye-10798247abe9644059ea.mp3` | `art_sources/guiyun-battle-finish-20261014/voice-originals/ye-10798247abe9644059ea.mp3` | 10798247abe9 |
+| prehg.ye.cfb44540705848 | `assets/audio/voices/ye-c6b6a1cbe748e386f698.mp3` | `art_sources/guiyun-battle-finish-20261014/voice-originals/ye-c6b6a1cbe748e386f698.mp3` | c6b6a1cbe748 |
+| prehg.ye.ab2f3b4aea512c | `assets/audio/voices/ye-0da6153ad4b52f82aed5.mp3` | `art_sources/guiyun-battle-finish-20261014/voice-originals/ye-0da6153ad4b52f82aed5.mp3` | 0da6153ad4b5 |
+| prehg.ye.4fff7aa8285000 | `assets/audio/voices/ye-1bd0af4c9781c3a5c08d.mp3` | `art_sources/guiyun-battle-finish-20261014/voice-originals/ye-1bd0af4c9781c3a5c08d.mp3` | 1bd0af4c9781 |
+| prehg.ye.2dd8a16361086b | `assets/audio/voices/ye-47d78c63d24bf4d44572.mp3` | `art_sources/guiyun-battle-finish-20261014/voice-originals/ye-47d78c63d24bf4d44572.mp3` | 47d78c63d24b |
+| prehg.ye.805aaa343711a9 | `assets/audio/voices/ye-395aef7433130c45aa16.mp3` | `art_sources/guiyun-battle-finish-20261014/voice-originals/ye-395aef7433130c45aa16.mp3` | 395aef743313 |
+| prehg.ye.42e9b27c4da20c | `assets/audio/voices/ye-fc1fcf198c9a0b274a96.mp3` | `art_sources/guiyun-battle-finish-20261014/voice-originals/ye-fc1fcf198c9a0b274a96.mp3` | fc1fcf198c9a |
+| prehg.ye.41891b6bd1d423 | `assets/audio/voices/ye-f0fc2c1060ec5d6b5187.mp3` | `art_sources/guiyun-battle-finish-20261014/voice-originals/ye-f0fc2c1060ec5d6b5187.mp3` | f0fc2c1060ec |
+| prehg.ye.0b162dde18d643 | `assets/audio/voices/ye-c896c3bfcdbb394887c8.mp3` | `art_sources/guiyun-battle-finish-20261014/voice-originals/ye-c896c3bfcdbb394887c8.mp3` | c896c3bfcdbb |
+| prehg.ye.f137d0d8932475 | `assets/audio/voices/ye-7fe76992a1c1a9d00e0d.mp3` | `art_sources/guiyun-battle-finish-20261014/voice-originals/ye-7fe76992a1c1a9d00e0d.mp3` | 7fe76992a1c1 |
+| prehg.ye.54b88a1637a287 | `assets/audio/voices/ye-3f44a18dc13e3cebca40.mp3` | `art_sources/guiyun-battle-finish-20261014/voice-originals/ye-3f44a18dc13e3cebca40.mp3` | 3f44a18dc13e |
+| prehg.ye.c01bfe60605866 | `assets/audio/voices/ye-bfb0bdd00bcc37dc922d.mp3` | `art_sources/guiyun-battle-finish-20261014/voice-originals/ye-bfb0bdd00bcc37dc922d.mp3` | bfb0bdd00bcc |
+| prehg.ye.9b27c9f3d5ca10 | `assets/audio/voices/ye-a80b3ff2133a4637339c.mp3` | `art_sources/guiyun-battle-finish-20261014/voice-originals/ye-a80b3ff2133a4637339c.mp3` | a80b3ff2133a |
+| prehg.ye.c3829ea09b948a | `assets/audio/voices/ye-09a3a22070324e0dfec6.mp3` | `art_sources/guiyun-battle-finish-20261014/voice-originals/ye-09a3a22070324e0dfec6.mp3` | 09a3a2207032 |
+| prehg.ye.08b1d1ce243ff1 | `assets/audio/voices/ye-8b5b3b5c371683d6ed5e.mp3` | `art_sources/guiyun-battle-finish-20261014/voice-originals/ye-8b5b3b5c371683d6ed5e.mp3` | 8b5b3b5c3716 |
+| prehg.ye.488b76f608ac4f | `assets/audio/voices/ye-4ebea2994b962ee82a0a.mp3` | `art_sources/guiyun-battle-finish-20261014/voice-originals/ye-4ebea2994b962ee82a0a.mp3` | 4ebea2994b96 |
+| prehg.ye.9824764cdc4d5f | `assets/audio/voices/ye-b569e20a16782d219c65.mp3` | `art_sources/guiyun-battle-finish-20261014/voice-originals/ye-b569e20a16782d219c65.mp3` | b569e20a1678 |
+| prehg.ye.e541fe609bcce7 | `assets/audio/voices/ye-97bc48aef6c4f7ce8d1b.mp3` | `art_sources/guiyun-battle-finish-20261014/voice-originals/ye-97bc48aef6c4f7ce8d1b.mp3` | 97bc48aef6c4 |
+| prehg.ye.f5d2d39a085142 | `assets/audio/voices/ye-9b722addabc006eff716.mp3` | `art_sources/guiyun-battle-finish-20261014/voice-originals/ye-9b722addabc006eff716.mp3` | 9b722addabc0 |
+| prehg.ye.e55faef4b1da0c | `assets/audio/voices/ye-38e8defa5721c6c65071.mp3` | `art_sources/guiyun-battle-finish-20261014/voice-originals/ye-38e8defa5721c6c65071.mp3` | 38e8defa5721 |
+| prehg.ye.6da7285d0a71ab | `assets/audio/voices/ye-fcf51d0611be1d1ff869.mp3` | `art_sources/guiyun-battle-finish-20261014/voice-originals/ye-fcf51d0611be1d1ff869.mp3` | fcf51d0611be |
+| prehg.ye.b9856302803d74 | `assets/audio/voices/ye-2adbe66dee5eb79df437.mp3` | `art_sources/guiyun-battle-finish-20261014/voice-originals/ye-2adbe66dee5eb79df437.mp3` | 2adbe66dee5e |
+| prehg.ye.c3ceb7e833ca42 | `assets/audio/voices/ye-ea934605e5867ecaf752.mp3` | `art_sources/guiyun-battle-finish-20261014/voice-originals/ye-ea934605e5867ecaf752.mp3` | ea934605e586 |
+| prehg.ye.2f5c705a00fda4 | `assets/audio/voices/ye-4acd03c5a88613d23214.mp3` | `art_sources/guiyun-battle-finish-20261014/voice-originals/ye-4acd03c5a88613d23214.mp3` | 4acd03c5a886 |
+| prehg.ye.da0651419a6761 | `assets/audio/voices/ye-0a5aaa59e4ab9767b793.mp3` | `art_sources/guiyun-battle-finish-20261014/voice-originals/ye-0a5aaa59e4ab9767b793.mp3` | 0a5aaa59e4ab |
+| prehg.ye.d3c6dd0fe41313 | `assets/audio/voices/ye-37d5ff45db048d4dc79d.mp3` | `art_sources/guiyun-battle-finish-20261014/voice-originals/ye-37d5ff45db048d4dc79d.mp3` | 37d5ff45db04 |
+| prehg.ye.f009eeb1516fa8 | `assets/audio/voices/ye-dbbe6d3ecdebd6b52107.mp3` | `art_sources/guiyun-battle-finish-20261014/voice-originals/ye-dbbe6d3ecdebd6b52107.mp3` | dbbe6d3ecdeb |
+| prehg.ye.52f0c9a4b9ddc4 | `assets/audio/voices/ye-afcf26306d71c52681c7.mp3` | `art_sources/guiyun-battle-finish-20261014/voice-originals/ye-afcf26306d71c52681c7.mp3` | afcf26306d71 |
+| prehg.ye.a0f0c01a0ea115 | `assets/audio/voices/ye-64487ba6a16e795a4532.mp3` | `art_sources/guiyun-battle-finish-20261014/voice-originals/ye-64487ba6a16e795a4532.mp3` | 64487ba6a16e |
+| prehg.ye.551216c90f9a3a | `assets/audio/voices/ye-c9aae1413c5570672e2b.mp3` | `art_sources/guiyun-battle-finish-20261014/voice-originals/ye-c9aae1413c5570672e2b.mp3` | c9aae1413c55 |
+| prehg.ye.531f1bbd2ad71c | `assets/audio/voices/ye-a74ff9b924d4391cb7b6.mp3` | `art_sources/guiyun-battle-finish-20261014/voice-originals/ye-a74ff9b924d4391cb7b6.mp3` | a74ff9b924d4 |
+| prehg.ye.da23565689f0dd | `assets/audio/voices/ye-36ac2c9bda7178db75de.mp3` | `art_sources/guiyun-battle-finish-20261014/voice-originals/ye-36ac2c9bda7178db75de.mp3` | 36ac2c9bda71 |
+| prehg.ye.af7df02927c099 | `assets/audio/voices/ye-309f48a1463480482d33.mp3` | `art_sources/guiyun-battle-finish-20261014/voice-originals/ye-309f48a1463480482d33.mp3` | 309f48a14634 |
+| prehg.ye.664af4cf637a45 | `assets/audio/voices/ye-ba5a2644f95b716009f9.mp3` | `art_sources/guiyun-battle-finish-20261014/voice-originals/ye-ba5a2644f95b716009f9.mp3` | ba5a2644f95b |
+| prehg.ye.50b7eea3d8b2fe | `assets/audio/voices/ye-9dc0254225ad2172b590.mp3` | `art_sources/guiyun-battle-finish-20261014/voice-originals/ye-9dc0254225ad2172b590.mp3` | 9dc0254225ad |
+| prehg.ye.c2e8dc0569b7fe | `assets/audio/voices/ye-a39df919ca1da8c1501a.mp3` | `art_sources/guiyun-battle-finish-20261014/voice-originals/ye-a39df919ca1da8c1501a.mp3` | a39df919ca1d |
+| prehg.pei-zhigu.a544e051d885ed | `assets/audio/voices/pei-zhigu-a63b6d879de9bbb06e39.mp3` | `art_sources/guiyun-battle-finish-20261014/voice-originals/pei-zhigu-a63b6d879de9bbb06e39.mp3` | a63b6d879de9 |
+| prehg.pei-zhigu.f9bd0f496da5ea | `assets/audio/voices/pei-zhigu-3842bfe90a83ba1cd8a5.mp3` | `art_sources/guiyun-battle-finish-20261014/voice-originals/pei-zhigu-3842bfe90a83ba1cd8a5.mp3` | 3842bfe90a83 |
+| prehg.pei-zhigu.3696d7aab12abd | `assets/audio/voices/pei-zhigu-58ce7410c23aeb43376e.mp3` | `art_sources/guiyun-battle-finish-20261014/voice-originals/pei-zhigu-58ce7410c23aeb43376e.mp3` | 58ce7410c23a |
+| prehg.pei-zhigu.ad5d58b4f37ab9 | `assets/audio/voices/pei-zhigu-cd202304e8af51734151.mp3` | `art_sources/guiyun-battle-finish-20261014/voice-originals/pei-zhigu-cd202304e8af51734151.mp3` | cd202304e8af |
+| prehg.pei-zhigu.fca59da15f692c | `assets/audio/voices/pei-zhigu-292f9afcff902c7ee133.mp3` | `art_sources/guiyun-battle-finish-20261014/voice-originals/pei-zhigu-292f9afcff902c7ee133.mp3` | 292f9afcff90 |
+| prehg.pei-zhigu.197019f672e9bd | `assets/audio/voices/pei-zhigu-35d325fbaccc1946f970.mp3` | `art_sources/guiyun-battle-finish-20261014/voice-originals/pei-zhigu-35d325fbaccc1946f970.mp3` | 35d325fbaccc |
+| prehg.pei-zhigu.79f59cfd189454 | `assets/audio/voices/pei-zhigu-6a4f457ff6db6f5a48ce.mp3` | `art_sources/guiyun-battle-finish-20261014/voice-originals/pei-zhigu-6a4f457ff6db6f5a48ce.mp3` | 6a4f457ff6db |
+| prehg.pei-zhigu.c758196ac3f926 | `assets/audio/voices/pei-zhigu-479c2cff1306980c8935.mp3` | `art_sources/guiyun-battle-finish-20261014/voice-originals/pei-zhigu-479c2cff1306980c8935.mp3` | 479c2cff1306 |
+| prehg.pei-zhigu.db950f09906cca | `assets/audio/voices/pei-zhigu-4f8dbdcd8c167d0afa59.mp3` | `art_sources/guiyun-battle-finish-20261014/voice-originals/pei-zhigu-4f8dbdcd8c167d0afa59.mp3` | 4f8dbdcd8c16 |
+| prehg.pei-zhigu.ec756012072f4f | `assets/audio/voices/pei-zhigu-9dc49e3fd5f6e7a0e2ac.mp3` | `art_sources/guiyun-battle-finish-20261014/voice-originals/pei-zhigu-9dc49e3fd5f6e7a0e2ac.mp3` | 9dc49e3fd5f6 |
+| prehg.pei-zhigu.28d699ca5e322c | `assets/audio/voices/pei-zhigu-e6591d33428284931962.mp3` | `art_sources/guiyun-battle-finish-20261014/voice-originals/pei-zhigu-e6591d33428284931962.mp3` | e6591d334282 |
+| prehg.pei-zhigu.a38da086205ab7 | `assets/audio/voices/pei-zhigu-530d7ec03a41395b598b.mp3` | `art_sources/guiyun-battle-finish-20261014/voice-originals/pei-zhigu-530d7ec03a41395b598b.mp3` | 530d7ec03a41 |
+| prehg.pei-zhigu.7b33a3b8ac3bd0 | `assets/audio/voices/pei-zhigu-50f655dd4eec11b4f512.mp3` | `art_sources/guiyun-battle-finish-20261014/voice-originals/pei-zhigu-50f655dd4eec11b4f512.mp3` | 50f655dd4eec |
+| prehg.pei-zhigu.d4d4ca1632c632 | `assets/audio/voices/pei-zhigu-d7cf0cc7c35dca94f383.mp3` | `art_sources/guiyun-battle-finish-20261014/voice-originals/pei-zhigu-d7cf0cc7c35dca94f383.mp3` | d7cf0cc7c35d |
+| prehg.pei-zhigu.f7cb8cf7ed8b43 | `assets/audio/voices/pei-zhigu-c8bf7864171b9b923f8c.mp3` | `art_sources/guiyun-battle-finish-20261014/voice-originals/pei-zhigu-c8bf7864171b9b923f8c.mp3` | c8bf7864171b |
+| prehg.pei-zhigu.b4ea31b944584f | `assets/audio/voices/pei-zhigu-039571331dbeefee0f11.mp3` | `art_sources/guiyun-battle-finish-20261014/voice-originals/pei-zhigu-039571331dbeefee0f11.mp3` | 039571331dbe |
+| prehg.pei-zhigu.4776d56175c03f | `assets/audio/voices/pei-zhigu-6270dd02770a2f42e826.mp3` | `art_sources/guiyun-battle-finish-20261014/voice-originals/pei-zhigu-6270dd02770a2f42e826.mp3` | 6270dd02770a |
+| prehg.pei-zhigu.76cdfaff9d73b1 | `assets/audio/voices/pei-zhigu-6deb41ca192675a472f8.mp3` | `art_sources/guiyun-battle-finish-20261014/voice-originals/pei-zhigu-6deb41ca192675a472f8.mp3` | 6deb41ca1926 |
+| prehg.pei-zhigu.df4d5b469f1ac8 | `assets/audio/voices/pei-zhigu-1e943a581ffbcbf37aac.mp3` | `art_sources/guiyun-battle-finish-20261014/voice-originals/pei-zhigu-1e943a581ffbcbf37aac.mp3` | 1e943a581ffb |
+| prehg.pei-zhigu.e36611dfe6b333 | `assets/audio/voices/pei-zhigu-147170006651af50e180.mp3` | `art_sources/guiyun-battle-finish-20261014/voice-originals/pei-zhigu-147170006651af50e180.mp3` | 147170006651 |
+| prehg.pei-zhigu.f60c3f1c266dec | `assets/audio/voices/pei-zhigu-7471c8c28210e8f37fd0.mp3` | `art_sources/guiyun-battle-finish-20261014/voice-originals/pei-zhigu-7471c8c28210e8f37fd0.mp3` | 7471c8c28210 |
+| prehg.pei-zhigu.e0d59db421c1d5 | `assets/audio/voices/pei-zhigu-67585427f9393db01ab7.mp3` | `art_sources/guiyun-battle-finish-20261014/voice-originals/pei-zhigu-67585427f9393db01ab7.mp3` | 67585427f939 |
+| prehg.pei-zhigu.226dd8733a93a9 | `assets/audio/voices/pei-zhigu-d343187df21e888d426f.mp3` | `art_sources/guiyun-battle-finish-20261014/voice-originals/pei-zhigu-d343187df21e888d426f.mp3` | d343187df21e |
+| prehg.pei-zhigu.8fa75ac1c28ced | `assets/audio/voices/pei-zhigu-a4f641547b4cfd2559c5.mp3` | `art_sources/guiyun-battle-finish-20261014/voice-originals/pei-zhigu-a4f641547b4cfd2559c5.mp3` | a4f641547b4c |
+| prehg.pei-zhigu.a0b655df856078 | `assets/audio/voices/pei-zhigu-e528701c0579f2059681.mp3` | `art_sources/guiyun-battle-finish-20261014/voice-originals/pei-zhigu-e528701c0579f2059681.mp3` | e528701c0579 |
+| prehg.pei-zhigu.a1f648d2551635 | `assets/audio/voices/pei-zhigu-f2788576b90b24f1761c.mp3` | `art_sources/guiyun-battle-finish-20261014/voice-originals/pei-zhigu-f2788576b90b24f1761c.mp3` | f2788576b90b |
+| prehg.pei-zhigu.311ea89e08ff9d | `assets/audio/voices/pei-zhigu-809bee3d34bebab85ba9.mp3` | `art_sources/guiyun-battle-finish-20261014/voice-originals/pei-zhigu-809bee3d34bebab85ba9.mp3` | 809bee3d34be |
+| prehg.pei-zhigu.7a17fd4ada20ec | `assets/audio/voices/pei-zhigu-635da3d4b5d39de71859.mp3` | `art_sources/guiyun-battle-finish-20261014/voice-originals/pei-zhigu-635da3d4b5d39de71859.mp3` | 635da3d4b5d3 |
+| prehg.pei-zhigu.7440732b63b819 | `assets/audio/voices/pei-zhigu-f93c3968f443f3f7fc87.mp3` | `art_sources/guiyun-battle-finish-20261014/voice-originals/pei-zhigu-f93c3968f443f3f7fc87.mp3` | f93c3968f443 |
+| prehg.pei-zhigu.6e0e477380cc4d | `assets/audio/voices/pei-zhigu-ff71762a0380200eb19e.mp3` | `art_sources/guiyun-battle-finish-20261014/voice-originals/pei-zhigu-ff71762a0380200eb19e.mp3` | ff71762a0380 |
+| prehg.pei-zhigu.88ce51e39fddc5 | `assets/audio/voices/pei-zhigu-359c94803bc65ac8928c.mp3` | `art_sources/guiyun-battle-finish-20261014/voice-originals/pei-zhigu-359c94803bc65ac8928c.mp3` | 359c94803bc6 |
+| prehg.pei-zhigu.549532a88edfed | `assets/audio/voices/pei-zhigu-dfae160498c00d1b8657.mp3` | `art_sources/guiyun-battle-finish-20261014/voice-originals/pei-zhigu-dfae160498c00d1b8657.mp3` | dfae160498c0 |
+| prehg.pei-zhigu.660615b5d62221 | `assets/audio/voices/pei-zhigu-c71d5cf1d38a4a407ae0.mp3` | `art_sources/guiyun-battle-finish-20261014/voice-originals/pei-zhigu-c71d5cf1d38a4a407ae0.mp3` | c71d5cf1d38a |
+| prehg.pei-zhigu.59af65ebf5ffb3 | `assets/audio/voices/pei-zhigu-6a1dc8b76b6b3beb8e0e.mp3` | `art_sources/guiyun-battle-finish-20261014/voice-originals/pei-zhigu-6a1dc8b76b6b3beb8e0e.mp3` | 6a1dc8b76b6b |
+| prehg.pei-zhigu.2345239eecc81e | `assets/audio/voices/pei-zhigu-3c4c3499a09506df4ded.mp3` | `art_sources/guiyun-battle-finish-20261014/voice-originals/pei-zhigu-3c4c3499a09506df4ded.mp3` | 3c4c3499a095 |
+| prehg.pei-zhigu.6f6bb671872cd5 | `assets/audio/voices/pei-zhigu-f8f0fe8ad2b613acce48.mp3` | `art_sources/guiyun-battle-finish-20261014/voice-originals/pei-zhigu-f8f0fe8ad2b613acce48.mp3` | f8f0fe8ad2b6 |
+| prehg.pei-zhigu.e5c6a4a4287af2 | `assets/audio/voices/pei-zhigu-1d9798fe2e66bd8b3688.mp3` | `art_sources/guiyun-battle-finish-20261014/voice-originals/pei-zhigu-1d9798fe2e66bd8b3688.mp3` | 1d9798fe2e66 |
+| prehg.pei-zhigu.4ff0edb46a244c | `assets/audio/voices/pei-zhigu-f3417df3c96785e0b880.mp3` | `art_sources/guiyun-battle-finish-20261014/voice-originals/pei-zhigu-f3417df3c96785e0b880.mp3` | f3417df3c967 |
+| prehg.pei-zhigu.fbc9fdc7821dd6 | `assets/audio/voices/pei-zhigu-b06928dd2347e065c38c.mp3` | `art_sources/guiyun-battle-finish-20261014/voice-originals/pei-zhigu-b06928dd2347e065c38c.mp3` | b06928dd2347 |
+| prehg.pei-zhigu.46fd70bd6d9713 | `assets/audio/voices/pei-zhigu-66450a732a75e9a504c6.mp3` | `art_sources/guiyun-battle-finish-20261014/voice-originals/pei-zhigu-66450a732a75e9a504c6.mp3` | 66450a732a75 |
+| prehg.pei-zhigu.b10b253edcda1a | `assets/audio/voices/pei-zhigu-e892e8fa46c7dfaa2062.mp3` | `art_sources/guiyun-battle-finish-20261014/voice-originals/pei-zhigu-e892e8fa46c7dfaa2062.mp3` | e892e8fa46c7 |
+| prehg.pei-zhigu.26d537a3d53de4 | `assets/audio/voices/pei-zhigu-20493ba3f658845f211a.mp3` | `art_sources/guiyun-battle-finish-20261014/voice-originals/pei-zhigu-20493ba3f658845f211a.mp3` | 20493ba3f658 |
+| prehg.pei-zhigu.406d1ebf8f5d30 | `assets/audio/voices/pei-zhigu-8271877ed205d703d0b7.mp3` | `art_sources/guiyun-battle-finish-20261014/voice-originals/pei-zhigu-8271877ed205d703d0b7.mp3` | 8271877ed205 |
 
 ### battle
 
@@ -243,6 +333,37 @@
 | bb_qh_evacuation_atmo_20261023 | `assets/production/battle/bb_qh_evacuation_atmo_20261023.webp` | `art_sources/battle-atmosphere-20261023/out/bb_qh_evacuation_atmo_20261023.webp` | de8c52a98f69 |
 | bb_qh_training_v1 | `assets/production/battle/bb_qh_training_v1.webp` | `assets/bb_qh_training_v1.webp` | 575c6f87a3f1 |
 | bb_qh_training_atmo_20261023 | `assets/production/battle/bb_qh_training_atmo_20261023.webp` | `art_sources/battle-atmosphere-20261023/out/bb_qh_training_atmo_20261023.webp` | 4a3492093dc0 |
+| bb_qh_faction_clash_20261012 | `assets/production/battle/bb_qh_faction_clash_20261012.webp` | `art_sources/qihe-faction-clash-20261012/out/bb_qh_faction_clash_20261012.webp` | 9d34bbccc6ff |
+| bb_qh_faction_clash_atmo_20261023 | `assets/production/battle/bb_qh_faction_clash_atmo_20261023.webp` | `art_sources/battle-atmosphere-20261023/out/bb_qh_faction_clash_atmo_20261023.webp` | b898ef22702b |
+| b_gy_luxiaodou_prehangao_20261013 | `assets/production/battle/b_gy_luxiaodou_prehangao_20261013.webp` | `art_sources/pre-hangao-completion-20261013/out/b_gy_luxiaodou_prehangao_20261013.webp` | 45866da56cad |
+| b_gy_fangchi_prehangao_20261013 | `assets/production/battle/b_gy_fangchi_prehangao_20261013.webp` | `art_sources/pre-hangao-completion-20261013/out/b_gy_fangchi_prehangao_20261013.webp` | bddb936a93f1 |
+| b_gy_zhongzhuo_prehangao_20261013 | `assets/production/battle/b_gy_zhongzhuo_prehangao_20261013.webp` | `art_sources/pre-hangao-completion-20261013/out/b_gy_zhongzhuo_prehangao_20261013.webp` | beae35bed448 |
+| b_gy_zhouyan_prehangao_20261013 | `assets/production/battle/b_gy_zhouyan_prehangao_20261013.webp` | `art_sources/pre-hangao-completion-20261013/out/b_gy_zhouyan_prehangao_20261013.webp` | 7dfd341b4303 |
+| b_gy_hero_sword_prehangao_20261013 | `assets/production/battle/b_gy_hero_sword_prehangao_20261013.webp` | `art_sources/pre-hangao-completion-20261013/out/b_gy_hero_sword_prehangao_20261013.webp` | dd3c1e812c8d |
+| b_gy_hero_fist_prehangao_20261013 | `assets/production/battle/b_gy_hero_fist_prehangao_20261013.webp` | `art_sources/pre-hangao-completion-20261013/out/b_gy_hero_fist_prehangao_20261013.webp` | 621d25f4d057 |
+| b_gy_peizhigu_prehangao_20261013 | `assets/production/battle/b_gy_peizhigu_prehangao_20261013.webp` | `art_sources/pre-hangao-completion-20261013/out/b_gy_peizhigu_prehangao_20261013.webp` | a1af48f68335 |
+| b_gy_luxiaodou_finish_20261014 | `assets/production/battle/b_gy_luxiaodou_finish_20261014.webp` | `art_sources/guiyun-battle-finish-20261014/out/b_gy_luxiaodou_finish_20261014.webp` | 598656ccff53 |
+| b_gy_fangchi_finish_20261014 | `assets/production/battle/b_gy_fangchi_finish_20261014.webp` | `art_sources/guiyun-battle-finish-20261014/out/b_gy_fangchi_finish_20261014.webp` | 06bdfdfb00f8 |
+| b_gy_zhongzhuo_finish_20261014 | `assets/production/battle/b_gy_zhongzhuo_finish_20261014.webp` | `art_sources/guiyun-battle-finish-20261014/out/b_gy_zhongzhuo_finish_20261014.webp` | 41ff6c2cdc02 |
+| b_gy_zhouyan_finish_20261014 | `assets/production/battle/b_gy_zhouyan_finish_20261014.webp` | `art_sources/guiyun-battle-finish-20261014/out/b_gy_zhouyan_finish_20261014.webp` | 93ef73bf304f |
+| b_gy_peizhigu_finish_20261014 | `assets/production/battle/b_gy_peizhigu_finish_20261014.webp` | `art_sources/guiyun-battle-finish-20261014/out/b_gy_peizhigu_finish_20261014.webp` | a6ede46d8c4e |
+| b_qh_clash_cen_redraw_20261017 | `assets/production/battle/b_qh_clash_cen_redraw_20261017.webp` | `art_sources/qihe-clash-leaders-redraw-20261017/out/b_qh_clash_cen_redraw_20261017.webp` | 4cee22adf16c |
+| b_qh_clash_xu_redraw_20261017 | `assets/production/battle/b_qh_clash_xu_redraw_20261017.webp` | `art_sources/qihe-clash-leaders-redraw-20261017/out/b_qh_clash_xu_redraw_20261017.webp` | 286fcbf7ab15 |
+| b_hero_village_staff_hd_20261017 | `assets/production/battle/b_hero_village_staff_hd_20261017.webp` | `art_sources/hero-hd-redraw-20261017/out/b_hero_village_staff_hd_20261017.webp` | a78b293ff2f1 |
+| b_hero_modern_hd_20261017 | `assets/production/battle/b_hero_modern_hd_20261017.webp` | `art_sources/hero-hd-redraw-20261017/out/b_hero_modern_hd_20261017.webp` | 8b9c806b6d96 |
+| b_gy_hero_sword_steel_hd_20261017 | `assets/production/battle/b_gy_hero_sword_steel_hd_20261017.webp` | `art_sources/hero-hd-redraw-20261017/out/b_gy_hero_sword_steel_hd_20261017.webp` | f1e73381104d |
+| b_gy_hero_fist_hd_20261017 | `assets/production/battle/b_gy_hero_fist_hd_20261017.webp` | `art_sources/battle-hd-redraw-batch2-20261017/out/b_gy_hero_fist_hd_20261017.webp` | d2b7494ca6f2 |
+| b_gy_hero_sword_wood_hd_20261017 | `assets/production/battle/b_gy_hero_sword_wood_hd_20261017.webp` | `art_sources/battle-hd-redraw-batch2-20261017/out/b_gy_hero_sword_wood_hd_20261017.webp` | f5621cf56040 |
+| b_gy_hero_dao_hd_20261017 | `assets/production/battle/b_gy_hero_dao_hd_20261017.webp` | `art_sources/battle-hd-redraw-batch2-20261017/out/b_gy_hero_dao_hd_20261017.webp` | 07d9dd0229b5 |
+| b_gy_hero_staff_hd_20261017 | `assets/production/battle/b_gy_hero_staff_hd_20261017.webp` | `art_sources/battle-hd-redraw-batch2-20261017/out/b_gy_hero_staff_hd_20261017.webp` | 5899eef99f8c |
+| b_gy_hero_needle_hd_20261017 | `assets/production/battle/b_gy_hero_needle_hd_20261017.webp` | `art_sources/battle-hd-redraw-batch2-20261017/out/b_gy_hero_needle_hd_20261017.webp` | e0f2386abfd4 |
+| b_ye_initial_needle_hd_20261017 | `assets/production/battle/b_ye_initial_needle_hd_20261017.webp` | `art_sources/battle-hd-redraw-batch2-20261017/out/b_ye_initial_needle_hd_20261017.webp` | 0b3ce47f2089 |
+| b_qh_luheng_hd_20261017 | `assets/production/battle/b_qh_luheng_hd_20261017.webp` | `art_sources/battle-hd-redraw-batch2-20261017/out/b_qh_luheng_hd_20261017.webp` | e266ee442a95 |
+| b_qh_raider_front_hd_20261017 | `assets/production/battle/b_qh_raider_front_hd_20261017.webp` | `art_sources/battle-hd-redraw-batch2-20261017/out/b_qh_raider_front_hd_20261017.webp` | fe2cd7aa4804 |
+| b_qh_raider_rear_hd_20261017 | `assets/production/battle/b_qh_raider_rear_hd_20261017.webp` | `art_sources/battle-hd-redraw-batch2-20261017/out/b_qh_raider_rear_hd_20261017.webp` | 83828790fc72 |
+| b_qh_clash_guard_hd_20261017 | `assets/production/battle/b_qh_clash_guard_hd_20261017.webp` | `art_sources/battle-hd-redraw-batch2-20261017/out/b_qh_clash_guard_hd_20261017.webp` | 24a6d68e0250 |
+| b_wolf_hd_20261017 | `assets/production/battle/b_wolf_hd_20261017.webp` | `art_sources/wolf-hd-redraw-20261017/out/b_wolf_hd_20261017.webp` | 695bc2e47f43 |
+| b_qh_bailiff_hd_20261022 | `assets/production/battle/b_qh_bailiff_hd_20261022.webp` | `art_sources/bailiff-battle-20261022/out/b_qh_bailiff_hd_20261022_cand.webp` | 00238add0d65 |
 
 ### characters
 
@@ -374,6 +495,14 @@
 | s_npc_gy_luxiaodou_20261010 | `assets/production/characters/s_npc_gy_luxiaodou_20261010.webp` | `art_sources/guiyun-spar-sprites-20261010/out/s_npc_gy_luxiaodou_20261010.webp` | dedae3e11541 |
 | s_npc_gy_zhongzhuo_20261010 | `assets/production/characters/s_npc_gy_zhongzhuo_20261010.webp` | `art_sources/guiyun-spar-sprites-20261010/out/s_npc_gy_zhongzhuo_20261010.webp` | 07715cf9dbd5 |
 | s_npc_gy_yinhongying_20261010 | `assets/production/characters/s_npc_gy_yinhongying_20261010.webp` | `art_sources/guiyun-spar-sprites-20261010/out/s_npc_gy_yinhongying_20261010.webp` | 2a48e7ba576b |
+| s_gy_peizhigu_prehangao_20261013 | `assets/production/characters/s_gy_peizhigu_prehangao_20261013.webp` | `art_sources/pre-hangao-completion-20261013/out/s_gy_peizhigu_prehangao_20261013.webp` | 8417312f9007 |
+| p_gy_peizhigu | `assets/production/characters/p_gy_peizhigu_prehangao_20261013.webp` | `assets/production/cultivation/household-v1/pei_normal.png` | d8c906b85c85 |
+| s_npc_qh_ashuan_20261023 | `assets/production/characters/s_npc_qh_ashuan_20261023.webp` | `art_sources/batch2-cast-20261023/ashuan/sprite/s_npc_qh_ashuan_20261023_b_cand.webp` | 1e670495cda6 |
+| s_npc_qh_xiaohe_20261023 | `assets/production/characters/s_npc_qh_xiaohe_20261023.webp` | `art_sources/batch2-cast-20261023/xiaohe/sprite/s_npc_qh_xiaohe_20261023_a_cand.webp` | 306e8e36d381 |
+| s_npc_qh_huolang_20261023 | `assets/production/characters/s_npc_qh_huolang_20261023.webp` | `art_sources/batch2-cast-20261023/huolang/sprite/s_npc_qh_huolang_20261023_a_cand.webp` | 8d996b15207f |
+| s_npc_qh_chuanjia_20261023 | `assets/production/characters/s_npc_qh_chuanjia_20261023.webp` | `art_sources/batch2-cast-20261023/chuanjia/sprite/s_npc_qh_chuanjia_20261023_a_cand.webp` | 305e4f03b2bf |
+| s_npc_qh_aqi_20261023 | `assets/production/characters/s_npc_qh_aqi_20261023.webp` | `art_sources/batch2-cast-20261023/aqi/sprite/s_npc_qh_aqi_20261023_b_cand.webp` | 4bfd8cf60aac |
+| s_npc_qh_linhuizhi_20261023 | `assets/production/characters/s_npc_qh_linhuizhi_20261023.webp` | `art_sources/batch2-cast-20261023/linhuizhi/sprite/s_npc_qh_linhuizhi_20261023_a_cand.webp` | 0b42118fc549 |
 
 ### cultivation
 
@@ -453,23 +582,23 @@
 | cu_mail-classic_portraits_shimu-menu_png | `assets/production/cultivation/mail-classic/portraits/shimu-menu.png` | `art_sources/guiyun-inkcloud-cn-20261008/menu/shimu-menu.png` | 5a5adeb0d923 |
 | cu_mail-classic_portraits_yin-menu_png | `assets/production/cultivation/mail-classic/portraits/yin-menu.png` | `art_sources/guiyun-inkcloud-cn-20261008/menu/yin-menu.png` | 60631a1475c3 |
 | cu_mail-classic_portraits_zhou-menu-inkcloud_png | `assets/production/cultivation/mail-classic/portraits/zhou-menu-inkcloud.png` | `art_sources/guiyun-inkcloud-cn-20261008/menu/zhou-menu.png` | bcbfb38c73ed |
-| cu_household-v1_dou_png | `assets/production/cultivation/household-v1/dou.png` | `art_sources/guiyun-inkcloud-cn-20261008/out/household-v1/dou.png` | e100e9bff11d |
-| cu_household-v1_fang_png | `assets/production/cultivation/household-v1/fang.png` | `art_sources/guiyun-inkcloud-cn-20261008/out/household-v1/fang.png` | 9b055508e9f2 |
-| cu_household-v1_hero_long_png | `assets/production/cultivation/household-v1/hero_long.png` | `art_sources/guiyun-inkcloud-cn-20261008/out/household-v1/hero_long.png` | ff1f0e712bbc |
-| cu_household-v1_hero_mid_png | `assets/production/cultivation/household-v1/hero_mid.png` | `art_sources/guiyun-inkcloud-cn-20261008/out/household-v1/hero_mid.png` | d2f96d484fff |
-| cu_household-v1_hero_short_png | `assets/production/cultivation/household-v1/hero_short.png` | `art_sources/guiyun-inkcloud-cn-20261008/out/household-v1/hero_short.png` | 1c6bff2623e7 |
-| cu_household-v1_man_png | `assets/production/cultivation/household-v1/man.png` | `art_sources/guiyun-inkcloud-cn-20261008/out/household-v1/man.png` | 0af6691dd0ad |
+| cu_household-v1_dou_png | `assets/production/cultivation/household-v1/dou.png` | `art_sources/guiyun-inkcloud-cn-20261008/out/household-v1/dou.png` | 2e54b1e4057b |
+| cu_household-v1_fang_png | `assets/production/cultivation/household-v1/fang.png` | `art_sources/guiyun-inkcloud-cn-20261008/out/household-v1/fang.png` | 56c78393fcc8 |
+| cu_household-v1_hero_long_png | `assets/production/cultivation/household-v1/hero_long.png` | `art_sources/guiyun-inkcloud-cn-20261008/out/household-v1/hero_long.png` | ae234139846e |
+| cu_household-v1_hero_mid_png | `assets/production/cultivation/household-v1/hero_mid.png` | `art_sources/guiyun-inkcloud-cn-20261008/out/household-v1/hero_mid.png` | 4ea00ef18721 |
+| cu_household-v1_hero_short_png | `assets/production/cultivation/household-v1/hero_short.png` | `art_sources/guiyun-inkcloud-cn-20261008/out/household-v1/hero_short.png` | 23180bb75071 |
+| cu_household-v1_man_png | `assets/production/cultivation/household-v1/man.png` | `art_sources/guiyun-inkcloud-cn-20261008/out/household-v1/man.png` | efab252bd51a |
 | cu_household-v1_shimu_png | `assets/production/cultivation/household-v1/shimu.png` | `art_sources/guiyun-performance-fix-20261012/shimu.png` | 49e0792cf270 |
 | cu_household-v1_yin_png | `assets/production/cultivation/household-v1/yin.png` | `art_sources/guiyun-performance-fix-20261012/yin.png` | e73da99e8fd5 |
-| cu_household-v1_zhong_png | `assets/production/cultivation/household-v1/zhong.png` | `art_sources/guiyun-inkcloud-cn-20261008/out/household-v1/zhong.png` | e52eaf3128e1 |
-| cu_household-v1_zhou_png | `assets/production/cultivation/household-v1/zhou.png` | `art_sources/guiyun-inkcloud-cn-20261008/out/household-v1/zhou.png` | 5c69a0f0e039 |
-| cu_household-v1_lu_png | `assets/production/cultivation/household-v1/lu.png` | `art_sources/guiyun-outsiders-q-20261008/out/household-v1/lu.png` | bbcfa03bb972 |
-| cu_household-v1_lu_normal_png | `assets/production/cultivation/household-v1/lu_normal.png` | `art_sources/guiyun-outsiders-q-20261008/out/household-v1/lu_normal.png` | bbcfa03bb972 |
-| cu_household-v1_lu_sad_png | `assets/production/cultivation/household-v1/lu_sad.png` | `art_sources/guiyun-outsiders-q-20261008/out/household-v1/lu_sad.png` | ba3c29b3e12b |
-| cu_household-v1_lu_serious_png | `assets/production/cultivation/household-v1/lu_serious.png` | `art_sources/guiyun-outsiders-q-20261008/out/household-v1/lu_serious.png` | 171ec9427b6f |
-| cu_household-v1_lu_smile_png | `assets/production/cultivation/household-v1/lu_smile.png` | `art_sources/guiyun-outsiders-q-20261008/out/household-v1/lu_smile.png` | c307c8d652c3 |
-| cu_household-v1_lu_surprise_png | `assets/production/cultivation/household-v1/lu_surprise.png` | `art_sources/guiyun-outsiders-q-20261008/out/household-v1/lu_surprise.png` | 16c354d37b67 |
-| cu_household-v1_lu_worry_png | `assets/production/cultivation/household-v1/lu_worry.png` | `art_sources/guiyun-outsiders-q-20261008/out/household-v1/lu_worry.png` | 905db8615455 |
+| cu_household-v1_zhong_png | `assets/production/cultivation/household-v1/zhong.png` | `art_sources/guiyun-inkcloud-cn-20261008/out/household-v1/zhong.png` | 5308725631fb |
+| cu_household-v1_zhou_png | `assets/production/cultivation/household-v1/zhou.png` | `art_sources/guiyun-inkcloud-cn-20261008/out/household-v1/zhou.png` | 7e7d0c7ecdba |
+| cu_household-v1_lu_png | `assets/production/cultivation/household-v1/lu.png` | `art_sources/guiyun-outsiders-q-20261008/out/household-v1/lu.png` | c7126cefe17d |
+| cu_household-v1_lu_normal_png | `assets/production/cultivation/household-v1/lu_normal.png` | `art_sources/guiyun-outsiders-q-20261008/out/household-v1/lu_normal.png` | c7126cefe17d |
+| cu_household-v1_lu_sad_png | `assets/production/cultivation/household-v1/lu_sad.png` | `art_sources/guiyun-outsiders-q-20261008/out/household-v1/lu_sad.png` | 214d1d74b4ac |
+| cu_household-v1_lu_serious_png | `assets/production/cultivation/household-v1/lu_serious.png` | `art_sources/guiyun-outsiders-q-20261008/out/household-v1/lu_serious.png` | 9de1da4f096c |
+| cu_household-v1_lu_smile_png | `assets/production/cultivation/household-v1/lu_smile.png` | `art_sources/guiyun-outsiders-q-20261008/out/household-v1/lu_smile.png` | f603ad99c084 |
+| cu_household-v1_lu_surprise_png | `assets/production/cultivation/household-v1/lu_surprise.png` | `art_sources/guiyun-outsiders-q-20261008/out/household-v1/lu_surprise.png` | a0bb70cc6054 |
+| cu_household-v1_lu_worry_png | `assets/production/cultivation/household-v1/lu_worry.png` | `art_sources/guiyun-outsiders-q-20261008/out/household-v1/lu_worry.png` | 54edea574af8 |
 | cu_household-v1_meng_zhiwei_png | `assets/production/cultivation/household-v1/meng_zhiwei.png` | `art_sources/guiyun-outsiders-q-20261008/out/household-v1/meng_zhiwei.png` | a0c30acc82a3 |
 | cu_household-v1_meng_zhiwei_normal_png | `assets/production/cultivation/household-v1/meng_zhiwei_normal.png` | `art_sources/guiyun-outsiders-q-20261008/out/household-v1/meng_zhiwei_normal.png` | a0c30acc82a3 |
 | cu_household-v1_meng_zhiwei_serious_png | `assets/production/cultivation/household-v1/meng_zhiwei_serious.png` | `art_sources/guiyun-outsiders-q-20261008/out/household-v1/meng_zhiwei_serious.png` | fc336bd27177 |
@@ -480,41 +609,41 @@
 | cu_household-v1_mo_songnian_serious_png | `assets/production/cultivation/household-v1/mo_songnian_serious.png` | `art_sources/guiyun-outsiders-q-20261008/out/household-v1/mo_songnian_serious.png` | 01e789064b57 |
 | cu_household-v1_mo_songnian_smile_png | `assets/production/cultivation/household-v1/mo_songnian_smile.png` | `art_sources/guiyun-outsiders-q-20261008/out/household-v1/mo_songnian_smile.png` | dae7ad02829c |
 | cu_household-v1_mo_songnian_surprise_png | `assets/production/cultivation/household-v1/mo_songnian_surprise.png` | `art_sources/guiyun-outsiders-q-20261008/out/household-v1/mo_songnian_surprise.png` | a4c6e3ab11de |
-| cu_household-v1_neighbor_png | `assets/production/cultivation/household-v1/neighbor.png` | `art_sources/guiyun-outsiders-q-20261008/out/household-v1/neighbor.png` | f734acbdac96 |
-| cu_household-v1_neighbor_normal_png | `assets/production/cultivation/household-v1/neighbor_normal.png` | `art_sources/guiyun-outsiders-q-20261008/out/household-v1/neighbor_normal.png` | f734acbdac96 |
-| cu_household-v1_neighbor_smile_png | `assets/production/cultivation/household-v1/neighbor_smile.png` | `art_sources/guiyun-outsiders-q-20261008/out/household-v1/neighbor_smile.png` | 6b2ae4e4b1ca |
-| cu_household-v1_neighbor_worry_png | `assets/production/cultivation/household-v1/neighbor_worry.png` | `art_sources/guiyun-outsiders-q-20261008/out/household-v1/neighbor_worry.png` | db98d42aa26a |
+| cu_household-v1_neighbor_png | `assets/production/cultivation/household-v1/neighbor.png` | `art_sources/guiyun-outsiders-q-20261008/out/household-v1/neighbor.png` | 882b153f2bb9 |
+| cu_household-v1_neighbor_normal_png | `assets/production/cultivation/household-v1/neighbor_normal.png` | `art_sources/guiyun-outsiders-q-20261008/out/household-v1/neighbor_normal.png` | 882b153f2bb9 |
+| cu_household-v1_neighbor_smile_png | `assets/production/cultivation/household-v1/neighbor_smile.png` | `art_sources/guiyun-outsiders-q-20261008/out/household-v1/neighbor_smile.png` | f56896644754 |
+| cu_household-v1_neighbor_worry_png | `assets/production/cultivation/household-v1/neighbor_worry.png` | `art_sources/guiyun-outsiders-q-20261008/out/household-v1/neighbor_worry.png` | 481c6fc86aa7 |
 | cu_household-v1_zhaochuan_courier_png | `assets/production/cultivation/household-v1/zhaochuan_courier.png` | `art_sources/guiyun-outsiders-q-20261008/out/household-v1/zhaochuan_courier.png` | d036f4dd637f |
 | cu_household-v1_zhaochuan_courier_normal_png | `assets/production/cultivation/household-v1/zhaochuan_courier_normal.png` | `art_sources/guiyun-outsiders-q-20261008/out/household-v1/zhaochuan_courier_normal.png` | d036f4dd637f |
 | cu_household-v1_zhaochuan_courier_serious_png | `assets/production/cultivation/household-v1/zhaochuan_courier_serious.png` | `art_sources/guiyun-outsiders-q-20261008/out/household-v1/zhaochuan_courier_serious.png` | c73c8501025f |
 | cu_household-v1_zhaochuan_courier_smile_png | `assets/production/cultivation/household-v1/zhaochuan_courier_smile.png` | `art_sources/guiyun-outsiders-q-20261008/out/household-v1/zhaochuan_courier_smile.png` | 9a27c3e936b1 |
 | cu_household-v1_zhaochuan_courier_surprise_png | `assets/production/cultivation/household-v1/zhaochuan_courier_surprise.png` | `art_sources/guiyun-outsiders-q-20261008/out/household-v1/zhaochuan_courier_surprise.png` | 801dddaf1e2f |
-| cu_household-v1_dou_angry_png | `assets/production/cultivation/household-v1/dou_angry.png` | `art_sources/guiyun-q-moods-20261008/out/household-v1/dou_angry.png` | 0b65a2824f42 |
-| cu_household-v1_dou_normal_png | `assets/production/cultivation/household-v1/dou_normal.png` | `art_sources/guiyun-q-moods-20261008/out/household-v1/dou_normal.png` | 457e9bbbc32e |
-| cu_household-v1_dou_sad_png | `assets/production/cultivation/household-v1/dou_sad.png` | `art_sources/guiyun-q-moods-20261008/out/household-v1/dou_sad.png` | d82a07accf4b |
-| cu_household-v1_dou_serious_png | `assets/production/cultivation/household-v1/dou_serious.png` | `art_sources/guiyun-q-moods-20261008/out/household-v1/dou_serious.png` | 087c27195053 |
-| cu_household-v1_dou_smile_png | `assets/production/cultivation/household-v1/dou_smile.png` | `art_sources/guiyun-q-moods-20261008/out/household-v1/dou_smile.png` | 620ffacf75a7 |
-| cu_household-v1_dou_surprise_png | `assets/production/cultivation/household-v1/dou_surprise.png` | `art_sources/guiyun-q-moods-20261008/out/household-v1/dou_surprise.png` | b8514d84794f |
-| cu_household-v1_dou_worry_png | `assets/production/cultivation/household-v1/dou_worry.png` | `art_sources/guiyun-q-moods-20261008/out/household-v1/dou_worry.png` | f499cc7226cc |
-| cu_household-v1_fang_angry_png | `assets/production/cultivation/household-v1/fang_angry.png` | `art_sources/guiyun-q-moods-20261008/out/household-v1/fang_angry.png` | b5e41611f02f |
-| cu_household-v1_fang_normal_png | `assets/production/cultivation/household-v1/fang_normal.png` | `art_sources/guiyun-q-moods-20261008/out/household-v1/fang_normal.png` | 6fcdbbae2fb3 |
-| cu_household-v1_fang_sad_png | `assets/production/cultivation/household-v1/fang_sad.png` | `art_sources/guiyun-q-moods-20261008/out/household-v1/fang_sad.png` | b1f56438ed9f |
-| cu_household-v1_fang_serious_png | `assets/production/cultivation/household-v1/fang_serious.png` | `art_sources/guiyun-q-moods-20261008/out/household-v1/fang_serious.png` | 0291561267e7 |
-| cu_household-v1_fang_smile_png | `assets/production/cultivation/household-v1/fang_smile.png` | `art_sources/guiyun-q-moods-20261008/out/household-v1/fang_smile.png` | 88955f05eda8 |
-| cu_household-v1_fang_surprise_png | `assets/production/cultivation/household-v1/fang_surprise.png` | `art_sources/guiyun-q-moods-20261008/out/household-v1/fang_surprise.png` | 731cb318d499 |
-| cu_household-v1_fang_worry_png | `assets/production/cultivation/household-v1/fang_worry.png` | `art_sources/guiyun-q-moods-20261008/out/household-v1/fang_worry.png` | fac62bce700b |
+| cu_household-v1_dou_angry_png | `assets/production/cultivation/household-v1/dou_angry.png` | `art_sources/guiyun-q-moods-20261008/out/household-v1/dou_angry.png` | 2871667fb2c3 |
+| cu_household-v1_dou_normal_png | `assets/production/cultivation/household-v1/dou_normal.png` | `art_sources/guiyun-q-moods-20261008/out/household-v1/dou_normal.png` | 8eb80577326f |
+| cu_household-v1_dou_sad_png | `assets/production/cultivation/household-v1/dou_sad.png` | `art_sources/guiyun-q-moods-20261008/out/household-v1/dou_sad.png` | 42dba20019cf |
+| cu_household-v1_dou_serious_png | `assets/production/cultivation/household-v1/dou_serious.png` | `art_sources/guiyun-q-moods-20261008/out/household-v1/dou_serious.png` | 684fa007f6ff |
+| cu_household-v1_dou_smile_png | `assets/production/cultivation/household-v1/dou_smile.png` | `art_sources/guiyun-q-moods-20261008/out/household-v1/dou_smile.png` | 9dd28f9b78e8 |
+| cu_household-v1_dou_surprise_png | `assets/production/cultivation/household-v1/dou_surprise.png` | `art_sources/guiyun-q-moods-20261008/out/household-v1/dou_surprise.png` | 84467a3b8147 |
+| cu_household-v1_dou_worry_png | `assets/production/cultivation/household-v1/dou_worry.png` | `art_sources/guiyun-q-moods-20261008/out/household-v1/dou_worry.png` | ef96ccadb801 |
+| cu_household-v1_fang_angry_png | `assets/production/cultivation/household-v1/fang_angry.png` | `art_sources/guiyun-q-moods-20261008/out/household-v1/fang_angry.png` | 16a5f18a7abc |
+| cu_household-v1_fang_normal_png | `assets/production/cultivation/household-v1/fang_normal.png` | `art_sources/guiyun-q-moods-20261008/out/household-v1/fang_normal.png` | 77eb55282119 |
+| cu_household-v1_fang_sad_png | `assets/production/cultivation/household-v1/fang_sad.png` | `art_sources/guiyun-q-moods-20261008/out/household-v1/fang_sad.png` | 478f04668377 |
+| cu_household-v1_fang_serious_png | `assets/production/cultivation/household-v1/fang_serious.png` | `art_sources/guiyun-q-moods-20261008/out/household-v1/fang_serious.png` | 908732ad9f71 |
+| cu_household-v1_fang_smile_png | `assets/production/cultivation/household-v1/fang_smile.png` | `art_sources/guiyun-q-moods-20261008/out/household-v1/fang_smile.png` | 7ef000fb2163 |
+| cu_household-v1_fang_surprise_png | `assets/production/cultivation/household-v1/fang_surprise.png` | `art_sources/guiyun-q-moods-20261008/out/household-v1/fang_surprise.png` | fe61033b6db5 |
+| cu_household-v1_fang_worry_png | `assets/production/cultivation/household-v1/fang_worry.png` | `art_sources/guiyun-q-moods-20261008/out/household-v1/fang_worry.png` | 493308155130 |
 | cu_household-v1_goose_normal_png | `assets/production/cultivation/household-v1/goose_normal.png` | `art_sources/guiyun-q-moods-20261008/out/household-v1/goose_normal.png` | c1ae04e7e6ba |
-| cu_household-v1_hero_long_angry_png | `assets/production/cultivation/household-v1/hero_long_angry.png` | `art_sources/guiyun-q-moods-20261008/out/household-v1/hero_long_angry.png` | aaab3e272265 |
-| cu_household-v1_hero_long_normal_png | `assets/production/cultivation/household-v1/hero_long_normal.png` | `art_sources/guiyun-playtest-fix-20261011/out/household-v1/hero_long_normal.png` | dfa819d02ff8 |
-| cu_household-v1_hero_long_sad_png | `assets/production/cultivation/household-v1/hero_long_sad.png` | `art_sources/guiyun-q-moods-20261008/out/household-v1/hero_long_sad.png` | 153dadde3e1b |
-| cu_household-v1_hero_long_smile_png | `assets/production/cultivation/household-v1/hero_long_smile.png` | `art_sources/guiyun-q-moods-20261008/out/household-v1/hero_long_smile.png` | e4cadfd670e2 |
-| cu_household-v1_hero_mid_normal_png | `assets/production/cultivation/household-v1/hero_mid_normal.png` | `art_sources/guiyun-playtest-fix-20261011/out/household-v1/hero_mid_normal.png` | 173f2f9cf339 |
+| cu_household-v1_hero_long_angry_png | `assets/production/cultivation/household-v1/hero_long_angry.png` | `art_sources/guiyun-q-moods-20261008/out/household-v1/hero_long_angry.png` | db58d1ac831a |
+| cu_household-v1_hero_long_normal_png | `assets/production/cultivation/household-v1/hero_long_normal.png` | `art_sources/guiyun-playtest-fix-20261011/out/household-v1/hero_long_normal.png` | 4126b4a687e9 |
+| cu_household-v1_hero_long_sad_png | `assets/production/cultivation/household-v1/hero_long_sad.png` | `art_sources/guiyun-q-moods-20261008/out/household-v1/hero_long_sad.png` | 6919ba89e79f |
+| cu_household-v1_hero_long_smile_png | `assets/production/cultivation/household-v1/hero_long_smile.png` | `art_sources/guiyun-q-moods-20261008/out/household-v1/hero_long_smile.png` | 42e1387ec398 |
+| cu_household-v1_hero_mid_normal_png | `assets/production/cultivation/household-v1/hero_mid_normal.png` | `art_sources/guiyun-playtest-fix-20261011/out/household-v1/hero_mid_normal.png` | 54f0ba830cad |
 | cu_household-v1_hero_mid_smile_png | `assets/production/cultivation/household-v1/hero_mid_smile.png` | `art_sources/guiyun-q-moods-20261008/out/household-v1/hero_mid_smile.png` | 7adab44e0c03 |
 | cu_household-v1_hero_short_normal_png | `assets/production/cultivation/household-v1/hero_short_normal.png` | `art_sources/guiyun-playtest-fix-20261011/out/household-v1/hero_short_normal.png` | 048d4c3d3c1c |
 | cu_household-v1_man_normal_png | `assets/production/cultivation/household-v1/man_normal.png` | `art_sources/guiyun-q-moods-20261008/out/household-v1/man_normal.png` | a81efeedaacb |
 | cu_household-v1_man_sad_png | `assets/production/cultivation/household-v1/man_sad.png` | `art_sources/guiyun-q-moods-20261008/out/household-v1/man_sad.png` | 4e27a5d7d829 |
 | cu_household-v1_man_smile_png | `assets/production/cultivation/household-v1/man_smile.png` | `art_sources/guiyun-q-moods-20261008/out/household-v1/man_smile.png` | 586ee93dfcf7 |
-| cu_household-v1_man_surprise_png | `assets/production/cultivation/household-v1/man_surprise.png` | `art_sources/guiyun-q-moods-20261008/out/household-v1/man_surprise.png` | 9b580b0eec68 |
+| cu_household-v1_man_surprise_png | `assets/production/cultivation/household-v1/man_surprise.png` | `art_sources/guiyun-q-moods-20261008/out/household-v1/man_surprise.png` | f834375e7669 |
 | cu_household-v1_man_worry_png | `assets/production/cultivation/household-v1/man_worry.png` | `art_sources/guiyun-q-moods-20261008/out/household-v1/man_worry.png` | 4d495db0a9d2 |
 | cu_household-v1_shimu_angry_png | `assets/production/cultivation/household-v1/shimu_angry.png` | `art_sources/guiyun-performance-fix-20261012/shimu_angry.png` | c15749e9db57 |
 | cu_household-v1_shimu_normal_png | `assets/production/cultivation/household-v1/shimu_normal.png` | `art_sources/guiyun-performance-fix-20261012/shimu_normal.png` | d545db85e5f1 |
@@ -523,14 +652,14 @@
 | cu_household-v1_shimu_smile_png | `assets/production/cultivation/household-v1/shimu_smile.png` | `art_sources/guiyun-performance-fix-20261012/shimu_smile.png` | c03fb940d185 |
 | cu_household-v1_shimu_surprise_png | `assets/production/cultivation/household-v1/shimu_surprise.png` | `art_sources/guiyun-performance-fix-20261012/shimu_surprise.png` | f6c5da891368 |
 | cu_household-v1_shimu_worry_png | `assets/production/cultivation/household-v1/shimu_worry.png` | `art_sources/guiyun-performance-fix-20261012/shimu_worry.png` | f5de6c4f8f61 |
-| cu_household-v1_ye_png | `assets/production/cultivation/household-v1/ye.png` | `art_sources/guiyun-q-moods-20261008/out/household-v1/ye.png` | 79b1d62ee139 |
-| cu_household-v1_ye_angry_png | `assets/production/cultivation/household-v1/ye_angry.png` | `art_sources/guiyun-q-moods-20261008/out/household-v1/ye_angry.png` | 5033d77eb928 |
-| cu_household-v1_ye_normal_png | `assets/production/cultivation/household-v1/ye_normal.png` | `art_sources/guiyun-q-moods-20261008/out/household-v1/ye_normal.png` | 8662f3c4d5ed |
-| cu_household-v1_ye_sad_png | `assets/production/cultivation/household-v1/ye_sad.png` | `art_sources/guiyun-q-moods-20261008/out/household-v1/ye_sad.png` | 5b09f46ecd0a |
-| cu_household-v1_ye_serious_png | `assets/production/cultivation/household-v1/ye_serious.png` | `art_sources/guiyun-q-moods-20261008/out/household-v1/ye_serious.png` | 885d2e4a4610 |
-| cu_household-v1_ye_smile_png | `assets/production/cultivation/household-v1/ye_smile.png` | `art_sources/guiyun-q-moods-20261008/out/household-v1/ye_smile.png` | 0d79f4244ac5 |
-| cu_household-v1_ye_surprise_png | `assets/production/cultivation/household-v1/ye_surprise.png` | `art_sources/guiyun-q-moods-20261008/out/household-v1/ye_surprise.png` | fe800aa2a39d |
-| cu_household-v1_ye_worry_png | `assets/production/cultivation/household-v1/ye_worry.png` | `art_sources/guiyun-q-moods-20261008/out/household-v1/ye_worry.png` | 4b7cee1bdb95 |
+| cu_household-v1_ye_png | `assets/production/cultivation/household-v1/ye.png` | `art_sources/guiyun-q-moods-20261008/out/household-v1/ye.png` | c493584146d1 |
+| cu_household-v1_ye_angry_png | `assets/production/cultivation/household-v1/ye_angry.png` | `art_sources/guiyun-q-moods-20261008/out/household-v1/ye_angry.png` | 7dd0573487dd |
+| cu_household-v1_ye_normal_png | `assets/production/cultivation/household-v1/ye_normal.png` | `art_sources/guiyun-q-moods-20261008/out/household-v1/ye_normal.png` | f81b9c35f5a5 |
+| cu_household-v1_ye_sad_png | `assets/production/cultivation/household-v1/ye_sad.png` | `art_sources/guiyun-q-moods-20261008/out/household-v1/ye_sad.png` | a7301d678b0f |
+| cu_household-v1_ye_serious_png | `assets/production/cultivation/household-v1/ye_serious.png` | `art_sources/guiyun-q-moods-20261008/out/household-v1/ye_serious.png` | cd264979e127 |
+| cu_household-v1_ye_smile_png | `assets/production/cultivation/household-v1/ye_smile.png` | `art_sources/guiyun-q-moods-20261008/out/household-v1/ye_smile.png` | 83dc02750e04 |
+| cu_household-v1_ye_surprise_png | `assets/production/cultivation/household-v1/ye_surprise.png` | `art_sources/guiyun-q-moods-20261008/out/household-v1/ye_surprise.png` | fe9b1947f480 |
+| cu_household-v1_ye_worry_png | `assets/production/cultivation/household-v1/ye_worry.png` | `art_sources/guiyun-q-moods-20261008/out/household-v1/ye_worry.png` | bfc6746eb744 |
 | cu_household-v1_yin_angry_png | `assets/production/cultivation/household-v1/yin_angry.png` | `art_sources/guiyun-performance-fix-20261012/yin_angry.png` | f5ff12792a84 |
 | cu_household-v1_yin_normal_png | `assets/production/cultivation/household-v1/yin_normal.png` | `art_sources/guiyun-performance-fix-20261012/yin_normal.png` | 57656dbfbabc |
 | cu_household-v1_yin_sad_png | `assets/production/cultivation/household-v1/yin_sad.png` | `art_sources/guiyun-performance-fix-20261012/yin_sad.png` | 1d3c2b4294a7 |
@@ -538,12 +667,12 @@
 | cu_household-v1_yin_smile_png | `assets/production/cultivation/household-v1/yin_smile.png` | `art_sources/guiyun-performance-fix-20261012/yin_smile.png` | d46135983b65 |
 | cu_household-v1_yin_surprise_png | `assets/production/cultivation/household-v1/yin_surprise.png` | `art_sources/guiyun-performance-fix-20261012/yin_surprise.png` | b73d29e7a7d8 |
 | cu_household-v1_yin_worry_png | `assets/production/cultivation/household-v1/yin_worry.png` | `art_sources/guiyun-performance-fix-20261012/yin_worry.png` | f2babf317143 |
-| cu_household-v1_zhong_angry_png | `assets/production/cultivation/household-v1/zhong_angry.png` | `art_sources/guiyun-q-moods-20261008/out/household-v1/zhong_angry.png` | 991f1d1bade2 |
-| cu_household-v1_zhong_normal_png | `assets/production/cultivation/household-v1/zhong_normal.png` | `art_sources/guiyun-q-moods-20261008/out/household-v1/zhong_normal.png` | 43f99eae22e0 |
-| cu_household-v1_zhong_sad_png | `assets/production/cultivation/household-v1/zhong_sad.png` | `art_sources/guiyun-q-moods-20261008/out/household-v1/zhong_sad.png` | 8b399bf8aa7b |
-| cu_household-v1_zhong_serious_png | `assets/production/cultivation/household-v1/zhong_serious.png` | `art_sources/guiyun-q-moods-20261008/out/household-v1/zhong_serious.png` | 0d2802d21ac0 |
-| cu_household-v1_zhong_smile_png | `assets/production/cultivation/household-v1/zhong_smile.png` | `art_sources/guiyun-q-moods-20261008/out/household-v1/zhong_smile.png` | 419770679d8c |
-| cu_household-v1_zhong_surprise_png | `assets/production/cultivation/household-v1/zhong_surprise.png` | `art_sources/guiyun-q-moods-20261008/out/household-v1/zhong_surprise.png` | d196c8a6d65a |
+| cu_household-v1_zhong_angry_png | `assets/production/cultivation/household-v1/zhong_angry.png` | `art_sources/guiyun-q-moods-20261008/out/household-v1/zhong_angry.png` | e5aa73a832fd |
+| cu_household-v1_zhong_normal_png | `assets/production/cultivation/household-v1/zhong_normal.png` | `art_sources/guiyun-q-moods-20261008/out/household-v1/zhong_normal.png` | b3c2bb1e6b72 |
+| cu_household-v1_zhong_sad_png | `assets/production/cultivation/household-v1/zhong_sad.png` | `art_sources/guiyun-q-moods-20261008/out/household-v1/zhong_sad.png` | 36b8b1bcc412 |
+| cu_household-v1_zhong_serious_png | `assets/production/cultivation/household-v1/zhong_serious.png` | `art_sources/guiyun-q-moods-20261008/out/household-v1/zhong_serious.png` | c8ef835f8764 |
+| cu_household-v1_zhong_smile_png | `assets/production/cultivation/household-v1/zhong_smile.png` | `art_sources/guiyun-q-moods-20261008/out/household-v1/zhong_smile.png` | 623c568e0b38 |
+| cu_household-v1_zhong_surprise_png | `assets/production/cultivation/household-v1/zhong_surprise.png` | `art_sources/guiyun-q-moods-20261008/out/household-v1/zhong_surprise.png` | e4075e512de4 |
 | cu_household-v1_zhong_worry_png | `assets/production/cultivation/household-v1/zhong_worry.png` | `art_sources/guiyun-q-moods-20261008/out/household-v1/zhong_worry.png` | 92a3fa7b3b68 |
 | cu_household-v1_zhou_angry_png | `assets/production/cultivation/household-v1/zhou_angry.png` | `art_sources/guiyun-q-moods-20261008/out/household-v1/zhou_angry.png` | 029d94b1a4d6 |
 | cu_household-v1_zhou_normal_png | `assets/production/cultivation/household-v1/zhou_normal.png` | `art_sources/guiyun-q-moods-20261008/out/household-v1/zhou_normal.png` | 49bd17cf0378 |
@@ -556,11 +685,11 @@
 | cu_mail-classic_portraits_fang-menu_png | `assets/production/cultivation/mail-classic/portraits/fang-menu.png` | `art_sources/guiyun-side-q-20261008/mail/fang-menu.png` | cf1ba9f21ea2 |
 | cu_mail-classic_portraits_man-menu_png | `assets/production/cultivation/mail-classic/portraits/man-menu.png` | `art_sources/guiyun-side-q-20261008/mail/man-menu.png` | 5fa83972d95d |
 | cu_mail-classic_portraits_zhong-menu_png | `assets/production/cultivation/mail-classic/portraits/zhong-menu.png` | `art_sources/guiyun-side-q-20261008/mail/zhong-menu.png` | d47c3ccaf461 |
-| cu_household-v1_dou_sleep_png | `assets/production/cultivation/household-v1/dou_sleep.png` | `art_sources/guiyun-side-q-20261008/out/dou_sleep.png` | b092777fc7cc |
-| cu_household-v1_fang_hurt_normal_png | `assets/production/cultivation/household-v1/fang_hurt_normal.png` | `art_sources/guiyun-side-q-20261008/out/fang_hurt_normal.png` | 45dcc2472d74 |
-| cu_household-v1_fang_hurt_sad_png | `assets/production/cultivation/household-v1/fang_hurt_sad.png` | `art_sources/guiyun-side-q-20261008/out/fang_hurt_sad.png` | 305ab30512a9 |
-| cu_household-v1_fang_hurt_serious_png | `assets/production/cultivation/household-v1/fang_hurt_serious.png` | `art_sources/guiyun-side-q-20261008/out/fang_hurt_serious.png` | b9f427acdeb7 |
-| cu_household-v1_fang_hurt_smile_png | `assets/production/cultivation/household-v1/fang_hurt_smile.png` | `art_sources/guiyun-side-q-20261008/out/fang_hurt_smile.png` | dad0ec9feff6 |
+| cu_household-v1_dou_sleep_png | `assets/production/cultivation/household-v1/dou_sleep.png` | `art_sources/guiyun-side-q-20261008/out/dou_sleep.png` | 37add541c491 |
+| cu_household-v1_fang_hurt_normal_png | `assets/production/cultivation/household-v1/fang_hurt_normal.png` | `art_sources/guiyun-side-q-20261008/out/fang_hurt_normal.png` | 2b7808a1c101 |
+| cu_household-v1_fang_hurt_sad_png | `assets/production/cultivation/household-v1/fang_hurt_sad.png` | `art_sources/guiyun-side-q-20261008/out/fang_hurt_sad.png` | 21300f80c7c2 |
+| cu_household-v1_fang_hurt_serious_png | `assets/production/cultivation/household-v1/fang_hurt_serious.png` | `art_sources/guiyun-side-q-20261008/out/fang_hurt_serious.png` | dfff2b0762f5 |
+| cu_household-v1_fang_hurt_smile_png | `assets/production/cultivation/household-v1/fang_hurt_smile.png` | `art_sources/guiyun-side-q-20261008/out/fang_hurt_smile.png` | 5ab4d11181bc |
 | cu_story-bg-v1_bamboo_path_png | `assets/production/cultivation/story-bg-v1/bamboo_path.png` | `art_sources/guiyun-story-bg-20261008/bg_bamboo_path.png` | acb5881e1f64 |
 | cu_story-bg-v1_herb_garden_png | `assets/production/cultivation/story-bg-v1/herb_garden.png` | `art_sources/guiyun-story-bg-20261008/bg_herb_garden.png` | 8ab5e3977df7 |
 | cu_story-bg-v1_kitchen_png | `assets/production/cultivation/story-bg-v1/kitchen.png` | `art_sources/guiyun-story-bg-20261008/bg_kitchen.png` | e17ccbe404d5 |
@@ -593,7 +722,7 @@
 | cu_neighbors-v1_terraces_png | `assets/production/cultivation/neighbors-v1/terraces.png` | `art_sources/guiyun-neighbors-20261011/out/neighbors-v1/terraces.png` | b040421afd28 |
 | cu_neighbors-v1_watermill_png | `assets/production/cultivation/neighbors-v1/watermill.png` | `art_sources/guiyun-neighbors-20261011/out/neighbors-v1/watermill.png` | ee76201cb034 |
 | cu_household-v1_hero_mid_angry_png | `assets/production/cultivation/household-v1/hero_mid_angry.png` | `art_sources/guiyun-playtest-fix-20261011/out/household-v1/hero_mid_angry.png` | 86f8b5ab7774 |
-| cu_household-v1_hero_mid_sad_png | `assets/production/cultivation/household-v1/hero_mid_sad.png` | `art_sources/guiyun-playtest-fix-20261011/out/household-v1/hero_mid_sad.png` | c373303af1e6 |
+| cu_household-v1_hero_mid_sad_png | `assets/production/cultivation/household-v1/hero_mid_sad.png` | `art_sources/guiyun-playtest-fix-20261011/out/household-v1/hero_mid_sad.png` | 835303bd0ac2 |
 | cu_household-v1_hero_short_angry_png | `assets/production/cultivation/household-v1/hero_short_angry.png` | `art_sources/guiyun-playtest-fix-20261011/out/household-v1/hero_short_angry.png` | d54fe9857dd8 |
 | cu_household-v1_hero_short_sad_png | `assets/production/cultivation/household-v1/hero_short_sad.png` | `art_sources/guiyun-playtest-fix-20261011/out/household-v1/hero_short_sad.png` | f533436520d1 |
 | cu_household-v1_hero_short_smile_png | `assets/production/cultivation/household-v1/hero_short_smile.png` | `art_sources/guiyun-playtest-fix-20261011/out/household-v1/hero_short_smile.png` | 7342d94eb1df |
@@ -617,6 +746,101 @@
 | cu_mood-avatars-v1_calm_fx_png | `assets/production/cultivation/mood-avatars-v1/calm_fx.png` | `art_sources/guiyun-playtest-fix-20261011/avatar/full/avatar_calm.png` | 7f87d55409c0 |
 | cu_mood-avatars-v1_low_fx_png | `assets/production/cultivation/mood-avatars-v1/low_fx.png` | `art_sources/guiyun-playtest-fix-20261011/avatar/full/avatar_low.png` | de50e967f988 |
 | cu_mood-avatars-v1_annoyed_fx_png | `assets/production/cultivation/mood-avatars-v1/annoyed_fx.png` | `art_sources/guiyun-playtest-fix-20261011/avatar/full/avatar_annoyed.png` | 5646e90dabdb |
+| cu_hangao_gate_20261013 | `assets/production/cultivation/pre-hangao/hangao_gate.png` | `art_sources/pre-hangao-completion-20261013/hangao-gate-source.png` | 30c4c9f7b84e |
+| cu_hero_long_empty_serious_20261014 | `assets/production/cultivation/hero-empty/hero_long_empty_serious.png` | `art_sources/hero-unarmed-dialogue-20261014/out/hero_long_empty_serious.png` | 363c4e225259 |
+| cu_hero_long_empty_worry_20261014 | `assets/production/cultivation/hero-empty/hero_long_empty_worry.png` | `art_sources/hero-unarmed-dialogue-20261014/out/hero_long_empty_worry.png` | 62c2e7733a88 |
+| cu_hero_long_empty_surprise_20261014 | `assets/production/cultivation/hero-empty/hero_long_empty_surprise.png` | `art_sources/hero-unarmed-dialogue-20261014/out/hero_long_empty_surprise.png` | 6cc24d7ede6b |
+| cu_hero_long_empty_hurt_20261014 | `assets/production/cultivation/hero-empty/hero_long_empty_hurt.png` | `art_sources/hero-unarmed-dialogue-20261014/out/hero_long_empty_hurt.png` | 6e4a0a0c0201 |
+| cu_hero_long_empty_sad_20261014 | `assets/production/cultivation/hero-empty/hero_long_empty_sad.png` | `art_sources/hero-unarmed-dialogue-20261014/out/hero_long_empty_sad.png` | 6c48d625d5d3 |
+| cu_hero_long_empty_sleep_20261014 | `assets/production/cultivation/hero-empty/hero_long_empty_sleep.png` | `art_sources/hero-unarmed-dialogue-20261014/out/hero_long_empty_sleep.png` | 83aae85d62d9 |
+| cu_hero_long_empty_normal_20261014 | `assets/production/cultivation/hero-empty/hero_long_empty_normal.png` | `art_sources/hero-unarmed-dialogue-20261014/out/hero_long_empty_normal.png` | e7d2f638d427 |
+| cu_hero_long_empty_smile_20261014 | `assets/production/cultivation/hero-empty/hero_long_empty_smile.png` | `art_sources/hero-unarmed-dialogue-20261014/out/hero_long_empty_smile.png` | 33f64468e5e5 |
+| cu_hero_short_empty_normal_20261014 | `assets/production/cultivation/hero-empty/hero_short_empty_normal.png` | `art_sources/hero-unarmed-dialogue-20261014/out/hero_short_empty_normal.png` | 0a5d28ae87c7 |
+| cu_hero_short_empty_smile_20261014 | `assets/production/cultivation/hero-empty/hero_short_empty_smile.png` | `art_sources/hero-unarmed-dialogue-20261014/out/hero_short_empty_smile.png` | 7869ca248937 |
+| cu_hero_short_empty_serious_20261014 | `assets/production/cultivation/hero-empty/hero_short_empty_serious.png` | `art_sources/hero-unarmed-dialogue-20261014/out/hero_short_empty_serious.png` | 132714a0306f |
+| cu_hero_short_empty_worry_20261014 | `assets/production/cultivation/hero-empty/hero_short_empty_worry.png` | `art_sources/hero-unarmed-dialogue-20261014/out/hero_short_empty_worry.png` | f7a0b2982215 |
+| cu_hero_short_empty_surprise_20261014 | `assets/production/cultivation/hero-empty/hero_short_empty_surprise.png` | `art_sources/hero-unarmed-dialogue-20261014/out/hero_short_empty_surprise.png` | 8a4272073c55 |
+| cu_hero_short_empty_sad_20261014 | `assets/production/cultivation/hero-empty/hero_short_empty_sad.png` | `art_sources/hero-unarmed-dialogue-20261014/out/hero_short_empty_sad.png` | bf2039c2ae59 |
+| cu_hero_mid_empty_normal_20261014 | `assets/production/cultivation/hero-empty/hero_mid_empty_normal.png` | `art_sources/hero-unarmed-dialogue-20261014/out/hero_mid_empty_normal.png` | fe243e60a402 |
+| cu_hero_mid_empty_smile_20261014 | `assets/production/cultivation/hero-empty/hero_mid_empty_smile.png` | `art_sources/hero-unarmed-dialogue-20261014/out/hero_mid_empty_smile.png` | bd28e45c3468 |
+| cu_hero_mid_empty_serious_20261014 | `assets/production/cultivation/hero-empty/hero_mid_empty_serious.png` | `art_sources/hero-unarmed-dialogue-20261014/out/hero_mid_empty_serious.png` | 0102f450d9fd |
+| cu_hero_mid_empty_worry_20261014 | `assets/production/cultivation/hero-empty/hero_mid_empty_worry.png` | `art_sources/hero-unarmed-dialogue-20261014/out/hero_mid_empty_worry.png` | 077b8d669933 |
+| cu_hero_mid_empty_surprise_20261014 | `assets/production/cultivation/hero-empty/hero_mid_empty_surprise.png` | `art_sources/hero-unarmed-dialogue-20261014/out/hero_mid_empty_surprise.png` | c644587ca3fa |
+| cu_hero_mid_empty_sad_20261014 | `assets/production/cultivation/hero-empty/hero_mid_empty_sad.png` | `art_sources/hero-unarmed-dialogue-20261014/out/hero_mid_empty_sad.png` | 544e327faee6 |
+| cu_neighbors-v1_duo_gn_lamp_father_left_png | `assets/production/cultivation/neighbors-v1/duo_gn_lamp_father_left.png` | `art_sources/facing-left-pilot-20261020/out/duo_gn_lamp_father_left.png` | d07351bd431c |
+| cu_household-v1_pei_left_png | `assets/production/cultivation/household-v1/pei_left.png` | `art_sources/facing-left-pilot-20261020/out/pei_left.png` | 8c6627cfebd6 |
+| cu_household-v1_pei_normal_left_png | `assets/production/cultivation/household-v1/pei_normal_left.png` | `art_sources/facing-left-pilot-20261020/out/pei_normal_left.png` | 75c90cb2beb4 |
+| cu_household-v1_pei_sad_left_png | `assets/production/cultivation/household-v1/pei_sad_left.png` | `art_sources/facing-left-pilot-20261020/out/pei_sad_left.png` | f7ee3d6680c3 |
+| cu_household-v1_pei_serious_left_png | `assets/production/cultivation/household-v1/pei_serious_left.png` | `art_sources/facing-left-pilot-20261020/out/pei_serious_left.png` | 70acf145e85a |
+| cu_household-v1_pei_smile_left_png | `assets/production/cultivation/household-v1/pei_smile_left.png` | `art_sources/facing-left-pilot-20261020/out/pei_smile_left.png` | fd4c1137d9ff |
+| cu_household-v1_pei_surprise_left_png | `assets/production/cultivation/household-v1/pei_surprise_left.png` | `art_sources/facing-left-pilot-20261020/out/pei_surprise_left.png` | f2c58aa52e63 |
+| cu_household-v1_pei_worry_left_png | `assets/production/cultivation/household-v1/pei_worry_left.png` | `art_sources/facing-left-pilot-20261020/out/pei_worry_left.png` | 9f2c32329075 |
+| cu_household-v1_peishu_left_png | `assets/production/cultivation/household-v1/peishu_left.png` | `art_sources/facing-left-pilot-20261020/out/peishu_left.png` | 52dc941ed8e7 |
+| cu_household-v1_peishu_normal_left_png | `assets/production/cultivation/household-v1/peishu_normal_left.png` | `art_sources/facing-left-pilot-20261020/out/peishu_normal_left.png` | a5b60f3ec300 |
+| cu_household-v1_peishu_sad_left_png | `assets/production/cultivation/household-v1/peishu_sad_left.png` | `art_sources/facing-left-pilot-20261020/out/peishu_sad_left.png` | 13566d1e21dc |
+| cu_household-v1_peishu_serious_left_png | `assets/production/cultivation/household-v1/peishu_serious_left.png` | `art_sources/facing-left-pilot-20261020/out/peishu_serious_left.png` | db45cf611cdc |
+| cu_household-v1_peishu_smile_left_png | `assets/production/cultivation/household-v1/peishu_smile_left.png` | `art_sources/facing-left-pilot-20261020/out/peishu_smile_left.png` | de4df00a0d17 |
+| cu_household-v1_peishu_surprise_left_png | `assets/production/cultivation/household-v1/peishu_surprise_left.png` | `art_sources/facing-left-pilot-20261020/out/peishu_surprise_left.png` | 66b96162ce3a |
+| cu_household-v1_peishu_worry_left_png | `assets/production/cultivation/household-v1/peishu_worry_left.png` | `art_sources/facing-left-pilot-20261020/out/peishu_worry_left.png` | 0e1475cca7c9 |
+| cu_household-v1_meng_zhiwei_normal_left_png | `assets/production/cultivation/household-v1/meng_zhiwei_normal_left.png` | `art_sources/facing-left-cast-20261021/out/meng_zhiwei_normal_left.png` | 894c42479100 |
+| cu_household-v1_meng_zhiwei_serious_left_png | `assets/production/cultivation/household-v1/meng_zhiwei_serious_left.png` | `art_sources/facing-left-cast-20261021/out/meng_zhiwei_serious_left.png` | 91faddda3586 |
+| cu_household-v1_meng_zhiwei_smile_left_png | `assets/production/cultivation/household-v1/meng_zhiwei_smile_left.png` | `art_sources/facing-left-cast-20261021/out/meng_zhiwei_smile_left.png` | 7a1718d7cc74 |
+| cu_household-v1_meng_zhiwei_worry_left_png | `assets/production/cultivation/household-v1/meng_zhiwei_worry_left.png` | `art_sources/facing-left-cast-20261021/out/meng_zhiwei_worry_left.png` | f9ad4e04ec18 |
+| cu_household-v1_mo_songnian_normal_left_png | `assets/production/cultivation/household-v1/mo_songnian_normal_left.png` | `art_sources/facing-left-cast-20261021/out/mo_songnian_normal_left.png` | 382c54766e68 |
+| cu_household-v1_mo_songnian_serious_left_png | `assets/production/cultivation/household-v1/mo_songnian_serious_left.png` | `art_sources/facing-left-cast-20261021/out/mo_songnian_serious_left.png` | 305287411e2a |
+| cu_household-v1_mo_songnian_smile_left_png | `assets/production/cultivation/household-v1/mo_songnian_smile_left.png` | `art_sources/facing-left-cast-20261021/out/mo_songnian_smile_left.png` | 5cae5124eb3d |
+| cu_household-v1_mo_songnian_surprise_left_png | `assets/production/cultivation/household-v1/mo_songnian_surprise_left.png` | `art_sources/facing-left-cast-20261021/out/mo_songnian_surprise_left.png` | 20350e826203 |
+| cu_household-v1_yin_angry_left_png | `assets/production/cultivation/household-v1/yin_angry_left.png` | `art_sources/facing-left-cast-20261021/out/yin_angry_left.png` | 7c158c852dc9 |
+| cu_household-v1_yin_left_png | `assets/production/cultivation/household-v1/yin_left.png` | `art_sources/facing-left-cast-20261021/out/yin_left.png` | d011f742318f |
+| cu_household-v1_yin_normal_left_png | `assets/production/cultivation/household-v1/yin_normal_left.png` | `art_sources/facing-left-cast-20261021/out/yin_normal_left.png` | f911bfe26bea |
+| cu_household-v1_yin_sad_left_png | `assets/production/cultivation/household-v1/yin_sad_left.png` | `art_sources/facing-left-cast-20261021/out/yin_sad_left.png` | 1f1b1a1fa137 |
+| cu_household-v1_yin_serious_left_png | `assets/production/cultivation/household-v1/yin_serious_left.png` | `art_sources/facing-left-cast-20261021/out/yin_serious_left.png` | 02fada8bcfad |
+| cu_household-v1_yin_smile_left_png | `assets/production/cultivation/household-v1/yin_smile_left.png` | `art_sources/facing-left-cast-20261021/out/yin_smile_left.png` | c0b89bd4705c |
+| cu_household-v1_yin_surprise_left_png | `assets/production/cultivation/household-v1/yin_surprise_left.png` | `art_sources/facing-left-cast-20261021/out/yin_surprise_left.png` | e005ab05ee9e |
+| cu_household-v1_yin_worry_left_png | `assets/production/cultivation/household-v1/yin_worry_left.png` | `art_sources/facing-left-cast-20261021/out/yin_worry_left.png` | b1cb7ab2c550 |
+| cu_household-v1_zhaochuan_courier_normal_left_png | `assets/production/cultivation/household-v1/zhaochuan_courier_normal_left.png` | `art_sources/facing-left-cast-20261021/out/zhaochuan_courier_normal_left.png` | 5a0d916d3375 |
+| cu_household-v1_zhaochuan_courier_serious_left_png | `assets/production/cultivation/household-v1/zhaochuan_courier_serious_left.png` | `art_sources/facing-left-cast-20261021/out/zhaochuan_courier_serious_left.png` | 781f268eecc5 |
+| cu_household-v1_zhaochuan_courier_smile_left_png | `assets/production/cultivation/household-v1/zhaochuan_courier_smile_left.png` | `art_sources/facing-left-cast-20261021/out/zhaochuan_courier_smile_left.png` | 486be2653946 |
+| cu_household-v1_zhaochuan_courier_surprise_left_png | `assets/production/cultivation/household-v1/zhaochuan_courier_surprise_left.png` | `art_sources/facing-left-cast-20261021/out/zhaochuan_courier_surprise_left.png` | 0cd92782f785 |
+| cu_household-v1_zhou_angry_left_png | `assets/production/cultivation/household-v1/zhou_angry_left.png` | `art_sources/facing-left-cast-20261021/out/zhou_angry_left.png` | 57ae31dc32ff |
+| cu_household-v1_zhou_left_png | `assets/production/cultivation/household-v1/zhou_left.png` | `art_sources/facing-left-cast-20261021/out/zhou_left.png` | e99dec7649f5 |
+| cu_household-v1_zhou_normal_left_png | `assets/production/cultivation/household-v1/zhou_normal_left.png` | `art_sources/facing-left-cast-20261021/out/zhou_normal_left.png` | aaf42bc687e1 |
+| cu_household-v1_zhou_sad_left_png | `assets/production/cultivation/household-v1/zhou_sad_left.png` | `art_sources/facing-left-cast-20261021/out/zhou_sad_left.png` | 7f6e394c439a |
+| cu_household-v1_zhou_serious_left_png | `assets/production/cultivation/household-v1/zhou_serious_left.png` | `art_sources/facing-left-cast-20261021/out/zhou_serious_left.png` | f921ec998e9e |
+| cu_household-v1_zhou_smile_left_png | `assets/production/cultivation/household-v1/zhou_smile_left.png` | `art_sources/facing-left-cast-20261021/out/zhou_smile_left.png` | f7d648b41f3a |
+| cu_household-v1_zhou_surprise_left_png | `assets/production/cultivation/household-v1/zhou_surprise_left.png` | `art_sources/facing-left-cast-20261021/out/zhou_surprise_left.png` | 148cef910faf |
+| cu_household-v1_zhou_worry_left_png | `assets/production/cultivation/household-v1/zhou_worry_left.png` | `art_sources/facing-left-cast-20261021/out/zhou_worry_left.png` | 2bfedabaaae3 |
+
+### effects
+
+| ID | 正式路径 | 原件来源 | SHA256（前12位） |
+| --- | --- | --- | --- |
+| fx_qh_clash_am_short_thrust | `assets/production/fx/qihe-clash/am_v1/fx_qh_clash_am_short_thrust.webp` | `art_sources/qihe-faction-clash-20261012/fx/am_v1/am_short_thrust.webp` | 94c7829edaab |
+| fx_qh_clash_am_guard_crescent | `assets/production/fx/qihe-clash/am_v1/fx_qh_clash_am_guard_crescent.webp` | `art_sources/qihe-faction-clash-20261012/fx/am_v1/am_guard_crescent.webp` | f307b597aa5c |
+| fx_qh_clash_am_stab_mark | `assets/production/fx/qihe-clash/am_v1/fx_qh_clash_am_stab_mark.webp` | `art_sources/qihe-faction-clash-20261012/fx/am_v1/am_stab_mark.webp` | aaec272b59c2 |
+| fx_qh_clash_am_power_orb | `assets/production/fx/qihe-clash/am_v1/fx_qh_clash_am_power_orb.webp` | `art_sources/qihe-faction-clash-20261012/fx/am_v1/am_power_orb.webp` | 1d91da0bbeb4 |
+| fx_qh_clash_am_flow_ribbon | `assets/production/fx/qihe-clash/am_v1/fx_qh_clash_am_flow_ribbon.webp` | `art_sources/qihe-faction-clash-20261012/fx/am_v1/am_flow_ribbon.webp` | 19af6303d4ae |
+| fx_qh_clash_am_bp_pips | `assets/production/fx/qihe-clash/am_v1/fx_qh_clash_am_bp_pips.webp` | `art_sources/qihe-faction-clash-20261012/fx/am_v1/am_bp_pips.webp` | fedadd577f9b |
+| fx_qh_clash_gj_fold_shade | `assets/production/fx/qihe-clash/gj_v1/fx_qh_clash_gj_fold_shade.webp` | `art_sources/qihe-faction-clash-20261012/fx/gj_v1/gj_fold_shade.webp` | a5ba39af70a7 |
+| fx_qh_clash_gj_short_stab | `assets/production/fx/qihe-clash/gj_v1/fx_qh_clash_gj_short_stab.webp` | `art_sources/qihe-faction-clash-20261012/fx/gj_v1/gj_short_stab.webp` | 88b87b42d2e3 |
+| fx_qh_clash_gj_stab_burst | `assets/production/fx/qihe-clash/gj_v1/fx_qh_clash_gj_stab_burst.webp` | `art_sources/qihe-faction-clash-20261012/fx/gj_v1/gj_stab_burst.webp` | 66a1b53d18e5 |
+| fx_qh_clash_gj_expose | `assets/production/fx/qihe-clash/gj_v1/fx_qh_clash_gj_expose.webp` | `art_sources/qihe-faction-clash-20261012/fx/gj_v1/gj_expose.webp` | c6ea5e2e3aba |
+| fx_qh_clash_gj_thick_arc | `assets/production/fx/qihe-clash/gj_v1/fx_qh_clash_gj_thick_arc.webp` | `art_sources/qihe-faction-clash-20261012/fx/gj_v1/gj_thick_arc.webp` | dac1be7c9146 |
+| fx_qh_clash_gj_ember_halves | `assets/production/fx/qihe-clash/gj_v1/fx_qh_clash_gj_ember_halves.webp` | `art_sources/qihe-faction-clash-20261012/fx/gj_v1/gj_ember_halves.webp` | ae7aeb05bf99 |
+| fx_qh_clash_kit_ring | `assets/production/fx/qihe-clash/kit_v1/fx_qh_clash_kit_ring.webp` | `art_sources/qihe-faction-clash-20261012/fx/kit_v1/kit_ring.webp` | 3287cce5a9ff |
+| fx_qh_clash_kit_qi | `assets/production/fx/qihe-clash/kit_v1/fx_qh_clash_kit_qi.webp` | `art_sources/qihe-faction-clash-20261012/fx/kit_v1/kit_qi.webp` | e8489e29d081 |
+| fx_qh_clash_kit_rise | `assets/production/fx/qihe-clash/kit_v1/fx_qh_clash_kit_rise.webp` | `art_sources/qihe-faction-clash-20261012/fx/kit_v1/kit_rise.webp` | 887718f065f9 |
+| fx_qh_clash_kit_burst | `assets/production/fx/qihe-clash/kit_v1/fx_qh_clash_kit_burst.webp` | `art_sources/qihe-faction-clash-20261012/fx/kit_v1/kit_burst.webp` | 61f6559a5868 |
+| fx_qh_clash_am3_fan_jiangqing | `assets/production/fx/qihe-clash/clash_v2/fx_qh_clash_am3_fan_jiangqing.webp` | `art_sources/qihe-clash-vfx-elements-v1/am3_fan_jiangqing.png` | 0bffdd33bbbd |
+| fx_qh_clash_am3_edge_arc | `assets/production/fx/qihe-clash/clash_v2/fx_qh_clash_am3_edge_arc.webp` | `art_sources/qihe-clash-vfx-elements-v1/am3_edge_arc.png` | e2a3b3e41dc8 |
+| fx_qh_clash_am3_cross_hit | `assets/production/fx/qihe-clash/clash_v2/fx_qh_clash_am3_cross_hit.webp` | `art_sources/qihe-clash-vfx-elements-v1/am3_cross_hit.png` | 592ee313e20e |
+| fx_qh_clash_am3_blade_glint | `assets/production/fx/qihe-clash/clash_v2/fx_qh_clash_am3_blade_glint.webp` | `art_sources/qihe-clash-vfx-elements-v1/am3_blade_glint.png` | 22f13fadb3f0 |
+| fx_qh_clash_cs1_wrist_lash | `assets/production/fx/qihe-clash/clash_v2/fx_qh_clash_cs1_wrist_lash.webp` | `art_sources/qihe-clash-vfx-elements-v1/cs1_wrist_lash.png` | f87c0c43e6af |
+| fx_qh_clash_cs_copper_point | `assets/production/fx/qihe-clash/clash_v2/fx_qh_clash_cs_copper_point.webp` | `art_sources/qihe-clash-vfx-elements-v1/cs_copper_point.png` | 24381fb5d308 |
+| fx_qh_clash_cs2_wisps | `assets/production/fx/qihe-clash/clash_v2/fx_qh_clash_cs2_wisps.webp` | `art_sources/qihe-clash-vfx-elements-v1/cs2_wisps.png` | 78bbe7420c23 |
+| fx_qh_clash_cs2_whip_arc | `assets/production/fx/qihe-clash/clash_v2/fx_qh_clash_cs2_whip_arc.webp` | `art_sources/qihe-clash-vfx-elements-v1/cs2_whip_arc.png` | e7a2d1582412 |
+| fx_qh_clash_cs2_ghost_red | `assets/production/fx/qihe-clash/clash_v2/fx_qh_clash_cs2_ghost_red.webp` | `art_sources/qihe-clash-vfx-elements-v1/cs2_ghost_red.png` | 34dd337a7a49 |
+| fx_qh_clash_cs_copper_sparks | `assets/production/fx/qihe-clash/clash_v2/fx_qh_clash_cs_copper_sparks.webp` | `art_sources/qihe-clash-vfx-elements-v1/cs_copper_sparks.png` | 4936037d634f |
 
 ### icons-and-props
 
@@ -654,7 +878,7 @@
 | m_prologue_backhill_v1 | `assets/production/maps/m_prologue_backhill_modular_20261008.webp` | `art_sources/qihe-modular-backhill-20261007/out/hd/bg.png` | 856fda01145d |
 | m_prologue_backhill_props | `assets/production/maps/m_prologue_backhill_props_modular_20261008.webp` | `art_sources/qihe-modular-backhill-20261007/out/hd/props.png` | 746e47f3852f |
 | m_qh_central | `assets/production/maps/m_qh_central_modular_20261007.webp` | `art_sources/qihe-modular-central-20261007/out/hd/bg.png` | 29131902cd53 |
-| m_qh_central_props | `assets/production/maps/m_qh_central_props_modular_20261007.webp` | `art_sources/qihe-modular-central-20261007/out/hd/props.png` | d196c1ee93c6 |
+| m_qh_central_props | `assets/production/maps/m_qh_central_props_regen_20261026.webp` | `art_sources/prop-regen-20261026/out/props.png` | 152b4781efe4 |
 | m_qh_east | `assets/production/maps/m_qh_east_modular_20261007.webp` | `art_sources/qihe-modular-east-20261007/out/hd/bg.png` | cf61bcbff784 |
 | m_qh_east_props | `assets/production/maps/m_qh_east_props_modular_20261007.webp` | `art_sources/qihe-modular-east-20261007/out/hd/props.png` | 5e133c7db4ce |
 | m_qh_north | `assets/production/maps/m_qh_north_modular_20261007.webp` | `art_sources/qihe-modular-north-20261007/out/hd/bg.png` | 155c5826263f |
@@ -778,12 +1002,19 @@
 | p_ye_surprise | `assets/production/portraits/p_ye_surprise_hd_20261017.webp` | `art_sources/portrait-hd-cast-20261017/final/p_ye_surprise_hd_20261017.webp` | 39c658d21e9a |
 | p_ye_worry | `assets/production/portraits/p_ye_worry_hd_20261017.webp` | `art_sources/portrait-hd-cast-20261017/final/p_ye_worry_hd_20261017.webp` | f3bb4cf276a6 |
 | p_zhou | `assets/production/portraits/p_zhou.webp` | `assets/p_zhou.webp` | efc158d432af |
+| p_qh_ashuan_hd_20261023 | `assets/production/portraits/p_qh_ashuan_hd_20261023.webp` | `art_sources/batch2-cast-20261023/ashuan/final/p_qh_ashuan_hd_20261023_b_cand.webp` | 14e61426284c |
+| p_qh_xiaohe_hd_20261023 | `assets/production/portraits/p_qh_xiaohe_hd_20261023.webp` | `art_sources/batch2-cast-20261023/xiaohe/final/p_qh_xiaohe_hd_20261023_a_cand.webp` | f906b9255fae |
+| p_qh_huolang_hd_20261023 | `assets/production/portraits/p_qh_huolang_hd_20261023.webp` | `art_sources/batch2-cast-20261023/huolang/final/p_qh_huolang_hd_20261023_a_cand.webp` | 22ba9886dc25 |
+| p_qh_chuanjia_hd_20261023 | `assets/production/portraits/p_qh_chuanjia_hd_20261023.webp` | `art_sources/batch2-cast-20261023/chuanjia/final/p_qh_chuanjia_hd_20261023_a_cand.webp` | f6de0191993b |
+| p_qh_aqi_hd_20261023 | `assets/production/portraits/p_qh_aqi_hd_20261023.webp` | `art_sources/batch2-cast-20261023/aqi/final/p_qh_aqi_hd_20261023_b_cand.webp` | b1081aa624a1 |
+| p_qh_linhuizhi_hd_20261023 | `assets/production/portraits/p_qh_linhuizhi_hd_20261023.webp` | `art_sources/batch2-cast-20261023/linhuizhi/final/p_qh_linhuizhi_hd_20261023_a_cand.webp` | 3354e1c1f9f3 |
 
 ### shared
 
 | ID | 正式路径 | 原件来源 | SHA256（前12位） |
 | --- | --- | --- | --- |
 | cg_qh_backhill_rope_v1 | `assets/production/shared/cg_qh_backhill_rope_v1.webp` | `art_sources/qh-song-disguise-20261008/final/cg_qh_backhill_rope_v1.webp` | fc55f10a87bf |
+| cg_qh_backhill_rope_v4_20261026 | `assets/production/shared/cg_qh_backhill_rope_v4_20261026.webp` | `art_sources/rectify-art-20261023/red-cord-cg/v4/final/cg_qh_backhill_rope_v4_20261026.webp` | a6f3d4c7ca30 |
 | cg_qh_relics_lining_v1 | `assets/production/shared/cg_qh_relics_lining_v1.webp` | `art_sources/qh-song-disguise-20261008/final/cg_qh_relics_lining_v1.webp` | bb7fdab59d7a |
 | cg_qh_fire_ignition_v2 | `assets/production/shared/cg_qh_fire_ignition_v2.webp` | `art_sources/qihe-cg-direction-20261006/ignition-native.png` | ff348e1fe92a |
 | cg_qh_fire_ignition_v3 | `assets/production/shared/cg_qh_fire_ignition_v3.webp` | `art_sources/qihe-lamp-insert-20261006/native.png` | f2a9c409595a |
@@ -795,6 +1026,10 @@
 | fx_poshi_po | `assets/production/shared/fx_poshi_po.webp` | `assets/fx_poshi_po.webp` | 339ff743b620 |
 | fx_poshi_seal | `assets/production/shared/fx_poshi_seal.webp` | `assets/fx_poshi_seal.webp` | 7a38dd8dbbf1 |
 | fx_poshi_seal_s | `assets/production/shared/fx_poshi_seal_s.webp` | `assets/fx_poshi_seal_s.webp` | aed96e0f5fb2 |
+| cg_qh_ignition_night_20261014 | `assets/production/shared/cg_qh_ignition_night_20261014.webp` | `art_sources/qihe-whip-clash-20261014/cg/ignition.png` | e7a0c4a50e59 |
+| cg_qh_cen_night_20261014 | `assets/production/shared/cg_qh_cen_night_20261014.webp` | `art_sources/qihe-whip-clash-20261014/cg/cen.png` | 5217e5d26f92 |
+| cg_qh_shen_night_20261014 | `assets/production/shared/cg_qh_shen_night_20261014.webp` | `art_sources/qihe-whip-clash-20261014/cg/shen.png` | 5b56554561c5 |
+| cg_qh_evacuation_night_20261014 | `assets/production/shared/cg_qh_evacuation_night_20261014.webp` | `art_sources/qihe-whip-clash-20261014/cg/evacuation.png` | 0bf382d126ad |
 
 ### ui
 
@@ -826,258 +1061,8 @@
 | ye | `assets/ui/jianghu-v4/portraits/ye.webp` | `assets/ui/jianghu-v4/portraits/ye.webp` | f01580ad7ec5 |
 | icons-atlas | `assets/ui/jianghu-v5/icons-atlas.png` | `assets/ui/jianghu-v5/icons-atlas.png` | 930bfaebdd3d |
 | hero-guiyun | `assets/ui/jianghu-v4/portraits/hero-guiyun.webp` | `art_sources/guiyun-playtest-fix-20261011/jianghu/hero-guiyun-native.png` | 5aee5efa448a |
-
-## 2026-10-12 开始部分领队交锋
-
-| ID | 正式文件 | 原件 | SHA-256前12位 |
-|---|---|---|---|
-| bb_qh_faction_clash_20261012 | `assets/production/battle/bb_qh_faction_clash_20261012.webp` | `art_sources/qihe-faction-clash-20261012/out/bb_qh_faction_clash_20261012.webp` | 9d34bbccc6ff |
-| bb_qh_faction_clash_atmo_20261023 | `assets/production/battle/bb_qh_faction_clash_atmo_20261023.webp` | `art_sources/battle-atmosphere-20261023/out/bb_qh_faction_clash_atmo_20261023.webp` | b898ef22702b |
-| fx_qh_clash_am_short_thrust | `assets/production/fx/qihe-clash/am_v1/fx_qh_clash_am_short_thrust.webp` | `art_sources/qihe-faction-clash-20261012/fx/am_v1/am_short_thrust.webp` | 94c7829edaab |
-| fx_qh_clash_am_guard_crescent | `assets/production/fx/qihe-clash/am_v1/fx_qh_clash_am_guard_crescent.webp` | `art_sources/qihe-faction-clash-20261012/fx/am_v1/am_guard_crescent.webp` | f307b597aa5c |
-| fx_qh_clash_am_stab_mark | `assets/production/fx/qihe-clash/am_v1/fx_qh_clash_am_stab_mark.webp` | `art_sources/qihe-faction-clash-20261012/fx/am_v1/am_stab_mark.webp` | aaec272b59c2 |
-| fx_qh_clash_am_power_orb | `assets/production/fx/qihe-clash/am_v1/fx_qh_clash_am_power_orb.webp` | `art_sources/qihe-faction-clash-20261012/fx/am_v1/am_power_orb.webp` | 1d91da0bbeb4 |
-| fx_qh_clash_am_flow_ribbon | `assets/production/fx/qihe-clash/am_v1/fx_qh_clash_am_flow_ribbon.webp` | `art_sources/qihe-faction-clash-20261012/fx/am_v1/am_flow_ribbon.webp` | 19af6303d4ae |
-| fx_qh_clash_am_bp_pips | `assets/production/fx/qihe-clash/am_v1/fx_qh_clash_am_bp_pips.webp` | `art_sources/qihe-faction-clash-20261012/fx/am_v1/am_bp_pips.webp` | fedadd577f9b |
-| fx_qh_clash_gj_fold_shade | `assets/production/fx/qihe-clash/gj_v1/fx_qh_clash_gj_fold_shade.webp` | `art_sources/qihe-faction-clash-20261012/fx/gj_v1/gj_fold_shade.webp` | a5ba39af70a7 |
-| fx_qh_clash_gj_short_stab | `assets/production/fx/qihe-clash/gj_v1/fx_qh_clash_gj_short_stab.webp` | `art_sources/qihe-faction-clash-20261012/fx/gj_v1/gj_short_stab.webp` | 88b87b42d2e3 |
-| fx_qh_clash_gj_stab_burst | `assets/production/fx/qihe-clash/gj_v1/fx_qh_clash_gj_stab_burst.webp` | `art_sources/qihe-faction-clash-20261012/fx/gj_v1/gj_stab_burst.webp` | 66a1b53d18e5 |
-| fx_qh_clash_gj_expose | `assets/production/fx/qihe-clash/gj_v1/fx_qh_clash_gj_expose.webp` | `art_sources/qihe-faction-clash-20261012/fx/gj_v1/gj_expose.webp` | c6ea5e2e3aba |
-| fx_qh_clash_gj_thick_arc | `assets/production/fx/qihe-clash/gj_v1/fx_qh_clash_gj_thick_arc.webp` | `art_sources/qihe-faction-clash-20261012/fx/gj_v1/gj_thick_arc.webp` | dac1be7c9146 |
-| fx_qh_clash_gj_ember_halves | `assets/production/fx/qihe-clash/gj_v1/fx_qh_clash_gj_ember_halves.webp` | `art_sources/qihe-faction-clash-20261012/fx/gj_v1/gj_ember_halves.webp` | ae7aeb05bf99 |
-| fx_qh_clash_kit_ring | `assets/production/fx/qihe-clash/kit_v1/fx_qh_clash_kit_ring.webp` | `art_sources/qihe-faction-clash-20261012/fx/kit_v1/kit_ring.webp` | 3287cce5a9ff |
-| fx_qh_clash_kit_qi | `assets/production/fx/qihe-clash/kit_v1/fx_qh_clash_kit_qi.webp` | `art_sources/qihe-faction-clash-20261012/fx/kit_v1/kit_qi.webp` | e8489e29d081 |
-| fx_qh_clash_kit_rise | `assets/production/fx/qihe-clash/kit_v1/fx_qh_clash_kit_rise.webp` | `art_sources/qihe-faction-clash-20261012/fx/kit_v1/kit_rise.webp` | 887718f065f9 |
-| fx_qh_clash_kit_burst | `assets/production/fx/qihe-clash/kit_v1/fx_qh_clash_kit_burst.webp` | `art_sources/qihe-faction-clash-20261012/fx/kit_v1/kit_burst.webp` | 61f6559a5868 |
-| clash_blade_hit_20261012 | `assets/audio/clash_blade_hit_20261012.wav` | `art_sources/qihe-faction-clash-20261012/audio/clash_blade_hit_20261012.wav` | 102204e5c0b3 |
-| clash_qi_transfer_20261012 | `assets/audio/clash_qi_transfer_20261012.wav` | `art_sources/qihe-faction-clash-20261012/audio/clash_qi_transfer_20261012.wav` | 10badc684e42 |
-
-## 2026-10-13 入汉皋前正式素材
-
-| ID | 正式文件 | 原件 | SHA-256前12位 |
-|---|---|---|---|
-| b_gy_luxiaodou_prehangao_20261013 | `assets/production/battle/b_gy_luxiaodou_prehangao_20261013.webp` | `art_sources/pre-hangao-completion-20261013/out/b_gy_luxiaodou_prehangao_20261013.webp` | 45866da56cad |
-| b_gy_fangchi_prehangao_20261013 | `assets/production/battle/b_gy_fangchi_prehangao_20261013.webp` | `art_sources/pre-hangao-completion-20261013/out/b_gy_fangchi_prehangao_20261013.webp` | bddb936a93f1 |
-| b_gy_zhongzhuo_prehangao_20261013 | `assets/production/battle/b_gy_zhongzhuo_prehangao_20261013.webp` | `art_sources/pre-hangao-completion-20261013/out/b_gy_zhongzhuo_prehangao_20261013.webp` | beae35bed448 |
-| b_gy_zhouyan_prehangao_20261013 | `assets/production/battle/b_gy_zhouyan_prehangao_20261013.webp` | `art_sources/pre-hangao-completion-20261013/out/b_gy_zhouyan_prehangao_20261013.webp` | 7dfd341b4303 |
-| b_gy_hero_sword_prehangao_20261013 | `assets/production/battle/b_gy_hero_sword_prehangao_20261013.webp` | `art_sources/pre-hangao-completion-20261013/out/b_gy_hero_sword_prehangao_20261013.webp` | dd3c1e812c8d |
-| b_gy_hero_fist_prehangao_20261013 | `assets/production/battle/b_gy_hero_fist_prehangao_20261013.webp` | `art_sources/pre-hangao-completion-20261013/out/b_gy_hero_fist_prehangao_20261013.webp` | 621d25f4d057 |
-| b_gy_peizhigu_prehangao_20261013 | `assets/production/battle/b_gy_peizhigu_prehangao_20261013.webp` | `art_sources/pre-hangao-completion-20261013/out/b_gy_peizhigu_prehangao_20261013.webp` | a1af48f68335 |
-| s_gy_peizhigu_prehangao_20261013 | `assets/production/characters/s_gy_peizhigu_prehangao_20261013.webp` | `art_sources/pre-hangao-completion-20261013/out/s_gy_peizhigu_prehangao_20261013.webp` | 8417312f9007 |
-| p_gy_peizhigu | `assets/production/characters/p_gy_peizhigu_prehangao_20261013.webp` | `assets/production/cultivation/household-v1/pei_normal.png` | d8c906b85c85 |
 | pei_sujian_icon | `assets/production/pre-hangao/sujian-icon.png` | `art_sources/pre-hangao-completion-20261013/sujian-icon.png` | cb44f8d6c3cd |
-| cu_hangao_gate_20261013 | `assets/production/cultivation/pre-hangao/hangao_gate.png` | `art_sources/pre-hangao-completion-20261013/hangao-gate-source.png` | 30c4c9f7b84e |
-
-## 2026-10-14 主角多武器像素动作
-
-| ID | 正式文件 | 原件 | SHA-256前12位 |
-|---|---|---|---|
-
-## 2026-10-14 尾声新增已确认配音
-
-| ID | 正式文件 | 原件 | SHA-256前12位 |
-|---|---|---|---|
-| clash.whip.opening.0 | `assets/audio/voices/xu-lingyi-45bf9797fd06d5f05a86.mp3` | `art_sources/qihe-whip-clash-20261014/audio/xu-lingyi-45bf9797fd06d5f05a86.mp3` | 45bf9797fd06 |
-| clash.whip.opening.1 | `assets/audio/voices/cen-shuang-01c5022aa0c967a8840a.mp3` | `art_sources/qihe-whip-clash-20261014/audio/cen-shuang-01c5022aa0c967a8840a.mp3` | 01c5022aa0c9 |
-| clash.whip.stopping.0 | `assets/audio/voices/shen-yanhui-dddec471247494647080.mp3` | `art_sources/qihe-whip-clash-20261014/audio/shen-yanhui-dddec471247494647080.mp3` | dddec4712474 |
-| clash.whip.stopping.1 | `assets/audio/voices/xu-lingyi-4dde8f0a0d4f7161be19.mp3` | `art_sources/qihe-whip-clash-20261014/audio/xu-lingyi-4dde8f0a0d4f7161be19.mp3` | 4dde8f0a0d4f |
-| clash.whip.stopping.2 | `assets/audio/voices/cen-shuang-96f55d1b295bdf5dca0a.mp3` | `art_sources/qihe-whip-clash-20261014/audio/cen-shuang-96f55d1b295bdf5dca0a.mp3` | 96f55d1b295b |
-| clash.whip.beam | `assets/audio/voices/xu-lingyi-5073662de466a2323adb.mp3` | `art_sources/qihe-whip-clash-20261014/audio/xu-lingyi-5073662de466a2323adb.mp3` | 5073662de466 |
-| clash.whip.responsibility.xu | `assets/audio/voices/xu-lingyi-84e11cc2dd7b4d7b3351.mp3` | `art_sources/qihe-whip-clash-20261014/audio/xu-lingyi-84e11cc2dd7b4d7b3351.mp3` | 84e11cc2dd7b |
-| clash.whip.responsibility.cen | `assets/audio/voices/cen-shuang-dcad95c45a70b155987d.mp3` | `art_sources/qihe-whip-clash-20261014/audio/cen-shuang-dcad95c45a70b155987d.mp3` | dcad95c45a70 |
-
-## 2026-10-14 尾声夜间CG连贯性修正
-
-| ID | 正式文件 | 原件 | SHA-256前12位 |
-|---|---|---|---|
-| cg_qh_ignition_night_20261014 | `assets/production/shared/cg_qh_ignition_night_20261014.webp` | `art_sources/qihe-whip-clash-20261014/cg/ignition.png` | e7a0c4a50e59 |
-| cg_qh_cen_night_20261014 | `assets/production/shared/cg_qh_cen_night_20261014.webp` | `art_sources/qihe-whip-clash-20261014/cg/cen.png` | 5217e5d26f92 |
-| cg_qh_shen_night_20261014 | `assets/production/shared/cg_qh_shen_night_20261014.webp` | `art_sources/qihe-whip-clash-20261014/cg/shen.png` | 5b56554561c5 |
-| cg_qh_evacuation_night_20261014 | `assets/production/shared/cg_qh_evacuation_night_20261014.webp` | `art_sources/qihe-whip-clash-20261014/cg/evacuation.png` | 0bf382d126ad |
-
-## 2026-10-14 归云人物战斗收尾
-
-| ID | 正式文件 | 原件 | SHA-256前12位 |
-|---|---|---|---|
-| b_gy_luxiaodou_finish_20261014 | `assets/production/battle/b_gy_luxiaodou_finish_20261014.webp` | `art_sources/guiyun-battle-finish-20261014/out/b_gy_luxiaodou_finish_20261014.webp` | 598656ccff53 |
-| b_gy_fangchi_finish_20261014 | `assets/production/battle/b_gy_fangchi_finish_20261014.webp` | `art_sources/guiyun-battle-finish-20261014/out/b_gy_fangchi_finish_20261014.webp` | 06bdfdfb00f8 |
-| b_gy_zhongzhuo_finish_20261014 | `assets/production/battle/b_gy_zhongzhuo_finish_20261014.webp` | `art_sources/guiyun-battle-finish-20261014/out/b_gy_zhongzhuo_finish_20261014.webp` | 41ff6c2cdc02 |
-| b_gy_zhouyan_finish_20261014 | `assets/production/battle/b_gy_zhouyan_finish_20261014.webp` | `art_sources/guiyun-battle-finish-20261014/out/b_gy_zhouyan_finish_20261014.webp` | 93ef73bf304f |
-| b_gy_peizhigu_finish_20261014 | `assets/production/battle/b_gy_peizhigu_finish_20261014.webp` | `art_sources/guiyun-battle-finish-20261014/out/b_gy_peizhigu_finish_20261014.webp` | a6ede46d8c4e |
-
-## 2026-10-14 主角无剑对白状态
-
-| ID | 正式文件 | 原件 | SHA-256前12位 |
-|---|---|---|---|
-
-## 2026-10-14 入汉皋前已确认对白语音
-
-| ID | 正式文件 | 原件 | SHA-256前12位 |
-|---|---|---|---|
-| prehg.ye.17dad18eabceae | `assets/audio/voices/ye-10798247abe9644059ea.mp3` | `art_sources/guiyun-battle-finish-20261014/voice-originals/ye-10798247abe9644059ea.mp3` | 10798247abe9 |
-| prehg.ye.cfb44540705848 | `assets/audio/voices/ye-c6b6a1cbe748e386f698.mp3` | `art_sources/guiyun-battle-finish-20261014/voice-originals/ye-c6b6a1cbe748e386f698.mp3` | c6b6a1cbe748 |
-| prehg.ye.ab2f3b4aea512c | `assets/audio/voices/ye-0da6153ad4b52f82aed5.mp3` | `art_sources/guiyun-battle-finish-20261014/voice-originals/ye-0da6153ad4b52f82aed5.mp3` | 0da6153ad4b5 |
-| prehg.ye.4fff7aa8285000 | `assets/audio/voices/ye-1bd0af4c9781c3a5c08d.mp3` | `art_sources/guiyun-battle-finish-20261014/voice-originals/ye-1bd0af4c9781c3a5c08d.mp3` | 1bd0af4c9781 |
-| prehg.ye.2dd8a16361086b | `assets/audio/voices/ye-47d78c63d24bf4d44572.mp3` | `art_sources/guiyun-battle-finish-20261014/voice-originals/ye-47d78c63d24bf4d44572.mp3` | 47d78c63d24b |
-| prehg.ye.805aaa343711a9 | `assets/audio/voices/ye-395aef7433130c45aa16.mp3` | `art_sources/guiyun-battle-finish-20261014/voice-originals/ye-395aef7433130c45aa16.mp3` | 395aef743313 |
-| prehg.ye.42e9b27c4da20c | `assets/audio/voices/ye-fc1fcf198c9a0b274a96.mp3` | `art_sources/guiyun-battle-finish-20261014/voice-originals/ye-fc1fcf198c9a0b274a96.mp3` | fc1fcf198c9a |
-| prehg.ye.41891b6bd1d423 | `assets/audio/voices/ye-f0fc2c1060ec5d6b5187.mp3` | `art_sources/guiyun-battle-finish-20261014/voice-originals/ye-f0fc2c1060ec5d6b5187.mp3` | f0fc2c1060ec |
-| prehg.ye.0b162dde18d643 | `assets/audio/voices/ye-c896c3bfcdbb394887c8.mp3` | `art_sources/guiyun-battle-finish-20261014/voice-originals/ye-c896c3bfcdbb394887c8.mp3` | c896c3bfcdbb |
-| prehg.ye.f137d0d8932475 | `assets/audio/voices/ye-7fe76992a1c1a9d00e0d.mp3` | `art_sources/guiyun-battle-finish-20261014/voice-originals/ye-7fe76992a1c1a9d00e0d.mp3` | 7fe76992a1c1 |
-| prehg.ye.54b88a1637a287 | `assets/audio/voices/ye-3f44a18dc13e3cebca40.mp3` | `art_sources/guiyun-battle-finish-20261014/voice-originals/ye-3f44a18dc13e3cebca40.mp3` | 3f44a18dc13e |
-| prehg.ye.c01bfe60605866 | `assets/audio/voices/ye-bfb0bdd00bcc37dc922d.mp3` | `art_sources/guiyun-battle-finish-20261014/voice-originals/ye-bfb0bdd00bcc37dc922d.mp3` | bfb0bdd00bcc |
-| prehg.ye.9b27c9f3d5ca10 | `assets/audio/voices/ye-a80b3ff2133a4637339c.mp3` | `art_sources/guiyun-battle-finish-20261014/voice-originals/ye-a80b3ff2133a4637339c.mp3` | a80b3ff2133a |
-| prehg.ye.c3829ea09b948a | `assets/audio/voices/ye-09a3a22070324e0dfec6.mp3` | `art_sources/guiyun-battle-finish-20261014/voice-originals/ye-09a3a22070324e0dfec6.mp3` | 09a3a2207032 |
-| prehg.ye.08b1d1ce243ff1 | `assets/audio/voices/ye-8b5b3b5c371683d6ed5e.mp3` | `art_sources/guiyun-battle-finish-20261014/voice-originals/ye-8b5b3b5c371683d6ed5e.mp3` | 8b5b3b5c3716 |
-| prehg.ye.488b76f608ac4f | `assets/audio/voices/ye-4ebea2994b962ee82a0a.mp3` | `art_sources/guiyun-battle-finish-20261014/voice-originals/ye-4ebea2994b962ee82a0a.mp3` | 4ebea2994b96 |
-| prehg.ye.9824764cdc4d5f | `assets/audio/voices/ye-b569e20a16782d219c65.mp3` | `art_sources/guiyun-battle-finish-20261014/voice-originals/ye-b569e20a16782d219c65.mp3` | b569e20a1678 |
-| prehg.ye.e541fe609bcce7 | `assets/audio/voices/ye-97bc48aef6c4f7ce8d1b.mp3` | `art_sources/guiyun-battle-finish-20261014/voice-originals/ye-97bc48aef6c4f7ce8d1b.mp3` | 97bc48aef6c4 |
-| prehg.ye.f5d2d39a085142 | `assets/audio/voices/ye-9b722addabc006eff716.mp3` | `art_sources/guiyun-battle-finish-20261014/voice-originals/ye-9b722addabc006eff716.mp3` | 9b722addabc0 |
-| prehg.ye.e55faef4b1da0c | `assets/audio/voices/ye-38e8defa5721c6c65071.mp3` | `art_sources/guiyun-battle-finish-20261014/voice-originals/ye-38e8defa5721c6c65071.mp3` | 38e8defa5721 |
-| prehg.ye.6da7285d0a71ab | `assets/audio/voices/ye-fcf51d0611be1d1ff869.mp3` | `art_sources/guiyun-battle-finish-20261014/voice-originals/ye-fcf51d0611be1d1ff869.mp3` | fcf51d0611be |
-| prehg.ye.b9856302803d74 | `assets/audio/voices/ye-2adbe66dee5eb79df437.mp3` | `art_sources/guiyun-battle-finish-20261014/voice-originals/ye-2adbe66dee5eb79df437.mp3` | 2adbe66dee5e |
-| prehg.ye.c3ceb7e833ca42 | `assets/audio/voices/ye-ea934605e5867ecaf752.mp3` | `art_sources/guiyun-battle-finish-20261014/voice-originals/ye-ea934605e5867ecaf752.mp3` | ea934605e586 |
-| prehg.ye.2f5c705a00fda4 | `assets/audio/voices/ye-4acd03c5a88613d23214.mp3` | `art_sources/guiyun-battle-finish-20261014/voice-originals/ye-4acd03c5a88613d23214.mp3` | 4acd03c5a886 |
-| prehg.ye.da0651419a6761 | `assets/audio/voices/ye-0a5aaa59e4ab9767b793.mp3` | `art_sources/guiyun-battle-finish-20261014/voice-originals/ye-0a5aaa59e4ab9767b793.mp3` | 0a5aaa59e4ab |
-| prehg.ye.d3c6dd0fe41313 | `assets/audio/voices/ye-37d5ff45db048d4dc79d.mp3` | `art_sources/guiyun-battle-finish-20261014/voice-originals/ye-37d5ff45db048d4dc79d.mp3` | 37d5ff45db04 |
-| prehg.ye.f009eeb1516fa8 | `assets/audio/voices/ye-dbbe6d3ecdebd6b52107.mp3` | `art_sources/guiyun-battle-finish-20261014/voice-originals/ye-dbbe6d3ecdebd6b52107.mp3` | dbbe6d3ecdeb |
-| prehg.ye.52f0c9a4b9ddc4 | `assets/audio/voices/ye-afcf26306d71c52681c7.mp3` | `art_sources/guiyun-battle-finish-20261014/voice-originals/ye-afcf26306d71c52681c7.mp3` | afcf26306d71 |
-| prehg.ye.a0f0c01a0ea115 | `assets/audio/voices/ye-64487ba6a16e795a4532.mp3` | `art_sources/guiyun-battle-finish-20261014/voice-originals/ye-64487ba6a16e795a4532.mp3` | 64487ba6a16e |
-| prehg.ye.551216c90f9a3a | `assets/audio/voices/ye-c9aae1413c5570672e2b.mp3` | `art_sources/guiyun-battle-finish-20261014/voice-originals/ye-c9aae1413c5570672e2b.mp3` | c9aae1413c55 |
-| prehg.ye.531f1bbd2ad71c | `assets/audio/voices/ye-a74ff9b924d4391cb7b6.mp3` | `art_sources/guiyun-battle-finish-20261014/voice-originals/ye-a74ff9b924d4391cb7b6.mp3` | a74ff9b924d4 |
-| prehg.ye.da23565689f0dd | `assets/audio/voices/ye-36ac2c9bda7178db75de.mp3` | `art_sources/guiyun-battle-finish-20261014/voice-originals/ye-36ac2c9bda7178db75de.mp3` | 36ac2c9bda71 |
-| prehg.ye.af7df02927c099 | `assets/audio/voices/ye-309f48a1463480482d33.mp3` | `art_sources/guiyun-battle-finish-20261014/voice-originals/ye-309f48a1463480482d33.mp3` | 309f48a14634 |
-| prehg.ye.664af4cf637a45 | `assets/audio/voices/ye-ba5a2644f95b716009f9.mp3` | `art_sources/guiyun-battle-finish-20261014/voice-originals/ye-ba5a2644f95b716009f9.mp3` | ba5a2644f95b |
-| prehg.ye.50b7eea3d8b2fe | `assets/audio/voices/ye-9dc0254225ad2172b590.mp3` | `art_sources/guiyun-battle-finish-20261014/voice-originals/ye-9dc0254225ad2172b590.mp3` | 9dc0254225ad |
-| prehg.ye.c2e8dc0569b7fe | `assets/audio/voices/ye-a39df919ca1da8c1501a.mp3` | `art_sources/guiyun-battle-finish-20261014/voice-originals/ye-a39df919ca1da8c1501a.mp3` | a39df919ca1d |
-| prehg.pei-zhigu.a544e051d885ed | `assets/audio/voices/pei-zhigu-a63b6d879de9bbb06e39.mp3` | `art_sources/guiyun-battle-finish-20261014/voice-originals/pei-zhigu-a63b6d879de9bbb06e39.mp3` | a63b6d879de9 |
-| prehg.pei-zhigu.f9bd0f496da5ea | `assets/audio/voices/pei-zhigu-3842bfe90a83ba1cd8a5.mp3` | `art_sources/guiyun-battle-finish-20261014/voice-originals/pei-zhigu-3842bfe90a83ba1cd8a5.mp3` | 3842bfe90a83 |
-| prehg.pei-zhigu.3696d7aab12abd | `assets/audio/voices/pei-zhigu-58ce7410c23aeb43376e.mp3` | `art_sources/guiyun-battle-finish-20261014/voice-originals/pei-zhigu-58ce7410c23aeb43376e.mp3` | 58ce7410c23a |
-| prehg.pei-zhigu.ad5d58b4f37ab9 | `assets/audio/voices/pei-zhigu-cd202304e8af51734151.mp3` | `art_sources/guiyun-battle-finish-20261014/voice-originals/pei-zhigu-cd202304e8af51734151.mp3` | cd202304e8af |
-| prehg.pei-zhigu.fca59da15f692c | `assets/audio/voices/pei-zhigu-292f9afcff902c7ee133.mp3` | `art_sources/guiyun-battle-finish-20261014/voice-originals/pei-zhigu-292f9afcff902c7ee133.mp3` | 292f9afcff90 |
-| prehg.pei-zhigu.197019f672e9bd | `assets/audio/voices/pei-zhigu-35d325fbaccc1946f970.mp3` | `art_sources/guiyun-battle-finish-20261014/voice-originals/pei-zhigu-35d325fbaccc1946f970.mp3` | 35d325fbaccc |
-| prehg.pei-zhigu.79f59cfd189454 | `assets/audio/voices/pei-zhigu-6a4f457ff6db6f5a48ce.mp3` | `art_sources/guiyun-battle-finish-20261014/voice-originals/pei-zhigu-6a4f457ff6db6f5a48ce.mp3` | 6a4f457ff6db |
-| prehg.pei-zhigu.c758196ac3f926 | `assets/audio/voices/pei-zhigu-479c2cff1306980c8935.mp3` | `art_sources/guiyun-battle-finish-20261014/voice-originals/pei-zhigu-479c2cff1306980c8935.mp3` | 479c2cff1306 |
-| prehg.pei-zhigu.db950f09906cca | `assets/audio/voices/pei-zhigu-4f8dbdcd8c167d0afa59.mp3` | `art_sources/guiyun-battle-finish-20261014/voice-originals/pei-zhigu-4f8dbdcd8c167d0afa59.mp3` | 4f8dbdcd8c16 |
-| prehg.pei-zhigu.ec756012072f4f | `assets/audio/voices/pei-zhigu-9dc49e3fd5f6e7a0e2ac.mp3` | `art_sources/guiyun-battle-finish-20261014/voice-originals/pei-zhigu-9dc49e3fd5f6e7a0e2ac.mp3` | 9dc49e3fd5f6 |
-| prehg.pei-zhigu.28d699ca5e322c | `assets/audio/voices/pei-zhigu-e6591d33428284931962.mp3` | `art_sources/guiyun-battle-finish-20261014/voice-originals/pei-zhigu-e6591d33428284931962.mp3` | e6591d334282 |
-| prehg.pei-zhigu.a38da086205ab7 | `assets/audio/voices/pei-zhigu-530d7ec03a41395b598b.mp3` | `art_sources/guiyun-battle-finish-20261014/voice-originals/pei-zhigu-530d7ec03a41395b598b.mp3` | 530d7ec03a41 |
-| prehg.pei-zhigu.7b33a3b8ac3bd0 | `assets/audio/voices/pei-zhigu-50f655dd4eec11b4f512.mp3` | `art_sources/guiyun-battle-finish-20261014/voice-originals/pei-zhigu-50f655dd4eec11b4f512.mp3` | 50f655dd4eec |
-| prehg.pei-zhigu.d4d4ca1632c632 | `assets/audio/voices/pei-zhigu-d7cf0cc7c35dca94f383.mp3` | `art_sources/guiyun-battle-finish-20261014/voice-originals/pei-zhigu-d7cf0cc7c35dca94f383.mp3` | d7cf0cc7c35d |
-| prehg.pei-zhigu.f7cb8cf7ed8b43 | `assets/audio/voices/pei-zhigu-c8bf7864171b9b923f8c.mp3` | `art_sources/guiyun-battle-finish-20261014/voice-originals/pei-zhigu-c8bf7864171b9b923f8c.mp3` | c8bf7864171b |
-| prehg.pei-zhigu.b4ea31b944584f | `assets/audio/voices/pei-zhigu-039571331dbeefee0f11.mp3` | `art_sources/guiyun-battle-finish-20261014/voice-originals/pei-zhigu-039571331dbeefee0f11.mp3` | 039571331dbe |
-| prehg.pei-zhigu.4776d56175c03f | `assets/audio/voices/pei-zhigu-6270dd02770a2f42e826.mp3` | `art_sources/guiyun-battle-finish-20261014/voice-originals/pei-zhigu-6270dd02770a2f42e826.mp3` | 6270dd02770a |
-| prehg.pei-zhigu.76cdfaff9d73b1 | `assets/audio/voices/pei-zhigu-6deb41ca192675a472f8.mp3` | `art_sources/guiyun-battle-finish-20261014/voice-originals/pei-zhigu-6deb41ca192675a472f8.mp3` | 6deb41ca1926 |
-| prehg.pei-zhigu.df4d5b469f1ac8 | `assets/audio/voices/pei-zhigu-1e943a581ffbcbf37aac.mp3` | `art_sources/guiyun-battle-finish-20261014/voice-originals/pei-zhigu-1e943a581ffbcbf37aac.mp3` | 1e943a581ffb |
-| prehg.pei-zhigu.e36611dfe6b333 | `assets/audio/voices/pei-zhigu-147170006651af50e180.mp3` | `art_sources/guiyun-battle-finish-20261014/voice-originals/pei-zhigu-147170006651af50e180.mp3` | 147170006651 |
-| prehg.pei-zhigu.f60c3f1c266dec | `assets/audio/voices/pei-zhigu-7471c8c28210e8f37fd0.mp3` | `art_sources/guiyun-battle-finish-20261014/voice-originals/pei-zhigu-7471c8c28210e8f37fd0.mp3` | 7471c8c28210 |
-| prehg.pei-zhigu.e0d59db421c1d5 | `assets/audio/voices/pei-zhigu-67585427f9393db01ab7.mp3` | `art_sources/guiyun-battle-finish-20261014/voice-originals/pei-zhigu-67585427f9393db01ab7.mp3` | 67585427f939 |
-| prehg.pei-zhigu.226dd8733a93a9 | `assets/audio/voices/pei-zhigu-d343187df21e888d426f.mp3` | `art_sources/guiyun-battle-finish-20261014/voice-originals/pei-zhigu-d343187df21e888d426f.mp3` | d343187df21e |
-| prehg.pei-zhigu.8fa75ac1c28ced | `assets/audio/voices/pei-zhigu-a4f641547b4cfd2559c5.mp3` | `art_sources/guiyun-battle-finish-20261014/voice-originals/pei-zhigu-a4f641547b4cfd2559c5.mp3` | a4f641547b4c |
-| prehg.pei-zhigu.a0b655df856078 | `assets/audio/voices/pei-zhigu-e528701c0579f2059681.mp3` | `art_sources/guiyun-battle-finish-20261014/voice-originals/pei-zhigu-e528701c0579f2059681.mp3` | e528701c0579 |
-| prehg.pei-zhigu.a1f648d2551635 | `assets/audio/voices/pei-zhigu-f2788576b90b24f1761c.mp3` | `art_sources/guiyun-battle-finish-20261014/voice-originals/pei-zhigu-f2788576b90b24f1761c.mp3` | f2788576b90b |
-| prehg.pei-zhigu.311ea89e08ff9d | `assets/audio/voices/pei-zhigu-809bee3d34bebab85ba9.mp3` | `art_sources/guiyun-battle-finish-20261014/voice-originals/pei-zhigu-809bee3d34bebab85ba9.mp3` | 809bee3d34be |
-| prehg.pei-zhigu.7a17fd4ada20ec | `assets/audio/voices/pei-zhigu-635da3d4b5d39de71859.mp3` | `art_sources/guiyun-battle-finish-20261014/voice-originals/pei-zhigu-635da3d4b5d39de71859.mp3` | 635da3d4b5d3 |
-| prehg.pei-zhigu.7440732b63b819 | `assets/audio/voices/pei-zhigu-f93c3968f443f3f7fc87.mp3` | `art_sources/guiyun-battle-finish-20261014/voice-originals/pei-zhigu-f93c3968f443f3f7fc87.mp3` | f93c3968f443 |
-| prehg.pei-zhigu.6e0e477380cc4d | `assets/audio/voices/pei-zhigu-ff71762a0380200eb19e.mp3` | `art_sources/guiyun-battle-finish-20261014/voice-originals/pei-zhigu-ff71762a0380200eb19e.mp3` | ff71762a0380 |
-| prehg.pei-zhigu.88ce51e39fddc5 | `assets/audio/voices/pei-zhigu-359c94803bc65ac8928c.mp3` | `art_sources/guiyun-battle-finish-20261014/voice-originals/pei-zhigu-359c94803bc65ac8928c.mp3` | 359c94803bc6 |
-| prehg.pei-zhigu.549532a88edfed | `assets/audio/voices/pei-zhigu-dfae160498c00d1b8657.mp3` | `art_sources/guiyun-battle-finish-20261014/voice-originals/pei-zhigu-dfae160498c00d1b8657.mp3` | dfae160498c0 |
-| prehg.pei-zhigu.660615b5d62221 | `assets/audio/voices/pei-zhigu-c71d5cf1d38a4a407ae0.mp3` | `art_sources/guiyun-battle-finish-20261014/voice-originals/pei-zhigu-c71d5cf1d38a4a407ae0.mp3` | c71d5cf1d38a |
-| prehg.pei-zhigu.59af65ebf5ffb3 | `assets/audio/voices/pei-zhigu-6a1dc8b76b6b3beb8e0e.mp3` | `art_sources/guiyun-battle-finish-20261014/voice-originals/pei-zhigu-6a1dc8b76b6b3beb8e0e.mp3` | 6a1dc8b76b6b |
-| prehg.pei-zhigu.2345239eecc81e | `assets/audio/voices/pei-zhigu-3c4c3499a09506df4ded.mp3` | `art_sources/guiyun-battle-finish-20261014/voice-originals/pei-zhigu-3c4c3499a09506df4ded.mp3` | 3c4c3499a095 |
-| prehg.pei-zhigu.6f6bb671872cd5 | `assets/audio/voices/pei-zhigu-f8f0fe8ad2b613acce48.mp3` | `art_sources/guiyun-battle-finish-20261014/voice-originals/pei-zhigu-f8f0fe8ad2b613acce48.mp3` | f8f0fe8ad2b6 |
-| prehg.pei-zhigu.e5c6a4a4287af2 | `assets/audio/voices/pei-zhigu-1d9798fe2e66bd8b3688.mp3` | `art_sources/guiyun-battle-finish-20261014/voice-originals/pei-zhigu-1d9798fe2e66bd8b3688.mp3` | 1d9798fe2e66 |
-| prehg.pei-zhigu.4ff0edb46a244c | `assets/audio/voices/pei-zhigu-f3417df3c96785e0b880.mp3` | `art_sources/guiyun-battle-finish-20261014/voice-originals/pei-zhigu-f3417df3c96785e0b880.mp3` | f3417df3c967 |
-| prehg.pei-zhigu.fbc9fdc7821dd6 | `assets/audio/voices/pei-zhigu-b06928dd2347e065c38c.mp3` | `art_sources/guiyun-battle-finish-20261014/voice-originals/pei-zhigu-b06928dd2347e065c38c.mp3` | b06928dd2347 |
-| prehg.pei-zhigu.46fd70bd6d9713 | `assets/audio/voices/pei-zhigu-66450a732a75e9a504c6.mp3` | `art_sources/guiyun-battle-finish-20261014/voice-originals/pei-zhigu-66450a732a75e9a504c6.mp3` | 66450a732a75 |
-| prehg.pei-zhigu.b10b253edcda1a | `assets/audio/voices/pei-zhigu-e892e8fa46c7dfaa2062.mp3` | `art_sources/guiyun-battle-finish-20261014/voice-originals/pei-zhigu-e892e8fa46c7dfaa2062.mp3` | e892e8fa46c7 |
-| prehg.pei-zhigu.26d537a3d53de4 | `assets/audio/voices/pei-zhigu-20493ba3f658845f211a.mp3` | `art_sources/guiyun-battle-finish-20261014/voice-originals/pei-zhigu-20493ba3f658845f211a.mp3` | 20493ba3f658 |
-| prehg.pei-zhigu.406d1ebf8f5d30 | `assets/audio/voices/pei-zhigu-8271877ed205d703d0b7.mp3` | `art_sources/guiyun-battle-finish-20261014/voice-originals/pei-zhigu-8271877ed205d703d0b7.mp3` | 8271877ed205 |
-| cu_hero_long_empty_serious_20261014 | `assets/production/cultivation/hero-empty/hero_long_empty_serious.png` | `art_sources/hero-unarmed-dialogue-20261014/out/hero_long_empty_serious.png` | 363c4e225259 |
-| cu_hero_long_empty_worry_20261014 | `assets/production/cultivation/hero-empty/hero_long_empty_worry.png` | `art_sources/hero-unarmed-dialogue-20261014/out/hero_long_empty_worry.png` | 62c2e7733a88 |
-| cu_hero_long_empty_surprise_20261014 | `assets/production/cultivation/hero-empty/hero_long_empty_surprise.png` | `art_sources/hero-unarmed-dialogue-20261014/out/hero_long_empty_surprise.png` | 6cc24d7ede6b |
-| cu_hero_long_empty_hurt_20261014 | `assets/production/cultivation/hero-empty/hero_long_empty_hurt.png` | `art_sources/hero-unarmed-dialogue-20261014/out/hero_long_empty_hurt.png` | 6e4a0a0c0201 |
-| cu_hero_long_empty_sad_20261014 | `assets/production/cultivation/hero-empty/hero_long_empty_sad.png` | `art_sources/hero-unarmed-dialogue-20261014/out/hero_long_empty_sad.png` | 6c48d625d5d3 |
-| cu_hero_long_empty_sleep_20261014 | `assets/production/cultivation/hero-empty/hero_long_empty_sleep.png` | `art_sources/hero-unarmed-dialogue-20261014/out/hero_long_empty_sleep.png` | 83aae85d62d9 |
-| cu_hero_long_empty_normal_20261014 | `assets/production/cultivation/hero-empty/hero_long_empty_normal.png` | `art_sources/hero-unarmed-dialogue-20261014/out/hero_long_empty_normal.png` | e7d2f638d427 |
-| cu_hero_long_empty_smile_20261014 | `assets/production/cultivation/hero-empty/hero_long_empty_smile.png` | `art_sources/hero-unarmed-dialogue-20261014/out/hero_long_empty_smile.png` | 33f64468e5e5 |
-| cu_hero_short_empty_normal_20261014 | `assets/production/cultivation/hero-empty/hero_short_empty_normal.png` | `art_sources/hero-unarmed-dialogue-20261014/out/hero_short_empty_normal.png` | 0a5d28ae87c7 |
-| cu_hero_short_empty_smile_20261014 | `assets/production/cultivation/hero-empty/hero_short_empty_smile.png` | `art_sources/hero-unarmed-dialogue-20261014/out/hero_short_empty_smile.png` | 7869ca248937 |
-| cu_hero_short_empty_serious_20261014 | `assets/production/cultivation/hero-empty/hero_short_empty_serious.png` | `art_sources/hero-unarmed-dialogue-20261014/out/hero_short_empty_serious.png` | 132714a0306f |
-| cu_hero_short_empty_worry_20261014 | `assets/production/cultivation/hero-empty/hero_short_empty_worry.png` | `art_sources/hero-unarmed-dialogue-20261014/out/hero_short_empty_worry.png` | f7a0b2982215 |
-| cu_hero_short_empty_surprise_20261014 | `assets/production/cultivation/hero-empty/hero_short_empty_surprise.png` | `art_sources/hero-unarmed-dialogue-20261014/out/hero_short_empty_surprise.png` | 8a4272073c55 |
-| cu_hero_short_empty_sad_20261014 | `assets/production/cultivation/hero-empty/hero_short_empty_sad.png` | `art_sources/hero-unarmed-dialogue-20261014/out/hero_short_empty_sad.png` | bf2039c2ae59 |
-| cu_hero_mid_empty_normal_20261014 | `assets/production/cultivation/hero-empty/hero_mid_empty_normal.png` | `art_sources/hero-unarmed-dialogue-20261014/out/hero_mid_empty_normal.png` | fe243e60a402 |
-| cu_hero_mid_empty_smile_20261014 | `assets/production/cultivation/hero-empty/hero_mid_empty_smile.png` | `art_sources/hero-unarmed-dialogue-20261014/out/hero_mid_empty_smile.png` | bd28e45c3468 |
-| cu_hero_mid_empty_serious_20261014 | `assets/production/cultivation/hero-empty/hero_mid_empty_serious.png` | `art_sources/hero-unarmed-dialogue-20261014/out/hero_mid_empty_serious.png` | 0102f450d9fd |
-| cu_hero_mid_empty_worry_20261014 | `assets/production/cultivation/hero-empty/hero_mid_empty_worry.png` | `art_sources/hero-unarmed-dialogue-20261014/out/hero_mid_empty_worry.png` | 077b8d669933 |
-| cu_hero_mid_empty_surprise_20261014 | `assets/production/cultivation/hero-empty/hero_mid_empty_surprise.png` | `art_sources/hero-unarmed-dialogue-20261014/out/hero_mid_empty_surprise.png` | c644587ca3fa |
-| cu_hero_mid_empty_sad_20261014 | `assets/production/cultivation/hero-empty/hero_mid_empty_sad.png` | `art_sources/hero-unarmed-dialogue-20261014/out/hero_mid_empty_sad.png` | 544e327faee6 |
-
-## 2026-10-14 双甲级群攻：岑霜软鞭战斗表
-
-| ID | 正式文件 | 原件 | SHA-256前12位 |
-|---|---|---|---|
-
-## 2026-10-17 交锋领队战斗表重画（高密度试点，2倍最近邻）
-
-| ID | 正式文件 | 原件 | SHA-256前12位 |
-|---|---|---|---|
-| b_qh_clash_cen_redraw_20261017 | `assets/production/battle/b_qh_clash_cen_redraw_20261017.webp` | `art_sources/qihe-clash-leaders-redraw-20261017/out/b_qh_clash_cen_redraw_20261017.webp` | 4cee22adf16c |
-| b_qh_clash_xu_redraw_20261017 | `assets/production/battle/b_qh_clash_xu_redraw_20261017.webp` | `art_sources/qihe-clash-leaders-redraw-20261017/out/b_qh_clash_xu_redraw_20261017.webp` | 286fcbf7ab15 |
-
-## 2026-10-17 主角战斗表高密度重画（2倍最近邻）
-
-| ID | 正式文件 | 原件 | SHA-256前12位 |
-|---|---|---|---|
-| b_hero_village_staff_hd_20261017 | `assets/production/battle/b_hero_village_staff_hd_20261017.webp` | `art_sources/hero-hd-redraw-20261017/out/b_hero_village_staff_hd_20261017.webp` | a78b293ff2f1 |
-| b_hero_modern_hd_20261017 | `assets/production/battle/b_hero_modern_hd_20261017.webp` | `art_sources/hero-hd-redraw-20261017/out/b_hero_modern_hd_20261017.webp` | 8b9c806b6d96 |
-| b_gy_hero_sword_steel_hd_20261017 | `assets/production/battle/b_gy_hero_sword_steel_hd_20261017.webp` | `art_sources/hero-hd-redraw-20261017/out/b_gy_hero_sword_steel_hd_20261017.webp` | f1e73381104d |
-
-## 2026-10-17 第二批战斗表高密度重画（2倍最近邻）
-
-| ID | 正式文件 | 原件 | SHA-256前12位 |
-|---|---|---|---|
-| b_gy_hero_fist_hd_20261017 | `assets/production/battle/b_gy_hero_fist_hd_20261017.webp` | `art_sources/battle-hd-redraw-batch2-20261017/out/b_gy_hero_fist_hd_20261017.webp` | d2b7494ca6f2 |
-| b_gy_hero_sword_wood_hd_20261017 | `assets/production/battle/b_gy_hero_sword_wood_hd_20261017.webp` | `art_sources/battle-hd-redraw-batch2-20261017/out/b_gy_hero_sword_wood_hd_20261017.webp` | f5621cf56040 |
-| b_gy_hero_dao_hd_20261017 | `assets/production/battle/b_gy_hero_dao_hd_20261017.webp` | `art_sources/battle-hd-redraw-batch2-20261017/out/b_gy_hero_dao_hd_20261017.webp` | 07d9dd0229b5 |
-| b_gy_hero_staff_hd_20261017 | `assets/production/battle/b_gy_hero_staff_hd_20261017.webp` | `art_sources/battle-hd-redraw-batch2-20261017/out/b_gy_hero_staff_hd_20261017.webp` | 5899eef99f8c |
-| b_gy_hero_needle_hd_20261017 | `assets/production/battle/b_gy_hero_needle_hd_20261017.webp` | `art_sources/battle-hd-redraw-batch2-20261017/out/b_gy_hero_needle_hd_20261017.webp` | e0f2386abfd4 |
-| b_ye_initial_needle_hd_20261017 | `assets/production/battle/b_ye_initial_needle_hd_20261017.webp` | `art_sources/battle-hd-redraw-batch2-20261017/out/b_ye_initial_needle_hd_20261017.webp` | 0b3ce47f2089 |
-| b_qh_luheng_hd_20261017 | `assets/production/battle/b_qh_luheng_hd_20261017.webp` | `art_sources/battle-hd-redraw-batch2-20261017/out/b_qh_luheng_hd_20261017.webp` | e266ee442a95 |
-| b_qh_raider_front_hd_20261017 | `assets/production/battle/b_qh_raider_front_hd_20261017.webp` | `art_sources/battle-hd-redraw-batch2-20261017/out/b_qh_raider_front_hd_20261017.webp` | fe2cd7aa4804 |
-| b_qh_raider_rear_hd_20261017 | `assets/production/battle/b_qh_raider_rear_hd_20261017.webp` | `art_sources/battle-hd-redraw-batch2-20261017/out/b_qh_raider_rear_hd_20261017.webp` | 83828790fc72 |
-| b_qh_clash_guard_hd_20261017 | `assets/production/battle/b_qh_clash_guard_hd_20261017.webp` | `art_sources/battle-hd-redraw-batch2-20261017/out/b_qh_clash_guard_hd_20261017.webp` | 24a6d68e0250 |
-
-## 2026-10-17 灰狼战斗表高密度重画（2倍最近邻）
-
-| ID | 正式文件 | 原件 | SHA-256前12位 |
-|---|---|---|---|
-| b_wolf_hd_20261017 | `assets/production/battle/b_wolf_hd_20261017.webp` | `art_sources/wolf-hd-redraw-20261017/out/b_wolf_hd_20261017.webp` | 695bc2e47f43 |
-
-## 2026-10-18 交锋三招特效 v2（2026-10-18 用户评审通过，已接入实机交锋）
-
-按 skill-vfx-pipeline 第 4–5 步由定稿概念图（art_sources/qihe-clash-vfx-concepts-v1/approved.json）拆出单体元素整理而成；只被评审页 review/qihe-clash-vfx-v2/ 加载，实机交锋仍播旧版程序特效，用户确认后再接入。
-
-| ID | 正式文件 | 原件 | SHA-256前12位 |
-|---|---|---|---|
-| fx_qh_clash_am3_fan_jiangqing | `assets/production/fx/qihe-clash/clash_v2/fx_qh_clash_am3_fan_jiangqing.webp` | `art_sources/qihe-clash-vfx-elements-v1/am3_fan_jiangqing.png` | 0bffdd33bbbd |
-| fx_qh_clash_am3_edge_arc | `assets/production/fx/qihe-clash/clash_v2/fx_qh_clash_am3_edge_arc.webp` | `art_sources/qihe-clash-vfx-elements-v1/am3_edge_arc.png` | e2a3b3e41dc8 |
-| fx_qh_clash_am3_cross_hit | `assets/production/fx/qihe-clash/clash_v2/fx_qh_clash_am3_cross_hit.webp` | `art_sources/qihe-clash-vfx-elements-v1/am3_cross_hit.png` | 592ee313e20e |
-| fx_qh_clash_am3_blade_glint | `assets/production/fx/qihe-clash/clash_v2/fx_qh_clash_am3_blade_glint.webp` | `art_sources/qihe-clash-vfx-elements-v1/am3_blade_glint.png` | 22f13fadb3f0 |
-| fx_qh_clash_cs1_wrist_lash | `assets/production/fx/qihe-clash/clash_v2/fx_qh_clash_cs1_wrist_lash.webp` | `art_sources/qihe-clash-vfx-elements-v1/cs1_wrist_lash.png` | f87c0c43e6af |
-| fx_qh_clash_cs_copper_point | `assets/production/fx/qihe-clash/clash_v2/fx_qh_clash_cs_copper_point.webp` | `art_sources/qihe-clash-vfx-elements-v1/cs_copper_point.png` | 24381fb5d308 |
-| fx_qh_clash_cs2_wisps | `assets/production/fx/qihe-clash/clash_v2/fx_qh_clash_cs2_wisps.webp` | `art_sources/qihe-clash-vfx-elements-v1/cs2_wisps.png` | 78bbe7420c23 |
-| fx_qh_clash_cs2_whip_arc | `assets/production/fx/qihe-clash/clash_v2/fx_qh_clash_cs2_whip_arc.webp` | `art_sources/qihe-clash-vfx-elements-v1/cs2_whip_arc.png` | e7a2d1582412 |
-| fx_qh_clash_cs2_ghost_red | `assets/production/fx/qihe-clash/clash_v2/fx_qh_clash_cs2_ghost_red.webp` | `art_sources/qihe-clash-vfx-elements-v1/cs2_ghost_red.png` | 34dd337a7a49 |
-| fx_qh_clash_cs_copper_sparks | `assets/production/fx/qihe-clash/clash_v2/fx_qh_clash_cs_copper_sparks.webp` | `art_sources/qihe-clash-vfx-elements-v1/cs_copper_sparks.png` | 4936037d634f |
-
-## 2026-10-19 注销：襄阳演示与弃用入口归档
-
-用户要求清理可经后缀进入的被弃用演示。以下 55 项只服务于襄阳演示（#street/#streetbright/#xiangyang）、旧大地图、场景容器、江湖手段原型或街市音景，已从正式清单与运行映射注销，文件移入 `_attic/2026-10-19-deprecated/xiaojianghu-legacy-prologue/`（保持原相对路径，`restore.sh` 可还原）。详见 [更新记录](../updates/2026-10-19-deprecated-entries.md)。
-
-`m_alley_v2`、`m_alley_v2_props`、`m_bgate_v2`、`m_bgate_v2_props`、`m_cave_v2`、`m_cave_v2_props`、`m_crossing_far`、`m_crossing_v2`、`m_crossing_v2_props`、`m_ferry_e_v2`、`m_ferry_e_v2_props`、`m_ferry_v2`、`m_ferry_v2_props`、`m_gate_v2`、`m_gate_v2_props`、`m_street_v2`、`m_street_v2_props`、`m_temple_out_v2`、`m_temple_out_v2_props`、`m_temple_v2`、`m_temple_v2_props`、`m_world`、`bb_alley`、`bb_alley_v3`、`bb_bandit_cave`、`bb_bandit_gate`、`bb_ferry`、`bb_gate`、`bb_river`、`bb_road`、`bb_street`、`bb_temple`、`bb_temple_out`、`bg_alley`、`bg_bandit_cave`、`bg_bandit_gate`、`bg_ferry`、`bg_gate`、`bg_map`、`bg_street`、`bg_temple`、`bg_temple_out`、`containers_v1`、`cg_zhou_rescue`、`amb_street`、`bgm_street`、`arts_fail`、`arts_inquire`、`arts_inspect`、`arts_persuade`、`arts_spar`、`arts_steal`、`arts_success`、`forge`、`kettle`
-
-## 2026-10-20 清理：失效素材移入 _attic
-
-按运行时与静态核查，130 个已登记但不可达的条目从本表去掉；连同被取代旧原件和未登记不可达文件共 214 个文件移入 `_attic/2026-10-20-assets/`（不删除，restore.sh 一键还原）。逐项理由、哈希见该目录 manifest.json 与[清理记录](../updates/2026-10-20-assets-cleanup.md)。supersedes 指向已移走文件的条目已注明“已移入 _attic”。
+| ui_qh_trade_scale_stand | `assets/production/ui/trade-scale-20261026/ui_qh_trade_scale_stand.webp` | `art_sources/gift-trade-ui-20261026/out/line_stand_768.webp` | a59317aa36d7 |
+| ui_qh_trade_scale_beam | `assets/production/ui/trade-scale-20261026/ui_qh_trade_scale_beam.webp` | `art_sources/gift-trade-ui-20261026/out/line_beam_768.webp` | 269392a32bcd |
+| ui_qh_trade_scale_panL | `assets/production/ui/trade-scale-20261026/ui_qh_trade_scale_panL.webp` | `art_sources/gift-trade-ui-20261026/out/line_panL_768.webp` | 147097fe4202 |
+| ui_qh_trade_scale_panR | `assets/production/ui/trade-scale-20261026/ui_qh_trade_scale_panR.webp` | `art_sources/gift-trade-ui-20261026/out/line_panR_768.webp` | 61e4e4a94f3e |

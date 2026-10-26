@@ -15,6 +15,9 @@ if (check.error || check.status !== 0) { console.error('素材与文档核对失
 // ink 剧本：先编译并跑全部检查（迁移方案 §4.4、§8），不通过就不发布
 const ink = require('node:child_process').spawnSync('node', ['tools_story/build_ink.cjs'], { cwd: root, stdio: 'inherit' });
 if (ink.error || ink.status !== 0) { console.error('ink 剧本检查失败，构建已停止。'); process.exit(1); }
+// 回扣与分支检查（2026-10-21 用户：固定剧情的触发不得依赖可选剧情；回扣要有系统协助）：错误（固定剧情触发依赖可选、台词指向未登记场次）不发布，警告只提示
+const hooks = require('node:child_process').spawnSync('node', ['tools_scene/qihe/check_story_hooks.cjs'], { cwd: root, stdio: 'inherit' });
+if (hooks.error || hooks.status !== 0) { console.error('回扣与分支检查失败，构建已停止。'); process.exit(1); }
 
 fs.rmSync(out, { recursive: true, force: true });
 fs.mkdirSync(out, { recursive: true });
@@ -22,9 +25,9 @@ fs.mkdirSync(out, { recursive: true });
 // 评审/测试入口只供本机 8792 使用：发布包不带评审专用脚本，并在页面最早阶段删掉评审/测试查询参数，
 // 线上玩家加任何后缀都只会进入正常栖河试玩。源码 index.html 与 js/ 不变，本地评审照常可用。
 // 新增评审脚本或 URL 开关时，同步登记到下面两张表（docs/updates/2026-10-19-deprecated-entries.md 有清单）。
-const REVIEW_SCRIPTS = ['qihe-ui-review.js', 'qihe-story-review.js', 'qihe-battle-review.js', 'hero-multiweapon-review.js', 'qihe-chapter-presentation-review.js', 'qihe-relationship-review.js', 'qihe-hero-motion-review.js'];
+const REVIEW_SCRIPTS = ['qihe-ui-review.js', 'qihe-story-review.js', 'qihe-battle-review.js', 'hero-multiweapon-review.js', 'qihe-chapter-presentation-review.js', 'qihe-relationship-review.js', 'qihe-cultivation-scene-review.js', 'qh-story-motion-review.js', 'qihe-hero-motion-review.js'];
 const REVIEW_PARAMS = ['battleReview', 'storyReview', 'uiReview', 'chapterPresentationReview', 'relationshipReview', 'martialCapacity', 'poseReview', 'holdReview', 'tail', 'weapon', 'uitheme', 'debug',
-  'pixel90', 'pixel90roam', 'pixel90mask', 'heroRun', 'heroWalk', 'runVariant', 'heroMotion', 'heroReview', 'runtimePrototype', 'openingPrototype', 'openingReview', 'cultivationReview'];
+  'pixel90', 'pixel90roam', 'pixel90mask', 'heroRun', 'heroWalk', 'runVariant', 'heroMotion', 'heroReview', 'runtimePrototype', 'openingPrototype', 'openingReview', 'cultivationReview', 'cultivationScene', 'month', 'phase', 'facts', 'storyMotion'];
 {
   let html = fs.readFileSync(path.join(root, 'index.html'), 'utf8');
   for (const name of REVIEW_SCRIPTS) {

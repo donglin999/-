@@ -1,0 +1,282 @@
+{
+ "pei": {
+  "family": "right",
+  "ref": "pei_normal",
+  "anchor": [
+   0.2124,
+   0.396,
+   0.5329
+  ],
+  "score": 0.944,
+  "current": {
+   "top": 29.76,
+   "height": 95.57,
+   "dx": -3.2
+  },
+  "proposed": {
+   "top": 29.55,
+   "height": 96.82,
+   "dx": -3.29
+  }
+ },
+ "pei_normal": {
+  "family": "right",
+  "ref": "pei_normal",
+  "anchor": [
+   0.213,
+   0.397,
+   0.535
+  ],
+  "score": 1.0,
+  "current": {
+   "top": 29.53,
+   "height": 96.61,
+   "dx": -3.5
+  },
+  "proposed": {
+   "top": 29.53,
+   "height": 96.61,
+   "dx": -3.5
+  }
+ },
+ "pei_sad": {
+  "family": "right",
+  "ref": "pei_normal",
+  "anchor": [
+   0.2223,
+   0.4011,
+   0.536
+  ],
+  "score": 0.792,
+  "current": {
+   "top": 29.51,
+   "height": 91.16,
+   "dx": -3.4
+  },
+  "proposed": {
+   "top": 28.01,
+   "height": 99.42,
+   "dx": -3.6
+  }
+ },
+ "pei_serious": {
+  "family": "right",
+  "ref": "pei_normal",
+  "anchor": [
+   0.2103,
+   0.3919,
+   0.5288
+  ],
+  "score": 0.822,
+  "current": {
+   "top": 30.36,
+   "height": 94.05,
+   "dx": -3.3
+  },
+  "proposed": {
+   "top": 29.53,
+   "height": 97.89,
+   "dx": -2.88
+  }
+ },
+ "pei_smile": {
+  "family": "right",
+  "ref": "pei_normal",
+  "anchor": [
+   0.2111,
+   0.398,
+   0.5395
+  ],
+  "score": 0.941,
+  "current": {
+   "top": 30.95,
+   "height": 92.1,
+   "dx": -3.9
+  },
+  "proposed": {
+   "top": 30.03,
+   "height": 95.11,
+   "dx": -3.95
+  }
+ },
+ "pei_surprise": {
+  "family": "right",
+  "ref": "pei_normal",
+  "anchor": [
+   0.2073,
+   0.3908,
+   0.5368
+  ],
+  "score": 0.869,
+  "current": {
+   "top": 30.95,
+   "height": 92.1,
+   "dx": -4.0
+  },
+  "proposed": {
+   "top": 30.03,
+   "height": 96.87,
+   "dx": -3.68
+  }
+ },
+ "pei_worry": {
+  "family": "right",
+  "ref": "pei_normal",
+  "anchor": [
+   0.2128,
+   0.3945,
+   0.5365
+  ],
+  "score": 0.856,
+  "current": {
+   "top": 29.9,
+   "height": 93.56,
+   "dx": -3.9
+  },
+  "proposed": {
+   "top": 29.29,
+   "height": 97.83,
+   "dx": -3.65
+  }
+ },
+ "pei_left": {
+  "family": "left",
+  "ref": "pei_normal_left",
+  "anchor": [
+   0.1969,
+   0.3804,
+   0.5135
+  ],
+  "score": 0.713,
+  "current": {
+   "top": 29.76,
+   "height": 95.57,
+   "dx": -3.2
+  },
+  "proposed": {
+   "top": 31.04,
+   "height": 96.87,
+   "dx": -1.35
+  }
+ },
+ "pei_normal_left": {
+  "family": "left",
+  "ref": "pei_normal_left",
+  "anchor": [
+   0.213,
+   0.397,
+   0.535
+  ],
+  "score": 1.0,
+  "current": {
+   "top": 29.53,
+   "height": 96.61,
+   "dx": -3.5
+  },
+  "proposed": {
+   "top": 29.53,
+   "height": 96.61,
+   "dx": -3.5
+  }
+ },
+ "pei_sad_left": {
+  "family": "left",
+  "ref": "pei_normal_left",
+  "anchor": [
+   0.2211,
+   0.3991,
+   0.5264
+  ],
+  "score": 0.679,
+  "current": {
+   "top": 29.51,
+   "height": 91.16,
+   "dx": -3.4
+  },
+  "proposed": {
+   "top": 28.03,
+   "height": 99.87,
+   "dx": -2.64
+  }
+ },
+ "pei_serious_left": {
+  "family": "left",
+  "ref": "pei_normal_left",
+  "anchor": [
+   0.2214,
+   0.3976,
+   0.5167
+  ],
+  "score": 0.756,
+  "current": {
+   "top": 30.36,
+   "height": 94.05,
+   "dx": -3.3
+  },
+  "proposed": {
+   "top": 27.78,
+   "height": 100.89,
+   "dx": -1.67
+  }
+ },
+ "pei_smile_left": {
+  "family": "left",
+  "ref": "pei_normal_left",
+  "anchor": [
+   0.2128,
+   0.3945,
+   0.5288
+  ],
+  "score": 0.7,
+  "current": {
+   "top": 30.95,
+   "height": 92.1,
+   "dx": -3.9
+  },
+  "proposed": {
+   "top": 29.29,
+   "height": 97.83,
+   "dx": -2.88
+  }
+ },
+ "pei_surprise_left": {
+  "family": "left",
+  "ref": "pei_normal_left",
+  "anchor": [
+   0.2087,
+   0.4007,
+   0.5264
+  ],
+  "score": 0.766,
+  "current": {
+   "top": 30.95,
+   "height": 92.1,
+   "dx": -4.0
+  },
+  "proposed": {
+   "top": 30.79,
+   "height": 92.58,
+   "dx": -2.64
+  }
+ },
+ "pei_worry_left": {
+  "family": "left",
+  "ref": "pei_normal_left",
+  "anchor": [
+   0.2154,
+   0.3907,
+   0.5334
+  ],
+  "score": 0.775,
+  "current": {
+   "top": 29.9,
+   "height": 93.56,
+   "dx": -3.9
+  },
+  "proposed": {
+   "top": 28.27,
+   "height": 101.4,
+   "dx": -3.34
+  }
+ }
+}

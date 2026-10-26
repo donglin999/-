@@ -2,6 +2,7 @@
 // 地点：村中药棚　在场：叶蘅、萧白
 // 戏眼：叶蘅手边两件事忙不过来，萧白想帮又不懂医。散场时药包扎好了，或病人家的药送到了。
 // 2026-10-19 风起主线批次：从 js/qihe-chapter.js activityBody('clinic') 搬入。
+// 2026-10-21 补下文（用户定：小纸包是母亲药圃的种子）：A2 点明是种子；下文在 风起-山居 fq_meal C1-12-04p。
 INCLUDE ../_共用/externals.ink
 INCLUDE ../_共用/externals-风起主线.ink
 
@@ -10,7 +11,7 @@ INCLUDE ../_共用/externals-风起主线.ink
 * [“我帮你分药包。”]
     ~ set_flag("qiheChapter.choices.clinic", "pack")
     叶蘅：照着签子扎紧，放架子边上，走的时候好拿。 #id:C1-A-clinic-A1
-    叶蘅：那个小纸包是母亲的旧东西，别跟急用药混在一起。 #id:C1-A-clinic-A2
+    叶蘅：那个小纸包是母亲留下的药种，别跟急用药混在一起。 #id:C1-A-clinic-A2
 * [“我陪你去送药。”]
     ~ set_flag("qiheChapter.choices.clinic", "visits")
     叶蘅：你帮我记门牌、拎药包就行，看病的事我来。 #id:C1-A-clinic-B1

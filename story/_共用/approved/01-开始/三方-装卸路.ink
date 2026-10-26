@@ -3,7 +3,7 @@
 // 戏眼：岑霜来讨玉匣、沈雁回要扣药箱查药，叶蘅只想先把药送到病人手里；三家各拿一张写着“叶家答应了”的附页，谁也不信她；散场时药送出去了，但三张纸谁也没给谁看。
 // 2026-10-19 三方批次：从 js/qihe-representatives.js medicine()（rows.medicine、watcher、planning）搬入，并按剧情三道关改写
 //   （戏眼卡 xiaojianghu/docs/design/scripts/briefs/fengqi-reps-actors-brief.json 场 S2-medicine、S2-watch、S2-plan；叶蘅对“能延寿”当场顶回，删掉隔几句才回的那句）。
-//   参数 watched：萧白替宋先生在路口数过人（事件 c1-00b）时，岑霜、沈雁回各自把他当成别家眼线。
+//   参数 watched：萧白答应过替宋先生在路口数人（records.stranger_deal 为 accepted／asked_first；2026-10-21 起不再只看见没见过他）时，岑霜、沈雁回各自把他当成别家眼线。
 INCLUDE ../_共用/externals.ink
 INCLUDE ../_共用/externals-三方.ink
 VAR watched = false // 参数

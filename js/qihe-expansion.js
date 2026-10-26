@@ -36,11 +36,16 @@
  add('south','bandit','帮众','c_qh_bandit','bandit',()=>act('bandit'),()=>beforeFire()&&(!CP()||CP().halfDay<4));
  add('east','aide','采办随从','c_opening_procurement_aide','procurement_aide',()=>act('aide'),beforeFire);
  add('east','bailiff','差役','c_opening_bailiff','bailiff',()=>speak('fq_x_bailiff'),beforeFire);
- add('south','xulingyi','徐令仪','c_qh_xulingyi_story','steward',()=>act('xulingyi'),beforeFire);
- add('south','censhuang','岑霜','c_qh_censhuang_story','wukui',()=>act('censhuang'),()=>beforeFire()&&(!CP()||CP().halfDay<4));
- add('east','shenyanhui','沈雁回','c_qh_shenyanhui_story','procurement',()=>act('shenyanhui'),beforeFire);
- add('east','censhuang','岑霜','c_qh_censhuang_story',[690,710],()=>act('censhuang'),()=>beforeFire()&&CP()?.halfDay>=4);
- add('west','luheng','陆衡','c_opening_luheng','luheng',()=>act('luheng'),beforeFire);
+ // 2026-10-23 开发一（opening-errands-rework.md 0.3）：三方三人第一夜不露面，固定剧情正式登场前不上图——
+ // 徐令仪在《徐令仪上门》（事件 xu-meeting，第一天傍晚）之后才站到南村口；岑霜、沈雁回在《装卸路》（three-meeting，第二天傍晚）之后才出现。
+ // 随从（护院、帮众、采办随从、差役）照旧在。岑霜登场后已在东埠装卸路，南村口那一处因此不再出现（保留站位，条件写全）。
+ const metXu=()=>!!CP()?.events?.['xu-meeting'],met3=()=>!!CP()?.events?.['three-meeting'];
+ add('south','xulingyi','徐令仪','c_qh_xulingyi_story','steward',()=>act('xulingyi'),()=>beforeFire()&&metXu());
+ add('south','censhuang','岑霜','c_qh_censhuang_story','wukui',()=>act('censhuang'),()=>beforeFire()&&met3()&&CP().halfDay<4);
+ add('east','shenyanhui','沈雁回','c_qh_shenyanhui_story','procurement',()=>act('shenyanhui'),()=>beforeFire()&&met3());
+ add('east','censhuang','岑霜','c_qh_censhuang_story',[690,710],()=>act('censhuang'),()=>beforeFire()&&met3()&&CP()?.halfDay>=4);
+ // 2026-10-21：第三天上午陆衡一早去邻村催车（装卸路那场他说的），不在西田埂。
+ add('west','luheng','陆衡','c_opening_luheng','luheng',()=>act('luheng'),()=>beforeFire()&&!(CP()?.stage==='days'&&CP().halfDay===4));
  add('west','zhouyan','周砚','c_opening_zhouyan',[1010,600],()=>act('zhouyan'),()=>!!window.QiheChapter?.zhouAtWest?.());
  add('west','training','练场 · 护路棍法',null,'training',()=>act('lesson'),beforeFire);
  add('west','cart','药车停靠处',null,'chen',()=>act('cart'),beforeFire);
@@ -53,6 +58,9 @@
  add('refuge','shenyanhui','沈雁回','c_qh_shenyanhui_story','chengduo',()=>act('shenyanhui'),atRefuge);
  add('refuge','evidence','核对三份来件',null,[880,640],()=>act('evidence'),atRefuge);
  add('refuge','elder','村口老人','c_qh_oldman','elder',()=>speak('fq_x_elder'),atRefuge);
+ // 2026-10-23 开发一：邻村对证之后，护院站在徐令仪身后（R2）、差役守在村口老人身边（R3），切磋首场与差役切磋、请教在这里（npc-spar-and-insight.md 2.6 节）。
+ // 他们在邻村没有现成台词，墨印里不出“谈”（站位表 talk:false）；交互全部走人物交互框架（js/qihe-npc-ui.js）。
+ for(const st of window.QIHE_NPC_DATA?.STATIONS||[]){const n=add(st.key,st.id,QIHE_NPC_DATA.PEOPLE[st.person].name,st.sp,st.at,async()=>{},()=>!!window.QiheNpc?.test(st.when));n.person=st.person;n.talk=st.talk}
  portal('refuge','east','west','west','田埂接应路');portal('refuge','north','mountain','south','上山道路');portal('refuge','south','west','west','村后接应小径');
  // All visible gaps remain reachable; chapter transitions are explained at the actual trail.
  SC.qh_refuge.npcs.find(n=>n.id==='exit-north').act=()=>QiheChapter.routes();
@@ -68,13 +76,13 @@
  // Ye keeps her own schedule; chapter errands do not require her to trail the player.
  const yeLocation=()=>{const p=CP();if(!p)return'house';if(p.stage!=='days')return'none';
   // 2026-10-17 试玩反馈：叶蘅跟着主线走——陪她去东埠送药那一步在东埠，其余时候在村中药铺。
-  const m=QiheChapter.MAIN_STEPS?.find(m=>m.to>(p.halfDay||0));return m?.to===4?'east':'clinic'};
+  const m=QiheChapter.MAIN_STEPS?.find(m=>m.to>(p.halfDay||0));return m?.to===4?'east':m?.to===5?'house':'clinic'};
  add('east','daily-ye','叶蘅','c_ye',[600,650],()=>act('ye'),()=>yeLocation()==='east');
  const clinic=SC.prologue_clinic_interior;clinic.npcs.push({id:'daily-ye',name:'叶蘅',sp:'c_ye',x:600/TS,y:650/TS,dir:'l',fixed:true,idle:false,show:()=>yeLocation()==='clinic',act:()=>act('ye')});
- SC.qihe_trial.npcs.find(n=>n.id==='ye-door').show=()=>beforeFire()&&(CP()?.stage==='days'||!S.prologue.relicSeen);
- const homeYe=SC.prologue_ye_house.npcs.find(n=>n.id==='ye');homeYe.show=()=>yeLocation()==='house';const oldRelic=homeYe.act;homeYe.act=()=>CP()?QiheChapter.activity('relic_help'):oldRelic();
+ // 2026-10-21 删去“整理旧屋”后，叶家门只在第一夜收药箱前、和第三天上午回叶家收拾药箱时开（那时叶蘅在家）。
+ SC.qihe_trial.npcs.find(n=>n.id==='ye-door').show=()=>beforeFire()&&(!S.prologue.relicSeen||CP()?.stage==='days'&&window.QiheChapter?.mainStep?.()?.to===5);
+ const homeYe=SC.prologue_ye_house.npcs.find(n=>n.id==='ye');homeYe.show=()=>yeLocation()==='house';const oldHomeYe=homeYe.act;homeYe.act=()=>CP()?.stage==='days'?act('ye'):oldHomeYe();
  const homeZhou=SC.prologue_chen_hall.npcs.find(n=>n.id==='zhouyan');const oldZhou=homeZhou.act,zhouShow=homeZhou.show;homeZhou.show=()=>(!zhouShow||zhouShow())&&!window.QiheChapter?.zhouAtWest?.();homeZhou.act=()=>CP()?.stage==='days'?act('zhouyan'):oldZhou();
- const house=SC.prologue_ye_house;house.npcs.push({id:'chapter-relic',name:'获准整理的旧物',x:homeYe.x,y:homeYe.y,show:()=>CP()?.stage==='days',act:()=>QiheChapter.activity('relic_help')});
  const elderly=SC.qihe_trial.npcs.find(n=>n.id==='elder');elderly.show=()=>beforeFire()&&CP()?.choices?.transport!=='elders';
  // Guests now occupy their functional outer locations, not the residential crossroads.
  SC.qihe_trial.npcs=SC.qihe_trial.npcs.filter(n=>!['bailiff','procurement-aide'].includes(n.id));

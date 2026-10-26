@@ -1,0 +1,122 @@
+{
+ "hero_mid_empty_normal": {
+  "family": "hero",
+  "ref": "hero_mid_empty_normal",
+  "anchor": [
+   0.2022,
+   0.3817,
+   0.4922
+  ],
+  "score": 1.0,
+  "current": {
+   "top": 27.85,
+   "height": 93.46,
+   "dx": -1.37
+  },
+  "proposed": {
+   "top": 26.15,
+   "height": 112.53,
+   "dx": 0.78
+  }
+ },
+ "hero_mid_empty_sad": {
+  "family": "hero",
+  "ref": "hero_mid_empty_normal",
+  "anchor": [
+   0.2096,
+   0.391,
+   0.5099
+  ],
+  "score": 0.71,
+  "current": {
+   "top": 27.85,
+   "height": 93.46,
+   "dx": -1.37
+  },
+  "proposed": {
+   "top": 25.56,
+   "height": 111.36,
+   "dx": -0.99
+  }
+ },
+ "hero_mid_empty_serious": {
+  "family": "hero",
+  "ref": "hero_mid_empty_normal",
+  "anchor": [
+   0.2096,
+   0.391,
+   0.4941
+  ],
+  "score": 0.872,
+  "current": {
+   "top": 27.85,
+   "height": 93.46,
+   "dx": -1.37
+  },
+  "proposed": {
+   "top": 25.56,
+   "height": 111.36,
+   "dx": 0.59
+  }
+ },
+ "hero_mid_empty_smile": {
+  "family": "hero",
+  "ref": "hero_mid_empty_normal",
+  "anchor": [
+   0.2028,
+   0.3851,
+   0.4802
+  ],
+  "score": 0.905,
+  "current": {
+   "top": 27.85,
+   "height": 93.46,
+   "dx": -1.37
+  },
+  "proposed": {
+   "top": 26.43,
+   "height": 110.81,
+   "dx": 1.98
+  }
+ },
+ "hero_mid_empty_surprise": {
+  "family": "hero",
+  "ref": "hero_mid_empty_normal",
+  "anchor": [
+   0.206,
+   0.3913,
+   0.4879
+  ],
+  "score": 0.864,
+  "current": {
+   "top": 27.85,
+   "height": 93.46,
+   "dx": -1.37
+  },
+  "proposed": {
+   "top": 26.44,
+   "height": 109.01,
+   "dx": 1.21
+  }
+ },
+ "hero_mid_empty_worry": {
+  "family": "hero",
+  "ref": "hero_mid_empty_normal",
+  "anchor": [
+   0.2054,
+   0.3878,
+   0.4921
+  ],
+  "score": 0.911,
+  "current": {
+   "top": 27.85,
+   "height": 93.46,
+   "dx": -1.37
+  },
+  "proposed": {
+   "top": 26.15,
+   "height": 110.75,
+   "dx": 0.79
+  }
+ }
+}

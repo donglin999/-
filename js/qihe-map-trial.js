@@ -16,8 +16,16 @@
   go_scene:(scene,anchor)=>goLocal(scene.replace(/^prologue_/,''),anchor),
   ...externals}});
  const actions=createQiheActions({play:knot=>story(knot)});
+ // 2026-10-23 剧本二：周婶三件合成一条「替周婶跑一圈」（opening-errands-rework.md 0.1 乙-1）。存档仍用 errands 的三个键，任务进度从三个键推导，
+ //   不另存汇总状态；旧档（三件分开接过的）照样能读。三步：陈伯家还碗 → 客栈取布 → 村南送药取篮，做完回药棚交差。
  const taskNames={bowls:'还碗',cloth:'取布',medicine:'送药与还篮'};
  const pending=()=>Object.entries(state().errands).filter(([,v])=>['accepted','collected','delivered'].includes(v));
+ const ROUND_STEPS=[['bowls','陈伯家还碗',{accepted:'碗还没送'}],['cloth','客栈取布',{accepted:'布还没取'}],['medicine','村南老人家送药、带回竹篮',{accepted:'药还没送'}]];
+ const roundState=()=>{const e=state().errands,v=Object.values(e);if(v.every(x=>x==='none'))return'none';if(v.every(x=>x==='done'))return'done';if(v.every(x=>['done','closed','none'].includes(x)))return v.includes('done')?'partial':'closed';if(e.bowls==='done'&&['collected','done'].includes(e.cloth)&&['delivered','done'].includes(e.medicine))return'return';return'taken'};
+ const roundLeft=()=>{const e=state().errands;return ROUND_STEPS.filter(([k,,m])=>m[e[k]]).map(([k,,m])=>m[e[k]])};
+ const roundText=()=>{const e=state().errands,r=roundState();if(r==='none')return'可选 · 尚未接受';if(r==='closed')return'没办完，已由周婶收尾';
+  const marks=ROUND_STEPS.map(([k,t],i)=>'第'+'一二三'[i]+'步 '+t+(['done','collected','delivered'].includes(e[k])?'（已办）':e[k]==='closed'?'（没办，已收尾）':'（未办）')).join('；');
+  return marks+(r==='done'?'。已回药棚交差。':r==='partial'?'。':r==='return'?'。三处都办完了，回药棚交差。':'。办完回药棚交差。')};
  const point=(scene,key)=>scene==='village'?D.anchors[key]:R[scene].anchors[key];
  async function goLocal(scene,key=scene==='village'?'start':'entry'){
   const id=scene==='village'?'qihe_trial':'prologue_'+scene,p=point(scene,key);
@@ -26,8 +34,9 @@
  }
  // 叶家门口：寒暄＋收药箱邀请（story/01-开始/第一夜-问候.ink qihe_ye_invite）
  const inviteHome=()=>story('qihe_ye_invite');
- // 药棚周婶：接小事、交还布包与竹篮（第一夜-周婶托付.ink）
- const aunt=()=>story('qihe_errand_aunt');
+ // 药棚周婶：接下「替周婶跑一圈」、回来交差（第一夜-周婶托付.ink）。交差时剧本把 prologue.errandGift 记成 true，
+ //   这里补发谢礼一盒金创药（复用 ITEMS.pill，只发一次，另记 errandGiftPaid）。
+ const aunt=async()=>{await story('qihe_errand_aunt');const p=state();if(p.errandGift===true&&!p.errandGiftPaid){p.errandGiftPaid=true;if(typeof giveItem==='function'&&ITEMS.pill)giveItem('pill',1);checkpoint()}};
  // 过夜（第一夜-过夜.ink）：已经过完且风起栖河已加载时直接转入风起栖河；resuming 为读档时正处在过夜途中
  async function rest(resuming=false){
   const p=state();if(p.rested&&window.QiheChapter)return QiheChapter.begin();
@@ -57,8 +66,9 @@
  // Compatibility coordinates for the reused fixed opening: source anchors become world/3.
  window.CHAPTER1_V2_MAPS={};
  for(const[key,m]of Object.entries(R)){
+  // 2026-10-21 整改：室内也开 revealPlayer——主角走到柜台、屏风、前矮墙后时补画半透明人形，不再整个人消失（js/scene.js drawScene 末尾）。
   ASSETS.push(m.bg,m.fg);CHAPTER1_V2_MAPS[key]={anchors:Object.fromEntries(Object.entries(m.anchors).map(([k,p])=>[k,p.map(v=>v/3)])),worldSize:m.worldSize};
-  SC['prologue_'+key]={name:m.name,region:'qihe_trial',bg:m.bg,fg:m.fg,fgp:m.fgp,mask:m.mask,gw:30,gh:20,mapv:2,footX:14,preciseNav:true,previewKey:'qihe-room:'+key,start:m.start.map(v=>v/TS),startDir:'u',arrivalWalk:false,noFollow:true,isRoom:true,walk:[],block:[],exits:[],npcs:[]};
+  SC['prologue_'+key]={name:m.name,region:'qihe_trial',bg:m.bg,fg:m.fg,fgp:m.fgp,mask:m.mask,gw:30,gh:20,mapv:2,footX:14,preciseNav:true,previewKey:'qihe-room:'+key,revealPlayer:true,start:m.start.map(v=>v/TS),startDir:'u',arrivalWalk:false,noFollow:true,isRoom:true,walk:[],block:[],exits:[],npcs:[]};
  }
  const out=(key,label,anchor,destination)=>r(key,key+'-out',label,null,anchor,()=>goLocal('village',destination));
  SC.prologue_clinic_interior.npcs=[out('clinic_interior','药棚前门 · 回村','exit','clinic'),r('clinic_interior','aunt','周婶','c_gossip','aunt',aunt,()=>pending().length>0),r('clinic_interior','work','备药案',null,'work',()=>story('qihe_look_work'))];
@@ -74,9 +84,9 @@
  SC.prologue_inn_interior.npcs.push(r('inn_interior','bandit','帮众','c_bandit',[760,600].map(v=>v*R.inn_interior.sourceScale),()=>story('qihe_inn_bandit')));
  SC.qihe_trial.npcs.push(v('bailiff','差役','c_soldier',D.anchors['elder-home'].map((v,i)=>v+(i===0?-60:12)),()=>story('qihe_village_bailiff')),
   v('procurement-aide','采办随从','c_villager',D.anchors['elder-home'].map((v,i)=>v+(i===0?145:-5)),()=>story('qihe_village_aide')));
- const priorQuest=questLine;questLine=function(){if(!isQiheEntry()||!S?.prologue)return priorQuest();const p=state();if(p.rested)return'回陈伯家客房歇息，第二天在村里走访';if(p.arrival.stage!=='done')return'与叶蘅一起下山，到村里歇脚';if(p.ending)return'与叶蘅道别，回陈伯客房过夜';if(!p.relicSeen)return'去西北叶家帮忙收药箱 · 周婶的三件小事均可不做';if(pending().length)return'可归还受托物品，或回陈伯独立客房歇息';return'回东北陈伯家，经门厅东侧进客房歇息'};window.questLine=questLine;
+ const priorQuest=questLine;questLine=function(){if(!isQiheEntry()||!S?.prologue)return priorQuest();const p=state();if(p.rested)return'回陈伯家客房歇息，第二天在村里走访';if(p.arrival.stage!=='done')return'与叶蘅一起下山，到村里歇脚';if(p.ending)return'与叶蘅道别，回陈伯客房过夜';const r=roundState();if(!p.relicSeen)return'去西北叶家帮忙收药箱 · '+(r==='none'?'替周婶跑一圈（可不做）':r==='return'?'替周婶跑一圈：回药棚交差':pending().length?'替周婶跑一圈：'+roundLeft().join('，'):'替周婶跑一圈已办完');if(r==='return')return'回药棚找周婶交差，或回陈伯独立客房歇息';if(pending().length)return'替周婶跑一圈：'+roundLeft().join('，')+' · 也可回陈伯客房歇息';return'回东北陈伯家，经门厅东侧进客房歇息'};window.questLine=questLine;
  const oldLog=questLog;questLog=function(){return isQiheEntry()?[...(state().rested?[]:[{t:'眼下',d:esc(questLine()),done:false}]),...(window.QiheMilestones?.list(S)||[]).map(m=>({t:m.t,group:'江湖经历',d:m.d,done:true}))]:oldLog()};
- const oldSide=mnQuests;mnQuests=function(){if(!isQiheEntry())return oldSide();return Object.entries(state().errands).map(([k,v])=>({t:taskNames[k],d:esc(({none:'可选 · 尚未接受',accepted:{bowls:'送到陈伯家门厅',cloth:'找客栈掌柜取布',medicine:'送到南边老人家门前'}[k],collected:'带回药棚，交给周婶',delivered:'药已送达，竹篮还需归还周婶',done:'已经交还',closed:'未完成，已由周婶安排收尾'})[v]),done:['done','closed'].includes(v),closed:v==='closed'}))};
+ const oldSide=mnQuests;mnQuests=function(){if(!isQiheEntry())return oldSide();const r=roundState();return[{t:'替周婶跑一圈',giver:'周婶',d:esc(roundText()),done:['done','partial','closed'].includes(r),closed:r==='closed'}]};
  async function journal(){if(busy||dlgBusy||mode!=='scene')return;busy=true;keys={};player.path=null;try{const p=state();const text=[questLine(),...mnQuests().map(q=>q.t+'：'+q.d)].join('\n');const i=await choose('行程',text,['继续游玩','保存进度','从头重新开始']);if(i===1){checkpoint();toast('进度已保存',1200)}if(i===2&&await choose('','重新开始会覆盖这条分支的进度。',['保留进度','重新开始'])===1){S=null;localStorage.removeItem(saveKey());busy=false;await start(true)}}finally{busy=false;keys={};hud()}}
  let completion=null;
  async function start(force=false){
@@ -93,6 +103,6 @@
  }
  // I retains the shared Jianghu menu. The journal has its own button / J binding.
  window.PrologueVillage={state,previewActions:{aunt,...actions,rest,inviteHome},start};
- window.QihePrologue={state,fresh,checkpoint,goLocal,pending,rest,journal,start,actions:{aunt,...actions,rest,inviteHome},get completion(){return completion}};
+ window.QihePrologue={state,fresh,checkpoint,goLocal,pending,roundState,roundText,rest,journal,start,actions:{aunt,...actions,rest,inviteHome},get completion(){return completion}};
  window.qiheTrialStart=start;
 })();

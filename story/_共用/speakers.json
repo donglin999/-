@@ -45,6 +45,10 @@
         "worry"
       ]
     },
+    "小禾": {
+      "bible": "xiaojianghu/bible/人物/小禾.md",
+      "moods": []
+    },
     "岑霜": {
       "bible": "xiaojianghu/bible/人物/岑霜.md",
       "moods": []
@@ -81,6 +85,10 @@
       "bible": "xiaojianghu/bible/人物/管事.md",
       "moods": []
     },
+    "船家": {
+      "bible": "xiaojianghu/bible/人物/船家.md",
+      "moods": []
+    },
     "药商": {
       "bible": "xiaojianghu/bible/人物/药商.md",
       "moods": []
@@ -96,12 +104,47 @@
         "guard"
       ]
     },
+    "蔺晦之": {
+      "bible": "xiaojianghu/bible/人物/蔺晦之.md",
+      "moods": []
+    },
+    "算命先生": {
+      "bible": "xiaojianghu/bible/人物/蔺晦之.md",
+      "moods": [],
+      "aliasOf": "蔺晦之"
+    },
+    "蔺管事": {
+      "bible": "xiaojianghu/bible/人物/蔺晦之.md",
+      "moods": [],
+      "aliasOf": "蔺晦之"
+    },
+    "货郎": {
+      "bible": "xiaojianghu/bible/人物/货郎.md",
+      "moods": []
+    },
+    "邵和": {
+      "bible": "xiaojianghu/bible/人物/邵和.md",
+      "moods": []
+    },
     "采办使": {
       "bible": "xiaojianghu/bible/人物/采办使.md",
       "moods": []
     },
     "采办随从": {
       "bible": "xiaojianghu/bible/人物/采办随从.md",
+      "moods": []
+    },
+    "阿七": {
+      "bible": "xiaojianghu/bible/人物/阿七.md",
+      "moods": []
+    },
+    "小耗子": {
+      "bible": "xiaojianghu/bible/人物/阿七.md",
+      "moods": [],
+      "aliasOf": "阿七"
+    },
+    "阿栓": {
+      "bible": "xiaojianghu/bible/人物/阿栓.md",
       "moods": []
     },
     "陆衡": {

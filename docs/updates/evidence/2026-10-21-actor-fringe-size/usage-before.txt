@@ -1,0 +1,107 @@
+# 进城前（第 0～20 期，40 场）实机渲染采集：每句的大立绘（不含右上头像栏）。
+# 列：站位人物 图片（相对 assets/production/cultivation/） 朝向 舞台top% 舞台height% 场次
+# 采集方式：8792 评审入口进培养剧场后，在页面里对每场每句调用 CultivationStory.render，读 img 相对 .cu-story-stage 的位置（1280×720，非选择画面）。
+hero_short hero-empty/hero_short_empty_normal.png - 29.08 84.31 gy_noodles,gy_prelude_tour
+shimu household-v1/shimu_smile.png - 34.18 78.29 gy_noodles,gy_prelude_hair,gn_depart
+dou household-v1/dou_smile.png - 33.5 90.46 gy_noodles,gy_bamboo_wolves,gy_fang_back,gy_spar_dou,gy_dou_feed
+man household-v1/man_normal.png - 31.26 88.4 gy_noodles,gy_night_return,gy_man_herbs
+hero_short hero-empty/hero_short_empty_smile.png - 29.08 84.31 gy_noodles
+dou household-v1/dou.png - 37.47 85.95 gy_noodles,gy_prelude_hair,gy_fang_back,gy_spar_dou,gy_dou_feed
+hero_short hero-empty/hero_short_empty_serious.png - 29.08 84.31 gy_noodles
+shimu household-v1/shimu_serious.png - 33.59 77.69 gy_noodles,gy_prelude_hair
+hero_short hero-empty/hero_short_empty_surprise.png - 29.08 84.31 gy_noodles,gy_prelude_tour
+goose household-v1/goose.png - 45 55 gy_noodles,gy_dou_feed
+zhong household-v1/zhong.png - 29.24 74.76 gy_prelude_tour,gy_prelude_xinfa,gy_spar_zhong,gy_zhong_kit,hg_pack_review
+ye household-v1/ye_normal.png - 28.22 96.19 gy_prelude_tour,gy_prelude_stance,gy_y02,gy_man_herbs,gy_m04,gy_m05,gy_m06,gy_y03,hg_trace_reply,gy_m07,gy_m08,hg_road,hg_gate
+zhong household-v1/zhong_smile.png - 29.47 73.87 gy_prelude_tour,gy_prelude_stance,gy_prelude_xinfa,gy_spar_zhong,gy_zhong_kit,hg_pack_review
+zhong household-v1/zhong_serious.png - 29.47 73.87 gy_prelude_tour,gy_prelude_stance,gy_spar_zhong,gy_zhong_kit
+ye household-v1/ye_smile.png - 28.22 96.19 gy_prelude_tour,gy_prelude_stance,gy_prelude_hair,gy_m02,gy_m03,gy_y02,gy_man_herbs,gy_m06,gy_y03,hg_trace_reply,gy_m08
+hero_short hero-empty/hero_short_empty_worry.png - 29.08 84.31 gy_prelude_tour
+goose household-v1/goose_normal.png - 45 55 gy_prelude_tour,gn_spring,gy_dou_feed
+hero_mid hero-empty/hero_mid_empty_serious.png - 27.85 93.46 gy_prelude_stance,gy_prelude_xinfa
+ye household-v1/ye_worry.png - 28.22 96.19 gy_prelude_stance,gy_m02,gy_y02,gy_m05
+hero_mid hero-empty/hero_mid_empty_worry.png - 27.85 93.46 gy_prelude_stance,gy_prelude_xinfa
+ye household-v1/ye_serious.png - 28.22 96.19 gy_prelude_stance,gy_night_return,gy_m03,hg_aftercare,gy_m06,gy_y03,gy_m07
+hero_mid hero-empty/hero_mid_empty_surprise.png - 27.85 93.46 gy_prelude_stance,gy_prelude_hair
+hero_mid hero-empty/hero_mid_empty_normal.png - 27.85 93.46 gy_prelude_stance,gy_prelude_xinfa,gy_prelude_hair
+hero_mid hero-empty/hero_mid_empty_smile.png - 27.85 93.46 gy_prelude_stance,gy_prelude_xinfa
+zhong household-v1/zhong_surprise.png - 29.47 73.87 gy_prelude_stance,gy_prelude_xinfa,gy_spar_zhong
+zhou household-v1/zhou_serious.png - 36.47 74.58 gy_prelude_xinfa,gy_m03,gy_m06,gy_m07,gy_m08
+zhong household-v1/zhong_normal.png - 29.47 73.87 gy_prelude_xinfa,gy_fist_or_sword,hg_pack_review
+zhou household-v1/zhou_smile.png - 36.47 74.58 gy_prelude_xinfa,gy_m06,gy_m07
+zhou household-v1/zhou_normal.png - 36.47 74.58 gy_prelude_xinfa,hg_trace_reply,gn_depart
+hero_long hero-empty/hero_long_empty_surprise.png - 28.13 97.57 gy_prelude_hair
+hero_long hero-empty/hero_long_empty_normal.png - 28.13 97.57 gy_prelude_hair
+hero_long hero-empty/hero_long_empty_serious.png - 28.13 97.57 gy_prelude_hair
+hero hero-empty/hero_long_empty_serious.png - 28.13 97.57 gy_z01,gy_ledger,gy_bamboo_wolves,gy_fang_back,gy_spar_dou,gy_m05,gy_fang_spar
+zhou household-v1/zhou_serious_left.png left 35.3 79.15 gy_z01,gy_fist_or_sword,gy_z03,gy_fang_leaves,gy_zhou_test
+hero hero-empty/hero_long_empty_worry.png - 28.13 97.57 gy_z01,gy_night_return,gy_man_herbs,gy_bamboo_wolves,gy_fang_back,gy_l02,gy_m06,gy_y03,gy_dou_feed,gy_spar_zhong,gy_z03,gy_fang_leaves,gy_zhou_test
+zhou household-v1/zhou_smile_left.png left 36.6 76.8 gy_z01,gy_m02,gy_z03,gy_zhou_test
+shimu household-v1/shimu_normal.png - 33.63 77.1 gy_ledger,gy_fist_or_sword,gy_man_herbs
+hero hero-empty/hero_long_empty_normal.png - 28.13 97.57 gy_m02,gn_lamp,gy_m03,gy_y02,gy_fist_or_sword,gn_spring,gy_man_herbs,gy_fang_back,hg_aftercare,gy_spar_dou,gy_m04,gy_l02,gn_cook,gy_m06,gy_y03,gy_dou_feed,gn_letter,gy_spar_zhong,hg_trace_reply,gy_m07,gy_z03,gy_fang_leaves,gy_zhong_kit,hg_pack_review,gy_zhou_test,gy_m08,gn_depart,hg_road,hg_gate
+hero hero-empty/hero_long_empty_surprise.png - 28.13 97.57 gy_night_return,gn_spring,gy_man_herbs,gy_fang_back,hg_aftercare,gy_l02,gy_m05,gy_dou_feed,gy_fang_spar,gy_m07,gy_zhong_kit
+yin household-v1/yin.png - 33.13 92.24 gy_night_return
+yin household-v1/yin_smile.png - 30.03 95.28 gy_night_return
+yin household-v1/yin_surprise.png - 33.37 79.22 gy_night_return
+peishu household-v1/peishu_normal_left.png left 36.79 77.18 gn_lamp,gn_cook
+peishu household-v1/peishu_smile_left.png left 36.27 78.55 gn_lamp,gn_cook
+fullduo neighbors-v1/duo_gn_lamp_ladder_trial.png - 18 82 gn_lamp
+pei household-v1/pei_normal_left.png left 29.53 96.61 gn_lamp,gn_spring,gn_depart,hg_road,hg_gate
+hero hero-empty/hero_long_empty_smile.png - 28.13 97.57 gn_lamp,gn_spring,gy_man_herbs,gy_bamboo_wolves,gy_spar_dou,gy_l02,gn_cook,gy_m06,gy_dou_feed,gy_fang_spar,gy_m07,gy_z03,gy_fang_leaves,gy_zhong_kit,gy_m08
+duo neighbors-v1/duo_gn_lamp_father_left.png - 32.45 120.96 gn_lamp
+ye household-v1/ye_surprise.png - 28.22 96.19 gy_m03,gy_y02,gy_m04,hg_trace_reply
+ye household-v1/ye_sad.png - 28.22 96.19 gy_m03,gy_y03
+zhong household-v1/zhong_angry.png - 29.47 73.87 gy_fist_or_sword
+yin household-v1/yin_smile_left.png left 26.58 108.49 gy_fist_or_sword,gy_m08,gn_depart
+yin household-v1/yin_normal_left.png left 30.26 96.06 gy_fist_or_sword,hg_road,hg_gate
+pei household-v1/pei_surprise_left.png left 30.95 92.1 gn_spring,gn_depart
+pei household-v1/pei_normal.png - 29.53 96.61 gn_spring,gn_cook,gn_letter,gn_depart
+pei household-v1/pei_surprise.png - 30.95 92.1 gn_spring,gn_cook,gn_letter
+man household-v1/man_smile.png - 31.26 88.4 gy_man_herbs,gn_depart
+man household-v1/man_surprise.png - 31.26 88.4 gy_man_herbs
+dou household-v1/dou_normal.png - 33.5 90.46 gy_bamboo_wolves,gy_fang_back,gy_dou_feed
+dou household-v1/dou_serious.png - 33.5 90.46 gy_bamboo_wolves
+dou household-v1/dou_worry.png - 33.5 90.46 gy_bamboo_wolves
+dou household-v1/dou_sad.png - 33.5 90.46 gy_bamboo_wolves,gy_spar_dou
+fang household-v1/fang_normal.png - 29.24 76.05 gy_fang_back,gy_fang_leaves
+dou household-v1/dou_surprise.png - 33.5 90.46 gy_fang_back,gy_spar_dou,gy_dou_feed
+fang household-v1/fang_serious.png - 29.24 76.05 gy_fang_back,gy_fang_spar,gy_fang_leaves
+fang household-v1/fang_smile.png - 29.24 76.05 gy_fang_back,gy_fang_spar,gy_fang_leaves
+zhou household-v1/zhou_normal_left.png left 36.74 76.23 hg_aftercare,gy_m04,hg_road,hg_gate
+lu household-v1/lu_normal.png - 28.48 112.83 gy_m04,gy_l02
+lu household-v1/lu_serious.png - 28.48 112.83 gy_m04,gy_l02,gy_m05
+peishu household-v1/peishu_sad_left.png left 34.19 81.01 gn_cook
+recipient household-v1/neighbor_normal.png - 29.71 101 gy_m05
+dou household-v1/dou_angry.png - 33.5 90.46 gy_dou_feed
+fang household-v1/fang_surprise.png - 29.24 76.05 gy_fang_spar
+hero hero-empty/hero_long_empty_sad.png - 28.13 97.57 gy_fang_spar,gy_spar_zhong
+fang household-v1/fang_worry.png - 29.24 76.05 gy_fang_spar
+neighbor household-v1/neighbor_normal.png - 29.71 101 gn_letter
+neighbor household-v1/neighbor_smile.png - 29.71 101 gn_letter
+pei household-v1/pei_worry.png - 29.9 93.56 gn_letter
+neighbor household-v1/neighbor_worry.png - 29.71 101 gn_letter
+shimu household-v1/shimu_worry.png - 33.91 77.69 gy_fang_leaves
+zhong household-v1/zhong_sad.png - 29.47 73.87 gy_zhong_kit
+yin household-v1/yin_serious_left.png left 24.88 123.17 gy_m08
+peishu household-v1/peishu_normal.png - 36.3 78.35 gn_depart
+peishu household-v1/peishu_worry.png - 36.3 78.35 gn_depart
+yin household-v1/yin_sad_left.png left 27.71 89.67 gn_depart
+peishu household-v1/peishu_smile.png - 36.3 78.35 gn_depart
+# 背景（place|time => 图）
+#BG story-bg-v1/kitchen.png gy_noodles,gy_fist_or_sword
+#BG bg_mountain_spring_v1.png courtyard
+#BG bg_mountain_summer_v1.png courtyard
+#BG bg_mountain_autumn_v1.png courtyard
+#BG bg_mountain_winter_v1.png courtyard
+#BG story-bg-v1/training_ground.png training_ground
+#BG story-bg-v1/night_courtyard.png courtyard_night
+#BG visitors-v1/reception-porch.png porch
+#BG story-bg-v1/market_town.png gy_ledger
+#BG neighbors-v1/bookhouse_inside.png gn_lamp,gn_cook
+#BG story-bg-v1/study.png study
+#BG story-bg-v1/night_kitchen.png gy_y02
+#BG neighbors-v1/terraces.png gn_spring,gn_letter
+#BG story-bg-v1/bamboo_path.png gn_spring,gy_bamboo_wolves
+#BG story-bg-v1/herb_garden.png gy_man_herbs,gy_y03
+#BG story-bg-v1/road_after_rain.png gy_m05,hg_road
+#BG pre-hangao/hangao_gate.png hg_gate

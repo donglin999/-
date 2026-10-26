@@ -4,17 +4,22 @@
 // 2026-10-19 风起主线批次：从 js/qihe-chapter.js interact()、activityBody()、evidenceBody() 的单句台词搬入。
 // 2026-10-19 用户指出“三个女主的小弟台词一模一样”：帮众、乌魁、采办随从、管事、采办使改为按说话次数轮换 2～3 句（共用标记 qiheChapter.talkCycle），各方口吻拉开；药商不再与陆衡同句。
 // 2026-10-19 三道关改写：单句搭话未走演员法，由编剧直接改；C1-X-zhou 按沈雁回到没到分两句（新增 C1-X-zhou-b），C1-R-ye-settled 不再第三次说写信。
+// 2026-10-21 删去村中活动“村口问讯”（用户：没有引导也不推进剧情）：周砚的搭话改为 fq_zhou_idle，没在药棚门口见过叶蘅时多一句 C1-Z-idle-01。
 INCLUDE ../_共用/externals.ink
 INCLUDE ../_共用/externals-风起主线.ink
 VAR late = false // 参数：第二天下午起（halfDay>=4）
 VAR chen_ok = false // 参数：陈伯只是擦伤、已照护（p.chenCare）
 VAR evidence_done = false // 参数：对证已做完
 VAR shen_open = false // 参数：第二天起（halfDay>=2）沈雁回已到东埠
+VAR met_zhou = false // 参数：周砚已在药棚门口见过叶蘅（xu-meeting 之后）
 
 === fq_act_busy ===
 萧白：（眼下还有正事，回头再说。） #id:C1-X-busy
 -> END
 
+=== fq_act_late ===
+萧白：（过了时候，这件事办不成了。） #id:C1-X-late
+-> END
 === fq_act_done ===
 萧白：（这件事已经办过了。） #id:C1-X-done
 -> END
@@ -28,8 +33,11 @@ VAR shen_open = false // 参数：第二天起（halfDay>=2）沈雁回已到东
 + [“随便看看。”]
 - -> END
 
-=== fq_zhou_after_inquiry ===
-{ shen_open:
+=== fq_zhou_idle ===
+{
+- not met_zhou:
+    周砚：小兄弟住陈伯家吧？叶姑娘这会儿还在药棚忙。我等她得空，再登门问她父亲的事。 #id:C1-Z-idle-01
+- shen_open:
     周砚：出村的路我替你们看着。想问查药的事，沈姑娘在东埠。 #id:C1-X-zhou
 - else:
     周砚：出村的路我替你们看着。她父亲的事，有了信我先告诉她。 #id:C1-X-zhou-b

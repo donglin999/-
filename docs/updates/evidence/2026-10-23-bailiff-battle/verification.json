@@ -1,0 +1,110 @@
+{
+  "date": "2026-10-23",
+  "entry": "http://127.0.0.1:8792/?battleReview=bailiff&poseReview=1&play=1#qihe-map",
+  "runs": [
+    {
+      "width": 1280,
+      "status": "pass",
+      "info": {
+        "name": "差役",
+        "lv": 10,
+        "art": "qh_bailiff",
+        "file": "b_qh_bailiff_hd_20261022",
+        "src": "/assets/production/battle/b_qh_bailiff_hd_20261022.webp",
+        "natural": [
+          7680,
+          324
+        ],
+        "expected": [
+          7680,
+          324
+        ],
+        "adult": true,
+        "skills": [
+          "qh_hulu_staff"
+        ],
+        "saveKey": "xjh.qihe-battle.review.v1",
+        "normal": "BAILIFF_NORMAL_SAVE_SENTINEL"
+      },
+      "requests": [
+        {
+          "url": "/assets/production/battle/b_qh_bailiff_hd_20261022.webp",
+          "status": 200
+        }
+      ],
+      "shots": [
+        {
+          "anim": "idle",
+          "label": "待机",
+          "frame": 0,
+          "file": "1280-idle.png"
+        },
+        {
+          "anim": "atk",
+          "label": "普攻",
+          "frame": 5,
+          "file": "1280-atk.png"
+        },
+        {
+          "anim": "hurt",
+          "label": "受击",
+          "frame": 12,
+          "file": "1280-hurt.png"
+        }
+      ],
+      "errors": []
+    },
+    {
+      "width": 1920,
+      "status": "pass",
+      "info": {
+        "name": "差役",
+        "lv": 10,
+        "art": "qh_bailiff",
+        "file": "b_qh_bailiff_hd_20261022",
+        "src": "/assets/production/battle/b_qh_bailiff_hd_20261022.webp",
+        "natural": [
+          7680,
+          324
+        ],
+        "expected": [
+          7680,
+          324
+        ],
+        "adult": true,
+        "skills": [
+          "qh_hulu_staff"
+        ],
+        "saveKey": "xjh.qihe-battle.review.v1",
+        "normal": "BAILIFF_NORMAL_SAVE_SENTINEL"
+      },
+      "requests": [
+        {
+          "url": "/assets/production/battle/b_qh_bailiff_hd_20261022.webp",
+          "status": 200
+        }
+      ],
+      "shots": [
+        {
+          "anim": "idle",
+          "label": "待机",
+          "frame": 0,
+          "file": "1920-idle.png"
+        },
+        {
+          "anim": "atk",
+          "label": "普攻",
+          "frame": 5,
+          "file": "1920-atk.png"
+        },
+        {
+          "anim": "hurt",
+          "label": "受击",
+          "frame": 12,
+          "file": "1920-hurt.png"
+        }
+      ],
+      "errors": []
+    }
+  ]
+}

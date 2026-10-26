@@ -101,7 +101,8 @@ html[data-cultivation-story=q-v6] .cu-training-frame:has([data-motion-version=ac
 /* 时间过场字幕卡（2026-10-08）：入谷过渡等线性演出用，盖住场景、居中竖排感的水墨大字。 */
 #cultivation .cu-time-card{position:absolute;inset:0;z-index:40;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2.2em;background:radial-gradient(ellipse at center,#2a2620f0 0%,#14110dfa 70%);color:#efe4cb;animation:cuTimeIn .6s ease-out}
 #cultivation .cu-time-card p{margin:0;font:600 clamp(26px,4.2cqw,68px)/1.3 var(--serif,serif);letter-spacing:.45em;text-indent:.45em;text-shadow:0 0 18px #000a}
-#cultivation .cu-time-card .cu-dialogue-next{position:static;opacity:.75}
+/* 2026-10-20：按钮铺满整张字幕卡（同对白气泡），点哪里都能继续；以前按钮是 0×0、只剩 ▾ 一个小字形能点，常要点好几下。 */
+#cultivation .cu-time-card .cu-dialogue-next{position:absolute;inset:0;opacity:.75}
 @keyframes cuTimeIn{from{opacity:0}to{opacity:1}}
 /* 谷外人物统一 Q 版（guiyun-outsiders-q-20261008）的头部锚点，覆盖旧图数值。 */
 #cultivation .cu-visitor-story .cu-story-lu{--visitor-top:35.04%;--visitor-height:86.99%}
@@ -125,3 +126,39 @@ html[data-cultivation-story=q-v6] .cu-training-frame:has([data-motion-version=ac
 .cu-visitor-story[data-choice=true] .cu-story-pei{--visitor-top:43.33%;--visitor-height:71.88%}
 .cu-visitor-story .cu-story-peishu{--visitor-top:34.12%;--visitor-height:71.90%}
 .cu-visitor-story[data-choice=true] .cu-story-peishu{--visitor-top:44.26%;--visitor-height:62.84%}
+
+/* 2026-10-20 双人 Q 版同框：一张图居中，底边贴地 */
+.cu-story-duo{position:absolute;bottom:0;left:50%;transform:translateX(-50%);height:82%;max-width:72%;object-fit:contain;object-position:center bottom;pointer-events:none}
+/* 2026-10-20 用户：对话气泡太大、遮住图像。气泡按内容自适应宽度（最宽 46%），字号、内边距缩小一档，位置上提 */
+#cultivation .cu-story-scene .cu-speech{left:0;right:0;margin:0 auto;width:fit-content;min-width:22%;max-width:46%;top:3%;padding:.8% 1.8% 1.1%;border-radius:2.4cqw;border-width:2px}
+#cultivation .cu-story-scene .cu-speech h2{font-size:clamp(11px,1.25cqw,24px);margin-bottom:.3em}
+#cultivation .cu-story-scene .cu-speech p{font-size:clamp(12px,1.4cqw,26px);line-height:1.4}
+#cultivation .cu-story-scene .cu-speech-choice{max-width:52%}
+/* 选项气泡：两个选项并排，减少高度；位置再上提 */
+#cultivation .cu-story-scene .cu-speech-choice{top:2%;width:56%;max-width:56%}
+#cultivation .cu-story-scene .cu-speech-choice .cu-speech-answers{grid-template-columns:repeat(auto-fit,minmax(0,1fr));gap:.4em;margin-top:.4em}
+
+/* 2026-10-20 立绘动感（规范：xiaojianghu/docs/design/dialogue-staging.md「立绘动感」）。
+   只用 translate／rotate／scale 单项属性，与站位用的 transform 叠加，不覆盖它。--away：背向对手为 1 方向。 */
+.cu-story-stage .cu-story-actor,.cu-story-stage .cu-story-duo{--away:0;--toward:0}
+.cu-story-stage [data-motion="knock"]{animation:cu-m-knock .62s cubic-bezier(.2,.9,.25,1) both}
+@keyframes cu-m-knock{0%{translate:0 0;rotate:0deg}14%{translate:calc(var(--away)*16%) 1.2%;rotate:calc(var(--away)*7deg)}30%{translate:calc(var(--away)*13%) 0;rotate:calc(var(--away)*3deg)}100%{translate:0 0;rotate:0deg}}
+.cu-story-stage [data-motion="flee"]{animation:cu-m-flee .5s cubic-bezier(.3,0,.2,1) both}
+@keyframes cu-m-flee{0%{translate:0 0;rotate:0deg}12%{translate:calc(var(--toward)*3%) 0;rotate:calc(var(--toward)*2deg)}100%{translate:calc(var(--away)*28%) 0;rotate:calc(var(--away)*4deg)}}
+.cu-story-stage [data-motion="startle"]{animation:cu-m-startle .42s cubic-bezier(.3,1.6,.5,1) both}
+@keyframes cu-m-startle{0%{translate:0 0;scale:1}35%{translate:0 -5%;scale:1.03 .97}70%{translate:0 0;scale:.98 1.02}100%{translate:0 0;scale:1}}
+.cu-story-stage [data-motion="step"]{animation:cu-m-step .38s cubic-bezier(.2,.8,.3,1) both}
+@keyframes cu-m-step{0%{translate:0 0}60%{translate:calc(var(--toward)*7%) -1%}100%{translate:calc(var(--toward)*6%) 0}}
+.cu-story-stage [data-motion="drag"]{animation:cu-m-drag .9s cubic-bezier(.5,0,.75,.2) both}
+@keyframes cu-m-drag{0%{translate:0 0;rotate:0deg;opacity:1}15%{translate:calc(var(--away)*-2%) 0;rotate:calc(var(--away)*-6deg)}100%{translate:calc(var(--away)*70%) 9%;rotate:calc(var(--away)*-14deg);opacity:0}}
+.cu-story-stage [data-motion="shake"]{animation:cu-m-shake .4s linear both}
+@keyframes cu-m-shake{0%,100%{translate:0 0}15%{translate:-1.6% 0}30%{translate:1.6% 0}45%{translate:-1.2% 0}60%{translate:1.2% 0}75%{translate:-.6% 0}90%{translate:.6% 0}}
+.cu-story-stage [data-motion="slump"]{animation:cu-m-slump .7s ease-out both}
+@keyframes cu-m-slump{0%{translate:0 0;scale:1}100%{translate:0 3%;scale:1 .975}}
+.cu-story-stage [data-motion="nod"]{animation:cu-m-nod .5s ease-in-out both}
+@keyframes cu-m-nod{0%,100%{translate:0 0}30%{translate:0 1.6%}60%{translate:0 -.4%}}
+.cu-story-stage [data-motion="enter"]{animation:cu-m-enter .45s cubic-bezier(.15,.85,.3,1) both}
+@keyframes cu-m-enter{0%{translate:calc(var(--away)*45%) 0;opacity:0}100%{translate:0 0;opacity:1}}
+@media (prefers-reduced-motion:reduce){.cu-story-stage [data-motion]{animation:none!important}}
+/* 2026-10-20 萧白独白也站左位（dialogue-staging.md：主角独白主角左位），下一句对方出场时不跳边。 */
+#cultivation .cu-visitor-story .cu-story-stage[data-solo="hero"] .cu-story-actor:only-child{left:28%}

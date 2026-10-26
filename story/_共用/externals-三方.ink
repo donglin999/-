@@ -10,3 +10,7 @@ EXTERNAL reps_errand()              // 找人交谈时选“跑腿”：转到 Q
 EXTERNAL reps_evidence()            // 找人交谈时选“把三张附页放一起对一对”：转到主线对证
 EXTERNAL errand_accept()            // 跑腿：答应帮忙（任务记为已接）
 EXTERNAL errand_choice(n)           // 跑腿：回话时的二选一（记入任务 choice）
+// ── 2026-10-23 对证断线版与归烬堂支线（蔺管事线，剧本三；JS 未接，接口见共用笔记 42-剧本三.md）──
+EXTERNAL reps_hand_roster()         // 对证时交出后山记人笺：从随身物品移走 qh_song_roster，记 records.roster_given=true（偷窃稿第 8.4 节）
+EXTERNAL lamp_omen()                // 算命摊测字：给一种小吉兆（地图可交互物稿第 5.5 节，行／安／归三类之一，约一天）
+EXTERNAL lamp_reward(kind)          // 蔺管事酬谢，只发一次并显示“获得”："blade"《守烛心经》＋铜灯牌＋经验；"book"《薪火功》；"fare" 路费 10 两

@@ -51,6 +51,9 @@ if 'js/production-assets.js' not in entry or entry.index('js/production-assets.j
 if 'js/production-asset-selection.js' not in entry:errors.append('superseded-map selection guard missing')
 from cg_review import selection_errors
 errors.extend(selection_errors(root,d,(root/'js/qihe-fire-cinematic.js').read_text()))
+# 透明素材镂空：地图道具切片、精灵、立绘等不得有未登记的封闭透明洞／窄缺口（2026-10-25，白名单 docs/assets/prop-holes-allow.json）
+from check_prop_holes import check as prop_hole_errors
+errors.extend(prop_hole_errors())
 for doc in ['AGENTS.md','docs/update-workflow.md','docs/assets/README.md']:
  if not (root/doc).is_file():errors.append('required update policy missing '+doc)
 print(json.dumps({'status':'fail' if errors else 'pass','assets_checked':len(d['assets']),'errors':errors},ensure_ascii=False))

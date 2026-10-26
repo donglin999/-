@@ -5,9 +5,13 @@
 INCLUDE ../_共用/externals.ink
 INCLUDE ../_共用/externals-风起主线.ink
 VAR first_day = false // 参数：第一天（halfDay=0）
+VAR declined = false // 参数：萧白没答应替他看着（records.stranger_deal=declined，2026-10-21 起可拒绝）
 
 === fq_song_idle ===
-{ first_day:
+{
+- declined:
+    宋先生：竹匾拿回去吧。我这儿还有几笔账没对完。 #id:C1-S-idle-03
+- first_day:
     宋先生：明早我还在这儿。她父亲的事，我记着。 #id:C1-S-idle-01
 - else:
     宋先生：说了记着。明早还在这儿。 #id:C1-S-idle-02

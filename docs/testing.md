@@ -101,7 +101,7 @@ await p.evaluate(()=>{const out=[];
 
 ## 3. 截图评审流程
 
-1. 用 Playwright 在固定视口（1280×720 或 1920×1080）截取关键画面：进场、NPC 对话（带立绘）、面板（商店/小游戏/江湖菜单）、战斗（选指令、破防、胜利结算）、遮挡（主角站到屋檐/灯笼后）。
+1. 用 Playwright 在固定视口（1280×720 或 1920×1080）截取关键画面：进场、NPC 对话（带立绘）、面板（商店/小游戏/江湖菜单）、战斗（选指令、破防、胜利结算）、遮挡（主角、普通 NPC、剧情站位 NPC 站到树冠/屋檐/凉棚后，被挡部分应显半透明人形；本地回归 `node tools_scene/qihe/check_overlap.cjs`，修前修后截图 `tools_scene/qihe/overlap_shots.cjs`，帧耗 `tools_scene/qihe/overlap_perf.cjs`）。
 2. 与参考图对比：`original_ref.png`（原作参考）、`round1.png` `round2.png` `street_review.png` `playtest_screens.png`（历轮评审拼图），`review/` 下有美术对比图（`bright_compare.png` `lr_check.png` `walk_frames.png` `walk_hero.gif` `run_hero.gif` `portraits_suzhi.png` `companion_sheet.png` `ingame_compare.png` `round_story.png`）。
 3. 发布前检查 `pageerror` 为空、控制台无 404（缺资源会画粉色方块 `#b88`）。
 

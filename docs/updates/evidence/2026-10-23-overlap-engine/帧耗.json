@@ -1,0 +1,50 @@
+{
+ "无人被挡_8NPC_关": {
+  "frameMs": 2.523,
+  "ghostPassMs": 0,
+  "ghosts": 0,
+  "actors": 0
+ },
+ "无人被挡_8NPC_开": {
+  "frameMs": 2.582,
+  "ghostPassMs": 0,
+  "ghosts": 0,
+  "actors": 12
+ },
+ "无人被挡_8NPC_关2": {
+  "frameMs": 2.691,
+  "ghostPassMs": 0,
+  "ghosts": 0,
+  "actors": 0
+ },
+ "无人被挡_8NPC_开2": {
+  "frameMs": 2.559,
+  "ghostPassMs": 0,
+  "ghosts": 0,
+  "actors": 12
+ },
+ "8NPC全被挡_关": {
+  "frameMs": 2.627,
+  "ghostPassMs": 0,
+  "ghosts": 0,
+  "actors": 0
+ },
+ "8NPC全被挡_开": {
+  "frameMs": 3.519,
+  "ghostPassMs": 0.8,
+  "ghosts": 8,
+  "actors": 12
+ },
+ "8NPC全被挡_关2": {
+  "frameMs": 2.512,
+  "ghostPassMs": 0,
+  "ghosts": 0,
+  "actors": 0
+ },
+ "8NPC全被挡_开2": {
+  "frameMs": 3.355,
+  "ghostPassMs": 0.771,
+  "ghosts": 8,
+  "actors": 12
+ }
+}

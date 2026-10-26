@@ -1,0 +1,578 @@
+[
+ {
+  "name": "c01_叶家屋顶",
+  "scene": "qihe_trial",
+  "at": [
+   520,
+   250
+  ],
+  "standBefore": true,
+  "standAfter": false,
+  "afterPlacedAt": [
+   509,
+   143
+  ]
+ },
+ {
+  "name": "c02_叶家墙脚前",
+  "scene": "qihe_trial",
+  "at": [
+   380,
+   492
+  ],
+  "standBefore": true,
+  "standAfter": true,
+  "afterPlacedAt": null
+ },
+ {
+  "name": "c03_陈伯家墙脚前",
+  "scene": "qihe_trial",
+  "at": [
+   1300,
+   495
+  ],
+  "standBefore": true,
+  "standAfter": true,
+  "afterPlacedAt": null
+ },
+ {
+  "name": "c04_修理台里",
+  "scene": "qihe_trial",
+  "at": [
+   1870,
+   470
+  ],
+  "standBefore": true,
+  "standAfter": false,
+  "afterPlacedAt": [
+   1876,
+   530
+  ]
+ },
+ {
+  "name": "c05_客栈屋顶",
+  "scene": "qihe_trial",
+  "at": [
+   400,
+   950
+  ],
+  "standBefore": true,
+  "standAfter": false,
+  "afterPlacedAt": [
+   388,
+   827
+  ]
+ },
+ {
+  "name": "c06_药棚屋顶",
+  "scene": "qihe_trial",
+  "at": [
+   1900,
+   800
+  ],
+  "standBefore": true,
+  "standAfter": false,
+  "afterPlacedAt": [
+   1889,
+   689
+  ]
+ },
+ {
+  "name": "c07_老人家屋顶",
+  "scene": "qihe_trial",
+  "at": [
+   1300,
+   1120
+  ],
+  "standBefore": true,
+  "standAfter": false,
+  "afterPlacedAt": [
+   1280,
+   1022
+  ]
+ },
+ {
+  "name": "c08_路牌板后",
+  "scene": "qihe_trial",
+  "at": [
+   1655,
+   1360
+  ],
+  "standBefore": true,
+  "standAfter": false,
+  "afterPlacedAt": [
+   1719,
+   1366
+  ]
+ },
+ {
+  "name": "c09_晒衣架里",
+  "scene": "qihe_trial",
+  "at": [
+   250,
+   1300
+  ],
+  "standBefore": true,
+  "standAfter": false,
+  "afterPlacedAt": [
+   234,
+   1246
+  ]
+ },
+ {
+  "name": "c10_晒药匾里",
+  "scene": "qihe_trial",
+  "at": [
+   2070,
+   1110
+  ],
+  "standBefore": true,
+  "standAfter": false,
+  "afterPlacedAt": [
+   2065,
+   1083
+  ]
+ },
+ {
+  "name": "c11_叶家西侧树干",
+  "scene": "qihe_trial",
+  "at": [
+   195,
+   425
+  ],
+  "standBefore": false,
+  "standAfter": false,
+  "afterPlacedAt": [
+   212,
+   436
+  ]
+ },
+ {
+  "name": "s01_茶棚屋顶",
+  "scene": "qh_south",
+  "at": [
+   1090,
+   180
+  ],
+  "standBefore": true,
+  "standAfter": false,
+  "afterPlacedAt": [
+   1096,
+   240
+  ]
+ },
+ {
+  "name": "s02_茶棚后左柱前地砖",
+  "scene": "qh_south",
+  "at": [
+   982,
+   330
+  ],
+  "standBefore": true,
+  "standAfter": true,
+  "afterPlacedAt": null
+ },
+ {
+  "name": "s03_药摊棚顶",
+  "scene": "qh_south",
+  "at": [
+   300,
+   220
+  ],
+  "standBefore": true,
+  "standAfter": false,
+  "afterPlacedAt": [
+   293,
+   152
+  ]
+ },
+ {
+  "name": "s04_药摊旁木桶",
+  "scene": "qh_south",
+  "at": [
+   505,
+   330
+  ],
+  "standBefore": true,
+  "standAfter": false,
+  "afterPlacedAt": [
+   520,
+   349
+  ]
+ },
+ {
+  "name": "s05_茶桌桌面",
+  "scene": "qh_south",
+  "at": [
+   1090,
+   280
+  ],
+  "standBefore": true,
+  "standAfter": false,
+  "afterPlacedAt": [
+   1081,
+   267
+  ]
+ },
+ {
+  "name": "s06_板车车斗",
+  "scene": "qh_south",
+  "at": [
+   330,
+   660
+  ],
+  "standBefore": true,
+  "standAfter": false,
+  "afterPlacedAt": [
+   325,
+   649
+  ]
+ },
+ {
+  "name": "s07_东口树下",
+  "scene": "qh_south",
+  "at": [
+   1470,
+   620
+  ],
+  "standBefore": true,
+  "standAfter": true,
+  "afterPlacedAt": null
+ },
+ {
+  "name": "e01_凉棚屋顶",
+  "scene": "qh_east",
+  "at": [
+   700,
+   130
+  ],
+  "standBefore": true,
+  "standAfter": false,
+  "afterPlacedAt": [
+   720,
+   195
+  ]
+ },
+ {
+  "name": "e02_晒药架上半",
+  "scene": "qh_east",
+  "at": [
+   1060,
+   350
+  ],
+  "standBefore": true,
+  "standAfter": false,
+  "afterPlacedAt": [
+   1046,
+   317
+  ]
+ },
+ {
+  "name": "e03_登记桌桌面",
+  "scene": "qh_east",
+  "at": [
+   715,
+   245
+  ],
+  "standBefore": true,
+  "standAfter": false,
+  "afterPlacedAt": [
+   707,
+   231
+  ]
+ },
+ {
+  "name": "e04_岸石顶面",
+  "scene": "qh_east",
+  "at": [
+   815,
+   885
+  ],
+  "standBefore": true,
+  "standAfter": false,
+  "afterPlacedAt": [
+   792,
+   869
+  ]
+ },
+ {
+  "name": "e05_南缘树干",
+  "scene": "qh_east",
+  "at": [
+   968,
+   905
+  ],
+  "standBefore": false,
+  "standAfter": false,
+  "afterPlacedAt": [
+   958,
+   893
+  ]
+ },
+ {
+  "name": "w01_农具棚屋顶",
+  "scene": "qh_west",
+  "at": [
+   390,
+   150
+  ],
+  "standBefore": true,
+  "standAfter": false,
+  "afterPlacedAt": [
+   371,
+   89
+  ]
+ },
+ {
+  "name": "w02_药车车斗",
+  "scene": "qh_west",
+  "at": [
+   1180,
+   190
+  ],
+  "standBefore": true,
+  "standAfter": false,
+  "afterPlacedAt": [
+   1149,
+   181
+  ]
+ },
+ {
+  "name": "w03_木人桩",
+  "scene": "qh_west",
+  "at": [
+   1035,
+   380
+  ],
+  "standBefore": true,
+  "standAfter": false,
+  "afterPlacedAt": [
+   1058,
+   396
+  ]
+ },
+ {
+  "name": "w04_南缘灌木丛",
+  "scene": "qh_west",
+  "at": [
+   600,
+   890
+  ],
+  "standBefore": true,
+  "standAfter": false,
+  "afterPlacedAt": [
+   589,
+   869
+  ]
+ },
+ {
+  "name": "w05_菜畦",
+  "scene": "qh_west",
+  "at": [
+   330,
+   700
+  ],
+  "standBefore": true,
+  "standAfter": false,
+  "afterPlacedAt": [
+   319,
+   674
+  ]
+ },
+ {
+  "name": "w06_东口石堆",
+  "scene": "qh_west",
+  "at": [
+   1420,
+   560
+  ],
+  "standBefore": true,
+  "standAfter": false,
+  "afterPlacedAt": [
+   1380,
+   564
+  ]
+ },
+ {
+  "name": "n01_大树树干",
+  "scene": "qh_north",
+  "at": [
+   360,
+   400
+  ],
+  "standBefore": true,
+  "standAfter": false,
+  "afterPlacedAt": [
+   348,
+   370
+  ]
+ },
+ {
+  "name": "n02_石堆顶面",
+  "scene": "qh_north",
+  "at": [
+   1230,
+   310
+  ],
+  "standBefore": true,
+  "standAfter": false,
+  "afterPlacedAt": [
+   1225,
+   283
+  ]
+ },
+ {
+  "name": "n03_倒木后",
+  "scene": "qh_north",
+  "at": [
+   870,
+   220
+  ],
+  "standBefore": true,
+  "standAfter": false,
+  "afterPlacedAt": [
+   865,
+   205
+  ]
+ },
+ {
+  "name": "r01_正房屋顶",
+  "scene": "qh_refuge",
+  "at": [
+   380,
+   200
+  ],
+  "standBefore": true,
+  "standAfter": false,
+  "afterPlacedAt": [
+   371,
+   108
+  ]
+ },
+ {
+  "name": "r02_棚顶",
+  "scene": "qh_refuge",
+  "at": [
+   1090,
+   180
+  ],
+  "standBefore": true,
+  "standAfter": false,
+  "afterPlacedAt": [
+   1084,
+   116
+  ]
+ },
+ {
+  "name": "r03_长凳",
+  "scene": "qh_refuge",
+  "at": [
+   1095,
+   290
+  ],
+  "standBefore": true,
+  "standAfter": false,
+  "afterPlacedAt": [
+   1084,
+   269
+  ]
+ },
+ {
+  "name": "m01_客房屋顶",
+  "scene": "qh_mountain",
+  "at": [
+   300,
+   220
+  ],
+  "standBefore": true,
+  "standAfter": false,
+  "afterPlacedAt": [
+   290,
+   120
+  ]
+ },
+ {
+  "name": "m02_伙房屋顶",
+  "scene": "qh_mountain",
+  "at": [
+   745,
+   120
+  ],
+  "standBefore": true,
+  "standAfter": false,
+  "afterPlacedAt": [
+   726,
+   26
+  ]
+ },
+ {
+  "name": "m03_药圃里",
+  "scene": "qh_mountain",
+  "at": [
+   1060,
+   620
+  ],
+  "standBefore": true,
+  "standAfter": false,
+  "afterPlacedAt": [
+   1054,
+   556
+  ]
+ },
+ {
+  "name": "m04_饭桌桌面",
+  "scene": "qh_mountain",
+  "at": [
+   435,
+   600
+  ],
+  "standBefore": true,
+  "standAfter": false,
+  "afterPlacedAt": [
+   426,
+   557
+  ]
+ },
+ {
+  "name": "i01_药棚药案上",
+  "scene": "prologue_clinic_interior",
+  "at": [
+   1000,
+   315
+  ],
+  "standBefore": true,
+  "standAfter": false,
+  "afterPlacedAt": [
+   939,
+   334
+  ]
+ },
+ {
+  "name": "i02_客栈饭桌上",
+  "scene": "prologue_inn_interior",
+  "at": [
+   290,
+   420
+  ],
+  "standBefore": true,
+  "standAfter": false,
+  "afterPlacedAt": [
+   281,
+   377
+  ]
+ },
+ {
+  "name": "i03_陈家茶桌上",
+  "scene": "prologue_chen_hall",
+  "at": [
+   500,
+   330
+  ],
+  "standBefore": true,
+  "standAfter": false,
+  "afterPlacedAt": [
+   493,
+   295
+  ]
+ }
+]

@@ -6,15 +6,15 @@
  "anchor_source": "art_sources/guiyun-performance-fix-20261012/face-anchors.json",
  "actors": {
   "hero": {
-   "top": 28.13,
-   "height": 97.57,
-   "top_choice": 36.75,
-   "height_choice": 84.53,
-   "dx": -2.69,
+   "top": 19.72,
+   "height": 114.12,
+   "top_choice": 29.47,
+   "height_choice": 98.87,
+   "dx": -7.83,
    "face": [
-    0.213,
-    0.42,
-    0.527
+    0.256,
+    0.433,
+    0.578
    ]
   },
   "dou": {
@@ -48,39 +48,39 @@
    "manual": true
   },
   "hero_long": {
-   "top": 28.13,
-   "height": 97.57,
-   "top_choice": 36.75,
-   "height_choice": 84.53,
-   "dx": -2.69,
+   "top": 19.72,
+   "height": 114.12,
+   "top_choice": 29.47,
+   "height_choice": 98.87,
+   "dx": -7.83,
    "face": [
-    0.213,
-    0.42,
-    0.527
+    0.256,
+    0.433,
+    0.578
    ]
   },
   "hero_mid": {
-   "top": 27.85,
-   "height": 93.46,
-   "top_choice": 36.51,
-   "height_choice": 80.96,
-   "dx": -1.37,
+   "top": 26.15,
+   "height": 112.53,
+   "top_choice": 35.04,
+   "height_choice": 97.49,
+   "dx": 0.78,
    "face": [
-    0.225,
-    0.441,
-    0.514
+    0.202,
+    0.382,
+    0.492
    ]
   },
   "hero_short": {
-   "top": 29.08,
-   "height": 84.31,
-   "top_choice": 37.58,
-   "height_choice": 73.04,
-   "dx": 5.32,
+   "top": 29.56,
+   "height": 84.17,
+   "top_choice": 37.99,
+   "height_choice": 72.92,
+   "dx": -2.12,
    "face": [
-    0.235,
-    0.475,
-    0.447
+    0.23,
+    0.47,
+    0.521
    ]
   },
   "lu": {
@@ -132,22 +132,22 @@
    ]
   },
   "neighbor": {
-   "top": 38.8,
-   "height": 118.82,
-   "top_choice": 46.0,
-   "height_choice": 102.94,
-   "dx": 3.0,
+   "top": 29.71,
+   "height": 101.0,
+   "top_choice": 38.12,
+   "height_choice": 87.5,
+   "dx": 6.0,
    "face": [
-    0.085,
-    0.255,
-    0.47
+    0.19,
+    0.39,
+    0.44
    ]
   },
   "pei": {
-   "top": 25.52,
-   "height": 109.78,
-   "top_choice": 34.49,
-   "height_choice": 95.11,
+   "top": 29.53,
+   "height": 96.61,
+   "top_choice": 37.97,
+   "height_choice": 83.7,
    "dx": -3.5,
    "face": [
     0.213,
@@ -239,30 +239,103 @@
     0.509
    ]
   },
-  "recipient": {
-   "top": 38.8,
-   "height": 118.82,
-   "top_choice": 46.0,
-   "height_choice": 102.94,
-   "dx": 3.0,
+  "duo_gn_lamp_father_left": {
+   "top": 32.45,
+   "height": 120.96,
+   "top_choice": 40.5,
+   "height_choice": 104.79,
+   "dx": 5.0,
    "face": [
-    0.085,
-    0.255,
-    0.47
+    0.136,
+    0.303,
+    0.45
+   ],
+   "duo": true
+  },
+  "recipient": {
+   "top": 29.71,
+   "height": 101.0,
+   "top_choice": 38.12,
+   "height_choice": 87.5,
+   "dx": 6.0,
+   "face": [
+    0.19,
+    0.39,
+    0.44
    ]
   }
  },
  "moods": {
   "dou_fun": {
-   "top": 37.47,
-   "height": 85.95,
-   "top_choice": 45.05,
-   "height_choice": 74.46,
-   "dx": -0.54,
+   "top": 36.29,
+   "height": 88.71,
+   "top_choice": 44.02,
+   "height_choice": 76.86,
+   "dx": -1.09,
    "face": [
-    0.150390625,
-    0.3854166666666667,
-    0.50537109375
+    0.1591,
+    0.3868,
+    0.5109
+   ]
+  },
+  "dou_angry": {
+   "top": 32.04,
+   "height": 97.21,
+   "top_choice": 40.34,
+   "height_choice": 84.22,
+   "dx": -1.17,
+   "face": [
+    0.1889,
+    0.3967,
+    0.5117
+   ]
+  },
+  "dou_sad": {
+   "top": 28.03,
+   "height": 97.68,
+   "top_choice": 36.87,
+   "height_choice": 84.62,
+   "dx": -2.07,
+   "face": [
+    0.229,
+    0.4358,
+    0.5207
+   ]
+  },
+  "dou_smile": {
+   "top": 33.22,
+   "height": 96.01,
+   "top_choice": 41.37,
+   "height_choice": 83.17,
+   "dx": -1.56,
+   "face": [
+    0.1789,
+    0.3893,
+    0.5156
+   ]
+  },
+  "dou_surprise": {
+   "top": 36.06,
+   "height": 91.28,
+   "top_choice": 43.83,
+   "height_choice": 79.08,
+   "dx": -0.28,
+   "face": [
+    0.1571,
+    0.3784,
+    0.5028
+   ]
+  },
+  "dou_worry": {
+   "top": 31.34,
+   "height": 94.57,
+   "top_choice": 39.74,
+   "height_choice": 81.93,
+   "dx": -0.83,
+   "face": [
+    0.2015,
+    0.4151,
+    0.5083
    ]
   },
   "fang_fun": {
@@ -278,94 +351,82 @@
    ]
   },
   "fang_hurt_normal": {
-   "top": 24.58,
-   "height": 81.22,
-   "top_choice": 33.68,
-   "height_choice": 70.37,
-   "dx": -3.32,
+   "top": 29.1,
+   "height": 73.19,
+   "top_choice": 37.6,
+   "height_choice": 63.41,
+   "dx": -10.67,
    "face": [
-    0.2994791666666667,
-    0.5481770833333334,
-    0.533203125
+    0.2705,
+    0.5465,
+    0.6067
    ]
   },
   "fang_hurt_sad": {
-   "top": 24.58,
-   "height": 81.22,
-   "top_choice": 33.68,
-   "height_choice": 70.37,
-   "dx": -3.32,
+   "top": 28.91,
+   "height": 73.56,
+   "top_choice": 37.43,
+   "height_choice": 63.73,
+   "dx": -10.83,
    "face": [
-    0.2994791666666667,
-    0.5481770833333334,
-    0.533203125
+    0.2717,
+    0.5463,
+    0.6083
    ]
   },
   "fang_hurt_serious": {
-   "top": 24.58,
-   "height": 81.22,
-   "top_choice": 33.68,
-   "height_choice": 70.37,
-   "dx": -3.32,
+   "top": 29.1,
+   "height": 73.19,
+   "top_choice": 37.6,
+   "height_choice": 63.41,
+   "dx": -10.67,
    "face": [
-    0.2994791666666667,
-    0.5481770833333334,
-    0.533203125
+    0.2705,
+    0.5465,
+    0.6067
    ]
   },
   "fang_hurt_smile": {
-   "top": 24.58,
-   "height": 81.22,
-   "top_choice": 33.68,
-   "height_choice": 70.37,
-   "dx": -3.32,
+   "top": 29.1,
+   "height": 73.19,
+   "top_choice": 37.6,
+   "height_choice": 63.41,
+   "dx": -10.67,
    "face": [
-    0.2994791666666667,
-    0.5481770833333334,
-    0.533203125
+    0.2705,
+    0.5465,
+    0.6067
    ]
   },
-  "hero_mid_fun": {
-   "top": 18.6,
-   "height": 141.03,
-   "top_choice": 28.5,
-   "height_choice": 122.18,
-   "dx": 1.66,
+  "fang_smile": {
+   "top": 28.71,
+   "height": 83.47,
+   "top_choice": 37.26,
+   "height_choice": 72.31,
+   "dx": -13.29,
    "face": [
-    0.21484375,
-    0.3580729166666667,
-    0.4833984375
+    0.2419,
+    0.4839,
+    0.6329
    ]
   },
-  "hero_short_fun": {
-   "top": 29.85,
-   "height": 84.31,
-   "top_choice": 38.25,
-   "height_choice": 73.04,
-   "dx": 8.69,
-   "face": [
-    0.22591145833333334,
-    0.4654947916666667,
-    0.4130859375
-   ]
-  },
-  "hero_short_sleep": {
-   "top": 25.94,
+  "man_fun": {
+   "top": 31.65,
    "height": 92.07,
-   "top_choice": 34.86,
+   "top_choice": 40.34,
    "height_choice": 79.76,
-   "dx": 5.91,
+   "dx": -3.3,
    "face": [
-    0.24934895833333334,
-    0.46875,
-    0.44091796875
+    0.2308,
+    0.4502,
+    0.533
    ]
   },
   "pei_fun": {
-   "top": 25.77,
-   "height": 108.6,
-   "top_choice": 34.71,
-   "height_choice": 94.09,
+   "top": 29.76,
+   "height": 95.57,
+   "top_choice": 38.16,
+   "height_choice": 82.8,
    "dx": -3.2,
    "face": [
     0.213,
@@ -373,64 +434,124 @@
     0.532
    ]
   },
-  "pei_sad": {
-   "top": 25.49,
-   "height": 103.59,
-   "top_choice": 34.47,
-   "height_choice": 89.74,
-   "dx": -3.4,
+  "pei_left": {
+   "top": 31.04,
+   "height": 96.87,
+   "top_choice": 39.28,
+   "height_choice": 83.92,
+   "dx": -1.35,
    "face": [
-    0.226,
-    0.421,
-    0.534
+    0.1969,
+    0.3804,
+    0.5135
+   ]
+  },
+  "pei_sad": {
+   "top": 28.01,
+   "height": 99.42,
+   "top_choice": 36.65,
+   "height_choice": 86.13,
+   "dx": -3.6,
+   "face": [
+    0.2223,
+    0.4011,
+    0.536
+   ]
+  },
+  "pei_sad_left": {
+   "top": 28.03,
+   "height": 99.87,
+   "top_choice": 36.67,
+   "height_choice": 86.52,
+   "dx": -2.64,
+   "face": [
+    0.2211,
+    0.3991,
+    0.5264
    ]
   },
   "pei_serious": {
-   "top": 26.46,
-   "height": 106.88,
-   "top_choice": 35.31,
-   "height_choice": 92.59,
-   "dx": -3.3,
+   "top": 29.53,
+   "height": 97.89,
+   "top_choice": 37.97,
+   "height_choice": 84.8,
+   "dx": -2.88,
    "face": [
-    0.21,
-    0.399,
-    0.533
+    0.2103,
+    0.3919,
+    0.5288
+   ]
+  },
+  "pei_serious_left": {
+   "top": 27.78,
+   "height": 100.89,
+   "top_choice": 36.45,
+   "height_choice": 87.4,
+   "dx": -1.67,
+   "face": [
+    0.2214,
+    0.3976,
+    0.5167
    ]
   },
   "pei_smile": {
-   "top": 27.13,
-   "height": 104.66,
-   "top_choice": 35.89,
-   "height_choice": 90.67,
-   "dx": -3.9,
+   "top": 30.03,
+   "height": 95.11,
+   "top_choice": 38.41,
+   "height_choice": 82.4,
+   "dx": -3.95,
    "face": [
-    0.208,
-    0.401,
-    0.539
+    0.2111,
+    0.398,
+    0.5395
+   ]
+  },
+  "pei_smile_left": {
+   "top": 29.29,
+   "height": 97.83,
+   "top_choice": 37.76,
+   "height_choice": 84.76,
+   "dx": -2.88,
+   "face": [
+    0.2128,
+    0.3945,
+    0.5288
    ]
   },
   "pei_surprise": {
-   "top": 27.13,
-   "height": 104.66,
-   "top_choice": 35.89,
-   "height_choice": 90.67,
-   "dx": -4.0,
+   "top": 30.03,
+   "height": 96.87,
+   "top_choice": 38.4,
+   "height_choice": 83.92,
+   "dx": -3.68,
    "face": [
-    0.208,
-    0.401,
-    0.54
+    0.2073,
+    0.3908,
+    0.5368
    ]
   },
   "pei_worry": {
-   "top": 25.94,
-   "height": 106.32,
-   "top_choice": 34.86,
-   "height_choice": 92.11,
-   "dx": -3.9,
+   "top": 29.29,
+   "height": 97.83,
+   "top_choice": 37.76,
+   "height_choice": 84.76,
+   "dx": -3.65,
    "face": [
-    0.216,
-    0.406,
-    0.539
+    0.2128,
+    0.3945,
+    0.5365
+   ]
+  },
+  "pei_worry_left": {
+   "top": 28.27,
+   "height": 101.4,
+   "top_choice": 36.88,
+   "height_choice": 87.85,
+   "dx": -3.34,
+   "face": [
+    0.2154,
+    0.3907,
+    0.5334
    ]
   },
   "shimu_fun": {
@@ -518,15 +639,15 @@
    ]
   },
   "yin_fun": {
-   "top": 33.13,
-   "height": 92.24,
-   "top_choice": 41.09,
-   "height_choice": 79.91,
-   "dx": -9.6,
+   "top": 30.44,
+   "height": 100.55,
+   "top_choice": 38.76,
+   "height_choice": 87.11,
+   "dx": -3.82,
    "face": [
-    0.171,
-    0.39,
-    0.596
+    0.1836,
+    0.3845,
+    0.5382
    ]
   },
   "yin_angry": {
@@ -541,6 +662,30 @@
     0.534
    ]
   },
+  "yin_angry_left": {
+   "top": 21.47,
+   "height": 107.96,
+   "top_choice": 30.98,
+   "height_choice": 93.53,
+   "dx": 10.25,
+   "face": [
+    0.2541,
+    0.4412,
+    0.3975
+   ]
+  },
+  "yin_left": {
+   "top": 29.74,
+   "height": 106.2,
+   "top_choice": 38.15,
+   "height_choice": 92.01,
+   "dx": 3.87,
+   "face": [
+    0.1804,
+    0.3706,
+    0.4613
+   ]
+  },
   "yin_sad": {
    "top": 27.74,
    "height": 87.07,
@@ -553,28 +698,52 @@
     0.653
    ]
   },
-  "yin_serious": {
-   "top": 30.8,
-   "height": 91.4,
-   "top_choice": 39.07,
-   "height_choice": 79.19,
-   "dx": -3.8,
+  "yin_sad_left": {
+   "top": 29.74,
+   "height": 85.92,
+   "top_choice": 38.15,
+   "height_choice": 74.44,
+   "dx": 12.85,
    "face": [
-    0.198,
-    0.419,
-    0.538
+    0.223,
+    0.4581,
+    0.3715
+   ]
+  },
+  "yin_serious": {
+   "top": 32.56,
+   "height": 87.6,
+   "top_choice": 40.6,
+   "height_choice": 75.89,
+   "dx": -3.82,
+   "face": [
+    0.1865,
+    0.4171,
+    0.5382
+   ]
+  },
+  "yin_serious_left": {
+   "top": 26.48,
+   "height": 111.48,
+   "top_choice": 35.33,
+   "height_choice": 96.58,
+   "dx": 10.11,
+   "face": [
+    0.2011,
+    0.3823,
+    0.3989
    ]
   },
   "yin_smile": {
-   "top": 30.03,
-   "height": 95.28,
-   "top_choice": 38.41,
-   "height_choice": 82.55,
-   "dx": -4.5,
+   "top": 32.09,
+   "height": 87.6,
+   "top_choice": 40.19,
+   "height_choice": 75.89,
+   "dx": -4.53,
    "face": [
-    0.198,
-    0.41,
-    0.545
+    0.1919,
+    0.4225,
+    0.5453
    ]
   },
   "yin_surprise": {
@@ -589,16 +758,28 @@
     0.541
    ]
   },
-  "yin_worry": {
-   "top": 27.53,
-   "height": 97.58,
-   "top_choice": 36.24,
-   "height_choice": 84.54,
-   "dx": -3.5,
+  "yin_surprise_left": {
+   "top": 24.72,
+   "height": 104.72,
+   "top_choice": 33.8,
+   "height_choice": 90.72,
+   "dx": 14.85,
    "face": [
-    0.219,
-    0.426,
-    0.535
+    0.2309,
+    0.4238,
+    0.3515
+   ]
+  },
+  "yin_worry": {
+   "top": 31.39,
+   "height": 87.6,
+   "top_choice": 39.58,
+   "height_choice": 75.89,
+   "dx": -3.64,
+   "face": [
+    0.1999,
+    0.4305,
+    0.5364
    ]
   },
   "zhong_fun": {
@@ -611,6 +792,788 @@
     0.2630208333333333,
     0.533203125,
     0.4765625
+   ]
+  },
+  "zhou_left": {
+   "top": 35.46,
+   "height": 77.9,
+   "top_choice": 43.11,
+   "height_choice": 67.49,
+   "dx": 0.93,
+   "face": [
+    0.1725,
+    0.4318,
+    0.4907
+   ]
+  },
+  "zhou_sad_left": {
+   "top": 33.67,
+   "height": 81.09,
+   "top_choice": 41.56,
+   "height_choice": 70.25,
+   "dx": 2.01,
+   "face": [
+    0.1878,
+    0.4369,
+    0.4799
+   ]
+  },
+  "zhou_worry": {
+   "top": 33.74,
+   "height": 75.49,
+   "top_choice": 41.62,
+   "height_choice": 65.4,
+   "dx": -1.47,
+   "face": [
+    0.2008,
+    0.4684,
+    0.5147
+   ]
+  },
+  "hero_long_serious": {
+   "top": 20.9,
+   "height": 116.83,
+   "top_choice": 30.49,
+   "height_choice": 101.21,
+   "dx": -5.74,
+   "face": [
+    0.2397,
+    0.4126,
+    0.5574
+   ]
+  },
+  "hero_long_surprise": {
+   "top": 19.71,
+   "height": 119.17,
+   "top_choice": 29.47,
+   "height_choice": 103.24,
+   "dx": -6.95,
+   "face": [
+    0.2449,
+    0.4144,
+    0.5695
+   ]
+  },
+  "hero_long_worry": {
+   "top": 20.01,
+   "height": 119.17,
+   "top_choice": 29.72,
+   "height_choice": 103.24,
+   "dx": -5.82,
+   "face": [
+    0.2424,
+    0.4119,
+    0.5582
+   ]
+  },
+  "hero_long_angry": {
+   "top": 20.9,
+   "height": 116.83,
+   "top_choice": 30.49,
+   "height_choice": 101.21,
+   "dx": -5.74,
+   "face": [
+    0.2397,
+    0.4126,
+    0.5574
+   ]
+  },
+  "hero_long_sad": {
+   "top": 21.5,
+   "height": 114.12,
+   "top_choice": 31.01,
+   "height_choice": 98.87,
+   "dx": -5.1,
+   "face": [
+    0.2401,
+    0.4171,
+    0.551
+   ]
+  },
+  "hero_long_awkward": {
+   "top": 20.01,
+   "height": 119.17,
+   "top_choice": 29.72,
+   "height_choice": 103.24,
+   "dx": -5.82,
+   "face": [
+    0.2424,
+    0.4119,
+    0.5582
+   ]
+  },
+  "hero_long_sleep": {
+   "top": 22.68,
+   "height": 112.98,
+   "top_choice": 32.03,
+   "height_choice": 97.87,
+   "dx": -5.75,
+   "face": [
+    0.2321,
+    0.4109,
+    0.5575
+   ]
+  },
+  "hero_long_hurt": {
+   "top": 21.5,
+   "height": 114.12,
+   "top_choice": 31.01,
+   "height_choice": 98.87,
+   "dx": -7.05,
+   "face": [
+    0.2401,
+    0.4171,
+    0.5705
+   ]
+  },
+  "hero_mid_smile": {
+   "top": 26.43,
+   "height": 110.81,
+   "top_choice": 35.28,
+   "height_choice": 96.0,
+   "dx": 1.98,
+   "face": [
+    0.2028,
+    0.3851,
+    0.4802
+   ]
+  },
+  "hero_mid_serious": {
+   "top": 25.56,
+   "height": 111.36,
+   "top_choice": 34.53,
+   "height_choice": 96.47,
+   "dx": 0.59,
+   "face": [
+    0.2096,
+    0.391,
+    0.4941
+   ]
+  },
+  "hero_mid_surprise": {
+   "top": 26.44,
+   "height": 109.01,
+   "top_choice": 35.3,
+   "height_choice": 94.44,
+   "dx": 1.21,
+   "face": [
+    0.206,
+    0.3913,
+    0.4879
+   ]
+  },
+  "hero_mid_worry": {
+   "top": 26.15,
+   "height": 110.75,
+   "top_choice": 35.04,
+   "height_choice": 95.94,
+   "dx": 0.79,
+   "face": [
+    0.2054,
+    0.3878,
+    0.4921
+   ]
+  },
+  "hero_mid_angry": {
+   "top": 25.56,
+   "height": 111.36,
+   "top_choice": 34.53,
+   "height_choice": 96.47,
+   "dx": 0.59,
+   "face": [
+    0.2096,
+    0.391,
+    0.4941
+   ]
+  },
+  "hero_mid_sad": {
+   "top": 25.56,
+   "height": 111.36,
+   "top_choice": 34.53,
+   "height_choice": 96.47,
+   "dx": -0.99,
+   "face": [
+    0.2096,
+    0.391,
+    0.5099
+   ]
+  },
+  "hero_mid_awkward": {
+   "top": 26.15,
+   "height": 110.75,
+   "top_choice": 35.04,
+   "height_choice": 95.94,
+   "dx": 0.79,
+   "face": [
+    0.2054,
+    0.3878,
+    0.4921
+   ]
+  },
+  "hero_short_smile": {
+   "top": 29.78,
+   "height": 84.17,
+   "top_choice": 38.18,
+   "height_choice": 72.92,
+   "dx": 6.47,
+   "face": [
+    0.2272,
+    0.4672,
+    0.4353
+   ]
+  },
+  "hero_short_serious": {
+   "top": 29.78,
+   "height": 84.38,
+   "top_choice": 38.19,
+   "height_choice": 73.1,
+   "dx": 13.65,
+   "face": [
+    0.2266,
+    0.466,
+    0.3635
+   ]
+  },
+  "hero_short_surprise": {
+   "top": 29.99,
+   "height": 83.3,
+   "top_choice": 38.37,
+   "height_choice": 72.16,
+   "dx": 6.35,
+   "face": [
+    0.227,
+    0.4695,
+    0.4365
+   ]
+  },
+  "hero_short_angry": {
+   "top": 29.78,
+   "height": 84.38,
+   "top_choice": 38.19,
+   "height_choice": 73.1,
+   "dx": 13.65,
+   "face": [
+    0.2266,
+    0.466,
+    0.3635
+   ]
+  },
+  "hero_short_sad": {
+   "top": 29.13,
+   "height": 83.71,
+   "top_choice": 37.62,
+   "height_choice": 72.52,
+   "dx": 10.86,
+   "face": [
+    0.2362,
+    0.4775,
+    0.3914
+   ]
+  }
+ },
+ "facing_left": {
+  "meng_zhiwei_normal": {
+   "top": 34.62,
+   "height": 90.99,
+   "top_choice": 42.38,
+   "height_choice": 78.83,
+   "dx": 7.03,
+   "face": [
+    0.157,
+    0.379,
+    0.43
+   ]
+  },
+  "meng_zhiwei_serious": {
+   "top": 33.5,
+   "height": 94.6,
+   "top_choice": 41.41,
+   "height_choice": 81.95,
+   "dx": 8.11,
+   "face": [
+    0.163,
+    0.376,
+    0.419
+   ]
+  },
+  "meng_zhiwei_smile": {
+   "top": 35.82,
+   "height": 88.9,
+   "top_choice": 43.42,
+   "height_choice": 77.02,
+   "dx": 6.93,
+   "face": [
+    0.147,
+    0.374,
+    0.431
+   ]
+  },
+  "meng_zhiwei_worry": {
+   "top": 34.51,
+   "height": 92.9,
+   "top_choice": 42.28,
+   "height_choice": 80.48,
+   "dx": 6.3,
+   "face": [
+    0.155,
+    0.372,
+    0.437
+   ]
+  },
+  "mo_songnian_normal": {
+   "top": 28.3,
+   "height": 102.74,
+   "top_choice": 36.9,
+   "height_choice": 89.01,
+   "dx": 3.52,
+   "face": [
+    0.201,
+    0.397,
+    0.465
+   ]
+  },
+  "mo_songnian_serious": {
+   "top": 26.72,
+   "height": 108.87,
+   "top_choice": 35.53,
+   "height_choice": 94.32,
+   "dx": 3.52,
+   "face": [
+    0.204,
+    0.389,
+    0.465
+   ]
+  },
+  "mo_songnian_smile": {
+   "top": 30.01,
+   "height": 100.41,
+   "top_choice": 38.38,
+   "height_choice": 86.99,
+   "dx": 0.39,
+   "face": [
+    0.188,
+    0.389,
+    0.496
+   ]
+  },
+  "mo_songnian_surprise": {
+   "top": 31.12,
+   "height": 101.0,
+   "top_choice": 39.35,
+   "height_choice": 87.5,
+   "dx": 1.3,
+   "face": [
+    0.176,
+    0.376,
+    0.487
+   ]
+  },
+  "pei_fun": {
+   "top": 31.04,
+   "height": 96.87,
+   "top_choice": 39.28,
+   "height_choice": 83.92,
+   "dx": -1.35,
+   "face": [
+    0.197,
+    0.38,
+    0.513
+   ]
+  },
+  "pei_normal": {
+   "top": 29.53,
+   "height": 96.61,
+   "top_choice": 37.97,
+   "height_choice": 83.7,
+   "dx": -3.5,
+   "face": [
+    0.213,
+    0.397,
+    0.535
+   ]
+  },
+  "pei_sad": {
+   "top": 28.03,
+   "height": 99.87,
+   "top_choice": 36.67,
+   "height_choice": 86.52,
+   "dx": -2.64,
+   "face": [
+    0.221,
+    0.399,
+    0.526
+   ]
+  },
+  "pei_serious": {
+   "top": 27.78,
+   "height": 100.89,
+   "top_choice": 36.45,
+   "height_choice": 87.4,
+   "dx": -1.67,
+   "face": [
+    0.221,
+    0.398,
+    0.517
+   ]
+  },
+  "pei_smile": {
+   "top": 29.29,
+   "height": 97.83,
+   "top_choice": 37.76,
+   "height_choice": 84.76,
+   "dx": -2.88,
+   "face": [
+    0.213,
+    0.395,
+    0.529
+   ]
+  },
+  "pei_surprise": {
+   "top": 30.03,
+   "height": 96.87,
+   "top_choice": 38.4,
+   "height_choice": 83.92,
+   "dx": -3.68,
+   "face": [
+    0.207,
+    0.391,
+    0.537
+   ]
+  },
+  "pei_worry": {
+   "top": 28.27,
+   "height": 101.4,
+   "top_choice": 36.88,
+   "height_choice": 87.85,
+   "dx": -3.34,
+   "face": [
+    0.215,
+    0.391,
+    0.533
+   ]
+  },
+  "peishu_fun": {
+   "top": 37.19,
+   "height": 78.55,
+   "top_choice": 44.6,
+   "height_choice": 68.05,
+   "dx": 3.12,
+   "face": [
+    0.149,
+    0.406,
+    0.469
+   ]
+  },
+  "peishu_normal": {
+   "top": 36.79,
+   "height": 77.18,
+   "top_choice": 44.26,
+   "height_choice": 66.87,
+   "dx": 2.64,
+   "face": [
+    0.157,
+    0.419,
+    0.474
+   ]
+  },
+  "peishu_sad": {
+   "top": 34.19,
+   "height": 81.01,
+   "top_choice": 42.0,
+   "height_choice": 70.18,
+   "dx": 2.59,
+   "face": [
+    0.182,
+    0.431,
+    0.474
+   ]
+  },
+  "peishu_serious": {
+   "top": 36.83,
+   "height": 77.57,
+   "top_choice": 44.29,
+   "height_choice": 67.2,
+   "dx": 3.66,
+   "face": [
+    0.156,
+    0.416,
+    0.463
+   ]
+  },
+  "peishu_smile": {
+   "top": 36.27,
+   "height": 78.55,
+   "top_choice": 43.81,
+   "height_choice": 68.05,
+   "dx": 1.51,
+   "face": [
+    0.161,
+    0.418,
+    0.485
+   ]
+  },
+  "peishu_surprise": {
+   "top": 35.97,
+   "height": 77.57,
+   "top_choice": 43.55,
+   "height_choice": 67.2,
+   "dx": 2.34,
+   "face": [
+    0.167,
+    0.427,
+    0.477
+   ]
+  },
+  "peishu_worry": {
+   "top": 35.89,
+   "height": 77.76,
+   "top_choice": 43.48,
+   "height_choice": 67.37,
+   "dx": 2.39,
+   "face": [
+    0.167,
+    0.427,
+    0.476
+   ]
+  },
+  "yin_angry": {
+   "top": 21.47,
+   "height": 107.96,
+   "top_choice": 30.98,
+   "height_choice": 93.53,
+   "dx": 10.25,
+   "face": [
+    0.254,
+    0.441,
+    0.398
+   ]
+  },
+  "yin_fun": {
+   "top": 29.74,
+   "height": 106.2,
+   "top_choice": 38.15,
+   "height_choice": 92.01,
+   "dx": 3.87,
+   "face": [
+    0.18,
+    0.371,
+    0.461
+   ]
+  },
+  "yin_normal": {
+   "top": 30.26,
+   "height": 96.06,
+   "top_choice": 38.6,
+   "height_choice": 83.22,
+   "dx": 7.03,
+   "face": [
+    0.194,
+    0.404,
+    0.43
+   ]
+  },
+  "yin_sad": {
+   "top": 29.74,
+   "height": 85.92,
+   "top_choice": 38.15,
+   "height_choice": 74.44,
+   "dx": 12.85,
+   "face": [
+    0.223,
+    0.458,
+    0.371
+   ]
+  },
+  "yin_serious": {
+   "top": 26.48,
+   "height": 111.48,
+   "top_choice": 35.33,
+   "height_choice": 96.58,
+   "dx": 10.11,
+   "face": [
+    0.201,
+    0.382,
+    0.399
+   ]
+  },
+  "yin_smile": {
+   "top": 26.58,
+   "height": 108.49,
+   "top_choice": 35.41,
+   "height_choice": 93.99,
+   "dx": 10.99,
+   "face": [
+    0.206,
+    0.392,
+    0.39
+   ]
+  },
+  "yin_surprise": {
+   "top": 24.72,
+   "height": 104.72,
+   "top_choice": 33.8,
+   "height_choice": 90.72,
+   "dx": 14.85,
+   "face": [
+    0.231,
+    0.424,
+    0.351
+   ]
+  },
+  "yin_worry": {
+   "top": 26.71,
+   "height": 105.53,
+   "top_choice": 35.52,
+   "height_choice": 91.43,
+   "dx": 11.72,
+   "face": [
+    0.21,
+    0.402,
+    0.383
+   ]
+  },
+  "zhaochuan_courier_normal": {
+   "top": 22.66,
+   "height": 106.62,
+   "top_choice": 32.02,
+   "height_choice": 92.37,
+   "dx": 1.37,
+   "face": [
+    0.246,
+    0.436,
+    0.486
+   ]
+  },
+  "zhaochuan_courier_serious": {
+   "top": 25.01,
+   "height": 103.08,
+   "top_choice": 34.05,
+   "height_choice": 89.3,
+   "dx": 2.78,
+   "face": [
+    0.232,
+    0.428,
+    0.472
+   ]
+  },
+  "zhaochuan_courier_smile": {
+   "top": 27.62,
+   "height": 97.88,
+   "top_choice": 36.31,
+   "height_choice": 84.79,
+   "dx": 4.93,
+   "face": [
+    0.217,
+    0.424,
+    0.451
+   ]
+  },
+  "zhaochuan_courier_surprise": {
+   "top": 26.46,
+   "height": 101.4,
+   "top_choice": 35.31,
+   "height_choice": 87.84,
+   "dx": 4.49,
+   "face": [
+    0.221,
+    0.421,
+    0.455
+   ]
+  },
+  "zhou_angry": {
+   "top": 35.72,
+   "height": 78.75,
+   "top_choice": 43.34,
+   "height_choice": 68.22,
+   "dx": 5.57,
+   "face": [
+    0.167,
+    0.424,
+    0.444
+   ]
+  },
+  "zhou_fun": {
+   "top": 35.46,
+   "height": 77.9,
+   "top_choice": 43.11,
+   "height_choice": 67.49,
+   "dx": 0.93,
+   "face": [
+    0.172,
+    0.432,
+    0.491
+   ]
+  },
+  "zhou_normal": {
+   "top": 36.74,
+   "height": 76.23,
+   "top_choice": 44.22,
+   "height_choice": 66.04,
+   "dx": 3.08,
+   "face": [
+    0.16,
+    0.424,
+    0.469
+   ]
+  },
+  "zhou_sad": {
+   "top": 33.67,
+   "height": 81.09,
+   "top_choice": 41.56,
+   "height_choice": 70.25,
+   "dx": 2.01,
+   "face": [
+    0.188,
+    0.437,
+    0.48
+   ]
+  },
+  "zhou_serious": {
+   "top": 35.3,
+   "height": 79.15,
+   "top_choice": 42.96,
+   "height_choice": 68.57,
+   "dx": 0.98,
+   "face": [
+    0.172,
+    0.427,
+    0.49
+   ]
+  },
+  "zhou_smile": {
+   "top": 36.6,
+   "height": 76.8,
+   "top_choice": 44.09,
+   "height_choice": 66.53,
+   "dx": 4.25,
+   "face": [
+    0.16,
+    0.423,
+    0.458
+   ]
+  },
+  "zhou_surprise": {
+   "top": 37.16,
+   "height": 73.87,
+   "top_choice": 44.58,
+   "height_choice": 64.0,
+   "dx": 2.29,
+   "face": [
+    0.159,
+    0.432,
+    0.477
+   ]
+  },
+  "zhou_worry": {
+   "top": 32.42,
+   "height": 79.35,
+   "top_choice": 40.47,
+   "height_choice": 68.75,
+   "dx": 1.51,
+   "face": [
+    0.208,
+    0.462,
+    0.485
    ]
   }
  }

@@ -15,8 +15,9 @@ function playToGate(route){const s=C.initial();C.join(s);const ids=[];
 test('all-rest route reaches gate with the mandatory queue, no external moves',()=>{
  const {s,ids}=playToGate();assert.equal(s.mode,'journey');assert.equal(C.period(s),20);assert.equal(s.energy,0);
  assert.equal(s.facts['hg.pre.gate_handoff'],true);assert.equal(s.learned.sword,undefined);assert.equal(s.learned.fist,undefined);
- for(const id of ['hg_aftercare','hg_trace_reply','hg_pack_review','hg_farewell','hg_road','hg_gate'])assert.equal(ids.filter(i=>i===id).length,1,id);
- assert.ok(ids.indexOf('gn_depart')<ids.indexOf('gy_m08'));assert.ok(ids.indexOf('gy_m08')<ids.indexOf('hg_farewell'));
+ for(const id of ['hg_aftercare','hg_trace_reply','hg_pack_review','hg_road','hg_gate'])assert.equal(ids.filter(i=>i===id).length,1,id);
+ assert.ok(!ids.includes('hg_farewell')); // 2026-10-21 临行这一顿并入《六十年前的汉皋》
+ assert.ok(ids.indexOf('gy_m08')<ids.indexOf('gn_depart'));assert.ok(ids.indexOf('gn_depart')<ids.indexOf('hg_road')); // 前一晚约定 → 清早送行 → 上路
  C.returnJourney(s);assert.equal(s.month,6);assert.equal(s.phase,0);assert.equal(s.energy,12);
 });
 test('cannot skip an unfinished mandatory scene; sword and fist also leave normally',()=>{
@@ -24,7 +25,8 @@ test('cannot skip an unfinished mandatory scene; sword and fist also leave norma
  for(const route of ['sword','fist'])assert.equal(playToGate(route).s.mode,'journey');
 });
 test('Pei introduction reads completed facts rather than relationship score',()=>{
- for(const [facts,want,forbid]of [[{},'我叫裴知古','风吹书页'],[{gn_lamp_seen:true},'又见面了','后来呢'],[{gn_lamp_seen:true,gn_chests_choice:'own'},'后来呢','我叫裴知古']]){
+ // 2026-10-21 知古进城前线重做：new 互通姓名；known（见过隔溪的灯）；close（看过替人写家书）才提那道堤；旧存档看过两箱残稿按 known。
+ for(const [facts,want,forbid]of [[{},'我叫萧白','这回，我也出谷'],[{gn_lamp_seen:true},'这回，我也出谷','那道堤'],[{gn_lamp_seen:true,gn_letter_seen:true},'那道堤','我叫萧白'],[{gn_lamp_seen:true,gn_chests_choice:'own'},'这回，我也出谷','那道堤']]){
   const s=C.initial();s.facts=facts;s.relations={pei:{score:100}};const c={...PH.extra(s),footwork:false,sword:false,fist:false,opening:{chen_injury:'unknown'},delivery:null};
   const x=V.script('gn_depart',c),text=[...x.intro,...x.choices[0].lines,...x.closing].map(l=>l.text).join('');assert.ok(text.includes(want));assert.ok(!text.includes(forbid));
  }

@@ -252,7 +252,7 @@
         "done"
       ],
       "part": "开始",
-      "meaning": "周婶托的小事“还碗”：none 未接／accepted 已接／done 已交还／closed 过夜时没办完，由周婶收尾",
+      "meaning": "周婶托的小事“还碗”：none 未接／accepted 已接／done 已交还／closed 过夜时没办完，由周婶收尾。2026-10-23 起三件合成一条「替周婶跑一圈」：周婶托付一次把三个键都记成 accepted，三处办完回药棚交差时把布、竹篮记成 done；任务面板与行程提示从三个键推导",
       "setBy": [
         "第一夜-周婶托付",
         "第一夜-还碗",
@@ -287,7 +287,7 @@
         "done"
       ],
       "part": "开始",
-      "meaning": "周婶托的小事“取布”：none 未接／accepted 已接／collected 已取到／done 已交还／closed 过夜时没办完，由周婶收尾",
+      "meaning": "周婶托的小事“取布”：none 未接／accepted 已接／collected 已取到／done 已交还／closed 过夜时没办完，由周婶收尾。2026-10-23 起三件合成一条「替周婶跑一圈」：周婶托付一次把三个键都记成 accepted，三处办完回药棚交差时把布、竹篮记成 done；任务面板与行程提示从三个键推导",
       "setBy": [
         "第一夜-周婶托付",
         "第一夜-取布",
@@ -322,7 +322,7 @@
         "done"
       ],
       "part": "开始",
-      "meaning": "周婶托的小事“送药与还篮”：none 未接／accepted 已接／delivered 药已送到、竹篮未还／done 已交还／closed 过夜时没办完，由周婶收尾",
+      "meaning": "周婶托的小事“送药与还篮”：none 未接／accepted 已接／delivered 药已送到、竹篮未还／done 已交还／closed 过夜时没办完，由周婶收尾。2026-10-23 起三件合成一条「替周婶跑一圈」：周婶托付一次把三个键都记成 accepted，三处办完回药棚交差时把布、竹篮记成 done；任务面板与行程提示从三个键推导",
       "setBy": [
         "第一夜-周婶托付",
         "第一夜-送药",
@@ -340,6 +340,23 @@
         "js/qihe-expansion.js"
       ]
     },
+    "prologue.errandGift": {
+      "type": "bool",
+      "values": [
+        true,
+        false
+      ],
+      "default": false,
+      "part": "开始",
+      "meaning": "「替周婶跑一圈」交差时周婶给谢礼（一盒金创药，复用 ITEMS.pill）；剧本记 true，js/qihe-map-trial.js 见到后发物一次并另记 S.prologue.errandGiftPaid",
+      "setBy": [
+        "第一夜-周婶托付"
+      ],
+      "readBy": [],
+      "legacyRead": [
+        "js/qihe-map-trial.js（aunt() 播完后发金创药，只发一次）"
+      ]
+    },
     "prologue.heard.skill": {
       "type": "bool",
       "values": [
@@ -348,12 +365,13 @@
       ],
       "default": false,
       "part": "开始",
-      "meaning": "第一夜旁听到：陈伯家门厅里周砚打听温家功法（过夜时可以说给叶蘅）",
+      "meaning": "第一夜旁听到：陈伯家门厅里周砚打听温家功法（回药棚交差时周婶问一句；过夜时可以说给叶蘅，三处都说了多一小分支）",
       "setBy": [
         "第一夜-还碗"
       ],
       "readBy": [
-        "第一夜-过夜"
+        "第一夜-过夜",
+        "第一夜-周婶托付"
       ],
       "legacyRead": [
         "js/qihe-map-trial.js（hand_off_first_night 写入交接记录 handoff.heard）",
@@ -368,12 +386,13 @@
       ],
       "default": false,
       "part": "开始",
-      "meaning": "第一夜旁听到：客栈里帮众说叶家肯卖玉匣（过夜时可以说给叶蘅）",
+      "meaning": "第一夜旁听到：客栈里帮众说叶家肯卖玉匣（回药棚交差时周婶问一句；过夜时可以说给叶蘅，三处都说了多一小分支）",
       "setBy": [
         "第一夜-取布"
       ],
       "readBy": [
-        "第一夜-过夜"
+        "第一夜-过夜",
+        "第一夜-周婶托付"
       ],
       "legacyRead": [
         "js/qihe-map-trial.js（hand_off_first_night 写入交接记录 handoff.heard）",
@@ -388,12 +407,13 @@
       ],
       "default": false,
       "part": "开始",
-      "meaning": "第一夜旁听到：村口老人转述采办随从说叶家的药早验过了（过夜时可以说给叶蘅）",
+      "meaning": "第一夜旁听到：村口老人转述采办随从说叶家的药早验过了（回药棚交差时周婶问一句；过夜时可以说给叶蘅，三处都说了多一小分支）",
       "setBy": [
         "第一夜-送药"
       ],
       "readBy": [
-        "第一夜-过夜"
+        "第一夜-过夜",
+        "第一夜-周婶托付"
       ],
       "legacyRead": [
         "js/qihe-map-trial.js（hand_off_first_night 写入交接记录 handoff.heard）",
@@ -418,14 +438,13 @@
         "checked"
       ],
       "part": "开始",
-      "meaning": "风起栖河外来者委托“拜帖”的进度；第一夜追问时若已查证，叶蘅、萧白换成查证后的说法",
+      "meaning": "风起栖河外来者委托“拜帖”的进度（2026-10-23 起第一夜不再读它：三方跑腿第一夜接不到，过夜的三支“查证后”说法已删）",
       "setBy": [],
-      "readBy": [
-        "第一夜-过夜"
-      ],
+      "readBy": [],
       "legacySet": [
         "js/qihe-outsiders.js（外来者委托，第 3 期迁移）"
-      ]
+      ],
+      "recordOnly": true
     },
     "prologue.outsiders.quests.account.stage": {
       "type": "enum",
@@ -442,14 +461,13 @@
         "checked"
       ],
       "part": "开始",
-      "meaning": "风起栖河外来者委托“药罐账”的进度；第一夜追问时若已查证，叶蘅、萧白换成查证后的说法",
+      "meaning": "风起栖河外来者委托“药罐账”的进度（2026-10-23 起第一夜不再读它：三方跑腿第一夜接不到，过夜的三支“查证后”说法已删）",
       "setBy": [],
-      "readBy": [
-        "第一夜-过夜"
-      ],
+      "readBy": [],
       "legacySet": [
         "js/qihe-outsiders.js（外来者委托，第 3 期迁移）"
-      ]
+      ],
+      "recordOnly": true
     },
     "prologue.outsiders.quests.ledger.stage": {
       "type": "enum",
@@ -466,14 +484,13 @@
         "witnessed"
       ],
       "part": "开始",
-      "meaning": "风起栖河外来者委托“药单”的进度；第一夜追问时若已查证，叶蘅、萧白换成查证后的说法",
+      "meaning": "风起栖河外来者委托“药单”的进度（2026-10-23 起第一夜不再读它：三方跑腿第一夜接不到，过夜的三支“查证后”说法已删）",
       "setBy": [],
-      "readBy": [
-        "第一夜-过夜"
-      ],
+      "readBy": [],
       "legacySet": [
         "js/qihe-outsiders.js（外来者委托，第 3 期迁移）"
-      ]
+      ],
+      "recordOnly": true
     }
   }
 }

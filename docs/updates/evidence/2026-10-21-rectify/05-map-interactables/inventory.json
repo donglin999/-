@@ -1,0 +1,3930 @@
+{
+ "night": {
+  "qihe_trial": {
+   "list": [
+    {
+     "id": "chen-door",
+     "name": "陈伯家 · 门厅与独立客房",
+     "sp": null,
+     "x": 1475,
+     "y": 556
+    },
+    {
+     "id": "clinic-door",
+     "name": "药棚 · 周婶",
+     "sp": null,
+     "x": 1934,
+     "y": 1134
+    },
+    {
+     "id": "inn-door",
+     "name": "客栈 · 店家",
+     "sp": null,
+     "x": 520,
+     "y": 1316
+    },
+    {
+     "id": "elder",
+     "name": "村口老人",
+     "sp": "c_qh_oldman",
+     "x": 1376,
+     "y": 1416
+    },
+    {
+     "id": "notice",
+     "name": "村中路牌",
+     "sp": null,
+     "x": 1656,
+     "y": 1459
+    },
+    {
+     "id": "rack",
+     "name": "客栈晒架",
+     "sp": null,
+     "x": 258,
+     "y": 1409
+    },
+    {
+     "id": "herbs",
+     "name": "药棚晒药处",
+     "sp": null,
+     "x": 2059,
+     "y": 1216
+    },
+    {
+     "id": "exit-north",
+     "name": "前往 · 后山采药路",
+     "sp": null,
+     "x": 1063,
+     "y": 102
+    },
+    {
+     "id": "exit-south",
+     "name": "前往 · 南村口 / 客栈外院",
+     "sp": null,
+     "x": 1063,
+     "y": 1508
+    },
+    {
+     "id": "exit-west",
+     "name": "前往 · 西田埂 / 练场",
+     "sp": null,
+     "x": 94,
+     "y": 722
+    },
+    {
+     "id": "exit-east",
+     "name": "前往 · 栖河东埠",
+     "sp": null,
+     "x": 2297,
+     "y": 620
+    },
+    {
+     "id": "resource-central-branch-edge",
+     "name": "枯枝",
+     "sp": null,
+     "x": 890,
+     "y": 210
+    }
+   ],
+   "w": [],
+   "size": [
+    2400,
+    1600
+   ]
+  },
+  "qh_south": {
+   "list": [
+    {
+     "id": "exit-north",
+     "name": "返回 · 栖河村",
+     "sp": null,
+     "x": 680,
+     "y": 60
+    },
+    {
+     "id": "exit-east",
+     "name": "前往 · 沿河装卸路",
+     "sp": null,
+     "x": 1470,
+     "y": 620
+    },
+    {
+     "id": "exit-west",
+     "name": "前往 · 田埂药车道",
+     "sp": null,
+     "x": 60,
+     "y": 610
+    },
+    {
+     "id": "merchant",
+     "name": "药商",
+     "sp": "c_opening_apothecary",
+     "x": 325,
+     "y": 440
+    },
+    {
+     "id": "cloth",
+     "name": "店家",
+     "sp": "c_qh_merchant",
+     "x": 580,
+     "y": 350
+    },
+    {
+     "id": "retainer",
+     "name": "护院",
+     "sp": "c_opening_retainer",
+     "x": 1290,
+     "y": 475
+    },
+    {
+     "id": "bandit",
+     "name": "帮众",
+     "sp": "c_qh_bandit",
+     "x": 820,
+     "y": 740
+    },
+    {
+     "id": "xulingyi",
+     "name": "徐令仪",
+     "sp": "c_qh_xulingyi_story",
+     "x": 1180,
+     "y": 475
+    },
+    {
+     "id": "censhuang",
+     "name": "岑霜",
+     "sp": "c_qh_censhuang_story",
+     "x": 720,
+     "y": 700
+    },
+    {
+     "id": "resource-south-branch-edge",
+     "name": "枯枝",
+     "sp": null,
+     "x": 1150,
+     "y": 795
+    },
+    {
+     "id": "resource-south-reed-bank",
+     "name": "芦苇",
+     "sp": null,
+     "x": 1335,
+     "y": 390
+    }
+   ],
+   "w": [],
+   "size": [
+    1536,
+    1024
+   ]
+  },
+  "qh_east": {
+   "list": [
+    {
+     "id": "exit-west",
+     "name": "返回 · 栖河村",
+     "sp": null,
+     "x": 65,
+     "y": 435
+    },
+    {
+     "id": "exit-south",
+     "name": "返回 · 南村口 · 客栈外院",
+     "sp": null,
+     "x": 275,
+     "y": 965
+    },
+    {
+     "id": "aide",
+     "name": "采办随从",
+     "sp": "c_opening_procurement_aide",
+     "x": 820,
+     "y": 445
+    },
+    {
+     "id": "bailiff",
+     "name": "差役",
+     "sp": "c_opening_bailiff",
+     "x": 500,
+     "y": 745
+    },
+    {
+     "id": "shenyanhui",
+     "name": "沈雁回",
+     "sp": "c_qh_shenyanhui_story",
+     "x": 670,
+     "y": 425
+    },
+    {
+     "id": "resource-east-reed-lower",
+     "name": "芦苇",
+     "sp": null,
+     "x": 1210,
+     "y": 735
+    },
+    {
+     "id": "resource-east-reed-upper",
+     "name": "芦苇",
+     "sp": null,
+     "x": 1205,
+     "y": 465
+    },
+    {
+     "id": "resource-east-herb-meadow",
+     "name": "野草药",
+     "sp": null,
+     "x": 1000,
+     "y": 810
+    }
+   ],
+   "w": [],
+   "size": [
+    1536,
+    1024
+   ]
+  },
+  "qh_west": {
+   "list": [
+    {
+     "id": "exit-east",
+     "name": "返回 · 栖河村",
+     "sp": null,
+     "x": 1460,
+     "y": 510
+    },
+    {
+     "id": "exit-south",
+     "name": "返回 · 南村口 · 客栈外院",
+     "sp": null,
+     "x": 1260,
+     "y": 960
+    },
+    {
+     "id": "luheng",
+     "name": "陆衡",
+     "sp": "c_opening_luheng",
+     "x": 770,
+     "y": 435
+    },
+    {
+     "id": "training",
+     "name": "练场 · 护路棍法",
+     "sp": null,
+     "x": 880,
+     "y": 510
+    },
+    {
+     "id": "cart",
+     "name": "药车停靠处",
+     "sp": null,
+     "x": 1160,
+     "y": 350
+    },
+    {
+     "id": "refuge-road",
+     "name": "西行邻村道路",
+     "sp": null,
+     "x": 65,
+     "y": 560
+    },
+    {
+     "id": "resource-west-herb-margin",
+     "name": "野草药",
+     "sp": null,
+     "x": 610,
+     "y": 590
+    },
+    {
+     "id": "resource-west-branch-edge",
+     "name": "枯枝",
+     "sp": null,
+     "x": 640,
+     "y": 170
+    },
+    {
+     "id": "resource-west-reed-bank",
+     "name": "芦苇",
+     "sp": null,
+     "x": 200,
+     "y": 405
+    }
+   ],
+   "w": [],
+   "size": [
+    1536,
+    1024
+   ]
+  },
+  "qh_north": {
+   "list": [
+    {
+     "id": "exit-south",
+     "name": "返回 · 栖河村",
+     "sp": null,
+     "x": 790,
+     "y": 965
+    },
+    {
+     "id": "tracks",
+     "name": "山道痕迹",
+     "sp": null,
+     "x": 680,
+     "y": 820
+    },
+    {
+     "id": "resource-north-branch-log",
+     "name": "枯枝",
+     "sp": null,
+     "x": 620,
+     "y": 330
+    },
+    {
+     "id": "resource-north-herb-rock",
+     "name": "野草药",
+     "sp": null,
+     "x": 1060,
+     "y": 485
+    },
+    {
+     "id": "resource-north-herb-shade",
+     "name": "野草药",
+     "sp": null,
+     "x": 415,
+     "y": 695
+    },
+    {
+     "id": "resource-north-branch-trail",
+     "name": "枯枝",
+     "sp": null,
+     "x": 905,
+     "y": 825
+    }
+   ],
+   "w": [],
+   "size": [
+    1536,
+    1024
+   ]
+  },
+  "qh_refuge": {
+   "list": [
+    {
+     "id": "exit-east",
+     "name": "田埂接应路",
+     "sp": null,
+     "x": 1450,
+     "y": 535
+    },
+    {
+     "id": "exit-north",
+     "name": "上山道路",
+     "sp": null,
+     "x": 750,
+     "y": 60
+    },
+    {
+     "id": "exit-south",
+     "name": "村后接应小径",
+     "sp": null,
+     "x": 750,
+     "y": 960
+    },
+    {
+     "id": "resource-refuge-branch-edge",
+     "name": "枯枝",
+     "sp": null,
+     "x": 1280,
+     "y": 760
+    }
+   ],
+   "w": [],
+   "size": [
+    1536,
+    1024
+   ]
+  },
+  "qh_mountain": {
+   "list": [
+    {
+     "id": "xiao-room",
+     "name": "萧白的客房",
+     "sp": null,
+     "x": 300,
+     "y": 440
+    },
+    {
+     "id": "ye-room",
+     "name": "叶蘅的客房",
+     "sp": null,
+     "x": 1190,
+     "y": 440
+    },
+    {
+     "id": "kitchen",
+     "name": "厨房门前",
+     "sp": null,
+     "x": 745,
+     "y": 330
+    },
+    {
+     "id": "meal",
+     "name": "客院饭桌",
+     "sp": null,
+     "x": 470,
+     "y": 750
+    },
+    {
+     "id": "practice",
+     "name": "院内练场",
+     "sp": null,
+     "x": 680,
+     "y": 525
+    },
+    {
+     "id": "exit-south",
+     "name": "下山道路",
+     "sp": null,
+     "x": 735,
+     "y": 965
+    },
+    {
+     "id": "resource-mountain-branch-edge",
+     "name": "枯枝",
+     "sp": null,
+     "x": 590,
+     "y": 780
+    },
+    {
+     "id": "resource-mountain-herb-edge",
+     "name": "野草药",
+     "sp": null,
+     "x": 1280,
+     "y": 510
+    }
+   ],
+   "w": [],
+   "size": [
+    1536,
+    1024
+   ]
+  },
+  "prologue_inn_interior": {
+   "list": [
+    {
+     "id": "inn_interior-out",
+     "name": "客栈前门 · 回村",
+     "sp": null,
+     "x": 605,
+     "y": 659
+    },
+    {
+     "id": "innkeeper",
+     "name": "柜台留字",
+     "sp": null,
+     "x": 734,
+     "y": 405
+    }
+   ],
+   "w": [],
+   "size": [
+    1200,
+    800
+   ]
+  },
+  "prologue_clinic_interior": {
+   "list": [
+    {
+     "id": "clinic_interior-out",
+     "name": "药棚前门 · 回村",
+     "sp": null,
+     "x": 605,
+     "y": 659
+    },
+    {
+     "id": "aunt",
+     "name": "周婶",
+     "sp": "c_opening_aunt",
+     "x": 756,
+     "y": 443
+    },
+    {
+     "id": "work",
+     "name": "备药案",
+     "sp": null,
+     "x": 859,
+     "y": 488
+    }
+   ],
+   "w": [],
+   "size": [
+    1200,
+    800
+   ]
+  },
+  "prologue_chen_hall": {
+   "list": [
+    {
+     "id": "chen_hall-out",
+     "name": "陈家前门 · 回村",
+     "sp": null,
+     "x": 605,
+     "y": 660
+    },
+    {
+     "id": "chen",
+     "name": "陈伯",
+     "sp": "c_opening_chen",
+     "x": 743,
+     "y": 439
+    },
+    {
+     "id": "guest-door",
+     "name": "东侧内门 · 借宿客房",
+     "sp": null,
+     "x": 975,
+     "y": 508
+    },
+    {
+     "id": "zhouyan",
+     "name": "周砚",
+     "sp": "c_opening_zhouyan",
+     "x": 438,
+     "y": 531
+    }
+   ],
+   "w": [],
+   "size": [
+    1200,
+    800
+   ]
+  },
+  "prologue_ye_house": {
+   "list": [
+    {
+     "id": "ye_house-out",
+     "name": "叶家前门 · 回村",
+     "sp": null,
+     "x": 586,
+     "y": 664
+    },
+    {
+     "id": "ye",
+     "name": "叶蘅",
+     "sp": "c_ye",
+     "x": 805,
+     "y": 543
+    }
+   ],
+   "w": [],
+   "size": [
+    1200,
+    800
+   ]
+  },
+  "prologue_chen_guest": {
+   "list": [
+    {
+     "id": "guest-out",
+     "name": "回陈伯家门厅",
+     "sp": null,
+     "x": 598,
+     "y": 634
+    },
+    {
+     "id": "rest",
+     "name": "借宿榻 · 收拾歇息",
+     "sp": null,
+     "x": 555,
+     "y": 372
+    },
+    {
+     "id": "phone",
+     "name": "自己的现代衣包",
+     "sp": null,
+     "x": 735,
+     "y": 486
+    }
+   ],
+   "w": [],
+   "size": [
+    1200,
+    800
+   ]
+  }
+ },
+ "day1": {
+  "qihe_trial": {
+   "list": [
+    {
+     "id": "chen-door",
+     "name": "陈伯家 · 门厅与独立客房",
+     "sp": null,
+     "x": 1475,
+     "y": 556
+    },
+    {
+     "id": "clinic-door",
+     "name": "药棚 · 周婶",
+     "sp": null,
+     "x": 1934,
+     "y": 1134
+    },
+    {
+     "id": "inn-door",
+     "name": "客栈 · 店家",
+     "sp": null,
+     "x": 520,
+     "y": 1316
+    },
+    {
+     "id": "elder",
+     "name": "村口老人",
+     "sp": "c_qh_oldman",
+     "x": 1376,
+     "y": 1416
+    },
+    {
+     "id": "notice",
+     "name": "村中路牌",
+     "sp": null,
+     "x": 1656,
+     "y": 1459
+    },
+    {
+     "id": "rack",
+     "name": "客栈晒架",
+     "sp": null,
+     "x": 258,
+     "y": 1409
+    },
+    {
+     "id": "herbs",
+     "name": "药棚晒药处",
+     "sp": null,
+     "x": 2059,
+     "y": 1216
+    },
+    {
+     "id": "exit-north",
+     "name": "前往 · 后山采药路",
+     "sp": null,
+     "x": 1063,
+     "y": 102
+    },
+    {
+     "id": "exit-south",
+     "name": "前往 · 南村口 / 客栈外院",
+     "sp": null,
+     "x": 1063,
+     "y": 1508
+    },
+    {
+     "id": "exit-west",
+     "name": "前往 · 西田埂 / 练场",
+     "sp": null,
+     "x": 94,
+     "y": 722
+    },
+    {
+     "id": "exit-east",
+     "name": "前往 · 栖河东埠",
+     "sp": null,
+     "x": 2297,
+     "y": 620
+    },
+    {
+     "id": "resource-central-branch-edge",
+     "name": "枯枝",
+     "sp": null,
+     "x": 890,
+     "y": 210
+    }
+   ],
+   "w": [],
+   "size": [
+    2400,
+    1600
+   ]
+  },
+  "qh_south": {
+   "list": [
+    {
+     "id": "exit-north",
+     "name": "返回 · 栖河村",
+     "sp": null,
+     "x": 680,
+     "y": 60
+    },
+    {
+     "id": "exit-east",
+     "name": "前往 · 沿河装卸路",
+     "sp": null,
+     "x": 1470,
+     "y": 620
+    },
+    {
+     "id": "exit-west",
+     "name": "前往 · 田埂药车道",
+     "sp": null,
+     "x": 60,
+     "y": 610
+    },
+    {
+     "id": "merchant",
+     "name": "药商",
+     "sp": "c_opening_apothecary",
+     "x": 325,
+     "y": 440
+    },
+    {
+     "id": "cloth",
+     "name": "店家",
+     "sp": "c_qh_merchant",
+     "x": 580,
+     "y": 350
+    },
+    {
+     "id": "retainer",
+     "name": "护院",
+     "sp": "c_opening_retainer",
+     "x": 1290,
+     "y": 475
+    },
+    {
+     "id": "bandit",
+     "name": "帮众",
+     "sp": "c_qh_bandit",
+     "x": 820,
+     "y": 740
+    },
+    {
+     "id": "xulingyi",
+     "name": "徐令仪",
+     "sp": "c_qh_xulingyi_story",
+     "x": 1180,
+     "y": 475
+    },
+    {
+     "id": "censhuang",
+     "name": "岑霜",
+     "sp": "c_qh_censhuang_story",
+     "x": 720,
+     "y": 700
+    },
+    {
+     "id": "resource-south-branch-edge",
+     "name": "枯枝",
+     "sp": null,
+     "x": 1150,
+     "y": 795
+    },
+    {
+     "id": "resource-south-reed-bank",
+     "name": "芦苇",
+     "sp": null,
+     "x": 1335,
+     "y": 390
+    }
+   ],
+   "w": [],
+   "size": [
+    1536,
+    1024
+   ]
+  },
+  "qh_east": {
+   "list": [
+    {
+     "id": "exit-west",
+     "name": "返回 · 栖河村",
+     "sp": null,
+     "x": 65,
+     "y": 435
+    },
+    {
+     "id": "exit-south",
+     "name": "返回 · 南村口 · 客栈外院",
+     "sp": null,
+     "x": 275,
+     "y": 965
+    },
+    {
+     "id": "aide",
+     "name": "采办随从",
+     "sp": "c_opening_procurement_aide",
+     "x": 820,
+     "y": 445
+    },
+    {
+     "id": "bailiff",
+     "name": "差役",
+     "sp": "c_opening_bailiff",
+     "x": 500,
+     "y": 745
+    },
+    {
+     "id": "shenyanhui",
+     "name": "沈雁回",
+     "sp": "c_qh_shenyanhui_story",
+     "x": 670,
+     "y": 425
+    },
+    {
+     "id": "resource-east-reed-lower",
+     "name": "芦苇",
+     "sp": null,
+     "x": 1210,
+     "y": 735
+    },
+    {
+     "id": "resource-east-reed-upper",
+     "name": "芦苇",
+     "sp": null,
+     "x": 1205,
+     "y": 465
+    },
+    {
+     "id": "resource-east-herb-meadow",
+     "name": "野草药",
+     "sp": null,
+     "x": 1000,
+     "y": 810
+    }
+   ],
+   "w": [],
+   "size": [
+    1536,
+    1024
+   ]
+  },
+  "qh_west": {
+   "list": [
+    {
+     "id": "exit-east",
+     "name": "返回 · 栖河村",
+     "sp": null,
+     "x": 1460,
+     "y": 510
+    },
+    {
+     "id": "exit-south",
+     "name": "返回 · 南村口 · 客栈外院",
+     "sp": null,
+     "x": 1260,
+     "y": 960
+    },
+    {
+     "id": "luheng",
+     "name": "陆衡",
+     "sp": "c_opening_luheng",
+     "x": 770,
+     "y": 435
+    },
+    {
+     "id": "training",
+     "name": "练场 · 护路棍法",
+     "sp": null,
+     "x": 880,
+     "y": 510
+    },
+    {
+     "id": "cart",
+     "name": "药车停靠处",
+     "sp": null,
+     "x": 1160,
+     "y": 350
+    },
+    {
+     "id": "refuge-road",
+     "name": "西行邻村道路",
+     "sp": null,
+     "x": 65,
+     "y": 560
+    },
+    {
+     "id": "resource-west-herb-margin",
+     "name": "野草药",
+     "sp": null,
+     "x": 610,
+     "y": 590
+    },
+    {
+     "id": "resource-west-branch-edge",
+     "name": "枯枝",
+     "sp": null,
+     "x": 640,
+     "y": 170
+    },
+    {
+     "id": "resource-west-reed-bank",
+     "name": "芦苇",
+     "sp": null,
+     "x": 200,
+     "y": 405
+    }
+   ],
+   "w": [],
+   "size": [
+    1536,
+    1024
+   ]
+  },
+  "qh_north": {
+   "list": [
+    {
+     "id": "exit-south",
+     "name": "返回 · 栖河村",
+     "sp": null,
+     "x": 790,
+     "y": 965
+    },
+    {
+     "id": "stranger",
+     "name": "宋先生",
+     "sp": "c_qh_song_seated",
+     "x": 870,
+     "y": 300
+    },
+    {
+     "id": "stranger-basket",
+     "name": "周婶的竹匾",
+     "sp": null,
+     "x": 950,
+     "y": 305
+    },
+    {
+     "id": "tracks",
+     "name": "山道痕迹",
+     "sp": null,
+     "x": 680,
+     "y": 820
+    },
+    {
+     "id": "resource-north-branch-log",
+     "name": "枯枝",
+     "sp": null,
+     "x": 620,
+     "y": 330
+    },
+    {
+     "id": "resource-north-herb-rock",
+     "name": "野草药",
+     "sp": null,
+     "x": 1060,
+     "y": 485
+    },
+    {
+     "id": "resource-north-herb-shade",
+     "name": "野草药",
+     "sp": null,
+     "x": 415,
+     "y": 695
+    },
+    {
+     "id": "resource-north-branch-trail",
+     "name": "枯枝",
+     "sp": null,
+     "x": 905,
+     "y": 825
+    }
+   ],
+   "w": [],
+   "size": [
+    1536,
+    1024
+   ]
+  },
+  "qh_refuge": {
+   "list": [
+    {
+     "id": "exit-east",
+     "name": "田埂接应路",
+     "sp": null,
+     "x": 1450,
+     "y": 535
+    },
+    {
+     "id": "exit-north",
+     "name": "上山道路",
+     "sp": null,
+     "x": 750,
+     "y": 60
+    },
+    {
+     "id": "exit-south",
+     "name": "村后接应小径",
+     "sp": null,
+     "x": 750,
+     "y": 960
+    },
+    {
+     "id": "resource-refuge-branch-edge",
+     "name": "枯枝",
+     "sp": null,
+     "x": 1280,
+     "y": 760
+    }
+   ],
+   "w": [],
+   "size": [
+    1536,
+    1024
+   ]
+  },
+  "qh_mountain": {
+   "list": [
+    {
+     "id": "xiao-room",
+     "name": "萧白的客房",
+     "sp": null,
+     "x": 300,
+     "y": 440
+    },
+    {
+     "id": "ye-room",
+     "name": "叶蘅的客房",
+     "sp": null,
+     "x": 1190,
+     "y": 440
+    },
+    {
+     "id": "kitchen",
+     "name": "厨房门前",
+     "sp": null,
+     "x": 745,
+     "y": 330
+    },
+    {
+     "id": "meal",
+     "name": "客院饭桌",
+     "sp": null,
+     "x": 470,
+     "y": 750
+    },
+    {
+     "id": "practice",
+     "name": "院内练场",
+     "sp": null,
+     "x": 680,
+     "y": 525
+    },
+    {
+     "id": "exit-south",
+     "name": "下山道路",
+     "sp": null,
+     "x": 735,
+     "y": 965
+    },
+    {
+     "id": "resource-mountain-branch-edge",
+     "name": "枯枝",
+     "sp": null,
+     "x": 590,
+     "y": 780
+    },
+    {
+     "id": "resource-mountain-herb-edge",
+     "name": "野草药",
+     "sp": null,
+     "x": 1280,
+     "y": 510
+    }
+   ],
+   "w": [],
+   "size": [
+    1536,
+    1024
+   ]
+  },
+  "prologue_inn_interior": {
+   "list": [
+    {
+     "id": "inn_interior-out",
+     "name": "客栈前门 · 回村",
+     "sp": null,
+     "x": 605,
+     "y": 659
+    },
+    {
+     "id": "innkeeper",
+     "name": "柜台留字",
+     "sp": null,
+     "x": 734,
+     "y": 405
+    }
+   ],
+   "w": [],
+   "size": [
+    1200,
+    800
+   ]
+  },
+  "prologue_clinic_interior": {
+   "list": [
+    {
+     "id": "clinic_interior-out",
+     "name": "药棚前门 · 回村",
+     "sp": null,
+     "x": 605,
+     "y": 659
+    },
+    {
+     "id": "aunt",
+     "name": "周婶",
+     "sp": "c_opening_aunt",
+     "x": 756,
+     "y": 443
+    },
+    {
+     "id": "work",
+     "name": "备药案",
+     "sp": null,
+     "x": 859,
+     "y": 488
+    },
+    {
+     "id": "daily-ye",
+     "name": "叶蘅",
+     "sp": "c_ye",
+     "x": 600,
+     "y": 650
+    }
+   ],
+   "w": [],
+   "size": [
+    1200,
+    800
+   ]
+  },
+  "prologue_chen_hall": {
+   "list": [
+    {
+     "id": "chen_hall-out",
+     "name": "陈家前门 · 回村",
+     "sp": null,
+     "x": 605,
+     "y": 660
+    },
+    {
+     "id": "chen",
+     "name": "陈伯",
+     "sp": "c_opening_chen",
+     "x": 743,
+     "y": 439
+    },
+    {
+     "id": "guest-door",
+     "name": "东侧内门 · 借宿客房",
+     "sp": null,
+     "x": 975,
+     "y": 508
+    },
+    {
+     "id": "zhouyan",
+     "name": "周砚",
+     "sp": "c_opening_zhouyan",
+     "x": 438,
+     "y": 531
+    }
+   ],
+   "w": [],
+   "size": [
+    1200,
+    800
+   ]
+  },
+  "prologue_ye_house": {
+   "list": [
+    {
+     "id": "ye_house-out",
+     "name": "叶家前门 · 回村",
+     "sp": null,
+     "x": 586,
+     "y": 664
+    }
+   ],
+   "w": [],
+   "size": [
+    1200,
+    800
+   ]
+  },
+  "prologue_chen_guest": {
+   "list": [
+    {
+     "id": "guest-out",
+     "name": "回陈伯家门厅",
+     "sp": null,
+     "x": 598,
+     "y": 634
+    },
+    {
+     "id": "rest",
+     "name": "借宿榻 · 收拾歇息",
+     "sp": null,
+     "x": 555,
+     "y": 372
+    },
+    {
+     "id": "phone",
+     "name": "自己的现代衣包",
+     "sp": null,
+     "x": 735,
+     "y": 486
+    }
+   ],
+   "w": [],
+   "size": [
+    1200,
+    800
+   ]
+  }
+ },
+ "day2": {
+  "qihe_trial": {
+   "list": [
+    {
+     "id": "chen-door",
+     "name": "陈伯家 · 门厅与独立客房",
+     "sp": null,
+     "x": 1475,
+     "y": 556
+    },
+    {
+     "id": "clinic-door",
+     "name": "药棚 · 周婶",
+     "sp": null,
+     "x": 1934,
+     "y": 1134
+    },
+    {
+     "id": "inn-door",
+     "name": "客栈 · 店家",
+     "sp": null,
+     "x": 520,
+     "y": 1316
+    },
+    {
+     "id": "elder",
+     "name": "村口老人",
+     "sp": "c_qh_oldman",
+     "x": 1376,
+     "y": 1416
+    },
+    {
+     "id": "notice",
+     "name": "村中路牌",
+     "sp": null,
+     "x": 1656,
+     "y": 1459
+    },
+    {
+     "id": "rack",
+     "name": "客栈晒架",
+     "sp": null,
+     "x": 258,
+     "y": 1409
+    },
+    {
+     "id": "herbs",
+     "name": "药棚晒药处",
+     "sp": null,
+     "x": 2059,
+     "y": 1216
+    },
+    {
+     "id": "exit-north",
+     "name": "前往 · 后山采药路",
+     "sp": null,
+     "x": 1063,
+     "y": 102
+    },
+    {
+     "id": "exit-south",
+     "name": "前往 · 南村口 / 客栈外院",
+     "sp": null,
+     "x": 1063,
+     "y": 1508
+    },
+    {
+     "id": "exit-west",
+     "name": "前往 · 西田埂 / 练场",
+     "sp": null,
+     "x": 94,
+     "y": 722
+    },
+    {
+     "id": "exit-east",
+     "name": "前往 · 栖河东埠",
+     "sp": null,
+     "x": 2297,
+     "y": 620
+    },
+    {
+     "id": "resource-central-branch-edge",
+     "name": "枯枝",
+     "sp": null,
+     "x": 890,
+     "y": 210
+    }
+   ],
+   "w": [],
+   "size": [
+    2400,
+    1600
+   ]
+  },
+  "qh_south": {
+   "list": [
+    {
+     "id": "exit-north",
+     "name": "返回 · 栖河村",
+     "sp": null,
+     "x": 680,
+     "y": 60
+    },
+    {
+     "id": "exit-east",
+     "name": "前往 · 沿河装卸路",
+     "sp": null,
+     "x": 1470,
+     "y": 620
+    },
+    {
+     "id": "exit-west",
+     "name": "前往 · 田埂药车道",
+     "sp": null,
+     "x": 60,
+     "y": 610
+    },
+    {
+     "id": "merchant",
+     "name": "药商",
+     "sp": "c_opening_apothecary",
+     "x": 325,
+     "y": 440
+    },
+    {
+     "id": "cloth",
+     "name": "店家",
+     "sp": "c_qh_merchant",
+     "x": 580,
+     "y": 350
+    },
+    {
+     "id": "retainer",
+     "name": "护院",
+     "sp": "c_opening_retainer",
+     "x": 1290,
+     "y": 475
+    },
+    {
+     "id": "bandit",
+     "name": "帮众",
+     "sp": "c_qh_bandit",
+     "x": 820,
+     "y": 740
+    },
+    {
+     "id": "xulingyi",
+     "name": "徐令仪",
+     "sp": "c_qh_xulingyi_story",
+     "x": 1180,
+     "y": 475
+    },
+    {
+     "id": "censhuang",
+     "name": "岑霜",
+     "sp": "c_qh_censhuang_story",
+     "x": 720,
+     "y": 700
+    },
+    {
+     "id": "resource-south-branch-edge",
+     "name": "枯枝",
+     "sp": null,
+     "x": 1150,
+     "y": 795
+    },
+    {
+     "id": "resource-south-reed-bank",
+     "name": "芦苇",
+     "sp": null,
+     "x": 1335,
+     "y": 390
+    }
+   ],
+   "w": [],
+   "size": [
+    1536,
+    1024
+   ]
+  },
+  "qh_east": {
+   "list": [
+    {
+     "id": "exit-west",
+     "name": "返回 · 栖河村",
+     "sp": null,
+     "x": 65,
+     "y": 435
+    },
+    {
+     "id": "exit-south",
+     "name": "返回 · 南村口 · 客栈外院",
+     "sp": null,
+     "x": 275,
+     "y": 965
+    },
+    {
+     "id": "aide",
+     "name": "采办随从",
+     "sp": "c_opening_procurement_aide",
+     "x": 820,
+     "y": 445
+    },
+    {
+     "id": "bailiff",
+     "name": "差役",
+     "sp": "c_opening_bailiff",
+     "x": 500,
+     "y": 745
+    },
+    {
+     "id": "shenyanhui",
+     "name": "沈雁回",
+     "sp": "c_qh_shenyanhui_story",
+     "x": 670,
+     "y": 425
+    },
+    {
+     "id": "daily-ye",
+     "name": "叶蘅",
+     "sp": "c_ye",
+     "x": 600,
+     "y": 650
+    },
+    {
+     "id": "resource-east-reed-lower",
+     "name": "芦苇",
+     "sp": null,
+     "x": 1210,
+     "y": 735
+    },
+    {
+     "id": "resource-east-reed-upper",
+     "name": "芦苇",
+     "sp": null,
+     "x": 1205,
+     "y": 465
+    },
+    {
+     "id": "resource-east-herb-meadow",
+     "name": "野草药",
+     "sp": null,
+     "x": 1000,
+     "y": 810
+    }
+   ],
+   "w": [],
+   "size": [
+    1536,
+    1024
+   ]
+  },
+  "qh_west": {
+   "list": [
+    {
+     "id": "exit-east",
+     "name": "返回 · 栖河村",
+     "sp": null,
+     "x": 1460,
+     "y": 510
+    },
+    {
+     "id": "exit-south",
+     "name": "返回 · 南村口 · 客栈外院",
+     "sp": null,
+     "x": 1260,
+     "y": 960
+    },
+    {
+     "id": "luheng",
+     "name": "陆衡",
+     "sp": "c_opening_luheng",
+     "x": 770,
+     "y": 435
+    },
+    {
+     "id": "zhouyan",
+     "name": "周砚",
+     "sp": "c_opening_zhouyan",
+     "x": 1010,
+     "y": 600
+    },
+    {
+     "id": "training",
+     "name": "练场 · 护路棍法",
+     "sp": null,
+     "x": 880,
+     "y": 510
+    },
+    {
+     "id": "cart",
+     "name": "药车停靠处",
+     "sp": null,
+     "x": 1160,
+     "y": 350
+    },
+    {
+     "id": "refuge-road",
+     "name": "西行邻村道路",
+     "sp": null,
+     "x": 65,
+     "y": 560
+    },
+    {
+     "id": "resource-west-herb-margin",
+     "name": "野草药",
+     "sp": null,
+     "x": 610,
+     "y": 590
+    },
+    {
+     "id": "resource-west-branch-edge",
+     "name": "枯枝",
+     "sp": null,
+     "x": 640,
+     "y": 170
+    },
+    {
+     "id": "resource-west-reed-bank",
+     "name": "芦苇",
+     "sp": null,
+     "x": 200,
+     "y": 405
+    }
+   ],
+   "w": [],
+   "size": [
+    1536,
+    1024
+   ]
+  },
+  "qh_north": {
+   "list": [
+    {
+     "id": "exit-south",
+     "name": "返回 · 栖河村",
+     "sp": null,
+     "x": 790,
+     "y": 965
+    },
+    {
+     "id": "tracks",
+     "name": "山道痕迹",
+     "sp": null,
+     "x": 680,
+     "y": 820
+    },
+    {
+     "id": "resource-north-branch-log",
+     "name": "枯枝",
+     "sp": null,
+     "x": 620,
+     "y": 330
+    },
+    {
+     "id": "resource-north-herb-rock",
+     "name": "野草药",
+     "sp": null,
+     "x": 1060,
+     "y": 485
+    },
+    {
+     "id": "resource-north-herb-shade",
+     "name": "野草药",
+     "sp": null,
+     "x": 415,
+     "y": 695
+    },
+    {
+     "id": "resource-north-branch-trail",
+     "name": "枯枝",
+     "sp": null,
+     "x": 905,
+     "y": 825
+    }
+   ],
+   "w": [],
+   "size": [
+    1536,
+    1024
+   ]
+  },
+  "qh_refuge": {
+   "list": [
+    {
+     "id": "exit-east",
+     "name": "田埂接应路",
+     "sp": null,
+     "x": 1450,
+     "y": 535
+    },
+    {
+     "id": "exit-north",
+     "name": "上山道路",
+     "sp": null,
+     "x": 750,
+     "y": 60
+    },
+    {
+     "id": "exit-south",
+     "name": "村后接应小径",
+     "sp": null,
+     "x": 750,
+     "y": 960
+    },
+    {
+     "id": "resource-refuge-branch-edge",
+     "name": "枯枝",
+     "sp": null,
+     "x": 1280,
+     "y": 760
+    }
+   ],
+   "w": [],
+   "size": [
+    1536,
+    1024
+   ]
+  },
+  "qh_mountain": {
+   "list": [
+    {
+     "id": "xiao-room",
+     "name": "萧白的客房",
+     "sp": null,
+     "x": 300,
+     "y": 440
+    },
+    {
+     "id": "ye-room",
+     "name": "叶蘅的客房",
+     "sp": null,
+     "x": 1190,
+     "y": 440
+    },
+    {
+     "id": "kitchen",
+     "name": "厨房门前",
+     "sp": null,
+     "x": 745,
+     "y": 330
+    },
+    {
+     "id": "meal",
+     "name": "客院饭桌",
+     "sp": null,
+     "x": 470,
+     "y": 750
+    },
+    {
+     "id": "practice",
+     "name": "院内练场",
+     "sp": null,
+     "x": 680,
+     "y": 525
+    },
+    {
+     "id": "exit-south",
+     "name": "下山道路",
+     "sp": null,
+     "x": 735,
+     "y": 965
+    },
+    {
+     "id": "resource-mountain-branch-edge",
+     "name": "枯枝",
+     "sp": null,
+     "x": 590,
+     "y": 780
+    },
+    {
+     "id": "resource-mountain-herb-edge",
+     "name": "野草药",
+     "sp": null,
+     "x": 1280,
+     "y": 510
+    }
+   ],
+   "w": [],
+   "size": [
+    1536,
+    1024
+   ]
+  },
+  "prologue_inn_interior": {
+   "list": [
+    {
+     "id": "inn_interior-out",
+     "name": "客栈前门 · 回村",
+     "sp": null,
+     "x": 605,
+     "y": 659
+    },
+    {
+     "id": "innkeeper",
+     "name": "柜台留字",
+     "sp": null,
+     "x": 734,
+     "y": 405
+    }
+   ],
+   "w": [],
+   "size": [
+    1200,
+    800
+   ]
+  },
+  "prologue_clinic_interior": {
+   "list": [
+    {
+     "id": "clinic_interior-out",
+     "name": "药棚前门 · 回村",
+     "sp": null,
+     "x": 605,
+     "y": 659
+    },
+    {
+     "id": "aunt",
+     "name": "周婶",
+     "sp": "c_opening_aunt",
+     "x": 756,
+     "y": 443
+    },
+    {
+     "id": "work",
+     "name": "备药案",
+     "sp": null,
+     "x": 859,
+     "y": 488
+    }
+   ],
+   "w": [],
+   "size": [
+    1200,
+    800
+   ]
+  },
+  "prologue_chen_hall": {
+   "list": [
+    {
+     "id": "chen_hall-out",
+     "name": "陈家前门 · 回村",
+     "sp": null,
+     "x": 605,
+     "y": 660
+    },
+    {
+     "id": "chen",
+     "name": "陈伯",
+     "sp": "c_opening_chen",
+     "x": 743,
+     "y": 439
+    },
+    {
+     "id": "guest-door",
+     "name": "东侧内门 · 借宿客房",
+     "sp": null,
+     "x": 975,
+     "y": 508
+    }
+   ],
+   "w": [],
+   "size": [
+    1200,
+    800
+   ]
+  },
+  "prologue_ye_house": {
+   "list": [
+    {
+     "id": "ye_house-out",
+     "name": "叶家前门 · 回村",
+     "sp": null,
+     "x": 586,
+     "y": 664
+    }
+   ],
+   "w": [],
+   "size": [
+    1200,
+    800
+   ]
+  },
+  "prologue_chen_guest": {
+   "list": [
+    {
+     "id": "guest-out",
+     "name": "回陈伯家门厅",
+     "sp": null,
+     "x": 598,
+     "y": 634
+    },
+    {
+     "id": "rest",
+     "name": "借宿榻 · 收拾歇息",
+     "sp": null,
+     "x": 555,
+     "y": 372
+    },
+    {
+     "id": "phone",
+     "name": "自己的现代衣包",
+     "sp": null,
+     "x": 735,
+     "y": 486
+    }
+   ],
+   "w": [],
+   "size": [
+    1200,
+    800
+   ]
+  }
+ },
+ "day3am": {
+  "qihe_trial": {
+   "list": [
+    {
+     "id": "ye-door",
+     "name": "叶家 · 应邀帮忙收药箱",
+     "sp": null,
+     "x": 523,
+     "y": 550
+    },
+    {
+     "id": "chen-door",
+     "name": "陈伯家 · 门厅与独立客房",
+     "sp": null,
+     "x": 1475,
+     "y": 556
+    },
+    {
+     "id": "clinic-door",
+     "name": "药棚 · 周婶",
+     "sp": null,
+     "x": 1934,
+     "y": 1134
+    },
+    {
+     "id": "inn-door",
+     "name": "客栈 · 店家",
+     "sp": null,
+     "x": 520,
+     "y": 1316
+    },
+    {
+     "id": "elder",
+     "name": "村口老人",
+     "sp": "c_qh_oldman",
+     "x": 1376,
+     "y": 1416
+    },
+    {
+     "id": "notice",
+     "name": "村中路牌",
+     "sp": null,
+     "x": 1656,
+     "y": 1459
+    },
+    {
+     "id": "rack",
+     "name": "客栈晒架",
+     "sp": null,
+     "x": 258,
+     "y": 1409
+    },
+    {
+     "id": "herbs",
+     "name": "药棚晒药处",
+     "sp": null,
+     "x": 2059,
+     "y": 1216
+    },
+    {
+     "id": "exit-north",
+     "name": "前往 · 后山采药路",
+     "sp": null,
+     "x": 1063,
+     "y": 102
+    },
+    {
+     "id": "exit-south",
+     "name": "前往 · 南村口 / 客栈外院",
+     "sp": null,
+     "x": 1063,
+     "y": 1508
+    },
+    {
+     "id": "exit-west",
+     "name": "前往 · 西田埂 / 练场",
+     "sp": null,
+     "x": 94,
+     "y": 722
+    },
+    {
+     "id": "exit-east",
+     "name": "前往 · 栖河东埠",
+     "sp": null,
+     "x": 2297,
+     "y": 620
+    },
+    {
+     "id": "resource-central-branch-edge",
+     "name": "枯枝",
+     "sp": null,
+     "x": 890,
+     "y": 210
+    }
+   ],
+   "w": [],
+   "size": [
+    2400,
+    1600
+   ]
+  },
+  "qh_south": {
+   "list": [
+    {
+     "id": "exit-north",
+     "name": "返回 · 栖河村",
+     "sp": null,
+     "x": 680,
+     "y": 60
+    },
+    {
+     "id": "exit-east",
+     "name": "前往 · 沿河装卸路",
+     "sp": null,
+     "x": 1470,
+     "y": 620
+    },
+    {
+     "id": "exit-west",
+     "name": "前往 · 田埂药车道",
+     "sp": null,
+     "x": 60,
+     "y": 610
+    },
+    {
+     "id": "merchant",
+     "name": "药商",
+     "sp": "c_opening_apothecary",
+     "x": 325,
+     "y": 440
+    },
+    {
+     "id": "cloth",
+     "name": "店家",
+     "sp": "c_qh_merchant",
+     "x": 580,
+     "y": 350
+    },
+    {
+     "id": "retainer",
+     "name": "护院",
+     "sp": "c_opening_retainer",
+     "x": 1290,
+     "y": 475
+    },
+    {
+     "id": "xulingyi",
+     "name": "徐令仪",
+     "sp": "c_qh_xulingyi_story",
+     "x": 1180,
+     "y": 475
+    },
+    {
+     "id": "resource-south-branch-edge",
+     "name": "枯枝",
+     "sp": null,
+     "x": 1150,
+     "y": 795
+    },
+    {
+     "id": "resource-south-reed-bank",
+     "name": "芦苇",
+     "sp": null,
+     "x": 1335,
+     "y": 390
+    }
+   ],
+   "w": [],
+   "size": [
+    1536,
+    1024
+   ]
+  },
+  "qh_east": {
+   "list": [
+    {
+     "id": "exit-west",
+     "name": "返回 · 栖河村",
+     "sp": null,
+     "x": 65,
+     "y": 435
+    },
+    {
+     "id": "exit-south",
+     "name": "返回 · 南村口 · 客栈外院",
+     "sp": null,
+     "x": 275,
+     "y": 965
+    },
+    {
+     "id": "aide",
+     "name": "采办随从",
+     "sp": "c_opening_procurement_aide",
+     "x": 820,
+     "y": 445
+    },
+    {
+     "id": "bailiff",
+     "name": "差役",
+     "sp": "c_opening_bailiff",
+     "x": 500,
+     "y": 745
+    },
+    {
+     "id": "shenyanhui",
+     "name": "沈雁回",
+     "sp": "c_qh_shenyanhui_story",
+     "x": 670,
+     "y": 425
+    },
+    {
+     "id": "censhuang",
+     "name": "岑霜",
+     "sp": "c_qh_censhuang_story",
+     "x": 690,
+     "y": 710
+    },
+    {
+     "id": "resource-east-reed-lower",
+     "name": "芦苇",
+     "sp": null,
+     "x": 1210,
+     "y": 735
+    },
+    {
+     "id": "resource-east-reed-upper",
+     "name": "芦苇",
+     "sp": null,
+     "x": 1205,
+     "y": 465
+    },
+    {
+     "id": "resource-east-herb-meadow",
+     "name": "野草药",
+     "sp": null,
+     "x": 1000,
+     "y": 810
+    }
+   ],
+   "w": [],
+   "size": [
+    1536,
+    1024
+   ]
+  },
+  "qh_west": {
+   "list": [
+    {
+     "id": "exit-east",
+     "name": "返回 · 栖河村",
+     "sp": null,
+     "x": 1460,
+     "y": 510
+    },
+    {
+     "id": "exit-south",
+     "name": "返回 · 南村口 · 客栈外院",
+     "sp": null,
+     "x": 1260,
+     "y": 960
+    },
+    {
+     "id": "zhouyan",
+     "name": "周砚",
+     "sp": "c_opening_zhouyan",
+     "x": 1010,
+     "y": 600
+    },
+    {
+     "id": "training",
+     "name": "练场 · 护路棍法",
+     "sp": null,
+     "x": 880,
+     "y": 510
+    },
+    {
+     "id": "cart",
+     "name": "药车停靠处",
+     "sp": null,
+     "x": 1160,
+     "y": 350
+    },
+    {
+     "id": "refuge-road",
+     "name": "西行邻村道路",
+     "sp": null,
+     "x": 65,
+     "y": 560
+    },
+    {
+     "id": "resource-west-herb-margin",
+     "name": "野草药",
+     "sp": null,
+     "x": 610,
+     "y": 590
+    },
+    {
+     "id": "resource-west-branch-edge",
+     "name": "枯枝",
+     "sp": null,
+     "x": 640,
+     "y": 170
+    },
+    {
+     "id": "resource-west-reed-bank",
+     "name": "芦苇",
+     "sp": null,
+     "x": 200,
+     "y": 405
+    }
+   ],
+   "w": [],
+   "size": [
+    1536,
+    1024
+   ]
+  },
+  "qh_north": {
+   "list": [
+    {
+     "id": "exit-south",
+     "name": "返回 · 栖河村",
+     "sp": null,
+     "x": 790,
+     "y": 965
+    },
+    {
+     "id": "tracks",
+     "name": "山道痕迹",
+     "sp": null,
+     "x": 680,
+     "y": 820
+    },
+    {
+     "id": "resource-north-branch-log",
+     "name": "枯枝",
+     "sp": null,
+     "x": 620,
+     "y": 330
+    },
+    {
+     "id": "resource-north-herb-rock",
+     "name": "野草药",
+     "sp": null,
+     "x": 1060,
+     "y": 485
+    },
+    {
+     "id": "resource-north-herb-shade",
+     "name": "野草药",
+     "sp": null,
+     "x": 415,
+     "y": 695
+    },
+    {
+     "id": "resource-north-branch-trail",
+     "name": "枯枝",
+     "sp": null,
+     "x": 905,
+     "y": 825
+    }
+   ],
+   "w": [],
+   "size": [
+    1536,
+    1024
+   ]
+  },
+  "qh_refuge": {
+   "list": [
+    {
+     "id": "exit-east",
+     "name": "田埂接应路",
+     "sp": null,
+     "x": 1450,
+     "y": 535
+    },
+    {
+     "id": "exit-north",
+     "name": "上山道路",
+     "sp": null,
+     "x": 750,
+     "y": 60
+    },
+    {
+     "id": "exit-south",
+     "name": "村后接应小径",
+     "sp": null,
+     "x": 750,
+     "y": 960
+    },
+    {
+     "id": "resource-refuge-branch-edge",
+     "name": "枯枝",
+     "sp": null,
+     "x": 1280,
+     "y": 760
+    }
+   ],
+   "w": [],
+   "size": [
+    1536,
+    1024
+   ]
+  },
+  "qh_mountain": {
+   "list": [
+    {
+     "id": "xiao-room",
+     "name": "萧白的客房",
+     "sp": null,
+     "x": 300,
+     "y": 440
+    },
+    {
+     "id": "ye-room",
+     "name": "叶蘅的客房",
+     "sp": null,
+     "x": 1190,
+     "y": 440
+    },
+    {
+     "id": "kitchen",
+     "name": "厨房门前",
+     "sp": null,
+     "x": 745,
+     "y": 330
+    },
+    {
+     "id": "meal",
+     "name": "客院饭桌",
+     "sp": null,
+     "x": 470,
+     "y": 750
+    },
+    {
+     "id": "practice",
+     "name": "院内练场",
+     "sp": null,
+     "x": 680,
+     "y": 525
+    },
+    {
+     "id": "exit-south",
+     "name": "下山道路",
+     "sp": null,
+     "x": 735,
+     "y": 965
+    },
+    {
+     "id": "resource-mountain-branch-edge",
+     "name": "枯枝",
+     "sp": null,
+     "x": 590,
+     "y": 780
+    },
+    {
+     "id": "resource-mountain-herb-edge",
+     "name": "野草药",
+     "sp": null,
+     "x": 1280,
+     "y": 510
+    }
+   ],
+   "w": [],
+   "size": [
+    1536,
+    1024
+   ]
+  },
+  "prologue_inn_interior": {
+   "list": [
+    {
+     "id": "inn_interior-out",
+     "name": "客栈前门 · 回村",
+     "sp": null,
+     "x": 605,
+     "y": 659
+    },
+    {
+     "id": "innkeeper",
+     "name": "柜台留字",
+     "sp": null,
+     "x": 734,
+     "y": 405
+    }
+   ],
+   "w": [],
+   "size": [
+    1200,
+    800
+   ]
+  },
+  "prologue_clinic_interior": {
+   "list": [
+    {
+     "id": "clinic_interior-out",
+     "name": "药棚前门 · 回村",
+     "sp": null,
+     "x": 605,
+     "y": 659
+    },
+    {
+     "id": "aunt",
+     "name": "周婶",
+     "sp": "c_opening_aunt",
+     "x": 756,
+     "y": 443
+    },
+    {
+     "id": "work",
+     "name": "备药案",
+     "sp": null,
+     "x": 859,
+     "y": 488
+    }
+   ],
+   "w": [],
+   "size": [
+    1200,
+    800
+   ]
+  },
+  "prologue_chen_hall": {
+   "list": [
+    {
+     "id": "chen_hall-out",
+     "name": "陈家前门 · 回村",
+     "sp": null,
+     "x": 605,
+     "y": 660
+    },
+    {
+     "id": "chen",
+     "name": "陈伯",
+     "sp": "c_opening_chen",
+     "x": 743,
+     "y": 439
+    },
+    {
+     "id": "guest-door",
+     "name": "东侧内门 · 借宿客房",
+     "sp": null,
+     "x": 975,
+     "y": 508
+    }
+   ],
+   "w": [],
+   "size": [
+    1200,
+    800
+   ]
+  },
+  "prologue_ye_house": {
+   "list": [
+    {
+     "id": "ye_house-out",
+     "name": "叶家前门 · 回村",
+     "sp": null,
+     "x": 586,
+     "y": 664
+    },
+    {
+     "id": "ye",
+     "name": "叶蘅",
+     "sp": "c_ye",
+     "x": 805,
+     "y": 543
+    }
+   ],
+   "w": [],
+   "size": [
+    1200,
+    800
+   ]
+  },
+  "prologue_chen_guest": {
+   "list": [
+    {
+     "id": "guest-out",
+     "name": "回陈伯家门厅",
+     "sp": null,
+     "x": 598,
+     "y": 634
+    },
+    {
+     "id": "rest",
+     "name": "借宿榻 · 收拾歇息",
+     "sp": null,
+     "x": 555,
+     "y": 372
+    },
+    {
+     "id": "phone",
+     "name": "自己的现代衣包",
+     "sp": null,
+     "x": 735,
+     "y": 486
+    }
+   ],
+   "w": [],
+   "size": [
+    1200,
+    800
+   ]
+  }
+ },
+ "day3pm": {
+  "qihe_trial": {
+   "list": [
+    {
+     "id": "chen-door",
+     "name": "陈伯家 · 门厅与独立客房",
+     "sp": null,
+     "x": 1475,
+     "y": 556
+    },
+    {
+     "id": "clinic-door",
+     "name": "药棚 · 周婶",
+     "sp": null,
+     "x": 1934,
+     "y": 1134
+    },
+    {
+     "id": "inn-door",
+     "name": "客栈 · 店家",
+     "sp": null,
+     "x": 520,
+     "y": 1316
+    },
+    {
+     "id": "elder",
+     "name": "村口老人",
+     "sp": "c_qh_oldman",
+     "x": 1376,
+     "y": 1416
+    },
+    {
+     "id": "notice",
+     "name": "村中路牌",
+     "sp": null,
+     "x": 1656,
+     "y": 1459
+    },
+    {
+     "id": "rack",
+     "name": "客栈晒架",
+     "sp": null,
+     "x": 258,
+     "y": 1409
+    },
+    {
+     "id": "herbs",
+     "name": "药棚晒药处",
+     "sp": null,
+     "x": 2059,
+     "y": 1216
+    },
+    {
+     "id": "exit-north",
+     "name": "前往 · 后山采药路",
+     "sp": null,
+     "x": 1063,
+     "y": 102
+    },
+    {
+     "id": "exit-south",
+     "name": "前往 · 南村口 / 客栈外院",
+     "sp": null,
+     "x": 1063,
+     "y": 1508
+    },
+    {
+     "id": "exit-west",
+     "name": "前往 · 西田埂 / 练场",
+     "sp": null,
+     "x": 94,
+     "y": 722
+    },
+    {
+     "id": "exit-east",
+     "name": "前往 · 栖河东埠",
+     "sp": null,
+     "x": 2297,
+     "y": 620
+    },
+    {
+     "id": "resource-central-branch-edge",
+     "name": "枯枝",
+     "sp": null,
+     "x": 890,
+     "y": 210
+    }
+   ],
+   "w": [],
+   "size": [
+    2400,
+    1600
+   ]
+  },
+  "qh_south": {
+   "list": [
+    {
+     "id": "exit-north",
+     "name": "返回 · 栖河村",
+     "sp": null,
+     "x": 680,
+     "y": 60
+    },
+    {
+     "id": "exit-east",
+     "name": "前往 · 沿河装卸路",
+     "sp": null,
+     "x": 1470,
+     "y": 620
+    },
+    {
+     "id": "exit-west",
+     "name": "前往 · 田埂药车道",
+     "sp": null,
+     "x": 60,
+     "y": 610
+    },
+    {
+     "id": "merchant",
+     "name": "药商",
+     "sp": "c_opening_apothecary",
+     "x": 325,
+     "y": 440
+    },
+    {
+     "id": "cloth",
+     "name": "店家",
+     "sp": "c_qh_merchant",
+     "x": 580,
+     "y": 350
+    },
+    {
+     "id": "retainer",
+     "name": "护院",
+     "sp": "c_opening_retainer",
+     "x": 1290,
+     "y": 475
+    },
+    {
+     "id": "xulingyi",
+     "name": "徐令仪",
+     "sp": "c_qh_xulingyi_story",
+     "x": 1180,
+     "y": 475
+    },
+    {
+     "id": "resource-south-branch-edge",
+     "name": "枯枝",
+     "sp": null,
+     "x": 1150,
+     "y": 795
+    },
+    {
+     "id": "resource-south-reed-bank",
+     "name": "芦苇",
+     "sp": null,
+     "x": 1335,
+     "y": 390
+    }
+   ],
+   "w": [],
+   "size": [
+    1536,
+    1024
+   ]
+  },
+  "qh_east": {
+   "list": [
+    {
+     "id": "exit-west",
+     "name": "返回 · 栖河村",
+     "sp": null,
+     "x": 65,
+     "y": 435
+    },
+    {
+     "id": "exit-south",
+     "name": "返回 · 南村口 · 客栈外院",
+     "sp": null,
+     "x": 275,
+     "y": 965
+    },
+    {
+     "id": "aide",
+     "name": "采办随从",
+     "sp": "c_opening_procurement_aide",
+     "x": 820,
+     "y": 445
+    },
+    {
+     "id": "bailiff",
+     "name": "差役",
+     "sp": "c_opening_bailiff",
+     "x": 500,
+     "y": 745
+    },
+    {
+     "id": "shenyanhui",
+     "name": "沈雁回",
+     "sp": "c_qh_shenyanhui_story",
+     "x": 670,
+     "y": 425
+    },
+    {
+     "id": "censhuang",
+     "name": "岑霜",
+     "sp": "c_qh_censhuang_story",
+     "x": 690,
+     "y": 710
+    },
+    {
+     "id": "resource-east-reed-lower",
+     "name": "芦苇",
+     "sp": null,
+     "x": 1210,
+     "y": 735
+    },
+    {
+     "id": "resource-east-reed-upper",
+     "name": "芦苇",
+     "sp": null,
+     "x": 1205,
+     "y": 465
+    },
+    {
+     "id": "resource-east-herb-meadow",
+     "name": "野草药",
+     "sp": null,
+     "x": 1000,
+     "y": 810
+    }
+   ],
+   "w": [],
+   "size": [
+    1536,
+    1024
+   ]
+  },
+  "qh_west": {
+   "list": [
+    {
+     "id": "exit-east",
+     "name": "返回 · 栖河村",
+     "sp": null,
+     "x": 1460,
+     "y": 510
+    },
+    {
+     "id": "exit-south",
+     "name": "返回 · 南村口 · 客栈外院",
+     "sp": null,
+     "x": 1260,
+     "y": 960
+    },
+    {
+     "id": "luheng",
+     "name": "陆衡",
+     "sp": "c_opening_luheng",
+     "x": 770,
+     "y": 435
+    },
+    {
+     "id": "training",
+     "name": "练场 · 护路棍法",
+     "sp": null,
+     "x": 880,
+     "y": 510
+    },
+    {
+     "id": "cart",
+     "name": "药车停靠处",
+     "sp": null,
+     "x": 1160,
+     "y": 350
+    },
+    {
+     "id": "refuge-road",
+     "name": "西行邻村道路",
+     "sp": null,
+     "x": 65,
+     "y": 560
+    },
+    {
+     "id": "resource-west-herb-margin",
+     "name": "野草药",
+     "sp": null,
+     "x": 610,
+     "y": 590
+    },
+    {
+     "id": "resource-west-branch-edge",
+     "name": "枯枝",
+     "sp": null,
+     "x": 640,
+     "y": 170
+    },
+    {
+     "id": "resource-west-reed-bank",
+     "name": "芦苇",
+     "sp": null,
+     "x": 200,
+     "y": 405
+    }
+   ],
+   "w": [],
+   "size": [
+    1536,
+    1024
+   ]
+  },
+  "qh_north": {
+   "list": [
+    {
+     "id": "exit-south",
+     "name": "返回 · 栖河村",
+     "sp": null,
+     "x": 790,
+     "y": 965
+    },
+    {
+     "id": "tracks",
+     "name": "山道痕迹",
+     "sp": null,
+     "x": 680,
+     "y": 820
+    },
+    {
+     "id": "resource-north-branch-log",
+     "name": "枯枝",
+     "sp": null,
+     "x": 620,
+     "y": 330
+    },
+    {
+     "id": "resource-north-herb-rock",
+     "name": "野草药",
+     "sp": null,
+     "x": 1060,
+     "y": 485
+    },
+    {
+     "id": "resource-north-herb-shade",
+     "name": "野草药",
+     "sp": null,
+     "x": 415,
+     "y": 695
+    },
+    {
+     "id": "resource-north-branch-trail",
+     "name": "枯枝",
+     "sp": null,
+     "x": 905,
+     "y": 825
+    }
+   ],
+   "w": [],
+   "size": [
+    1536,
+    1024
+   ]
+  },
+  "qh_refuge": {
+   "list": [
+    {
+     "id": "exit-east",
+     "name": "田埂接应路",
+     "sp": null,
+     "x": 1450,
+     "y": 535
+    },
+    {
+     "id": "exit-north",
+     "name": "上山道路",
+     "sp": null,
+     "x": 750,
+     "y": 60
+    },
+    {
+     "id": "exit-south",
+     "name": "村后接应小径",
+     "sp": null,
+     "x": 750,
+     "y": 960
+    },
+    {
+     "id": "resource-refuge-branch-edge",
+     "name": "枯枝",
+     "sp": null,
+     "x": 1280,
+     "y": 760
+    }
+   ],
+   "w": [],
+   "size": [
+    1536,
+    1024
+   ]
+  },
+  "qh_mountain": {
+   "list": [
+    {
+     "id": "xiao-room",
+     "name": "萧白的客房",
+     "sp": null,
+     "x": 300,
+     "y": 440
+    },
+    {
+     "id": "ye-room",
+     "name": "叶蘅的客房",
+     "sp": null,
+     "x": 1190,
+     "y": 440
+    },
+    {
+     "id": "kitchen",
+     "name": "厨房门前",
+     "sp": null,
+     "x": 745,
+     "y": 330
+    },
+    {
+     "id": "meal",
+     "name": "客院饭桌",
+     "sp": null,
+     "x": 470,
+     "y": 750
+    },
+    {
+     "id": "practice",
+     "name": "院内练场",
+     "sp": null,
+     "x": 680,
+     "y": 525
+    },
+    {
+     "id": "exit-south",
+     "name": "下山道路",
+     "sp": null,
+     "x": 735,
+     "y": 965
+    },
+    {
+     "id": "resource-mountain-branch-edge",
+     "name": "枯枝",
+     "sp": null,
+     "x": 590,
+     "y": 780
+    },
+    {
+     "id": "resource-mountain-herb-edge",
+     "name": "野草药",
+     "sp": null,
+     "x": 1280,
+     "y": 510
+    }
+   ],
+   "w": [],
+   "size": [
+    1536,
+    1024
+   ]
+  },
+  "prologue_inn_interior": {
+   "list": [
+    {
+     "id": "inn_interior-out",
+     "name": "客栈前门 · 回村",
+     "sp": null,
+     "x": 605,
+     "y": 659
+    },
+    {
+     "id": "innkeeper",
+     "name": "柜台留字",
+     "sp": null,
+     "x": 734,
+     "y": 405
+    }
+   ],
+   "w": [],
+   "size": [
+    1200,
+    800
+   ]
+  },
+  "prologue_clinic_interior": {
+   "list": [
+    {
+     "id": "clinic_interior-out",
+     "name": "药棚前门 · 回村",
+     "sp": null,
+     "x": 605,
+     "y": 659
+    },
+    {
+     "id": "aunt",
+     "name": "周婶",
+     "sp": "c_opening_aunt",
+     "x": 756,
+     "y": 443
+    },
+    {
+     "id": "work",
+     "name": "备药案",
+     "sp": null,
+     "x": 859,
+     "y": 488
+    },
+    {
+     "id": "daily-ye",
+     "name": "叶蘅",
+     "sp": "c_ye",
+     "x": 600,
+     "y": 650
+    }
+   ],
+   "w": [],
+   "size": [
+    1200,
+    800
+   ]
+  },
+  "prologue_chen_hall": {
+   "list": [
+    {
+     "id": "chen_hall-out",
+     "name": "陈家前门 · 回村",
+     "sp": null,
+     "x": 605,
+     "y": 660
+    },
+    {
+     "id": "chen",
+     "name": "陈伯",
+     "sp": "c_opening_chen",
+     "x": 743,
+     "y": 439
+    },
+    {
+     "id": "guest-door",
+     "name": "东侧内门 · 借宿客房",
+     "sp": null,
+     "x": 975,
+     "y": 508
+    },
+    {
+     "id": "zhouyan",
+     "name": "周砚",
+     "sp": "c_opening_zhouyan",
+     "x": 438,
+     "y": 531
+    }
+   ],
+   "w": [],
+   "size": [
+    1200,
+    800
+   ]
+  },
+  "prologue_ye_house": {
+   "list": [
+    {
+     "id": "ye_house-out",
+     "name": "叶家前门 · 回村",
+     "sp": null,
+     "x": 586,
+     "y": 664
+    }
+   ],
+   "w": [],
+   "size": [
+    1200,
+    800
+   ]
+  },
+  "prologue_chen_guest": {
+   "list": [
+    {
+     "id": "guest-out",
+     "name": "回陈伯家门厅",
+     "sp": null,
+     "x": 598,
+     "y": 634
+    },
+    {
+     "id": "rest",
+     "name": "借宿榻 · 收拾歇息",
+     "sp": null,
+     "x": 555,
+     "y": 372
+    },
+    {
+     "id": "phone",
+     "name": "自己的现代衣包",
+     "sp": null,
+     "x": 735,
+     "y": 486
+    }
+   ],
+   "w": [],
+   "size": [
+    1200,
+    800
+   ]
+  }
+ },
+ "refuge": {
+  "qihe_trial": {
+   "list": [
+    {
+     "id": "resource-central-branch-edge",
+     "name": "枯枝",
+     "sp": null,
+     "x": 890,
+     "y": 210
+    }
+   ],
+   "w": [],
+   "size": [
+    2400,
+    1600
+   ]
+  },
+  "qh_south": {
+   "list": [
+    {
+     "id": "exit-north",
+     "name": "返回 · 栖河村",
+     "sp": null,
+     "x": 680,
+     "y": 60
+    },
+    {
+     "id": "exit-east",
+     "name": "前往 · 沿河装卸路",
+     "sp": null,
+     "x": 1470,
+     "y": 620
+    },
+    {
+     "id": "exit-west",
+     "name": "前往 · 田埂药车道",
+     "sp": null,
+     "x": 60,
+     "y": 610
+    },
+    {
+     "id": "resource-south-branch-edge",
+     "name": "枯枝",
+     "sp": null,
+     "x": 1150,
+     "y": 795
+    },
+    {
+     "id": "resource-south-reed-bank",
+     "name": "芦苇",
+     "sp": null,
+     "x": 1335,
+     "y": 390
+    }
+   ],
+   "w": [],
+   "size": [
+    1536,
+    1024
+   ]
+  },
+  "qh_east": {
+   "list": [
+    {
+     "id": "exit-west",
+     "name": "返回 · 栖河村",
+     "sp": null,
+     "x": 65,
+     "y": 435
+    },
+    {
+     "id": "exit-south",
+     "name": "返回 · 南村口 · 客栈外院",
+     "sp": null,
+     "x": 275,
+     "y": 965
+    },
+    {
+     "id": "resource-east-reed-lower",
+     "name": "芦苇",
+     "sp": null,
+     "x": 1210,
+     "y": 735
+    },
+    {
+     "id": "resource-east-reed-upper",
+     "name": "芦苇",
+     "sp": null,
+     "x": 1205,
+     "y": 465
+    },
+    {
+     "id": "resource-east-herb-meadow",
+     "name": "野草药",
+     "sp": null,
+     "x": 1000,
+     "y": 810
+    }
+   ],
+   "w": [],
+   "size": [
+    1536,
+    1024
+   ]
+  },
+  "qh_west": {
+   "list": [
+    {
+     "id": "exit-east",
+     "name": "返回 · 栖河村",
+     "sp": null,
+     "x": 1460,
+     "y": 510
+    },
+    {
+     "id": "exit-south",
+     "name": "返回 · 南村口 · 客栈外院",
+     "sp": null,
+     "x": 1260,
+     "y": 960
+    },
+    {
+     "id": "refuge-road",
+     "name": "西行邻村道路",
+     "sp": null,
+     "x": 65,
+     "y": 560
+    },
+    {
+     "id": "resource-west-herb-margin",
+     "name": "野草药",
+     "sp": null,
+     "x": 610,
+     "y": 590
+    },
+    {
+     "id": "resource-west-branch-edge",
+     "name": "枯枝",
+     "sp": null,
+     "x": 640,
+     "y": 170
+    },
+    {
+     "id": "resource-west-reed-bank",
+     "name": "芦苇",
+     "sp": null,
+     "x": 200,
+     "y": 405
+    }
+   ],
+   "w": [],
+   "size": [
+    1536,
+    1024
+   ]
+  },
+  "qh_north": {
+   "list": [
+    {
+     "id": "exit-south",
+     "name": "返回 · 栖河村",
+     "sp": null,
+     "x": 790,
+     "y": 965
+    },
+    {
+     "id": "tracks",
+     "name": "山道痕迹",
+     "sp": null,
+     "x": 680,
+     "y": 820
+    },
+    {
+     "id": "resource-north-branch-log",
+     "name": "枯枝",
+     "sp": null,
+     "x": 620,
+     "y": 330
+    },
+    {
+     "id": "resource-north-herb-rock",
+     "name": "野草药",
+     "sp": null,
+     "x": 1060,
+     "y": 485
+    },
+    {
+     "id": "resource-north-herb-shade",
+     "name": "野草药",
+     "sp": null,
+     "x": 415,
+     "y": 695
+    },
+    {
+     "id": "resource-north-branch-trail",
+     "name": "枯枝",
+     "sp": null,
+     "x": 905,
+     "y": 825
+    }
+   ],
+   "w": [],
+   "size": [
+    1536,
+    1024
+   ]
+  },
+  "qh_refuge": {
+   "list": [
+    {
+     "id": "aunt",
+     "name": "周婶",
+     "sp": "c_opening_aunt",
+     "x": 405,
+     "y": 480
+    },
+    {
+     "id": "chen",
+     "name": "陈伯",
+     "sp": "c_qh_chen_rest_story",
+     "x": 260,
+     "y": 465
+    },
+    {
+     "id": "zhouyan",
+     "name": "周砚",
+     "sp": "c_opening_zhouyan",
+     "x": 740,
+     "y": 540
+    },
+    {
+     "id": "luheng",
+     "name": "陆衡",
+     "sp": "c_opening_luheng",
+     "x": 705,
+     "y": 750
+    },
+    {
+     "id": "ye",
+     "name": "叶蘅",
+     "sp": "c_ye",
+     "x": 530,
+     "y": 440
+    },
+    {
+     "id": "xulingyi",
+     "name": "徐令仪",
+     "sp": "c_qh_xulingyi_story",
+     "x": 930,
+     "y": 540
+    },
+    {
+     "id": "censhuang",
+     "name": "岑霜",
+     "sp": "c_qh_censhuang_story",
+     "x": 1190,
+     "y": 450
+    },
+    {
+     "id": "shenyanhui",
+     "name": "沈雁回",
+     "sp": "c_qh_shenyanhui_story",
+     "x": 1120,
+     "y": 790
+    },
+    {
+     "id": "evidence",
+     "name": "核对三份来件",
+     "sp": null,
+     "x": 880,
+     "y": 640
+    },
+    {
+     "id": "elder",
+     "name": "村口老人",
+     "sp": "c_qh_oldman",
+     "x": 575,
+     "y": 530
+    },
+    {
+     "id": "exit-east",
+     "name": "田埂接应路",
+     "sp": null,
+     "x": 1450,
+     "y": 535
+    },
+    {
+     "id": "exit-north",
+     "name": "上山道路",
+     "sp": null,
+     "x": 750,
+     "y": 60
+    },
+    {
+     "id": "exit-south",
+     "name": "村后接应小径",
+     "sp": null,
+     "x": 750,
+     "y": 960
+    },
+    {
+     "id": "resource-refuge-branch-edge",
+     "name": "枯枝",
+     "sp": null,
+     "x": 1280,
+     "y": 760
+    }
+   ],
+   "w": [],
+   "size": [
+    1536,
+    1024
+   ]
+  },
+  "qh_mountain": {
+   "list": [
+    {
+     "id": "xiao-room",
+     "name": "萧白的客房",
+     "sp": null,
+     "x": 300,
+     "y": 440
+    },
+    {
+     "id": "ye-room",
+     "name": "叶蘅的客房",
+     "sp": null,
+     "x": 1190,
+     "y": 440
+    },
+    {
+     "id": "kitchen",
+     "name": "厨房门前",
+     "sp": null,
+     "x": 745,
+     "y": 330
+    },
+    {
+     "id": "meal",
+     "name": "客院饭桌",
+     "sp": null,
+     "x": 470,
+     "y": 750
+    },
+    {
+     "id": "practice",
+     "name": "院内练场",
+     "sp": null,
+     "x": 680,
+     "y": 525
+    },
+    {
+     "id": "exit-south",
+     "name": "下山道路",
+     "sp": null,
+     "x": 735,
+     "y": 965
+    },
+    {
+     "id": "resource-mountain-branch-edge",
+     "name": "枯枝",
+     "sp": null,
+     "x": 590,
+     "y": 780
+    },
+    {
+     "id": "resource-mountain-herb-edge",
+     "name": "野草药",
+     "sp": null,
+     "x": 1280,
+     "y": 510
+    }
+   ],
+   "w": [],
+   "size": [
+    1536,
+    1024
+   ]
+  },
+  "prologue_inn_interior": {
+   "list": [
+    {
+     "id": "inn_interior-out",
+     "name": "客栈前门 · 回村",
+     "sp": null,
+     "x": 605,
+     "y": 659
+    },
+    {
+     "id": "innkeeper",
+     "name": "柜台留字",
+     "sp": null,
+     "x": 734,
+     "y": 405
+    }
+   ],
+   "w": [],
+   "size": [
+    1200,
+    800
+   ]
+  },
+  "prologue_clinic_interior": {
+   "list": [],
+   "w": [],
+   "size": [
+    1200,
+    800
+   ]
+  },
+  "prologue_chen_hall": {
+   "list": [],
+   "w": [],
+   "size": [
+    1200,
+    800
+   ]
+  },
+  "prologue_ye_house": {
+   "list": [],
+   "w": [],
+   "size": [
+    1200,
+    800
+   ]
+  },
+  "prologue_chen_guest": {
+   "list": [
+    {
+     "id": "guest-out",
+     "name": "回陈伯家门厅",
+     "sp": null,
+     "x": 598,
+     "y": 634
+    },
+    {
+     "id": "rest",
+     "name": "借宿榻 · 收拾歇息",
+     "sp": null,
+     "x": 555,
+     "y": 372
+    },
+    {
+     "id": "phone",
+     "name": "自己的现代衣包",
+     "sp": null,
+     "x": 735,
+     "y": 486
+    }
+   ],
+   "w": [],
+   "size": [
+    1200,
+    800
+   ]
+  }
+ },
+ "mountain": {
+  "qihe_trial": {
+   "list": [
+    {
+     "id": "resource-central-branch-edge",
+     "name": "枯枝",
+     "sp": null,
+     "x": 890,
+     "y": 210
+    }
+   ],
+   "w": [],
+   "size": [
+    2400,
+    1600
+   ]
+  },
+  "qh_south": {
+   "list": [
+    {
+     "id": "exit-north",
+     "name": "返回 · 栖河村",
+     "sp": null,
+     "x": 680,
+     "y": 60
+    },
+    {
+     "id": "exit-east",
+     "name": "前往 · 沿河装卸路",
+     "sp": null,
+     "x": 1470,
+     "y": 620
+    },
+    {
+     "id": "exit-west",
+     "name": "前往 · 田埂药车道",
+     "sp": null,
+     "x": 60,
+     "y": 610
+    },
+    {
+     "id": "resource-south-branch-edge",
+     "name": "枯枝",
+     "sp": null,
+     "x": 1150,
+     "y": 795
+    },
+    {
+     "id": "resource-south-reed-bank",
+     "name": "芦苇",
+     "sp": null,
+     "x": 1335,
+     "y": 390
+    }
+   ],
+   "w": [],
+   "size": [
+    1536,
+    1024
+   ]
+  },
+  "qh_east": {
+   "list": [
+    {
+     "id": "exit-west",
+     "name": "返回 · 栖河村",
+     "sp": null,
+     "x": 65,
+     "y": 435
+    },
+    {
+     "id": "exit-south",
+     "name": "返回 · 南村口 · 客栈外院",
+     "sp": null,
+     "x": 275,
+     "y": 965
+    },
+    {
+     "id": "resource-east-reed-lower",
+     "name": "芦苇",
+     "sp": null,
+     "x": 1210,
+     "y": 735
+    },
+    {
+     "id": "resource-east-reed-upper",
+     "name": "芦苇",
+     "sp": null,
+     "x": 1205,
+     "y": 465
+    },
+    {
+     "id": "resource-east-herb-meadow",
+     "name": "野草药",
+     "sp": null,
+     "x": 1000,
+     "y": 810
+    }
+   ],
+   "w": [],
+   "size": [
+    1536,
+    1024
+   ]
+  },
+  "qh_west": {
+   "list": [
+    {
+     "id": "exit-east",
+     "name": "返回 · 栖河村",
+     "sp": null,
+     "x": 1460,
+     "y": 510
+    },
+    {
+     "id": "exit-south",
+     "name": "返回 · 南村口 · 客栈外院",
+     "sp": null,
+     "x": 1260,
+     "y": 960
+    },
+    {
+     "id": "refuge-road",
+     "name": "西行邻村道路",
+     "sp": null,
+     "x": 65,
+     "y": 560
+    },
+    {
+     "id": "resource-west-herb-margin",
+     "name": "野草药",
+     "sp": null,
+     "x": 610,
+     "y": 590
+    },
+    {
+     "id": "resource-west-branch-edge",
+     "name": "枯枝",
+     "sp": null,
+     "x": 640,
+     "y": 170
+    },
+    {
+     "id": "resource-west-reed-bank",
+     "name": "芦苇",
+     "sp": null,
+     "x": 200,
+     "y": 405
+    }
+   ],
+   "w": [],
+   "size": [
+    1536,
+    1024
+   ]
+  },
+  "qh_north": {
+   "list": [
+    {
+     "id": "exit-south",
+     "name": "返回 · 栖河村",
+     "sp": null,
+     "x": 790,
+     "y": 965
+    },
+    {
+     "id": "tracks",
+     "name": "山道痕迹",
+     "sp": null,
+     "x": 680,
+     "y": 820
+    },
+    {
+     "id": "resource-north-branch-log",
+     "name": "枯枝",
+     "sp": null,
+     "x": 620,
+     "y": 330
+    },
+    {
+     "id": "resource-north-herb-rock",
+     "name": "野草药",
+     "sp": null,
+     "x": 1060,
+     "y": 485
+    },
+    {
+     "id": "resource-north-herb-shade",
+     "name": "野草药",
+     "sp": null,
+     "x": 415,
+     "y": 695
+    },
+    {
+     "id": "resource-north-branch-trail",
+     "name": "枯枝",
+     "sp": null,
+     "x": 905,
+     "y": 825
+    }
+   ],
+   "w": [],
+   "size": [
+    1536,
+    1024
+   ]
+  },
+  "qh_refuge": {
+   "list": [
+    {
+     "id": "exit-east",
+     "name": "田埂接应路",
+     "sp": null,
+     "x": 1450,
+     "y": 535
+    },
+    {
+     "id": "exit-north",
+     "name": "上山道路",
+     "sp": null,
+     "x": 750,
+     "y": 60
+    },
+    {
+     "id": "exit-south",
+     "name": "村后接应小径",
+     "sp": null,
+     "x": 750,
+     "y": 960
+    },
+    {
+     "id": "resource-refuge-branch-edge",
+     "name": "枯枝",
+     "sp": null,
+     "x": 1280,
+     "y": 760
+    }
+   ],
+   "w": [],
+   "size": [
+    1536,
+    1024
+   ]
+  },
+  "qh_mountain": {
+   "list": [
+    {
+     "id": "zhouyan",
+     "name": "周砚",
+     "sp": "c_opening_zhouyan",
+     "x": 770,
+     "y": 425
+    },
+    {
+     "id": "ye",
+     "name": "叶蘅",
+     "sp": "c_ye",
+     "x": 1100,
+     "y": 485
+    },
+    {
+     "id": "xiao-room",
+     "name": "萧白的客房",
+     "sp": null,
+     "x": 300,
+     "y": 440
+    },
+    {
+     "id": "ye-room",
+     "name": "叶蘅的客房",
+     "sp": null,
+     "x": 1190,
+     "y": 440
+    },
+    {
+     "id": "kitchen",
+     "name": "厨房门前",
+     "sp": null,
+     "x": 745,
+     "y": 330
+    },
+    {
+     "id": "meal",
+     "name": "客院饭桌",
+     "sp": null,
+     "x": 470,
+     "y": 750
+    },
+    {
+     "id": "practice",
+     "name": "院内练场",
+     "sp": null,
+     "x": 680,
+     "y": 525
+    },
+    {
+     "id": "exit-south",
+     "name": "下山道路",
+     "sp": null,
+     "x": 735,
+     "y": 965
+    },
+    {
+     "id": "resource-mountain-branch-edge",
+     "name": "枯枝",
+     "sp": null,
+     "x": 590,
+     "y": 780
+    },
+    {
+     "id": "resource-mountain-herb-edge",
+     "name": "野草药",
+     "sp": null,
+     "x": 1280,
+     "y": 510
+    }
+   ],
+   "w": [],
+   "size": [
+    1536,
+    1024
+   ]
+  },
+  "prologue_inn_interior": {
+   "list": [
+    {
+     "id": "inn_interior-out",
+     "name": "客栈前门 · 回村",
+     "sp": null,
+     "x": 605,
+     "y": 659
+    },
+    {
+     "id": "innkeeper",
+     "name": "柜台留字",
+     "sp": null,
+     "x": 734,
+     "y": 405
+    }
+   ],
+   "w": [],
+   "size": [
+    1200,
+    800
+   ]
+  },
+  "prologue_clinic_interior": {
+   "list": [],
+   "w": [],
+   "size": [
+    1200,
+    800
+   ]
+  },
+  "prologue_chen_hall": {
+   "list": [],
+   "w": [],
+   "size": [
+    1200,
+    800
+   ]
+  },
+  "prologue_ye_house": {
+   "list": [],
+   "w": [],
+   "size": [
+    1200,
+    800
+   ]
+  },
+  "prologue_chen_guest": {
+   "list": [
+    {
+     "id": "guest-out",
+     "name": "回陈伯家门厅",
+     "sp": null,
+     "x": 598,
+     "y": 634
+    },
+    {
+     "id": "rest",
+     "name": "借宿榻 · 收拾歇息",
+     "sp": null,
+     "x": 555,
+     "y": 372
+    },
+    {
+     "id": "phone",
+     "name": "自己的现代衣包",
+     "sp": null,
+     "x": 735,
+     "y": 486
+    }
+   ],
+   "w": [],
+   "size": [
+    1200,
+    800
+   ]
+  }
+ }
+}

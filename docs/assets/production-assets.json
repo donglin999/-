@@ -1534,7 +1534,7 @@
       "original_path": "art_sources/guiyun-inkcloud-cn-20261008/out/household-v1/dou.png",
       "system": "cultivation",
       "role": "registered-or-direct-runtime",
-      "sha256": "e100e9bff11d75c4156c82ddbf61e57c535404c899bdb04e4631f3e9847a166c",
+      "sha256": "2e54b1e4057bb6f43180507d6fcbfb6ff5d554f1ed43baaf6cdd1dea48fec428",
       "actual_size": [
         1024,
         1536
@@ -1555,7 +1555,8 @@
         "js/qh-mode-cultivation-data.js",
         "js/qihe-guiyun-household-art.js"
       ],
-      "cutout_fix": "2026-10-11 fix_actor_cutouts.py：补脸内抠穿的眼白、剥白边"
+      "cutout_fix": "2026-10-11 fix_actor_cutouts.py：补脸内抠穿的眼白、剥白边",
+      "cutout_fix_20261021": "fix_story_cutouts_20261021.py：去白底残留块／补白发小洞，原图在 _attic/2026-10-21-cutout-fix"
     },
     {
       "id": "cu_household-v1_fang_png",
@@ -1563,7 +1564,7 @@
       "original_path": "art_sources/guiyun-inkcloud-cn-20261008/out/household-v1/fang.png",
       "system": "cultivation",
       "role": "registered-or-direct-runtime",
-      "sha256": "9b055508e9f2e06c5110ad8203f09bc0f64af182cd3489d5ac386db75137a263",
+      "sha256": "56c78393fcc821b6a2137a0693e4815cf3911dac2e3a6dc259079dd70f521ec6",
       "actual_size": [
         1024,
         1536
@@ -1581,7 +1582,8 @@
         "js/qh-mode-cultivation-data.js",
         "js/qihe-guiyun-household-art.js"
       ],
-      "cutout_fix": "2026-10-11 fix_actor_cutouts.py：补脸内抠穿的眼白、剥白边"
+      "cutout_fix": "2026-10-11 fix_actor_cutouts.py：补脸内抠穿的眼白、剥白边",
+      "cutout_fix_20261021": "fix_story_cutouts_20261021.py：去白底残留块／补白发小洞，原图在 _attic/2026-10-21-cutout-fix"
     },
     {
       "id": "cu_household-v1_hero_long_png",
@@ -1589,13 +1591,13 @@
       "original_path": "art_sources/guiyun-inkcloud-cn-20261008/out/household-v1/hero_long.png",
       "system": "cultivation",
       "role": "registered-or-direct-runtime",
-      "sha256": "ff1f0e712bbc54efb50760295cf2d8d512c6b4a1d65fc3cd9b608ee7df33c7fd",
+      "sha256": "ae234139846e461bbe7f90bb800a370b6ea5fc970fe88197396b76f0c98aa186",
       "actual_size": [
         1024,
         1536
       ],
       "generation": "codex exec 内置 image_gen（提示词含 gpt-image-2.5 行，实际模型未确认）+ process.py 后处理",
-      "acceptance_status": "adopted-20261008-user-approved-chinese-cut",
+      "acceptance_status": "adopted-20261008-user-approved-chinese-cut; holefix-20261026 原位替换（用户批准例外于 R-素材-01），旧图 art_sources/asset-holes-backup-20261026/household-v1/hero_long.png",
       "source_manifest": "art_sources/guiyun-inkcloud-cn-20261008/manifest.json",
       "references": [
         "js/qh-mode-cultivation-household.js",
@@ -1613,13 +1615,13 @@
       "original_path": "art_sources/guiyun-inkcloud-cn-20261008/out/household-v1/hero_mid.png",
       "system": "cultivation",
       "role": "registered-or-direct-runtime",
-      "sha256": "d2f96d484fffba47c00cbc9e879c504655d8ac99ea07a7d8d06cd36e76236786",
+      "sha256": "4ea00ef18721b16144eaadba9012784b7c36d1b2eaa5126526085dd8c238eb28",
       "actual_size": [
         1024,
         1536
       ],
       "generation": "codex exec 内置 image_gen（提示词含 gpt-image-2.5 行，实际模型未确认）+ process.py 后处理",
-      "acceptance_status": "adopted-20261008-user-approved-chinese-cut",
+      "acceptance_status": "adopted-20261008-user-approved-chinese-cut; holefix-20261026 原位替换（用户批准例外于 R-素材-01），旧图 art_sources/asset-holes-backup-20261026/household-v1/hero_mid.png",
       "source_manifest": "art_sources/guiyun-inkcloud-cn-20261008/manifest.json",
       "references": [
         "js/qh-mode-cultivation-household.js",
@@ -1633,13 +1635,13 @@
       "original_path": "art_sources/guiyun-inkcloud-cn-20261008/out/household-v1/hero_short.png",
       "system": "cultivation",
       "role": "registered-or-direct-runtime",
-      "sha256": "1c6bff2623e711274a66577e2d66c4e35ad38f6d3423da226e4234f7f2b831db",
+      "sha256": "23180bb7507121fe160de8858db6295a89c4eb2a16a879606f2c421184ab70be",
       "actual_size": [
         1024,
         1536
       ],
       "generation": "codex exec 内置 image_gen（提示词含 gpt-image-2.5 行，实际模型未确认）+ process.py 后处理",
-      "acceptance_status": "adopted-20261008-user-approved-chinese-cut",
+      "acceptance_status": "adopted-20261008-user-approved-chinese-cut; holefix-20261026 原位替换（用户批准例外于 R-素材-01），旧图 art_sources/asset-holes-backup-20261026/household-v1/hero_short.png",
       "source_manifest": "art_sources/guiyun-inkcloud-cn-20261008/manifest.json",
       "references": [
         "js/qh-mode-cultivation-household.js",
@@ -1653,7 +1655,7 @@
       "original_path": "art_sources/guiyun-inkcloud-cn-20261008/out/household-v1/man.png",
       "system": "cultivation",
       "role": "registered-or-direct-runtime",
-      "sha256": "0af6691dd0ad9e1ad09d1a047daa016386274db3e7e486096b538830e7b4bdd7",
+      "sha256": "efab252bd51af0bdbd451587c89e2da0d952cb3dec53fd6959302bbedf835284",
       "actual_size": [
         1024,
         1536
@@ -1707,7 +1709,8 @@
         "js/qihe-expansion.js",
         "index.html"
       ],
-      "cutout_fix": "2026-10-11 fix_actor_cutouts.py：补脸内抠穿的眼白、剥白边"
+      "cutout_fix": "2026-10-11 fix_actor_cutouts.py：补脸内抠穿的眼白、剥白边",
+      "cutout_fix_20261021": "fix_story_cutouts_20261021.py：去白底残留块／补白发小洞，原图在 _attic/2026-10-21-cutout-fix"
     },
     {
       "id": "cu_household-v1_shimu_png",
@@ -1798,13 +1801,13 @@
       "original_path": "art_sources/guiyun-inkcloud-cn-20261008/out/household-v1/zhong.png",
       "system": "cultivation",
       "role": "registered-or-direct-runtime",
-      "sha256": "e52eaf3128e1c2aaba01bbc46afb6fe3b7b684b98b5b30d86bef86ddd5e0fea7",
+      "sha256": "5308725631fb0ffe89a3fec030f188b9b6b195350a4c980937988b87594257d1",
       "actual_size": [
         1024,
         1536
       ],
       "generation": "codex exec 内置 image_gen（提示词含 gpt-image-2.5 行，实际模型未确认）+ process.py 后处理",
-      "acceptance_status": "adopted-20261008-user-approved-chinese-cut",
+      "acceptance_status": "adopted-20261008-user-approved-chinese-cut; holefix-20261026 原位替换（用户批准例外于 R-素材-01），旧图 art_sources/asset-holes-backup-20261026/household-v1/zhong.png",
       "source_manifest": "art_sources/guiyun-inkcloud-cn-20261008/manifest.json",
       "references": [
         "js/qh-mode-cultivation-mail.js",
@@ -1816,7 +1819,8 @@
         "js/qh-mode-cultivation-data.js",
         "js/qihe-guiyun-household-art.js"
       ],
-      "cutout_fix": "2026-10-11 fix_actor_cutouts.py：补脸内抠穿的眼白、剥白边"
+      "cutout_fix": "2026-10-11 fix_actor_cutouts.py：补脸内抠穿的眼白、剥白边",
+      "cutout_fix_20261021": "fix_story_cutouts_20261021.py：去白底残留块／补白发小洞，原图在 _attic/2026-10-21-cutout-fix"
     },
     {
       "id": "cu_household-v1_zhou_png",
@@ -1824,7 +1828,7 @@
       "original_path": "art_sources/guiyun-inkcloud-cn-20261008/out/household-v1/zhou.png",
       "system": "cultivation",
       "role": "registered-or-direct-runtime",
-      "sha256": "5c69a0f0e03998a747336a802292696618512f22bd6d6cae943b4b486e2ad331",
+      "sha256": "7e7d0c7ecdbacda423e8bfb2454e8ad3b5bf9be50929ae1d1d034204c129a902",
       "actual_size": [
         1024,
         1536
@@ -1864,7 +1868,8 @@
         "js/qh-mode-cultivation-data.js",
         "js/qihe-expansion.js"
       ],
-      "cutout_fix": "2026-10-11 fix_actor_cutouts.py：补脸内抠穿的眼白、剥白边"
+      "cutout_fix": "2026-10-11 fix_actor_cutouts.py：补脸内抠穿的眼白、剥白边",
+      "cutout_fix_20261021": "fix_story_cutouts_20261021.py：去白底残留块／补白发小洞，原图在 _attic/2026-10-21-cutout-fix"
     },
     {
       "id": "p_gy_hero_long",
@@ -2107,7 +2112,7 @@
       "original_path": "art_sources/guiyun-outsiders-q-20261008/out/household-v1/lu.png",
       "system": "cultivation",
       "role": "registered-or-direct-runtime",
-      "sha256": "bbcfa03bb972e3c20689742d7e91e5bd680a8eb16f23e1b69be3799307cd2f9e",
+      "sha256": "c7126cefe17de0e7c212f1ef641ac2b5c3f9b932a26df7d9bf6511e7fa5496e8",
       "actual_size": [
         1024,
         1536
@@ -2191,7 +2196,8 @@
         "js/qihe-expansion.js",
         "index.html"
       ],
-      "cutout_fix": "2026-10-11 fix_actor_cutouts.py：补脸内抠穿的眼白、剥白边"
+      "cutout_fix": "2026-10-11 fix_actor_cutouts.py：补脸内抠穿的眼白、剥白边",
+      "cutout_fix_20261021": "fix_story_cutouts_20261021.py：去白底残留块／补白发小洞，原图在 _attic/2026-10-21-cutout-fix"
     },
     {
       "id": "cu_household-v1_lu_normal_png",
@@ -2199,7 +2205,7 @@
       "original_path": "art_sources/guiyun-outsiders-q-20261008/out/household-v1/lu_normal.png",
       "system": "cultivation",
       "role": "registered-or-direct-runtime",
-      "sha256": "bbcfa03bb972e3c20689742d7e91e5bd680a8eb16f23e1b69be3799307cd2f9e",
+      "sha256": "c7126cefe17de0e7c212f1ef641ac2b5c3f9b932a26df7d9bf6511e7fa5496e8",
       "actual_size": [
         1024,
         1536
@@ -2208,7 +2214,8 @@
       "acceptance_status": "adopted-20261008-user-requested-full-content",
       "source_manifest": "art_sources/guiyun-outsiders-q-20261008/manifest.json",
       "references": [],
-      "cutout_fix": "2026-10-11 fix_actor_cutouts.py：补脸内抠穿的眼白、剥白边"
+      "cutout_fix": "2026-10-11 fix_actor_cutouts.py：补脸内抠穿的眼白、剥白边",
+      "cutout_fix_20261021": "fix_story_cutouts_20261021.py：去白底残留块／补白发小洞，原图在 _attic/2026-10-21-cutout-fix"
     },
     {
       "id": "cu_household-v1_lu_sad_png",
@@ -2216,7 +2223,7 @@
       "original_path": "art_sources/guiyun-outsiders-q-20261008/out/household-v1/lu_sad.png",
       "system": "cultivation",
       "role": "registered-or-direct-runtime",
-      "sha256": "ba3c29b3e12b1d048d2c990e5ffd459f45f171cd8d0dd3a3d75eeef141b57460",
+      "sha256": "214d1d74b4ac5278a2bb52cbfa3e3296f9d619cabaf78ebec63362c1e71be6c1",
       "actual_size": [
         1024,
         1536
@@ -2225,7 +2232,8 @@
       "acceptance_status": "adopted-20261008-user-requested-full-content",
       "source_manifest": "art_sources/guiyun-outsiders-q-20261008/manifest.json",
       "references": [],
-      "cutout_fix": "2026-10-11 fix_actor_cutouts.py：补脸内抠穿的眼白、剥白边"
+      "cutout_fix": "2026-10-11 fix_actor_cutouts.py：补脸内抠穿的眼白、剥白边",
+      "cutout_fix_20261021": "fix_story_cutouts_20261021.py：去白底残留块／补白发小洞，原图在 _attic/2026-10-21-cutout-fix"
     },
     {
       "id": "cu_household-v1_lu_serious_png",
@@ -2233,7 +2241,7 @@
       "original_path": "art_sources/guiyun-outsiders-q-20261008/out/household-v1/lu_serious.png",
       "system": "cultivation",
       "role": "registered-or-direct-runtime",
-      "sha256": "171ec9427b6f12e79beabb379c59ea6062d5b6cbe50f8e74365bf37c2d15ac4c",
+      "sha256": "9de1da4f096cabe5402a9b0b6b003455753d5bde9f323047247f2e54d9ae03b9",
       "actual_size": [
         1024,
         1536
@@ -2242,7 +2250,8 @@
       "acceptance_status": "adopted-20261008-user-requested-full-content",
       "source_manifest": "art_sources/guiyun-outsiders-q-20261008/manifest.json",
       "references": [],
-      "cutout_fix": "2026-10-11 fix_actor_cutouts.py：补脸内抠穿的眼白、剥白边"
+      "cutout_fix": "2026-10-11 fix_actor_cutouts.py：补脸内抠穿的眼白、剥白边",
+      "cutout_fix_20261021": "fix_story_cutouts_20261021.py：去白底残留块／补白发小洞，原图在 _attic/2026-10-21-cutout-fix"
     },
     {
       "id": "cu_household-v1_lu_smile_png",
@@ -2250,7 +2259,7 @@
       "original_path": "art_sources/guiyun-outsiders-q-20261008/out/household-v1/lu_smile.png",
       "system": "cultivation",
       "role": "registered-or-direct-runtime",
-      "sha256": "c307c8d652c389f662dd29e3e99729427354bc4112f5176f16eaebe89c47eff0",
+      "sha256": "f603ad99c0849795a7ea136672b5e7d5045c79d52a1c0cb94f9de866da06e152",
       "actual_size": [
         1024,
         1536
@@ -2259,7 +2268,8 @@
       "acceptance_status": "adopted-20261008-user-requested-full-content",
       "source_manifest": "art_sources/guiyun-outsiders-q-20261008/manifest.json",
       "references": [],
-      "cutout_fix": "2026-10-11 fix_actor_cutouts.py：补脸内抠穿的眼白、剥白边"
+      "cutout_fix": "2026-10-11 fix_actor_cutouts.py：补脸内抠穿的眼白、剥白边",
+      "cutout_fix_20261021": "fix_story_cutouts_20261021.py：去白底残留块／补白发小洞，原图在 _attic/2026-10-21-cutout-fix"
     },
     {
       "id": "cu_household-v1_lu_surprise_png",
@@ -2267,7 +2277,7 @@
       "original_path": "art_sources/guiyun-outsiders-q-20261008/out/household-v1/lu_surprise.png",
       "system": "cultivation",
       "role": "registered-or-direct-runtime",
-      "sha256": "16c354d37b67e96717f22abc56dd2064c36e7a92d2b36c2fc8fa4ec9a7e810bb",
+      "sha256": "a0bb70cc60549f1e4e0dbc5c924461616e506b74195f5ac2569987259b1b6d78",
       "actual_size": [
         1024,
         1536
@@ -2276,7 +2286,8 @@
       "acceptance_status": "adopted-20261008-user-requested-full-content",
       "source_manifest": "art_sources/guiyun-outsiders-q-20261008/manifest.json",
       "references": [],
-      "cutout_fix": "2026-10-11 fix_actor_cutouts.py：补脸内抠穿的眼白、剥白边"
+      "cutout_fix": "2026-10-11 fix_actor_cutouts.py：补脸内抠穿的眼白、剥白边",
+      "cutout_fix_20261021": "fix_story_cutouts_20261021.py：去白底残留块／补白发小洞，原图在 _attic/2026-10-21-cutout-fix"
     },
     {
       "id": "cu_household-v1_lu_worry_png",
@@ -2284,7 +2295,7 @@
       "original_path": "art_sources/guiyun-outsiders-q-20261008/out/household-v1/lu_worry.png",
       "system": "cultivation",
       "role": "registered-or-direct-runtime",
-      "sha256": "905db86154551e03171422fe7c401b129f43c595f39cae8f460907cb8d782709",
+      "sha256": "54edea574af886a751559b3d6fd9b8a111839ae71573e8d70095fb013e634d87",
       "actual_size": [
         1024,
         1536
@@ -2293,7 +2304,8 @@
       "acceptance_status": "adopted-20261008-user-requested-full-content",
       "source_manifest": "art_sources/guiyun-outsiders-q-20261008/manifest.json",
       "references": [],
-      "cutout_fix": "2026-10-11 fix_actor_cutouts.py：补脸内抠穿的眼白、剥白边"
+      "cutout_fix": "2026-10-11 fix_actor_cutouts.py：补脸内抠穿的眼白、剥白边",
+      "cutout_fix_20261021": "fix_story_cutouts_20261021.py：去白底残留块／补白发小洞，原图在 _attic/2026-10-21-cutout-fix"
     },
     {
       "id": "cu_household-v1_meng_zhiwei_png",
@@ -2479,7 +2491,7 @@
       "original_path": "art_sources/guiyun-outsiders-q-20261008/out/household-v1/neighbor.png",
       "system": "cultivation",
       "role": "registered-or-direct-runtime",
-      "sha256": "f734acbdac96201c5a02f47470f5423fe0415205b12f68597cd9fae6b0fdce4b",
+      "sha256": "882b153f2bb9928cd6e27e097a61f4d3b13d1adf38aba62f089e7b3ab3079edb",
       "actual_size": [
         1024,
         1536
@@ -2501,7 +2513,8 @@
         "js/qh-mode-cultivation-data.js",
         "index.html"
       ],
-      "cutout_fix": "2026-10-11 fix_actor_cutouts.py：补脸内抠穿的眼白、剥白边"
+      "cutout_fix": "2026-10-11 fix_actor_cutouts.py：补脸内抠穿的眼白、剥白边",
+      "cutout_fix_20261021": "fix_story_cutouts_20261021.py：去白底残留块／补白发小洞，原图在 _attic/2026-10-21-cutout-fix"
     },
     {
       "id": "cu_household-v1_neighbor_normal_png",
@@ -2509,7 +2522,7 @@
       "original_path": "art_sources/guiyun-outsiders-q-20261008/out/household-v1/neighbor_normal.png",
       "system": "cultivation",
       "role": "registered-or-direct-runtime",
-      "sha256": "f734acbdac96201c5a02f47470f5423fe0415205b12f68597cd9fae6b0fdce4b",
+      "sha256": "882b153f2bb9928cd6e27e097a61f4d3b13d1adf38aba62f089e7b3ab3079edb",
       "actual_size": [
         1024,
         1536
@@ -2518,7 +2531,8 @@
       "acceptance_status": "adopted-20261008-user-requested-full-content",
       "source_manifest": "art_sources/guiyun-outsiders-q-20261008/manifest.json",
       "references": [],
-      "cutout_fix": "2026-10-11 fix_actor_cutouts.py：补脸内抠穿的眼白、剥白边"
+      "cutout_fix": "2026-10-11 fix_actor_cutouts.py：补脸内抠穿的眼白、剥白边",
+      "cutout_fix_20261021": "fix_story_cutouts_20261021.py：去白底残留块／补白发小洞，原图在 _attic/2026-10-21-cutout-fix"
     },
     {
       "id": "cu_household-v1_neighbor_smile_png",
@@ -2526,7 +2540,7 @@
       "original_path": "art_sources/guiyun-outsiders-q-20261008/out/household-v1/neighbor_smile.png",
       "system": "cultivation",
       "role": "registered-or-direct-runtime",
-      "sha256": "6b2ae4e4b1ca5fe3d2f93b96befe5cbd3b99afe88e513d9814902e723e91c085",
+      "sha256": "f5689664475431ea837f426d724af2fcc5126068cdc965ce52c83b37922aa11e",
       "actual_size": [
         1024,
         1536
@@ -2535,7 +2549,8 @@
       "acceptance_status": "adopted-20261008-user-requested-full-content",
       "source_manifest": "art_sources/guiyun-outsiders-q-20261008/manifest.json",
       "references": [],
-      "cutout_fix": "2026-10-11 fix_actor_cutouts.py：补脸内抠穿的眼白、剥白边"
+      "cutout_fix": "2026-10-11 fix_actor_cutouts.py：补脸内抠穿的眼白、剥白边",
+      "cutout_fix_20261021": "fix_story_cutouts_20261021.py：去白底残留块／补白发小洞，原图在 _attic/2026-10-21-cutout-fix"
     },
     {
       "id": "cu_household-v1_neighbor_worry_png",
@@ -2543,7 +2558,7 @@
       "original_path": "art_sources/guiyun-outsiders-q-20261008/out/household-v1/neighbor_worry.png",
       "system": "cultivation",
       "role": "registered-or-direct-runtime",
-      "sha256": "db98d42aa26a73700f460c07c8f3315226dd894eb94e22073fdb8bd382e48ece",
+      "sha256": "481c6fc86aa765d0dfa50d77b2a848678a17257709f8a9612f65106617fdcf8a",
       "actual_size": [
         1024,
         1536
@@ -2552,7 +2567,8 @@
       "acceptance_status": "adopted-20261008-user-requested-full-content",
       "source_manifest": "art_sources/guiyun-outsiders-q-20261008/manifest.json",
       "references": [],
-      "cutout_fix": "2026-10-11 fix_actor_cutouts.py：补脸内抠穿的眼白、剥白边"
+      "cutout_fix": "2026-10-11 fix_actor_cutouts.py：补脸内抠穿的眼白、剥白边",
+      "cutout_fix_20261021": "fix_story_cutouts_20261021.py：去白底残留块／补白发小洞，原图在 _attic/2026-10-21-cutout-fix"
     },
     {
       "id": "cu_household-v1_zhaochuan_courier_png",
@@ -2649,7 +2665,7 @@
       "original_path": "art_sources/guiyun-q-moods-20261008/out/household-v1/dou_angry.png",
       "system": "cultivation",
       "role": "registered-or-direct-runtime",
-      "sha256": "0b65a2824f4207c0c54489276ce27904f23986d44f7773fc21e5f9d24c92718c",
+      "sha256": "2871667fb2c3930619cd7ea4fe961a094b0db32aeef33b99fa433152a1d8c90e",
       "actual_size": [
         1024,
         1536
@@ -2658,7 +2674,8 @@
       "acceptance_status": "adopted-20261008-user-requested-mood-set",
       "source_manifest": "art_sources/guiyun-q-moods-20261008/manifest.json",
       "references": [],
-      "cutout_fix": "2026-10-11 fix_actor_cutouts.py：补脸内抠穿的眼白、剥白边"
+      "cutout_fix": "2026-10-11 fix_actor_cutouts.py：补脸内抠穿的眼白、剥白边",
+      "cutout_fix_20261021": "fix_story_cutouts_20261021.py：去白底残留块／补白发小洞，原图在 _attic/2026-10-21-cutout-fix"
     },
     {
       "id": "cu_household-v1_dou_normal_png",
@@ -2666,7 +2683,7 @@
       "original_path": "art_sources/guiyun-q-moods-20261008/out/household-v1/dou_normal.png",
       "system": "cultivation",
       "role": "registered-or-direct-runtime",
-      "sha256": "457e9bbbc32e662cd0cc40ebb4964f9f85bf9c1842e76af8435bbb48ddfefc9c",
+      "sha256": "8eb80577326fef65c3976ea719084d0772139a125ea3b5ec8ff86e31598367cc",
       "actual_size": [
         1024,
         1536
@@ -2675,7 +2692,8 @@
       "acceptance_status": "adopted-20261008-user-requested-mood-set",
       "source_manifest": "art_sources/guiyun-q-moods-20261008/manifest.json",
       "references": [],
-      "cutout_fix": "2026-10-11 fix_actor_cutouts.py：补脸内抠穿的眼白、剥白边"
+      "cutout_fix": "2026-10-11 fix_actor_cutouts.py：补脸内抠穿的眼白、剥白边",
+      "cutout_fix_20261021": "fix_story_cutouts_20261021.py：去白底残留块／补白发小洞，原图在 _attic/2026-10-21-cutout-fix"
     },
     {
       "id": "cu_household-v1_dou_sad_png",
@@ -2683,7 +2701,7 @@
       "original_path": "art_sources/guiyun-q-moods-20261008/out/household-v1/dou_sad.png",
       "system": "cultivation",
       "role": "registered-or-direct-runtime",
-      "sha256": "d82a07accf4b5828481748923b8a584e360374b0204d824c711c3a56fc8cb167",
+      "sha256": "42dba20019cffe67bf8aa9350aacf3f1e32f372a4cdee7bb2de1b326345b6f1c",
       "actual_size": [
         1024,
         1536
@@ -2692,7 +2710,8 @@
       "acceptance_status": "adopted-20261008-user-requested-mood-set",
       "source_manifest": "art_sources/guiyun-q-moods-20261008/manifest.json",
       "references": [],
-      "cutout_fix": "2026-10-11 fix_actor_cutouts.py：补脸内抠穿的眼白、剥白边"
+      "cutout_fix": "2026-10-11 fix_actor_cutouts.py：补脸内抠穿的眼白、剥白边",
+      "cutout_fix_20261021": "fix_story_cutouts_20261021.py：去白底残留块／补白发小洞，原图在 _attic/2026-10-21-cutout-fix"
     },
     {
       "id": "cu_household-v1_dou_serious_png",
@@ -2700,7 +2719,7 @@
       "original_path": "art_sources/guiyun-q-moods-20261008/out/household-v1/dou_serious.png",
       "system": "cultivation",
       "role": "registered-or-direct-runtime",
-      "sha256": "087c271950538a23ce8b86e01bc8a7509aa2bfa84bab158b5741e9eda4cb361a",
+      "sha256": "684fa007f6ff615321f582ac77eb512e625855bfe4ccc65d6bda9c3ccd84654f",
       "actual_size": [
         1024,
         1536
@@ -2709,7 +2728,8 @@
       "acceptance_status": "adopted-20261008-user-requested-mood-set",
       "source_manifest": "art_sources/guiyun-q-moods-20261008/manifest.json",
       "references": [],
-      "cutout_fix": "2026-10-11 fix_actor_cutouts.py：补脸内抠穿的眼白、剥白边"
+      "cutout_fix": "2026-10-11 fix_actor_cutouts.py：补脸内抠穿的眼白、剥白边",
+      "cutout_fix_20261021": "fix_story_cutouts_20261021.py：去白底残留块／补白发小洞，原图在 _attic/2026-10-21-cutout-fix"
     },
     {
       "id": "cu_household-v1_dou_smile_png",
@@ -2717,7 +2737,7 @@
       "original_path": "art_sources/guiyun-q-moods-20261008/out/household-v1/dou_smile.png",
       "system": "cultivation",
       "role": "registered-or-direct-runtime",
-      "sha256": "620ffacf75a7f217cd9fced0904c337d7dfedab9882663c119789067315908f9",
+      "sha256": "9dd28f9b78e89560dec0dff8d3d345bd216d12df0d56fe9f5c71d61d66f445ab",
       "actual_size": [
         1024,
         1536
@@ -2726,7 +2746,8 @@
       "acceptance_status": "adopted-20261008-user-requested-mood-set",
       "source_manifest": "art_sources/guiyun-q-moods-20261008/manifest.json",
       "references": [],
-      "cutout_fix": "2026-10-11 fix_actor_cutouts.py：补脸内抠穿的眼白、剥白边"
+      "cutout_fix": "2026-10-11 fix_actor_cutouts.py：补脸内抠穿的眼白、剥白边",
+      "cutout_fix_20261021": "fix_story_cutouts_20261021.py：去白底残留块／补白发小洞，原图在 _attic/2026-10-21-cutout-fix"
     },
     {
       "id": "cu_household-v1_dou_surprise_png",
@@ -2734,16 +2755,17 @@
       "original_path": "art_sources/guiyun-q-moods-20261008/out/household-v1/dou_surprise.png",
       "system": "cultivation",
       "role": "registered-or-direct-runtime",
-      "sha256": "b8514d84794f57b695b8c96040ab3cb380875fbe1a8403fa69ace1ef02214c27",
+      "sha256": "84467a3b8147c617bae0f20d4e2fdfa69eeea75a253d2e813747c8013e2e8c47",
       "actual_size": [
         1024,
         1536
       ],
       "generation": "codex exec 内置 image_gen 以本人正式 Q 版为底图编辑（提示词含 gpt-image-2.5 行，实际模型未确认）+ process.py 抠图与轮廓对齐",
-      "acceptance_status": "adopted-20261008-user-requested-mood-set",
+      "acceptance_status": "adopted-20261008-user-requested-mood-set; holefix-20261026 原位替换（用户批准例外于 R-素材-01），旧图 art_sources/asset-holes-backup-20261026/household-v1/dou_surprise.png",
       "source_manifest": "art_sources/guiyun-q-moods-20261008/manifest.json",
       "references": [],
-      "cutout_fix": "2026-10-11 fix_actor_cutouts.py：补脸内抠穿的眼白、剥白边"
+      "cutout_fix": "2026-10-11 fix_actor_cutouts.py：补脸内抠穿的眼白、剥白边",
+      "cutout_fix_20261021": "fix_story_cutouts_20261021.py：去白底残留块／补白发小洞，原图在 _attic/2026-10-21-cutout-fix"
     },
     {
       "id": "cu_household-v1_dou_worry_png",
@@ -2751,7 +2773,7 @@
       "original_path": "art_sources/guiyun-q-moods-20261008/out/household-v1/dou_worry.png",
       "system": "cultivation",
       "role": "registered-or-direct-runtime",
-      "sha256": "f499cc7226cc9ff7afa5f76b669f0fa9cf54dc1786928d02205212b2a9f1a891",
+      "sha256": "ef96ccadb8013176995e2e120c3cec7e4d363cca26a0e2f7fbf22b2be96ab38a",
       "actual_size": [
         1024,
         1536
@@ -2760,7 +2782,8 @@
       "acceptance_status": "adopted-20261008-user-requested-mood-set",
       "source_manifest": "art_sources/guiyun-q-moods-20261008/manifest.json",
       "references": [],
-      "cutout_fix": "2026-10-11 fix_actor_cutouts.py：补脸内抠穿的眼白、剥白边"
+      "cutout_fix": "2026-10-11 fix_actor_cutouts.py：补脸内抠穿的眼白、剥白边",
+      "cutout_fix_20261021": "fix_story_cutouts_20261021.py：去白底残留块／补白发小洞，原图在 _attic/2026-10-21-cutout-fix"
     },
     {
       "id": "cu_household-v1_fang_angry_png",
@@ -2768,13 +2791,13 @@
       "original_path": "art_sources/guiyun-q-moods-20261008/out/household-v1/fang_angry.png",
       "system": "cultivation",
       "role": "registered-or-direct-runtime",
-      "sha256": "b5e41611f02f2c9dc123c72d64500c77c75a4ce2469cc00753e80e743785394e",
+      "sha256": "16a5f18a7abc0c2087c2f3ce5a6bcb58d0a2c467c058498ed6973a1c8d4c6764",
       "actual_size": [
         1024,
         1536
       ],
       "generation": "codex exec 内置 image_gen 以本人正式 Q 版为底图编辑（提示词含 gpt-image-2.5 行，实际模型未确认）+ process.py 抠图与轮廓对齐",
-      "acceptance_status": "adopted-20261008-user-requested-mood-set",
+      "acceptance_status": "adopted-20261008-user-requested-mood-set; holefix-20261026 原位替换（用户批准例外于 R-素材-01），旧图 art_sources/asset-holes-backup-20261026/household-v1/fang_angry.png",
       "source_manifest": "art_sources/guiyun-q-moods-20261008/manifest.json",
       "references": [],
       "cutout_fix": "2026-10-11 fix_actor_cutouts.py：补脸内抠穿的眼白、剥白边"
@@ -2785,13 +2808,13 @@
       "original_path": "art_sources/guiyun-q-moods-20261008/out/household-v1/fang_normal.png",
       "system": "cultivation",
       "role": "registered-or-direct-runtime",
-      "sha256": "6fcdbbae2fb34764d9b75b503ebcc30f2dc85d837715b141f272d8a741026148",
+      "sha256": "77eb5528211973b231eb98564ca3163482d0d60a3e900b02e7f4fc585112678f",
       "actual_size": [
         1024,
         1536
       ],
       "generation": "codex exec 内置 image_gen 以本人正式 Q 版为底图编辑（提示词含 gpt-image-2.5 行，实际模型未确认）+ process.py 抠图与轮廓对齐",
-      "acceptance_status": "adopted-20261008-user-requested-mood-set",
+      "acceptance_status": "adopted-20261008-user-requested-mood-set; holefix-20261026 原位替换（用户批准例外于 R-素材-01），旧图 art_sources/asset-holes-backup-20261026/household-v1/fang_normal.png",
       "source_manifest": "art_sources/guiyun-q-moods-20261008/manifest.json",
       "references": [],
       "cutout_fix": "2026-10-11 fix_actor_cutouts.py：补脸内抠穿的眼白、剥白边"
@@ -2802,13 +2825,13 @@
       "original_path": "art_sources/guiyun-q-moods-20261008/out/household-v1/fang_sad.png",
       "system": "cultivation",
       "role": "registered-or-direct-runtime",
-      "sha256": "b1f56438ed9fc6bdddeeedeca1f259d16a7f3f9215030ff5b370d0195f524f5e",
+      "sha256": "478f0466837756c1cf480ae9500db2802790e039e028e280f9db78f73b16af9a",
       "actual_size": [
         1024,
         1536
       ],
       "generation": "codex exec 内置 image_gen 以本人正式 Q 版为底图编辑（提示词含 gpt-image-2.5 行，实际模型未确认）+ process.py 抠图与轮廓对齐",
-      "acceptance_status": "adopted-20261008-user-requested-mood-set",
+      "acceptance_status": "adopted-20261008-user-requested-mood-set; holefix-20261026 原位替换（用户批准例外于 R-素材-01），旧图 art_sources/asset-holes-backup-20261026/household-v1/fang_sad.png",
       "source_manifest": "art_sources/guiyun-q-moods-20261008/manifest.json",
       "references": [],
       "cutout_fix": "2026-10-11 fix_actor_cutouts.py：补脸内抠穿的眼白、剥白边"
@@ -2819,13 +2842,13 @@
       "original_path": "art_sources/guiyun-q-moods-20261008/out/household-v1/fang_serious.png",
       "system": "cultivation",
       "role": "registered-or-direct-runtime",
-      "sha256": "0291561267e786b66d74f2f3e8944a0543ca03bbf2ef4261e72ca74413e22faa",
+      "sha256": "908732ad9f71b1ef85b407a357b12a9c617300bcbf3d47c892d97d17a3af6179",
       "actual_size": [
         1024,
         1536
       ],
       "generation": "codex exec 内置 image_gen 以本人正式 Q 版为底图编辑（提示词含 gpt-image-2.5 行，实际模型未确认）+ process.py 抠图与轮廓对齐",
-      "acceptance_status": "adopted-20261008-user-requested-mood-set",
+      "acceptance_status": "adopted-20261008-user-requested-mood-set; holefix-20261026 原位替换（用户批准例外于 R-素材-01），旧图 art_sources/asset-holes-backup-20261026/household-v1/fang_serious.png",
       "source_manifest": "art_sources/guiyun-q-moods-20261008/manifest.json",
       "references": [],
       "cutout_fix": "2026-10-11 fix_actor_cutouts.py：补脸内抠穿的眼白、剥白边"
@@ -2836,16 +2859,17 @@
       "original_path": "art_sources/guiyun-q-moods-20261008/out/household-v1/fang_smile.png",
       "system": "cultivation",
       "role": "registered-or-direct-runtime",
-      "sha256": "88955f05eda8e1ca6322471bc9b18b139dfddbc432d321523afbf5a6923d7b24",
+      "sha256": "7ef000fb2163d0104fd2d0edb02b00a4dcafc7b404d7ccc7fad1a24cb4a6a2a8",
       "actual_size": [
         1024,
         1536
       ],
       "generation": "codex exec 内置 image_gen 以本人正式 Q 版为底图编辑（提示词含 gpt-image-2.5 行，实际模型未确认）+ process.py 抠图与轮廓对齐",
-      "acceptance_status": "adopted-20261008-user-requested-mood-set",
+      "acceptance_status": "adopted-20261008-user-requested-mood-set; holefix-20261026 原位替换（用户批准例外于 R-素材-01），旧图 art_sources/asset-holes-backup-20261026/household-v1/fang_smile.png",
       "source_manifest": "art_sources/guiyun-q-moods-20261008/manifest.json",
       "references": [],
-      "cutout_fix": "2026-10-11 fix_actor_cutouts.py：补脸内抠穿的眼白、剥白边"
+      "cutout_fix": "2026-10-11 fix_actor_cutouts.py：补脸内抠穿的眼白、剥白边",
+      "cutout_fix_20261021": "fix_story_cutouts_20261021.py：去白底残留块／补白发小洞，原图在 _attic/2026-10-21-cutout-fix"
     },
     {
       "id": "cu_household-v1_fang_surprise_png",
@@ -2853,13 +2877,13 @@
       "original_path": "art_sources/guiyun-q-moods-20261008/out/household-v1/fang_surprise.png",
       "system": "cultivation",
       "role": "registered-or-direct-runtime",
-      "sha256": "731cb318d4992da4c5adbc4bf894cb6641cd017d9107532ac033ad901bd9cdd5",
+      "sha256": "fe61033b6db581d9c4622cebe6f3876981995f8d97a0981340d3063090cce1eb",
       "actual_size": [
         1024,
         1536
       ],
       "generation": "codex exec 内置 image_gen 以本人正式 Q 版为底图编辑（提示词含 gpt-image-2.5 行，实际模型未确认）+ process.py 抠图与轮廓对齐",
-      "acceptance_status": "adopted-20261008-user-requested-mood-set",
+      "acceptance_status": "adopted-20261008-user-requested-mood-set; holefix-20261026 原位替换（用户批准例外于 R-素材-01），旧图 art_sources/asset-holes-backup-20261026/household-v1/fang_surprise.png",
       "source_manifest": "art_sources/guiyun-q-moods-20261008/manifest.json",
       "references": [],
       "cutout_fix": "2026-10-11 fix_actor_cutouts.py：补脸内抠穿的眼白、剥白边"
@@ -2870,13 +2894,13 @@
       "original_path": "art_sources/guiyun-q-moods-20261008/out/household-v1/fang_worry.png",
       "system": "cultivation",
       "role": "registered-or-direct-runtime",
-      "sha256": "fac62bce700b33280960b1c677e1c7156428cc458e831d7b7eea58a6f4deba9c",
+      "sha256": "493308155130a430a29cf555adae2b51035099c83b57b7d7175b6b19f87f76c4",
       "actual_size": [
         1024,
         1536
       ],
       "generation": "codex exec 内置 image_gen 以本人正式 Q 版为底图编辑（提示词含 gpt-image-2.5 行，实际模型未确认）+ process.py 抠图与轮廓对齐",
-      "acceptance_status": "adopted-20261008-user-requested-mood-set",
+      "acceptance_status": "adopted-20261008-user-requested-mood-set; holefix-20261026 原位替换（用户批准例外于 R-素材-01），旧图 art_sources/asset-holes-backup-20261026/household-v1/fang_worry.png",
       "source_manifest": "art_sources/guiyun-q-moods-20261008/manifest.json",
       "references": [],
       "cutout_fix": "2026-10-11 fix_actor_cutouts.py：补脸内抠穿的眼白、剥白边"
@@ -2903,13 +2927,13 @@
       "original_path": "art_sources/guiyun-q-moods-20261008/out/household-v1/hero_long_angry.png",
       "system": "cultivation",
       "role": "registered-or-direct-runtime",
-      "sha256": "aaab3e2722652208bcca08a0884d00aae7151c26355442857e2ea2302e1cacf4",
+      "sha256": "db58d1ac831a4bd121487307f090d1100248f857903cbfba20f0d249710003ed",
       "actual_size": [
         1024,
         1536
       ],
       "generation": "codex exec 内置 image_gen 以本人正式 Q 版为底图编辑（提示词含 gpt-image-2.5 行，实际模型未确认）+ process.py 抠图与轮廓对齐",
-      "acceptance_status": "adopted-20261008-user-requested-mood-set",
+      "acceptance_status": "adopted-20261008-user-requested-mood-set; holefix-20261026 原位替换（用户批准例外于 R-素材-01），旧图 art_sources/asset-holes-backup-20261026/household-v1/hero_long_angry.png",
       "source_manifest": "art_sources/guiyun-q-moods-20261008/manifest.json",
       "references": [],
       "cutout_fix": "2026-10-11 fix_actor_cutouts.py：补脸内抠穿的眼白、剥白边"
@@ -2920,13 +2944,13 @@
       "original_path": "art_sources/guiyun-playtest-fix-20261011/out/household-v1/hero_long_normal.png",
       "system": "cultivation",
       "role": "registered-or-direct-runtime",
-      "sha256": "dfa819d02ff8c87ed0845c9ea859b0d7403eaa768860c66bc20ebac29a77732b",
+      "sha256": "4126b4a687e9d83143aa4e3231b0b9ddfbb608ef2bb9cdf57017207ca52299e6",
       "actual_size": [
         1024,
         1536
       ],
       "generation": "codex exec 内置 image_gen（提示词含 gpt-image-2.5 行，实际模型未披露）+ process.py 抠图对齐／统一尺寸",
-      "acceptance_status": "adopted-20261011-playtest-feedback",
+      "acceptance_status": "adopted-20261011-playtest-feedback; holefix-20261026 原位替换（用户批准例外于 R-素材-01），旧图 art_sources/asset-holes-backup-20261026/household-v1/hero_long_normal.png",
       "source_manifest": "art_sources/guiyun-playtest-fix-20261011/manifest.json",
       "references": [],
       "cutout_fix": "2026-10-11 fix_actor_cutouts.py：补脸内抠穿的眼白、剥白边"
@@ -2937,13 +2961,13 @@
       "original_path": "art_sources/guiyun-q-moods-20261008/out/household-v1/hero_long_sad.png",
       "system": "cultivation",
       "role": "registered-or-direct-runtime",
-      "sha256": "153dadde3e1badeda284d15a1a756df26d78f6331163e05af2f69596effc4df1",
+      "sha256": "6919ba89e79fae9f8f6fe8f95a3e75092d058959e9f947eb33d327bf3eacd829",
       "actual_size": [
         1024,
         1536
       ],
       "generation": "codex exec 内置 image_gen 以本人正式 Q 版为底图编辑（提示词含 gpt-image-2.5 行，实际模型未确认）+ process.py 抠图与轮廓对齐",
-      "acceptance_status": "adopted-20261008-user-requested-mood-set",
+      "acceptance_status": "adopted-20261008-user-requested-mood-set; holefix-20261026 原位替换（用户批准例外于 R-素材-01），旧图 art_sources/asset-holes-backup-20261026/household-v1/hero_long_sad.png",
       "source_manifest": "art_sources/guiyun-q-moods-20261008/manifest.json",
       "references": [],
       "cutout_fix": "2026-10-11 fix_actor_cutouts.py：补脸内抠穿的眼白、剥白边"
@@ -2954,13 +2978,13 @@
       "original_path": "art_sources/guiyun-q-moods-20261008/out/household-v1/hero_long_smile.png",
       "system": "cultivation",
       "role": "registered-or-direct-runtime",
-      "sha256": "e4cadfd670e2e8aaa408094cfe1cf652679d14f14c040dfea40b8f671d9523f0",
+      "sha256": "42e1387ec398c975cc4c6205fb399aa55e5d7447b7a78913e7cdcd18d26343ff",
       "actual_size": [
         1024,
         1536
       ],
       "generation": "codex exec 内置 image_gen 以本人正式 Q 版为底图编辑（提示词含 gpt-image-2.5 行，实际模型未确认）+ process.py 抠图与轮廓对齐",
-      "acceptance_status": "adopted-20261008-user-requested-mood-set",
+      "acceptance_status": "adopted-20261008-user-requested-mood-set; holefix-20261026 原位替换（用户批准例外于 R-素材-01），旧图 art_sources/asset-holes-backup-20261026/household-v1/hero_long_smile.png",
       "source_manifest": "art_sources/guiyun-q-moods-20261008/manifest.json",
       "references": [
         "js/production-assets.js"
@@ -2973,13 +2997,13 @@
       "original_path": "art_sources/guiyun-playtest-fix-20261011/out/household-v1/hero_mid_normal.png",
       "system": "cultivation",
       "role": "registered-or-direct-runtime",
-      "sha256": "173f2f9cf3399fc9c2b9019799056af359989703bff48a22010afdf1163345a4",
+      "sha256": "54f0ba830cadb487dd09c7cf6c664f7e0bf717bd34c3957077536645dd28b597",
       "actual_size": [
         1024,
         1536
       ],
       "generation": "codex exec 内置 image_gen（提示词含 gpt-image-2.5 行，实际模型未披露）+ process.py 抠图对齐／统一尺寸",
-      "acceptance_status": "adopted-20261011-playtest-feedback",
+      "acceptance_status": "adopted-20261011-playtest-feedback; holefix-20261026 原位替换（用户批准例外于 R-素材-01），旧图 art_sources/asset-holes-backup-20261026/household-v1/hero_mid_normal.png",
       "source_manifest": "art_sources/guiyun-playtest-fix-20261011/manifest.json",
       "references": [],
       "cutout_fix": "2026-10-11 fix_actor_cutouts.py：补脸内抠穿的眼白、剥白边"
@@ -3075,16 +3099,17 @@
       "original_path": "art_sources/guiyun-q-moods-20261008/out/household-v1/man_surprise.png",
       "system": "cultivation",
       "role": "registered-or-direct-runtime",
-      "sha256": "9b580b0eec68b22cfb07b385f9a98a3c55a1c950cb34a7cec498676160d213cd",
+      "sha256": "f834375e76693a9566410e170c4a3eb8f057d839e0bd411b2be8c7f6a7ca1d89",
       "actual_size": [
         1024,
         1536
       ],
       "generation": "codex exec 内置 image_gen 以本人正式 Q 版为底图编辑（提示词含 gpt-image-2.5 行，实际模型未确认）+ process.py 抠图与轮廓对齐",
-      "acceptance_status": "adopted-20261008-user-requested-mood-set",
+      "acceptance_status": "adopted-20261008-user-requested-mood-set; holefix-20261026 原位替换（用户批准例外于 R-素材-01），旧图 art_sources/asset-holes-backup-20261026/household-v1/man_surprise.png",
       "source_manifest": "art_sources/guiyun-q-moods-20261008/manifest.json",
       "references": [],
-      "cutout_fix": "2026-10-11 fix_actor_cutouts.py：补脸内抠穿的眼白、剥白边"
+      "cutout_fix": "2026-10-11 fix_actor_cutouts.py：补脸内抠穿的眼白、剥白边",
+      "cutout_fix_20261021": "fix_story_cutouts_20261021.py：去白底残留块／补白发小洞，原图在 _attic/2026-10-21-cutout-fix"
     },
     {
       "id": "cu_household-v1_man_worry_png",
@@ -3312,7 +3337,7 @@
       "original_path": "art_sources/guiyun-q-moods-20261008/out/household-v1/ye.png",
       "system": "cultivation",
       "role": "registered-or-direct-runtime",
-      "sha256": "79b1d62ee139dbfe95f9127db687f9773b1ab6022a212c950798e09305caf6fa",
+      "sha256": "c493584146d19af00122196245cd237d229e9e10bfe1ff60054f53d6bbf6d042",
       "actual_size": [
         1024,
         1536
@@ -3391,7 +3416,8 @@
         "js/qihe-expansion.js",
         "index.html"
       ],
-      "cutout_fix": "2026-10-11 fix_actor_cutouts.py：补脸内抠穿的眼白、剥白边"
+      "cutout_fix": "2026-10-11 fix_actor_cutouts.py：补脸内抠穿的眼白、剥白边",
+      "cutout_fix_20261021": "fix_story_cutouts_20261021.py：去白底残留块／补白发小洞，原图在 _attic/2026-10-21-cutout-fix"
     },
     {
       "id": "cu_household-v1_ye_angry_png",
@@ -3399,18 +3425,19 @@
       "original_path": "art_sources/guiyun-q-moods-20261008/out/household-v1/ye_angry.png",
       "system": "cultivation",
       "role": "registered-or-direct-runtime",
-      "sha256": "5033d77eb928c2b43ac9111d66a84873e9741e1e9d8855c742415198b030227c",
+      "sha256": "7dd0573487dd9c3807a96542e30098992298eedf1ee96cbb5f545a98178a138b",
       "actual_size": [
         1024,
         1536
       ],
       "generation": "codex exec 内置 image_gen 以本人正式 Q 版为底图编辑（提示词含 gpt-image-2.5 行，实际模型未确认）+ process.py 抠图与轮廓对齐",
-      "acceptance_status": "adopted-20261008-user-requested-mood-set",
+      "acceptance_status": "adopted-20261008-user-requested-mood-set; holefix-20261026 原位替换（用户批准例外于 R-素材-01），旧图 art_sources/asset-holes-backup-20261026/household-v1/ye_angry.png",
       "source_manifest": "art_sources/guiyun-q-moods-20261008/manifest.json",
       "references": [
         "js/production-assets.js"
       ],
-      "cutout_fix": "2026-10-11 fix_actor_cutouts.py：补脸内抠穿的眼白、剥白边"
+      "cutout_fix": "2026-10-11 fix_actor_cutouts.py：补脸内抠穿的眼白、剥白边",
+      "cutout_fix_20261021": "fix_story_cutouts_20261021.py：去白底残留块／补白发小洞，原图在 _attic/2026-10-21-cutout-fix"
     },
     {
       "id": "cu_household-v1_ye_normal_png",
@@ -3418,16 +3445,17 @@
       "original_path": "art_sources/guiyun-q-moods-20261008/out/household-v1/ye_normal.png",
       "system": "cultivation",
       "role": "registered-or-direct-runtime",
-      "sha256": "8662f3c4d5ed0e451d7180cf0108e135efc38079f9313af2de3f1e4979e36c4d",
+      "sha256": "f81b9c35f5a5a3b39845fda0439ea486d6e875f1ec7b01a678720e64cdb0744d",
       "actual_size": [
         1024,
         1536
       ],
       "generation": "codex exec 内置 image_gen 以本人正式 Q 版为底图编辑（提示词含 gpt-image-2.5 行，实际模型未确认）+ process.py 抠图与轮廓对齐",
-      "acceptance_status": "adopted-20261008-user-requested-mood-set",
+      "acceptance_status": "adopted-20261008-user-requested-mood-set; holefix-20261026 原位替换（用户批准例外于 R-素材-01），旧图 art_sources/asset-holes-backup-20261026/household-v1/ye_normal.png",
       "source_manifest": "art_sources/guiyun-q-moods-20261008/manifest.json",
       "references": [],
-      "cutout_fix": "2026-10-11 fix_actor_cutouts.py：补脸内抠穿的眼白、剥白边"
+      "cutout_fix": "2026-10-11 fix_actor_cutouts.py：补脸内抠穿的眼白、剥白边",
+      "cutout_fix_20261021": "fix_story_cutouts_20261021.py：去白底残留块／补白发小洞，原图在 _attic/2026-10-21-cutout-fix"
     },
     {
       "id": "cu_household-v1_ye_sad_png",
@@ -3435,7 +3463,7 @@
       "original_path": "art_sources/guiyun-q-moods-20261008/out/household-v1/ye_sad.png",
       "system": "cultivation",
       "role": "registered-or-direct-runtime",
-      "sha256": "5b09f46ecd0a74d2e062d43426f8d36d69cad8da7092a9ccf0491bc7570d110b",
+      "sha256": "a7301d678b0f18dc4ac02065b2170f6b662356fcc5040307b319a82b69293c53",
       "actual_size": [
         1024,
         1536
@@ -3444,7 +3472,8 @@
       "acceptance_status": "adopted-20261008-user-requested-mood-set",
       "source_manifest": "art_sources/guiyun-q-moods-20261008/manifest.json",
       "references": [],
-      "cutout_fix": "2026-10-11 fix_actor_cutouts.py：补脸内抠穿的眼白、剥白边"
+      "cutout_fix": "2026-10-11 fix_actor_cutouts.py：补脸内抠穿的眼白、剥白边",
+      "cutout_fix_20261021": "fix_story_cutouts_20261021.py：去白底残留块／补白发小洞，原图在 _attic/2026-10-21-cutout-fix"
     },
     {
       "id": "cu_household-v1_ye_serious_png",
@@ -3452,7 +3481,7 @@
       "original_path": "art_sources/guiyun-q-moods-20261008/out/household-v1/ye_serious.png",
       "system": "cultivation",
       "role": "registered-or-direct-runtime",
-      "sha256": "885d2e4a46101b02d7a85813c9d02293993ae914873978ea28053037b73d781b",
+      "sha256": "cd264979e1272bb8ca16b3e918f2d0031ce7dcd85d7ffae8516f37a979c193e7",
       "actual_size": [
         1024,
         1536
@@ -3461,7 +3490,8 @@
       "acceptance_status": "adopted-20261008-user-requested-mood-set",
       "source_manifest": "art_sources/guiyun-q-moods-20261008/manifest.json",
       "references": [],
-      "cutout_fix": "2026-10-11 fix_actor_cutouts.py：补脸内抠穿的眼白、剥白边"
+      "cutout_fix": "2026-10-11 fix_actor_cutouts.py：补脸内抠穿的眼白、剥白边",
+      "cutout_fix_20261021": "fix_story_cutouts_20261021.py：去白底残留块／补白发小洞，原图在 _attic/2026-10-21-cutout-fix"
     },
     {
       "id": "cu_household-v1_ye_smile_png",
@@ -3469,18 +3499,19 @@
       "original_path": "art_sources/guiyun-q-moods-20261008/out/household-v1/ye_smile.png",
       "system": "cultivation",
       "role": "registered-or-direct-runtime",
-      "sha256": "0d79f4244ac50ca1c41d21e0cb110680580f4139f00d56dbf044456480b981e7",
+      "sha256": "83dc02750e04d8ec66fd89ba678ca8654333e10f6376299f31fb3e24b8c84665",
       "actual_size": [
         1024,
         1536
       ],
       "generation": "codex exec 内置 image_gen 以本人正式 Q 版为底图编辑（提示词含 gpt-image-2.5 行，实际模型未确认）+ process.py 抠图与轮廓对齐",
-      "acceptance_status": "adopted-20261008-user-requested-mood-set",
+      "acceptance_status": "adopted-20261008-user-requested-mood-set; holefix-20261026 原位替换（用户批准例外于 R-素材-01），旧图 art_sources/asset-holes-backup-20261026/household-v1/ye_smile.png",
       "source_manifest": "art_sources/guiyun-q-moods-20261008/manifest.json",
       "references": [
         "js/production-assets.js"
       ],
-      "cutout_fix": "2026-10-11 fix_actor_cutouts.py：补脸内抠穿的眼白、剥白边"
+      "cutout_fix": "2026-10-11 fix_actor_cutouts.py：补脸内抠穿的眼白、剥白边",
+      "cutout_fix_20261021": "fix_story_cutouts_20261021.py：去白底残留块／补白发小洞，原图在 _attic/2026-10-21-cutout-fix"
     },
     {
       "id": "cu_household-v1_ye_surprise_png",
@@ -3488,18 +3519,19 @@
       "original_path": "art_sources/guiyun-q-moods-20261008/out/household-v1/ye_surprise.png",
       "system": "cultivation",
       "role": "registered-or-direct-runtime",
-      "sha256": "fe800aa2a39d1c0a4ede2d040943334e5ab1cde523e4776dd6122e6320ac0982",
+      "sha256": "fe9b1947f48096a428852548d8b11024579db9df14d3ae6db31742bbbe513488",
       "actual_size": [
         1024,
         1536
       ],
       "generation": "codex exec 内置 image_gen 以本人正式 Q 版为底图编辑（提示词含 gpt-image-2.5 行，实际模型未确认）+ process.py 抠图与轮廓对齐",
-      "acceptance_status": "adopted-20261008-user-requested-mood-set",
+      "acceptance_status": "adopted-20261008-user-requested-mood-set; holefix-20261026 原位替换（用户批准例外于 R-素材-01），旧图 art_sources/asset-holes-backup-20261026/household-v1/ye_surprise.png",
       "source_manifest": "art_sources/guiyun-q-moods-20261008/manifest.json",
       "references": [
         "js/production-assets.js"
       ],
-      "cutout_fix": "2026-10-11 fix_actor_cutouts.py：补脸内抠穿的眼白、剥白边"
+      "cutout_fix": "2026-10-11 fix_actor_cutouts.py：补脸内抠穿的眼白、剥白边",
+      "cutout_fix_20261021": "fix_story_cutouts_20261021.py：去白底残留块／补白发小洞，原图在 _attic/2026-10-21-cutout-fix"
     },
     {
       "id": "cu_household-v1_ye_worry_png",
@@ -3507,18 +3539,19 @@
       "original_path": "art_sources/guiyun-q-moods-20261008/out/household-v1/ye_worry.png",
       "system": "cultivation",
       "role": "registered-or-direct-runtime",
-      "sha256": "4b7cee1bdb95973feb651baeb471a1f65c54ac8293e9fe04a6525dcb494d0ea8",
+      "sha256": "bfc6746eb7443c9a851104a9686f75b740607967f77b0c2a55ca1a0d0b7a2187",
       "actual_size": [
         1024,
         1536
       ],
       "generation": "codex exec 内置 image_gen 以本人正式 Q 版为底图编辑（提示词含 gpt-image-2.5 行，实际模型未确认）+ process.py 抠图与轮廓对齐",
-      "acceptance_status": "adopted-20261008-user-requested-mood-set",
+      "acceptance_status": "adopted-20261008-user-requested-mood-set; holefix-20261026 原位替换（用户批准例外于 R-素材-01），旧图 art_sources/asset-holes-backup-20261026/household-v1/ye_worry.png",
       "source_manifest": "art_sources/guiyun-q-moods-20261008/manifest.json",
       "references": [
         "js/production-assets.js"
       ],
-      "cutout_fix": "2026-10-11 fix_actor_cutouts.py：补脸内抠穿的眼白、剥白边"
+      "cutout_fix": "2026-10-11 fix_actor_cutouts.py：补脸内抠穿的眼白、剥白边",
+      "cutout_fix_20261021": "fix_story_cutouts_20261021.py：去白底残留块／补白发小洞，原图在 _attic/2026-10-21-cutout-fix"
     },
     {
       "id": "cu_household-v1_yin_angry_png",
@@ -3729,7 +3762,7 @@
       "original_path": "art_sources/guiyun-q-moods-20261008/out/household-v1/zhong_angry.png",
       "system": "cultivation",
       "role": "registered-or-direct-runtime",
-      "sha256": "991f1d1bade20be11bb958ea0dc5a9623c81bcc5218dd91c70438aad173dbf1c",
+      "sha256": "e5aa73a832fd737e0aa2ba8760cfe64a5184b95cb06872712a511385c64efda6",
       "actual_size": [
         1024,
         1536
@@ -3738,7 +3771,8 @@
       "acceptance_status": "adopted-20261008-user-requested-mood-set",
       "source_manifest": "art_sources/guiyun-q-moods-20261008/manifest.json",
       "references": [],
-      "cutout_fix": "2026-10-11 fix_actor_cutouts.py：补脸内抠穿的眼白、剥白边"
+      "cutout_fix": "2026-10-11 fix_actor_cutouts.py：补脸内抠穿的眼白、剥白边",
+      "cutout_fix_20261021": "fix_story_cutouts_20261021.py：去白底残留块／补白发小洞，原图在 _attic/2026-10-21-cutout-fix"
     },
     {
       "id": "cu_household-v1_zhong_normal_png",
@@ -3746,13 +3780,13 @@
       "original_path": "art_sources/guiyun-q-moods-20261008/out/household-v1/zhong_normal.png",
       "system": "cultivation",
       "role": "registered-or-direct-runtime",
-      "sha256": "43f99eae22e0ac0e91b581d476fc64d375ce80cf6e9e2b3eeb8814ffc6142f21",
+      "sha256": "b3c2bb1e6b7284c498781f611d150e023d8fc5af8dcea113bfa8ade611a81919",
       "actual_size": [
         1024,
         1536
       ],
       "generation": "codex exec 内置 image_gen 以本人正式 Q 版为底图编辑（提示词含 gpt-image-2.5 行，实际模型未确认）+ process.py 抠图与轮廓对齐",
-      "acceptance_status": "adopted-20261008-user-requested-mood-set",
+      "acceptance_status": "adopted-20261008-user-requested-mood-set; holefix-20261026 原位替换（用户批准例外于 R-素材-01），旧图 art_sources/asset-holes-backup-20261026/household-v1/zhong_normal.png",
       "source_manifest": "art_sources/guiyun-q-moods-20261008/manifest.json",
       "references": [],
       "cutout_fix": "2026-10-11 fix_actor_cutouts.py：补脸内抠穿的眼白、剥白边"
@@ -3763,13 +3797,13 @@
       "original_path": "art_sources/guiyun-q-moods-20261008/out/household-v1/zhong_sad.png",
       "system": "cultivation",
       "role": "registered-or-direct-runtime",
-      "sha256": "8b399bf8aa7bf22eecaea281e602191a314e21ee384c61979448cab276321bee",
+      "sha256": "36b8b1bcc4121ff227cb35ff748b6cc192e99585185981947ab327647fa53031",
       "actual_size": [
         1024,
         1536
       ],
       "generation": "codex exec 内置 image_gen 以本人正式 Q 版为底图编辑（提示词含 gpt-image-2.5 行，实际模型未确认）+ process.py 抠图与轮廓对齐",
-      "acceptance_status": "adopted-20261008-user-requested-mood-set",
+      "acceptance_status": "adopted-20261008-user-requested-mood-set; holefix-20261026 原位替换（用户批准例外于 R-素材-01），旧图 art_sources/asset-holes-backup-20261026/household-v1/zhong_sad.png",
       "source_manifest": "art_sources/guiyun-q-moods-20261008/manifest.json",
       "references": [],
       "cutout_fix": "2026-10-11 fix_actor_cutouts.py：补脸内抠穿的眼白、剥白边"
@@ -3780,16 +3814,17 @@
       "original_path": "art_sources/guiyun-q-moods-20261008/out/household-v1/zhong_serious.png",
       "system": "cultivation",
       "role": "registered-or-direct-runtime",
-      "sha256": "0d2802d21ac01aff93340e8ee825b47e9893b179aa6faaecbc50b9384498907a",
+      "sha256": "c8ef835f8764b9fd17e7389393acfc601742b08c40d9ce04095bf03828151b3a",
       "actual_size": [
         1024,
         1536
       ],
       "generation": "codex exec 内置 image_gen 以本人正式 Q 版为底图编辑（提示词含 gpt-image-2.5 行，实际模型未确认）+ process.py 抠图与轮廓对齐",
-      "acceptance_status": "adopted-20261008-user-requested-mood-set",
+      "acceptance_status": "adopted-20261008-user-requested-mood-set; holefix-20261026 原位替换（用户批准例外于 R-素材-01），旧图 art_sources/asset-holes-backup-20261026/household-v1/zhong_serious.png",
       "source_manifest": "art_sources/guiyun-q-moods-20261008/manifest.json",
       "references": [],
-      "cutout_fix": "2026-10-11 fix_actor_cutouts.py：补脸内抠穿的眼白、剥白边"
+      "cutout_fix": "2026-10-11 fix_actor_cutouts.py：补脸内抠穿的眼白、剥白边",
+      "cutout_fix_20261021": "fix_story_cutouts_20261021.py：去白底残留块／补白发小洞，原图在 _attic/2026-10-21-cutout-fix"
     },
     {
       "id": "cu_household-v1_zhong_smile_png",
@@ -3797,16 +3832,17 @@
       "original_path": "art_sources/guiyun-q-moods-20261008/out/household-v1/zhong_smile.png",
       "system": "cultivation",
       "role": "registered-or-direct-runtime",
-      "sha256": "419770679d8c406961177f859c31dae789ebffa84ae14f17fca10eecb1435f9b",
+      "sha256": "623c568e0b380b244ff97356f9c7d22252a75123ea2534b8a0c890e64f9c92cf",
       "actual_size": [
         1024,
         1536
       ],
       "generation": "codex exec 内置 image_gen 以本人正式 Q 版为底图编辑（提示词含 gpt-image-2.5 行，实际模型未确认）+ process.py 抠图与轮廓对齐",
-      "acceptance_status": "adopted-20261008-user-requested-mood-set",
+      "acceptance_status": "adopted-20261008-user-requested-mood-set; holefix-20261026 原位替换（用户批准例外于 R-素材-01），旧图 art_sources/asset-holes-backup-20261026/household-v1/zhong_smile.png",
       "source_manifest": "art_sources/guiyun-q-moods-20261008/manifest.json",
       "references": [],
-      "cutout_fix": "2026-10-11 fix_actor_cutouts.py：补脸内抠穿的眼白、剥白边"
+      "cutout_fix": "2026-10-11 fix_actor_cutouts.py：补脸内抠穿的眼白、剥白边",
+      "cutout_fix_20261021": "fix_story_cutouts_20261021.py：去白底残留块／补白发小洞，原图在 _attic/2026-10-21-cutout-fix"
     },
     {
       "id": "cu_household-v1_zhong_surprise_png",
@@ -3814,16 +3850,17 @@
       "original_path": "art_sources/guiyun-q-moods-20261008/out/household-v1/zhong_surprise.png",
       "system": "cultivation",
       "role": "registered-or-direct-runtime",
-      "sha256": "d196c8a6d65a19dbbfe0ae56a255ece050b48f5ea8b478f8cc324b7e39aa0147",
+      "sha256": "e4075e512de472e6b79bec568cfda870e31368b292d1f2bd3e21d2914444de45",
       "actual_size": [
         1024,
         1536
       ],
       "generation": "codex exec 内置 image_gen 以本人正式 Q 版为底图编辑（提示词含 gpt-image-2.5 行，实际模型未确认）+ process.py 抠图与轮廓对齐",
-      "acceptance_status": "adopted-20261008-user-requested-mood-set",
+      "acceptance_status": "adopted-20261008-user-requested-mood-set; holefix-20261026 原位替换（用户批准例外于 R-素材-01），旧图 art_sources/asset-holes-backup-20261026/household-v1/zhong_surprise.png",
       "source_manifest": "art_sources/guiyun-q-moods-20261008/manifest.json",
       "references": [],
-      "cutout_fix": "2026-10-11 fix_actor_cutouts.py：补脸内抠穿的眼白、剥白边"
+      "cutout_fix": "2026-10-11 fix_actor_cutouts.py：补脸内抠穿的眼白、剥白边",
+      "cutout_fix_20261021": "fix_story_cutouts_20261021.py：去白底残留块／补白发小洞，原图在 _attic/2026-10-21-cutout-fix"
     },
     {
       "id": "cu_household-v1_zhong_worry_png",
@@ -4043,7 +4080,7 @@
       "original_path": "art_sources/guiyun-side-q-20261008/out/dou_sleep.png",
       "system": "cultivation",
       "role": "registered-or-direct-runtime",
-      "sha256": "b092777fc7cc7fe00605d67335f3673fd4019cd69d0a0e75452d35fb1801c9ce",
+      "sha256": "37add541c491c02d850e00c07be709e9e5d243c67a6ef183f392b35aedf6baf2",
       "actual_size": [
         1024,
         1536
@@ -4054,7 +4091,8 @@
       "acceptance_status": "adopted-20261008-self-reviewed",
       "source_manifest": "art_sources/guiyun-side-q-20261008/manifest.json",
       "references": [],
-      "cutout_fix": "2026-10-11 fix_actor_cutouts.py：补脸内抠穿的眼白、剥白边"
+      "cutout_fix": "2026-10-11 fix_actor_cutouts.py：补脸内抠穿的眼白、剥白边",
+      "cutout_fix_20261021": "fix_story_cutouts_20261021.py：去白底残留块／补白发小洞，原图在 _attic/2026-10-21-cutout-fix"
     },
     {
       "id": "cu_household-v1_fang_hurt_normal_png",
@@ -4062,7 +4100,7 @@
       "original_path": "art_sources/guiyun-side-q-20261008/out/fang_hurt_normal.png",
       "system": "cultivation",
       "role": "registered-or-direct-runtime",
-      "sha256": "45dcc2472d743bc25211d1b3f2d552a71de932725d5caef2361f401d47e7141c",
+      "sha256": "2b7808a1c101c13dc75bbfb377e4920ed8fb2685f6a41ad48e494450e454ac23",
       "actual_size": [
         1024,
         1536
@@ -4070,7 +4108,7 @@
       "generation": "codex exec 内置 image_gen 以本人正式 Q 版（household-v1）为底图编辑：fang_hurt_normal 由 fang_normal 编辑，其余负伤表情由 fang_hurt_normal 编辑；dou_sleep 由 dou_normal 编辑（提示词含 gpt-image-2.5 行，实际模型未确认）+ 抠图与头肩轮廓对齐",
       "raw": "art_sources/guiyun-side-q-20261008/raw/fang_hurt_normal.png",
       "prompt": "art_sources/guiyun-side-q-20261008/prompts/fang_hurt_normal.txt",
-      "acceptance_status": "adopted-20261008-self-reviewed",
+      "acceptance_status": "adopted-20261008-self-reviewed; holefix-20261026 原位替换（用户批准例外于 R-素材-01），旧图 art_sources/asset-holes-backup-20261026/household-v1/fang_hurt_normal.png",
       "source_manifest": "art_sources/guiyun-side-q-20261008/manifest.json",
       "references": [],
       "cutout_fix": "2026-10-11 fix_actor_cutouts.py：补脸内抠穿的眼白、剥白边"
@@ -4081,7 +4119,7 @@
       "original_path": "art_sources/guiyun-side-q-20261008/out/fang_hurt_sad.png",
       "system": "cultivation",
       "role": "registered-or-direct-runtime",
-      "sha256": "305ab30512a91f5d8d394beeed2b50cd77e6fc7d318da700b9db6e6f9de71d11",
+      "sha256": "21300f80c7c2fe8a9050b5d5ffe473e503137e16f004c9335351d395e8614500",
       "actual_size": [
         1024,
         1536
@@ -4089,7 +4127,7 @@
       "generation": "codex exec 内置 image_gen 以本人正式 Q 版（household-v1）为底图编辑：fang_hurt_normal 由 fang_normal 编辑，其余负伤表情由 fang_hurt_normal 编辑；dou_sleep 由 dou_normal 编辑（提示词含 gpt-image-2.5 行，实际模型未确认）+ 抠图与头肩轮廓对齐",
       "raw": "art_sources/guiyun-side-q-20261008/raw/fang_hurt_sad.png",
       "prompt": "art_sources/guiyun-side-q-20261008/prompts/fang_hurt_sad.txt",
-      "acceptance_status": "adopted-20261008-self-reviewed",
+      "acceptance_status": "adopted-20261008-self-reviewed; holefix-20261026 原位替换（用户批准例外于 R-素材-01），旧图 art_sources/asset-holes-backup-20261026/household-v1/fang_hurt_sad.png",
       "source_manifest": "art_sources/guiyun-side-q-20261008/manifest.json",
       "references": [],
       "cutout_fix": "2026-10-11 fix_actor_cutouts.py：补脸内抠穿的眼白、剥白边"
@@ -4100,7 +4138,7 @@
       "original_path": "art_sources/guiyun-side-q-20261008/out/fang_hurt_serious.png",
       "system": "cultivation",
       "role": "registered-or-direct-runtime",
-      "sha256": "b9f427acdeb7d055c052b9b07d8a1ec4609fa68fea65481ad5050813fe8b85b2",
+      "sha256": "dfff2b0762f596a6ea6b260d6744d8b186197aa44ce6301ecd5b2e661b927003",
       "actual_size": [
         1024,
         1536
@@ -4108,7 +4146,7 @@
       "generation": "codex exec 内置 image_gen 以本人正式 Q 版（household-v1）为底图编辑：fang_hurt_normal 由 fang_normal 编辑，其余负伤表情由 fang_hurt_normal 编辑；dou_sleep 由 dou_normal 编辑（提示词含 gpt-image-2.5 行，实际模型未确认）+ 抠图与头肩轮廓对齐",
       "raw": "art_sources/guiyun-side-q-20261008/raw/fang_hurt_serious.png",
       "prompt": "art_sources/guiyun-side-q-20261008/prompts/fang_hurt_serious.txt",
-      "acceptance_status": "adopted-20261008-self-reviewed",
+      "acceptance_status": "adopted-20261008-self-reviewed; holefix-20261026 原位替换（用户批准例外于 R-素材-01），旧图 art_sources/asset-holes-backup-20261026/household-v1/fang_hurt_serious.png",
       "source_manifest": "art_sources/guiyun-side-q-20261008/manifest.json",
       "references": [],
       "cutout_fix": "2026-10-11 fix_actor_cutouts.py：补脸内抠穿的眼白、剥白边"
@@ -4119,7 +4157,7 @@
       "original_path": "art_sources/guiyun-side-q-20261008/out/fang_hurt_smile.png",
       "system": "cultivation",
       "role": "registered-or-direct-runtime",
-      "sha256": "dad0ec9feff6469f5e07127b0fc5dc3e4090a93bf557c611aa4af1eb2665945c",
+      "sha256": "5ab4d11181bc72b9f661c4035ad91cd2a9c53feb118bf70108c2743731b732f6",
       "actual_size": [
         1024,
         1536
@@ -4127,7 +4165,7 @@
       "generation": "codex exec 内置 image_gen 以本人正式 Q 版（household-v1）为底图编辑：fang_hurt_normal 由 fang_normal 编辑，其余负伤表情由 fang_hurt_normal 编辑；dou_sleep 由 dou_normal 编辑（提示词含 gpt-image-2.5 行，实际模型未确认）+ 抠图与头肩轮廓对齐",
       "raw": "art_sources/guiyun-side-q-20261008/raw/fang_hurt_smile.png",
       "prompt": "art_sources/guiyun-side-q-20261008/prompts/fang_hurt_smile.txt",
-      "acceptance_status": "adopted-20261008-self-reviewed",
+      "acceptance_status": "adopted-20261008-self-reviewed; holefix-20261026 原位替换（用户批准例外于 R-素材-01），旧图 art_sources/asset-holes-backup-20261026/household-v1/fang_hurt_smile.png",
       "source_manifest": "art_sources/guiyun-side-q-20261008/manifest.json",
       "references": [],
       "cutout_fix": "2026-10-11 fix_actor_cutouts.py：补脸内抠穿的眼白、剥白边"
@@ -4480,8 +4518,25 @@
         1672,
         941
       ],
-      "acceptance_status": "adopted-20261008",
+      "acceptance_status": "adopted-20261008; superseded-by cg_qh_backhill_rope_v4_20261026 (runtime no longer references it)",
       "visual_acceptance_record": "art_sources/qh-song-disguise-20261008/cg-rope-visual-acceptance.json",
+      "references": [
+        "js/production-assets.js"
+      ]
+    },
+    {
+      "id": "cg_qh_backhill_rope_v4_20261026",
+      "path": "assets/production/shared/cg_qh_backhill_rope_v4_20261026.webp",
+      "original_path": "art_sources/rectify-art-20261023/red-cord-cg/v4/final/cg_qh_backhill_rope_v4_20261026.webp",
+      "system": "shared",
+      "role": "registered-or-direct-runtime",
+      "sha256": "a6f3d4c7ca309fce4593b0c0593f2ac2f63d2404e687dbec8ae9598a372f36d5",
+      "actual_size": [
+        1672,
+        941
+      ],
+      "acceptance_status": "adopted-20261026",
+      "visual_acceptance_record": "art_sources/rectify-art-20261023/red-cord-cg/v4/cg-rope-v4-visual-acceptance.json",
       "references": [
         "js/qihe-fire-cinematic.js",
         "js/production-assets.js"
@@ -4814,11 +4869,11 @@
     },
     {
       "id": "m_qh_central_props",
-      "path": "assets/production/maps/m_qh_central_props_modular_20261007.webp",
-      "original_path": "art_sources/qihe-modular-central-20261007/out/hd/props.png",
+      "path": "assets/production/maps/m_qh_central_props_regen_20261026.webp",
+      "original_path": "art_sources/prop-regen-20261026/out/props.png",
       "system": "maps",
       "role": "qihe-active-map",
-      "sha256": "d196c1ee93c6ab8fe01277bd9356fd07058e52b79a46336b9051fe27e9dc9869",
+      "sha256": "152b4781efe44b474de16cfd797b55d154ba275f8831b755fd5958977a06f705",
       "size": [
         2048,
         1475
@@ -4840,8 +4895,10 @@
         "js/qihe-expansion.js",
         "index.html"
       ],
-      "generation_record": "art_sources/qihe-modular-central-20261007/parts",
-      "acceptance_evidence": "art_sources/qihe-modular-central-20261007/adopt.json"
+      "generation_record": "art_sources/prop-holes-fix-20261025/recut_frames.py",
+      "acceptance_evidence": "docs/updates/evidence/2026-10-25-prop-holes/",
+      "supersedes": "assets/production/maps/m_qh_central_props_modular_20261007.webp（旧图集保留原处；2026-10-25 道具镂空整改：路牌、修理台、晾衣架重切，叶家、药棚补缺口）",
+      "acceptance_status": "; 20261026 修理台、晾衣架用 302 重画（用户第十五轮第 9 题“重新生成一个吧”），旧图集 assets/production/maps/m_qh_central_props_holefix_20261025.webp 保留"
     },
     {
       "id": "m_qh_east",
@@ -12353,13 +12410,13 @@
       "original_path": "art_sources/guiyun-playtest-fix-20261011/out/household-v1/hero_mid_sad.png",
       "system": "cultivation",
       "role": "registered-or-direct-runtime",
-      "sha256": "c373303af1e608010a44ff08bcd778b266be4f11fd07c7be507c45f58b8494cf",
+      "sha256": "835303bd0ac24c3725608f689d8be2f8c1231da7174d201b2ece814ff9dbe12b",
       "actual_size": [
         1024,
         1536
       ],
       "generation": "codex exec 内置 image_gen（提示词含 gpt-image-2.5 行，实际模型未披露）+ process.py 抠图对齐／统一尺寸",
-      "acceptance_status": "adopted-20261011-playtest-feedback",
+      "acceptance_status": "adopted-20261011-playtest-feedback; holefix-20261026 原位替换（用户批准例外于 R-素材-01），旧图 art_sources/asset-holes-backup-20261026/household-v1/hero_mid_sad.png",
       "source_manifest": "art_sources/guiyun-playtest-fix-20261011/manifest.json",
       "references": [],
       "cutout_fix": "2026-10-11 fix_actor_cutouts.py：补脸内抠穿的眼白、剥白边"
@@ -15881,6 +15938,1149 @@
       "actual_size": [
         96,
         74
+      ]
+    },
+    {
+      "id": "cu_neighbors-v1_duo_gn_lamp_father_left_png",
+      "path": "assets/production/cultivation/neighbors-v1/duo_gn_lamp_father_left.png",
+      "original_path": "art_sources/facing-left-pilot-20261020/out/duo_gn_lamp_father_left.png",
+      "system": "cultivation",
+      "role": "registered-or-direct-runtime",
+      "sha256": "d07351bd431ccf7ff7ae85359a0cd973e7d8f6b82d301505531f1d9b9de14033",
+      "actual_size": [
+        1024,
+        1536
+      ],
+      "generation": "302ai-sunburst（imggen.py --opaque-fix）；提示词请求 gpt-image-2.5，实际后端模型未披露",
+      "acceptance_status": "adopted-20261021-facing-left",
+      "generation_record": "art_sources/facing-left-pilot-20261020/prompts/duo_gn_lamp_father_left.txt",
+      "references": [],
+      "alpha_method": "native RGBA；opaque-fix 把 254 提到 255",
+      "facing": "L",
+      "note": "2026-10-21 用户：“对，直接采用接入”。知古、裴述各 7 档朝左版及“躲在父亲身后”朝左双人图；站右位时运行时换用朝左版（cultivation-actor-facing.json）。"
+    },
+    {
+      "id": "cu_household-v1_pei_left_png",
+      "path": "assets/production/cultivation/household-v1/pei_left.png",
+      "original_path": "art_sources/facing-left-pilot-20261020/out/pei_left.png",
+      "system": "cultivation",
+      "role": "registered-or-direct-runtime",
+      "sha256": "8c6627cfebd67568b93c9f28afc894b47bd76cb77c8ed44503bf3a4d0df6cbeb",
+      "actual_size": [
+        1024,
+        1536
+      ],
+      "generation": "302ai-sunburst（imggen.py --opaque-fix）；提示词请求 gpt-image-2.5，实际后端模型未披露",
+      "acceptance_status": "adopted-20261021-facing-left",
+      "generation_record": "art_sources/facing-left-pilot-20261020/prompts/pei_left.txt",
+      "references": [],
+      "alpha_method": "native RGBA；opaque-fix 把 254 提到 255",
+      "facing": "L",
+      "note": "2026-10-21 用户：“对，直接采用接入”。知古、裴述各 7 档朝左版及“躲在父亲身后”朝左双人图；站右位时运行时换用朝左版（cultivation-actor-facing.json）。"
+    },
+    {
+      "id": "cu_household-v1_pei_normal_left_png",
+      "path": "assets/production/cultivation/household-v1/pei_normal_left.png",
+      "original_path": "art_sources/facing-left-pilot-20261020/out/pei_normal_left.png",
+      "system": "cultivation",
+      "role": "registered-or-direct-runtime",
+      "sha256": "75c90cb2beb4559585439fed66aed1f0cb908a049a2cb808f2d88a2491c3963d",
+      "actual_size": [
+        1024,
+        1536
+      ],
+      "generation": "302ai-sunburst（imggen.py --opaque-fix）；提示词请求 gpt-image-2.5，实际后端模型未披露",
+      "acceptance_status": "adopted-20261021-facing-left",
+      "generation_record": "art_sources/facing-left-pilot-20261020/prompts/pei_normal_left.txt",
+      "references": [],
+      "alpha_method": "native RGBA；opaque-fix 把 254 提到 255",
+      "facing": "L",
+      "note": "2026-10-21 用户：“对，直接采用接入”。知古、裴述各 7 档朝左版及“躲在父亲身后”朝左双人图；站右位时运行时换用朝左版（cultivation-actor-facing.json）。"
+    },
+    {
+      "id": "cu_household-v1_pei_sad_left_png",
+      "path": "assets/production/cultivation/household-v1/pei_sad_left.png",
+      "original_path": "art_sources/facing-left-pilot-20261020/out/pei_sad_left.png",
+      "system": "cultivation",
+      "role": "registered-or-direct-runtime",
+      "sha256": "f7ee3d6680c34ccee337321e2c0ba5c20733d1e238dc7fc0df416d0f83a6c9cb",
+      "actual_size": [
+        1024,
+        1536
+      ],
+      "generation": "302ai-sunburst（imggen.py --opaque-fix）；提示词请求 gpt-image-2.5，实际后端模型未披露",
+      "acceptance_status": "adopted-20261021-facing-left",
+      "generation_record": "art_sources/facing-left-pilot-20261020/prompts/pei_sad_left.txt",
+      "references": [],
+      "alpha_method": "native RGBA；opaque-fix 把 254 提到 255",
+      "facing": "L",
+      "note": "2026-10-21 用户：“对，直接采用接入”。知古、裴述各 7 档朝左版及“躲在父亲身后”朝左双人图；站右位时运行时换用朝左版（cultivation-actor-facing.json）。"
+    },
+    {
+      "id": "cu_household-v1_pei_serious_left_png",
+      "path": "assets/production/cultivation/household-v1/pei_serious_left.png",
+      "original_path": "art_sources/facing-left-pilot-20261020/out/pei_serious_left.png",
+      "system": "cultivation",
+      "role": "registered-or-direct-runtime",
+      "sha256": "70acf145e85a88544dbb4c35879d763a9d0832c679fcf86bbc23ea44189031f1",
+      "actual_size": [
+        1024,
+        1536
+      ],
+      "generation": "302ai-sunburst（imggen.py --opaque-fix）；提示词请求 gpt-image-2.5，实际后端模型未披露",
+      "acceptance_status": "adopted-20261021-facing-left",
+      "generation_record": "art_sources/facing-left-pilot-20261020/prompts/pei_serious_left.txt",
+      "references": [],
+      "alpha_method": "native RGBA；opaque-fix 把 254 提到 255",
+      "facing": "L",
+      "note": "2026-10-21 用户：“对，直接采用接入”。知古、裴述各 7 档朝左版及“躲在父亲身后”朝左双人图；站右位时运行时换用朝左版（cultivation-actor-facing.json）。"
+    },
+    {
+      "id": "cu_household-v1_pei_smile_left_png",
+      "path": "assets/production/cultivation/household-v1/pei_smile_left.png",
+      "original_path": "art_sources/facing-left-pilot-20261020/out/pei_smile_left.png",
+      "system": "cultivation",
+      "role": "registered-or-direct-runtime",
+      "sha256": "fd4c1137d9ffe2f2df1124ea672e47e03fb34cbf7f420433d9282f3e5d3f517f",
+      "actual_size": [
+        1024,
+        1536
+      ],
+      "generation": "302ai-sunburst（imggen.py --opaque-fix）；提示词请求 gpt-image-2.5，实际后端模型未披露",
+      "acceptance_status": "adopted-20261021-facing-left",
+      "generation_record": "art_sources/facing-left-pilot-20261020/prompts/pei_smile_left.txt",
+      "references": [],
+      "alpha_method": "native RGBA；opaque-fix 把 254 提到 255",
+      "facing": "L",
+      "note": "2026-10-21 用户：“对，直接采用接入”。知古、裴述各 7 档朝左版及“躲在父亲身后”朝左双人图；站右位时运行时换用朝左版（cultivation-actor-facing.json）。"
+    },
+    {
+      "id": "cu_household-v1_pei_surprise_left_png",
+      "path": "assets/production/cultivation/household-v1/pei_surprise_left.png",
+      "original_path": "art_sources/facing-left-pilot-20261020/out/pei_surprise_left.png",
+      "system": "cultivation",
+      "role": "registered-or-direct-runtime",
+      "sha256": "f2c58aa52e635bf44d6228ff7c8d38952077ff4bba083a464e9aa61e728cdfba",
+      "actual_size": [
+        1024,
+        1536
+      ],
+      "generation": "302ai-sunburst（imggen.py --opaque-fix）；提示词请求 gpt-image-2.5，实际后端模型未披露",
+      "acceptance_status": "adopted-20261021-facing-left",
+      "generation_record": "art_sources/facing-left-pilot-20261020/prompts/pei_surprise_left.txt",
+      "references": [],
+      "alpha_method": "native RGBA；opaque-fix 把 254 提到 255",
+      "facing": "L",
+      "note": "2026-10-21 用户：“对，直接采用接入”。知古、裴述各 7 档朝左版及“躲在父亲身后”朝左双人图；站右位时运行时换用朝左版（cultivation-actor-facing.json）。"
+    },
+    {
+      "id": "cu_household-v1_pei_worry_left_png",
+      "path": "assets/production/cultivation/household-v1/pei_worry_left.png",
+      "original_path": "art_sources/facing-left-pilot-20261020/out/pei_worry_left.png",
+      "system": "cultivation",
+      "role": "registered-or-direct-runtime",
+      "sha256": "9f2c32329075dd1f29c71f64132d0ae77180d33a6188296c9bf695144bdc347a",
+      "actual_size": [
+        1024,
+        1536
+      ],
+      "generation": "302ai-sunburst（imggen.py --opaque-fix）；提示词请求 gpt-image-2.5，实际后端模型未披露",
+      "acceptance_status": "adopted-20261021-facing-left",
+      "generation_record": "art_sources/facing-left-pilot-20261020/prompts/pei_worry_left.txt",
+      "references": [],
+      "alpha_method": "native RGBA；opaque-fix 把 254 提到 255",
+      "facing": "L",
+      "note": "2026-10-21 用户：“对，直接采用接入”。知古、裴述各 7 档朝左版及“躲在父亲身后”朝左双人图；站右位时运行时换用朝左版（cultivation-actor-facing.json）。"
+    },
+    {
+      "id": "cu_household-v1_peishu_left_png",
+      "path": "assets/production/cultivation/household-v1/peishu_left.png",
+      "original_path": "art_sources/facing-left-pilot-20261020/out/peishu_left.png",
+      "system": "cultivation",
+      "role": "registered-or-direct-runtime",
+      "sha256": "52dc941ed8e7949bfce8a8ff0266b9c8242c4b41c3635f5d16c7992f99a9d4fa",
+      "actual_size": [
+        1024,
+        1536
+      ],
+      "generation": "302ai-sunburst（imggen.py --opaque-fix）；提示词请求 gpt-image-2.5，实际后端模型未披露",
+      "acceptance_status": "adopted-20261021-facing-left",
+      "generation_record": "art_sources/facing-left-pilot-20261020/prompts/peishu_left.txt",
+      "references": [],
+      "alpha_method": "native RGBA；opaque-fix 把 254 提到 255",
+      "facing": "L",
+      "note": "2026-10-21 用户：“对，直接采用接入”。知古、裴述各 7 档朝左版及“躲在父亲身后”朝左双人图；站右位时运行时换用朝左版（cultivation-actor-facing.json）。"
+    },
+    {
+      "id": "cu_household-v1_peishu_normal_left_png",
+      "path": "assets/production/cultivation/household-v1/peishu_normal_left.png",
+      "original_path": "art_sources/facing-left-pilot-20261020/out/peishu_normal_left.png",
+      "system": "cultivation",
+      "role": "registered-or-direct-runtime",
+      "sha256": "a5b60f3ec3007951ca82539e464499c79e880bd4db8c95b18204d5e0f0a60066",
+      "actual_size": [
+        1024,
+        1536
+      ],
+      "generation": "302ai-sunburst（imggen.py --opaque-fix）；提示词请求 gpt-image-2.5，实际后端模型未披露",
+      "acceptance_status": "adopted-20261021-facing-left",
+      "generation_record": "art_sources/facing-left-pilot-20261020/prompts/peishu_normal_left.txt",
+      "references": [],
+      "alpha_method": "native RGBA；opaque-fix 把 254 提到 255",
+      "facing": "L",
+      "note": "2026-10-21 用户：“对，直接采用接入”。知古、裴述各 7 档朝左版及“躲在父亲身后”朝左双人图；站右位时运行时换用朝左版（cultivation-actor-facing.json）。"
+    },
+    {
+      "id": "cu_household-v1_peishu_sad_left_png",
+      "path": "assets/production/cultivation/household-v1/peishu_sad_left.png",
+      "original_path": "art_sources/facing-left-pilot-20261020/out/peishu_sad_left.png",
+      "system": "cultivation",
+      "role": "registered-or-direct-runtime",
+      "sha256": "13566d1e21dc1fc6cb95bfae9a39cd255b35c5b5f6dadfbef4f0de7d17e7f5b0",
+      "actual_size": [
+        1024,
+        1536
+      ],
+      "generation": "302ai-sunburst（imggen.py --opaque-fix）；提示词请求 gpt-image-2.5，实际后端模型未披露",
+      "acceptance_status": "adopted-20261021-facing-left",
+      "generation_record": "art_sources/facing-left-pilot-20261020/prompts/peishu_sad_left.txt",
+      "references": [],
+      "alpha_method": "native RGBA；opaque-fix 把 254 提到 255",
+      "facing": "L",
+      "note": "2026-10-21 用户：“对，直接采用接入”。知古、裴述各 7 档朝左版及“躲在父亲身后”朝左双人图；站右位时运行时换用朝左版（cultivation-actor-facing.json）。"
+    },
+    {
+      "id": "cu_household-v1_peishu_serious_left_png",
+      "path": "assets/production/cultivation/household-v1/peishu_serious_left.png",
+      "original_path": "art_sources/facing-left-pilot-20261020/out/peishu_serious_left.png",
+      "system": "cultivation",
+      "role": "registered-or-direct-runtime",
+      "sha256": "db45cf611cdc7333afcae456519138ad2c7b0f1393976d0a4a13ff045ce8cae9",
+      "actual_size": [
+        1024,
+        1536
+      ],
+      "generation": "302ai-sunburst（imggen.py --opaque-fix）；提示词请求 gpt-image-2.5，实际后端模型未披露",
+      "acceptance_status": "adopted-20261021-facing-left",
+      "generation_record": "art_sources/facing-left-pilot-20261020/prompts/peishu_serious_left.txt",
+      "references": [],
+      "alpha_method": "native RGBA；opaque-fix 把 254 提到 255",
+      "facing": "L",
+      "note": "2026-10-21 用户：“对，直接采用接入”。知古、裴述各 7 档朝左版及“躲在父亲身后”朝左双人图；站右位时运行时换用朝左版（cultivation-actor-facing.json）。"
+    },
+    {
+      "id": "cu_household-v1_peishu_smile_left_png",
+      "path": "assets/production/cultivation/household-v1/peishu_smile_left.png",
+      "original_path": "art_sources/facing-left-pilot-20261020/out/peishu_smile_left.png",
+      "system": "cultivation",
+      "role": "registered-or-direct-runtime",
+      "sha256": "de4df00a0d17608f94c427d045d4c0a0f1a5833462c78509edc0a49c364cda1b",
+      "actual_size": [
+        1024,
+        1536
+      ],
+      "generation": "302ai-sunburst（imggen.py --opaque-fix）；提示词请求 gpt-image-2.5，实际后端模型未披露",
+      "acceptance_status": "adopted-20261021-facing-left",
+      "generation_record": "art_sources/facing-left-pilot-20261020/prompts/peishu_smile_left.txt",
+      "references": [],
+      "alpha_method": "native RGBA；opaque-fix 把 254 提到 255",
+      "facing": "L",
+      "note": "2026-10-21 用户：“对，直接采用接入”。知古、裴述各 7 档朝左版及“躲在父亲身后”朝左双人图；站右位时运行时换用朝左版（cultivation-actor-facing.json）。"
+    },
+    {
+      "id": "cu_household-v1_peishu_surprise_left_png",
+      "path": "assets/production/cultivation/household-v1/peishu_surprise_left.png",
+      "original_path": "art_sources/facing-left-pilot-20261020/out/peishu_surprise_left.png",
+      "system": "cultivation",
+      "role": "registered-or-direct-runtime",
+      "sha256": "66b96162ce3ac0aa76e14c93269f6c4ba5dcc5b095aa2fb229c6bfe4e5861b58",
+      "actual_size": [
+        1024,
+        1536
+      ],
+      "generation": "302ai-sunburst（imggen.py --opaque-fix）；提示词请求 gpt-image-2.5，实际后端模型未披露",
+      "acceptance_status": "adopted-20261021-facing-left",
+      "generation_record": "art_sources/facing-left-pilot-20261020/prompts/peishu_surprise_left.txt",
+      "references": [],
+      "alpha_method": "native RGBA；opaque-fix 把 254 提到 255",
+      "facing": "L",
+      "note": "2026-10-21 用户：“对，直接采用接入”。知古、裴述各 7 档朝左版及“躲在父亲身后”朝左双人图；站右位时运行时换用朝左版（cultivation-actor-facing.json）。"
+    },
+    {
+      "id": "cu_household-v1_peishu_worry_left_png",
+      "path": "assets/production/cultivation/household-v1/peishu_worry_left.png",
+      "original_path": "art_sources/facing-left-pilot-20261020/out/peishu_worry_left.png",
+      "system": "cultivation",
+      "role": "registered-or-direct-runtime",
+      "sha256": "0e1475cca7c9dde8b1e817bf77ef1647fb7f745985ec6949ae1fad34fdb5ccbf",
+      "actual_size": [
+        1024,
+        1536
+      ],
+      "generation": "302ai-sunburst（imggen.py --opaque-fix）；提示词请求 gpt-image-2.5，实际后端模型未披露",
+      "acceptance_status": "adopted-20261021-facing-left",
+      "generation_record": "art_sources/facing-left-pilot-20261020/prompts/peishu_worry_left.txt",
+      "references": [],
+      "alpha_method": "native RGBA；opaque-fix 把 254 提到 255",
+      "facing": "L",
+      "note": "2026-10-21 用户：“对，直接采用接入”。知古、裴述各 7 档朝左版及“躲在父亲身后”朝左双人图；站右位时运行时换用朝左版（cultivation-actor-facing.json）。"
+    },
+    {
+      "id": "cu_household-v1_meng_zhiwei_normal_left_png",
+      "path": "assets/production/cultivation/household-v1/meng_zhiwei_normal_left.png",
+      "original_path": "art_sources/facing-left-cast-20261021/out/meng_zhiwei_normal_left.png",
+      "system": "cultivation",
+      "role": "registered-or-direct-runtime",
+      "sha256": "894c42479100640cdae3e48ea2d2d005d16ee155eccad622ddeacbaeae58faae",
+      "actual_size": [
+        1024,
+        1536
+      ],
+      "generation": "302ai-sunburst（imggen.py --opaque-fix）；提示词请求 gpt-image-2.5，实际后端模型未披露",
+      "acceptance_status": "adopted-20261021-facing-left",
+      "generation_record": "art_sources/facing-left-cast-20261021/prompts/meng_zhiwei_normal_left.txt",
+      "references": [],
+      "alpha_method": "native RGBA；opaque-fix 把 254 提到 255",
+      "facing": "L",
+      "note": "2026-10-21 用户：“把另外五位也出图，一定要注意比例大小……多个请求去生成”。周砚、殷红缨各 8 档，莫松年、孟知微、照川来客各 4 档（剧场用到的全部表情档），每张一个独立请求、28 个并发。朝左版逐张量脸单独给站位（build_actor_layout.py LEFT_FACES），舞台上脸高、脸线与原档一致。"
+    },
+    {
+      "id": "cu_household-v1_meng_zhiwei_serious_left_png",
+      "path": "assets/production/cultivation/household-v1/meng_zhiwei_serious_left.png",
+      "original_path": "art_sources/facing-left-cast-20261021/out/meng_zhiwei_serious_left.png",
+      "system": "cultivation",
+      "role": "registered-or-direct-runtime",
+      "sha256": "91faddda3586023b46350151a4ec07d3035bd6b9ddf903b44be2227903d667e7",
+      "actual_size": [
+        1024,
+        1536
+      ],
+      "generation": "302ai-sunburst（imggen.py --opaque-fix）；提示词请求 gpt-image-2.5，实际后端模型未披露",
+      "acceptance_status": "adopted-20261021-facing-left",
+      "generation_record": "art_sources/facing-left-cast-20261021/prompts/meng_zhiwei_serious_left.txt",
+      "references": [],
+      "alpha_method": "native RGBA；opaque-fix 把 254 提到 255",
+      "facing": "L",
+      "note": "2026-10-21 用户：“把另外五位也出图，一定要注意比例大小……多个请求去生成”。周砚、殷红缨各 8 档，莫松年、孟知微、照川来客各 4 档（剧场用到的全部表情档），每张一个独立请求、28 个并发。朝左版逐张量脸单独给站位（build_actor_layout.py LEFT_FACES），舞台上脸高、脸线与原档一致。"
+    },
+    {
+      "id": "cu_household-v1_meng_zhiwei_smile_left_png",
+      "path": "assets/production/cultivation/household-v1/meng_zhiwei_smile_left.png",
+      "original_path": "art_sources/facing-left-cast-20261021/out/meng_zhiwei_smile_left.png",
+      "system": "cultivation",
+      "role": "registered-or-direct-runtime",
+      "sha256": "7a1718d7cc7404434571363ae0e43aae290738a147476287c3963bab44a55ef7",
+      "actual_size": [
+        1024,
+        1536
+      ],
+      "generation": "302ai-sunburst（imggen.py --opaque-fix）；提示词请求 gpt-image-2.5，实际后端模型未披露",
+      "acceptance_status": "adopted-20261021-facing-left",
+      "generation_record": "art_sources/facing-left-cast-20261021/prompts/meng_zhiwei_smile_left.txt",
+      "references": [],
+      "alpha_method": "native RGBA；opaque-fix 把 254 提到 255",
+      "facing": "L",
+      "note": "2026-10-21 用户：“把另外五位也出图，一定要注意比例大小……多个请求去生成”。周砚、殷红缨各 8 档，莫松年、孟知微、照川来客各 4 档（剧场用到的全部表情档），每张一个独立请求、28 个并发。朝左版逐张量脸单独给站位（build_actor_layout.py LEFT_FACES），舞台上脸高、脸线与原档一致。"
+    },
+    {
+      "id": "cu_household-v1_meng_zhiwei_worry_left_png",
+      "path": "assets/production/cultivation/household-v1/meng_zhiwei_worry_left.png",
+      "original_path": "art_sources/facing-left-cast-20261021/out/meng_zhiwei_worry_left.png",
+      "system": "cultivation",
+      "role": "registered-or-direct-runtime",
+      "sha256": "f9ad4e04ec1805923718ef42d1cf5a6436510752904cc80efd34a1e9e751a9b3",
+      "actual_size": [
+        1024,
+        1536
+      ],
+      "generation": "302ai-sunburst（imggen.py --opaque-fix）；提示词请求 gpt-image-2.5，实际后端模型未披露",
+      "acceptance_status": "adopted-20261021-facing-left",
+      "generation_record": "art_sources/facing-left-cast-20261021/prompts/meng_zhiwei_worry_left.txt",
+      "references": [],
+      "alpha_method": "native RGBA；opaque-fix 把 254 提到 255",
+      "facing": "L",
+      "note": "2026-10-21 用户：“把另外五位也出图，一定要注意比例大小……多个请求去生成”。周砚、殷红缨各 8 档，莫松年、孟知微、照川来客各 4 档（剧场用到的全部表情档），每张一个独立请求、28 个并发。朝左版逐张量脸单独给站位（build_actor_layout.py LEFT_FACES），舞台上脸高、脸线与原档一致。"
+    },
+    {
+      "id": "cu_household-v1_mo_songnian_normal_left_png",
+      "path": "assets/production/cultivation/household-v1/mo_songnian_normal_left.png",
+      "original_path": "art_sources/facing-left-cast-20261021/out/mo_songnian_normal_left.png",
+      "system": "cultivation",
+      "role": "registered-or-direct-runtime",
+      "sha256": "382c54766e68096ecf245420273d4f76c63442b3bae08f108d8b1681811ab4dd",
+      "actual_size": [
+        1024,
+        1536
+      ],
+      "generation": "302ai-sunburst（imggen.py --opaque-fix）；提示词请求 gpt-image-2.5，实际后端模型未披露",
+      "acceptance_status": "adopted-20261021-facing-left",
+      "generation_record": "art_sources/facing-left-cast-20261021/prompts/mo_songnian_normal_left.txt",
+      "references": [],
+      "alpha_method": "native RGBA；opaque-fix 把 254 提到 255",
+      "facing": "L",
+      "note": "2026-10-21 用户：“把另外五位也出图，一定要注意比例大小……多个请求去生成”。周砚、殷红缨各 8 档，莫松年、孟知微、照川来客各 4 档（剧场用到的全部表情档），每张一个独立请求、28 个并发。朝左版逐张量脸单独给站位（build_actor_layout.py LEFT_FACES），舞台上脸高、脸线与原档一致。"
+    },
+    {
+      "id": "cu_household-v1_mo_songnian_serious_left_png",
+      "path": "assets/production/cultivation/household-v1/mo_songnian_serious_left.png",
+      "original_path": "art_sources/facing-left-cast-20261021/out/mo_songnian_serious_left.png",
+      "system": "cultivation",
+      "role": "registered-or-direct-runtime",
+      "sha256": "305287411e2ac5e495082ce088becc6b31acc948804419572c2026337cb7ec1a",
+      "actual_size": [
+        1024,
+        1536
+      ],
+      "generation": "302ai-sunburst（imggen.py --opaque-fix）；提示词请求 gpt-image-2.5，实际后端模型未披露",
+      "acceptance_status": "adopted-20261021-facing-left",
+      "generation_record": "art_sources/facing-left-cast-20261021/prompts/mo_songnian_serious_left.txt",
+      "references": [],
+      "alpha_method": "native RGBA；opaque-fix 把 254 提到 255",
+      "facing": "L",
+      "note": "2026-10-21 用户：“把另外五位也出图，一定要注意比例大小……多个请求去生成”。周砚、殷红缨各 8 档，莫松年、孟知微、照川来客各 4 档（剧场用到的全部表情档），每张一个独立请求、28 个并发。朝左版逐张量脸单独给站位（build_actor_layout.py LEFT_FACES），舞台上脸高、脸线与原档一致。"
+    },
+    {
+      "id": "cu_household-v1_mo_songnian_smile_left_png",
+      "path": "assets/production/cultivation/household-v1/mo_songnian_smile_left.png",
+      "original_path": "art_sources/facing-left-cast-20261021/out/mo_songnian_smile_left.png",
+      "system": "cultivation",
+      "role": "registered-or-direct-runtime",
+      "sha256": "5cae5124eb3d5a5abeb69aeb2e6a4eb36dbdff57352dd6a4828f34e02dbb0bc4",
+      "actual_size": [
+        1024,
+        1536
+      ],
+      "generation": "302ai-sunburst（imggen.py --opaque-fix）；提示词请求 gpt-image-2.5，实际后端模型未披露",
+      "acceptance_status": "adopted-20261021-facing-left",
+      "generation_record": "art_sources/facing-left-cast-20261021/prompts/mo_songnian_smile_left.txt",
+      "references": [],
+      "alpha_method": "native RGBA；opaque-fix 把 254 提到 255",
+      "facing": "L",
+      "note": "2026-10-21 用户：“把另外五位也出图，一定要注意比例大小……多个请求去生成”。周砚、殷红缨各 8 档，莫松年、孟知微、照川来客各 4 档（剧场用到的全部表情档），每张一个独立请求、28 个并发。朝左版逐张量脸单独给站位（build_actor_layout.py LEFT_FACES），舞台上脸高、脸线与原档一致。"
+    },
+    {
+      "id": "cu_household-v1_mo_songnian_surprise_left_png",
+      "path": "assets/production/cultivation/household-v1/mo_songnian_surprise_left.png",
+      "original_path": "art_sources/facing-left-cast-20261021/out/mo_songnian_surprise_left.png",
+      "system": "cultivation",
+      "role": "registered-or-direct-runtime",
+      "sha256": "20350e826203aa0632b6e0bf061a0d4a8f60d3d091c6efcc26188b75de915918",
+      "actual_size": [
+        1024,
+        1536
+      ],
+      "generation": "302ai-sunburst（imggen.py --opaque-fix）；提示词请求 gpt-image-2.5，实际后端模型未披露",
+      "acceptance_status": "adopted-20261021-facing-left",
+      "generation_record": "art_sources/facing-left-cast-20261021/prompts/mo_songnian_surprise_left.txt",
+      "references": [],
+      "alpha_method": "native RGBA；opaque-fix 把 254 提到 255",
+      "facing": "L",
+      "note": "2026-10-21 用户：“把另外五位也出图，一定要注意比例大小……多个请求去生成”。周砚、殷红缨各 8 档，莫松年、孟知微、照川来客各 4 档（剧场用到的全部表情档），每张一个独立请求、28 个并发。朝左版逐张量脸单独给站位（build_actor_layout.py LEFT_FACES），舞台上脸高、脸线与原档一致。"
+    },
+    {
+      "id": "cu_household-v1_yin_angry_left_png",
+      "path": "assets/production/cultivation/household-v1/yin_angry_left.png",
+      "original_path": "art_sources/facing-left-cast-20261021/out/yin_angry_left.png",
+      "system": "cultivation",
+      "role": "registered-or-direct-runtime",
+      "sha256": "7c158c852dc9f7ae625b272021b90e5e0d51ca76eaf8c14b40da83b20b6e4bd6",
+      "actual_size": [
+        1024,
+        1536
+      ],
+      "generation": "302ai-sunburst（imggen.py --opaque-fix）；提示词请求 gpt-image-2.5，实际后端模型未披露",
+      "acceptance_status": "adopted-20261021-facing-left",
+      "generation_record": "art_sources/facing-left-cast-20261021/prompts/yin_angry_left.txt",
+      "references": [],
+      "alpha_method": "native RGBA；opaque-fix 把 254 提到 255",
+      "facing": "L",
+      "note": "2026-10-21 用户：“把另外五位也出图，一定要注意比例大小……多个请求去生成”。周砚、殷红缨各 8 档，莫松年、孟知微、照川来客各 4 档（剧场用到的全部表情档），每张一个独立请求、28 个并发。朝左版逐张量脸单独给站位（build_actor_layout.py LEFT_FACES），舞台上脸高、脸线与原档一致。"
+    },
+    {
+      "id": "cu_household-v1_yin_left_png",
+      "path": "assets/production/cultivation/household-v1/yin_left.png",
+      "original_path": "art_sources/facing-left-cast-20261021/out/yin_left.png",
+      "system": "cultivation",
+      "role": "registered-or-direct-runtime",
+      "sha256": "d011f742318f7e84496fb58bf8c0b76c3ed871fc3ea5f2e881a96c533029f82d",
+      "actual_size": [
+        1024,
+        1536
+      ],
+      "generation": "302ai-sunburst（imggen.py --opaque-fix）；提示词请求 gpt-image-2.5，实际后端模型未披露",
+      "acceptance_status": "adopted-20261021-facing-left",
+      "generation_record": "art_sources/facing-left-cast-20261021/prompts/yin_left.txt",
+      "references": [],
+      "alpha_method": "native RGBA；opaque-fix 把 254 提到 255",
+      "facing": "L",
+      "note": "2026-10-21 用户：“把另外五位也出图，一定要注意比例大小……多个请求去生成”。周砚、殷红缨各 8 档，莫松年、孟知微、照川来客各 4 档（剧场用到的全部表情档），每张一个独立请求、28 个并发。朝左版逐张量脸单独给站位（build_actor_layout.py LEFT_FACES），舞台上脸高、脸线与原档一致。"
+    },
+    {
+      "id": "cu_household-v1_yin_normal_left_png",
+      "path": "assets/production/cultivation/household-v1/yin_normal_left.png",
+      "original_path": "art_sources/facing-left-cast-20261021/out/yin_normal_left.png",
+      "system": "cultivation",
+      "role": "registered-or-direct-runtime",
+      "sha256": "f911bfe26bea8ab61b25f8fbb80f6295aeb08dfd6ce283cef7b6003212a5fda6",
+      "actual_size": [
+        1024,
+        1536
+      ],
+      "generation": "302ai-sunburst（imggen.py --opaque-fix）；提示词请求 gpt-image-2.5，实际后端模型未披露",
+      "acceptance_status": "adopted-20261021-facing-left",
+      "generation_record": "art_sources/facing-left-cast-20261021/prompts/yin_normal_left.txt",
+      "references": [],
+      "alpha_method": "native RGBA；opaque-fix 把 254 提到 255",
+      "facing": "L",
+      "note": "2026-10-21 用户：“把另外五位也出图，一定要注意比例大小……多个请求去生成”。周砚、殷红缨各 8 档，莫松年、孟知微、照川来客各 4 档（剧场用到的全部表情档），每张一个独立请求、28 个并发。朝左版逐张量脸单独给站位（build_actor_layout.py LEFT_FACES），舞台上脸高、脸线与原档一致。"
+    },
+    {
+      "id": "cu_household-v1_yin_sad_left_png",
+      "path": "assets/production/cultivation/household-v1/yin_sad_left.png",
+      "original_path": "art_sources/facing-left-cast-20261021/out/yin_sad_left.png",
+      "system": "cultivation",
+      "role": "registered-or-direct-runtime",
+      "sha256": "1f1b1a1fa13711225babe1d35d0d027b4a9cce51e6a712cd5e009423a03b490d",
+      "actual_size": [
+        1024,
+        1536
+      ],
+      "generation": "302ai-sunburst（imggen.py --opaque-fix）；提示词请求 gpt-image-2.5，实际后端模型未披露",
+      "acceptance_status": "adopted-20261021-facing-left",
+      "generation_record": "art_sources/facing-left-cast-20261021/prompts/yin_sad_left.txt",
+      "references": [],
+      "alpha_method": "native RGBA；opaque-fix 把 254 提到 255",
+      "facing": "L",
+      "note": "2026-10-21 用户：“把另外五位也出图，一定要注意比例大小……多个请求去生成”。周砚、殷红缨各 8 档，莫松年、孟知微、照川来客各 4 档（剧场用到的全部表情档），每张一个独立请求、28 个并发。朝左版逐张量脸单独给站位（build_actor_layout.py LEFT_FACES），舞台上脸高、脸线与原档一致。"
+    },
+    {
+      "id": "cu_household-v1_yin_serious_left_png",
+      "path": "assets/production/cultivation/household-v1/yin_serious_left.png",
+      "original_path": "art_sources/facing-left-cast-20261021/out/yin_serious_left.png",
+      "system": "cultivation",
+      "role": "registered-or-direct-runtime",
+      "sha256": "02fada8bcfada85437ef921c8dc65ada88ae6c4a9e1bf7d6283e2350cd69d30e",
+      "actual_size": [
+        1024,
+        1536
+      ],
+      "generation": "302ai-sunburst（imggen.py --opaque-fix）；提示词请求 gpt-image-2.5，实际后端模型未披露",
+      "acceptance_status": "adopted-20261021-facing-left",
+      "generation_record": "art_sources/facing-left-cast-20261021/prompts/yin_serious_left.txt",
+      "references": [],
+      "alpha_method": "native RGBA；opaque-fix 把 254 提到 255",
+      "facing": "L",
+      "note": "2026-10-21 用户：“把另外五位也出图，一定要注意比例大小……多个请求去生成”。周砚、殷红缨各 8 档，莫松年、孟知微、照川来客各 4 档（剧场用到的全部表情档），每张一个独立请求、28 个并发。朝左版逐张量脸单独给站位（build_actor_layout.py LEFT_FACES），舞台上脸高、脸线与原档一致。"
+    },
+    {
+      "id": "cu_household-v1_yin_smile_left_png",
+      "path": "assets/production/cultivation/household-v1/yin_smile_left.png",
+      "original_path": "art_sources/facing-left-cast-20261021/out/yin_smile_left.png",
+      "system": "cultivation",
+      "role": "registered-or-direct-runtime",
+      "sha256": "c0b89bd4705c6afa5934b16241069a46f920eeee53ff1c06a6a38cbef40f4764",
+      "actual_size": [
+        1024,
+        1536
+      ],
+      "generation": "302ai-sunburst（imggen.py --opaque-fix）；提示词请求 gpt-image-2.5，实际后端模型未披露",
+      "acceptance_status": "adopted-20261021-facing-left",
+      "generation_record": "art_sources/facing-left-cast-20261021/prompts/yin_smile_left.txt",
+      "references": [],
+      "alpha_method": "native RGBA；opaque-fix 把 254 提到 255",
+      "facing": "L",
+      "note": "2026-10-21 用户：“把另外五位也出图，一定要注意比例大小……多个请求去生成”。周砚、殷红缨各 8 档，莫松年、孟知微、照川来客各 4 档（剧场用到的全部表情档），每张一个独立请求、28 个并发。朝左版逐张量脸单独给站位（build_actor_layout.py LEFT_FACES），舞台上脸高、脸线与原档一致。"
+    },
+    {
+      "id": "cu_household-v1_yin_surprise_left_png",
+      "path": "assets/production/cultivation/household-v1/yin_surprise_left.png",
+      "original_path": "art_sources/facing-left-cast-20261021/out/yin_surprise_left.png",
+      "system": "cultivation",
+      "role": "registered-or-direct-runtime",
+      "sha256": "e005ab05ee9ef630d501f822cc66d15aca949412264773a44a22784854961934",
+      "actual_size": [
+        1024,
+        1536
+      ],
+      "generation": "302ai-sunburst（imggen.py --opaque-fix）；提示词请求 gpt-image-2.5，实际后端模型未披露",
+      "acceptance_status": "adopted-20261021-facing-left",
+      "generation_record": "art_sources/facing-left-cast-20261021/prompts/yin_surprise_left.txt",
+      "references": [],
+      "alpha_method": "native RGBA；opaque-fix 把 254 提到 255",
+      "facing": "L",
+      "note": "2026-10-21 用户：“把另外五位也出图，一定要注意比例大小……多个请求去生成”。周砚、殷红缨各 8 档，莫松年、孟知微、照川来客各 4 档（剧场用到的全部表情档），每张一个独立请求、28 个并发。朝左版逐张量脸单独给站位（build_actor_layout.py LEFT_FACES），舞台上脸高、脸线与原档一致。"
+    },
+    {
+      "id": "cu_household-v1_yin_worry_left_png",
+      "path": "assets/production/cultivation/household-v1/yin_worry_left.png",
+      "original_path": "art_sources/facing-left-cast-20261021/out/yin_worry_left.png",
+      "system": "cultivation",
+      "role": "registered-or-direct-runtime",
+      "sha256": "b1cb7ab2c550f21b3928bd4f5f5e023cc3c1c680995fab9dfdafb1cd256d98eb",
+      "actual_size": [
+        1024,
+        1536
+      ],
+      "generation": "302ai-sunburst（imggen.py --opaque-fix）；提示词请求 gpt-image-2.5，实际后端模型未披露",
+      "acceptance_status": "adopted-20261021-facing-left",
+      "generation_record": "art_sources/facing-left-cast-20261021/prompts/yin_worry_left.txt",
+      "references": [],
+      "alpha_method": "native RGBA；opaque-fix 把 254 提到 255",
+      "facing": "L",
+      "note": "2026-10-21 用户：“把另外五位也出图，一定要注意比例大小……多个请求去生成”。周砚、殷红缨各 8 档，莫松年、孟知微、照川来客各 4 档（剧场用到的全部表情档），每张一个独立请求、28 个并发。朝左版逐张量脸单独给站位（build_actor_layout.py LEFT_FACES），舞台上脸高、脸线与原档一致。"
+    },
+    {
+      "id": "cu_household-v1_zhaochuan_courier_normal_left_png",
+      "path": "assets/production/cultivation/household-v1/zhaochuan_courier_normal_left.png",
+      "original_path": "art_sources/facing-left-cast-20261021/out/zhaochuan_courier_normal_left.png",
+      "system": "cultivation",
+      "role": "registered-or-direct-runtime",
+      "sha256": "5a0d916d33752b49a7e9301c0ae38ad4a8659139b4df4b9d219ad6843e92420e",
+      "actual_size": [
+        1024,
+        1536
+      ],
+      "generation": "302ai-sunburst（imggen.py --opaque-fix）；提示词请求 gpt-image-2.5，实际后端模型未披露",
+      "acceptance_status": "adopted-20261021-facing-left",
+      "generation_record": "art_sources/facing-left-cast-20261021/prompts/zhaochuan_courier_normal_left.txt",
+      "references": [],
+      "alpha_method": "native RGBA；opaque-fix 把 254 提到 255",
+      "facing": "L",
+      "note": "2026-10-21 用户：“把另外五位也出图，一定要注意比例大小……多个请求去生成”。周砚、殷红缨各 8 档，莫松年、孟知微、照川来客各 4 档（剧场用到的全部表情档），每张一个独立请求、28 个并发。朝左版逐张量脸单独给站位（build_actor_layout.py LEFT_FACES），舞台上脸高、脸线与原档一致。"
+    },
+    {
+      "id": "cu_household-v1_zhaochuan_courier_serious_left_png",
+      "path": "assets/production/cultivation/household-v1/zhaochuan_courier_serious_left.png",
+      "original_path": "art_sources/facing-left-cast-20261021/out/zhaochuan_courier_serious_left.png",
+      "system": "cultivation",
+      "role": "registered-or-direct-runtime",
+      "sha256": "781f268eecc5784d73229855b7cbfbf8e65e7e0fbe0790e7272e3dab5d229ed0",
+      "actual_size": [
+        1024,
+        1536
+      ],
+      "generation": "302ai-sunburst（imggen.py --opaque-fix）；提示词请求 gpt-image-2.5，实际后端模型未披露",
+      "acceptance_status": "adopted-20261021-facing-left",
+      "generation_record": "art_sources/facing-left-cast-20261021/prompts/zhaochuan_courier_serious_left.txt",
+      "references": [],
+      "alpha_method": "native RGBA；opaque-fix 把 254 提到 255",
+      "facing": "L",
+      "note": "2026-10-21 用户：“把另外五位也出图，一定要注意比例大小……多个请求去生成”。周砚、殷红缨各 8 档，莫松年、孟知微、照川来客各 4 档（剧场用到的全部表情档），每张一个独立请求、28 个并发。朝左版逐张量脸单独给站位（build_actor_layout.py LEFT_FACES），舞台上脸高、脸线与原档一致。"
+    },
+    {
+      "id": "cu_household-v1_zhaochuan_courier_smile_left_png",
+      "path": "assets/production/cultivation/household-v1/zhaochuan_courier_smile_left.png",
+      "original_path": "art_sources/facing-left-cast-20261021/out/zhaochuan_courier_smile_left.png",
+      "system": "cultivation",
+      "role": "registered-or-direct-runtime",
+      "sha256": "486be26539463e520da3aad5ea4090b7156d6cc0a3e96fab1080338d74a84426",
+      "actual_size": [
+        1024,
+        1536
+      ],
+      "generation": "302ai-sunburst（imggen.py --opaque-fix）；提示词请求 gpt-image-2.5，实际后端模型未披露",
+      "acceptance_status": "adopted-20261021-facing-left",
+      "generation_record": "art_sources/facing-left-cast-20261021/prompts/zhaochuan_courier_smile_left.txt",
+      "references": [],
+      "alpha_method": "native RGBA；opaque-fix 把 254 提到 255",
+      "facing": "L",
+      "note": "2026-10-21 用户：“把另外五位也出图，一定要注意比例大小……多个请求去生成”。周砚、殷红缨各 8 档，莫松年、孟知微、照川来客各 4 档（剧场用到的全部表情档），每张一个独立请求、28 个并发。朝左版逐张量脸单独给站位（build_actor_layout.py LEFT_FACES），舞台上脸高、脸线与原档一致。"
+    },
+    {
+      "id": "cu_household-v1_zhaochuan_courier_surprise_left_png",
+      "path": "assets/production/cultivation/household-v1/zhaochuan_courier_surprise_left.png",
+      "original_path": "art_sources/facing-left-cast-20261021/out/zhaochuan_courier_surprise_left.png",
+      "system": "cultivation",
+      "role": "registered-or-direct-runtime",
+      "sha256": "0cd92782f785d4b5d3b27083d9f177109a0e80a8d3829f2965c472eeb760b051",
+      "actual_size": [
+        1024,
+        1536
+      ],
+      "generation": "302ai-sunburst（imggen.py --opaque-fix）；提示词请求 gpt-image-2.5，实际后端模型未披露",
+      "acceptance_status": "adopted-20261021-facing-left",
+      "generation_record": "art_sources/facing-left-cast-20261021/prompts/zhaochuan_courier_surprise_left.txt",
+      "references": [],
+      "alpha_method": "native RGBA；opaque-fix 把 254 提到 255",
+      "facing": "L",
+      "note": "2026-10-21 用户：“把另外五位也出图，一定要注意比例大小……多个请求去生成”。周砚、殷红缨各 8 档，莫松年、孟知微、照川来客各 4 档（剧场用到的全部表情档），每张一个独立请求、28 个并发。朝左版逐张量脸单独给站位（build_actor_layout.py LEFT_FACES），舞台上脸高、脸线与原档一致。"
+    },
+    {
+      "id": "cu_household-v1_zhou_angry_left_png",
+      "path": "assets/production/cultivation/household-v1/zhou_angry_left.png",
+      "original_path": "art_sources/facing-left-cast-20261021/out/zhou_angry_left.png",
+      "system": "cultivation",
+      "role": "registered-or-direct-runtime",
+      "sha256": "57ae31dc32ff803a77659c104561944db6e691478d5bea463b80b6b84d397b6d",
+      "actual_size": [
+        1024,
+        1536
+      ],
+      "generation": "302ai-sunburst（imggen.py --opaque-fix）；提示词请求 gpt-image-2.5，实际后端模型未披露",
+      "acceptance_status": "adopted-20261021-facing-left",
+      "generation_record": "art_sources/facing-left-cast-20261021/prompts/zhou_angry_left.txt",
+      "references": [],
+      "alpha_method": "native RGBA；opaque-fix 把 254 提到 255",
+      "facing": "L",
+      "note": "2026-10-21 用户：“把另外五位也出图，一定要注意比例大小……多个请求去生成”。周砚、殷红缨各 8 档，莫松年、孟知微、照川来客各 4 档（剧场用到的全部表情档），每张一个独立请求、28 个并发。朝左版逐张量脸单独给站位（build_actor_layout.py LEFT_FACES），舞台上脸高、脸线与原档一致。"
+    },
+    {
+      "id": "cu_household-v1_zhou_left_png",
+      "path": "assets/production/cultivation/household-v1/zhou_left.png",
+      "original_path": "art_sources/facing-left-cast-20261021/out/zhou_left.png",
+      "system": "cultivation",
+      "role": "registered-or-direct-runtime",
+      "sha256": "e99dec7649f51810aebf44b3dc93e5af3333e58c032f1136971279011d34e526",
+      "actual_size": [
+        1024,
+        1536
+      ],
+      "generation": "302ai-sunburst（imggen.py --opaque-fix）；提示词请求 gpt-image-2.5，实际后端模型未披露",
+      "acceptance_status": "adopted-20261021-facing-left",
+      "generation_record": "art_sources/facing-left-cast-20261021/prompts/zhou_left.txt",
+      "references": [],
+      "alpha_method": "native RGBA；opaque-fix 把 254 提到 255",
+      "facing": "L",
+      "note": "2026-10-21 用户：“把另外五位也出图，一定要注意比例大小……多个请求去生成”。周砚、殷红缨各 8 档，莫松年、孟知微、照川来客各 4 档（剧场用到的全部表情档），每张一个独立请求、28 个并发。朝左版逐张量脸单独给站位（build_actor_layout.py LEFT_FACES），舞台上脸高、脸线与原档一致。"
+    },
+    {
+      "id": "cu_household-v1_zhou_normal_left_png",
+      "path": "assets/production/cultivation/household-v1/zhou_normal_left.png",
+      "original_path": "art_sources/facing-left-cast-20261021/out/zhou_normal_left.png",
+      "system": "cultivation",
+      "role": "registered-or-direct-runtime",
+      "sha256": "aaf42bc687e167a07617e693686aec072154db249b4e41f9dced2adc1e7619fb",
+      "actual_size": [
+        1024,
+        1536
+      ],
+      "generation": "302ai-sunburst（imggen.py --opaque-fix）；提示词请求 gpt-image-2.5，实际后端模型未披露",
+      "acceptance_status": "adopted-20261021-facing-left",
+      "generation_record": "art_sources/facing-left-cast-20261021/prompts/zhou_normal_left.txt",
+      "references": [],
+      "alpha_method": "native RGBA；opaque-fix 把 254 提到 255",
+      "facing": "L",
+      "note": "2026-10-21 用户：“把另外五位也出图，一定要注意比例大小……多个请求去生成”。周砚、殷红缨各 8 档，莫松年、孟知微、照川来客各 4 档（剧场用到的全部表情档），每张一个独立请求、28 个并发。朝左版逐张量脸单独给站位（build_actor_layout.py LEFT_FACES），舞台上脸高、脸线与原档一致。"
+    },
+    {
+      "id": "cu_household-v1_zhou_sad_left_png",
+      "path": "assets/production/cultivation/household-v1/zhou_sad_left.png",
+      "original_path": "art_sources/facing-left-cast-20261021/out/zhou_sad_left.png",
+      "system": "cultivation",
+      "role": "registered-or-direct-runtime",
+      "sha256": "7f6e394c439a3518f58390db1ae99b49338eb9ee1d5929c97797108dadf90483",
+      "actual_size": [
+        1024,
+        1536
+      ],
+      "generation": "302ai-sunburst（imggen.py --opaque-fix）；提示词请求 gpt-image-2.5，实际后端模型未披露",
+      "acceptance_status": "adopted-20261021-facing-left",
+      "generation_record": "art_sources/facing-left-cast-20261021/prompts/zhou_sad_left.txt",
+      "references": [],
+      "alpha_method": "native RGBA；opaque-fix 把 254 提到 255",
+      "facing": "L",
+      "note": "2026-10-21 用户：“把另外五位也出图，一定要注意比例大小……多个请求去生成”。周砚、殷红缨各 8 档，莫松年、孟知微、照川来客各 4 档（剧场用到的全部表情档），每张一个独立请求、28 个并发。朝左版逐张量脸单独给站位（build_actor_layout.py LEFT_FACES），舞台上脸高、脸线与原档一致。"
+    },
+    {
+      "id": "cu_household-v1_zhou_serious_left_png",
+      "path": "assets/production/cultivation/household-v1/zhou_serious_left.png",
+      "original_path": "art_sources/facing-left-cast-20261021/out/zhou_serious_left.png",
+      "system": "cultivation",
+      "role": "registered-or-direct-runtime",
+      "sha256": "f921ec998e9e58d635c4f959f4f55012b3873203117cdaa5c4185aa493e973b4",
+      "actual_size": [
+        1024,
+        1536
+      ],
+      "generation": "302ai-sunburst（imggen.py --opaque-fix）；提示词请求 gpt-image-2.5，实际后端模型未披露",
+      "acceptance_status": "adopted-20261021-facing-left",
+      "generation_record": "art_sources/facing-left-cast-20261021/prompts/zhou_serious_left.txt",
+      "references": [],
+      "alpha_method": "native RGBA；opaque-fix 把 254 提到 255",
+      "facing": "L",
+      "note": "2026-10-21 用户：“把另外五位也出图，一定要注意比例大小……多个请求去生成”。周砚、殷红缨各 8 档，莫松年、孟知微、照川来客各 4 档（剧场用到的全部表情档），每张一个独立请求、28 个并发。朝左版逐张量脸单独给站位（build_actor_layout.py LEFT_FACES），舞台上脸高、脸线与原档一致。"
+    },
+    {
+      "id": "cu_household-v1_zhou_smile_left_png",
+      "path": "assets/production/cultivation/household-v1/zhou_smile_left.png",
+      "original_path": "art_sources/facing-left-cast-20261021/out/zhou_smile_left.png",
+      "system": "cultivation",
+      "role": "registered-or-direct-runtime",
+      "sha256": "f7d648b41f3a241d00b8c025a83ed4f2fc4e12050fdbb603cc35279f3bc27043",
+      "actual_size": [
+        1024,
+        1536
+      ],
+      "generation": "302ai-sunburst（imggen.py --opaque-fix）；提示词请求 gpt-image-2.5，实际后端模型未披露",
+      "acceptance_status": "adopted-20261021-facing-left",
+      "generation_record": "art_sources/facing-left-cast-20261021/prompts/zhou_smile_left.txt",
+      "references": [],
+      "alpha_method": "native RGBA；opaque-fix 把 254 提到 255",
+      "facing": "L",
+      "note": "2026-10-21 用户：“把另外五位也出图，一定要注意比例大小……多个请求去生成”。周砚、殷红缨各 8 档，莫松年、孟知微、照川来客各 4 档（剧场用到的全部表情档），每张一个独立请求、28 个并发。朝左版逐张量脸单独给站位（build_actor_layout.py LEFT_FACES），舞台上脸高、脸线与原档一致。"
+    },
+    {
+      "id": "cu_household-v1_zhou_surprise_left_png",
+      "path": "assets/production/cultivation/household-v1/zhou_surprise_left.png",
+      "original_path": "art_sources/facing-left-cast-20261021/out/zhou_surprise_left.png",
+      "system": "cultivation",
+      "role": "registered-or-direct-runtime",
+      "sha256": "148cef910faf58ff0d992455cc391f3137e65081b99e970077bce3fe21a95cec",
+      "actual_size": [
+        1024,
+        1536
+      ],
+      "generation": "302ai-sunburst（imggen.py --opaque-fix）；提示词请求 gpt-image-2.5，实际后端模型未披露",
+      "acceptance_status": "adopted-20261021-facing-left",
+      "generation_record": "art_sources/facing-left-cast-20261021/prompts/zhou_surprise_left.txt",
+      "references": [],
+      "alpha_method": "native RGBA；opaque-fix 把 254 提到 255",
+      "facing": "L",
+      "note": "2026-10-21 用户：“把另外五位也出图，一定要注意比例大小……多个请求去生成”。周砚、殷红缨各 8 档，莫松年、孟知微、照川来客各 4 档（剧场用到的全部表情档），每张一个独立请求、28 个并发。朝左版逐张量脸单独给站位（build_actor_layout.py LEFT_FACES），舞台上脸高、脸线与原档一致。"
+    },
+    {
+      "id": "cu_household-v1_zhou_worry_left_png",
+      "path": "assets/production/cultivation/household-v1/zhou_worry_left.png",
+      "original_path": "art_sources/facing-left-cast-20261021/out/zhou_worry_left.png",
+      "system": "cultivation",
+      "role": "registered-or-direct-runtime",
+      "sha256": "2bfedabaaae31b5095d8688b2bf15df7f72b9cee4203218d9bd5a4ca846e80f9",
+      "actual_size": [
+        1024,
+        1536
+      ],
+      "generation": "302ai-sunburst（imggen.py --opaque-fix）；提示词请求 gpt-image-2.5，实际后端模型未披露",
+      "acceptance_status": "adopted-20261021-facing-left",
+      "generation_record": "art_sources/facing-left-cast-20261021/prompts/zhou_worry_left.txt",
+      "references": [],
+      "alpha_method": "native RGBA；opaque-fix 把 254 提到 255",
+      "facing": "L",
+      "note": "2026-10-21 用户：“把另外五位也出图，一定要注意比例大小……多个请求去生成”。周砚、殷红缨各 8 档，莫松年、孟知微、照川来客各 4 档（剧场用到的全部表情档），每张一个独立请求、28 个并发。朝左版逐张量脸单独给站位（build_actor_layout.py LEFT_FACES），舞台上脸高、脸线与原档一致。"
+    },
+    {
+      "id": "b_qh_bailiff_hd_20261022",
+      "path": "assets/production/battle/b_qh_bailiff_hd_20261022.webp",
+      "original_path": "art_sources/bailiff-battle-20261022/out/b_qh_bailiff_hd_20261022_cand.webp",
+      "system": "battle",
+      "role": "enemy-battle-sprite",
+      "sha256": "00238add0d65fe5c1f1d0870b5376652cecbf838e1d0bbddf9a3169bc85d4a86",
+      "actual_size": [
+        7680,
+        324
+      ],
+      "references": [
+        "js/qihe-faction-clash-art.js",
+        "js/qihe-battle-review.js",
+        "js/production-assets.js"
+      ],
+      "reference_images": [
+        "art_sources/bailiff-battle-20261022/refs/bailiff-map-sprite-3x.png（正式地图精灵 s_npc_opening_bailiff_20261010）",
+        "art_sources/bailiff-battle-20261022/refs/guard-hd-frame0.png（正式护院战斗表 b_qh_clash_guard_hd_20261017 第 0 帧）"
+      ],
+      "generation_record": "art_sources/bailiff-battle-20261022/README.md",
+      "generation": "302ai-sunburst（imggen.py，提示词请求 gpt-image-2.5，实际模型无法确认）主形象 A + 4×4 整表 sheet-1；pack.py 统一缩放、骨盆脚底对齐、48 色锁调色板、alpha 二值、2× 最近邻（packing-evidence.json）",
+      "acceptance_evidence": "docs/updates/evidence/2026-10-23-bailiff-battle/verification.json",
+      "adoption": {
+        "date": "2026-10-23",
+        "authorization": "user_round13_item10_adopt_bailiff_battle_candidate",
+        "status": "adopted_local_verified",
+        "replaces": "无（差役原无战斗形象；候选原件 _cand 保留未改）"
+      }
+    },
+    {
+      "id": "p_qh_ashuan_hd_20261023",
+      "path": "assets/production/portraits/p_qh_ashuan_hd_20261023.webp",
+      "original_path": "art_sources/batch2-cast-20261023/ashuan/final/p_qh_ashuan_hd_20261023_b_cand.webp",
+      "system": "portraits",
+      "role": "registered-or-direct-runtime",
+      "sha256": "14e61426284c12535a818aa96e33a387cc19d1c84cbcbee81b7144bc20a5d0df",
+      "references": [
+        "js/production-assets.js"
+      ],
+      "actual_size": [
+        960,
+        1280
+      ],
+      "acceptance_status": "adopted-20261025",
+      "visual_acceptance_record": "评审台第十四轮第 7 题，用户选\"按建议\"，阿栓采用候选B",
+      "generation_record": "art_sources/batch2-cast-20261023/ashuan/README.md",
+      "batch_source": "art_sources/batch2-cast-20261023/README.md"
+    },
+    {
+      "id": "p_qh_xiaohe_hd_20261023",
+      "path": "assets/production/portraits/p_qh_xiaohe_hd_20261023.webp",
+      "original_path": "art_sources/batch2-cast-20261023/xiaohe/final/p_qh_xiaohe_hd_20261023_a_cand.webp",
+      "system": "portraits",
+      "role": "registered-or-direct-runtime",
+      "sha256": "f906b9255fae83694ed551c2494d6828799c3eea84e9d0bed1f75e6a7fc4f02d",
+      "references": [
+        "js/production-assets.js"
+      ],
+      "actual_size": [
+        960,
+        1280
+      ],
+      "acceptance_status": "adopted-20261025",
+      "visual_acceptance_record": "评审台第十四轮第 7 题，用户选\"按建议\"，小禾采用候选A",
+      "generation_record": "art_sources/batch2-cast-20261023/xiaohe/README.md",
+      "batch_source": "art_sources/batch2-cast-20261023/README.md"
+    },
+    {
+      "id": "p_qh_huolang_hd_20261023",
+      "path": "assets/production/portraits/p_qh_huolang_hd_20261023.webp",
+      "original_path": "art_sources/batch2-cast-20261023/huolang/final/p_qh_huolang_hd_20261023_a_cand.webp",
+      "system": "portraits",
+      "role": "registered-or-direct-runtime",
+      "sha256": "22ba9886dc25bfb360d21ec733392cf674faf98dcb3bfc58e20878895b519f20",
+      "references": [
+        "js/production-assets.js"
+      ],
+      "actual_size": [
+        960,
+        1280
+      ],
+      "acceptance_status": "adopted-20261025",
+      "visual_acceptance_record": "评审台第十四轮第 7 题，用户选\"按建议\"，货郎采用候选A",
+      "generation_record": "art_sources/batch2-cast-20261023/huolang/README.md",
+      "batch_source": "art_sources/batch2-cast-20261023/README.md"
+    },
+    {
+      "id": "p_qh_chuanjia_hd_20261023",
+      "path": "assets/production/portraits/p_qh_chuanjia_hd_20261023.webp",
+      "original_path": "art_sources/batch2-cast-20261023/chuanjia/final/p_qh_chuanjia_hd_20261023_a_cand.webp",
+      "system": "portraits",
+      "role": "registered-or-direct-runtime",
+      "sha256": "f6de0191993b3f98690d2a6e3a68920227c14a8918df8b78fac1a41a78190b88",
+      "references": [
+        "js/production-assets.js"
+      ],
+      "actual_size": [
+        960,
+        1280
+      ],
+      "acceptance_status": "adopted-20261025",
+      "visual_acceptance_record": "评审台第十四轮第 7 题，用户选\"按建议\"，船家采用候选A",
+      "generation_record": "art_sources/batch2-cast-20261023/chuanjia/README.md",
+      "batch_source": "art_sources/batch2-cast-20261023/README.md"
+    },
+    {
+      "id": "p_qh_aqi_hd_20261023",
+      "path": "assets/production/portraits/p_qh_aqi_hd_20261023.webp",
+      "original_path": "art_sources/batch2-cast-20261023/aqi/final/p_qh_aqi_hd_20261023_b_cand.webp",
+      "system": "portraits",
+      "role": "registered-or-direct-runtime",
+      "sha256": "b1081aa624a1738d8b19a6bfb76d44c4fda8ee9615a1b9de073881af8d30558d",
+      "references": [
+        "js/production-assets.js"
+      ],
+      "actual_size": [
+        960,
+        1280
+      ],
+      "acceptance_status": "adopted-20261025",
+      "visual_acceptance_record": "评审台第十四轮第 7 题，用户选\"按建议\"，阿七采用候选B",
+      "generation_record": "art_sources/batch2-cast-20261023/aqi/README.md",
+      "batch_source": "art_sources/batch2-cast-20261023/README.md"
+    },
+    {
+      "id": "p_qh_linhuizhi_hd_20261023",
+      "path": "assets/production/portraits/p_qh_linhuizhi_hd_20261023.webp",
+      "original_path": "art_sources/batch2-cast-20261023/linhuizhi/final/p_qh_linhuizhi_hd_20261023_a_cand.webp",
+      "system": "portraits",
+      "role": "registered-or-direct-runtime",
+      "sha256": "3354e1c1f9f3aa15238718f63f658a1704db359273c094477d250d5c9fa3a576",
+      "references": [
+        "js/production-assets.js"
+      ],
+      "actual_size": [
+        960,
+        1280
+      ],
+      "acceptance_status": "adopted-20261025",
+      "visual_acceptance_record": "评审台第十四轮第 7 题，用户选\"按建议\"，蔺晦之采用候选A",
+      "generation_record": "art_sources/batch2-cast-20261023/linhuizhi/README.md",
+      "batch_source": "art_sources/batch2-cast-20261023/README.md"
+    },
+    {
+      "id": "s_npc_qh_ashuan_20261023",
+      "path": "assets/production/characters/s_npc_qh_ashuan_20261023.webp",
+      "original_path": "art_sources/batch2-cast-20261023/ashuan/sprite/s_npc_qh_ashuan_20261023_b_cand.webp",
+      "system": "characters",
+      "role": "registered-or-direct-runtime",
+      "sha256": "1e670495cda6292d648123245905f5c4740037e2576c716b5895b98b065c02e6",
+      "references": [
+        "js/production-assets.js"
+      ],
+      "actual_size": [
+        384,
+        464
+      ],
+      "acceptance_status": "adopted-20261025",
+      "visual_acceptance_record": "评审台第十四轮第 7 题，用户选\"按建议\"，阿栓采用候选B",
+      "generation_record": "art_sources/batch2-cast-20261023/ashuan/README.md",
+      "batch_source": "art_sources/batch2-cast-20261023/README.md"
+    },
+    {
+      "id": "s_npc_qh_xiaohe_20261023",
+      "path": "assets/production/characters/s_npc_qh_xiaohe_20261023.webp",
+      "original_path": "art_sources/batch2-cast-20261023/xiaohe/sprite/s_npc_qh_xiaohe_20261023_a_cand.webp",
+      "system": "characters",
+      "role": "registered-or-direct-runtime",
+      "sha256": "306e8e36d3811bdeb6870730e3be4630a2030be97ff2f9990bee620e20fbdba0",
+      "references": [
+        "js/production-assets.js"
+      ],
+      "actual_size": [
+        384,
+        464
+      ],
+      "acceptance_status": "adopted-20261025",
+      "visual_acceptance_record": "评审台第十四轮第 7 题，用户选\"按建议\"，小禾采用候选A",
+      "generation_record": "art_sources/batch2-cast-20261023/xiaohe/README.md",
+      "batch_source": "art_sources/batch2-cast-20261023/README.md"
+    },
+    {
+      "id": "s_npc_qh_huolang_20261023",
+      "path": "assets/production/characters/s_npc_qh_huolang_20261023.webp",
+      "original_path": "art_sources/batch2-cast-20261023/huolang/sprite/s_npc_qh_huolang_20261023_a_cand.webp",
+      "system": "characters",
+      "role": "registered-or-direct-runtime",
+      "sha256": "8d996b15207fdafff1347e70f505ceeeadd8f673b82739299e9c1c18f9957536",
+      "references": [
+        "js/production-assets.js"
+      ],
+      "actual_size": [
+        384,
+        464
+      ],
+      "acceptance_status": "adopted-20261025",
+      "visual_acceptance_record": "评审台第十四轮第 7 题，用户选\"按建议\"，货郎采用候选A",
+      "generation_record": "art_sources/batch2-cast-20261023/huolang/README.md",
+      "batch_source": "art_sources/batch2-cast-20261023/README.md"
+    },
+    {
+      "id": "s_npc_qh_chuanjia_20261023",
+      "path": "assets/production/characters/s_npc_qh_chuanjia_20261023.webp",
+      "original_path": "art_sources/batch2-cast-20261023/chuanjia/sprite/s_npc_qh_chuanjia_20261023_a_cand.webp",
+      "system": "characters",
+      "role": "registered-or-direct-runtime",
+      "sha256": "305e4f03b2bf1936d8904e2a780bdd4d86028ed0186a5ddcfe0485739ce444c9",
+      "references": [
+        "js/production-assets.js"
+      ],
+      "actual_size": [
+        384,
+        464
+      ],
+      "acceptance_status": "adopted-20261025",
+      "visual_acceptance_record": "评审台第十四轮第 7 题，用户选\"按建议\"，船家采用候选A",
+      "generation_record": "art_sources/batch2-cast-20261023/chuanjia/README.md",
+      "batch_source": "art_sources/batch2-cast-20261023/README.md"
+    },
+    {
+      "id": "s_npc_qh_aqi_20261023",
+      "path": "assets/production/characters/s_npc_qh_aqi_20261023.webp",
+      "original_path": "art_sources/batch2-cast-20261023/aqi/sprite/s_npc_qh_aqi_20261023_b_cand.webp",
+      "system": "characters",
+      "role": "registered-or-direct-runtime",
+      "sha256": "4bfd8cf60aace60fa4703b2f58e943e5005db30212c39bb2640d97766796f7b0",
+      "references": [
+        "js/production-assets.js"
+      ],
+      "actual_size": [
+        384,
+        464
+      ],
+      "acceptance_status": "adopted-20261025",
+      "visual_acceptance_record": "评审台第十四轮第 7 题，用户选\"按建议\"，阿七采用候选B",
+      "generation_record": "art_sources/batch2-cast-20261023/aqi/README.md",
+      "batch_source": "art_sources/batch2-cast-20261023/README.md"
+    },
+    {
+      "id": "s_npc_qh_linhuizhi_20261023",
+      "path": "assets/production/characters/s_npc_qh_linhuizhi_20261023.webp",
+      "original_path": "art_sources/batch2-cast-20261023/linhuizhi/sprite/s_npc_qh_linhuizhi_20261023_a_cand.webp",
+      "system": "characters",
+      "role": "registered-or-direct-runtime",
+      "sha256": "0b42118fc549ac4d2f0aa39a749bba7ca920dc90d0df53e41f43478c3597777a",
+      "references": [
+        "js/production-assets.js"
+      ],
+      "actual_size": [
+        384,
+        464
+      ],
+      "acceptance_status": "adopted-20261025",
+      "visual_acceptance_record": "评审台第十四轮第 7 题，用户选\"按建议\"，蔺晦之采用候选A",
+      "generation_record": "art_sources/batch2-cast-20261023/linhuizhi/README.md",
+      "batch_source": "art_sources/batch2-cast-20261023/README.md"
+    },
+    {
+      "id": "ui_qh_trade_scale_stand",
+      "path": "assets/production/ui/trade-scale-20261026/ui_qh_trade_scale_stand.webp",
+      "original_path": "art_sources/gift-trade-ui-20261026/out/line_stand_768.webp",
+      "system": "ui",
+      "role": "registered-or-direct-runtime",
+      "sha256": "a59317aa36d7b5f51ff539d5a47b3af6428b76881c62e7f161aab1572f2300aa",
+      "actual_size": [
+        768,
+        512
+      ],
+      "acceptance_status": "adopted-20261026 用户确认易物界面照大侠立志传做（「这版易物界面可以，接进游戏」）；302 生图 scale_line 扁平线描拆件",
+      "references": [
+        "js/qihe-gift-ui.js",
+        "js/production-assets.js"
+      ]
+    },
+    {
+      "id": "ui_qh_trade_scale_beam",
+      "path": "assets/production/ui/trade-scale-20261026/ui_qh_trade_scale_beam.webp",
+      "original_path": "art_sources/gift-trade-ui-20261026/out/line_beam_768.webp",
+      "system": "ui",
+      "role": "registered-or-direct-runtime",
+      "sha256": "269392a32bcd544e74c2369fc40a6bd4a5b3d48ec20e1ba6904953c1431be46b",
+      "actual_size": [
+        768,
+        512
+      ],
+      "acceptance_status": "adopted-20261026 用户确认易物界面照大侠立志传做（「这版易物界面可以，接进游戏」）；302 生图 scale_line 扁平线描拆件",
+      "references": [
+        "js/qihe-gift-ui.js",
+        "js/production-assets.js"
+      ]
+    },
+    {
+      "id": "ui_qh_trade_scale_panL",
+      "path": "assets/production/ui/trade-scale-20261026/ui_qh_trade_scale_panL.webp",
+      "original_path": "art_sources/gift-trade-ui-20261026/out/line_panL_768.webp",
+      "system": "ui",
+      "role": "registered-or-direct-runtime",
+      "sha256": "147097fe42025f3bf861b49352db04da2414c19e2d5d80b6bcac74289eb58177",
+      "actual_size": [
+        768,
+        512
+      ],
+      "acceptance_status": "adopted-20261026 用户确认易物界面照大侠立志传做（「这版易物界面可以，接进游戏」）；302 生图 scale_line 扁平线描拆件",
+      "references": [
+        "js/qihe-gift-ui.js",
+        "js/production-assets.js"
+      ]
+    },
+    {
+      "id": "ui_qh_trade_scale_panR",
+      "path": "assets/production/ui/trade-scale-20261026/ui_qh_trade_scale_panR.webp",
+      "original_path": "art_sources/gift-trade-ui-20261026/out/line_panR_768.webp",
+      "system": "ui",
+      "role": "registered-or-direct-runtime",
+      "sha256": "61e4e4a94f3e4b4623e891042ddbaf293343d8b69f692db6452754f406dbf3a0",
+      "actual_size": [
+        768,
+        512
+      ],
+      "acceptance_status": "adopted-20261026 用户确认易物界面照大侠立志传做（「这版易物界面可以，接进游戏」）；302 生图 scale_line 扁平线描拆件",
+      "references": [
+        "js/qihe-gift-ui.js",
+        "js/production-assets.js"
       ]
     }
   ]

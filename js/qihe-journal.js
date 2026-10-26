@@ -2,7 +2,8 @@
 // Save-derived journal and codex. Snapshot methods never write to the player's state.
 (() => {
  if (typeof isQiheEntry === 'function' && !isQiheEntry()) return;
- const portrait=k=>'assets/production/portraits/'+k+'.webp';
+ // 2026-10-21 整改：立绘 2026-10-17 换成 *_hd_20261017 后旧路径 404，改从正式素材登记取路径。
+ const portrait=k=>window.PRODUCTION_ASSET_PATHS?.[k]||'assets/production/portraits/'+k+'.webp';
  const avatar=k=>'assets/production/icons-and-props/'+k+'.webp';
  const CAST={
   xulingyi:{name:'徐令仪',faction:'正道盟',role:'正道盟文议执事',art:portrait('p_qh_xulingyi_story'),full:true},
@@ -48,21 +49,19 @@
   if(Object.values(p.errands||{}).some(v=>v!=='none'&&v!=='closed')||c)met.aunt=true;
   if(p.errands?.cloth==='collected'||p.errands?.cloth==='done')met.merchant=true;
   if(p.errands?.medicine==='delivered'||p.errands?.medicine==='done')met.elder=true;
-  if(p.errands?.bowls==='done'||c?.choices?.inquiry==='friend'||c?.events?.['xu-meeting']||c?.events?.steward||later(c))met.zhouyan=true;
+  if(p.errands?.bowls==='done'||c?.events?.['xu-meeting']||c?.events?.steward||later(c))met.zhouyan=true;
   if(c?.granted||c?.choices?.transport||c?.choices?.practice||later(c))met.luheng=true;
-  if(c?.events?.['c1-00b'])met.song=true;
+  if(c?.events?.['c1-00b'])met.song=true; // 拒绝了也算见过（2026-10-21 起可拒绝）
   if(c?.events?.['fire-start']){met.wukui=true;met.retainer=true;met.procurement_aide=true;}
   if(c?.events?.['road-intro'])met.bandit=true;
   const xu=!!(c?.events?.['xu-meeting']||later(c)&&c?.events?.steward),three=!!(c?.events?.['three-meeting']||later(c)&&c?.events?.medicine);
   for(const [key,d]of Object.entries(questDef))if(seenQuest(q[key])||questions[d.owner+'-dispute']||(d.owner==='xulingyi'?xu:three))met[d.owner]=true;
-  if(c?.choices?.inquiry==='court')met.shenyanhui=true;
   if(['checked','done'].includes(q.account?.stage))met.apothecary=true;
   if(['checked','witnessed','done'].includes(q.ledger?.stage))met.aunt=true;
   if(['witnessed','done'].includes(q.ledger?.stage))met.bailiff=true;
   if(['checked','done'].includes(q.letter?.stage))met.chen=true;
   const identity={};
   for(const [id]of Object.entries(CAST))identity[id]=!!(record[id]?.identity||!['xulingyi','censhuang','shenyanhui'].includes(id)||questions[id+'-dispute']||seenQuest(q[({xulingyi:'letter',censhuang:'account',shenyanhui:'ledger'})[id]])||(id==='xulingyi'?xu:three));
-  if(c?.choices?.inquiry==='court')identity.shenyanhui=true;
   return{met,identity,record,q,p,c,questions,xu,three};
  }
  const step=(title,detail,done=true)=>({title,detail,done});
@@ -85,14 +84,16 @@
    if(!done)add({id:'main:qihe',title:'眼下',kind:'主线',status:done?'done':'active',origin:k.xu?'正道盟的徐令仪拿着委托上门，叶蘅却说自己从没托过人。村里来的人越来越多，说法也越来越乱。':'在栖河继续走访，照应乡邻，了解村里的日常与来人的消息。',objective:done?'已护送乡邻离村，在山居安身。':ms?ms.title+'：到'+ms.where+'找'+ms.who+'。':line||'在村中走访，准备好后继续主线。',where:ms?ms.where:phase(s).date,people:['ye',...(k.xu?['xulingyi']:[]),...(k.three?['censhuang','shenyanhui']:[])],action:done?null:ms?{type:'npc',id:ms.npc,label:'去找'+ms.who}:{type:'continue',label:'继续主线'},progress});
    if(c.stage==='cultivation')add({id:'main:cultivation',title:'眼下',kind:'主线',status:'active',origin:'在归云谷安顿下来，学习与日常往来从这里继续。',objective:line||'在山居继续当前行程。',people:['ye','zhouyan'],where:'归云谷',action:{type:'continue',label:'继续当前行程'},progress:[step('到达山居','已经安顿。'),step('当前行程',line||'按当前行程继续。',false)]});
   }
-  const errands={bowls:{title:'还碗',origin:'周婶托你把陈伯家的两只碗送回去。',first:'把碗送到陈伯家门厅。',target:'chen-door',place:'村内东北 · 陈伯家门厅',people:['aunt','chen']},cloth:{title:'取布',origin:'客栈替药棚晾着一包干净布，周婶托你取回。',first:'找客栈店家取布。',target:'inn-door',place:'南村口 · 客栈',people:['aunt','merchant']},medicine:{title:'送药与还篮',origin:'周婶托你送药给村口老人，再带回竹篮。',first:'把药送到村口老人家门前。',target:'elder',place:'南村口 · 老人家',people:['aunt','elder']}};
-  for(const [key,d]of Object.entries(errands)){
-   const st=p.errands?.[key];if(!st||['none','closed'].includes(st))continue;
-   const done=st==='done',returning=['collected','delivered'].includes(st);
-   add({id:'errand:'+key,title:d.title,kind:'支线 · 周婶',status:done?'done':'active',owner:'aunt',origin:d.origin,objective:done?'已经完成并交还。':returning?'回药棚交还受托物品。':d.first,people:d.people,where:done?'栖河 · 帮过的忙':returning?'村内东侧 · 药棚':d.place,chapterNpc:done?null:returning?'clinic-door':d.target,action:done?null:{type:'npc',id:returning?'clinic-door':d.target,label:'标记地点'},progress:[step('答应帮忙','受托物品已记下。'),...(returning?[step('完成送取','受托物品仍需交还。')]:[]),step(done?'交还完成':'完成送取与交还',done?'已归还，不再携带受托物品。':returning?'交给周婶。':d.first,done)]});
-  }
+  // 2026-10-23 剧本二提议：周婶三件合成一条「替周婶跑一圈」，一条任务三步，进度从 errands 三个键推导（opening-errands-rework.md 0.1）
+  {const e=p.errands||{},vals=['bowls','cloth','medicine'].map(k=>e[k]);
+   if(vals.some(v=>v&&!['none','closed'].includes(v))){
+    const sent=k=>['done','collected','delivered'].includes(e[k]),allSent=sent('bowls')&&sent('cloth')&&sent('medicine'),done=vals.every(v=>v==='done');
+    const next=!sent('bowls')?['chen-door','村内东北 · 陈伯家门厅','把碗送到陈伯家门厅。']:!sent('cloth')?['inn-door','南村口 · 客栈','找客栈店家取布。']:!sent('medicine')?['elder','南村口 · 老人家','把药送到村口老人家门前，带回竹篮。']:['clinic-door','村内东侧 · 药棚','回药棚找周婶交差。'];
+    add({id:'errand:round',title:'替周婶跑一圈',kind:'支线 · 周婶',status:done?'done':'active',owner:'aunt',origin:'周婶托你顺路跑一圈：陈伯家还碗、客栈取布、村南老人家送药并带回竹篮，办完回药棚交差。',objective:done?'三处都办完，已回药棚交差。':next[2],people:['aunt','chen','merchant','elder'],where:done?'栖河 · 帮过的忙':next[1],chapterNpc:done?null:next[0],action:done?null:{type:'npc',id:next[0],label:'标记地点'},
+     progress:[step('陈伯家还碗','碗送到陈伯家门厅。',sent('bowls')),step('客栈取布','从店家手里取到布包。',sent('cloth')),step('村南送药','药送到老人家，带回竹篮。',sent('medicine')),step('回药棚交差','把布和竹篮交给周婶。',done)]});
+   }}
   for(const [key,d]of Object.entries(questDef)){
-   const q=k.q[key];if(!seenQuest(q)||departed(c)&&q.stage!=='done')continue;
+   const q=k.q[key];if(!seenQuest(q)||(departed(c)||window.QiheOutsiders?.questOpen&&!QiheOutsiders.questOpen(key))&&q.stage!=='done')continue; // 2026-10-21 过了时限没办成的，和撤离后一样不再列出
    const done=q.stage==='done',checked=['checked','witnessed','done'].includes(q.stage),witnessed=['witnessed','done'].includes(q.stage);
    const target=q.stage==='accepted'?d.target:key==='ledger'&&q.stage==='checked'?'bailiff':d.owner;
    const location=target==='bailiff'?'东埠 · 现场差役':target===d.owner?d.owner==='xulingyi'?'南村口 · 联络院门前':d.owner==='shenyanhui'?'东埠 · 采办核货点':c?.halfDay>=4?'东埠 · 装卸路':'南村口 · 车道旁':d.place;
@@ -103,7 +104,7 @@
    else paper={id:'out:account',title:'旧货账条',fields:checked?[['旧罐','六只'],['货款','结清']]:[['来件','乌魁'],['买卖','待核']],note:checked?'账目已核 · 玉匣传讯另查':'药商账目待核',body:checked?'药商说六只旧药罐的钱早已结清。玉匣的传闻不是叶家答应交物的凭据。':'乌魁带来的旧货账尚待药商核对。收钱、卖货与玉匣传闻不能混为一事。'};
    add({id:'out:'+key,title:d.title,kind:'支线 · '+CAST[d.owner].name,status:done?'done':'active',owner:d.owner,origin:d.origin,objective,where:done?'栖河 · 帮过的忙':location,chapterNpc:done?null:target,action:done?null:{type:'npc',id:target,label:'标记地点'},people:[d.owner,...({letter:['chen'],account:['apothecary'],ledger:['aunt',...(witnessed?['bailiff']:[])]})[key]],paper,reward:done&&q.rewarded?d.reward:null,progress:[step('答应帮忙',key==='ledger'?'册载三篓，东埠实见两篓。':'已接下核实口信。'),step(checked?'已向当事人核实':'向当事人核实',checked?key==='ledger'?'周婶已说明药物用途。':key==='account'?'药商已说明旧罐买卖。':'陈伯已说明拜帖来处。':d.first,checked),...(key==='ledger'?[step(witnessed?'已核实现场签记':'核实现场签记',witnessed?'差役确认“已验”没有签名。':checked?'去东埠请差役核对签押。':'先问清是几篓、做什么用的，再看是谁签的字。',witnessed)]:[]),step(done?'口信已交回':'交回核实口信',done?d.summary:'带回原始说明，不替主人作主。',done)]});
   }
-  const activities={clinic:['药棚帮忙','帮叶蘅处理普通药包与送药。',['ye'],'已照应药棚的事情。'],transport:['修车认路','帮陆衡照应药车与乡邻出入。',['luheng','chen'],'已经整备药车或护送老人。'],relic_help:['整理旧屋','只帮叶蘅收拾她递过来的笔记和旧物。',['ye'],'帮叶蘅收好了旧物，药箱她自己带着。'],practice:['学习丙级《护路棍法》','向陆衡学习护路棍法第一层。',['luheng'],'已学横杆护身，收到练习棍与本人笔记。'],inquiry:['村口问讯','向熟悉事情的来人核对消息。',[c?.choices?.inquiry==='court'?'shenyanhui':'zhouyan'],'已记下当事人的说法。'],market:['集市帮忙','在集市照应普通家当与传话。',['merchant',...(c?.choices?.market==='rumor'?['apothecary']:[])],'已办过集市的事情。']};
+  const activities={clinic:['药棚帮忙','帮叶蘅处理普通药包与送药。',['ye'],'已照应药棚的事情。'],transport:['修车认路','帮陆衡照应药车与乡邻出入。',['luheng','chen'],'已经整备药车或护送老人。'],practice:['学习丙级《护路棍法》','向陆衡学习护路棍法第一层。',['luheng'],'已学横杆护身，收到练习棍与本人笔记。'],market:['集市帮忙','在集市照应普通家当与传话。',['merchant',...(c?.choices?.market==='rumor'?['apothecary']:[])],'已办过集市的事情。']};
   for(const [id,a]of Object.entries(activities))if(c?.choices?.[id]||(id==='practice'&&c?.granted))add({id:'activity:'+id,title:a[0],kind:'村中活动',status:'done',origin:a[1],objective:a[3],where:'栖河 · 活动记录',people:a[2],progress:[step('已完成',a[3])]});
   if(c&&['refuge','mountain','ended','cultivation'].includes(c.stage))add({id:'main:evidence',title:evidence(c)?'三张附页与第十七号底单':'三张附页对质',kind:'主线 · 对证',status:evidence(c)?'done':'active',origin:'安置伤者后，一同核对三方附页与叶家的原始记录。',objective:evidence(c)?'对质的结果：原底单上只有六只旧药罐，三张附页却分别写成交谱、还匣、交样。三家各自认了错，背后是谁还不知道。':'先安顿伤者，再把三张附页摊开来对一对。',where:'邻村接应院 · 核对点',people:['ye','zhouyan','chen','xulingyi','censhuang','shenyanhui'],action:{type:'evidence',label:evidence(c)?'查看对证记录':'对一对附页'},chapterEvidence:true,progress:[step('到达接应院','乡邻已得到接应。'),step(evidence(c)?'附页对过了':'核对原底单',evidence(c)?'原记录与三份附页已逐项对照。':'不以交出遗物或完成可选跑腿为条件。',evidence(c))]});
   return rows;
@@ -121,7 +122,7 @@
    else if(id==='censhuang')bio='归烬堂管对外事务的人，说话带笑，护短却也认账。这回是为一只“玉匣”来的。';
    else if(id==='shenyanhui')bio='受程巡检委办，核药名、数量与原始签记。她主张分清每项记录，不把未经核实的附页当作验收。';
    else if(id==='ye')bio='在村外与萧白相识，随后一同进入栖河。她照料药棚病人，村里的送药和收拾也常有她的身影。'+(k.p.relicSeen?'父亲留下的笔记和母亲的药箱由她自己保管。':'');
-   if(id==='zhouyan'&&(k.c?.choices?.inquiry==='friend'||k.xu||later(k.c)))bio='温行舟的旧友，听到叶家出让旧物的传闻后到栖河问讯。他来问人的消息，并不索取叶家的药箱。';
+   if(id==='zhouyan'&&(k.xu||later(k.c)))bio='温行舟的旧友，听到叶家出让旧物的传闻后到栖河问讯。他来问人的消息，并不索取叶家的药箱。';
    events.push({phase:r?.firstPhase||'栖河相识',text:identity?'已记下'+base.name+'的身份与往来。':'与这位来客相识。'});
    if(id==='ye'&&k.p.relicSeen)events.push({phase:'初到栖河',text:'亲手收好父亲笔记和母亲药箱。'});
    if(id==='xulingyi'&&k.xu)events.push({phase:'第一日傍晚',text:'要把叶家的医武谱封存带回盟里，叶蘅当面拒绝了。'});
@@ -146,7 +147,7 @@
    out.push({...base,id,role,faction,bio,identity,first:r?.firstPlace||'栖河（旧档未记录地点）',firstPhase:r?.firstPhase||'旧档相识记录',events,relations:relations.filter(([other])=>k.met[other]),tasks:allTasks.filter(t=>t.people?.includes(id)).map(t=>t.id)});
   }
   const cu=s.cultivation;
-  if(cu){for(const[id,p]of Object.entries(mountainPeople)){const seen=cu.facts['met_'+p.actor]||(p.actor==='zhou'&&cu.joined)||cu.history?.some(h=>window.CultivationVisitors?.all().some(d=>d.id===h.action&&(d.actor===p.actor||(p.actor==='dou'&&d.id==='gy_noodles'))));if(!seen)continue;const old=out.find(x=>x.id===id),art=window.CultivationHousehold?.portraits[p.actor];const item={...(old||{}),id,portraitActor:p.actor,name:p.name,role:p.role,faction:p.actor==='pei'?'溪东书屋':'归云谷',bio:p.actor==='fang'&&!cu.facts.gy_brother_hurt_seen?'大师兄，练功和办事都稳妥，愿意陪新师弟过招。常在谷外历练，回来会问萧白功课。':p.actor==='pei'&&!cu.facts.gn_chests_seen?'住在溪东书屋，读书认真；讲起旧书会忘了时辰。与萧白相识后，常把书里的疑处拿来一起想。':p.bio,art:art||old?.art,full:!!art,identity:true,first:p.actor==='pei'?'溪东书屋':'归云谷',events:[...(old?.events||[]),...cu.history.filter(h=>window.CultivationVisitors?.all().some(d=>d.id===h.action&&d.actor===p.actor)).map(h=>({phase:'第'+(Math.floor(h.period/60)+1)+'年'+(Math.floor(h.period/5)%12+1)+'月',text:h.name}))].slice(-10),relations:old?.relations||[],tasks:old?.tasks||[]};if(old)Object.assign(old,item);else out.push(item);}
+  if(cu){for(const[id,p]of Object.entries(mountainPeople)){const seen=cu.facts['met_'+p.actor]||(p.actor==='zhou'&&cu.joined)||cu.history?.some(h=>window.CultivationVisitors?.all().some(d=>d.id===h.action&&(d.actor===p.actor||(p.actor==='dou'&&d.id==='gy_noodles'))));if(!seen)continue;const old=out.find(x=>x.id===id),art=window.CultivationHousehold?.portraits[p.actor];const item={...(old||{}),id,portraitActor:p.actor,name:p.name,role:p.role,faction:p.actor==='pei'?'溪东书屋':'归云谷',bio:p.actor==='fang'&&!cu.facts.gy_brother_hurt_seen?'大师兄，练功和办事都稳妥，愿意陪新师弟过招。常在谷外历练，回来会问萧白功课。':p.actor==='pei'&&!(cu.facts.gn_letter_seen||cu.facts.gn_chests_seen)?'住在溪东书屋，读书认真；讲起旧书会忘了时辰。与萧白相识后，常把书里的疑处拿来一起想。':p.bio,art:art||old?.art,full:!!art,identity:true,first:p.actor==='pei'?'溪东书屋':'归云谷',events:[...(old?.events||[]),...cu.history.filter(h=>window.CultivationVisitors?.all().some(d=>d.id===h.action&&d.actor===p.actor)).map(h=>({phase:'第'+(Math.floor(h.period/60)+1)+'年'+(Math.floor(h.period/5)%12+1)+'月',text:h.name}))].slice(-10),relations:old?.relations||[],tasks:old?.tasks||[]};if(old)Object.assign(old,item);else out.push(item);}
    for(const p of out)p.affection=cultivationRelationship(s,p.name==='陆衡'?'陆衡':p.name);
   }
   return out;

@@ -1,0 +1,466 @@
+{
+ "before": {
+  "ids": [
+   "tasks",
+   "people",
+   "",
+   "xulingyi",
+   "censhuang",
+   "shenyanhui",
+   "ye",
+   "chen",
+   "aunt",
+   "zhouyan",
+   "luheng",
+   "song",
+   "apothecary",
+   "main:qihe"
+  ],
+  "shots": [
+   {
+    "id": "xulingyi",
+    "im": [
+     {
+      "src": "assets/production/portraits/p_qh_xulingyi_story.webp",
+      "ok": false
+     },
+     {
+      "src": "assets/production/portraits/p_qh_censhuang_story.webp",
+      "ok": false
+     },
+     {
+      "src": "assets/production/portraits/p_qh_shenyanhui_story.webp",
+      "ok": false
+     },
+     {
+      "src": "assets/ui/jianghu-v4/portraits/ye-menu-v2.png",
+      "ok": true
+     },
+     {
+      "src": "assets/production/icons-and-props/a_opening_chen.webp",
+      "ok": true
+     },
+     {
+      "src": "assets/production/icons-and-props/a_opening_aunt.webp",
+      "ok": true
+     },
+     {
+      "src": "assets/production/icons-and-props/a_opening_zhouyan.webp",
+      "ok": true
+     },
+     {
+      "src": "assets/production/icons-and-props/a_opening_luheng.webp",
+      "ok": true
+     },
+     {
+      "src": "assets/production/portraits/p_qh_song_story.webp",
+      "ok": false
+     },
+     {
+      "src": "assets/production/icons-and-props/a_opening_apothecary.webp",
+      "ok": true
+     },
+     {
+      "src": "assets/production/portraits/p_qh_xulingyi_story.webp",
+      "ok": false
+     },
+     {
+      "src": "assets/ui/jianghu-v4/portraits/ye-menu-v2.png",
+      "ok": true
+     }
+    ]
+   },
+   {
+    "id": "censhuang",
+    "im": [
+     {
+      "src": "assets/production/portraits/p_qh_xulingyi_story.webp",
+      "ok": false
+     },
+     {
+      "src": "assets/production/portraits/p_qh_censhuang_story.webp",
+      "ok": false
+     },
+     {
+      "src": "assets/production/portraits/p_qh_shenyanhui_story.webp",
+      "ok": false
+     },
+     {
+      "src": "assets/ui/jianghu-v4/portraits/ye-menu-v2.png",
+      "ok": true
+     },
+     {
+      "src": "assets/production/icons-and-props/a_opening_chen.webp",
+      "ok": true
+     },
+     {
+      "src": "assets/production/icons-and-props/a_opening_aunt.webp",
+      "ok": true
+     },
+     {
+      "src": "assets/production/icons-and-props/a_opening_zhouyan.webp",
+      "ok": true
+     },
+     {
+      "src": "assets/production/icons-and-props/a_opening_luheng.webp",
+      "ok": true
+     },
+     {
+      "src": "assets/production/portraits/p_qh_song_story.webp",
+      "ok": false
+     },
+     {
+      "src": "assets/production/icons-and-props/a_opening_apothecary.webp",
+      "ok": true
+     },
+     {
+      "src": "assets/production/portraits/p_qh_censhuang_story.webp",
+      "ok": false
+     }
+    ]
+   },
+   {
+    "id": "shenyanhui",
+    "im": [
+     {
+      "src": "assets/production/portraits/p_qh_xulingyi_story.webp",
+      "ok": false
+     },
+     {
+      "src": "assets/production/portraits/p_qh_censhuang_story.webp",
+      "ok": false
+     },
+     {
+      "src": "assets/production/portraits/p_qh_shenyanhui_story.webp",
+      "ok": false
+     },
+     {
+      "src": "assets/ui/jianghu-v4/portraits/ye-menu-v2.png",
+      "ok": true
+     },
+     {
+      "src": "assets/production/icons-and-props/a_opening_chen.webp",
+      "ok": true
+     },
+     {
+      "src": "assets/production/icons-and-props/a_opening_aunt.webp",
+      "ok": true
+     },
+     {
+      "src": "assets/production/icons-and-props/a_opening_zhouyan.webp",
+      "ok": true
+     },
+     {
+      "src": "assets/production/icons-and-props/a_opening_luheng.webp",
+      "ok": true
+     },
+     {
+      "src": "assets/production/portraits/p_qh_song_story.webp",
+      "ok": false
+     },
+     {
+      "src": "assets/production/icons-and-props/a_opening_apothecary.webp",
+      "ok": true
+     },
+     {
+      "src": "assets/production/portraits/p_qh_shenyanhui_story.webp",
+      "ok": false
+     }
+    ]
+   },
+   {
+    "id": "song",
+    "im": [
+     {
+      "src": "assets/production/portraits/p_qh_xulingyi_story.webp",
+      "ok": false
+     },
+     {
+      "src": "assets/production/portraits/p_qh_censhuang_story.webp",
+      "ok": false
+     },
+     {
+      "src": "assets/production/portraits/p_qh_shenyanhui_story.webp",
+      "ok": false
+     },
+     {
+      "src": "assets/ui/jianghu-v4/portraits/ye-menu-v2.png",
+      "ok": true
+     },
+     {
+      "src": "assets/production/icons-and-props/a_opening_chen.webp",
+      "ok": true
+     },
+     {
+      "src": "assets/production/icons-and-props/a_opening_aunt.webp",
+      "ok": true
+     },
+     {
+      "src": "assets/production/icons-and-props/a_opening_zhouyan.webp",
+      "ok": true
+     },
+     {
+      "src": "assets/production/icons-and-props/a_opening_luheng.webp",
+      "ok": true
+     },
+     {
+      "src": "assets/production/portraits/p_qh_song_story.webp",
+      "ok": false
+     },
+     {
+      "src": "assets/production/icons-and-props/a_opening_apothecary.webp",
+      "ok": true
+     },
+     {
+      "src": "assets/production/portraits/p_qh_song_story.webp",
+      "ok": false
+     }
+    ]
+   }
+  ],
+  "bad": [
+   "404 assets/production/portraits/p_qh_xulingyi_story.webp",
+   "404 assets/production/portraits/p_qh_censhuang_story.webp",
+   "404 assets/production/portraits/p_qh_xulingyi_story.webp",
+   "404 assets/production/portraits/p_qh_shenyanhui_story.webp",
+   "404 assets/production/portraits/p_qh_song_story.webp",
+   "404 assets/production/portraits/p_qh_xulingyi_story.webp",
+   "404 assets/production/portraits/p_qh_song_story.webp",
+   "404 assets/production/portraits/p_qh_censhuang_story.webp",
+   "404 assets/production/portraits/p_qh_shenyanhui_story.webp",
+   "404 assets/production/portraits/p_qh_censhuang_story.webp",
+   "404 assets/production/portraits/p_qh_shenyanhui_story.webp",
+   "404 assets/production/portraits/p_qh_xulingyi_story.webp",
+   "404 assets/production/portraits/p_qh_song_story.webp",
+   "404 assets/production/portraits/p_qh_xulingyi_story.webp",
+   "404 assets/production/portraits/p_qh_censhuang_story.webp",
+   "404 assets/production/portraits/p_qh_shenyanhui_story.webp",
+   "404 assets/production/portraits/p_qh_song_story.webp",
+   "404 assets/production/portraits/p_qh_censhuang_story.webp",
+   "404 assets/production/portraits/p_qh_shenyanhui_story.webp",
+   "404 assets/production/portraits/p_qh_xulingyi_story.webp",
+   "404 assets/production/portraits/p_qh_song_story.webp"
+  ]
+ },
+ "after": {
+  "ids": [
+   "tasks",
+   "people",
+   "",
+   "xulingyi",
+   "censhuang",
+   "shenyanhui",
+   "ye",
+   "chen",
+   "aunt",
+   "zhouyan",
+   "luheng",
+   "song",
+   "apothecary",
+   "main:qihe"
+  ],
+  "shots": [
+   {
+    "id": "xulingyi",
+    "im": [
+     {
+      "src": "assets/production/portraits/p_qh_xulingyi_story_hd_20261017.webp",
+      "ok": true
+     },
+     {
+      "src": "assets/production/portraits/p_qh_censhuang_story_hd_20261017.webp",
+      "ok": true
+     },
+     {
+      "src": "assets/production/portraits/p_qh_shenyanhui_story_hd_20261017.webp",
+      "ok": true
+     },
+     {
+      "src": "assets/ui/jianghu-v4/portraits/ye-menu-v2.png",
+      "ok": true
+     },
+     {
+      "src": "assets/production/icons-and-props/a_opening_chen.webp",
+      "ok": true
+     },
+     {
+      "src": "assets/production/icons-and-props/a_opening_aunt.webp",
+      "ok": true
+     },
+     {
+      "src": "assets/production/icons-and-props/a_opening_zhouyan.webp",
+      "ok": true
+     },
+     {
+      "src": "assets/production/icons-and-props/a_opening_luheng.webp",
+      "ok": true
+     },
+     {
+      "src": "assets/production/portraits/p_qh_song_story_hd_20261017.webp",
+      "ok": true
+     },
+     {
+      "src": "assets/production/icons-and-props/a_opening_apothecary.webp",
+      "ok": true
+     },
+     {
+      "src": "assets/production/portraits/p_qh_xulingyi_story_hd_20261017.webp",
+      "ok": true
+     },
+     {
+      "src": "assets/ui/jianghu-v4/portraits/ye-menu-v2.png",
+      "ok": true
+     }
+    ]
+   },
+   {
+    "id": "censhuang",
+    "im": [
+     {
+      "src": "assets/production/portraits/p_qh_xulingyi_story_hd_20261017.webp",
+      "ok": true
+     },
+     {
+      "src": "assets/production/portraits/p_qh_censhuang_story_hd_20261017.webp",
+      "ok": true
+     },
+     {
+      "src": "assets/production/portraits/p_qh_shenyanhui_story_hd_20261017.webp",
+      "ok": true
+     },
+     {
+      "src": "assets/ui/jianghu-v4/portraits/ye-menu-v2.png",
+      "ok": true
+     },
+     {
+      "src": "assets/production/icons-and-props/a_opening_chen.webp",
+      "ok": true
+     },
+     {
+      "src": "assets/production/icons-and-props/a_opening_aunt.webp",
+      "ok": true
+     },
+     {
+      "src": "assets/production/icons-and-props/a_opening_zhouyan.webp",
+      "ok": true
+     },
+     {
+      "src": "assets/production/icons-and-props/a_opening_luheng.webp",
+      "ok": true
+     },
+     {
+      "src": "assets/production/portraits/p_qh_song_story_hd_20261017.webp",
+      "ok": true
+     },
+     {
+      "src": "assets/production/icons-and-props/a_opening_apothecary.webp",
+      "ok": true
+     },
+     {
+      "src": "assets/production/portraits/p_qh_censhuang_story_hd_20261017.webp",
+      "ok": true
+     }
+    ]
+   },
+   {
+    "id": "shenyanhui",
+    "im": [
+     {
+      "src": "assets/production/portraits/p_qh_xulingyi_story_hd_20261017.webp",
+      "ok": true
+     },
+     {
+      "src": "assets/production/portraits/p_qh_censhuang_story_hd_20261017.webp",
+      "ok": true
+     },
+     {
+      "src": "assets/production/portraits/p_qh_shenyanhui_story_hd_20261017.webp",
+      "ok": true
+     },
+     {
+      "src": "assets/ui/jianghu-v4/portraits/ye-menu-v2.png",
+      "ok": true
+     },
+     {
+      "src": "assets/production/icons-and-props/a_opening_chen.webp",
+      "ok": true
+     },
+     {
+      "src": "assets/production/icons-and-props/a_opening_aunt.webp",
+      "ok": true
+     },
+     {
+      "src": "assets/production/icons-and-props/a_opening_zhouyan.webp",
+      "ok": true
+     },
+     {
+      "src": "assets/production/icons-and-props/a_opening_luheng.webp",
+      "ok": true
+     },
+     {
+      "src": "assets/production/portraits/p_qh_song_story_hd_20261017.webp",
+      "ok": true
+     },
+     {
+      "src": "assets/production/icons-and-props/a_opening_apothecary.webp",
+      "ok": true
+     },
+     {
+      "src": "assets/production/portraits/p_qh_shenyanhui_story_hd_20261017.webp",
+      "ok": true
+     }
+    ]
+   },
+   {
+    "id": "song",
+    "im": [
+     {
+      "src": "assets/production/portraits/p_qh_xulingyi_story_hd_20261017.webp",
+      "ok": true
+     },
+     {
+      "src": "assets/production/portraits/p_qh_censhuang_story_hd_20261017.webp",
+      "ok": true
+     },
+     {
+      "src": "assets/production/portraits/p_qh_shenyanhui_story_hd_20261017.webp",
+      "ok": true
+     },
+     {
+      "src": "assets/ui/jianghu-v4/portraits/ye-menu-v2.png",
+      "ok": true
+     },
+     {
+      "src": "assets/production/icons-and-props/a_opening_chen.webp",
+      "ok": true
+     },
+     {
+      "src": "assets/production/icons-and-props/a_opening_aunt.webp",
+      "ok": true
+     },
+     {
+      "src": "assets/production/icons-and-props/a_opening_zhouyan.webp",
+      "ok": true
+     },
+     {
+      "src": "assets/production/icons-and-props/a_opening_luheng.webp",
+      "ok": true
+     },
+     {
+      "src": "assets/production/portraits/p_qh_song_story_hd_20261017.webp",
+      "ok": true
+     },
+     {
+      "src": "assets/production/icons-and-props/a_opening_apothecary.webp",
+      "ok": true
+     },
+     {
+      "src": "assets/production/portraits/p_qh_song_story_hd_20261017.webp",
+      "ok": true
+     }
+    ]
+   }
+  ],
+  "bad": []
+ }
+}

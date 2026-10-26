@@ -3,12 +3,30 @@
 // 戏眼：岑霜来讨玉匣、沈雁回要扣药箱查药，叶蘅只想先把药送到病人手里；三家各拿一张写着“叶家答应了”的附页，谁也不信她；散场时药送出去了，但三张纸谁也没给谁看。
 // 2026-10-19 三方批次：从 js/qihe-representatives.js medicine()（rows.medicine、watcher、planning）搬入，并按剧情三道关改写
 //   （戏眼卡 xiaojianghu/docs/design/scripts/briefs/fengqi-reps-actors-brief.json 场 S2-medicine、S2-watch、S2-plan；叶蘅对“能延寿”当场顶回，删掉隔几句才回的那句）。
-//   参数 watched：萧白替宋先生在路口数过人（事件 c1-00b）时，岑霜、沈雁回各自把他当成别家眼线。
+//   参数 watched：萧白答应过替宋先生在路口数人（records.stranger_deal 为 accepted／asked_first；2026-10-21 起不再只看见没见过他）时，岑霜、沈雁回各自把他当成别家眼线。
+// 2026-10-23 剧本三（对证断线版草稿第 2 节；归烬堂支线稿第三节宋三／交叉点 X3、第七节）：
+//   参数 watched 改为“答应过宋先生且到装卸路时还没断线”（stranger_deal 为 accepted／asked_first 且 S.qiheSong.broken 为假；JS 待改）。
+//   学过蔺管事法子的（records.lamp.taught）开场前多一问：站路口数／在药车边搭手看；后者记 lamp.hidden_watch，不播“路口数人”段。
+//   “路口数人”段改由执行人先发现：乌魁先指出（新 R2-W0），岑霜接话（R2-W1 微调），沈雁回那句改成“随从也说”（R2-W3 微调）；该段真的播过才记 records.song_watched（对证、后山回话二读）。
+//   待用户过目，未 --approve。
 INCLUDE ../_共用/externals.ink
 INCLUDE ../_共用/externals-三方.ink
 VAR watched = false // 参数
 
 === qihe_reps_medicine ===
+{ watched and flag("qiheChapter.records.lamp.taught"):
+    -> how
+}
+-> scene
+
+= how
+萧白：（宋先生让我留意谁站在哪。蔺管事却说，别杵在路口。） #id:R2-L1
+* [（站在路口数）]
+* [（去药车边搭把手，顺带看）]
+    ~ set_flag("qiheChapter.records.lamp.hidden_watch", true)
+- -> scene
+
+= scene
 【第二日傍晚 · 装卸路】 #id:R2-01
 岑霜：叶姑娘留步。归烬堂岑霜，来取一只玄曜玉匣——堂里的旧物。……乌魁先前办得不像样，只好我亲自走一趟。 #id:R2-02
 叶蘅：借过，这包药是给病人的。家里没这东西，也不卖。 #id:R2-03
@@ -25,10 +43,12 @@ VAR watched = false // 参数
 岑霜：沈姑娘查药，眼睛却一直往箱子上飘。……箱子扣在村里，正道盟来接倒省事了。 #id:R2-15
 沈雁回：匣子归谁我不管！你要讨旧物，也别拿病人的药挡路。 #id:R2-16
 叶蘅：没人要把东西交给正道盟！你们到底听没听我说？ #id:R2-17
-{ watched:
-    岑霜：……这两天在路口数人的，是你吧？我还当是徐执事找来的。 #id:R2-W1
+{ watched and not flag("qiheChapter.records.lamp.hidden_watch"):
+    ~ set_flag("qiheChapter.records.song_watched", true)
+    乌魁：岑管事，就是这小子！这两天老在路口数咱们的人。 #id:R2-W0
+    岑霜：……是你？我还当是徐执事找来的。 #id:R2-W1
     萧白：我不是正道盟的。 #id:R2-W2
-    沈雁回：不是她的？我还当你是归烬堂派来、盯我查验队的。 #id:R2-W3
+    沈雁回：不是她的？随从也说总有人盯着查验队，我还当是归烬堂派来的。 #id:R2-W3
     岑霜：哟，两家都不认……那就是长了双自个儿的眼睛。有意思。 #id:R2-W4
     岑霜：乌魁，回来。药让她送，箱子出村先报我，别伤人。……这双眼睛是谁家的，先弄清楚再说。 #id:R2-W5
 - else:

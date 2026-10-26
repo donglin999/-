@@ -1,0 +1,162 @@
+{
+ "hero_long_empty_hurt": {
+  "family": "hero",
+  "ref": "hero_long_empty_normal",
+  "anchor": [
+   0.2401,
+   0.4171,
+   0.5705
+  ],
+  "score": 0.74,
+  "current": {
+   "top": 28.13,
+   "height": 97.57,
+   "dx": -2.69
+  },
+  "proposed": {
+   "top": 21.5,
+   "height": 114.12,
+   "dx": -7.05
+  }
+ },
+ "hero_long_empty_normal": {
+  "family": "hero",
+  "ref": "hero_long_empty_normal",
+  "anchor": [
+   0.2557,
+   0.4327,
+   0.5783
+  ],
+  "score": 1.0,
+  "current": {
+   "top": 28.13,
+   "height": 97.57,
+   "dx": -2.69
+  },
+  "proposed": {
+   "top": 19.72,
+   "height": 114.12,
+   "dx": -7.83
+  }
+ },
+ "hero_long_empty_sad": {
+  "family": "hero",
+  "ref": "hero_long_empty_normal",
+  "anchor": [
+   0.2401,
+   0.4171,
+   0.551
+  ],
+  "score": 0.689,
+  "current": {
+   "top": 28.13,
+   "height": 97.57,
+   "dx": -2.69
+  },
+  "proposed": {
+   "top": 21.5,
+   "height": 114.12,
+   "dx": -5.1
+  }
+ },
+ "hero_long_empty_serious": {
+  "family": "hero",
+  "ref": "hero_long_empty_normal",
+  "anchor": [
+   0.2397,
+   0.4126,
+   0.5574
+  ],
+  "score": 0.907,
+  "current": {
+   "top": 28.13,
+   "height": 97.57,
+   "dx": -2.69
+  },
+  "proposed": {
+   "top": 20.9,
+   "height": 116.83,
+   "dx": -5.74
+  }
+ },
+ "hero_long_empty_sleep": {
+  "family": "hero",
+  "ref": "hero_long_empty_normal",
+  "anchor": [
+   0.2321,
+   0.4109,
+   0.5575
+  ],
+  "score": 0.68,
+  "current": {
+   "top": 28.13,
+   "height": 97.57,
+   "dx": -2.69
+  },
+  "proposed": {
+   "top": 22.68,
+   "height": 112.98,
+   "dx": -5.75
+  }
+ },
+ "hero_long_empty_smile": {
+  "family": "hero",
+  "ref": "hero_long_empty_normal",
+  "anchor": [
+   0.2557,
+   0.4327,
+   0.5783
+  ],
+  "score": 0.948,
+  "current": {
+   "top": 28.13,
+   "height": 97.57,
+   "dx": -2.69
+  },
+  "proposed": {
+   "top": 19.72,
+   "height": 114.12,
+   "dx": -7.83
+  }
+ },
+ "hero_long_empty_surprise": {
+  "family": "hero",
+  "ref": "hero_long_empty_normal",
+  "anchor": [
+   0.2449,
+   0.4144,
+   0.5695
+  ],
+  "score": 0.801,
+  "current": {
+   "top": 28.13,
+   "height": 97.57,
+   "dx": -2.69
+  },
+  "proposed": {
+   "top": 19.71,
+   "height": 119.17,
+   "dx": -6.95
+  }
+ },
+ "hero_long_empty_worry": {
+  "family": "hero",
+  "ref": "hero_long_empty_normal",
+  "anchor": [
+   0.2424,
+   0.4119,
+   0.5582
+  ],
+  "score": 0.83,
+  "current": {
+   "top": 28.13,
+   "height": 97.57,
+   "dx": -2.69
+  },
+  "proposed": {
+   "top": 20.01,
+   "height": 119.17,
+   "dx": -5.82
+  }
+ }
+}

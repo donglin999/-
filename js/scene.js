@@ -297,7 +297,7 @@ function drawChar(sp,x,y,dir='d',walk=0,t=0,opts={}){const k=spKey(sp),h=opts.h|
   const w=im?drawH*iw/ih:h*.45;
   // 脚底阴影
   const shadowRx=prone&&box?drawH*box.width/ih*.5:Math.min(w*.42,h*.3);
-  g.fillStyle='rgba(0,0,0,.3)';g.beginPath();g.ellipse(x,y,shadowRx,h*.07,0,0,7);g.fill();
+  if(!opts.noShadow){g.fillStyle='rgba(0,0,0,.3)';g.beginPath();g.ellipse(x,y,shadowRx,h*.07,0,0,7);g.fill();}
   if(!im){if(!OPT_CHARS.includes(k)){g.fillStyle='#b88';g.fillRect(x-w/2,y-h,w,h)}return}
   let bob=0,sy=1,sx=1;
   if(moving){if(n<=1&&!wk){const ph=walk/(h*.1);bob=Math.abs(Math.sin(ph))*h*.035;sy=1+Math.sin(ph*2)*.015;sx=1/sy}}
@@ -343,7 +343,8 @@ function drawMarker(t){const gl=player.goal;if(!gl)return;const a=Math.min(1,gl.
   const b=Math.sin(t/160)*3;g.globalAlpha=.9*a;g.fillStyle='#ffe2a0';g.beginPath();g.moveTo(gl.x-6,gl.y-22+b);g.lineTo(gl.x+6,gl.y-22+b);g.lineTo(gl.x,gl.y-13+b);g.closePath();g.fill();g.restore()}
 function drawNpc(n,t,near){if(n.resource){QiheResources.draw(n,t,near);return}if(n.loot){ContainerSystem.draw(n,t,near);return}const x=n.x*TS,y=n.y*TS;
   if(n.sp){const h=npcH(n),id=typeof npcIdle==='function'?npcIdle(n,t,near):null;   // 待机活动见 js/idle.js
-    drawChar(n.sp,x+(id?id.dx:0),y+(id?id.dy:0),id?id.dir:(n.dir||'d'),id?id.walk:0,t,{h,moving:!!(id&&id.moving),ph:n.x*1.7});if(id)npcIdleFx(n,t,x,y,h,near,id);const ty=y-(spKey(n.sp)==='zhou'?h*.42:h)-8;
+    const dx=x+(id?id.dx:0),dy=y+(id?id.dy:0),dd=id?id.dir:(n.dir||'d'),dw=id?id.walk:0,dm=!!(id&&id.moving);
+    drawChar(n.sp,dx,dy,dd,dw,t,{h,moving:dm,ph:n.x*1.7});occNote(n.sp,dx,dy,dd,dw,h,dm,false,n.x*1.7,1);if(id)npcIdleFx(n,t,x,y,h,near,id);const ty=y-(spKey(n.sp)==='zhou'?h*.42:h)-8;
     if(near&&near.o===n)label(n.name,x,ty);else if(n.mark&&n.mark()){const b=Math.sin(t/200)*2;g.fillStyle='#e9a23b';g.beginPath();g.arc(x,ty-6+b,10,0,7);g.fill();g.strokeStyle='#2a1a0a';g.lineWidth=2;g.stroke();g.fillStyle='#2a1a0a';g.font='bold 16px serif';g.textAlign='center';g.fillText('!',x,ty+b)}
     return}
   const a=.45+Math.sin(t/260+n.x)*.4;g.fillStyle=`rgba(255,226,140,${a})`;
@@ -372,15 +373,18 @@ function drawScene(t){setDims(cur);if(!cur._npcs)cur._npcs=npcsOf(cur);const fdt
   if(cur.cloths)for(const q of cur.cloths)dlPush(q[5]??q[1]+q[3],5,q);
   const pim=cur.props&&IMG[cur.propImg];if(ok(pim))for(const q of cur.props){const k=cur.propK||3;if(q[4]<cam.x+VW&&q[4]+q[2]*k>cam.x&&q[5]<cam.y+VH&&q[5]+q[3]*k>cam.y)dlPush(q[6],6,q)}
   DL.length=DLn;DL.sort(dlCmp);const list=DL;
+  const oc=occBegin(cur);
   for(let i=0;i<list.length;i++){const e=list[i],o=e.o;
-    if(e.kind===0)drawNpc(o,t,near);
-    else if(e.kind===1)drawChar(o.sp,o.x,o.y,o.dir,o.walk,t,{moving:o.moving,ph:o.ph});
-    else if(e.kind===2){const a=player.alpha??1;if(a<1)g.globalAlpha=a;drawChar(o.m,o.x,o.y,o.dir,o.walk,t,{moving:o.moving,running:o.running,ph:o.ph});g.globalAlpha=1}
-    else if(e.kind===4)drawFg(fgi,o);
-    else if(e.kind===5)drawCloth(o,t);
-    else if(e.kind===6)drawProp(pim,o,cur.propK||3);
-    else{const a=player.alpha??1;if(a<=0)continue;if(a<1)g.globalAlpha=a;drawChar(cur.playerSp||'hero',o.x,o.y,o.dir,o.walk,t,{moving:o.moving,running:o.running});g.globalAlpha=1}}
-  if(fgOk&&!cur.fgp)drawFg(fgi,[0,0,WW,WH]);
+    if(e.kind===0){if(oc)occRole=o.cast||String(o.id||'').startsWith('staged-')?'cast':'npc',occSrc=o;drawNpc(o,t,near);occRole=null}
+    else if(e.kind===1){drawChar(o.sp,o.x,o.y,o.dir,o.walk,t,{moving:o.moving,ph:o.ph});if(oc){occRole='wanderer';occSrc=o;occNote(o.sp,o.x,o.y,o.dir,o.walk,0,o.moving,false,o.ph,1);occRole=null}}
+    else if(e.kind===2){const a=player.alpha??1;if(a<1)g.globalAlpha=a;drawChar(o.m,o.x,o.y,o.dir,o.walk,t,{moving:o.moving,running:o.running,ph:o.ph});g.globalAlpha=1;if(oc){occRole='follower';occSrc=o;occNote(o.m,o.x,o.y,o.dir,o.walk,0,o.moving,o.running,o.ph,a);occRole=null}}
+    else if(e.kind===4){drawFg(fgi,o);if(oc&&oc.occluders.fg)occHit(4,o,fgi,0)}
+    else if(e.kind===5){drawCloth(o,t);if(oc&&oc.occluders.cloth)occHit(5,o,null,0)}
+    else if(e.kind===6){drawProp(pim,o,cur.propK||3);if(oc&&oc.occluders.prop)occHit(6,o,pim,cur.propK||3)}
+    else{const a=player.alpha??1;if(a<=0)continue;if(a<1)g.globalAlpha=a;drawChar(cur.playerSp||'hero',o.x,o.y,o.dir,o.walk,t,{moving:o.moving,running:o.running});g.globalAlpha=1;if(oc){occRole='player';occSrc=o;occNote(cur.playerSp||'hero',o.x,o.y,o.dir,o.walk,0,o.moving,o.running,0,a);occRole=null}}}
+  if(fgOk&&!cur.fgp){const q=OCC_FULL;q[2]=WW;q[3]=WH;drawFg(fgi,q);if(oc&&oc.occluders.fg)occHit(4,q,fgi,0)}
+  // 2026-10-23 引擎能力（用户第 11 项）：任何角色被前景物件挡住的部分画半透明人形，物件照常不透明。规则见 OCCLUSION 表。
+  if(oc)occGhosts(t);
   if(cur.over)cur.over(t);
   drawExits(t,1);   // 出口标签画在建筑/树之上，不被遮挡
   updParticles(t);drawParticles(t);drawBirds(t,fdt);drawBubbles(fdt);
@@ -389,16 +393,87 @@ function drawScene(t){setDims(cur);if(!cur._npcs)cur._npcs=npcsOf(cur);const fdt
 // 站在底边以北（y 更小）的角色被屋檐/树冠/灯笼盖住，走到底边以南则画在其前面（与原作一致）
 // 单体素材（建筑/树/摊位…）：props:[[atlasX,atlasY,w,h,worldX,worldY,底边y]]（atlas 为源像素，世界尺寸 ×propK，缺省 3）。
 // 底图已烘焙同样的像素，这里按底边 y 与角色深度排序重画一遍：角色走到底边以北即被屋檐/树冠遮住
+// 角色被物件盖住时的人形提示见下方「重叠半透明」一节（occBegin/occNote/occHit/occGhosts）。
 function drawProp(im,q,k){const w=q[2]*k,h=q[3]*k;
-  // 与 drawFg 相同：人物在物件排序线以北且与其外框重叠时淡化物件，避免主角被屋顶/树冠完全吞没（碰撞仍按占地）。
-  const reveal=cur.revealPlayer&&player.y<q[6]&&player.x+24>q[4]&&player.x-24<q[4]+w&&player.y>q[5]&&player.y-CHAR_H<q[5]+h;
-  g.save();if(reveal)g.globalAlpha*=.45;g.imageSmoothingEnabled=false;drawImageAsset(g,im,q[0],q[1],q[2],q[3],q[4],q[5],w,h);g.restore()}
+  g.save();g.imageSmoothingEnabled=false;drawImageAsset(g,im,q[0],q[1],q[2],q[3],q[4],q[5],w,h);g.restore()}
 function drawPropsTo(x,sc,K){const im=IMG[sc.propImg];if(!ok(im))return;const k=sc.propK||3;x.imageSmoothingEnabled=false;for(const q of sc.props)drawImageAsset(x,im,q[0],q[1],q[2],q[3],q[4]*K,q[5]*K,q[2]*k*K,q[3]*k*K)}
 function drawFg(im,q){const k=im.naturalWidth/WW;
-  // Baked-map overlays must not erase the controlled actor. Fade the occluder
-  // while the actor is behind it; collision continues to use the solid footprint.
-  const reveal=cur.revealPlayer&&player.y<(q[4]??q[1]+q[3])&&player.x+24>q[0]&&player.x-24<q[0]+q[2]&&player.y>q[1]&&player.y-CHAR_H<q[1]+q[3];
-  g.save();if(reveal)g.globalAlpha*=.45;g.imageSmoothingEnabled=false;drawImageAsset(g,im,q[0]*k,q[1]*k,q[2]*k,q[3]*k,q[0],q[1],q[2],q[3]);g.restore()}
+  // 物件照常不透明；被它盖住的角色由 occGhosts 在帧末补画半透明人形，碰撞仍按占地。
+  g.save();g.imageSmoothingEnabled=false;drawImageAsset(g,im,q[0]*k,q[1]*k,q[2]*k,q[3]*k,q[0],q[1],q[2],q[3]);g.restore()}
+// ───── 重叠半透明（2026-10-23 引擎能力，用户第 11 项：「角色和物体重叠时，类似有大侠立志传那样的半透明处理」） ─────
+// 规则是数据，不逐点写判断：全局缺省表 OCCLUSION；场景用 sc.occlusion 按字段合并覆盖（false＝关闭），旧字段 sc.revealPlayer:true 视为启用缺省表。
+// 单个角色可设 n.occlusion=false 排除；sc.occlusion.skipProps / skipFg 列出不算遮挡的 props / fgp 下标。
+// 判定：绘制排序列表时记下每个角色的绘制参数与人形框（occNote）；之后画到的遮挡物（排序在后＝画在其上）若与人形框相交，
+// 用该物件的低分辨率不透明格（每件物件首次用到时生成一次并缓存）算覆盖率（occHit），合计超过 minCover 才算被挡。
+// 绘制（occGhosts）：只对被挡角色，在离屏小画布上画角色 → destination-in 挡住它的物件并集（只留被挡部分）
+// → destination-out 排在它之后的角色（不盖到前面的人身上）→ 以 alpha 盖回主画布。未被挡的部分不画第二遍、像素不变。
+const OCCLUSION={
+  alpha:.5,              // 被挡部分的不透明度
+  style:'ghost',         // ghost＝角色原像素半透明；tint＝单色剪影（颜色 tint）
+  tint:'#efe0bd',
+  actors:{player:true,follower:true,npc:true,cast:true,wanderer:true},   // 参与的角色：主角、跟随者、场景 NPC、剧情临时站位、路人
+  interactiveOnly:false, // true 时场景 NPC 只对有 act（可交互）的生效；主角、跟随者、剧情站位不受此限
+  occluders:{fg:true,prop:true,cloth:false},   // 算遮挡的物件：前景切片 fgp（含无 fgp 的整张 fg）、单体素材 props、摆布 cloths
+  minCover:.04,          // 人形框被物件不透明格覆盖的比例低于此不画（擦边不闪）
+  maxActors:16,          // 每帧最多补画几个角色
+  bodyW:.36,             // 人形框宽＝身高×bodyW（框高＝身高）
+  cell:6                 // 不透明格边长（世界像素）
+};
+const OCC_FULL=[0,0,0,0],OCC_A=[];
+let occCfg=null,occRole=null,occSrc=null,occN=0,occCv=null,occCx=null,occMk=null,occMx=null;
+const occStats={ms:0,actors:0,hits:0,ghosts:0};window.OCC_STATS=occStats;
+function occResolve(sc){if(sc._occK===sc.occlusion&&sc._occR===sc.revealPlayer&&sc._occ!==undefined)return sc._occ;
+  const o=sc.occlusion;let r=null;
+  if(o!==false&&(o||sc.revealPlayer)){const c=o&&typeof o==='object'?o:{},pick=(arr,ids)=>new Set((ids||[]).map(i=>arr&&arr[i]).filter(Boolean));
+    r={...OCCLUSION,...c,actors:{...OCCLUSION.actors,...(c.actors||{})},occluders:{...OCCLUSION.occluders,...(c.occluders||{})},skipProps:pick(sc.props,c.skipProps),skipFg:pick(sc.fgp,c.skipFg)}}
+  sc._occK=o;sc._occR=sc.revealPlayer;return sc._occ=r}
+function occBegin(sc){occCfg=occResolve(sc);occN=0;occStats.hits=0;occStats.ghosts=0;occStats.actors=0;if(!occCfg)occStats.ms=0;return occCfg}
+function occNote(sp,x,y,dir,walk,h,moving,running,ph,alpha){
+  if(!occCfg||!occRole||!occCfg.actors[occRole])return;const src=occSrc;
+  if(src&&src.occlusion===false)return;
+  if(occRole==='npc'&&occCfg.interactiveOnly&&!(src&&src.act))return;
+  h=h||charH(sp);if(x+h<cam.x||x-h>cam.x+VW||y<cam.y||y-h*1.2>cam.y+VH)return;
+  let a=OCC_A[occN];if(!a)a=OCC_A[occN]={occ:[]};occN++;occStats.actors=occN;
+  a.sp=sp;a.x=x;a.y=y;a.dir=dir;a.walk=walk;a.h=h;a.moving=moving;a.running=running;a.ph=ph;a.alpha=alpha;a.occ.length=0;a.cover=0;
+  const bw=h*occCfg.bodyW;a.l=x-bw/2;a.r=x+bw/2;a.t=y-h;a.b=y-2}
+// 物件的不透明格：世界矩形按 cell 切格，格内 alpha>64 记 1；画不出（跨域等）时返回 null＝整块按实心算
+function occGrid(kind,q,im,k,L,T,R,B){const cell=occCfg.cell,host=q===OCC_FULL?im:q,key='_og'+kind;let gr=host[key];
+  if(gr!==undefined&&gr.w===R-L&&gr.h===B-T)return gr.g;
+  const gw=Math.max(1,Math.ceil((R-L)/cell)),gh=Math.max(1,Math.ceil((B-T)/cell));let bits=null;
+  try{const c=document.createElement('canvas');c.width=gw;c.height=gh;const x=c.getContext('2d');x.imageSmoothingEnabled=true;
+    if(kind===6)drawImageAsset(x,im,q[0],q[1],q[2],q[3],0,0,q[2]*k/cell,q[3]*k/cell);
+    else{const kf=(im.naturalWidth||im.width)/WW;drawImageAsset(x,im,q[0]*kf,q[1]*kf,q[2]*kf,q[3]*kf,0,0,q[2]/cell,q[3]/cell)}
+    const d=x.getImageData(0,0,gw,gh).data;bits=new Uint8Array(gw*gh);for(let i=0;i<bits.length;i++)bits[i]=d[i*4+3]>64?1:0}catch(e){bits=null}
+  host[key]={w:R-L,h:B-T,g:bits?{gw,gh,bits}:null};return host[key].g}
+function occHit(kind,q,im,k){if(!occN)return;let L,T,R,B;
+  if(kind===6){if(occCfg.skipProps.has(q))return;L=q[4];T=q[5];R=L+q[2]*k;B=T+q[3]*k}
+  else{if(kind===4&&occCfg.skipFg.has(q))return;L=q[0];T=q[1];R=L+q[2];B=T+q[3]}
+  for(let i=0;i<occN;i++){const a=OCC_A[i];if(a.r<=L||a.l>=R||a.b<=T||a.t>=B)continue;occStats.hits++;
+    const cell=occCfg.cell,gr=im?occGrid(kind,q,im,k,L,T,R,B):null;let cov;
+    const x0=Math.max(a.l,L),x1=Math.min(a.r,R),y0=Math.max(a.t,T),y1=Math.min(a.b,B),tot=Math.max(1,Math.ceil((a.r-a.l)/cell)*Math.ceil((a.b-a.t)/cell));
+    if(!gr)cov=(x1-x0)*(y1-y0)/((a.r-a.l)*(a.b-a.t));
+    else{let n=0;const c0=Math.floor((x0-L)/cell),c1=Math.min(gr.gw-1,Math.floor((x1-L-.01)/cell)),r0=Math.floor((y0-T)/cell),r1=Math.min(gr.gh-1,Math.floor((y1-T-.01)/cell));
+      for(let r=r0;r<=r1;r++)for(let c=c0;c<=c1;c++)n+=gr.bits[r*gr.gw+c];cov=n/tot}
+    if(cov>0){a.occ.push(kind,q,im,k);a.cover+=cov}}}
+function occGhosts(t){const t0=performance.now();let n=0;
+  for(let i=0;i<occN&&n<occCfg.maxActors;i++){const a=OCC_A[i];if(!a.occ.length||a.cover<occCfg.minCover||a.alpha<=0)continue;if(occDraw(a,i,t))n++}
+  occStats.ghosts=n;occStats.ms=performance.now()-t0}
+function occDraw(a,i,t){const m=g.getTransform&&g.getTransform();if(!m)return false;
+  const wl=a.x-a.h*.5,wr=a.x+a.h*.5,wt=a.y-a.h*1.2,wb=a.y+4;
+  const dx0=Math.floor(m.a*wl+m.e),dy0=Math.floor(m.d*wt+m.f),W2=Math.ceil(m.a*wr+m.e)-dx0,H2=Math.ceil(m.d*wb+m.f)-dy0;if(W2<=0||H2<=0)return false;
+  if(!occCv){occCv=document.createElement('canvas');occMk=document.createElement('canvas')}
+  for(const c of[occCv,occMk]){if(c.width<W2)c.width=W2;if(c.height<H2)c.height=H2}
+  const x=occCx||(occCx=occCv.getContext('2d')),mk=occMx||(occMx=occMk.getContext('2d'));
+  for(const c of[x,mk]){c.setTransform(1,0,0,1,0,0);c.globalCompositeOperation='source-over';c.globalAlpha=1;c.clearRect(0,0,W2,H2);c.setTransform(m.a,0,0,m.d,m.e-dx0,m.f-dy0);c.imageSmoothingEnabled=false}
+  const G=g;try{
+    g=x;drawChar(a.sp,a.x,a.y,a.dir,a.walk,t,{h:a.h,moving:a.moving,running:a.running,ph:a.ph,noShadow:true});
+    g=mk;for(let j=0;j<a.occ.length;j+=4){const kd=a.occ[j],q=a.occ[j+1],im=a.occ[j+2];if(kd===6)drawProp(im,q,a.occ[j+3]);else if(kd===4)drawFg(im,q);else drawCloth(q,t)}
+    x.setTransform(1,0,0,1,0,0);x.globalCompositeOperation='destination-in';x.drawImage(occMk,0,0,W2,H2,0,0,W2,H2);
+    x.setTransform(m.a,0,0,m.d,m.e-dx0,m.f-dy0);x.globalCompositeOperation='destination-out';g=x;
+    for(let j=i+1;j<occN;j++){const b=OCC_A[j];if(b.x+b.h*.5<wl||b.x-b.h*.5>wr||b.y<wt||b.y-b.h*1.2>wb)continue;drawChar(b.sp,b.x,b.y,b.dir,b.walk,t,{h:b.h,moving:b.moving,running:b.running,ph:b.ph,noShadow:true})}
+    if(occCfg.style==='tint'){x.setTransform(1,0,0,1,0,0);x.globalCompositeOperation='source-in';x.fillStyle=occCfg.tint;x.fillRect(0,0,W2,H2)}
+  }finally{g=G}
+  G.save();G.setTransform(1,0,0,1,0,0);G.globalAlpha=occCfg.alpha*a.alpha;G.imageSmoothingEnabled=false;G.drawImage(occCv,0,0,W2,H2,dx0,dy0,W2,H2);G.restore();return true}
 // 随风摆动的布（晾衣/摊布/招幌）：cloths:[[x,y,w,h,'#色',底边y?,相位?]]，上沿固定，下沿像素化摆动
 function drawCloth(q,t){const[x,y,w,h,c]=q,ph=q[6]||x*.013,P=3;
   for(let yy=0;yy<h;yy+=P){const u=yy/h,off=Math.round((Math.sin(t/520+ph+u*2.2)*2.2+Math.sin(t/190+ph*1.7)*.8)*u*u/P*1.6)*P;

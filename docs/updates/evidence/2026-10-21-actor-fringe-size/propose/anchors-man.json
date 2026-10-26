@@ -1,0 +1,122 @@
+{
+ "man": {
+  "family": "right",
+  "ref": "man_normal",
+  "anchor": [
+   0.2308,
+   0.4502,
+   0.533
+  ],
+  "score": 0.853,
+  "current": {
+   "top": 31.26,
+   "height": 88.4,
+   "dx": -4.59
+  },
+  "proposed": {
+   "top": 31.65,
+   "height": 92.07,
+   "dx": -3.3
+  }
+ },
+ "man_normal": {
+  "family": "right",
+  "ref": "man_normal",
+  "anchor": [
+   0.245,
+   0.473,
+   0.546
+  ],
+  "score": 1.0,
+  "current": {
+   "top": 31.26,
+   "height": 88.4,
+   "dx": -4.59
+  },
+  "proposed": {
+   "top": 31.19,
+   "height": 88.6,
+   "dx": -4.6
+  }
+ },
+ "man_sad": {
+  "family": "right",
+  "ref": "man_normal",
+  "anchor": [
+   0.2444,
+   0.4718,
+   0.5478
+  ],
+  "score": 0.746,
+  "current": {
+   "top": 31.26,
+   "height": 88.4,
+   "dx": -4.59
+  },
+  "proposed": {
+   "top": 31.19,
+   "height": 88.83,
+   "dx": -4.78
+  }
+ },
+ "man_smile": {
+  "family": "right",
+  "ref": "man_normal",
+  "anchor": [
+   0.2366,
+   0.464,
+   0.5594
+  ],
+  "score": 0.893,
+  "current": {
+   "top": 31.26,
+   "height": 88.4,
+   "dx": -4.59
+  },
+  "proposed": {
+   "top": 31.88,
+   "height": 88.83,
+   "dx": -5.94
+  }
+ },
+ "man_surprise": {
+  "family": "right",
+  "ref": "man_normal",
+  "anchor": [
+   0.2394,
+   0.4622,
+   0.5411
+  ],
+  "score": 0.768,
+  "current": {
+   "top": 31.26,
+   "height": 88.4,
+   "dx": -4.59
+  },
+  "proposed": {
+   "top": 31.19,
+   "height": 90.66,
+   "dx": -4.11
+  }
+ },
+ "man_worry": {
+  "family": "right",
+  "ref": "man_normal",
+  "anchor": [
+   0.2424,
+   0.4704,
+   0.546
+  ],
+  "score": 0.882,
+  "current": {
+   "top": 31.26,
+   "height": 88.4,
+   "dx": -4.59
+  },
+  "proposed": {
+   "top": 31.42,
+   "height": 88.6,
+   "dx": -4.6
+  }
+ }
+}

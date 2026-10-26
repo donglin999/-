@@ -31,23 +31,23 @@
  const scene=ctx=>({say:ctx.sayAll,ask:ctx.ask});
  const note=ctx=>(key,value)=>{ctx.p.questions||={};ctx.p.questions[key]=value};
  async function pressure(ctx){await play('qihe_reps_xu',scene(ctx),{reps_note:note(ctx)})}
- async function medicine(ctx){await play('qihe_reps_medicine',scene(ctx),{},{watched:!!ctx.p.events['c1-00b']})}
+ async function medicine(ctx){await play('qihe_reps_medicine',scene(ctx),{},{watched:!!window.QiheChapter?.strangerAccepted?.(ctx.p)})}
  async function rescueOrders(ctx){await play('qihe_reps_rescue',scene(ctx),{},{clash:!!ctx.p.clashVersion})}
  async function evidence(ctx){
   const kept=ctx.ownsStrangerGifts?.()||[];
   await play('qihe_reps_evidence',scene(ctx),{
    reps_told:told=>{(ctx.p.records||={}).told_about_stranger=told},
    reps_stranger_gift:()=>ctx.strangerGift?.('c1-07',50)
-  },{met:!!ctx.p.events['three-meeting'],watched:!!ctx.p.events['c1-00b'],clash:!!ctx.p.clashVersion,has_coat:kept.includes('青绫行衣'),has_abacus:kept.includes('乌木算珠')});
+  },{met:!!ctx.p.events['three-meeting'],watched:!!window.QiheChapter?.strangerAccepted?.(ctx.p),clash:!!ctx.p.clashVersion,has_coat:kept.includes('青绫行衣'),has_abacus:kept.includes('乌木算珠')});
   ctx.p.evidence={version:2,receipt:'旧药罐六只',number:17,authorization:false,forgerySuspected:true,mastermindKnown:false,relicsAbsent:true,strangerNamed:!!ctx.p.records?.told_about_stranger,originalsReturned:true,responsible:['徐令仪','岑霜','沈雁回']};
  }
  const names={xulingyi:'徐令仪',censhuang:'岑霜',shenyanhui:'沈雁回'};
  // 找人说话：对方先按当下情形开口，再给选项（2026-10-17 试玩反馈）；跑腿选项由 QiheOutsiders 提供。
  async function interact(id,ctx){if(!names[id])return false;const after=ctx.p.stage==='refuge'&&!!ctx.p.events['evidence-v2'];
-  const errand=!!(window.QiheOutsiders?.available()&&QiheOutsiders.representativeKey(id)),q=errand&&S.prologue.outsiders?.quests?.[QiheOutsiders.representativeKey(id)],stage=q?.stage||'none';
+  const errand=!!(window.QiheOutsiders?.available()&&QiheOutsiders.representativeKey(id)),q=errand&&S.prologue.outsiders?.quests?.[QiheOutsiders.representativeKey(id)],stage=q?.stage||'none';const open=errand&&QiheOutsiders.questOpen(QiheOutsiders.representativeKey(id));
   await play('qihe_reps_talk_'+id,scene(ctx),{reps_note:note(ctx),reps_errand:()=>QiheOutsiders.talk(id),reps_evidence:()=>ctx.evidence()},{
    after,refuge:ctx.p.stage==='refuge',met:!!ctx.p.events[id==='xulingyi'?'xu-meeting':'three-meeting'],
-   errand_new:errand&&stage==='none',errand_active:errand&&stage!=='none'&&stage!=='done',errand_done:errand&&stage==='done'});
+   errand_new:open&&stage==='none',errand_active:open&&stage!=='none'&&stage!=='done',errand_done:errand&&stage==='done'});
   return true;
  }
  window.QiheRepresentatives={sprites,rows,play,pressure,medicine,rescueOrders,evidence,interact,names};

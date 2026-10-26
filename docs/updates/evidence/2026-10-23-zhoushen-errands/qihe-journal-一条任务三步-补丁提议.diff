@@ -1,0 +1,23 @@
+--- js/qihe-journal.js	2026-10-22 00:19:52
++++ js/qihe-journal.js	2026-10-23 19:34:13
+@@ -84,12 +84,14 @@
+    if(!done)add({id:'main:qihe',title:'眼下',kind:'主线',status:done?'done':'active',origin:k.xu?'正道盟的徐令仪拿着委托上门，叶蘅却说自己从没托过人。村里来的人越来越多，说法也越来越乱。':'在栖河继续走访，照应乡邻，了解村里的日常与来人的消息。',objective:done?'已护送乡邻离村，在山居安身。':ms?ms.title+'：到'+ms.where+'找'+ms.who+'。':line||'在村中走访，准备好后继续主线。',where:ms?ms.where:phase(s).date,people:['ye',...(k.xu?['xulingyi']:[]),...(k.three?['censhuang','shenyanhui']:[])],action:done?null:ms?{type:'npc',id:ms.npc,label:'去找'+ms.who}:{type:'continue',label:'继续主线'},progress});
+    if(c.stage==='cultivation')add({id:'main:cultivation',title:'眼下',kind:'主线',status:'active',origin:'在归云谷安顿下来，学习与日常往来从这里继续。',objective:line||'在山居继续当前行程。',people:['ye','zhouyan'],where:'归云谷',action:{type:'continue',label:'继续当前行程'},progress:[step('到达山居','已经安顿。'),step('当前行程',line||'按当前行程继续。',false)]});
+   }
+-  const errands={bowls:{title:'还碗',origin:'周婶托你把陈伯家的两只碗送回去。',first:'把碗送到陈伯家门厅。',target:'chen-door',place:'村内东北 · 陈伯家门厅',people:['aunt','chen']},cloth:{title:'取布',origin:'客栈替药棚晾着一包干净布，周婶托你取回。',first:'找客栈店家取布。',target:'inn-door',place:'南村口 · 客栈',people:['aunt','merchant']},medicine:{title:'送药与还篮',origin:'周婶托你送药给村口老人，再带回竹篮。',first:'把药送到村口老人家门前。',target:'elder',place:'南村口 · 老人家',people:['aunt','elder']}};
+-  for(const [key,d]of Object.entries(errands)){
+-   const st=p.errands?.[key];if(!st||['none','closed'].includes(st))continue;
+-   const done=st==='done',returning=['collected','delivered'].includes(st);
+-   add({id:'errand:'+key,title:d.title,kind:'支线 · 周婶',status:done?'done':'active',owner:'aunt',origin:d.origin,objective:done?'已经完成并交还。':returning?'回药棚交还受托物品。':d.first,people:d.people,where:done?'栖河 · 帮过的忙':returning?'村内东侧 · 药棚':d.place,chapterNpc:done?null:returning?'clinic-door':d.target,action:done?null:{type:'npc',id:returning?'clinic-door':d.target,label:'标记地点'},progress:[step('答应帮忙','受托物品已记下。'),...(returning?[step('完成送取','受托物品仍需交还。')]:[]),step(done?'交还完成':'完成送取与交还',done?'已归还，不再携带受托物品。':returning?'交给周婶。':d.first,done)]});
+-  }
++  // 2026-10-23 剧本二提议：周婶三件合成一条「替周婶跑一圈」，一条任务三步，进度从 errands 三个键推导（opening-errands-rework.md 0.1）
++  {const e=p.errands||{},vals=['bowls','cloth','medicine'].map(k=>e[k]);
++   if(vals.some(v=>v&&!['none','closed'].includes(v))){
++    const sent=k=>['done','collected','delivered'].includes(e[k]),allSent=sent('bowls')&&sent('cloth')&&sent('medicine'),done=vals.every(v=>v==='done');
++    const next=!sent('bowls')?['chen-door','村内东北 · 陈伯家门厅','把碗送到陈伯家门厅。']:!sent('cloth')?['inn-door','南村口 · 客栈','找客栈店家取布。']:!sent('medicine')?['elder','南村口 · 老人家','把药送到村口老人家门前，带回竹篮。']:['clinic-door','村内东侧 · 药棚','回药棚找周婶交差。'];
++    add({id:'errand:round',title:'替周婶跑一圈',kind:'支线 · 周婶',status:done?'done':'active',owner:'aunt',origin:'周婶托你顺路跑一圈：陈伯家还碗、客栈取布、村南老人家送药并带回竹篮，办完回药棚交差。',objective:done?'三处都办完，已回药棚交差。':next[2],people:['aunt','chen','merchant','elder'],where:done?'栖河 · 帮过的忙':next[1],chapterNpc:done?null:next[0],action:done?null:{type:'npc',id:next[0],label:'标记地点'},
++     progress:[step('陈伯家还碗','碗送到陈伯家门厅。',sent('bowls')),step('客栈取布','从店家手里取到布包。',sent('cloth')),step('村南送药','药送到老人家，带回竹篮。',sent('medicine')),step('回药棚交差','把布和竹篮交给周婶。',done)]});
++   }}
+   for(const [key,d]of Object.entries(questDef)){
+    const q=k.q[key];if(!seenQuest(q)||(departed(c)||window.QiheOutsiders?.questOpen&&!QiheOutsiders.questOpen(key))&&q.stage!=='done')continue; // 2026-10-21 过了时限没办成的，和撤离后一样不再列出
+    const done=q.stage==='done',checked=['checked','witnessed','done'].includes(q.stage),witnessed=['witnessed','done'].includes(q.stage);

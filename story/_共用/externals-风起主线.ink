@@ -6,9 +6,12 @@ EXTERNAL fq_go_local(place, anchor) // 换到村中室内（QihePrologue.goLocal
 EXTERNAL fq_cg_begin(shot)          // 插画：之后的台词放进插画里演（QiheFireCinematic 的镜头 id：relics、ignition、evacuation、rope）
 EXTERNAL fq_cg_end()                // 播放插画，并演完插画里的台词
 EXTERNAL fq_answer(value)           // 把选项结果交回 JS 流程（不写存档），如 "main"／"normal"／"again"／"stop"／"go"
-EXTERNAL fq_track(npc)              // 行程追踪某个人（QiheNavigation.trackNpc），如 "stranger"
 EXTERNAL fq_days_begin()            // 次日药摊之后：主线进入自由走访（stage=days）
 EXTERNAL fq_starter_gear()          // 发初始装备并显示“获得”，叶蘅入队，存档
 EXTERNAL fq_song_gift(key)          // 宋先生的谢礼（c1-00b／c1-s1／c1-s2），只发一次，显示“获得”
 EXTERNAL fq_lesson_battle()         // 陆衡对练：打到赢或玩家说“今天先到这儿”（中间播 fq_lesson_retry）
 EXTERNAL fq_grant_lesson()          // 学会《护路棍法》第一层，给练习棍与笔记
+
+// ── 2026-10-23 剧本一：《风起-小耗子》（偷窃稿 npc-steal.md 第 3.3 节、第 11 节）。规则在 js/qihe-steal-data.js 的表里，剧本只留接口 ──
+EXTERNAL fq_aqi_steal(key)          // 教学版“袖里一按”：key 是偷窃稿 OVERRIDES 的键（aqi_lesson_coin 门口打赌 70%／aqi_lesson_purse 随从钱袋 100%）；JS 跑到成功为止，每次失手先播 fq_aqi_again；成功后由偷窃管线 teach 规则推进 aqiTeach.step（1、2）并记窃术经验
+EXTERNAL fq_aqi_learn()             // 一课做完：学会“窃”（窃术一级）、第一单那 1 点窃术经验，显示“学会”，存档；数值只在偷窃数据表

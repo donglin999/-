@@ -1,6 +1,6 @@
 # 架构
 
-状态：现行　最后核对：2026-10-19
+状态：现行　最后核对：2026-10-23
 
 > **2026-10-19：** `#street`、`#streetbright`、`#xiangyang` 襄阳演示入口与旧标题／建角流程已撤除，访问这些后缀直接进入栖河首页；`js/story.js` 的襄阳剧情、`quests.js`、`xiangyang-*.js`、`npc-*`、`containers.js` 已移入 `_attic/2026-10-19-deprecated/`。本页涉及它们的内容只作历史记录，见[弃用入口清理](updates/2026-10-19-deprecated-entries.md)。
 
@@ -164,6 +164,12 @@ async function goScene(id,at,dir){
    - kind 5 摆布 `cur.cloths`（排序 y = 第 6 项或 `y+h`）
    - kind 6 单体素材 `cur.props` 的每一项 `[atlasX,atlasY,w,h,worldX,worldY,底边y]`（仅视野内），从图集 `IMG[cur.propImg]` 取源像素、×`cur.propK`（3）绘制，以底边 y 排序：角色走到建筑/树/摊位底边以北即被屋檐、树冠遮住。底图里已烘焙了同样的像素，这里只是按深度再画一遍（v2 场景用它代替 `fg/fgp`）
 5. 有 `cur.fg` 但无 `fgp` 时整张前景图盖在最上层。
+5b. **重叠半透明**（2026-10-23 引擎能力，代码 `js/scene.js` 「重叠半透明」一节）：任何角色（主角、跟随者、场景 NPC、剧情临时站位、路人）被排在其后的前景物件盖住时，被盖住的那部分在帧末补画成半透明人形，物件本身照常不透明，没被盖住的部分不画第二遍（像素不变）。
+   - 规则是数据：全局缺省表 `OCCLUSION`（`alpha` 透明度 .5；`style` `ghost` 原像素半透明／`tint` 单色剪影；`actors` 哪些角色参与；`interactiveOnly` 场景 NPC 只对可交互者生效；`occluders` 哪些物件算遮挡：`fg`（fgp 切片及整张 fg）、`prop`、`cloth`；`minCover` 覆盖率门槛 .04；`maxActors` 每帧上限 16；`bodyW`、`cell` 人形框宽与不透明格边长）。场景用 `sc.occlusion` 按字段合并覆盖，`false` 关闭；旧字段 `revealPlayer:true` 视为启用缺省表（栖河外景、山居、室内都已带）。单个角色 `n.occlusion=false` 排除；`sc.occlusion.skipProps/skipFg` 填 props／fgp 下标，表示这些物件不算遮挡。剧情临时站位（`js/qihe-chapter.js placeCast`）生成的人物带 `cast:true`，按 `actors.cast` 处理。
+   - 判定：排序列表绘制时 `occNote` 记下每个角色的绘制参数与人形框（视野外不记）；之后画到的遮挡物 `occHit` 若与人形框相交，用该物件的低分辨率不透明格（`cell`=6 世界像素，首次用到时生成并缓存在物件上）算覆盖率，合计达到 `minCover` 才算被挡。
+   - 绘制：`occGhosts` 只处理被挡角色：离屏小画布画角色 → `destination-in` 挡住它的物件并集（只留被挡部分）→ `destination-out` 排在它之后的角色（半透明人形不会盖到前面的人身上）→ 以 `alpha` 盖回主画布。两块离屏画布复用，不逐帧分配。
+   - 帧耗（8792，无头 Chromium 1248，1280×720，东埠，每帧强制 GPU 同步）：无人被挡时开/关均约 2.5~2.7 ms/帧，看不出差别；8 个 NPC 同时被挡时 +0.8 ms/帧（约 0.1 ms/人）。证据 `docs/updates/evidence/2026-10-23-overlap-engine/`。回归检查 `node tools_scene/qihe/check_overlap.cjs`。
+   - 参考：用户要求“类似《大侠立志传》那样的半透明处理”。公开资料（Steam 商店页、TapTap 评价、机核等）没有找到对其遮挡做法的文字说明，这里按用户描述做“被挡部分半透明、物件不动”，未照搬任何具体实现。
 6. `updParticles/drawParticles`（尘土、烟、落叶、萤火、火星）→ `drawBirds` → `drawBubbles`（路人闲话）。
 7. 退出世界变换；`drawLights(t)`（屏幕空间：`cur.dark` 夜色遮罩按光源和主角 `heroLight` 挖洞，再以 `lighter` 叠暖光）；`vignette(cur.tint)`。`BRIGHT` 且探索模式时暗角减弱为 .18 且忽略 `tint`。
 

@@ -1,0 +1,390 @@
+{
+ "before-1280": [
+  {
+   "name": "ye",
+   "box": 688,
+   "faces": [
+    {
+     "c": "ye",
+     "bottom": 669,
+     "mask": ""
+    },
+    {
+     "c": "hero",
+     "bottom": 694,
+     "mask": ""
+    }
+   ]
+  },
+  {
+   "name": "luheng",
+   "box": 688,
+   "faces": [
+    {
+     "c": "opening_luheng",
+     "bottom": 681,
+     "mask": ""
+    },
+    {
+     "c": "hero",
+     "bottom": 694,
+     "mask": ""
+    },
+    {
+     "c": "ye",
+     "bottom": 669,
+     "mask": ""
+    }
+   ]
+  },
+  {
+   "name": "censhuang",
+   "box": 688,
+   "faces": [
+    {
+     "c": "qh_censhuang_story",
+     "bottom": 691,
+     "mask": ""
+    },
+    {
+     "c": "hero",
+     "bottom": 694,
+     "mask": ""
+    },
+    {
+     "c": "opening_wukui",
+     "bottom": 668,
+     "mask": ""
+    }
+   ]
+  },
+  {
+   "name": "xu",
+   "box": 688,
+   "faces": [
+    {
+     "c": "qh_xulingyi_story",
+     "bottom": 665,
+     "mask": ""
+    },
+    {
+     "c": "hero",
+     "bottom": 694,
+     "mask": ""
+    },
+    {
+     "c": "qh_shenyanhui_story",
+     "bottom": 676,
+     "mask": ""
+    }
+   ]
+  },
+  {
+   "name": "zhouyan",
+   "box": 688,
+   "faces": [
+    {
+     "c": "opening_zhouyan",
+     "bottom": 668,
+     "mask": ""
+    },
+    {
+     "c": "hero",
+     "bottom": 694,
+     "mask": ""
+    }
+   ]
+  }
+ ],
+ "before-1600": [
+  {
+   "name": "ye",
+   "box": 865,
+   "faces": [
+    {
+     "c": "ye",
+     "bottom": 840,
+     "mask": ""
+    },
+    {
+     "c": "hero",
+     "bottom": 872,
+     "mask": ""
+    }
+   ]
+  },
+  {
+   "name": "luheng",
+   "box": 865,
+   "faces": [
+    {
+     "c": "opening_luheng",
+     "bottom": 855,
+     "mask": ""
+    },
+    {
+     "c": "hero",
+     "bottom": 872,
+     "mask": ""
+    },
+    {
+     "c": "ye",
+     "bottom": 840,
+     "mask": ""
+    }
+   ]
+  },
+  {
+   "name": "censhuang",
+   "box": 865,
+   "faces": [
+    {
+     "c": "qh_censhuang_story",
+     "bottom": 868,
+     "mask": ""
+    },
+    {
+     "c": "hero",
+     "bottom": 872,
+     "mask": ""
+    },
+    {
+     "c": "opening_wukui",
+     "bottom": 839,
+     "mask": ""
+    }
+   ]
+  },
+  {
+   "name": "xu",
+   "box": 865,
+   "faces": [
+    {
+     "c": "qh_xulingyi_story",
+     "bottom": 835,
+     "mask": ""
+    },
+    {
+     "c": "hero",
+     "bottom": 872,
+     "mask": ""
+    },
+    {
+     "c": "qh_shenyanhui_story",
+     "bottom": 850,
+     "mask": ""
+    }
+   ]
+  },
+  {
+   "name": "zhouyan",
+   "box": 865,
+   "faces": [
+    {
+     "c": "opening_zhouyan",
+     "bottom": 839,
+     "mask": ""
+    },
+    {
+     "c": "hero",
+     "bottom": 872,
+     "mask": ""
+    }
+   ]
+  }
+ ],
+ "after-1280": [
+  {
+   "name": "ye",
+   "box": 688,
+   "faces": [
+    {
+     "c": "ye",
+     "bottom": 669,
+     "mask": "linear-gradient(rgb(0, 0, 0) 78.9%, transparent 100%)"
+    },
+    {
+     "c": "hero",
+     "bottom": 694,
+     "mask": "linear-gradient(rgb(0, 0, 0) 79.34%, transparent 98.79%)"
+    }
+   ]
+  },
+  {
+   "name": "luheng",
+   "box": 688,
+   "faces": [
+    {
+     "c": "opening_luheng",
+     "bottom": 681,
+     "mask": "linear-gradient(rgb(0, 0, 0) 79.81%, transparent 100%)"
+    },
+    {
+     "c": "hero",
+     "bottom": 694,
+     "mask": "linear-gradient(rgb(0, 0, 0) 79.34%, transparent 98.79%)"
+    },
+    {
+     "c": "ye",
+     "bottom": 669,
+     "mask": "linear-gradient(rgb(0, 0, 0) 78.9%, transparent 100%)"
+    }
+   ]
+  },
+  {
+   "name": "censhuang",
+   "box": 688,
+   "faces": [
+    {
+     "c": "qh_censhuang_story",
+     "bottom": 691,
+     "mask": "linear-gradient(rgb(0, 0, 0) 78.75%, transparent 99.44%)"
+    },
+    {
+     "c": "hero",
+     "bottom": 694,
+     "mask": "linear-gradient(rgb(0, 0, 0) 79.34%, transparent 98.79%)"
+    },
+    {
+     "c": "opening_wukui",
+     "bottom": 668,
+     "mask": "linear-gradient(rgb(0, 0, 0) 79.06%, transparent 100%)"
+    }
+   ]
+  },
+  {
+   "name": "xu",
+   "box": 688,
+   "faces": [
+    {
+     "c": "qh_xulingyi_story",
+     "bottom": 665,
+     "mask": "linear-gradient(rgb(0, 0, 0) 78.49%, transparent 100%)"
+    },
+    {
+     "c": "hero",
+     "bottom": 694,
+     "mask": "linear-gradient(rgb(0, 0, 0) 79.34%, transparent 98.79%)"
+    },
+    {
+     "c": "qh_shenyanhui_story",
+     "bottom": 676,
+     "mask": "linear-gradient(rgb(0, 0, 0) 79.31%, transparent 100%)"
+    }
+   ]
+  },
+  {
+   "name": "zhouyan",
+   "box": 688,
+   "faces": [
+    {
+     "c": "opening_zhouyan",
+     "bottom": 668,
+     "mask": "linear-gradient(rgb(0, 0, 0) 79.06%, transparent 100%)"
+    },
+    {
+     "c": "hero",
+     "bottom": 694,
+     "mask": "linear-gradient(rgb(0, 0, 0) 79.34%, transparent 98.79%)"
+    }
+   ]
+  }
+ ],
+ "after-1600": [
+  {
+   "name": "ye",
+   "box": 865,
+   "faces": [
+    {
+     "c": "ye",
+     "bottom": 840,
+     "mask": "linear-gradient(rgb(0, 0, 0) 78.9%, transparent 100%)"
+    },
+    {
+     "c": "hero",
+     "bottom": 872,
+     "mask": "linear-gradient(rgb(0, 0, 0) 79.34%, transparent 98.79%)"
+    }
+   ]
+  },
+  {
+   "name": "luheng",
+   "box": 865,
+   "faces": [
+    {
+     "c": "opening_luheng",
+     "bottom": 855,
+     "mask": "linear-gradient(rgb(0, 0, 0) 79.81%, transparent 100%)"
+    },
+    {
+     "c": "hero",
+     "bottom": 872,
+     "mask": "linear-gradient(rgb(0, 0, 0) 79.34%, transparent 98.79%)"
+    },
+    {
+     "c": "ye",
+     "bottom": 840,
+     "mask": "linear-gradient(rgb(0, 0, 0) 78.9%, transparent 100%)"
+    }
+   ]
+  },
+  {
+   "name": "censhuang",
+   "box": 865,
+   "faces": [
+    {
+     "c": "qh_censhuang_story",
+     "bottom": 868,
+     "mask": "linear-gradient(rgb(0, 0, 0) 78.76%, transparent 99.44%)"
+    },
+    {
+     "c": "hero",
+     "bottom": 872,
+     "mask": "linear-gradient(rgb(0, 0, 0) 79.34%, transparent 98.79%)"
+    },
+    {
+     "c": "opening_wukui",
+     "bottom": 839,
+     "mask": "linear-gradient(rgb(0, 0, 0) 79.06%, transparent 100%)"
+    }
+   ]
+  },
+  {
+   "name": "xu",
+   "box": 865,
+   "faces": [
+    {
+     "c": "qh_xulingyi_story",
+     "bottom": 835,
+     "mask": "linear-gradient(rgb(0, 0, 0) 78.49%, transparent 100%)"
+    },
+    {
+     "c": "hero",
+     "bottom": 872,
+     "mask": "linear-gradient(rgb(0, 0, 0) 79.34%, transparent 98.79%)"
+    },
+    {
+     "c": "qh_shenyanhui_story",
+     "bottom": 850,
+     "mask": "linear-gradient(rgb(0, 0, 0) 79.31%, transparent 100%)"
+    }
+   ]
+  },
+  {
+   "name": "zhouyan",
+   "box": 865,
+   "faces": [
+    {
+     "c": "opening_zhouyan",
+     "bottom": 839,
+     "mask": "linear-gradient(rgb(0, 0, 0) 79.06%, transparent 100%)"
+    },
+    {
+     "c": "hero",
+     "bottom": 872,
+     "mask": "linear-gradient(rgb(0, 0, 0) 79.34%, transparent 98.79%)"
+    }
+   ]
+  }
+ ]
+}

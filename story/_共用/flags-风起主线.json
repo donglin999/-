@@ -5,16 +5,21 @@
       "type": "enum",
       "values": [
         "accepted",
-        "asked_first"
+        "asked_first",
+        "declined"
       ],
       "default": null,
       "part": "开始",
-      "meaning": "宋先生第一段：萧白怎么答应替他看着（直接答应／先问他为什么不自己去说）；两支都接受委托",
+      "meaning": "宋先生第一段：萧白答不答应替他看着（直接答应／问过为什么再答应／不掺和）。2026-10-21 起整条线可选、可拒绝；只有前两支才有后两段回话、装卸路与对证里“在路口数人”的分支、章末红绳",
       "setBy": [
         "风起-竹匾"
       ],
       "readBy": [],
-      "recordOnly": true
+      "recordOnly": false,
+      "legacyRead": [
+        "js/qihe-chapter.js（strangerAccepted：后两段是否出现、宋先生闲话、红绳）",
+        "js/qihe-representatives.js（装卸路、对证的 watched 参数）"
+      ]
     },
     "qiheChapter.records.basket": {
       "type": "bool",
@@ -160,40 +165,6 @@
         "js/qihe-chapter.js（已做过判断；铜针囊赠物）"
       ]
     },
-    "qiheChapter.choices.relic_help": {
-      "type": "enum",
-      "values": [
-        "copy",
-        "pack"
-      ],
-      "default": null,
-      "part": "开始",
-      "meaning": "村中活动：整理旧屋，抄笔记／包母亲的东西",
-      "setBy": [
-        "风起-整理旧屋"
-      ],
-      "readBy": [],
-      "legacyRead": [
-        "js/qihe-chapter.js（已做过判断）"
-      ]
-    },
-    "qiheChapter.choices.inquiry": {
-      "type": "enum",
-      "values": [
-        "friend",
-        "court"
-      ],
-      "default": null,
-      "part": "开始",
-      "meaning": "村中活动：问讯，问周砚（friend）／问沈雁回（court）",
-      "setBy": [
-        "风起-村口问讯"
-      ],
-      "readBy": [],
-      "legacyRead": [
-        "js/qihe-chapter.js（已做过判断；问过后周砚改说另一句）"
-      ]
-    },
     "qiheChapter.choices.market": {
       "type": "enum",
       "values": [
@@ -230,6 +201,52 @@
         "风起-村中路人"
       ],
       "recordOnly": false
+    },
+    "aqiTeach.step": {
+      "type": "enum",
+      "values": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "default": 0,
+      "part": "开始",
+      "meaning": "小耗子的一课（固定剧情，偷窃稿第 3.3、10 节 S.aqiTeach.step）：0 未开始、1 门口打赌完、2 随从钱袋到手、3 药买到、4 药挂上门（回客栈门口领完工钱即学会“窃”）。1、2 由小游戏管线推进，3、4 由剧本写；JS 主线步骤 aqi 读它决定药棚确认弹不弹",
+      "setBy": [
+        "风起-小耗子"
+      ],
+      "setByExternal": [
+        "fq_aqi_steal（偷窃管线 OUTCOME_RULES teach 行的 advanceQuest，写 1、2）"
+      ],
+      "readBy": [
+        "风起-小耗子"
+      ],
+      "recordOnly": false,
+      "legacyRead": [
+        "js/qihe-chapter.js（MAIN_STEPS 第一天白天 aqi 步、药棚确认；待实现）"
+      ],
+      "routeValues": [
+        1,
+        2,
+        3
+      ]
+    },
+    "aqiTeach.wage": {
+      "type": "enum",
+      "values": [
+        "said",
+        "quiet"
+      ],
+      "default": null,
+      "part": "开始",
+      "meaning": "小耗子的一课·工钱：萧白点破“偷来的钱也算工钱”（said）还是把二两递给他（quiet）。给培养／游历回扣用（偷窃稿第 3.5 节：said 时 P3-04 阿七多回一句；基线 quiet）",
+      "setBy": [
+        "风起-小耗子"
+      ],
+      "readBy": [],
+      "recordOnly": true
     }
   }
 }

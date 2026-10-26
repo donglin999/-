@@ -175,7 +175,7 @@ const hasFlag=f=>!!S.flags[f];const setFlag=(f,v=1)=>{S.flags[f]=v};
 const isQiheEntry=()=>['','#qihe-map','#prologue'].includes(location.hash);
 if(typeof location!=='undefined'&&typeof history!=='undefined'&&location.hash&&!isQiheEntry())history.replaceState(null,'',location.pathname+location.search+'#qihe-map');
 const isQiheUIReview=()=>isQiheEntry()&&/(?:^|[?&])uiReview=1(?:&|$)/.test(location.search);
-const isQiheBattleReview=()=>isQiheEntry()&&/(?:^|[?&])battleReview=(road|lesson|voice|ye|clash|hero)(?:&|$)/.test(location.search);
+const isQiheBattleReview=()=>isQiheEntry()&&/(?:^|[?&])battleReview=(road|lesson|voice|ye|clash|hero|bailiff)(?:&|$)/.test(location.search);
 const isQiheStoryReview=()=>isQiheEntry()&&/(?:^|[?&])storyReview=(steward|wukui|procurement)(?:&|$)/.test(location.search);
 const qiheJourneyId=()=>{const id=new URLSearchParams(location.search).get('journey');return id&&/^[a-z0-9-]{8,64}$/.test(id)?id:null};
 const qiheJourneySaveKey=id=>id?'xjh.qihe-prologue.v2.run.'+id:'xjh.qihe-prologue.v2';
