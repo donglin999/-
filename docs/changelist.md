@@ -28,10 +28,10 @@
 ### 2026-10-26 · 第十九轮：待过目剧本 25 场上评审台；换电脑交接
 - 工作区：两边
 - 谁：Claude Code（整改清单会话）
-- 状态：本地完成；剧本 25 场等用户在评审台第十八轮逐场批；未提交；未发布
+- 状态：已提交并推送（用户要求换电脑）：xiaojianghu `main` `a5770d1`、xiaojianghu-legacy-prologue `codex/legacy-prologue-map` `504c167`，含两个工作区里其他会话的未提交改动；剧本 25 场等用户在评审台第十八轮逐场批；未发布
 - 范围：评审台第十八轮（15 场改过的已批准剧本＋10 场新写），评审台第 9 版（文字参考占满整行）；交接页 `xiaojianghu-legacy-prologue/docs/updates/2026-10-26-handover.md`
 - 更新记录：[2026-10-21-rectify](../../xiaojianghu-legacy-prologue/docs/updates/2026-10-21-rectify.md)（“第十九轮”一节）；[换电脑交接](../../xiaojianghu-legacy-prologue/docs/updates/2026-10-26-handover.md)
-- 留给接手的人：**先看交接页**。两个工作区改动都未提交，换电脑前要提交推送或整目录拷贝；剧本批完前构建不出包；生图密钥、共用笔记、记忆不在仓库里
+- 留给接手的人：**先看交接页**。新电脑 `git pull` 两个分支；`art_sources/`、`review/` 不在 git 里，要的话整目录拷；剧本批完前构建不出包；生图密钥、共用笔记、记忆不在仓库里
 
 ### 2026-10-26 · 第十八轮：赠礼、赔礼、易物接进游戏
 - 工作区：两边
