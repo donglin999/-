@@ -25,6 +25,22 @@
 
 ## 条目
 
+### 2026-10-27 · 第十八轮剧本 25 场由 Claude 代审代批
+- 工作区：xiaojianghu-legacy-prologue（剧本、构建）
+- 谁：Claude Code（整改清单接手会话）
+- 状态：本地完成；已发布（用户本轮「上线我去游玩评审一下」）：main https://9484d9f7.luotuo-36x.pages.dev 、qihe https://qihe.luotuo-36x.pages.dev ，curl 核对一致；已提交并推送：xiaojianghu-legacy-prologue `codex/legacy-prologue-map` `cbe7f29`，xiaojianghu `main`（本条所在提交）
+- 范围：`story/01-开始/` 下 15 场改过的已批准剧本＋10 场新写（人物-收礼与易物、支线-蔺管事 8 场、风起-小耗子），冷读后改 9 场，49 份全部 --approve；用户 2026-10-27：「这一版你自己去审批吧，符合之前说的文档开发流程就行」。`tools_story/build_ink.cjs` 支持字符串参数遍历；枣木短棍改由门厅陈伯当面给（`js/qihe-chapter.js`、`js/qihe-expansion.js`，新测试 `tools_scene/qihe/verify_club_gift.cjs`）；`verify_starter_equipment`、`verify_prologue` 跟新流程更新；反例库补一节
+- 更新记录：[2026-10-21-rectify](../../xiaojianghu-legacy-prologue/docs/updates/2026-10-21-rectify.md)（“第二十轮”一节）
+- 留给接手的人：小耗子、蔺管事 8 场已批准但 JS 未接；红绳 `broken`、对证 `has_roster` 调用处未传（走基线）；冷读“建议改”里还有 R4-17／18、L7、L8、C1-08-05 没改
+
+### 2026-10-27 · 评审台迁到新账号
+- 工作区：两边（评审台为 claude.ai Artifact；只改了交接页一行）
+- 谁：Claude Code（整改清单接手会话）
+- 状态：完成；交接页改动随 `cbe7f29` 提交
+- 范围：新评审台 https://claude.ai/artifact/7R9dsj6v3v5P2yp1qkFV6U （页面同旧台第 9 版，写入第十八轮及其 25 题）；交接页“不在仓库里”表格的评审台一行
+- 更新记录：[换电脑交接](../../xiaojianghu-legacy-prologue/docs/updates/2026-10-26-handover.md)
+- 留给接手的人：新电脑登的是另一个 claude.ai 账号，旧台只拿到查看权限，Claude Code 读写不了它的数据；之后拍板题都发新台。第一～十七轮的回答、整改、截图只在旧台
+
 ### 2026-10-26 · 第十九轮：待过目剧本 25 场上评审台；换电脑交接
 - 工作区：两边
 - 谁：Claude Code（整改清单会话）
