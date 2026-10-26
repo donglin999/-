@@ -25,11 +25,22 @@
       "model": "gpt-image-2.5-sunburst",
       "key_env": "AI302_API_KEY",
       "added": "2026-10-17",
-      "note": "OpenAI 兼容：/images/generations（JSON）、/images/edits（multipart，参考图 image[]）。2026-10-17 实测 1024x1536 透明背景 39 秒出图；人物 alpha 最高 254，入库时需补成 255。产品页 https://302ai.cn/product/detail/gpt-image-2.5-sunburst"
+      "note": "OpenAI 兼容：/images/generations（JSON）、/images/edits（multipart，参考图 image[]）。2026-10-17 实测 1024x1536 透明背景 39 秒出图；人物 alpha 最高 254，入库时需补成 255。产品页 https://302ai.cn/product/detail/gpt-image-2.5-sunburst；2026-10-21 加备用密钥 key_env_backup，主密钥额度不足（402 或报错含余额／额度字样）时 imggen.py 自动换用",
+      "key_env_backup": "AI302_API_KEY_BACKUP"
     }
   },
   "history": [
-    {"date": "2026-10-07", "current": "codex", "by": "用户", "note": "默认走 codex exec，FlatRouter 只在 codex 做不到时用"},
-    {"date": "2026-10-17", "current": "302ai-sunburst", "by": "用户", "note": "“暂时先用这个作为生图源”；以后可能加多个源，用户说切就切到最新的，旧源保留"}
+    {
+      "date": "2026-10-07",
+      "current": "codex",
+      "by": "用户",
+      "note": "默认走 codex exec，FlatRouter 只在 codex 做不到时用"
+    },
+    {
+      "date": "2026-10-17",
+      "current": "302ai-sunburst",
+      "by": "用户",
+      "note": "“暂时先用这个作为生图源”；以后可能加多个源，用户说切就切到最新的，旧源保留"
+    }
   ]
 }

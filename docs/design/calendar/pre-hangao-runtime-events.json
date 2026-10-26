@@ -292,11 +292,15 @@
         "zhou",
         "peishu",
         "pei",
-        "hero"
+        "hero",
+        "yin",
+        "shimu",
+        "man"
       ],
       "cost": 0,
       "extraGain": null,
-      "insideJourney": false
+      "insideJourney": false,
+      "note": "2026-10-21 并入原 hg_farewell《临行这一顿》，排在 gy_m08 之后，出门前最后一场"
     },
     {
       "id": "gy_m08",
@@ -307,30 +311,11 @@
       "cast": [
         "zhou",
         "ye",
-        "pei",
         "hero",
         "yin"
       ],
       "cost": 0,
       "extraGain": null,
-      "insideJourney": false
-    },
-    {
-      "id": "hg_farewell",
-      "window": [
-        19,
-        19
-      ],
-      "cast": [
-        "shimu",
-        "dou",
-        "man",
-        "hero",
-        "ye",
-        "pei"
-      ],
-      "cost": 0,
-      "extraGain": 0,
       "insideJourney": false
     },
     {

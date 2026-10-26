@@ -10,6 +10,7 @@
    命中处前 16 字内有“不得、不许、不能、禁止、废止、改为”等词，或命中处在引号“”里，视为在讲禁令或引用旧说法，不算。
 3. 死链：markdown 链接指向不存在的文件或 _attic → 超出基线的新死链失败，基线内的只计数。
 4. 状态：现行文档页首（frontmatter 之后前 16 行）没写“状态：现行／历史／草稿”的 → 失败（2026-10-19 起）。
+5. 改动清单（R-文档-03，2026-10-21 起）：两个工作区 docs/updates/ 里文件名日期不早于 2026-10-21 的 .md 更新记录，都要在 docs/changelist.md 里有链接 → 否则失败。
 同时重新生成 docs/rules/规则登记表.md。"""
 from pathlib import Path
 import hashlib, json, re, sys
@@ -21,6 +22,8 @@ RULES = RULES_DIR / 'rules.json'
 LOCK = RULES_DIR / 'rules.lock'
 LINK_BASE = RULES_DIR / 'deadlinks-baseline.json'
 TABLE = RULES_DIR / '规则登记表.md'
+CHANGELIST = LIB / 'docs' / 'changelist.md'
+CHANGELIST_FROM = '2026-10-21'
 SKIP_DIRS = {'node_modules', '_attic', 'archive', 'dist', '.git', '.wrangler', 'updates', '_已合并', 'approved', 'art_sources', 'review', 'story-routes'}
 NEG = re.compile(r'不得|不许|不要|不能|禁止|废止|作废|改为|改成|不再|旧说法|旧源|旧做法|已停用|曾经|过去')
 LINK = re.compile(r'\]\(([^)\s]+)\)')
@@ -98,6 +101,18 @@ def main():
           f'死链 {len(set(dead))} 条（新增 {len(new_dead)}）；缺状态 {len(nostatus)} 份。')
     for h in hits: print('  过时说法', h)
     for d in new_dead: print('  新死链', d)
+    # 5. 改动清单：更新记录都要登记（R-文档-03）
+    listed = set()
+    if CHANGELIST.exists():
+        for m in LINK.finditer(CHANGELIST.read_text(encoding='utf-8')):
+            listed.add((CHANGELIST.parent / m.group(1).split('#')[0]).resolve())
+    else:
+        fail.append('缺少改动清单 xiaojianghu/docs/changelist.md（R-文档-03）')
+    unlisted = [str(u.relative_to(ROOT)) for base in (LIB, ROOT / 'xiaojianghu-legacy-prologue') for u in sorted((base / 'docs' / 'updates').glob('*.md'))
+                if re.match(r'\d{4}-\d{2}-\d{2}', u.name) and u.name[:10] >= CHANGELIST_FROM and u.resolve() not in listed]
+    print(f'改动清单：未登记的更新记录 {len(unlisted)} 份。')
+    for u in unlisted: print('  未登记', u)
+    if unlisted: fail.append(f'{len(unlisted)} 份更新记录没在 docs/changelist.md 登记（R-文档-03）')
     if nostatus: fail.append(f'{len(nostatus)} 份现行文档缺页首状态：' + '、'.join(nostatus[:5]))
     if hits: fail.append(f'现行文档里有 {len(hits)} 处已废止的旧说法')
     if new_dead: fail.append(f'新增死链 {len(new_dead)} 条')

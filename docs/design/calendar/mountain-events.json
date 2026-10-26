@@ -27,7 +27,8 @@
     "lu",
     "mo_songnian",
     "meng_zhiwei",
-    "zhaochuan_courier"
+    "zhaochuan_courier",
+    "pei"
   ],
   "profiles": {
     "mountain_ye_stays": {
@@ -130,12 +131,30 @@
             179,
             "away"
           ]
+        ],
+        "pei": [
+          [
+            0,
+            19,
+            "mountain"
+          ],
+          [
+            20,
+            24,
+            "journey"
+          ],
+          [
+            25,
+            179,
+            "mountain"
+          ]
         ]
       },
       "goals": [
         "first_zhou_talk",
         "first_ye_work",
-        "lu_visit"
+        "lu_visit",
+        "gn_depart"
       ]
     },
     "mountain_ye_studies": {
@@ -238,12 +257,30 @@
             179,
             "away"
           ]
+        ],
+        "pei": [
+          [
+            0,
+            19,
+            "mountain"
+          ],
+          [
+            20,
+            24,
+            "journey"
+          ],
+          [
+            25,
+            179,
+            "mountain"
+          ]
         ]
       },
       "goals": [
         "first_zhou_talk",
         "first_ye_work",
-        "lu_visit"
+        "lu_visit",
+        "gn_depart"
       ]
     }
   },
@@ -1729,6 +1766,254 @@
       "migration": "新事件；旧存档不得自动标已见，运行时逐事件3点费用尚未接入",
       "script_source": "docs/archive/design/scripts/pre-xiangyang-visitors.md",
       "asset_requirements": "docs/design/calendar/visitor-assets.json"
+    },
+    {
+      "id": "gn_lamp",
+      "title": "隔溪的灯",
+      "kind": "action",
+      "window": [
+        4,
+        11
+      ],
+      "cost": 3,
+      "actors": [
+        "hero",
+        "pei"
+      ],
+      "requires": [],
+      "required": false,
+      "priority": "casual_encounter",
+      "announcement": {
+        "leadAvailableSlots": 0,
+        "channel": "闲逛相遇（溪东／谷中）"
+      },
+      "effects": [
+        {
+          "fact": "gn_lamp_seen",
+          "once": true
+        }
+      ],
+      "source": "docs/design/companions/pei-zhigu-valley.md",
+      "status": "draft",
+      "profiles": [
+        "mountain_ye_stays",
+        "mountain_ye_studies"
+      ],
+      "duration": 1,
+      "hub": "mountain",
+      "group": null,
+      "conditions": [],
+      "expiry": {
+        "policy": "可错过；不阻止五月同行，第五段按未看版本开场",
+        "followup": null
+      },
+      "repeat": {
+        "once": true
+      },
+      "migration": "设计稿；旧 gn_words／gn_chests／gn_terraces／gn_mill／gn_dou_copy 事实迁移在接入时另定",
+      "note": "已定稿（2026-10-20）；运行时已接入，本次补录目录",
+      "costNote": "串门（溪东／谷中人家）按运行时 3 点，与门派闲逛分开计（qh-mode-cultivation-neighbors.js）"
+    },
+    {
+      "id": "gn_spring",
+      "title": "书上的泉",
+      "kind": "action",
+      "window": [
+        5,
+        11
+      ],
+      "cost": 3,
+      "actors": [
+        "hero",
+        "pei"
+      ],
+      "requires": [
+        "gn_lamp"
+      ],
+      "required": false,
+      "priority": "casual_encounter",
+      "announcement": {
+        "leadAvailableSlots": 0,
+        "channel": "闲逛相遇（溪东／谷中）"
+      },
+      "effects": [
+        {
+          "fact": "gn_spring_seen",
+          "once": true
+        }
+      ],
+      "source": "docs/design/companions/pei-zhigu-valley.md",
+      "status": "draft",
+      "profiles": [
+        "mountain_ye_stays",
+        "mountain_ye_studies"
+      ],
+      "duration": 1,
+      "hub": "mountain",
+      "group": null,
+      "conditions": [],
+      "expiry": {
+        "policy": "可错过；不阻止五月同行，第五段按未看版本开场",
+        "followup": null
+      },
+      "repeat": {
+        "once": true
+      },
+      "migration": "设计稿；旧 gn_words／gn_chests／gn_terraces／gn_mill／gn_dou_copy 事实迁移在接入时另定",
+      "costNote": "串门（溪东／谷中人家）按运行时 3 点，与门派闲逛分开计（qh-mode-cultivation-neighbors.js）"
+    },
+    {
+      "id": "gn_cook",
+      "title": "照着书做的饭",
+      "kind": "action",
+      "window": [
+        10,
+        11
+      ],
+      "cost": 3,
+      "actors": [
+        "hero",
+        "pei"
+      ],
+      "requires": [
+        "gn_lamp"
+      ],
+      "required": false,
+      "priority": "casual_encounter",
+      "announcement": {
+        "leadAvailableSlots": 0,
+        "channel": "闲逛相遇（溪东／谷中）"
+      },
+      "effects": [
+        {
+          "fact": "gn_cook_seen",
+          "once": true
+        }
+      ],
+      "source": "docs/design/companions/pei-zhigu-valley.md",
+      "status": "draft",
+      "profiles": [
+        "mountain_ye_stays",
+        "mountain_ye_studies"
+      ],
+      "duration": 1,
+      "hub": "mountain",
+      "group": null,
+      "conditions": [],
+      "expiry": {
+        "policy": "可错过；不阻止五月同行，第五段按未看版本开场",
+        "followup": null
+      },
+      "repeat": {
+        "once": true
+      },
+      "migration": "设计稿；旧 gn_words／gn_chests／gn_terraces／gn_mill／gn_dou_copy 事实迁移在接入时另定",
+      "note": "伏笔：裴述镜片只有汉皋城里能配",
+      "costNote": "串门（溪东／谷中人家）按运行时 3 点，与门派闲逛分开计（qh-mode-cultivation-neighbors.js）",
+      "windowNote": "避开第 12 期萧白护送（运行时 verify_household 禁止剧情窗口覆盖护送期）",
+      "expiryNote": "2026-10-21：可选链不一断全断（排期规范第 3 节 expiry）；只以认识她为前置，回扣前一段的句子用 whenSeen 分版本"
+    },
+    {
+      "id": "gn_letter",
+      "title": "替人写家书",
+      "kind": "action",
+      "window": [
+        13,
+        14
+      ],
+      "cost": 3,
+      "actors": [
+        "hero",
+        "pei"
+      ],
+      "requires": [
+        "gn_lamp"
+      ],
+      "required": false,
+      "priority": "casual_encounter",
+      "announcement": {
+        "leadAvailableSlots": 0,
+        "channel": "闲逛相遇（溪东／谷中）"
+      },
+      "effects": [
+        {
+          "fact": "gn_letter_seen",
+          "once": true
+        }
+      ],
+      "source": "docs/design/companions/pei-zhigu-valley.md",
+      "status": "draft",
+      "profiles": [
+        "mountain_ye_stays",
+        "mountain_ye_studies"
+      ],
+      "duration": 1,
+      "hub": "mountain",
+      "group": null,
+      "conditions": [],
+      "expiry": {
+        "policy": "可错过；不阻止五月同行，第五段按未看版本开场",
+        "followup": null
+      },
+      "repeat": {
+        "once": true
+      },
+      "migration": "设计稿；旧 gn_words／gn_chests／gn_terraces／gn_mill／gn_dou_copy 事实迁移在接入时另定",
+      "note": "须早于4月初请帖（xiangyang_invitation slot15），萧白此时不知要进城；伏笔：汉皋的堤",
+      "costNote": "串门（溪东／谷中人家）按运行时 3 点，与门派闲逛分开计（qh-mode-cultivation-neighbors.js）",
+      "windowNote": "避开第 12 期萧白护送（运行时 verify_household 禁止剧情窗口覆盖护送期）",
+      "expiryNote": "2026-10-21：可选链不一断全断（排期规范第 3 节 expiry）；只以认识她为前置，回扣前一段的句子用 whenSeen 分版本"
+    },
+    {
+      "id": "gn_depart",
+      "title": "六十年前的汉皋",
+      "kind": "plot",
+      "window": [
+        19,
+        19
+      ],
+      "cost": 0,
+      "actors": [
+        "hero",
+        "pei",
+        "zhou"
+      ],
+      "requires": [
+        "xiangyang_invitation"
+      ],
+      "required": true,
+      "priority": "required_plot",
+      "announcement": {
+        "leadAvailableSlots": 2,
+        "channel": "明确剧情或人物邀约"
+      },
+      "effects": [
+        {
+          "fact": "gn_depart_seen",
+          "once": true
+        }
+      ],
+      "source": "docs/design/companions/pei-zhigu-valley.md",
+      "status": "draft",
+      "profiles": [
+        "mountain_ye_stays",
+        "mountain_ye_studies"
+      ],
+      "duration": 1,
+      "hub": "mountain",
+      "group": null,
+      "conditions": [],
+      "expiry": {
+        "policy": "必达；未看前四段只换开场版本",
+        "followup": null
+      },
+      "repeat": {
+        "once": true
+      },
+      "migration": "设计稿；旧 gn_words／gn_chests／gn_terraces／gn_mill／gn_dou_copy 事实迁移在接入时另定",
+      "trigger": "出发当日自动对白；前四段未看时按生分版本开场",
+      "runtimeAction": "gn_depart（沿用运行时ID）",
+      "note": "2026-10-21 并入《临行这一顿》，运行时排在出发前约定（pre_departure_talk／gy_m08）之后"
     }
   ],
   "assumptions": [
@@ -1754,6 +2039,7 @@
   "notes": [
     "2026-10-05用户纠正：承诺W05、复盘W06、出行W07由行程自动触发，不作为玩家主动活动、不额外扣体力；窗口、前置和对白选择保留，旧付费待结算剧情按原快照完成。plot为同一期内的零费用短对白，不独占整期。",
     "2026-10-16用户要求培养早段汉皋群像及真实扬名。将原16月整月预留前移至13月（60—64），保留journey_m16技术ID；旧人来访改65—79，叶两路线后续改65—69。仍为6次整月+9期短篇，141自由期/1692点名义上限；新日程未接入8792。",
-    "2026-10-19：用户决定汉皋城现有剧情设计作废、后面另起炉灶。本目录里第5月、第13月整月外出与“汉皋返程后旧人来访”只保留日历占期；标题与说明里的汉皋群像、苏芷汉皋接诊点等城内剧情已作废，待重新设计。“襄阳邀请”等是旧首城名的历史记录。"
+    "2026-10-19：用户决定汉皋城现有剧情设计作废、后面另起炉灶。本目录里第5月、第13月整月外出与“汉皋返程后旧人来访”只保留日历占期；标题与说明里的汉皋群像、苏芷汉皋接诊点等城内剧情已作废，待重新设计。“襄阳邀请”等是旧首城名的历史记录。",
+    "2026-10-21 补录裴知古进城前五段（人物卡 companions/pei-zhigu-valley.md 第三节）；新增人物 pei 的基础所在地：1～4月谷中、5月随行、此后谷中（5月后安排待个人篇排期）。"
   ]
 }

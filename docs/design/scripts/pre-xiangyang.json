@@ -762,12 +762,12 @@
             },
             {
               "speaker": "陆衡",
-              "text": "萧白，这段你自己过得去吗？",
+              "text": "萧白，这段你打算怎么过？",
               "voice": false,
               "emotion_api": "calm",
               "delivery_notes": "",
               "id": "M-05-start-09",
-              "revision": 2
+              "revision": 3
             }
           ],
           "effects": []
@@ -781,12 +781,12 @@
           "lines": [
             {
               "speaker": "萧白",
-              "text": "我练过退步，脚底下有点数。前面这一小段，让我背过去试试，陆大哥在下面看着。",
+              "text": "我练过退步，脚底下有点数。前面这一小段，我面朝坡、倒退着下，陆大哥在下面看着。",
               "voice": false,
               "emotion_api": "calm",
               "delivery_notes": "",
               "id": "M-05-footwork-01",
-              "revision": 2
+              "revision": 3
             },
             {
               "speaker": "陆衡",
@@ -1945,6 +1945,16 @@
               "mood": "awkward"
             },
             {
+              "speaker": "周砚",
+              "text": "看见了。怎么不说？",
+              "voice": false,
+              "emotion_api": "calm",
+              "delivery_notes": "",
+              "id": "Z-01-main-04b",
+              "revision": 2,
+              "mood": null
+            },
+            {
               "speaker": "萧白",
               "text": "我怕一说做不到，您觉得我笨。",
               "voice": false,
@@ -1992,7 +2002,7 @@
             },
             {
               "speaker": "周砚",
-              "text": "明天单练这一步，不求快。",
+              "text": "脚先动，身子跟着。明天单练这一步，不求快。",
               "voice": false,
               "emotion_api": "calm",
               "delivery_notes": "",

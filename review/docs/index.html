@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#203e36"><title>小江湖 · 文档书阁</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='9' fill='%23203e36'/%3E%3Ctext x='8' y='29' font-size='25' fill='%23f8eee0'%3E书%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="style.css">
+  <script defer src="vendor/marked.umd.js"></script><script defer src="vendor/purify.min.js"></script><script defer src="app.js"></script>
+</head>
+<body>
+  <a class="skip" href="#main">跳转到正文</a>
+  <aside id="sidebar">
+    <a class="brand" href="#"><span class="seal">书</span><span>小江湖<small>文档书阁 · DOCUMENT LIBRARY</small></span></a>
+    <nav id="space-switch" class="space-switch" aria-label="知识空间"></nav><div class="nav-caption" id="space-caption">游戏 Wiki</div>
+    <nav id="primary-nav" aria-label="工作空间"></nav>
+    <div class="nav-caption">内容分类 <span id="category-total"></span></div>
+    <nav id="category-nav" aria-label="文档分类"></nav>
+    <div class="sidebar-bottom"><span class="live-dot"></span> 本地文档 · 自动收录<small>以项目原文为准，评审独立保存</small><a href="../../review/story-atlas/" target="_blank" rel="noopener">人物图鉴 ↗</a><a href="#doc=docs%2Fdocument-library.md">使用说明 ↗</a></div>
+  </aside>
+  <div class="workspace">
+    <header class="topbar">
+      <button id="menu-toggle" class="icon-button" aria-label="展开目录" aria-expanded="false">☰</button>
+      <nav id="space-quick" class="space-quick" aria-label="切换空间"></nav><div class="crumb"><span id="space-name">游戏 Wiki</span> <span>/</span> <b id="breadcrumb">文档总览</b></div>
+      <label class="searchbox"><span aria-hidden="true">⌕</span><input id="search" type="search" placeholder="搜索标题、正文、文件路径…" aria-label="全文搜索"><kbd>/</kbd></label>
+      <button id="refresh" class="button subtle">↻ 刷新目录</button>
+      <a class="button subtle export-top" href="/api/export" download>导出评审 ↓</a>
+    </header>
+    <main id="main" tabindex="-1"><div class="loading">正在整理书架…</div></main>
+  </div>
+  <div id="toast" role="status" aria-live="polite"></div>
+  <script type="application/json" id="no-build">{"local":true}</script>
+</body>
+</html>

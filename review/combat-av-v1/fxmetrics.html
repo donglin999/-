@@ -1,0 +1,21 @@
+<!doctype html><html lang="zh"><meta charset="utf-8"><title>特效量化（无头测量页）</title>
+<body><canvas id="stage" width="1280" height="720"></canvas><pre id="out">running</pre>
+<script>
+/* 供 tools_fx/fx_measure.sh 用无头浏览器调用：?ids=a,b 只测指定招式，不带则全测。脚本清单取自 kitfx.html，保持一致。 */
+(async()=>{try{
+ const html=await(await fetch('kitfx.html',{cache:'no-store'})).text();
+ for(const m of html.matchAll(/<script src="([^"]+)"/g))await new Promise((ok,no)=>{const s=document.createElement('script');s.src=m[1]+'?t='+Date.now();s.onload=ok;s.onerror=()=>no(Error('脚本加载失败 '+m[1]));document.head.appendChild(s)});
+ const dirs=[...WuxiaFX.assetDirs,'assets/fx/sword_v1/','assets/fx/v4_v1/','assets/fx/v4_b2/','assets/fx/kit_v1/'];
+ await Promise.all(dirs.map(d=>WuxiaFX.load('../../'+d).catch(()=>0)));
+ const P=new URLSearchParams(location.search);
+ if(P.get('shot')){  // 截图模式：?shot=招式id&t=毫秒[&group=3][&bp=0]，带背景与角色渲染该时刻一帧，供 tools_fx/fx_shot.sh 截图自查
+  const imgs=await Promise.all(['bb_street','b_hero','b_bandit'].map(n=>new Promise((ok,no)=>{const i=new Image();i.onload=()=>ok(i);i.onerror=()=>no(Error('图片加载失败 '+n));i.src='../../assets/'+n+'.webp'})));
+  const f=new WuxiaFX(document.getElementById('stage'),{bg:imgs[0],hero:imgs[1],foe:imgs[2]});f.group=+(P.get('group')||0);f.play(P.get('shot'),7,{bp:+(P.get('bp')||0)});
+  const T=+(P.get('t')||0);for(let t=0;t<T;t+=16)f.update(16);f.render();document.getElementById('out').remove();document.body.style.margin='0';return}
+ const fx=new WuxiaFX(document.getElementById('stage'),{});window.SkillReview={fx};
+ await new Promise((ok,no)=>{const s=document.createElement('script');s.src='../../tools_fx/fx_metrics.js?t='+Date.now();s.onload=ok;s.onerror=no;document.head.appendChild(s)});
+ const q=new URLSearchParams(location.search).get('ids');
+ await FxMetrics.run(q?q.split(',').filter(k=>WuxiaSkills[k]):null);
+ document.getElementById('out').textContent='JSON:'+JSON.stringify(FxMetrics.rows)+':END';
+}catch(e){document.getElementById('out').textContent='ERROR:'+e.message+':END'}})();
+</script></body></html>

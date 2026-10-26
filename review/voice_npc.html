@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>普通 NPC 单句选音</title>
+<link rel="stylesheet" href="voice_pick.css">
+</head>
+<body data-voice-mode="single">
+<aside>
+  <h2>NPC 单句选音</h2>
+  <div class="prog" id="prog"></div>
+  <div class="list" id="list"></div>
+  <div class="tools"><p><a href="voice_pick.html">主要角色 · 多句</a></p><p><a href="voice_npc.html">普通 NPC · 单句</a></p><button id="syncCatalog">同步台词与试听</button><button id="sumBtn">定稿汇总 / 导出</button></div>
+</aside>
+<div class="wrap">
+  <header>
+    <img id="por" alt="">
+    <div>
+      <h1 id="cname"></h1>
+      <div class="sub" id="persona"></div>
+      <div class="sub">NPC 对话只配一句，战斗短句单列 · 同一句比较不同音色 · ☆ 收进候选 · 选择后确认绑定 · <kbd>空格</kbd> 停止 · <kbd>←</kbd><kbd>→</kbd> 换角色</div>
+      <div><button id="showCandidates">音色候选</button> <button id="expandVoices">按描述扩充音色</button> <button id="showLines">本角色唯一配音句</button></div>
+    </div>
+    <div class="pick" id="pick"></div>
+  </header>
+  <div class="bar" id="serviceStatus" role="status"></div>
+  <div class="bar" id="previewProgress" role="status"></div>
+  <div class="bar" id="expansionProgress" role="status"></div>
+  <div class="bar"><button id="continueTune" hidden>继续用系统音色调校</button></div>
+  <div class="bar" id="bar"></div>
+  <div class="bar" id="playbackStatus" role="status" aria-live="polite"></div>
+  <div class="bar"><label><input type="checkbox" id="onlyStar"> 只看 ☆ 候选</label></div>
+  <main id="grid"></main>
+  <section class="lines-panel">
+    <div class="lines-top"><h2>NPC 对话与战斗语音</h2><button id="fillMissing">补全新增 / 缺失语音</button><button id="retryFailed">重试失败语音</button></div>
+    <div id="jobStatus" role="status"></div>
+    <div class="bar line-filters"><input id="lineSearch" placeholder="搜索台词或场景" aria-label="搜索台词或场景"><select id="lineFilter" aria-label="台词状态"><option value="all">全部台词</option><option value="battle">战斗语音</option><option value="missing">待生成</option><option value="ready">已生成</option><option value="casting_only">状态试听稿（未接入剧情）</option><option value="failed">失败</option><option value="mock_ready">模拟完成</option></select><span id="lineCount"></span></div>
+    <div class="table-scroll"><table><thead><tr><th>类型 / 情绪</th><th>台词与场景</th><th>状态</th><th>试听</th></tr></thead><tbody id="lineRows"></tbody></table></div>
+  </section>
+</div>
+<dialog id="sum">
+  <h3 style="margin:0 0 10px">定稿汇总</h3>
+  <table id="sumTbl"></table>
+  <div class="dact"><button id="cpJson">复制 JSON</button><button id="closeSum">关闭</button></div>
+</dialog>
+<dialog id="bindDialog"><h3>确认角色音色</h3><div id="bindDetails"></div><p>确认后将绑定该音色，仅采用本角色这一句语音，优先复用刚才听到的样音。普通 NPC 可以复用音色，页面会显示全部使用者；主要角色之间保持音色区分。</p><div class="dact"><button id="cancelBind">返回试听</button><button id="confirmBind">确认音色并采用这一句</button></div></dialog>
+<dialog id="expandDialog">
+  <form id="expandForm">
+    <h3>为 <span id="expandName"></span> 增加音色候选</h3>
+    <label class="expand-field">声音描述<textarea id="voicePrompt" required minlength="2" maxlength="500" rows="4" placeholder="例如：凶狠阴险的中年男性，低沉沙哑，语速慢，压着声音威胁对方"></textarea></label>
+    <div class="expand-presets"><button type="button" data-voice-prompt="年迈老头，沧桑苍老，舒缓语速，不要青年声">年迈老者</button><button type="button" data-voice-prompt="凶狠的中年男性，低沉浑厚，强势霸道">凶狠霸道</button><button type="button" data-voice-prompt="阴险狡诈的男性，低声慢语，冷酷克制">阴险冷酷</button><button type="button" data-voice-prompt="年轻少女，清亮灵动，干脆轻快">清亮少女</button><button type="button" data-voice-prompt="成熟温柔，亲切柔和，舒缓语速">温柔亲切</button></div>
+    <div class="expand-options"><label>生成方式<select id="voiceExpandMode"><option value="tune">系统音色调校（默认）</option><option value="design">AI 设计新音色</option></select></label><label>候选数量<select id="voiceExpandCount"><option value="1">1 个</option><option value="2">2 个</option><option value="3" selected>3 个</option><option value="4">4 个</option><option value="6">6 个</option></select></label></div>
+    <p id="expandHint" class="sub"></p>
+    <p id="expandError" class="notice" role="alert"></p>
+    <div class="dact"><button type="button" id="cancelExpand">取消</button><button type="submit" id="submitExpand">生成候选和试听</button></div>
+  </form>
+</dialog>
+<script src="../assets/audio/voice_pick/manifest.js"></script>
+<script src="voice_pick.js"></script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+{
+  "date": "2026-10-06",
+  "scope": "64 external moves across 21 arts",
+  "names_complete": 64,
+  "gold_and_ultimate_meanings_complete": 23,
+  "quantified_contracts": 64,
+  "production_icons": 64,
+  "min_margin_pixels": 64,
+  "originals_preserved": true,
+  "generation_this_turn": {
+    "tool": "built-in image_gen",
+    "new_revisions": 1,
+    "id": "bh_s1",
+    "prompt_receipt": "art_sources/martial_icons_full_v1/bh_s1-v2.json"
+  },
+  "reused_generated_originals": 63,
+  "tests_passed": 16,
+  "offline_stage_level_bp_cases": 6144,
+  "browser": {
+    "result": "pass",
+    "move_count": 64,
+    "group_screenshots": 10,
+    "production_images_loaded": 64,
+    "library_bp_table": 4,
+    "inner_structure_preserved": true,
+    "runtime_foundation": "guard art name distinct from first move;512 image loaded;advanced move not granted",
+    "page_errors": [],
+    "missing_icons": []
+  },
+  "limitations": [
+    "Future move mechanics and full campaign balance are not yet implemented or validated.",
+    "Agent visual checks do not replace user approval.",
+    "Existing foundation gameplay stats retained; candidate formula is offline only."
+  ]
+}

@@ -1,0 +1,23 @@
+<!doctype html><html lang="zh"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>归云谷剑法五档</title><link rel="stylesheet" href="review.css"><style>body{max-width:1100px}#stage{width:100%;image-rendering:auto;border:1px solid #466069;background:#0b0d18;border-radius:8px}#choices{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0}#choices b{display:inline-block;min-width:1.4em;margin-right:6px;padding:1px 5px;border-radius:3px;font-weight:600}h1{font-size:32px}.toolbar{position:static}#status{font:13px monospace;color:#a1c4d5}#note{color:#a4aca8;font-size:13px;line-height:1.8;min-height:3.6em}#concepts{display:flex;gap:10px;flex-wrap:wrap}#concepts figure{margin:0;width:calc(25% - 8px);min-width:180px;cursor:pointer}#concepts img{width:100%;border-radius:6px;border:1px solid #33433f}#concepts figcaption{font-size:12px;color:#9fb0aa}</style>
+<body><header><div class="eyebrow">剑法特效 · 东方剑侠方向 · 丁到绝</div><h1>归云谷剑法五档</h1><p>第三轮：按已确认的<a href="../sword-vfx-concepts-v1/index.html">概念图</a>，用 Codex 生图拆出 16 个同风格特效素材（剑气、光爆、祥云、飞剑、天光、远山、山形锋面等），再程序编排位移、显隐、残影、粒子与镜头。下方概念图可点击，跳到对应时刻对照。范围与内容见 <code>docs/design/sword-vfx-xianxia.md</code>。</p></header>
+<div id="choices"></div><div class="toolbar"><button id="replay">重播</button><button id="all">丁→绝连播</button><label>速度 <select id="speed"><option value="1">正常</option><option value="0.5">半速</option><option value="0.25">四分之一</option></select></label><label><input id="glow" type="checkbox" checked>辉光</label></div>
+<canvas id="stage" width="1280" height="720"></canvas><p id="status">加载中…</p><p id="note"></p><div id="concepts"></div><footer><a href="skillfx.html">西方魔幻参考样例（已不作为剑法方向）</a> · 独立评审页，尚未接入战斗。</footer>
+<script src="../../js/wuxia-fx.js"></script><script>
+'use strict';
+const $=q=>document.querySelector(q),GC={'丁':'#9aa3a0','丙':'#6fc29a','乙':'#6fa8e0','甲':'#e0b44a','绝':'#e05a4a'};
+const NOTE={gy_s1:'丁 · 单体1段 · 竹青月牙由剑尖上挑飞向胸口（两层残影、沿途碎光），命中竹青星爆，目标下方小回锋。无舞台效果。',gy_s2:'丙 · 单体2段 · 两道月牙一往一返交成留白叉形并向两侧剪开；两朵淡白祥云被拨开，竹叶纷飞。',gy_s3:'乙 · 单体1段 · 上下墨云压紧，金线绷直后金白剑脊横贯，切口天光放射，墨云碎散、尘雾外推。轻度压暗。',gy_s4:'甲 · 单体3段 · 压暗聚焦；两道天青云刃试锋，主刃在掌前凝成金白飞剑骤贯，残影、金色光爆、地面涟漪、尘烟、推镜。',gy_s5:'绝 · 单体4段 · 墨云合围、身后四剑成阵；三剑由疏到密连斩；云开现水墨远山与天光；第四剑升空化山形锋面压落爆发，两翼金山向外折收。'};
+const imgs=['bb_street','b_hero','b_bandit'].map(n=>{const i=new Image();i.src='../../assets/'+n+'.webp';return i});
+Promise.all([WuxiaFX.load('../../assets/fx/sword_v1/'),...imgs.map(i=>i.complete&&i.naturalWidth?0:new Promise((ok,no)=>{i.onload=ok;i.onerror=()=>no(i.src)}))]).then(()=>{
+ const keys=Object.keys(WuxiaSkills).filter(k=>WuxiaSkills[k].set==='sword');
+ const fx=new WuxiaFX($('#stage'),{bg:imgs[0],hero:imgs[1],foe:imgs[2]});let current=keys[0],queue=[],last=null,paused=false,gap=0;
+ const CONCEPT={gy_s1:[['gy_s1_a','命中',310]],gy_s2:[['gy_s2_a','第二击',470]],gy_s3:[['gy_s3_a','贯穿',600]],gy_s4:[['gy_s4_a','凝剑',800],['gy_s4_b','贯穿',990]],gy_s5:[['gy_s5_a','合围剑阵',650],['gy_s5_b','云开见山',1300],['gy_s5_c','锋面压落',1670],['gy_s5_d','两翼折收',2150]]};
+ const play=k=>{current=k;fx.play(k);paused=false;$('#note').textContent=NOTE[k]||'';$('#concepts').innerHTML='';for(const [id,cap,ms] of CONCEPT[k]||[]){const f=document.createElement('figure');f.innerHTML=`<img src="../../art_sources/sword_vfx_concepts_v1/${id}.png" alt="${cap}"><figcaption>概念图 · ${cap} · 点击跳到 ${ms}ms</figcaption>`;f.onclick=()=>{window.SkillReview.seek(k,ms);document.querySelector('#stage').scrollIntoView({block:'center'})};$('#concepts').append(f)}document.querySelectorAll('#choices button').forEach(b=>b.classList.toggle('active',b.dataset.key===k))};
+ for(const k of keys){const s=WuxiaSkills[k],b=document.createElement('button');b.dataset.key=k;b.innerHTML=`<b style="background:${GC[s.grade]};color:#111">${s.grade}</b>${s.name}`;b.onclick=()=>{queue=[];play(k)};$('#choices').append(b)}
+ $('#replay').onclick=()=>{queue=[];play(current)};$('#all').onclick=()=>{queue=keys.slice();play(queue.shift())};$('#glow').onchange=e=>fx.glowOn=e.target.checked;
+ function frame(now){const dt=last===null?0:Math.min(50,now-last);last=now;
+  if(!paused){fx.update(dt*+$('#speed').value);if(fx.done&&queue.length&&(gap+=dt)>500){gap=0;play(queue.shift())}}
+  const s=WuxiaSkills[current];fx.render();$('#status').textContent=`${s.grade} · ${s.name} · ${Math.min(Math.round(fx.t),s.dur)} / ${s.dur}ms · 粒子 ${fx.parts.length} · 累计 ${fx.used}/${s.budget} · 峰值 ${fx.peak} · 图集 ${fx.atlas.size}`;requestAnimationFrame(frame)}
+ window.SkillReview={fx,play,seek(k,ms){play(k);for(let t=0;t<ms;t+=16)fx.update(Math.min(16,ms-t));paused=true;fx.render()},resume(){paused=false}};
+ play(current);requestAnimationFrame(frame);
+}).catch(e=>{$('#status').textContent='素材加载失败：'+e});
+</script></body></html>

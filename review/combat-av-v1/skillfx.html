@@ -1,0 +1,20 @@
+<!doctype html><html lang="zh"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>技能特效重做</title><link rel="stylesheet" href="review.css"><style>body{max-width:1100px}#stage{width:100%;border:1px solid #466069;background:#0b0d18;border-radius:8px}#choices{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0}h1{font-size:32px}.toolbar{position:static}#status{font:13px monospace;color:#a1c4d5}</style>
+<body><header><div class="eyebrow">技能特效 · 按参考视频重做</div><h1>星阵、雷霆、裂隙、光柱</h1><p>对应参考视频四段：多重金色法阵与陨星、分叉落雷与电弧、紫色裂隙吸卷、金色光柱。特效在 480×270 像素层逐点绘制（抖动渐隐、符文环、像素数字），局部辉光单独合成；人物夹在前后层之间，命中时白色／黑色剪影。</p></header>
+<div id="choices"></div><div class="toolbar"><button id="replay">重播</button><button id="all">四段连播</button><label>速度 <select id="speed"><option value="1">正常</option><option value="0.5">半速</option><option value="0.25">四分之一</option></select></label><label><input id="glow" type="checkbox" checked>辉光</label></div>
+<canvas id="stage" width="960" height="540"></canvas><p id="status">加载中…</p><footer><a href="particles.html">旧版粒子样例</a> · 预览页独立试演，确认后再接入战斗施法／命中入口。</footer>
+<script src="../../js/skill-fx.js"></script><script>
+'use strict';
+const $=q=>document.querySelector(q),imgs=['bb_street','b_hero','b_bandit'].map(n=>{const i=new Image();i.src='../../assets/'+n+'.webp';return i});
+Promise.all(imgs.map(i=>i.complete&&i.naturalWidth?0:new Promise((ok,no)=>{i.onload=ok;i.onerror=()=>no(i.src)}))).then(()=>{
+ const fx=new SkillFX($('#stage'),{bg:imgs[0],hero:imgs[1],foe:imgs[2]});let current='star',queue=[],last=null,paused=false,gap=0;
+ const play=k=>{current=k;fx.play(k);paused=false;document.querySelectorAll('#choices button').forEach(b=>b.classList.toggle('active',b.dataset.key===k))};
+ for(const [k,s] of Object.entries(SkillFXSkills).filter(([,s])=>s.set==='arcane')){const b=document.createElement('button');b.dataset.key=k;b.textContent=s.name;b.onclick=()=>{queue=[];play(k)};$('#choices').append(b)}
+ $('#replay').onclick=()=>{queue=[];play(current)};$('#all').onclick=()=>{queue=Object.keys(SkillFXSkills).filter(k=>SkillFXSkills[k].set==='arcane');play(queue.shift())};$('#glow').onchange=e=>fx.glowOn=e.target.checked;
+ function frame(now){const dt=last===null?0:Math.min(50,now-last);last=now;
+  if(!paused){fx.update(dt*+$('#speed').value);if(fx.done&&queue.length&&(gap+=dt)>400){gap=0;play(queue.shift())}}
+  fx.render();$('#status').textContent=`${SkillFXSkills[current].name} · ${Math.min(Math.round(fx.t),SkillFXSkills[current].dur)} / ${SkillFXSkills[current].dur}ms · 粒子 ${fx.parts.length}`;requestAnimationFrame(frame)}
+ // seek(name, ms): deterministic freeze-frame for review screenshots
+ window.SkillReview={fx,play,seek(k,ms){play(k);for(let t=0;t<ms;t+=16)fx.update(Math.min(16,ms-t));paused=true;fx.render()},resume(){paused=false}};
+ play('star');requestAnimationFrame(frame);
+}).catch(e=>{$('#status').textContent='素材加载失败：'+e});
+</script></body></html>

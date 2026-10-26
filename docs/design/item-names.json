@@ -103,23 +103,23 @@
       }
     },
     "cloth": {
-      "name": "素布短衣",
-      "previous_name": "粗布短打",
-      "description": "素色粗布短衣，便于日常行走和练习。防御 +4。",
+      "name": "归谷短衣",
+      "previous_name": "素布短衣",
+      "description": "灰米短交领、竹青单缘、束袖和便于活动的下摆。归云谷日常短衣，防御 +4。",
       "naming": {
-        "meaning": "素色粗布短衣，便于日常行走和练习。防御 +4。",
-        "basis": "当前实际物品定义与既有剧情；非新增人物经历",
-        "status": "runtime_current"
+        "meaning": "灰米短交领、竹青单缘、束袖和便于活动的下摆。归云谷日常短衣，防御 +4。",
+        "basis": "martial-review/catalog.json 现行丁级护具",
+        "status": "design_proposal"
       }
     },
     "vest": {
-      "name": "熟革软甲",
-      "previous_name": "牛皮软甲",
-      "description": "以熟制牛皮缝成的软甲，仍保留贴身活动余地。防御 +10。",
+      "name": "牛皮护心甲",
+      "previous_name": "熟革软甲",
+      "description": "熟牛皮缝成的护胸软甲，前胸一块加厚护心皮，皮绳系带，边缘铜钉。防御 +10。",
       "naming": {
-        "meaning": "以熟制牛皮缝成的软甲，仍保留贴身活动余地。防御 +10。",
-        "basis": "当前实际物品定义与既有剧情；非新增人物经历",
-        "status": "runtime_current"
+        "meaning": "熟牛皮缝成的护胸软甲，前胸一块加厚护心皮，皮绳系带，边缘铜钉。防御 +10。",
+        "basis": "martial-review/catalog.json 现行丙级护具",
+        "status": "design_proposal"
       }
     },
     "bf_note": {
@@ -213,23 +213,23 @@
       }
     },
     "mianjia": {
-      "name": "絮麻夹衣",
-      "previous_name": "麻布夹袄",
-      "description": "夹层絮麻的短夹衣，取「絮麻」明其填料，挡得住寻常拳脚。",
+      "name": "行旅夹衣",
+      "previous_name": "絮麻夹衣",
+      "description": "棕灰夹棉短衣、菱格缝线、肘部补强、小布扣。防御 +8。",
       "naming": {
-        "meaning": "夹层絮麻的短夹衣，取「絮麻」明其填料，挡得住寻常拳脚。",
-        "basis": "当前实际物品定义与既有剧情；非新增人物经历",
-        "status": "runtime_current"
+        "meaning": "棕灰夹棉短衣、菱格缝线、肘部补强、小布扣。防御 +8。",
+        "basis": "martial-review/catalog.json 现行丙级护具",
+        "status": "design_proposal"
       }
     },
     "charm": {
-      "name": "安行符",
-      "previous_name": "平安符",
-      "description": "羊太傅庙求来的黄纸符，取平安行路之意，贴身携带使人心安。",
+      "name": "厌胜钱",
+      "previous_name": "安行符",
+      "description": "一枚铜质厌胜钱，钱面铸吉祥纹样，穿红绳打着如意结。银两获得 +10%。",
       "naming": {
-        "meaning": "羊太傅庙求来的黄纸符，取平安行路之意，贴身携带使人心安。",
-        "basis": "当前实际物品定义与既有剧情；非新增人物经历",
-        "status": "runtime_current"
+        "meaning": "厌胜钱是民间铸来祈福压邪的花钱，不作通宝流通；对应银两获得。",
+        "basis": "martial-review/catalog.json 现行丁级佩饰",
+        "status": "design_proposal"
       }
     },
     "collar": {
@@ -243,13 +243,13 @@
       }
     },
     "jade": {
-      "name": "兰纹青佩",
-      "previous_name": "青玉佩",
-      "description": "青玉上雕一枝兰草，故称兰纹青佩；成色一般，贵在雕纹清楚。",
+      "name": "檀木手串",
+      "previous_name": "兰纹青佩",
+      "description": "十八颗深褐檀木珠串成的手串，珠面有细细木纹，系一枚小结。定力 +1，内力上限 +8。",
       "naming": {
-        "meaning": "青玉上雕一枝兰草，故称兰纹青佩；成色一般，贵在雕纹清楚。",
-        "basis": "当前实际物品定义与既有剧情；非新增人物经历",
-        "status": "runtime_current"
+        "meaning": "十八颗深褐檀木珠串成的手串，珠面有细细木纹，系一枚小结。定力 +1，内力上限 +8。",
+        "basis": "martial-review/catalog.json 现行丙级佩饰",
+        "status": "design_proposal"
       }
     },
     "pelt": {

@@ -11,7 +11,7 @@
 - 提示词必须带一行 `Model: gpt-image-2.5（使用 gpt-image-2.5 生图模型）`（项目约定）；本脚本不改写提示词。
 - 透明背景：openai_compat / flatrouter 默认传 background=transparent；openai_compat 可用 --background opaque|auto 改传（纯黑底发光素材用 opaque，2026-10-18 加，默认不变）；codex 需在提示词里写 transparent_background: true。
 - --opaque-fix：把 alpha≥250 的像素补成 255（302 出图人物 alpha 最高 254）。
-- 密钥从环境变量或 tools_por/.env 读取（key_env 字段），不要写进仓库。
+- 密钥从环境变量或 tools_por/.env 读取（key_env 字段；有 key_env_backup 的源，主密钥额度不足时自动换备用），不要写进仓库。
 """
 import argparse, base64, datetime, json, os, subprocess, sys, tempfile, time, urllib.error, urllib.request, uuid
 
@@ -41,8 +41,32 @@ def key_of(name):
     sys.exit(f'缺少密钥 {name}：请设环境变量或写入 tools_por/.env')
 
 
+# 额度不足的报错：HTTP 402，或报错内容里带这些字样
+QUOTA_WORDS = ('insufficient', 'quota', 'balance', '余额', '额度')
+
+
+def is_quota_error(code, text):
+    return code == 402 or any(w in text.lower() for w in QUOTA_WORDS)
+
+
 def openai_compat(src, prompt, out, size, quality, refs, background='transparent'):
-    key, base = key_of(src['key_env']), src['base_url'].rstrip('/')
+    keys = [key_of(src['key_env'])]
+    # 有备用密钥（key_env_backup）的源，主密钥额度不足时换备用的再试一次
+    if src.get('key_env_backup'):
+        keys.append(key_of(src['key_env_backup']))
+    for i, key in enumerate(keys):
+        try:
+            return openai_compat_once(src, key, prompt, out, size, quality, refs, background)
+        except urllib.error.HTTPError as e:
+            text = e.read()[:600].decode('utf-8', 'ignore')
+            if i + 1 < len(keys) and is_quota_error(e.code, text):
+                print(f'主密钥额度不足（HTTP {e.code}），改用备用密钥 {src["key_env_backup"]}', file=sys.stderr)
+                continue
+            sys.exit(f'HTTP {e.code}：{text}')
+
+
+def openai_compat_once(src, key, prompt, out, size, quality, refs, background):
+    base = src['base_url'].rstrip('/')
     if refs:
         bnd = uuid.uuid4().hex
         parts = []
@@ -57,10 +81,7 @@ def openai_compat(src, prompt, out, size, quality, refs, background='transparent
         body = {'model': src['model'], 'prompt': prompt, 'size': size, 'quality': quality, 'background': background, 'n': 1}
         req = urllib.request.Request(base + '/images/generations', data=json.dumps(body).encode(), headers={'Authorization': 'Bearer ' + key, 'Content-Type': 'application/json'})
     t = time.time()
-    try:
-        raw = urllib.request.urlopen(req, timeout=600).read()
-    except urllib.error.HTTPError as e:
-        sys.exit(f'HTTP {e.code}：{e.read()[:600].decode("utf-8", "ignore")}')
+    raw = urllib.request.urlopen(req, timeout=600).read()
     j = json.loads(raw)
     d = j['data'][0]
     if d.get('b64_json'):

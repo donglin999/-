@@ -73,7 +73,7 @@ def main():
         if sc.get('after'): run(sc['after']['turns'], first or history, rows, '后-')
         (out / f"{sc['id']}.json").write_text(json.dumps({'scene': sc['id'], 'rows': rows}, ensure_ascii=False, indent=1), encoding='utf-8')
         md = [f"# {sc['id']} {sc['title']}（演员法备选）", '', f"戏眼：{sc['eye']}", '']
-        for r in rows: md.append(f"{r['n']}. **{r['speaker']}**（{r['intent']}）\n" + '\n'.join(f"   - {t}" for t in r['takes']))
+        for r in rows: md.append(f"{r['n']}. **{r['speaker']}**（{r.get('intent','原句保留')}）\n" + '\n'.join(f"   - {t}" for t in r['takes']))
         (out / f"{sc['id']}.md").write_text('\n'.join(md) + '\n', encoding='utf-8')
 
 

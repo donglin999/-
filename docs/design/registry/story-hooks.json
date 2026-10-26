@@ -1,0 +1,505 @@
+{
+  "说明": "回扣登记表（2026-10-21 用户：“回扣应该要有文档或者系统去做为协助，不然后面都只能靠评审是不现实的”）。每段可选剧情登记它种下了什么（plants：给人看的说明＋独有关键词），以及被哪些地方用作中、大分支（consumers）。小分支（回扣台词）不手写，由检查工具从台词的 whenSeen／whenUnseen 自动收集。规范见 ../optional-story-dependencies.md；检查：xiaojianghu-legacy-prologue 下 node tools_scene/qihe/check_story_hooks.cjs。关键词只挑这一段独有的说法，普通字（泉、粥、账）不要放，免得误报。",
+  "version": "HOOKS-2026-10-23.1",
+  "hooks": {
+    "gn_lamp": {
+      "name": "隔溪的灯",
+      "kind": "串门",
+      "plants": [
+        {
+          "what": "认识裴知古；她在梯子上读汉水旧堤挪到河湾那一页，把萧白当成她爹",
+          "keywords": [
+            "梯子",
+            "河湾",
+            "你不是我爹"
+          ]
+        }
+      ],
+      "consumers": [
+        {
+          "scene": "gn_depart",
+          "size": "small",
+          "what": "熟悉度 known／close 的开场与收尾（when.pei）"
+        },
+        {
+          "scene": "gn_spring",
+          "size": "gate",
+          "what": "知古后续串门以认识她为前置"
+        },
+        {
+          "scene": "gn_cook",
+          "size": "gate",
+          "what": "同上"
+        },
+        {
+          "scene": "gn_letter",
+          "size": "gate",
+          "what": "同上"
+        },
+        {
+          "scene": "gn_ye_ink",
+          "size": "gate",
+          "what": "进城后知古串门，以认识她为前置（第三批重做）"
+        },
+        {
+          "scene": "gn_yin_book",
+          "size": "gate",
+          "what": "同上"
+        },
+        {
+          "scene": "gn_eyes",
+          "size": "gate",
+          "what": "同上；关系第三道门"
+        },
+        {
+          "scene": "gn_winter",
+          "size": "gate",
+          "what": "同上"
+        }
+      ]
+    },
+    "gn_spring": {
+      "name": "书上的泉",
+      "kind": "串门",
+      "plants": [
+        {
+          "what": "她第一次往书上添亲眼所见“泉在。今为鹅所据”；说过“这一条，得问人”",
+          "keywords": [
+            "今为鹅所据",
+            "图经",
+            "数步子",
+            "迈两回脚"
+          ]
+        }
+      ],
+      "consumers": []
+    },
+    "gn_cook": {
+      "name": "照着书做的饭",
+      "kind": "串门",
+      "plants": [
+        {
+          "what": "她把萧白的做法记在“自己的本子上”；裴述镜片裂了，只有汉皋城里磨得了",
+          "keywords": [
+            "自己那本",
+            "自己的本子",
+            "指节",
+            "取了个中"
+          ]
+        }
+      ],
+      "consumers": []
+    },
+    "gn_letter": {
+      "name": "替人写家书",
+      "kind": "串门",
+      "plants": [
+        {
+          "what": "替佃户老伯写家书；老伯的儿子在汉皋修堤；她想看书上那道堤",
+          "keywords": [
+            "老伯",
+            "家书",
+            "那道堤",
+            "捎封信"
+          ]
+        }
+      ],
+      "consumers": [
+        {
+          "scene": "relations:裴知古",
+          "size": "medium",
+          "what": "关系第二道门（gn_letter_seen，旧存档 gn_chests_seen 兼容）"
+        },
+        {
+          "scene": "gn_depart",
+          "size": "small",
+          "what": "熟悉度 close"
+        }
+      ]
+    },
+    "gy_ledger": {
+      "name": "师母的账本",
+      "kind": "闲逛",
+      "plants": [
+        {
+          "what": "师母在集市卖二师叔的木鸟一只没卖出去；萧白用分栏对账；赊给王婶的三十文",
+          "keywords": [
+            "木鸟",
+            "分栏",
+            "山菌汤",
+            "王婶"
+          ]
+        }
+      ],
+      "consumers": []
+    },
+    "gy_fang_spar": {
+      "name": "陪练",
+      "kind": "闲逛",
+      "plants": [
+        {
+          "what": "方迟只守不攻陪萧白练，被逼退半步",
+          "keywords": [
+            "攻你",
+            "退了半步",
+            "只守"
+          ]
+        }
+      ],
+      "consumers": []
+    },
+    "gy_bamboo_wolves": {
+      "name": "竹径的狼",
+      "kind": "闲逛",
+      "plants": [
+        {
+          "what": "小豆找挂掉的剑穗，两人遇狼",
+          "keywords": [
+            "剑穗挂掉",
+            "剑上光秃秃"
+          ]
+        }
+      ],
+      "consumers": []
+    },
+    "gy_l02": {
+      "name": "说早了的日子",
+      "kind": "邀约",
+      "plants": [
+        {
+          "what": "萧白替陆衡把日子说早了，再写信更正；锄头麻绳月底带",
+          "keywords": [
+            "说早了",
+            "锄头"
+          ]
+        }
+      ],
+      "consumers": []
+    },
+    "gy_y02": {
+      "name": "饭还在锅里",
+      "kind": "闲逛",
+      "plants": [
+        {
+          "what": "叶蘅写信时把记不清的直说“记不准”",
+          "keywords": [
+            "记不准"
+          ]
+        }
+      ],
+      "consumers": []
+    },
+    "gy_y03": {
+      "name": "清单上也写自己的名字",
+      "kind": "闲逛",
+      "plants": [
+        {
+          "what": "叶蘅清单最后写着“以后”",
+          "keywords": [
+            "清单"
+          ]
+        }
+      ],
+      "consumers": []
+    },
+    "gy_z01": {
+      "name": "记住了，还是站不稳",
+      "kind": "闲逛",
+      "plants": [
+        {
+          "what": "周砚指出退步时身子先往后仰：脚先动，身子跟着",
+          "keywords": [
+            "脚先动"
+          ]
+        }
+      ],
+      "consumers": []
+    },
+    "gy_z03": {
+      "name": "帖子上的名字",
+      "kind": "邀约",
+      "plants": [
+        {
+          "what": "周砚说“报我的名字不丢人”",
+          "keywords": [
+            "报我的名字"
+          ]
+        }
+      ],
+      "consumers": []
+    },
+    "c1-00b": {
+      "name": "倒木上的账房（开始部分·宋先生）",
+      "kind": "闲逛",
+      "plants": [
+        {
+          "what": "萧白答应（或拒绝）替宋先生记下来人、人数和站位；答应了才有后两段回话、谢礼与“在路口数人”的分支（2026-10-21 改为可选、可拒绝，门槛是 records.stranger_deal 为 accepted／asked_first）",
+          "keywords": [
+            "在路口数人",
+            "宋姓账房"
+          ]
+        },
+        {
+          "what": "散场时萧白看清宋先生领口红绳是燎头死结（死结、两个绳头燎成黑疙瘩），宋先生察觉后塞回领子。答应、问过再答应、不掺和三支都看到；不加标记，后面以 records.stranger_deal 不是“未见”判断见过（2026-10-23 用户第十二、十三轮，song-red-cord-foreshadow.md；F-0027 已确认）",
+          "keywords": [
+            "燎成了黑疙瘩",
+            "燎黑"
+          ]
+        }
+      ],
+      "consumers": [
+        {
+          "scene": "c1-s1",
+          "size": "gate",
+          "what": "第二天上午后山回话（一），以答应过为前置"
+        },
+        {
+          "scene": "c1-s2",
+          "size": "gate",
+          "what": "第三天上午后山回话（二），以答应过为前置，不以回话（一）为前置"
+        },
+        {
+          "scene": "qihe_reps_medicine",
+          "size": "medium",
+          "what": "装卸路：答应过且没断线的，在路口数人被三家当成别家眼线（记 records.song_watched）；学过蔺管事法子的可改在药车边看、不被注意；没答应走基线（2026-10-23 剧本三）"
+        },
+        {
+          "scene": "qihe_reps_evidence",
+          "size": "medium",
+          "what": "对证：在路口数过人的，多“路口那个人是谁的”一段和说不说出宋先生的选择；答应过却没人问的（断在装卸路之前或没被注意）只一句心里话再选；说出后只说得出真经历过的（没听他问侧口的答“没有。他只问人。”），身上有后山记人笺的可交给沈雁回（对证断线版，2026-10-23 剧本三）"
+        },
+        {
+          "scene": "fq_fire_before",
+          "size": "small",
+          "what": "告诉过他今晚走的，起火前多一句心里话"
+        },
+        {
+          "scene": "fq_rope",
+          "size": "small",
+          "what": "章末后山红绳，只有答应过的才播；播的都在竹匾看到过燎头死结，红绳 CG 与“燎黑”“跟他领口那根，一样的收法”回扣照播；断线（broken）时不提“明早还在这儿”（2026-10-23 红绳伏笔改写）"
+        },
+        {
+          "scene": "qh_lamp_meet",
+          "size": "small",
+          "what": "算命摊测字：答应过宋先生的，蔺管事看出他在替人数人，问“谁托你看人”，并叮嘱“站位谁问都别给”"
+        },
+        {
+          "scene": "fq_song_departure",
+          "size": "small",
+          "what": "后山回话二：装卸路没被注意的（song_watched 为假）走“谁也没留意我”一版，宋先生不再半天不说话"
+        }
+      ]
+    },
+    "qh_lamp_meet": {
+      "name": "算命摊的蔺管事（开始部分·归烬堂支线）",
+      "kind": "闲逛",
+      "plants": [
+        {
+          "what": "萧白在北路算命摊接下蔺管事（蔺晦之乔装算命先生）的托付：问黑衣脚夫的来路；答应过宋先生的还听到“站位谁问都别给”；回话一里知道他是归烬堂管船的、托看岑霜传讯的封皮、等几拨人到齐跟脚夫一回（门槛 records.lamp.met；qihe-mojiao-observer-sideline.md 第三节）",
+          "keywords": [
+            "蔺管事",
+            "算命先生",
+            "看得准人",
+            "灯牌",
+            "汉皋的戳"
+          ]
+        }
+      ],
+      "consumers": [
+        {
+          "scene": "qh_lamp_boatman",
+          "size": "gate",
+          "what": "问船家，以接下托付为前置"
+        },
+        {
+          "scene": "qh_lamp_report1",
+          "size": "gate",
+          "what": "回话一，以问过船家为前置（同一条托付的下一步）"
+        },
+        {
+          "scene": "qh_lamp_seal",
+          "size": "gate",
+          "what": "灯二看封皮，以回话一为前置；与灯三互不为前置"
+        },
+        {
+          "scene": "qh_lamp_tail",
+          "size": "gate",
+          "what": "灯三跟脚夫，以回话一为前置；与灯二互不为前置，与去后山二选一"
+        },
+        {
+          "scene": "qh_lamp_report2",
+          "size": "gate",
+          "what": "灯四推断与交付，只以接下托付为前置（错过中间步骤照样能来，只是线索不齐）"
+        },
+        {
+          "scene": "qh_lamp_end_blade",
+          "size": "large",
+          "what": "结局 3「借刀」渡口赏书：《守烛心经》＋铜灯牌（F-0069）"
+        },
+        {
+          "scene": "qh_lamp_end_note",
+          "size": "medium",
+          "what": "结局 2 渡口留话：看过封皮给《薪火功》，否则路费；被说出去的只托挑夫带一句话"
+        },
+        {
+          "scene": "fq_song_report",
+          "size": "small",
+          "what": "后山回话一：听过“站位谁问都别给”的，选项前多一句心里话"
+        },
+        {
+          "scene": "qihe_reps_medicine",
+          "size": "medium",
+          "what": "装卸路：学过法子的可改在药车边看，不播“路口数人”段（交叉点 X3）"
+        },
+        {
+          "scene": "fq_song_departure",
+          "size": "medium",
+          "what": "后山回话二：问过船家的开场撞见脚夫揣着油纸包下山；认识蔺管事的宋先生多问“还有谁在看”（说出＝出卖，结局 2d）"
+        },
+        {
+          "scene": "qihe_reps_evidence",
+          "size": "medium",
+          "what": "对证：结局 1 周砚主持（基线，两条线都没碰）；结局 2 被盯上（路口数人／跟脚夫转营地／有人递话三种引子）；结局 3 岑霜带来脚夫口供（F-0037、F-0068）"
+        },
+        {
+          "scene": "fq_routes",
+          "size": "small",
+          "what": "C1-08：结局 3 时岑霜那条暂未开放的去处换成“堂里管船的已经在查了”"
+        },
+        {
+          "scene": "fq_rope",
+          "size": "small",
+          "what": "计划：结局 3 红绳那场多一句心里话（他是等不到脚夫才走的吧）；《风起-红绳》不归本批，未写"
+        },
+        {
+          "scene": "培养开局（qhOrigin.lamp）",
+          "size": "medium",
+          "what": "计划：秘籍、灯牌、来信；结局 2 执行人回扣“你就是那个盯梢的”"
+        },
+        {
+          "scene": "归烬堂去向",
+          "size": "large",
+          "what": "计划：归烬堂去向开放时蔺管事可作引荐人"
+        }
+      ]
+    },
+    "qihe_errand_round": {
+      "name": "替周婶跑一圈（开始部分·第一夜，周婶三件合一）",
+      "kind": "跑腿",
+      "plants": [
+        {
+          "what": "陈伯家门厅旁听（prologue.heard.skill）：周砚自称温行舟旧友、为温家功法而来、明日登门；萧白对上“阿蘅＝叶蘅”。2026-10-23 起到门口就在说，选“站在门边听一会儿”才有",
+          "keywords": [
+            "温家还留着一部功法"
+          ]
+        },
+        {
+          "what": "客栈旁听（prologue.heard.box）：帮众逼问叶家住哪、说叶家缺钱肯卖旧玉匣",
+          "keywords": [
+            "有只旧玉匣肯卖"
+          ]
+        },
+        {
+          "what": "村南老人家门口旁听（prologue.heard.inspection）：征药随从连药棚都要问路就说药早验过了，差役说没人画押",
+          "keywords": [
+            "没人画押，作不得数"
+          ]
+        },
+        {
+          "what": "交差：周婶给一盒金创药（prologue.errandGift，js 发 ITEMS.pill 一次）",
+          "keywords": []
+        }
+      ],
+      "consumers": [
+        {
+          "scene": "qihe_errand_aunt",
+          "size": "small",
+          "what": "回药棚交差：任一处旁听过，周婶问一句“路上听着什么了”（不追问）"
+        },
+        {
+          "scene": "qihe_relic",
+          "size": "small",
+          "what": "收药箱：旁听过陈伯家那段的，萧白告诉叶蘅有人在打听她父亲（已有分支，未改）"
+        },
+        {
+          "scene": "qihe_first_night",
+          "size": "small",
+          "what": "过夜：按旁听分别追问三支；三处都说了的，多叶蘅“三拨人，全冲我家来”一小段（P-05-all-01/02）；没办完的，周婶说明儿再说（P-05-10a）"
+        },
+        {
+          "scene": "qihe_first_night",
+          "size": "medium",
+          "what": "交差给金创药一盒；没跑完不给（基线：没有这盒药，不影响任何固定剧情）"
+        }
+      ],
+      "note": "固定剧情的触发不读它（收药箱、过夜都可在不接、不听的情况下走完）。2026-10-23 剧本二改写，待用户过目，未 --approve。"
+    },
+    "qihe_outsider_errands": {
+      "name": "三方跑腿·拜帖／旧货账／药单（开始部分·风起栖河）",
+      "kind": "跑腿",
+      "plants": [
+        {
+          "what": "拜帖（徐令仪，《徐令仪上门》之后）：陈伯说帖子是冲行舟的武谱来的；徐令仪不再拿帖子扰叶蘅",
+          "keywords": [
+            "旧谱登记"
+          ]
+        },
+        {
+          "what": "旧货账（岑霜，《装卸路》之后，《次日药摊》在先）：药商只卖过六只旧药罐，玉匣没见过",
+          "keywords": [
+            "两件事搅成了一笔账"
+          ]
+        }
+      ],
+      "consumers": [],
+      "note": "2026-10-23 起《第一夜-过夜》不再读三件的进度（Q1-letter、Q2-account、Q3-ledger 已删）。托付时间后移由 js/qihe-outsiders.js 管（开发一）；后移落地前，第一夜仍能接到，届时拜帖开头“药棚门口那回，你也在”、药商“上回叶姑娘领你来问罐子”会穿帮。药单（三方-跑腿-药单.ink）本轮未改。"
+    },
+    "fq_aqi_hint_return": {
+      "name": "拿了能还（开始部分·小耗子伏笔点 1）",
+      "kind": "随口话",
+      "plants": [
+        {
+          "what": "第二天客栈门口，小耗子把萧白腰上的几文摸走又递回来，说拿了还能还回去才叫手艺——埋他以为什么都能“借了再还”（偷窃稿 npc-steal.md 第 3.4 节点 1）。可选；回扣计划：P2-03 萧白问“还得回去吗”（未实装，实装时按本条分版本）",
+          "keywords": [
+            "拿了还能还回去"
+          ]
+        }
+      ],
+      "consumers": []
+    },
+    "fq_aqi_hint_name": {
+      "name": "一个外号（开始部分·小耗子伏笔点 2）",
+      "kind": "随口话",
+      "plants": [
+        {
+          "what": "第二天客栈里柜上少了钱，店家头一个喊小耗子，钱其实压在账本底下；萧白可替他说一句（不记标记）。埋他在意别人怎么叫他（偷窃稿第 3.4 节点 2）。可选；后文暂无回扣",
+          "keywords": [
+            "先翻翻账本底儿"
+          ]
+        }
+      ],
+      "consumers": []
+    }
+  },
+  "allow": [
+    {
+      "line": "hg_pack_review",
+      "keyword": "木鸟",
+      "reason": "2026-10-21 已改为二师叔自己说清“镇上人不识货，一只也没卖出去”，不依赖《师母的账本》"
+    },
+    {
+      "line": "gy_dou_runaway",
+      "keyword": "木鸟",
+      "reason": "小豆包袱里的一只木鸟，只是一件东西，不需要前文"
+    },
+    {
+      "line": "gn_winter",
+      "keyword": "自己那本",
+      "reason": "待办：进城后四场第三批重做时按 gn_cook 看过与否分版本（2026-10-21 登记）",
+      "pending": true
+    }
+  ],
+  "pending": [
+    "进城后可选剧情尚未登记（含 gs_roof_wine、gy_yin_past 等小师叔线），check_story_hooks 的 W2 会提示其前置链；第三批及之后盘点时登记"
+  ]
+}
