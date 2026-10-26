@@ -3,7 +3,7 @@
 // 戏眼：帮过忙的人顺手把用得上的东西塞给萧白。散场时萧白多一件初始装备。“获得”提示是游戏界面，留在 JS。
 // 2026-10-19 风起主线批次：从 js/qihe-chapter.js activityBody() 末尾搬入。
 // 2026-10-23 剧本一：切磋稿 npc-spar-and-insight.md P8「A」——枣木短棍改由陈伯本人在他家门厅当面给（原为陆衡转交）；修车、送老人两支都一样给。铜针囊不动。
-//   运行侧要把 fq_gift_club 的播放点从活动结束处挪到陈伯家门厅找他时（js/qihe-chapter.js，开发负责）。待用户过目，未 --approve。
+//   运行侧已改（2026-10-27）：修车认路做完后门厅的陈伯挂任务标记，找他才播 fq_gift_club 并发短棍（js/qihe-chapter.js clubGift、js/qihe-expansion.js）。2026-10-27 用户授权 Claude 代审，已冷读、批准（--approve）。
 INCLUDE ../_共用/externals.ink
 INCLUDE ../_共用/externals-风起主线.ink
 

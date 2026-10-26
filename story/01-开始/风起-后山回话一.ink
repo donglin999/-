@@ -5,7 +5,7 @@
 // 2026-10-19 剧情三道关改写（戏眼卡 xiaojianghu/docs/design/scripts/briefs/fengqi-main-actors-brief.json）：补播旁白改成萧白心里话；宋先生追问后多一句“还有两家呢”（他已知道还有人要来）；给衣裳那句缩短。疑点（叫出徐令仪、听到周先生停手、回纹针脚）原样保留。
 // 2026-10-19 冷读审读后再改：给衣裳的理由改成“短打不挡风”（他已换了周婶给的短打）。
 // 2026-10-21 用户改定：宋先生线改为可选、可拒绝，不再挡主线、不再补播（opening-pei-disguise.md）。去掉补播的 auto 参数与开头心里话；只有答应过宋先生才会出现。
-// 2026-10-23 剧本三（归烬堂支线，qihe-mojiao-observer-sideline.md 第三节宋二／交叉点 X2）：认识蔺管事、听过“站位谁问都别给”的（records.lamp.warned），选项前多一句心里话，不加选项。待用户过目，未 --approve。
+// 2026-10-23 剧本三（归烬堂支线，qihe-mojiao-observer-sideline.md 第三节宋二／交叉点 X2）：认识蔺管事、听过“站位谁问都别给”的（records.lamp.warned），选项前多一句心里话，不加选项。2026-10-27 用户授权 Claude 代审，已冷读、批准（--approve）。
 INCLUDE ../_共用/externals.ink
 INCLUDE ../_共用/externals-风起主线.ink
 

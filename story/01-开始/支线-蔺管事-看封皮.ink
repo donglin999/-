@@ -1,7 +1,7 @@
 // 风起栖河 · 看一眼封皮（归烬堂支线·灯二，可选）
 // 地点：岑霜的落脚处（东埠装卸路／南村口）　在场：岑霜、萧白
 // 戏眼：萧白想看一眼岑霜那封传讯的封皮；岑霜不会随便给外人看堂里的讯。散场时萧白看到汉皋的戳和压过两回的火漆，或者被回绝，或者说漏了算命先生。
-// 2026-10-23 剧本三新写（归烬堂支线稿第三节灯二、交叉点 X4；戏眼卡 xiaojianghu/docs/design/scripts/briefs/guijintang-lin-sideline-brief.json 场 L4-seal）。待用户过目，未 --approve；JS 未接。
+// 2026-10-23 剧本三新写（归烬堂支线稿第三节灯二、交叉点 X4；戏眼卡 xiaojianghu/docs/design/scripts/briefs/guijintang-lin-sideline-brief.json 场 L4-seal）。2026-10-27 用户授权 Claude 代审，已冷读、批准（--approve）。；JS 未接。
 //   入口：和岑霜交谈时多一项“你那封传讯，能给我看一眼吗？”（records.lamp.briefed 为真、lamp.seal 为空、已在装卸路见过她、还没撤到邻村）。
 //   单写成一场，不改已批准的《三方-找人交谈》（那场路线已到遍历上限）；入口文字由 JS 加在岑霜的交谈选项里。
 //   被回绝（随口一问）不记标记，可以再来。

@@ -1,7 +1,7 @@
 // 风起栖河 · 跟着脚夫（归烬堂支线·灯三的另一种做法，可选）
 // 地点：东埠 → 后山倒木 → 三家落脚处外头　在场：萧白；护院、帮众、采办随从
 // 戏眼：萧白想看脚夫天亮去见谁；脚夫下山后走的都是有人的地方。散场时萧白看见倒木上的账房递给他一个油纸包，三家的人也都看见了萧白。
-// 2026-10-23 剧本三新写（归烬堂支线·蔺管事线，设计稿 xiaojianghu/docs/design/qihe-mojiao-observer-sideline.md 第三～七节；戏眼卡 xiaojianghu/docs/design/scripts/briefs/guijintang-lin-sideline-brief.json）。待用户过目，未 --approve；JS 未接（接口见共用笔记 42-剧本三.md）。
+// 2026-10-23 剧本三新写（归烬堂支线·蔺管事线，设计稿 xiaojianghu/docs/design/qihe-mojiao-observer-sideline.md 第三～七节；戏眼卡 xiaojianghu/docs/design/scripts/briefs/guijintang-lin-sideline-brief.json）。2026-10-27 用户授权 Claude 代审，已冷读、批准（--approve）。；JS 未接（接口见共用笔记 42-剧本三.md）。
 //   门槛：records.lamp.briefed。只在半日 4（第三天上午）开放，与“去后山赴宋先生的约”二选一（支线稿交叉点 X5，JS 互斥锁）。播完记 lamp.noticed=tailed（JS）。
 //   参数 knows_song：竹匾那场见过宋先生（records.stranger_deal 有值，答应或拒绝都算）的认得他；从没碰到过的只认出“账房模样的人”。
 INCLUDE ../_共用/externals.ink

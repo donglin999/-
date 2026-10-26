@@ -9,7 +9,7 @@
 //   ① 问过船家、知道脚夫天亮上后山的（records.lamp.boatman），开场撞见脚夫揣着油纸包下山（心里话），记 lamp.porter_seen、lamp.t3=hill；
 //   ② C1-S2-03 按装卸路“在路口数人”是否真的播过（records.song_watched）分两版：没被注意的走 03h／05h，宋先生不再“半天没说话”；
 //   ③ 认识蔺管事的（records.lamp.met），宋先生多问一句“还有谁在看”（不说／说出算命先生，后者记 lamp.sold=song，结局 2d）；
-//   ④ 问侧口时记 records.song_asked_side（对证、灯四读）。疑点（侧口、青玉珠、进林子）原样保留。待用户过目，未 --approve。
+//   ④ 问侧口时记 records.song_asked_side（对证、灯四读）。疑点（侧口、青玉珠、进林子）原样保留。2026-10-27 用户授权 Claude 代审，已冷读、批准（--approve）。
 INCLUDE ../_共用/externals.ink
 INCLUDE ../_共用/externals-风起主线.ink
 
@@ -40,7 +40,7 @@ INCLUDE ../_共用/externals-风起主线.ink
 宋先生：到底走不走？ #id:C1-S2-11 #mood:firm
 * [“今晚就走。”]
     ~ set_flag("qiheChapter.records.stranger_told_departure", true)
-    萧白：陆大哥昨晚没催着车，说今晚一准走。 #id:C1-S2-A1
+    萧白：陆大哥一早去邻村催车了，说最快今晚走。 #id:C1-S2-A1
     宋先生：今晚……好。 #id:C1-S2-A2 #mood:worry
 * [“还没定。”]
     ~ set_flag("qiheChapter.records.stranger_told_departure", false)

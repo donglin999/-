@@ -8,7 +8,7 @@
 //   参数 watched 改为“答应过宋先生且到装卸路时还没断线”（stranger_deal 为 accepted／asked_first 且 S.qiheSong.broken 为假；JS 待改）。
 //   学过蔺管事法子的（records.lamp.taught）开场前多一问：站路口数／在药车边搭手看；后者记 lamp.hidden_watch，不播“路口数人”段。
 //   “路口数人”段改由执行人先发现：乌魁先指出（新 R2-W0），岑霜接话（R2-W1 微调），沈雁回那句改成“随从也说”（R2-W3 微调）；该段真的播过才记 records.song_watched（对证、后山回话二读）。
-//   待用户过目，未 --approve。
+//   2026-10-27 用户授权 Claude 代审，已冷读、批准（--approve）。
 INCLUDE ../_共用/externals.ink
 INCLUDE ../_共用/externals-三方.ink
 VAR watched = false // 参数

@@ -83,6 +83,8 @@
  SC.qihe_trial.npcs.find(n=>n.id==='ye-door').show=()=>beforeFire()&&(!S.prologue.relicSeen||CP()?.stage==='days'&&window.QiheChapter?.mainStep?.()?.to===5);
  const homeYe=SC.prologue_ye_house.npcs.find(n=>n.id==='ye');homeYe.show=()=>yeLocation()==='house';const oldHomeYe=homeYe.act;homeYe.act=()=>CP()?.stage==='days'?act('ye'):oldHomeYe();
  const homeZhou=SC.prologue_chen_hall.npcs.find(n=>n.id==='zhouyan');const oldZhou=homeZhou.act,zhouShow=homeZhou.show;homeZhou.show=()=>(!zhouShow||zhouShow())&&!window.QiheChapter?.zhouAtWest?.();homeZhou.act=()=>CP()?.stage==='days'?act('zhouyan'):oldZhou();
+ // 2026-10-27：修车认路做完、短棍还没拿时，门厅的陈伯挂任务标记、找他当面给（风起-赠物.ink fq_gift_club）
+ const homeChen=SC.prologue_chen_hall.npcs.find(n=>n.id==='chen');const oldChen=homeChen.act,chenMark=homeChen.mark;homeChen.mark=()=>!!window.QiheChapter?.clubPending?.()||!!chenMark?.();homeChen.act=()=>window.QiheChapter?.clubPending?.()?act('chen-club'):oldChen();
  const elderly=SC.qihe_trial.npcs.find(n=>n.id==='elder');elderly.show=()=>beforeFire()&&CP()?.choices?.transport!=='elders';
  // Guests now occupy their functional outer locations, not the residential crossroads.
  SC.qihe_trial.npcs=SC.qihe_trial.npcs.filter(n=>!['bailiff','procurement-aide'].includes(n.id));

@@ -1,7 +1,7 @@
 // 风起栖河 · 算命摊回话（二）：谁在牵线（归烬堂支线·灯四，可选）
 // 地点：北路算命摊　在场：蔺管事、萧白（交付“告诉岑姑娘”时转到东埠：岑霜、乌魁）
 // 戏眼：蔺管事要知道是谁在三家中间牵线、人在哪；萧白手里的东西有真有假。散场时推断成立或不成立，交给谁、怎么拿定下来。
-// 2026-10-23 剧本三新写（归烬堂支线·蔺管事线，设计稿 xiaojianghu/docs/design/qihe-mojiao-observer-sideline.md 第三～七节；戏眼卡 xiaojianghu/docs/design/scripts/briefs/guijintang-lin-sideline-brief.json）。待用户过目，未 --approve；JS 未接（接口见共用笔记 42-剧本三.md）。
+// 2026-10-23 剧本三新写（归烬堂支线·蔺管事线，设计稿 xiaojianghu/docs/design/qihe-mojiao-observer-sideline.md 第三～七节；戏眼卡 xiaojianghu/docs/design/scripts/briefs/guijintang-lin-sideline-brief.json）。2026-10-27 用户授权 Claude 代审，已冷读、批准（--approve）。；JS 未接（接口见共用笔记 42-剧本三.md）。
 //   门槛：records.lamp.met，且他没被说出去（lamp.sold 为空；JS）。时限半日 4，在“后山／跟脚夫”之后。
 //   推断两步（支线稿第四节，第十三轮写定）：先指人，再拿一条凭据；凭据只列萧白真拿到的。
 //   F-0027 已于 2026-10-23 经用户确认放宽：这里萧白只点破“侧口”一条、只说到“在牵线”，不说宋先生是谁；红绳、回纹针脚、青玉算珠等身份疑点不作凭据、不解释。

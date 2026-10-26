@@ -1,7 +1,7 @@
 // 风起栖河 · 问船家（归烬堂支线·灯一之二，可选）
 // 地点：东埠小码头（地图可交互物稿 E1）　在场：船家、萧白
 // 戏眼：萧白想问出黑衣人的来路；船家怕惹事。散场时萧白知道他打汉皋坐下水船来、天亮上后山、天黑回船上睡。
-// 2026-10-23 剧本三新写（归烬堂支线·蔺管事线，设计稿 xiaojianghu/docs/design/qihe-mojiao-observer-sideline.md 第三～七节；戏眼卡 xiaojianghu/docs/design/scripts/briefs/guijintang-lin-sideline-brief.json）。待用户过目，未 --approve；JS 未接（接口见共用笔记 42-剧本三.md）。
+// 2026-10-23 剧本三新写（归烬堂支线·蔺管事线，设计稿 xiaojianghu/docs/design/qihe-mojiao-observer-sideline.md 第三～七节；戏眼卡 xiaojianghu/docs/design/scripts/briefs/guijintang-lin-sideline-brief.json）。2026-10-27 用户授权 Claude 代审，已冷读、批准（--approve）。；JS 未接（接口见共用笔记 42-剧本三.md）。
 //   门槛：records.lamp.met（接过算命先生的托付）。时限半日 0～2。说话人“船家”待登记 bible/人物/船家.md（地图稿 E1 已获准上图，人物页尚未建）。
 INCLUDE ../_共用/externals.ink
 INCLUDE ../_共用/externals-三方.ink

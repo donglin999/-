@@ -5,7 +5,7 @@
 // 2026-10-19 剧情三道关改写（戏眼卡 xiaojianghu/docs/design/scripts/briefs/fengqi-main-actors-brief.json）：补播旁白改成萧白心里话；“叶姑娘家收留你”改成“听说是叶姑娘领回来的”（萧白住陈伯家，F-0002）；萧白先问一句“您怎么知道这么多”，再被“打听父亲”打动。
 // 2026-10-19 冷读审读后再改：宋先生开口不再连问两遍“外边来的吧”；选“您为什么不自己去说”时，萧白在答应里顺带问要不要告诉叶蘅，不再在汇合后重问一遍（C1-00B-14 挪进直接答应那一支），并留一句“我只看，不掺和别的”。
 // 2026-10-21 用户改定：宋先生线改为可选、可拒绝，不再挡主线、不再补播（opening-pei-disguise.md）。去掉补播的 auto 参数与开头心里话；加“不掺和”一支（declined：不给谢礼，后面两段回话和“在路口数人”的分支都不会有），问过“为什么不自己说”后也能再拒绝。
-// 2026-10-23 红绳伏笔改写（用户第十二、十三轮；设计稿 xiaojianghu/docs/design/song-red-cord-foreshadow.md，改写稿 docs/design/scripts/drafts/红绳伏笔-改写稿-草稿.md；F-0027 已于 2026-10-23 用户确认）：红绳改为燎头死结；两处散场改句（C1-00B-18、C1-00B-C4），接共用段 cord（C1-00B-K1、K2），三支都看到。待用户过目，未 --approve。
+// 2026-10-23 红绳伏笔改写（用户第十二、十三轮；设计稿 xiaojianghu/docs/design/song-red-cord-foreshadow.md，改写稿 docs/design/scripts/drafts/红绳伏笔-改写稿-草稿.md；F-0027 已于 2026-10-23 用户确认）：红绳改为燎头死结；两处散场改句（C1-00B-18、C1-00B-C4），接共用段 cord（C1-00B-K1、K2），三支都看到。2026-10-27 用户授权 Claude 代审，已冷读、批准（--approve）。
 INCLUDE ../_共用/externals.ink
 INCLUDE ../_共用/externals-风起主线.ink
 
@@ -55,7 +55,7 @@ INCLUDE ../_共用/externals-风起主线.ink
 
 = cord
 // 2026-10-23 红绳伏笔：答应、问过再答应、不掺和三支散场都汇到这里，都看到燎头死结（song-red-cord-foreshadow.md 第二节）。不加选项、不加标记，后面按 stranger_deal 判断见过没有。
-萧白：（打的是死结，两个绳头还燎成了黑疙瘩……系块玉，用得着封得这么死？） #id:C1-00B-K1
+萧白：（打的是死结，两个绳头还燎成了黑疙瘩……挂个坠子，用得着封得这么死？） #id:C1-00B-K1
 萧白：（他抬眼看了我一下，把红绳塞回领子里了。） #id:C1-00B-K2
 ~ set_flag("qiheChapter.records.basket", true)
 -> END

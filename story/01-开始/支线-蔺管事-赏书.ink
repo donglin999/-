@@ -1,7 +1,7 @@
 // 风起栖河 · 渡口赏书（归烬堂支线·结局 3「借刀」）
 // 地点：邻村渡口，晨雾　在场：蔺管事（还穿着算命道袍）、萧白；船尾押船伙计（不说话）
 // 戏眼：蔺管事想把这笔账结清，也服气这个外乡人想到了先拿船；散场时萧白拿到《守烛心经》和铜灯牌，记住“那人的脸你见过”。
-// 2026-10-23 剧本三新写（归烬堂支线·蔺管事线，设计稿 xiaojianghu/docs/design/qihe-mojiao-observer-sideline.md 第三～七节；戏眼卡 xiaojianghu/docs/design/scripts/briefs/guijintang-lin-sideline-brief.json）。待用户过目，未 --approve；JS 未接（接口见共用笔记 42-剧本三.md）。
+// 2026-10-23 剧本三新写（归烬堂支线·蔺管事线，设计稿 xiaojianghu/docs/design/qihe-mojiao-observer-sideline.md 第三～七节；戏眼卡 xiaojianghu/docs/design/scripts/briefs/guijintang-lin-sideline-brief.json）。2026-10-27 用户授权 Claude 代审，已冷读、批准（--approve）。；JS 未接（接口见共用笔记 42-剧本三.md）。
 //   时间：对证之后、C1-08 确认去向之前（JS 插场；没去渡口就确认去向的，JS 先插“他追上来”的短版，奖励照发）。
 //   CG-三乙「以书酬功」待出构图草图、用户确认后才做；本稿不调用 CG。“倒木已空”只由他一句话交代（第十三轮第 27 项）。
 INCLUDE ../_共用/externals.ink

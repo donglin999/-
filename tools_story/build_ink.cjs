@@ -5,6 +5,7 @@
 // 输入：story/**/*.ink（_共用/ 下是共享声明，不单独编译）、story/_共用/flags.json、../xiaojianghu/bible/人物/*.md（另收 bible/物品/ 里带“名牌”字段的页，如路牌）
 // 2026-10-18 第 2 期：支持 ink 函数（=== function）、隧道 knot（->->，只随调用方遍历）、参数变量（VAR x = false // 参数）；
 //   路线遍历改为“读到标记才分支”的穷举（只对本 knot 及本文件 ink 函数里读取的标记分支），并检查每句台词至少被一条路线走到。
+// 2026-10-27：字符串参数（VAR x = "" // 参数）按本 knot 里比较过的字面值逐个遍历（人物-收礼与易物按 pid、kind 取句）。
 // 输出（生成物，不手改）：js/story-data/<首个 knot>.js、docs/story-lines.csv、docs/story-routes/<knot>.md、story/_共用/speakers.json
 const fs = require('node:fs');
 const path = require('node:path');
@@ -116,11 +117,17 @@ for (const f of inks) {
   const knots = [...src.matchAll(/^={2,}\s*(\w+)/gm)].map(m => m[1]).filter(k => k !== 'function');
   // 隧道 knot（以 ->-> 返回）只能被别的 knot 调用，不单独遍历
   const bodies = src.split(/^(?==={2,})/m), tunnels = new Set();
-  const allParams = [...src.matchAll(/^VAR\s+(\w+)\s*=\s*(true|false)\s*\/\/\s*参数/gm)].map(m => m[1]), params = {};
+  // 参数：布尔参数分真假；字符串参数（VAR x = "" // 参数）取本 knot 里与它比较过的字面值逐个跑，没比较过的给一个占位值
+  const allParams = [...src.matchAll(/^VAR\s+(\w+)\s*=\s*(true|false|"[^"]*")\s*\/\/\s*参数/gm)].map(m => ({ name: m[1], str: m[2].startsWith('"') })), params = {};
   for (const b of bodies) {
     const k = b.match(/^={2,}\s*(\w+)/); if (!k || k[1] === 'function') continue;
     if (/^\s*->->/m.test(b)) tunnels.add(k[1]);
-    params[k[1]] = allParams.filter(v => new RegExp('\\b' + v + '\\b').test(b.replace(/\/\/.*$/gm, ''))); // 参数只在用到它的 knot 里分真假
+    const code = b.replace(/\/\/.*$/gm, '');
+    params[k[1]] = allParams.filter(v => new RegExp('\\b' + v.name + '\\b').test(code)).map(v => {
+      if (!v.str) return { name: v.name, values: [false, true] };
+      const lits = [...new Set([...code.matchAll(new RegExp('\\b' + v.name + '\\s*[!=]=\\s*"([^"]*)"', 'g'))].map(m => m[1]))];
+      return { name: v.name, values: lits.length ? lits : [`〈${v.name}〉`] };
+    }); // 参数只在用到它的 knot 里分支
   }
   if (json && knots.length) compiled.push({ file: name, knots, tunnels, params, json, src });
 }
@@ -140,10 +147,10 @@ const routesDir = path.join(root, 'docs', 'story-routes'); fs.mkdirSync(routesDi
 const ROUTE_CAP = 400;
 function routesOf(json, knot, file, params, covered) {
   // 读到标记才分支：只对本 knot（含它调用的 ink 函数）里读取的标记按登记取值（routeValues 优先）分支；其余标记取默认值。
-  // 选项同样逐一分支。用“决策序列”重放的方式穷举，参数变量（VAR x = false // 参数）按真假各跑一遍。
+  // 选项同样逐一分支。用“决策序列”重放的方式穷举，参数变量按真假（字符串参数按比较过的值）各跑一遍。
   const branchable = new Set(Object.keys(usage).filter(p => flagsReg[p] && usage[p].readKnots.has(`${file}#${knot}`)));
   const norm = v => v == null ? false : v;
-  const paramCombos = params.reduce((acc, v) => acc.flatMap(c => [false, true].map(x => ({ ...c, [v]: x }))), [{}]);
+  const paramCombos = params.reduce((acc, v) => acc.flatMap(c => v.values.map(x => ({ ...c, [v.name]: x }))), [{}]);
   const out = []; let truncated = false;
   for (const pc of paramCombos) {
     const stack = [[]];

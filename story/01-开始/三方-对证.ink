@@ -8,7 +8,7 @@
 //   参数 clash：交锋打过（p.clashVersion）时，徐令仪、岑霜认责的说法不同。
 //   参数 has_coat、has_abacus：萧白手上还留着宋先生给的青绫行衣、乌木算珠。
 // 2026-10-23 剧本三：对证断线版（xiaojianghu/docs/design/scripts/drafts/三方-对证-断线版-草稿.md 第 2、3 节，第十三轮主会话代定）＋记人笺回扣＋归烬堂支线三个结局（qihe-mojiao-observer-sideline.md 第五、七节）。
-//   戏眼卡：xiaojianghu/docs/design/scripts/briefs/guijintang-lin-sideline-brief.json（E1-zhou、E3-blade）。待用户过目，未 --approve。
+//   戏眼卡：xiaojianghu/docs/design/scripts/briefs/guijintang-lin-sideline-brief.json（E1-zhou、E3-blade）。2026-10-27 用户授权 Claude 代审，已冷读、批准（--approve）。
 //   为了路线遍历不超上限，拆成几个 knot：开场与三张附页（qihe_reps_evidence）→ 被问“谁的人”（reps_ev_stranger）／没人问（reps_ev_quiet_ask）／结局 3 口供（reps_ev_blade）→ 说出后（reps_ev_named）／不说（reps_ev_quiet）→ 认责（reps_ev_admit）。台词编号不变，只挪位置。
 //   参数 watched：已不用（改读 records.song_watched，装卸路“在路口数人”段真的播过才算），保留声明免得旧调用报错。
 //   读 records.stranger_deal（ink 函数 dealt()）：答应过宋先生（accepted／asked_first）。断了线（S.qiheSong.broken）也算答应过，只是说得出的少。
@@ -42,7 +42,7 @@ VAR has_roster = false // 参数
 - else:
     沈雁回：都把附页掏出来。上头引的是哪张单子？ #id:R4-02
 }
-徐令仪：依例念给诸位：旧药罐第十七号收货单。写的是叶家愿将医武谱交盟里保管。 #id:R4-03
+徐令仪：依例念给诸位：附页引的是旧药罐第十七号收货单，写的是叶家愿将医武谱交盟里保管。 #id:R4-03
 岑霜：十七号？……我这张也是十七号，写的却是还匣，还说正道盟要趁夜来接。徐执事，你真信叶家肯交书？ #id:R4-04
 徐令仪：我信的是纸。……文书读了这些年，倒叫一张纸牵着走了三天。 #id:R4-05
 沈雁回：我这张也是十七号——药验过、交药样、从侧口避查。三样事，一张单子。 #id:R4-06

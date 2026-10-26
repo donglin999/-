@@ -1,7 +1,7 @@
 // 风起栖河 · 算命摊测字（归烬堂支线·灯一，可选）
 // 地点：中央北路西侧算命摊（地图可交互物稿 C3）　在场：算命先生（蔺晦之乔装）、萧白
 // 戏眼：蔺管事想找一双能在村里走动的眼睛；萧白是生人，可能已经在替别人看着。散场时萧白接下“去河埠问黑衣脚夫的来路”（或只测了个字），答应过宋先生的还听到“站位谁问都别给”。
-// 2026-10-23 剧本三新写（归烬堂支线·蔺管事线，设计稿 xiaojianghu/docs/design/qihe-mojiao-observer-sideline.md 第三～七节；戏眼卡 xiaojianghu/docs/design/scripts/briefs/guijintang-lin-sideline-brief.json）。待用户过目，未 --approve；JS 未接（接口见共用笔记 42-剧本三.md）。
+// 2026-10-23 剧本三新写（归烬堂支线·蔺管事线，设计稿 xiaojianghu/docs/design/qihe-mojiao-observer-sideline.md 第三～七节；戏眼卡 xiaojianghu/docs/design/scripts/briefs/guijintang-lin-sideline-brief.json）。2026-10-27 用户授权 Claude 代审，已冷读、批准（--approve）。；JS 未接（接口见共用笔记 42-剧本三.md）。
 //   时限：半日 0～1。只在头一回测字时播本场；之后测字走地图稿第 5.5 节的普通测字。
 //   读 records.stranger_deal：答应过宋先生的（accepted／asked_first），他看出萧白在替人数人（支线稿交叉点 X1）。
 INCLUDE ../_共用/externals.ink

@@ -66,7 +66,9 @@
  function grantLesson(){const p=state();if(p.granted)return false;S.skills||={};S.skills.qh_hulu_staff=Math.max(1,S.skills.qh_hulu_staff||0);S.bag||={};S.bag.qh_practice_staff=(S.bag.qh_practice_staff||0)+1;S.bag.qh_staff_notes=(S.bag.qh_staff_notes||0)+1;if(!S.weapon){S.weapon='qh_practice_staff';S.bag.qh_practice_staff--;}p.granted=true;p.skillSource='陆衡·栖河西田埂';savePoint();return true}
  const STARTER_STOCK=['club','cloth','needles','charm','knife','mianjia'];
  function equipmentWrite(change){const before=JSON.parse(JSON.stringify(S));try{change();if(S.qiheRoster)S.qiheRoster.revision=(S.qiheRoster.revision||0)+1;persistState(S);return {ok:true}}catch(e){S=before;return {ok:false,reason:'保存失败，未改变装备或铜钱：'+e.message}}}
- function grantStarterEquipment(){const p=state();if(p.stage!=='days')return [];const rows=[['arrival','cloth',true],['transport','club',!!p.choices?.transport],['clinic','needles',!!p.choices?.clinic]].filter(([key,,eligible])=>eligible&&!p.equipmentRewards?.[key]);if(!rows.length)return [];const gained=[];const result=equipmentWrite(()=>{p.equipmentRewards||={};S.bag||={};for(const[key,id]of rows){const owned=(S.bag[id]||0)>0||S.weapon===id||S.armor===id||S.acc===id||Object.values(S.mates||{}).some(m=>Object.values(m.equip||{}).includes(id));if(!owned){S.bag[id]=(S.bag[id]||0)+1;gained.push(id)}p.equipmentRewards[key]={item:id,status:owned?'already-owned':'granted'};}});if(!result.ok){toast(result.reason,2200);return []}return gained}
+ // 2026-10-27：枣木短棍改由陈伯在他家门厅当面给（风起-赠物.ink），这里只在 club:true（门厅找陈伯时）才发；其余入口不再自动补发短棍。
+ function clubPending(){const p=S?.qiheChapter;return !!p&&p.stage==='days'&&!!p.choices?.transport&&!p.equipmentRewards?.transport}
+ function grantStarterEquipment(opt={}){const p=state();if(p.stage!=='days')return [];const rows=[['arrival','cloth',true],['transport','club',!!p.choices?.transport&&!!opt.club],['clinic','needles',!!p.choices?.clinic]].filter(([key,,eligible])=>eligible&&!p.equipmentRewards?.[key]);if(!rows.length)return [];const gained=[];const result=equipmentWrite(()=>{p.equipmentRewards||={};S.bag||={};for(const[key,id]of rows){const owned=(S.bag[id]||0)>0||S.weapon===id||S.armor===id||S.acc===id||Object.values(S.mates||{}).some(m=>Object.values(m.equip||{}).includes(id));if(!owned){S.bag[id]=(S.bag[id]||0)+1;gained.push(id)}p.equipmentRewards[key]={item:id,status:owned?'already-owned':'granted'};}});if(!result.ok){toast(result.reason,2200);return []}return gained}
  function purchaseEquipment(id){if(state().stage!=='days'||!STARTER_STOCK.includes(id))return {ok:false,reason:'当前无法购买此装备'};const price=ITEMS[id]?.price;if(!Number.isFinite(price)||price<=0)return {ok:false,reason:'价格暂不可用'};if((S.silver||0)<price)return {ok:false,reason:'铜钱不足，需要 '+price+' 文'};return equipmentWrite(()=>{S.silver-=price;S.bag||={};S.bag[id]=(S.bag[id]||0)+1})}
  async function equipmentShop(){const rows=STARTER_STOCK.map(id=>`${ITEMS[id].name} · ${ITEMS[id].price} 文`);const n=await ask('店家',`都是行路能用的普通家当。你身上有 ${S.silver||0} 文；看清兵器和根基要求，再决定。`,[...rows,'先不买']);const id=STARTER_STOCK[n];if(!id)return;const it=ITEMS[id];if(await ask('店家',`${it.name}：${it.desc}\n花 ${it.price} 文买一件？`,['买一件','再看看'])!==0)return;const result=purchaseEquipment(id);await line('店家',result.ok?'收好了。买来先放包裹，合不合身、使不使得动，还要你自己挑。':result.reason);if(result.ok)await line('获得',`${it.name} ×1 · 花费 ${it.price} 文。江湖→装备，双击穿戴。`)}
  const learned=()=>!!S.skills?.qh_hulu_staff;
@@ -120,8 +122,9 @@
   if(await ask('行程',a[1]+'。'+(id==='practice'?'陆衡会传授第一层，赠送练习棍与本人笔记。':''),['现在开始','再想想'])!==0)return;
   await play(ACTIVITY_KNOTS[id],{fq_lesson_battle:lessonBattle,fq_grant_lesson:()=>{grantLesson()}});
   if(id==='practice')await line('','已学：丙级《护路棍法》第一层 · 横杆护身。守路战及后续招式培养可使用。');
-  const rewards=grantStarterEquipment();if(rewards.includes('club')){await play('fq_gift_club');await line('获得','枣木短棍 ×1 · 可替换练习棍，仍可施展横杆护身。')}if(rewards.includes('needles')){await play('fq_gift_needles');await line('获得','铜针囊 ×1 · 装备页切换人物，再双击穿戴。')}savePoint();await line('行程','这件事办完了。');
+  const rewards=grantStarterEquipment();if(id==='transport'&&clubPending())await line('行程','陈伯托人带话：得空去他家门厅一趟。');if(rewards.includes('needles')){await play('fq_gift_needles');await line('获得','铜针囊 ×1 · 装备页切换人物，再双击穿戴。')}savePoint();await line('行程','这件事办完了。');
  }
+ async function clubGift(){if(!clubPending())return;await play('fq_gift_club');const got=grantStarterEquipment({club:true});if(got.includes('club'))await line('获得','枣木短棍 ×1 · 可替换练习棍，仍可施展横杆护身。');savePoint()}
  // ── 主线任务推进（2026-10-17 试玩反馈：剧情不能靠主角睡觉推进）。
  // 2026-10-21 用户：不再先找人、选【主线】再确认。走进当前主线的地点（scene）就弹“进入下一时段”，选“再等等”后本时段不再自动弹；
  // 找对应的人说话，她先说一句（剧本 fq_main_<to>，不带选项）再弹确认。确认框不列没做完的事，只有离村那步提醒回不了村。
@@ -200,6 +203,7 @@
   if(p.stage==='refuge'){if(id==='evidence'){if(!p.events['evidence-v2'])return evidenceBody();return line('对证记录','原底单只有六只旧药罐。三张附页引同一张单子，约同一个时辰、同一个口子；写附页的人，'+(p.records?.told_about_stranger?'沈雁回要去后山找那位宋姓账房问。':'还没查出来。'));}if(id==='zhouyan')return routesBody();if(id==='ye')return play('fq_refuge_ye',{},{chen_ok:p.chenCare==='擦伤已照护',evidence_done:!!p.events['evidence-v2']});
    return play(({aunt:'fq_refuge_aunt',chen:'fq_refuge_chen',luheng:'fq_refuge_luheng'})[id]||'fq_refuge_other')}
   if(p.stage==='days'){
+   if(id==='chen-club')return clubGift();
    const m=mainStep(p);
    if(m&&m.npc===id){await play('fq_main_'+m.to);if(await mainOffer(m))return;const rel=id==='ye'?'clinic':'practice';if(activityOpen(rel)&&!p.choices[rel])return activityBody(rel);return}
    const activityMap={luheng:'practice',lesson:'practice',cart:'transport',apothecary:'market'};if(activityMap[id])return activityBody(activityMap[id]);
@@ -218,5 +222,5 @@
  async function menu(){if(!busy&&!dlgBusy&&$('panel').hidden)QiheJianghuUI.open('quest')}
  const oldJournal=QihePrologue.journal;QihePrologue.journal=async()=>{if(!S.qiheChapter&&!window.QiheOutsiders?.available())return oldJournal();if(busy||dlgBusy||!$('panel').hidden)return;await menu()};
  const prevQuest=questLine;questLine=function(){const p=S?.qiheChapter;if(!p)return prevQuest();const m=mainStep(p);return p.stage==='days'?(m?'主线 · '+m.title+' · '+m.where+'找'+m.who:'自由探索 · J 查看任务'):p.stage==='refuge'?(p.events?.['evidence-v2']?'对证已记 · 与周砚商量去处':'安置伤者后 · 核对三份来件'):p.stage==='ended'?'J 继续上山':p.stage==='cultivation'?'自由练习与交谈':'J 继续当前剧情'};window.questLine=questLine;
- window.QiheChapter={mainStep,MAIN_STEPS,grantStarterEquipment,purchaseEquipment,starterStock:STARTER_STOCK.slice(),activities,initial,state,applyCultivationReward,begin,rest,activity,interact,routes,evidence,menu,grantLesson,learned,storyBattle,restoreScene,strangerPending,strangerVisible,strangerAccepted,activityOpen,activityDeadline,zhouAtWest,resume:()=>guarded(resumeBody),get running(){return running}};
+ window.QiheChapter={mainStep,MAIN_STEPS,grantStarterEquipment,purchaseEquipment,starterStock:STARTER_STOCK.slice(),activities,initial,state,applyCultivationReward,begin,rest,activity,interact,routes,evidence,menu,grantLesson,learned,storyBattle,restoreScene,strangerPending,strangerVisible,strangerAccepted,activityOpen,activityDeadline,zhouAtWest,clubPending,resume:()=>guarded(resumeBody),get running(){return running}};
 })();
