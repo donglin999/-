@@ -28,7 +28,7 @@
 ### 2026-10-31 · 查清剩余测试失败，提交并发布栖河
 - 工作区：xiaojianghu-legacy-prologue
 - 谁：Claude Code（栖河整改评审）
-- 状态：本地完成，提交和发布进行中
+- 状态：已提交（xiaojianghu-legacy-prologue `5821e84`；xiaojianghu 分支 `claude/desk-finish-20261031` 的 `d9fe0e9`，都没推送）；已发布（main、qihe 两个分支，10-31）
 - 范围：补品阶与特效登记（`js/pei-companion-runtime.js`、`js/qh-mode-cultivation-martial.js`、`js/guiyun-combat-runtime.js`）；更新过时测试；按 R-发布-01 提交并发布（用户已许可）。
 - 更新记录：[2026-10-30-desk-finish](../../xiaojianghu-legacy-prologue/docs/updates/2026-10-30-desk-finish.md)
 - 留给接手的人：全量还有 11 个没过，分类见更新记录；`verify_chapter_battle_art` 的素材缺失防护和 `qihe-journal-notices-browser` 没有结论。
