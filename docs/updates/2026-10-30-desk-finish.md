@@ -137,4 +137,45 @@
 - 《守烛心经》数值门槛、结局 2 奖励档位按设计稿暂用，没有明确拍板（支线稿第十一节）。
 - 北坡石洞按用户意见关着；“他追上来”短版等地图上有渡口；阿炭的战斗动作表没做；隐藏奇遇的行记线索和回访点在代码里没查到。
 
-以上都没有提交，也没有发布。
+## 查清剩余测试失败并发布（10-31）
+
+用户：“先查再发布”。
+
+### 真问题，已修
+
+- 裴知古四个技能、小豆的点步直刺、周砚的示范与叫停没登记品阶，周砚那招还缺特效登记（每次加载都有控制台警告）。裴知古四招的品阶跟随残卷解锁档位（丁、丙、乙、甲）；后两招是不可学的 NPC 招式，记丁。
+
+### 测试过时，已更新后通过
+
+`verify_menu_fix`（任务改名“替周婶跑一圈”）、`verify_relationships`（10-20 起不再发通信点）、`guiyun-performance`（10-20 改写后散场不换地点）、`verify_grade_balance`、`verify_battle`（存档戳和历练池初值不算状态变化）、`verify_faction_contacts`（三方跑腿第一夜已删）、`cultivation-rework`（旧台词底稿已不是来源）、`character-grounding`、`toast`、`cultivation-balance-browser`、`cultivation-rework-browser`、`dou-sword-combat`。
+
+最后三个原先“跑不了”的原因：测试写死了本机已没有的浏览器版本 1228，已改成 1248。
+
+### 全量结果（80 个，最后一次全量 69 个通过）
+
+没过的 11 个，分三类：
+
+- **确认不是游戏问题，测试未改**：
+  - `guiyun-performance-browser`：真实存档初始化走全部 1985 句，只有 `gn_lamp` 的 23 句不显示单人立绘，那场用的是双人图（设计如此）。
+  - `qihe-journal-browser`：夹具的药单任务要到更晚的时段才开放。
+  - `verify_faction_contacts_browser`：三方人物改成见过才出现。
+  - `menu-icons`：测试走已撤除的 `#street` 入口。
+  - `verify.cjs`：测试环境缺桩，还没跑到断言。
+- **对着 10 月 12 日的旧评审页或已删的辅助函数，没有逐个查根因**：`cultivation-balance-combat`（`mk` 已不存在）、`cultivation-rework-preview`、`guiyun-performance-preview`。
+- **没有结论或小瑕疵**：
+  - `guiyun-performance-bounds`：尹师父惊讶立绘在三人同屏最右位时，边缘被切掉 2～3 像素。真瑕疵，没修。
+  - `verify_chapter_battle_art`：三场战斗都通过，最后“素材缺失时拦住战斗”那段超时。可能是这条防护失效，也可能是测试过时，没查清。
+  - `qihe-journal-notices-browser`：页面加载超时，放宽到 90 秒单独跑也没有得出通过结果。
+
+### 发布前检查
+
+`node scripts/build-pages.cjs` 通过：文档检查 0 处问题，素材 1070 件 0 错，剧本 65 份 0 错 4 警告，回扣 0 错 2 警告。
+
+### 评审台回答
+
+- 第三十一轮第 1 题：选宋甲＋蔺甲＋程甲。这次发布不含新脸，后期和接线另做。
+- 第二十四轮第 1 题：通用立绘验收通过。
+
+### 发布结果
+
+已提交 `5821e84`，部署到 main、qihe 两个分支，两个线上地址都返回 200，`curl` 核对了周砚特效登记、图标脚本和图集。这次不含新脸。
