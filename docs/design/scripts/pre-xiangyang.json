@@ -591,7 +591,7 @@
             },
             {
               "speaker": "陆衡",
-              "text": "先别急着高兴。走过山路没有？背得动几包？",
+              "text": "先别急着高兴。这趟比上谷那段山路远一倍，背得动几包？",
               "voice": false,
               "emotion_api": "calm",
               "delivery_notes": "",
@@ -600,7 +600,7 @@
             },
             {
               "speaker": "萧白",
-              "text": "只走过下山赶集那段。背两包，应该行。",
+              "text": "上谷那回是空手走的。背两包，应该行。",
               "voice": false,
               "emotion_api": "calm",
               "delivery_notes": "",
@@ -1346,7 +1346,7 @@
     },
     {
       "id": "M-08",
-      "title": "出发前，先说自己的事",
+      "title": "送到城门",
       "group": "主线",
       "event_id": "xiangyang_departure",
       "window": [
@@ -2041,7 +2041,7 @@
             },
             {
               "speaker": "周砚",
-              "text": "就一次，站不住就停。",
+              "text": "就一次。记着，脚先动，身子跟着。站不住就停。",
               "voice": false,
               "emotion_api": "calm",
               "delivery_notes": "",
@@ -2498,7 +2498,7 @@
             },
             {
               "speaker": "叶蘅",
-              "text": "……也不用全写。老人家现在怎样，那边的大夫比我清楚，我只写自己记得的。",
+              "text": "……也不用全写。记得清的写上，记不清的那味，就写“记不准，请您留意”。",
               "voice": false,
               "emotion_api": "calm",
               "delivery_notes": "",
@@ -3205,7 +3205,7 @@
             },
             {
               "speaker": "叶蘅",
-              "text": "下回给村里带的，药圃要补的，都在上头。",
+              "text": "下回往镇上带的，药圃要补的，都在上头。",
               "id": "Y-03-main-02"
             },
             {

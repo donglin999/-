@@ -25,6 +25,260 @@
 
 ## 条目
 
+### 2026-10-31 · 查清剩余测试失败，提交并发布栖河
+- 工作区：xiaojianghu-legacy-prologue
+- 谁：Claude Code（栖河整改评审）
+- 状态：本地完成，提交和发布进行中
+- 范围：补品阶与特效登记（`js/pei-companion-runtime.js`、`js/qh-mode-cultivation-martial.js`、`js/guiyun-combat-runtime.js`）；更新过时测试；按 R-发布-01 提交并发布（用户已许可）。
+- 更新记录：[2026-10-30-desk-finish](../../xiaojianghu-legacy-prologue/docs/updates/2026-10-30-desk-finish.md)
+- 留给接手的人：全量还有 11 个没过，分类见更新记录；`verify_chapter_battle_art` 的素材缺失防护和 `qihe-journal-notices-browser` 没有结论。
+
+### 2026-10-30 · 生成账本：生图和视频调用记账
+- 工作区：两边
+- 谁：Claude Code（骆驼传美术方法评估）
+- 状态：本地完成（未提交、未发布）
+- 范围：xiaojianghu：新增 `tools_common/genledger.py`，改 `tools_common/imggen.py`，加测试和文档。xiaojianghu-legacy-prologue：`art_sources` 下 3 份视频生成脚本接账本。没有调用计费接口。
+- 更新记录：[2026-10-30-gen-ledger](updates/2026-10-30-gen-ledger.md)
+- 留给接手的人：直接调 `flatimg.py` 和直接跑 `codex exec` 的路径没有入账；没用真实接口跑过；费用未换算。
+
+### 2026-10-30 · 宋先生、蔺管事第三版；开始部分复查修两个真问题
+- 工作区：xiaojianghu-legacy-prologue
+- 谁：Claude Code（栖河整改评审）
+- 状态：本地完成（未提交、未发布）
+- 范围：
+  - `art_sources/faces-redesign-20261030/` 重出四张候选，评审台第三十一轮第 1 题换图。
+  - 修红绳 CG 预算（答应过宋先生的存档进不了培养）：`js/qihe-fire-cinematic.js`。
+  - 修行囊图标回归：`js/qihe-jianghu-ui.js`。
+  - 新增 `verify_route_sweep.cjs`；修 `verify_stranger`、`verify_representatives`、`verify_jianghu_ui` 的过时断言。
+- 更新记录：[2026-10-30-desk-finish](../../xiaojianghu-legacy-prologue/docs/updates/2026-10-30-desk-finish.md)
+- 留给接手的人：
+  - 全量 80 个测试还有 24 个没过，分类见更新记录；其中 4 个可能是真问题，没查。
+  - 候选未入库，等用户挑。
+
+### 2026-10-30 · 评审台剩余事项收尾
+- 工作区：两边
+- 谁：Claude Code（栖河整改评审）
+- 状态：本地完成（未提交、未发布）
+- 范围：
+  - 失手台词补了阿炭、小禾，加了测试；小耗子保底由我代批。
+  - 粮仓清掉。
+  - 9 个没有立绘的人改用 8 张身份通用立绘，查看页和商店已换上。
+  - 物品图标 62 件按逸剑风云决式重画，已接进游戏，R-画风-02 已改。
+  - 客栈店家可花钱压偷窃风声；培养部分 5 件实物和三场回扣台词。
+  - 宋先生、蔺管事新脸第二版（候选），发第三十一轮。
+  - check_review_batch 改为归档模块里的题也跳过。
+- 更新记录：[2026-10-30-desk-finish](../../xiaojianghu-legacy-prologue/docs/updates/2026-10-30-desk-finish.md)
+- 留给接手的人：
+  - 三张脸等第三十一轮第 1 题选定后再后期、补表情、补小指、重画结局 3 的 CG。
+  - 查看页通用立绘等用户验收。
+
+### 2026-10-29 · 帮众挑衅新版（新人阿炭）
+- 工作区：两边
+- 谁：Claude Code（栖河整改评审，从主会话接手的分会话）
+- 状态：本地完成（未提交、未发布）
+- 范围：
+  - xiaojianghu-legacy-prologue：
+    - 剧本 `奇遇-帮众挑衅.ink` 整份重写，已代批。
+    - 出图 `art_sources/atan-20261029/`，立绘、地图小人已登记采用。
+    - 代码：`qihe-hidden`、`qihe-npc-data`、`qihe-gift`、`qihe-jianghu-data`、`qihe-characters`、`qihe-chapter`、`index.html`。
+    - 验证：`verify_hidden` 已改，新增 `shot_atan.cjs`。
+  - xiaojianghu：
+    - 设定：`story-atlas` 加 a-tan，人物卡 `阿炭.md`，定稿事实 F-0071。
+    - 剧本相关：戏眼卡、回扣登记表。
+- 更新记录：[2026-10-29-atan](../../xiaojianghu-legacy-prologue/docs/updates/2026-10-29-atan.md)
+- 留给接手的人：
+  - 阿炭的战斗动作表没做，现在用帮众的战斗图。
+  - `qh_recruit_returned` 的回扣，等游历部分设计时再定。
+
+### 2026-10-29 · 培养部分去汉皋前剧情：Opus 排查与整改
+- 工作区：两边
+- 谁：Claude Code（栖河整改评审）
+- 状态：本地完成（未提交、未发布）
+- 范围：
+  - 进城前 40 场＋来客 3 段＋闲逛 W02～W07 逐场交 302 Opus 初筛，复核后改约二十处台词。
+  - 两个场名改了：二师叔试手、送到城门。
+  - 源头：chapter-two-dialogue.json、pre-xiangyang.json、household.js、data.js。
+  - 生成物：qh-pre-hangao-data、scripts、dialogue。
+  - 工具：新增 dump_precity_scenes.cjs；minimax_logic_review.py 加了 --background、--glob 两个参数。
+- 更新记录：[2026-10-29-precity-logic-review](../../xiaojianghu-legacy-prologue/docs/updates/2026-10-29-precity-logic-review.md)
+- 留给接手的人：
+  - 低档存疑约 50 条没复核。
+  - 护腕、木鸟、镜片等后果要等汉皋城内剧情重新设计。
+  - 还没在浏览器里实机点过。
+
+### 2026-10-29 · 剧情逻辑排查改法落实
+- 工作区：两边
+- 谁：Claude Code（栖河整改评审）
+- 状态：本地完成（未提交、未发布）
+- 范围：
+  - xiaojianghu-legacy-prologue：
+    - 改了 21 份剧本，其中 17 份已批准、按授权重新登记批准；另有 7 份由我代审后新登记批准。
+    - 代码改了 qihe-map-trial、qihe-town、qihe-hidden、qihe-gift、qihe-gift-ui 五个文件，同时更新了 index.html 的版本号和送礼测试。
+  - xiaojianghu：
+    - 定稿事实改了 F-0009、F-0026、F-0028，废止 F-0031。
+    - 剧情写作规范加了第九节；规则登记表加了 R-剧情-08。
+- 更新记录：[2026-10-29-story-logic-fixes](../../xiaojianghu-legacy-prologue/docs/updates/2026-10-29-story-logic-fixes.md)
+- 留给接手的人：
+  - 阿炭（帮众挑衅新版）、三张脸重设计、关系页方案还没做。
+  - verify_representatives 是旧失败，不是这次引入的。
+
+### 2026-10-29 · 剧情题改由我代评
+- 工作区：xiaojianghu
+- 谁：Claude Code（栖河整改评审）
+- 状态：本地完成（评审台数据已写；剧本和代码还没改）
+- 范围：
+  - 评审台五道剧情题代评：第一夜、三方、风起、村中、隐藏奇遇。
+  - 接住商店、跑步动画、蔺管事新脸、关系页四条回答。
+  - review-desk skill 加了一节。
+- 更新记录：[2026-10-29-story-review-delegated](updates/2026-10-29-story-review-delegated.md)
+- 留给接手的人：
+  - 各模块“等我做”里的改法都还没落实。
+  - 其中改锁定事实 F-0009、F-0028，改已批准的《序章-进村第一夜》，都是按用户授权代批的。
+
+### 2026-10-29 · 商店改回挂轴式界面
+- 工作区：xiaojianghu-legacy-prologue
+- 谁：Claude Code（栖河整改评审）
+- 状态：本地完成，评审台“商店界面”模块待用户验收；未提交、未发布
+- 范围：`js/qihe-gift-ui.js`（shop 重写）、`js/qihe-gift-ui.css`（挂轴样式）、`index.html`（版本号）、`tools_scene/qihe/shot_shop.cjs`（新）
+- 更新记录：[2026-10-29-shop-scroll](../../xiaojianghu-legacy-prologue/docs/updates/2026-10-29-shop-scroll.md)
+- 留给接手的人：照 10-09 确认的 docs/design/shop-ui-standard.md 做；店家、药商没立绘先放地图小人，等查看页那题定了再改
+
+### 2026-10-29 · 评审台整理＋评审台管理 skill
+- 工作区：xiaojianghu（脚本、skill、文档）；评审台 artifact
+- 谁：Claude Code（栖河整改评审）
+- 状态：本地完成；评审台已更新（页面第 6 版、数据 64 条）；未提交
+- 范围：新增 `tools_docs/review_desk_tidy.py`、`tools_docs/review_desk/index.html`（页面源码）、`.claude/skills/review-desk/SKILL.md`；改 `tools_docs/check_review_batch.py`、`docs/review-desk.md`、`docs/ai-onboarding.md`
+- 更新记录：[2026-10-29-review-desk-tidy](updates/2026-10-29-review-desk-tidy.md)
+- 留给接手的人：碰评审台先按 skill review-desk 跑 `review_desk_tidy.py --report`；欠用户的：新脸定后重画结局 3 CG、登记两份已通过剧本（商店界面已在下一条做完）
+
+### 2026-10-29 · 开始部分全部剧本逻辑排查
+- 工作区：xiaojianghu-legacy-prologue
+- 谁：Claude Code（栖河整改评审）
+- 状态：本地完成（只排查，没改剧本和代码）
+- 范围：`story/01-开始/` 除北坡石洞（停用）、帮众挑衅（待改版）外的 63 个剧本，302 Opus 初筛＋复核
+- 更新记录：[2026-10-29-logic-review-all](../../xiaojianghu-legacy-prologue/docs/updates/2026-10-29-logic-review-all.md)
+- 留给接手的人：改法已发评审台（第二十七轮补充、第二十八轮三题），等用户定了再改剧本和代码；评审台页面改为模块卡内可作答；低档存疑约 80 条未复核
+
+### 2026-10-28 · 剧情逻辑初筛交给 MiniMax（新工具）
+- 工作区：xiaojianghu
+- 谁：Claude Code（栖河整改评审）
+- 状态：本地完成；确认的问题已拟改法发评审台第二十七轮第 1～4 题（帮众挑衅归第二十六轮第 2 题），待用户审
+- 范围：新增 `tools_story/minimax_logic_review.py`。每个剧本连同逐分支路线、钩子登记上下游、相关定稿事实、人物卡、调用代码、人工审读清单原文、`--rules` 原则文件一起送 MiniMax 挑逻辑问题，主会话只复核；对 10-26 后改过的 64 个剧本跑了两轮
+- 更新记录：[2026-10-28 隐藏奇遇](../../xiaojianghu-legacy-prologue/docs/updates/2026-10-28-hidden.md)
+- 留给接手的人：这是初筛，误报不少（多半是缺上下文）；主线按播放先后的前后场还没有导出，暂时靠文件头时点和定稿事实来接
+
+### 2026-10-28 · 隐藏奇遇改为“化用不联动”：石洞先关，帮众挑衅改版待审
+- 工作区：两边
+- 谁：Claude Code（栖河整改评审）
+- 状态：本地完成（石洞关闭、评审题已发）；帮众挑衅新版与原则入规范等用户评审
+- 范围：`js/qihe-hidden.js`（`CAVE_ON=false`）、`index.html`（hid4）、`tools_scene/qihe/verify_hidden.cjs`、设计稿第 10 节、剧情钩子登记备注；评审台第二十五轮第 2 题回答、第二十六轮第 1、2 题
+- 更新记录：[2026-10-28 隐藏奇遇](../../xiaojianghu-legacy-prologue/docs/updates/2026-10-28-hidden.md)
+- 留给接手的人：石洞台词与素材都保留，别删；帮众挑衅旧版仍在游戏里，新版认了再换；全村平安符不改
+
+### 2026-10-28 · 老更夫改写：暗合《连城诀》狄云，功法改《南窗心法》
+- 工作区：两边
+- 谁：Claude Code（栖河整改评审）
+- 状态：本地完成（剧本未经审批；未提交、未上线）
+- 范围：设计稿 [qihe-hidden-rewards.md](design/qihe-hidden-rewards.md) 第 9 节；评审台第二十五轮第 1 题（甲 连城诀狄云／乙 射雕郭靖／丙 楚留香）
+- 更新记录：[2026-10-28-hidden.md](../../xiaojianghu-legacy-prologue/docs/updates/2026-10-28-hidden.md)
+- 留给接手的人：用户第二十五轮第 1 题选甲；第二、三回已重写（梆子刀痕、屋脊人影），物品换成 `qh_nanchuang_xf`；《南窗心法》数值是提案，要平衡后登 catalog.json
+
+### 2026-10-28 · 落实评审台第二十三轮第 3、4、5、8 题的通过
+- 工作区：两边
+- 谁：Claude Code（栖河整改评审）
+- 状态：本地完成；未发布、未提交
+- 范围：story/01-开始/三方-对证.ink（散场三句回扣）、支线-蔺管事-灯四.ink（转述）、人物-算命先生.ink（铜板）、approved.json 登记 6 份；js/qihe-representatives.js；xiaojianghu：bible/人物 六张卡、qihe-mojiao-observer-sideline.md 第十二节、faction-reputation.md
+- 更新记录：[2026-10-28-review23](../../xiaojianghu-legacy-prologue/docs/updates/2026-10-28-review23.md)
+- 留给接手的人：“他追上来”短版要等邻村有渡口再接
+
+### 2026-10-28 · 隐藏奇遇 H1 北坡石洞、H2 老更夫、H3 帮众挑衅、H7 全村平安符接进游戏
+- 工作区：两边（代码、剧本、素材在 xiaojianghu-legacy-prologue；设计稿第 8 节、回扣登记表在 xiaojianghu）
+- 谁：Claude Code（栖河整改评审）
+- 状态：本地完成，剧本四份与新图两张待用户评审；未发布、未提交
+- 范围：js/qihe-hidden.js（新）、story/01-开始/奇遇-*.ink（新四份）、js/story-data/qh_hid_*.js（生成）、js/qihe-fire-cinematic.js、js/qihe-acc-fx.js、index.html、art_sources/qihe-hidden-cave-20261028/（新）、assets/production/shared/cg_qh_north_cave_20261028.webp、assets/production/maps/hidden-cave-20261028/、素材三处登记、tools_scene/qihe/verify_hidden.cjs（新）；xiaojianghu：qihe-hidden-rewards.md 第 8 节、registry/story-hooks.json、bible/人物/村口老人.md
+- 更新记录：[2026-10-28-hidden](../../xiaojianghu-legacy-prologue/docs/updates/2026-10-28-hidden.md)
+- 留给接手的人：《守更吐纳》已被《南窗心法》替换（见上一条）；叶蘅事后两句、行记线索、回访点、图标没做
+
+### 2026-10-28 · 功能类佩饰、行诊药囊与走镖手札接上效果；改动清单条目移出格式样例
+- 工作区：两边（代码在 xiaojianghu-legacy-prologue；xiaojianghu 只改本页）
+- 谁：Claude Code（栖河整改评审）
+- 状态：本地完成；未发布、未提交
+- 范围：js/qihe-acc-fx.js（新）、js/qihe-steal-data.js、js/qihe-npc-items.js、js/battle.js、js/bui.js、js/menu.js、js/shared-insight-pool.js、js/qihe-town.js、js/bfx.js、js/qihe-characters.js、index.html、tests/qihe-acc-fx.test.cjs（新）；本页之前有 6 条误写在“条目格式”样例代码块里，已移到条目区
+- 更新记录：[2026-10-28-acc-fx](../../xiaojianghu-legacy-prologue/docs/updates/2026-10-28-acc-fx.md)
+- 留给接手的人：《寒魄符》参悟在开始部分没有入口；10-28 补：实战验证、行诊药囊（医具兵器）已做
+
+### 2026-10-27 · 补做漏掉的模块卡意见（送礼不限次数、蔺管事重设计）＋叶蘅跑步上评审台
+- 工作区：两边
+- 谁：Claude Code（栖河整改评审）
+- 状态：本地完成，待用户评审（评审台第二十四轮第 4、6 题）；未发布、未提交
+- 范围：js/qihe-gift.js、js/qihe-gift-ui.js、js/qihe-npc-core.js、index.html、tests/qihe-gift-no-slot-limit.test.cjs（新）、art_sources/qihe-lin-redesign-20261027/（新）；xiaojianghu：rules.json（R-画风-05）、art-pipeline.md、review-desk.md、tools_docs/check_review_batch.py、npc-gifts-and-inventory.md、npc-interaction-v2.md
+- 更新记录：[2026-10-27-rectify-missed-notes](../../xiaojianghu-legacy-prologue/docs/updates/2026-10-27-rectify-missed-notes.md)
+- 留给接手的人：蔺管事新脸定了再改人物卡长相、补表情与地图小人、重画结局 3 CG
+
+### 2026-10-28 · 叶蘅重设计地图形象＋叶蘅、主角的 Wan 走路／站立／闲置小动作
+- 工作区：xiaojianghu-legacy-prologue
+- 谁：Claude Code（叶蘅动作）
+- 状态：本地完成，待用户看；未提交、未发布
+- 范围：art_sources/ye-motion-video-20261028/、7 张新动作素材与登记（10-27 补叶蘅跑步 s_qh_ye_run_20261028）、js/core.js（ART.fidget）、js/scene.js（站久了播小动作）、js/qihe-ye-motion-art.js（新）、index.html
+- 更新记录：[2026-10-28-ye-motion](../../xiaojianghu-legacy-prologue/docs/updates/2026-10-28-ye-motion.md)
+- 留给接手的人：其他人物要加闲置小动作，照 js/qihe-ye-motion-art.js 写 ART.fidget 即可
+
+### 2026-10-27 · 第二轮评审意见整改（偷窃、商店、图标、粮仓、查看页、CG、隐藏奇遇）
+- 工作区：两边
+- 谁：Claude Code（栖河整改评审，接手会话）
+- 状态：已并入下一条“评审台第二轮整改”（用户同时开了两个会话做同一批，由那条继续）；本会话写的商店交易面板被沿用，其余重复素材已由那条撤掉
+- 范围：同下一条
+- 更新记录：[2026-10-27-rectify-round2](../../xiaojianghu-legacy-prologue/docs/updates/2026-10-27-rectify-round2.md)
+- 留给接手的人：无，以下一条为准
+
+### 2026-10-27 · 评审台第二轮整改
+- 工作区：两边（实现在 xiaojianghu-legacy-prologue；偷窃、赠礼、交互、隐藏奇遇设计稿在 xiaojianghu）
+- 谁：Claude Code（栖河整改评审）
+- 状态：本地完成，待用户评审（评审台第二十四轮 5 题）；未发布、未提交
+- 范围：偷窃 5% 下限与戒心、武侠部件；删 19 件无用任务物品；商店交易面板（沿用另一会话所写）；像素版图标；粮仓预览；查看页紧凑版式；结局 3 CG 正式图；隐藏奇遇设计第 7 节
+- 更新记录：[2026-10-27-rectify-round2](../../xiaojianghu-legacy-prologue/docs/updates/2026-10-27-rectify-round2.md)
+- 留给接手的人：用户同时开过两个会话做同一批整改，已停；js/scene.js 的“站久了的小动作”有一行被注释吞掉，属叶蘅动作视频那条线
+
+### 2026-10-27 · 按模块整改：其余十个模块
+- 工作区：两边（实现在 xiaojianghu-legacy-prologue；设计稿、检查脚本在 xiaojianghu）
+- 谁：Claude Code（栖河整改评审）
+- 状态：本地完成，待用户评审（评审台第二十三轮 8 题）；未发布、未提交
+- 范围：能偷谁与好感底线、吉兆删除、关系页纸签与头顶小签、查看页无立绘方案与门派一栏、采集物手绘图标、9 张交互地点战斗背景、货币“两”与物品改名、宋先生偷窃 1%、结局 3 CG 草图、新人物收礼台词（新剧本）、门人拒绝台词（新剧本）
+- 更新记录：[2026-10-27-rectify-all-modules](../../xiaojianghu-legacy-prologue/docs/updates/2026-10-27-rectify-all-modules.md)
+- 留给接手的人：查看页两方案开关 QIHE_NPC_DATA.INSPECT_STYLE，用户选定后删另一种；补充剧本《人物-收礼与易物-补》与《人物-门派不睦》未批准
+
+### 2026-10-27 · 按模块整改：偷窃小游戏、新素材融入场景
+- 工作区：两边（实现在 xiaojianghu-legacy-prologue；偷窃设计稿、评审流程文档、检查脚本在 xiaojianghu）
+- 谁：Claude Code（栖河整改评审）
+- 状态：本地完成，待用户评审；未发布、未提交
+- 范围：js/qihe-steal*.js、qihe-steal-ui.css、js/qihe-town.js、8 件道具压色版与素材登记、tools_scene/qihe/shot_steal.cjs、shot_spots.cjs、npc-steal.md、review-desk.md、check_review_batch.py
+- 更新记录：[2026-10-27-rectify-steal-props](../../xiaojianghu-legacy-prologue/docs/updates/2026-10-27-rectify-steal-props.md)
+- 留给接手的人：其余 9 个模块未动；宋先生成功率实机 9%、设计稿 1%，待查
+
+### 2026-10-27 · 评审前自查流程与本轮评审合并
+- 工作区：xiaojianghu
+- 谁：Claude Code（栖河整改评审）
+- 状态：本地完成；未提交
+- 范围：新规则 R-评审-01、docs/review-desk.md、tools_docs/check_review_batch.py、导入引导与 CLAUDE.md 入口；评审台写入 12 个合并模块
+- 更新记录：[2026-10-27-review-selfcheck](updates/2026-10-27-review-selfcheck.md)
+- 留给接手的人：发评审前必须跑 check_review_batch.py；各模块整改未开始
+
+### 2026-10-27 · 试玩反馈整改：Esc、旧精灵、站位、查看页立绘、物品体系与易物买卖分开、偷窃小游戏与保底、素材、多路自我评审
+- 工作区：xiaojianghu-legacy-prologue（代码、素材）；xiaojianghu（设计稿）
+- 谁：Claude Code（整改清单接手会话）＋会话内子代理 A～F
+- 状态：本地完成，待用户评审（评审台第十九轮补 4 题、第二十一轮试玩整改 10 题、第二十二轮拍板 14 题）；未发布、未提交
+- 范围：用户 2026-10-27 试玩反馈 10 条（墨印菜单 Esc、老人门口、查看页无立绘、圆簸箕、船家站位、粮仓太抽象、客栈旧精灵、以物易物与买卖分开并重设计 NPC 随身物品、偷窃小游戏简陋卡住要保底、多 agent 自我评审）
+- 文件分工：子代理 A 偷窃小游戏（`js/qihe-steal-ui.js/.css`、`js/qihe-steal.js`）；B 物品体系（设计稿 `npc-gifts-and-inventory.md`、`js/qihe-npc-data.js`、`js/qihe-gift*.js`、`js/qihe-steal-data.js` 的物品难度）；C 查看页立绘（`js/qihe-npc-ui.js/.css`、新立绘素材）；D 素材（`art_sources/`、`assets/production/maps/`、三处登记）；E、F 只读评审；主会话其余文件（`js/qihe-aqi.js`、`js/qihe-town.js`、`js/qihe-lamp-watcher.js`、`js/qihe-chapter.js`、`index.html`、`story/`）
+- 更新记录：[2026-10-27-dev](../../xiaojianghu-legacy-prologue/docs/updates/2026-10-27-dev.md) 第四节；复查报告在 `docs/updates/evidence/2026-10-27-dev/review-visual/`、`review-flow/`
+
+### 2026-10-27 · 开发：蔺管事支线、偷窃与小耗子、地图可交互物上图、门派关系页
+- 工作区：xiaojianghu-legacy-prologue（运行代码、地图）；xiaojianghu（设计稿注记）
+- 谁：Claude Code（整改清单接手会话）
+- 状态：本地完成，待用户统一评审（评审台第十九轮剧情 8 份、第二十轮系统与界面 24 条）；已发布（用户「上线吧，我边玩边评审」）：main https://25a0e522.luotuo-36x.pages.dev 、qihe https://qihe.luotuo-36x.pages.dev ，curl 核对一致；未提交
+- 范围：用户 2026-10-27：「完成所有的开发先吧，把遇到的问题先 mark，然后完成之后我再统一评审」。新 `js/qihe-lamp-watcher.js`、`js/qihe-town.js`、`js/qihe-aqi.js`、`js/qihe-steal*.js`、`js/qihe-jianghu-data.js`、`js/qihe-jianghu-rep*.js`；改 `js/qihe-chapter.js`、`js/qihe-representatives.js`、`js/qihe-npc-core.js`、`js/qihe-npc-data.js`、`js/qihe-gift.js`、`js/qihe-journal.js`、`js/qihe-jianghu-ui.js`、`js/qihe-resources.js`、`index.html`；新剧本 8 份（未批）；新道具七件 `assets/production/maps/town-props-20261027/`（三处登记，候选待评审）；新测试 `verify_lamp`、`verify_town`、`verify_aqi`、`verify_steal_real` 与偷窃、关系表驱动测试
+- 更新记录：[2026-10-27-dev](../../xiaojianghu-legacy-prologue/docs/updates/2026-10-27-dev.md)
+- 留给接手的人：本条分三路同时改，文件分工——偷窃子任务（路由器 steal-20261027）：新 `js/qihe-steal*.js`，可改 `js/qihe-npc-core.js`、`js/qihe-npc-ui.js`、`js/qihe-npc-data.js`、`index.html`；关系页子任务（路由器 faction-20261027）：新 `js/qihe-jianghu-rep*.js`、`js/qihe-jianghu-data.js`，可改 `js/qihe-jianghu-ui.js/.css`；主会话：`js/qihe-chapter.js`、`js/qihe-representatives.js`、`js/qihe-expansion*.js`、`js/qihe-map-*.js`、新 `js/qihe-lamp-watcher.js`、`story/`。三路以外的人先别动这些文件
+
 ### 2026-10-27 · 第十八轮剧本 25 场由 Claude 代审代批
 - 工作区：xiaojianghu-legacy-prologue（剧本、构建）
 - 谁：Claude Code（整改清单接手会话）

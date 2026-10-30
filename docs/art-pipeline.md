@@ -26,6 +26,15 @@ Model: gpt-image-2.5（使用 gpt-image-2.5 生图模型）
 - FlatRouter 脚本按 `PARAMS` 选模型，下文默认 `gpt-image-2.5-sunburst` 与此一致；提示词同样要带这一行。
 - 内置生图不可用时，报告原因，不要自动改用需要 `OPENAI_API_KEY` 的付费 API（`$imagegen` 的 `scripts/image_gen.py`）。
 
+### 生成账本（2026-10-30）
+
+`tools_common/imggen.py` 和 `xiaojianghu-legacy-prologue/art_sources` 下的 3 份视频脚本（`hero-motion-video-20261021`、`censhuang-motion-video-20261021`、`ye-motion-video-20261028`）每次调用都记入 `tools_common/gen-ledger.jsonl`，失败和中途中断的也记。记的是提示词全文、参考图和产物的路径与 sha256、请求的模型和参数、任务号、接口返回的用量；不记密钥，链接去掉查询串。
+
+- 查询：`python3 tools_common/genledger.py`（汇总）、`--day 日期`、`--last N`、`--find 哈希前缀`（反查某个文件是哪次调用出的）。
+- 费用没有换算，账上只有接口返回的用量。`model_requested` 只是请求的模型（R-生图-02）。
+- 视频记的产物是任务结果 JSON，不是后来下载的 mp4；要追 mp4 用 `name` 或 `task_id`。
+- 没有入账的路径：直接调 `flatimg.py` 的脚本（`tools_por/gen_por.py`、`tools_fx/`、`tools_scene/` 下几份）和直接跑 `codex exec`。新的视频批次复制脚本时要带上账本那几行。
+
 ### 生图源登记与切换（2026-10-17 用户确定）
 
 - 生图源登记在 `tools_common/imgsources.json`：`current` 是当前默认源，旧源一律保留不删。用户说切到哪个源就改 `current`（`python3 tools_common/imggen.py --use <源id>`）；用户加了新源，就登记一条并设为当前源。
@@ -50,10 +59,35 @@ NO opaque white islands, NO matte halo, NO ground shadow.
 
 构图另写完整头顶、发梢、手、袖子与必要道具都在画布内，左右留安全边距。透明输出不得用白色阈值抠图替代；原生alpha保留到最终PNG/lossless WebP，仅允许按实际alpha边界裁切和统一缩放。检查须包含文件模式与alpha范围、深浅彩色叠底、发丝空隙、眼白/浅衣未被抠穿及完整轮廓；只有alpha通道不算验收完成。
 
+### 新人物比对（2026-10-27 用户要求）
+
+规则见 R-画风-05。起因：栖河的中年男子立绘几乎同一张脸（俊朗瘦长脸、八字胡加山羊须、灰黑长发），蔺管事出图时拿宋先生立绘当参考，脸被带了过来，用户看出“和周砚好像”。
+
+出图前：
+
+1. 列相近人物：同性别，年龄差 15 岁以内或同类身份（掌门、管事、先生、村民……）的已采用立绘，从 `xiaojianghu-legacy-prologue/assets/production/portraits/` 取，拼一张并排图先看。
+2. 填辨识表（写进该批次 README）：
+
+   | 项目 | 新人物 | 相近人物甲 | 相近人物乙 |
+   |---|---|---|---|
+   | 脸型 | | | |
+   | 发型与头饰 | | | |
+   | 胡须 | | | |
+   | 年龄感 | | | |
+   | 体型 | | | |
+   | 外轮廓（剪影） | | | |
+   | 主色 | | | |
+   | 标志物 | | | |
+
+   和每个相近人物至少三项明显不同，“明显”指缩成地图头像大小也认得出。
+3. 写提示词：把这三项以上写成“一定要”，再写一句现有人物的共性（例如“其他中年男子几乎都是八字胡加山羊须、俊朗瘦长脸”），要求避开。
+4. 参考图只取画风：用异性或年龄差很大的已采用立绘当画风参考，不用相近人物的立绘。
+5. 交评审：附新人物和相近人物的全身并排图与头部特写图（例：`xiaojianghu-legacy-prologue/art_sources/qihe-lin-redesign-20261027/review/`）。
+
 ### 精灵与道具后期（2026-10-16 用户确定）
 
 1. **角色行走/战斗精灵：整张采用 Codex 重画结果。** 现行产图路径不支持“只修轮廓、其余保留原帧”，`character-pixel-fix-20261007/merge.py` 那种保守替换路线停用。后期必须做：锁定原表调色板（不锁会混入原表没有的颜色）、按原帧位置拼表、透明度二值、无杂点与底色残边；并检查每帧头顶行与脚底行和原表一致（引擎按可见包围盒缩放，头脚行一变人物大小就变）、轮廓与原帧重合度过低的帧标出人工复核。
-2. **道具与菜单图标：统一采用 forge 像素后期风格**——缩到目标原生尺寸、OKLab 调色板、选择性 1px 深色描边、轻度对比与饱和提亮、透明度二值，再按整数倍放大。实测适用于原生高度约 12 像素以上的物件；10 像素及以下或细长物件（账册 9×10、绳子 12×5）会丢结构或断开，加描边的 5 像素绳子会被整件当碎屑清掉——这类物件脚本会报错或须人工逐件核对，必要时加大原生尺寸，不得直接登记。
+2. **地图道具：统一采用 forge 像素后期风格**（物品图标 2026-10-30 起改手绘，不走这条，见 R-画风-02 和 `xiaojianghu-legacy-prologue/art_sources/item-icons-20261030/README.md`）——缩到目标原生尺寸、OKLab 调色板、选择性 1px 深色描边、轻度对比与饱和提亮、透明度二值，再按整数倍放大。实测适用于原生高度约 12 像素以上的物件；10 像素及以下或细长物件（账册 9×10、绳子 12×5）会丢结构或断开，加描边的 5 像素绳子会被整件当碎屑清掉——这类物件脚本会报错或须人工逐件核对，必要时加大原生尺寸，不得直接登记。
 3. 工具：栖河工作区 `tools_assets/sprite_finish.py`（角色）与 `tools_assets/prop_finish.py`（道具），底层为 MIT 许可的 [agent-sprite-forge](https://github.com/0x0funky/agent-sprite-forge)，锁定版本副本放在 `tools_assets/vendor/agent_sprite_forge/`。输入优先用上节的原生透明 PNG；旧的纯色底原图也可处理（指定底色）。forge 的网格缩回只认整数放大倍数，非整数倍（如 10.5）的道具原图走像素后期，不走网格缩回。
 4. 两个脚本只写入批次目录（`art_sources/<批次>/`），不改正式素材；采用仍按正式登记流程人工核对后登记。对比依据：[2026-10-16 后期工具对比与采用](../../xiaojianghu-legacy-prologue/docs/updates/2026-10-16-sprite-prop-finish.md)。
 

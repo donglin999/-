@@ -1,0 +1,559 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>栖河整改评审台</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@500;700&family=Noto+Sans+SC:wght@400;500;700&display=swap">
+<style>
+/* 布局：左侧轮次与题目目录（窄屏收到顶部），右侧逐题卡片：参考素材 → 选项 → 意见 → 整改；页底问题记录簿 */
+:root{
+  --paper:#e9ebe4;      /* 偏青的宣纸底 */
+  --sheet:#f7f8f3;      /* 卡片纸面 */
+  --ink:#22262a;        /* 墨 */
+  --ink-2:#5b6266;      /* 淡墨 */
+  --rule:#c9cdc3;       /* 界栏 */
+  --seal:#a8332a;       /* 朱砂 */
+  --seal-soft:#f3dcd6;
+  --jade:#2f6f63;       /* 已整改 */
+  --jade-soft:#d9ebe5;
+  --gold:#8a6a2c;       /* 建议 */
+  --font-display:"Noto Serif SC","Songti SC","STSong",serif;
+  --font-body:"Noto Sans SC","PingFang SC","Microsoft YaHei",system-ui,sans-serif;
+  --font-mono:ui-monospace,"SF Mono",Menlo,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#16191b;--sheet:#1f2326;--ink:#e6e8e3;--ink-2:#a3aaa6;--rule:#383e41;
+  --seal:#e0685c;--seal-soft:#3a2321;--jade:#7cc4b2;--jade-soft:#1d332e;--gold:#d2ad66;color-scheme:dark}}
+:root[data-theme="dark"]{--paper:#16191b;--sheet:#1f2326;--ink:#e6e8e3;--ink-2:#a3aaa6;--rule:#383e41;
+  --seal:#e0685c;--seal-soft:#3a2321;--jade:#7cc4b2;--jade-soft:#1d332e;--gold:#d2ad66;color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:var(--font-body);font-size:15px;line-height:1.65;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:20px 60px}
+h1,h2,h3{font-family:var(--font-display);text-wrap:balance;margin:0;font-weight:700}
+.wrap{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:230px minmax(0,1fr);gap:28px}
+header.top{max-width:1180px;margin:0 auto 18px;display:flex;flex-wrap:wrap;align-items:flex-end;gap:12px 20px;justify-content:space-between}
+header.top h1{font-size:28px;letter-spacing:.12em;display:flex;align-items:center;gap:12px}
+.seal{display:inline-grid;place-items:center;width:38px;height:38px;background:var(--seal);color:var(--sheet);font-family:var(--font-display);font-size:20px;border-radius:4px;transform:rotate(-4deg)}
+.status{font-size:13px;color:var(--ink-2)}
+.status b{color:var(--ink);font-variant-numeric:tabular-nums}
+nav.toc{position:sticky;top:calc(env(safe-area-inset-top,0px) + 16px);align-self:start;display:grid;gap:14px;max-height:calc(100vh - 40px);overflow:auto}
+.toc h3{font-size:13px;letter-spacing:.2em;color:var(--ink-2);font-family:var(--font-body);font-weight:500}
+.toc ol{list-style:none;margin:6px 0 0;padding:0;display:grid;gap:2px}
+.toc a{display:flex;gap:8px;align-items:baseline;padding:4px 6px;border-radius:4px;color:var(--ink);text-decoration:none;font-size:14px}
+.toc a:hover,.toc a:focus-visible{background:var(--sheet);outline:none}
+.toc .num{font-variant-numeric:tabular-nums;color:var(--ink-2);min-width:1.6em}
+.toc .dot{width:8px;height:8px;border-radius:50%;border:1.5px solid var(--rule);flex:none;align-self:center}
+.toc .dot.answered{background:var(--gold);border-color:var(--gold)}
+.toc .dot.fixed{background:var(--jade);border-color:var(--jade)}
+main{min-width:0;display:grid;gap:22px}
+.round-h{display:flex;align-items:baseline;gap:12px;border-bottom:1px solid var(--rule);padding-bottom:6px;margin-top:6px}
+.round-h h2{font-size:21px;letter-spacing:.08em}
+.round-h span{color:var(--ink-2);font-size:13px}
+.group-h{font-size:13px;letter-spacing:.2em;color:var(--ink-2);margin-top:4px}
+article.q{background:var(--sheet);border:1px solid var(--rule);border-radius:6px;padding:20px 22px;display:grid;gap:14px;min-width:0;scroll-margin-top:20px}
+.q-head{display:flex;gap:14px;align-items:flex-start}
+.q-no{font-family:var(--font-display);font-size:26px;line-height:1;color:var(--seal);min-width:1.4em;font-variant-numeric:tabular-nums}
+.q-head h3{font-size:18px;line-height:1.4}
+.q-body{color:var(--ink);max-width:68ch;white-space:pre-wrap}
+.refs{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:10px}
+.ref{margin:0;display:grid;gap:4px;min-width:0}
+.ref button{padding:0;border:1px solid var(--rule);border-radius:4px;background:var(--paper);cursor:zoom-in;overflow:hidden;aspect-ratio:16/10;max-width:100%}
+.ref img{width:100%;height:100%;object-fit:cover;display:block}
+.ref figcaption{font-size:12.5px;color:var(--ink-2)}
+.ref-text{grid-column:1/-1;max-height:560px;overflow:auto;line-height:1.75;background:var(--paper);border-left:3px solid var(--rule);padding:8px 12px;font-size:13.5px;color:var(--ink-2);white-space:pre-wrap}
+.opts{display:grid;gap:8px}
+.opt{display:flex;gap:10px;align-items:flex-start;text-align:left;width:100%;padding:10px 12px;border:1px solid var(--rule);border-radius:5px;background:transparent;color:var(--ink);font:inherit;cursor:pointer}
+.opt:hover{border-color:var(--ink-2)}
+.opt:focus-visible{outline:2px solid var(--seal);outline-offset:2px}
+.opt .mark{flex:none;width:22px;height:22px;border:1.5px solid var(--ink-2);border-radius:3px;display:grid;place-items:center;font-family:var(--font-display);font-size:13px;margin-top:1px}
+.opt[aria-pressed="true"]{border-color:var(--seal);background:var(--seal-soft)}
+.opt[aria-pressed="true"] .mark{background:var(--seal);border-color:var(--seal);color:var(--sheet)}
+.opt .lab{font-weight:600}
+.opt .rec{font-size:12px;color:var(--gold);border:1px solid var(--gold);border-radius:3px;padding:0 5px;margin-left:6px;white-space:nowrap}
+.opt .det{display:block;color:var(--ink-2);font-size:13.5px;margin-top:2px}
+label.note{display:grid;gap:4px;font-size:13px;color:var(--ink-2)}
+textarea{width:100%;min-height:72px;resize:vertical;font:inherit;color:var(--ink);background:var(--paper);border:1px solid var(--rule);border-radius:5px;padding:8px 10px}
+textarea:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid var(--seal);outline-offset:1px}
+.row{display:flex;flex-wrap:wrap;align-items:center;gap:10px}
+.btn{font:inherit;font-size:14px;padding:6px 14px;border-radius:5px;border:1px solid var(--ink);background:var(--ink);color:var(--sheet);cursor:pointer}
+.btn.ghost{background:transparent;color:var(--ink)}
+.btn:disabled{opacity:.45;cursor:default}
+.saved{font-size:12.5px;color:var(--ink-2)}
+.fix{border-top:1px dashed var(--rule);padding-top:12px;display:grid;gap:8px}
+.fix .tag{display:inline-block;font-size:12px;letter-spacing:.1em;padding:1px 8px;border-radius:3px;background:var(--jade-soft);color:var(--jade);font-weight:600}
+.fix .tag.wait{background:var(--paper);color:var(--ink-2)}
+.fix p{margin:0;white-space:pre-wrap;max-width:68ch}
+section.issues{background:var(--sheet);border:1px solid var(--rule);border-radius:6px;padding:20px 22px;display:grid;gap:14px}
+section.issues h2{font-size:21px;letter-spacing:.08em;display:flex;align-items:center;gap:10px}
+.issue-form{display:grid;gap:8px}
+.issue-form .row select,.issue-form .row input[type=file]{font:inherit;font-size:13.5px;color:var(--ink);max-width:100%}
+.issue-form select{background:var(--paper);border:1px solid var(--rule);border-radius:5px;padding:4px 8px}
+.issue-list{display:grid;gap:10px}
+.issue{border:1px solid var(--rule);border-radius:5px;padding:12px 14px;display:grid;gap:8px;min-width:0}
+.issue .meta{font-size:12.5px;color:var(--ink-2);display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.issue .meta .st{padding:0 7px;border-radius:3px;font-weight:600}
+.st.open{background:var(--seal-soft);color:var(--seal)}
+.st.fixed{background:var(--jade-soft);color:var(--jade)}
+.issue p{margin:0;white-space:pre-wrap}
+.thumbs{display:flex;flex-wrap:wrap;gap:6px}
+.thumbs button{padding:0;border:1px solid var(--rule);border-radius:3px;width:96px;height:64px;overflow:hidden;cursor:zoom-in;background:var(--paper)}
+.thumbs img{width:100%;height:100%;object-fit:cover;display:block}
+.thumb{position:relative;display:inline-block;width:96px;height:64px}
+.thumb>img{border:1px solid var(--rule);border-radius:3px}
+.thumb>button:first-child{width:100%;height:100%}
+.thumb .x{position:absolute;top:-7px;right:-7px;width:20px;height:20px;border-radius:50%;border:none;background:var(--seal);color:var(--sheet);font-size:13px;line-height:20px;padding:0;cursor:pointer}
+.drop.over textarea{border-color:var(--seal);background:var(--seal-soft)}
+.toc .dot.redo{background:var(--seal);border-color:var(--seal)}
+.chip{font-size:12.5px;padding:2px 9px;border:1px solid var(--rule);border-radius:999px;color:var(--ink);text-decoration:none;background:var(--paper)}
+.chip:hover,.chip:focus-visible{border-color:var(--seal);outline:none}
+.warn{color:var(--seal);font-size:14px}
+.tabs{display:flex;gap:6px;width:100%}
+.tab{font:inherit;font-size:14px;padding:6px 16px;border:1px solid var(--rule);border-radius:999px;background:transparent;color:var(--ink);cursor:pointer}
+.tab[aria-pressed="true"]{background:var(--ink);color:var(--sheet);border-color:var(--ink)}
+.tab b{font-variant-numeric:tabular-nums}
+.kinds{display:flex;flex-wrap:wrap;gap:6px;width:100%;align-items:center}
+.kinds .lbl{font-size:13px;color:var(--ink-2);margin-right:2px}
+.kind{font:inherit;font-size:13.5px;padding:3px 12px;border:1px solid var(--rule);border-radius:4px;background:transparent;color:var(--ink);cursor:pointer}
+.kind[aria-pressed="true"]{background:var(--seal);border-color:var(--seal);color:var(--sheet)}
+.kind b{font-variant-numeric:tabular-nums;font-weight:500;opacity:.8}
+.ktag{font-size:12px;padding:0 6px;border:1px solid var(--rule);border-radius:3px;color:var(--ink-2);margin-left:8px;white-space:nowrap;font-family:var(--font-body);font-weight:400;vertical-align:2px}
+details.chain{border-top:1px dashed var(--rule);padding-top:8px}
+details.chain>summary{cursor:pointer;font-size:13.5px;color:var(--ink-2)}
+details.arch{background:var(--sheet);border:1px solid var(--rule);border-radius:6px;padding:12px 16px}
+details.arch>summary{color:var(--ink);font-size:15px}
+ol.tl{list-style:none;margin:10px 0 0;padding:0 0 0 14px;border-left:2px solid var(--rule);display:grid;gap:10px}
+ol.tl li{position:relative;display:grid;gap:4px}
+ol.tl li::before{content:"";position:absolute;left:-20px;top:6px;width:10px;height:10px;border-radius:50%;background:var(--sheet);border:2px solid var(--ink-2)}
+ol.tl li.u::before{border-color:var(--seal);background:var(--seal-soft)}
+ol.tl li.c::before{border-color:var(--jade);background:var(--jade-soft)}
+.tl-h{display:flex;gap:10px;flex-wrap:wrap;font-size:13px;color:var(--ink-2)}
+.tl-h b{color:var(--ink);font-weight:600}
+ol.tl p{margin:0;white-space:pre-wrap;font-size:14px;max-width:68ch}
+.fb{display:grid;gap:8px;margin-top:4px}
+.fb-form{display:grid;gap:8px}
+.rv{font-size:13.5px;display:grid;gap:6px;padding:6px 10px;border-radius:4px;background:var(--paper)}
+.rv .st{justify-self:start;padding:0 7px;border-radius:3px;font-weight:600;font-size:12.5px}
+details.old{border:1px dashed var(--rule);border-radius:4px;padding:6px 10px;display:grid;gap:6px;color:var(--ink-2)}
+details.old summary{cursor:pointer;font-size:13px}
+.empty{color:var(--ink-2);font-size:14px}
+dialog.lb{border:none;padding:0;background:transparent;max-width:min(96vw,1600px);max-height:94vh}
+dialog.lb::backdrop{background:rgba(10,12,13,.82)}
+dialog.lb img{max-width:min(96vw,1600px);max-height:88vh;display:block;border-radius:4px}
+dialog.lb p{color:#e6e8e3;font-size:13px;margin:6px 2px 0}
+.offline{background:var(--seal-soft);color:var(--seal);padding:10px 14px;border-radius:5px;font-size:14px}
+@media (max-width:820px){
+  .wrap{grid-template-columns:minmax(0,1fr)}
+  nav.toc{position:static;max-height:none;grid-template-columns:repeat(auto-fit,minmax(160px,1fr))}
+}
+@media (prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}
+</style>
+
+<header class="top">
+  <h1><span class="seal" aria-hidden="true">审</span>栖河整改评审台</h1>
+  <div class="status" id="status">正在连接评审记录……</div>
+  <div class="tabs" id="tabs" role="group" aria-label="视图"></div>
+  <div class="kinds" id="kinds" role="group" aria-label="按种类看"></div>
+</header>
+
+<div class="wrap">
+  <nav class="toc" id="toc" aria-label="题目目录"><p class="empty">题目载入后列在这里。</p></nav>
+  <main id="main">
+    <p class="empty" id="loading">题目、参考图和整改记录都存在这一页的评审记录里，连上后显示。</p>
+  </main>
+</div>
+
+<dialog class="lb" id="lb"><img id="lb-img" alt=""><p id="lb-cap"></p></dialog>
+
+<script>
+(()=>{
+const $=s=>document.querySelector(s);
+const el=(t,a={},...kids)=>{const n=document.createElement(t);for(const[k,v]of Object.entries(a)){if(k==='class')n.className=v;else if(k==='text')n.textContent=v;else if(k.startsWith('on'))n.addEventListener(k.slice(2),v);else n.setAttribute(k,v)}for(const c of kids)if(c!=null)n.append(c);return n};
+const srcOf=r=>r.asset?('/_blob/'+r.asset):(r.url||'');
+let db=null,assets=null;
+const state={rounds:[],questions:[],answers:{},fixes:{},issues:[],reviews:{},modules:{}};
+const lastVerdict=(key,fixAt)=>{const xs=(state.reviews[key]?.items||[]).filter(x=>x.fixAt===fixAt);return xs[xs.length-1]?.verdict||null};
+const drafts={};          // 未保存的选择和意见
+const lb=$('#lb');
+function zoom(src,cap){$('#lb-img').src=src;$('#lb-cap').textContent=cap||'';try{lb.showModal()}catch(e){lb.setAttribute('open','')}}
+lb.addEventListener('click',()=>lb.close());
+
+function refNode(r){
+  if(r.kind==='text')return el('div',{class:'ref-text',text:(r.label?r.label+'\n':'')+(r.text||'')});
+  const src=srcOf(r);
+  const img=el('img',{src,alt:r.label||'',loading:'lazy'});
+  const b=el('button',{type:'button','aria-label':'放大：'+(r.label||'参考图'),onclick:()=>zoom(src,r.label)},img);
+  const fig=el('figure',{class:'ref'},b,el('figcaption',{text:r.label||''}));
+  // 附件其实是文字（md、txt 当成图传了上来）：画不出图就取回原文直接显示
+  img.addEventListener('error',()=>{fetch(src).then(x=>x.ok?x.text():Promise.reject()).then(t=>fig.replaceWith(refNode({kind:'text',label:r.label,text:t}))).catch(()=>{})},{once:true});
+  return fig;
+}
+
+// ── 归档与链路 ──
+// 题目：最新一版整改你点了“满意”，或我标了 closed（被并进别的模块、不用再答）→ 归档
+const archQ=q=>{if(q.closed)return true;const f=state.fixes[q.id];return !!(f?.text&&lastVerdict('q-'+q.id,f.at)==='ok')};
+const archI=i=>!!(i.fix?.text&&lastVerdict('i-'+i.id,i.fix.at||0)==='ok');
+// 模块：我写了 status done 就归档（2026-10-29 第 4 版起；current＝现在要你做的题，todo＝等我做的整改）
+const archM=m=>m.status==='done';
+const curQs=m=>(m.current||[]).map(id=>state.questions.find(q=>q.id===id)).filter(Boolean);
+// 这道当前题要你做什么：answer 要你回答／accept 要你验收整改／done 你已答或已验收
+const needOf=q=>{const f=state.fixes[q.id];if(f?.text)return lastVerdict('q-'+q.id,f.at)?'done':'accept';return state.answers[q.id]?'done':'answer'};
+const modNeedsYou=m=>curQs(m).some(q=>needOf(q)!=='done');
+// 并进未归档模块的题和意见，只在模块卡片里出现，不再单独列出
+// 挂进模块的题（归档模块也算）都只在模块里出现，不再单独列出
+const modSet=()=>{const ids=new Set();for(const m of Object.values(state.modules))for(const it of (m.items||[]))ids.add(it.id);return ids};
+const loose=q=>!archQ(q)&&!modSet().has(q.id);
+const fmt=t=>t?new Date(t).toLocaleString('zh-CN',{hour12:false,month:'numeric',day:'numeric',hour:'2-digit',minute:'2-digit'}):'';
+const optLabel=(q,k)=>(q?.options||[]).find(o=>o.key===k)?.label||k;
+function eventsQ(q){
+  const ev=[],a=state.answers[q.id],f=state.fixes[q.id];
+  if(a)ev.push({at:a.at,who:'你',kind:'答',text:[a.choice?'选：'+optLabel(q,a.choice):'',a.note||''].filter(Boolean).join(' · '),refs:a.images});
+  for(const h of (f?.history||[]))ev.push({at:h.at,who:'我',kind:'整改',text:h.text,refs:h.refs});
+  if(f?.text)ev.push({at:f.at,who:'我',kind:f.history?.length?'整改（第 '+(f.history.length+1)+' 版）':'整改',text:f.text,refs:f.refs});
+  for(const x of (state.reviews['q-'+q.id]?.items||[]))ev.push({at:x.at,who:'你',kind:x.verdict==='ok'?'确认满意':'要求继续改',text:x.note||'',refs:x.images,ok:x.verdict==='ok'});
+  if(q.closed)ev.push({at:q.closedAt,who:'我',kind:'收起',text:q.closed});
+  return ev;
+}
+function eventsI(i){
+  const ev=[{at:i.at,who:'你',kind:'提意见',text:i.text,refs:i.refs}];
+  if(i.fix?.text)ev.push({at:i.fix.at,who:'我',kind:'整改',text:i.fix.text,refs:i.fix.refs});
+  for(const x of (state.reviews['i-'+i.id]?.items||[]))ev.push({at:x.at,who:'你',kind:x.verdict==='ok'?'确认满意':'要求继续改',text:x.note||'',refs:x.images,ok:x.verdict==='ok'});
+  return ev;
+}
+function timeline(ev){
+  const ol=el('ol',{class:'tl'});
+  for(const e of ev.sort((a,b)=>(a.at||0)-(b.at||0))){
+    const li=el('li',{class:e.who==='你'?'u':'c'},el('div',{class:'tl-h'},el('b',{text:e.who+' · '+e.kind}),el('span',{text:fmt(e.at)})),e.text?el('p',{text:e.text}):null);
+    if(e.refs?.length){const t=el('div',{class:'thumbs'});for(const r of e.refs){if(r.kind==='text')continue;const s=srcOf(r);t.append(el('button',{type:'button','aria-label':'放大附图',onclick:()=>zoom(s,r.label)},el('img',{src:s,alt:r.label||'',loading:'lazy'})))}li.append(t)}
+    ol.append(li);
+  }
+  return ol;
+}
+function moduleTimeline(m){
+  const ev=[];
+  for(const l of (m.log||[]))ev.push({at:l.at,who:l.who||'我',kind:l.kind||'合并',text:l.text});
+  if(m.userNote)ev.push({at:m.userAt,who:'你',kind:'对合并的意见',text:m.userNote});
+  for(const it of (m.items||[])){
+    const src=it.kind==='issue'?eventsI(state.issues.find(i=>i.id===it.id)||{text:'',at:0}):eventsQ(state.questions.find(q=>q.id===it.id)||{id:it.id});
+    for(const e of src)ev.push({...e,kind:'【'+itemLabel(it)+'】'+e.kind});
+  }
+  return timeline(ev);
+}
+
+function renderToc(){
+  const toc=$('#toc');toc.replaceChildren();
+  if(view==='archive'){
+    for(const rd of state.rounds){const qs=state.questions.filter(q=>q.round===rd.id&&archQ(q)&&qIn(q));if(!qs.length)continue;
+      toc.append(el('div',{},el('h3',{text:rd.title}),el('ol',{},...qs.map(q=>el('li',{},el('a',{href:'#a-'+q.id},el('span',{class:'num',text:String(q.num)}),el('span',{class:'dot fixed'}),el('span',{text:q.short||q.title})))))))}
+    return;
+  }
+  const mods=Object.entries(state.modules).map(([id,v])=>({id,...v})).filter(m=>!archM(m)&&inKind(m)).sort((a,b)=>(modNeedsYou(b)-modNeedsYou(a))||((a.order||0)-(b.order||0)));
+  if(mods.length)toc.append(el('div',{},el('h3',{text:'合并整改'}),el('ol',{},...mods.map(m=>el('li',{},el('a',{href:'#m-'+m.id},el('span',{class:'num',text:'并'}),el('span',{class:'dot'+(modNeedsYou(m)?'':' fixed')}),el('span',{text:m.title||''})))))));
+  for(const rd of state.rounds){
+    const qs=state.questions.filter(q=>q.round===rd.id&&loose(q)&&qIn(q));if(!qs.length)continue;
+    const ol=el('ol');
+    for(const q of qs){
+      const f=state.fixes[q.id],ans=state.answers[q.id],v=f?.text?lastVerdict('q-'+q.id,f.at):null;
+      const cls=v==='redo'?' redo':f?.text?' fixed':ans?' answered':'';
+      ol.append(el('li',{},el('a',{href:'#'+q.id},el('span',{class:'num',text:String(q.num)}),el('span',{class:'dot'+cls}),el('span',{text:q.short||q.title}))));
+    }
+    toc.append(el('div',{},el('h3',{text:rd.title}),ol));
+  }
+  toc.append(el('div',{},el('h3',{text:'问题记录'}),el('ol',{},el('li',{},el('a',{href:'#issues'},el('span',{class:'num',text:'·'}),el('span',{text:'我提的意见与整改（'+state.issues.filter(i=>!archI(i)).length+'）'}))))));
+}
+
+function renderQ(q){
+  const saved=state.answers[q.id]||{};
+  const d=drafts[q.id]||(drafts[q.id]={choice:saved.choice??null,note:saved.note??''});
+  const art=el('article',{class:'q',id:q.id});
+  art.append(el('div',{class:'q-head'},el('div',{class:'q-no',text:String(q.num)}),el('h3',{},q.title,q.kind?el('span',{class:'ktag',text:q.kind}):null)));
+  if(q.body)art.append(el('div',{class:'q-body',text:q.body}));
+  if(q.refs?.length){const g=el('div',{class:'refs'});for(const r of q.refs)g.append(refNode(r));art.append(g)}
+  const opts=el('div',{class:'opts',role:'group','aria-label':'选项'});
+  (q.options||[]).forEach((o,i)=>{
+    const b=el('button',{type:'button',class:'opt','aria-pressed':String(d.choice===o.key),onclick:()=>{d.choice=d.choice===o.key?null:o.key;for(const x of opts.children)x.setAttribute('aria-pressed',String(x.dataset.k===d.choice));sync()}},
+      el('span',{class:'mark',text:['甲','乙','丙','丁','戊'][i]||'·'}),
+      el('span',{},el('span',{class:'lab',text:o.label}),o.recommended?el('span',{class:'rec',text:'建议'}):null,o.detail?el('span',{class:'det',text:o.detail}):null));
+    b.dataset.k=o.key;opts.append(b);
+  });
+  if(q.options?.length)art.append(opts);
+  if(!d.images)d.images=[...(saved.images||[])];
+  const ta=el('textarea',{id:'note-'+q.id,placeholder:'哪里不行、要怎么改，写在这里；截图可以直接粘贴（Ctrl/⌘+V）或拖进来'});ta.value=d.note;
+  ta.addEventListener('input',()=>{d.note=ta.value;sync()});
+  const thumbs=el('div',{class:'thumbs'});
+  const fileIn=el('input',{type:'file',accept:'image/*',multiple:'',id:'file-'+q.id,hidden:''});
+  const pick=el('button',{type:'button',class:'btn ghost',text:'附截图',onclick:()=>fileIn.click()});
+  const drawThumbs=()=>{thumbs.replaceChildren(...d.images.map((r,i)=>{const s=srcOf(r);return el('span',{class:'thumb'},el('button',{type:'button','aria-label':'放大附图',onclick:()=>zoom(s,r.label)},el('img',{src:s,alt:r.label||''})),el('button',{type:'button',class:'x','aria-label':'去掉这张',text:'×',onclick:()=>{d.images.splice(i,1);drawThumbs();sync()}}))}))};
+  const box=el('label',{class:'note drop',for:'note-'+q.id},'意见与截图（可空）',ta,thumbs);
+  let addFiles=async function(files){
+    files=[...files].filter(f=>f.type.startsWith('image/'));if(!files.length)return;
+    if(!assets){info.textContent='这个页面现在不能收图：请用编辑者身份在 claude.ai 打开';return}
+    info.textContent='上传截图中……';
+    for(const f of files){try{const up=await assets.upload(f);d.images.push({asset:up.id,label:f.name||'截图'});drawThumbs()}catch(e){info.textContent='有一张没传上：'+(e?.message||e?.code||'')}}
+    sync();
+  };
+  fileIn.addEventListener('change',()=>{addFiles([...fileIn.files]);fileIn.value=''});
+  ta.addEventListener('paste',e=>{const fs=[...(e.clipboardData?.files||[])];if(fs.length){e.preventDefault();addFiles(fs)}});
+  box.addEventListener('dragover',e=>{e.preventDefault();box.classList.add('over')});
+  box.addEventListener('dragleave',()=>box.classList.remove('over'));
+  box.addEventListener('drop',e=>{e.preventDefault();box.classList.remove('over');addFiles(e.dataTransfer?.files||[])});
+  art.append(box);
+  const saveBtn=el('button',{type:'button',class:'btn',text:'保存这一题'});
+  const info=el('span',{class:'saved'});
+  const sameImgs=(a,b)=>JSON.stringify((a||[]).map(x=>x.asset))===JSON.stringify((b||[]).map(x=>x.asset));
+  function sync(){const s=state.answers[q.id]||{};const dirty=(d.choice??null)!==(s.choice??null)||(d.note||'')!==(s.note||'')||!sameImgs(d.images,s.images);saveBtn.disabled=!db||!dirty;if(!/上传/.test(info.textContent)||!dirty)info.textContent=dirty?'有改动未保存':(s.at?'已保存 '+new Date(s.at).toLocaleString('zh-CN',{hour12:false}):'')}
+  let saving=false;
+  async function saveNow(){
+    if(!db||saving)return;const s=state.answers[q.id]||{};
+    if((d.choice??null)===(s.choice??null)&&(d.note||'')===(s.note||'')&&sameImgs(d.images,s.images))return;
+    saving=true;saveBtn.disabled=true;info.textContent='自动保存中……';
+    try{await db.collection('answers').doc(q.id).set({choice:d.choice??null,note:d.note||'',images:d.images,at:Date.now()});info.textContent='已自动保存'}
+    catch(e){info.textContent='没保存上：'+(e?.message||e?.code||'请点“保存这一题”重试');saveBtn.disabled=false}
+    saving=false;
+  }
+  saveBtn.addEventListener('click',saveNow);
+  // 点选项、贴图后立刻存；写意见时停手 1.5 秒或离开输入框就存
+  opts.addEventListener('click',()=>setTimeout(saveNow,0));
+  let tmr=null;ta.addEventListener('input',()=>{clearTimeout(tmr);tmr=setTimeout(saveNow,1500)});
+  ta.addEventListener('blur',()=>{clearTimeout(tmr);saveNow()});
+  const _add=addFiles;addFiles=async f=>{await _add(f);saveNow()};
+  art.append(el('div',{class:'row'},pick,fileIn,saveBtn,info));
+  drawThumbs();
+  art.append(fixBlock(q));
+  sync();
+  return art;
+}
+
+function fixBlock(q){
+  const fx=state.fixes[q.id];
+  const fixBox=el('div',{class:'fix'});
+  if(fx?.text){
+    for(const h of (fx.history||[])){const old=el('details',{class:'old'},el('summary',{text:'上一版整改 · '+(h.at?new Date(h.at).toLocaleDateString('zh-CN'):'')}),el('p',{text:h.text||''}));if(h.refs?.length){const g=el('div',{class:'refs'});for(const r of h.refs)g.append(refNode(r));old.append(g)}const fb=(state.reviews['q-'+q.id]?.items||[]).filter(x=>x.fixAt===h.at);for(const x of fb)old.append(reviewLine(x));fixBox.append(old)}
+    fixBox.append(el('div',{},el('span',{class:'tag',text:(fx.history?.length?'整改 · 第 '+(fx.history.length+1)+' 版':'整改')})),el('p',{text:fx.text}));
+    if(fx.refs?.length){const g=el('div',{class:'refs'});for(const r of fx.refs)g.append(refNode(r));fixBox.append(g)}
+    fixBox.append(feedbackBox('q-'+q.id,fx.at));
+  }
+  else fixBox.append(el('div',{},el('span',{class:'tag wait',text:'待整改'})),el('p',{class:'empty',text:'你定了以后，改好的结果会贴在这里。'}));
+  return fixBox;
+}
+
+// 对整改的评价：满意／继续改（附意见与截图），按整改版本（fixAt）记在 reviews/<kind-id>.items
+function reviewLine(x){
+  const box=el('div',{class:'rv '+(x.verdict==='ok'?'ok':'redo')},el('span',{class:'st '+(x.verdict==='ok'?'fixed':'open'),text:x.verdict==='ok'?'你：满意':'你：继续改'}),x.note?el('span',{text:' '+x.note}):null);
+  if(x.images?.length){const t=el('div',{class:'thumbs'});for(const r of x.images){const s=srcOf(r);t.append(el('button',{type:'button','aria-label':'放大附图',onclick:()=>zoom(s,r.label)},el('img',{src:s,alt:r.label||''})))}box.append(t)}
+  return box;
+}
+const fbDrafts={};
+function feedbackBox(key,fixAt){
+  const wrap=el('div',{class:'fb'});
+  const mine=(state.reviews[key]?.items||[]).filter(x=>x.fixAt===fixAt);
+  for(const x of mine)wrap.append(reviewLine(x));
+  const last=mine[mine.length-1];
+  if(last?.verdict==='ok'){wrap.append(el('p',{class:'empty',text:'这一版你已认可。'}));return wrap}
+  const editing=last?.verdict==='redo';   // 还没出下一版整改前，最近那条“继续改”可以改写
+  const dk=key+'@'+fixAt,d=fbDrafts[dk]||(fbDrafts[dk]={note:editing?(last.note||''):'',images:editing?[...(last.images||[])]:[],open:false});
+  const form=el('div',{class:'fb-form'});form.hidden=!d.open;
+  const ta=el('textarea',{id:'fb-'+key,placeholder:'哪里还不行、要怎么改；截图可以直接粘贴（Ctrl/⌘+V）或拖进来'});ta.value=d.note;ta.addEventListener('input',()=>{d.note=ta.value});
+  const thumbs=el('div',{class:'thumbs'});
+  const draw=()=>thumbs.replaceChildren(...d.images.map((r,i)=>{const s=srcOf(r);return el('span',{class:'thumb'},el('img',{src:s,alt:''}),el('button',{type:'button',class:'x','aria-label':'去掉这张',text:'×',onclick:()=>{d.images.splice(i,1);draw()}}))}));
+  const msg=el('span',{class:'saved'});
+  async function add(files){files=[...files].filter(f=>f.type.startsWith('image/'));if(!files.length)return;if(!assets){msg.textContent='这个页面现在不能收图';return}msg.textContent='上传截图中……';for(const f of files){try{const up=await assets.upload(f);d.images.push({asset:up.id,label:f.name||'截图'});draw()}catch(e){msg.textContent='有一张没传上'}}msg.textContent=''}
+  ta.addEventListener('paste',e=>{const fs=[...(e.clipboardData?.files||[])];if(fs.length){e.preventDefault();add(fs)}});
+  ta.addEventListener('dragover',e=>e.preventDefault());ta.addEventListener('drop',e=>{e.preventDefault();add(e.dataTransfer?.files||[])});
+  const fileIn=el('input',{type:'file',accept:'image/*',multiple:'',hidden:''});fileIn.addEventListener('change',()=>{add(fileIn.files);fileIn.value=''});
+  async function save(verdict){
+    if(verdict==='redo'&&!d.note.trim()&&!d.images.length){msg.textContent='写一句哪里不行，或者贴张图';return}
+    msg.textContent='保存中……';
+    try{const ref=db.collection('reviews').doc(key);const cur=[...((await ref.get()).data()?.items||[])];
+      const item={fixAt,verdict,note:verdict==='redo'?d.note.trim():'',images:verdict==='redo'?d.images:[],at:Date.now()};
+      const li=cur.length-1;
+      if(verdict==='redo'&&li>=0&&cur[li].fixAt===fixAt&&cur[li].verdict==='redo')cur[li]={...item,first:cur[li].first||cur[li].at};else cur.push(item);
+      await ref.set({items:cur});delete fbDrafts[dk];}
+    catch(e){msg.textContent='没保存上：'+(e?.message||e?.code||'请稍后再试')}
+  }
+  const okBtn=el('button',{type:'button',class:'btn ghost',text:'整改满意',onclick:()=>save('ok')});
+  const redoBtn=el('button',{type:'button',class:'btn ghost',text:editing?'修改这条意见':'不满意，继续改',onclick:()=>{d.open=true;form.hidden=false;ta.focus()}});
+  form.append(el('label',{class:'note',for:'fb-'+key},editing?'改写这条意见（可以补字、加图、去图）':'还要怎么改',ta,thumbs),el('div',{class:'row'},el('button',{type:'button',class:'btn ghost',text:'附截图',onclick:()=>fileIn.click()}),fileIn,el('button',{type:'button',class:'btn',text:editing?'保存修改':'提交，要求继续改',onclick:()=>save('redo')}),editing?el('button',{type:'button',class:'btn ghost',text:'取消',onclick:()=>{delete fbDrafts[dk];render()}}):null));
+  if(editing)wrap.append(el('p',{class:'empty',text:'已要求继续改。下一版整改贴出来之前，这条意见都能改。'}));
+  wrap.append(el('div',{class:'row'},okBtn,redoBtn,msg),form);
+  draw();
+  return wrap;
+}
+
+function renderIssues(){
+  const sec=el('section',{class:'issues',id:'issues'});
+  sec.append(el('h2',{},el('span',{class:'seal',text:'记','aria-hidden':'true'}),'我提的意见与整改'));
+  sec.append(el('p',{class:'empty',text:'看到哪里做得不好，随时记一条，可以挂在某一题下面，也可以附上截图。每条改完后，整改结果贴在它下面。'}));
+  const ta=el('textarea',{id:'issue-text',placeholder:'例如：赠礼卷的字太小，草地上看不清'});
+  const sel=el('select',{id:'issue-q','aria-label':'关联题目'},el('option',{value:'',text:'不关联具体题目'}),...state.questions.map(q=>el('option',{value:q.id,text:q.num+'. '+(q.short||q.title)})));
+  const kindSel=el('select',{id:'issue-kind','aria-label':'种类'},el('option',{value:'',text:'种类不限'}),...KINDS.map(k=>el('option',{value:k,text:k})));if(kind!=='全部')kindSel.value=kind;
+  const file=el('input',{type:'file',id:'issue-file',accept:'image/*',multiple:''});
+  const btn=el('button',{type:'button',class:'btn',text:'记下这条'});
+  const msg=el('span',{class:'saved'});
+  if(!assets)file.hidden=true;
+  const pasted=[];const pv=el('div',{class:'thumbs'});
+  const drawPv=()=>pv.replaceChildren(...pasted.map((f,i)=>el('span',{class:'thumb'},el('img',{src:URL.createObjectURL(f),alt:f.name||'截图'}),el('button',{type:'button',class:'x','aria-label':'去掉这张',text:'×',onclick:()=>{pasted.splice(i,1);drawPv()}}))));
+  const take=fs=>{for(const f of fs)if(f.type.startsWith('image/'))pasted.push(f);drawPv()};
+  ta.addEventListener('paste',e=>{const fs=[...(e.clipboardData?.files||[])];if(fs.length){e.preventDefault();take(fs)}});
+  ta.addEventListener('dragover',e=>e.preventDefault());
+  ta.addEventListener('drop',e=>{e.preventDefault();take(e.dataTransfer?.files||[])});
+  btn.addEventListener('click',async()=>{
+    const text=ta.value.trim();if(!text){msg.textContent='先写一句是什么问题';return}
+    btn.disabled=true;msg.textContent='记录中……';
+    try{
+      const refs=[];
+      for(const f of [...(file.files||[]),...pasted]){const up=await assets.upload(f);refs.push({asset:up.id,label:f.name||'截图'})}
+      await db.collection('issues').add({text,qid:sel.value||null,kind:kindSel.value||(state.questions.find(q=>q.id===sel.value)?.kind)||null,refs,status:'open',at:Date.now()});
+      ta.value='';file.value='';pasted.length=0;drawPv();msg.textContent='已记下';
+    }catch(e){msg.textContent='没记上：'+(e?.message||e?.code||'请稍后再试')}
+    btn.disabled=false;
+  });
+  ta.placeholder='例如：赠礼卷的字太小，草地上看不清。截图可以直接粘贴（Ctrl/⌘+V）或拖进来';
+  sec.append(el('div',{class:'issue-form'},el('label',{class:'note',for:'issue-text'},'新意见',ta,pv),el('div',{class:'row'},kindSel,sel,file,btn,msg)));
+  const list=el('div',{class:'issue-list'});
+  const items=state.issues.filter(i=>!archI(i)&&!modSet().has(i.id)&&inKind(i)).sort((a,b)=>(b.at||0)-(a.at||0));
+  if(!items.length)list.append(el('p',{class:'empty',text:'还没有记录。'}));
+  for(const it of items){
+    const q=state.questions.find(x=>x.id===it.qid);
+    const box=el('div',{class:'issue'});
+    box.append(el('div',{class:'meta'},el('span',{class:'st '+(it.status==='fixed'?'fixed':'open'),text:it.status==='fixed'?'已整改':'待整改'}),el('span',{text:it.at?new Date(it.at).toLocaleString('zh-CN',{hour12:false}):''}),q?el('a',{href:'#'+q.id,text:'关联第 '+q.num+' 题'}):null));
+    box.append(el('p',{text:it.text}));
+    if(it.refs?.length){const t=el('div',{class:'thumbs'});for(const r of it.refs){const s=srcOf(r);t.append(el('button',{type:'button','aria-label':'放大附图',onclick:()=>zoom(s,r.label)},el('img',{src:s,alt:r.label||''})))}box.append(t)}
+    if(it.fix?.text){const f=el('div',{class:'fix'},el('div',{},el('span',{class:'tag',text:'整改'})),el('p',{text:it.fix.text}));if(it.fix.refs?.length){const g=el('div',{class:'refs'});for(const r of it.fix.refs)g.append(refNode(r));f.append(g)}f.append(feedbackBox('i-'+it.id,it.fix.at||0));box.append(f)}
+    list.append(box);
+  }
+  sec.append(list);
+  return sec;
+}
+
+// 整改合并：Claude 每轮开工前把同一模块的题、继续改、意见合成一条，写在 modules 集合；用户可以写“合并有误”
+const modDrafts={};
+function itemLabel(it){
+  if(it.kind==='issue'){const x=state.issues.find(i=>i.id===it.id);return '意见：'+(x?.text||'').slice(0,24)}
+  const q=state.questions.find(q=>q.id===it.id);const r=state.rounds.find(r=>r.id===q?.round);
+  return (r?r.title.split('·')[0].trim()+' ':'')+'第 '+(q?.num??'?')+' 题'+(it.kind==='review'?'（继续改）':'')+(q?' · '+(q.short||''):'');
+}
+function renderModules(){
+  // 要你做的模块排前面，只等我做的排后面
+  const mods=Object.entries(state.modules).map(([id,v])=>({id,...v})).filter(m=>!archM(m)&&inKind(m)).sort((a,b)=>(modNeedsYou(b)-modNeedsYou(a))||((a.order||0)-(b.order||0)));
+  if(!mods.length)return null;
+  const sec=el('section',{class:'issues',id:'modules'});
+  sec.append(el('h2',{},el('span',{class:'seal',text:'并','aria-hidden':'true'}),'按模块：现在要你做的'));
+  sec.append(el('p',{class:'empty',text:'每个模块只放一道现在要你处理的题（回答，或验收整改）；以前的题、回答和整改都收在“来龙去脉”里。没有题、只写着“等我做”的模块，你不用管。'}));
+  for(const m of mods){
+    const box=el('div',{class:'issue',id:'m-'+m.id});
+    const you=modNeedsYou(m);
+    box.append(el('div',{class:'meta'},el('span',{class:'st '+(you?'open':'fixed'),text:you?'要你做':(m.current?.length?'你已答，等我做':'等我做')}),el('b',{text:m.title||''}),m.kind?el('span',{class:'ktag',text:m.kind}):null));
+    if(m.summary)box.append(el('p',{text:m.summary}));
+    if(m.conflicts)box.append(el('p',{class:'warn',text:'要你定：'+m.conflicts}));
+    if(m.current){
+      for(const q of curQs(m)){const f=state.fixes[q.id];box.append(f?.text?fixBlock(q):renderQ(q))}
+      if(m.todo?.length)box.append(el('div',{class:'fix'},el('div',{},el('span',{class:'tag wait',text:'等我做'})),el('ul',{},...m.todo.map(t=>el('li',{text:t.text||t})))));
+    }else{
+      // 旧数据（没写 current）：照第 3 版的样子画
+      for(const it of (m.items||[])){const q=state.questions.find(q=>q.id===it.id);if(!q||archQ(q))continue;box.append(state.fixes[q.id]?.text?fixBlock(q):renderQ(q))}
+    }
+    const hist=el('details',{class:'chain'},el('summary',{text:'来龙去脉（以前的题 '+(m.items||[]).length+' 道、合并说明、整条链路）'}));
+    if(m.merged)hist.append(el('p',{class:'q-body',text:m.merged}));
+    const cur=new Set(m.current||[]);
+    for(const it of (m.items||[])){if(cur.has(it.id)||it.kind==='issue')continue;const q=state.questions.find(q=>q.id===it.id);if(!q)continue;
+      const d=el('details',{class:'old'},el('summary',{text:itemLabel(it)+(q.closed?' · 已收起：'+q.closed:'')}),el('p',{class:'q-body',text:q.title+(q.body?'\n'+q.body:'')}));
+      if(q.refs?.length){const g=el('div',{class:'refs'});for(const r of q.refs)g.append(refNode(r));d.append(g)}
+      const f=state.fixes[q.id];if(f?.text){d.append(el('p',{text:'整改：'+f.text}));if(f.refs?.length){const g=el('div',{class:'refs'});for(const r of f.refs)g.append(refNode(r));d.append(g)}}
+      hist.append(d)}
+    hist.append(el('h4',{text:'整条链路'}),moduleTimeline(m));
+    box.append(hist);
+    const d=modDrafts[m.id]??(modDrafts[m.id]=m.userNote||'');
+    const ta=el('textarea',{id:'mod-'+m.id,placeholder:'对这个模块整体的意见（合并错了、漏了什么）写在这里'});ta.value=d;ta.addEventListener('input',()=>{modDrafts[m.id]=ta.value});
+    const msg=el('span',{class:'saved',text:m.userNote?'你写过：已保存':''});
+    const b=el('button',{type:'button',class:'btn ghost',text:'保存',onclick:async()=>{msg.textContent='保存中……';try{await db.collection('modules').doc(m.id).update({userNote:(modDrafts[m.id]||'').trim(),userAt:Date.now()});msg.textContent='已保存'}catch(e){msg.textContent='没保存上'}}});
+    box.append(el('label',{class:'note',for:'mod-'+m.id},'模块意见',ta),el('div',{class:'row'},b,msg));
+    sec.append(box);
+  }
+  return sec;
+}
+
+function renderArchive(main){
+  main.append(el('p',{class:'empty',text:'这里是你点过“整改满意”的题和意见，以及做完的合并模块。点开看整条链路。'}));
+  const mods=Object.entries(state.modules).map(([id,v])=>({id,...v})).filter(archM).sort((a,b)=>(b.doneAt||0)-(a.doneAt||0));
+  if(mods.length){const sec=el('section',{class:'issues'},el('h2',{text:'已完成的合并模块'}));for(const m of mods)sec.append(el('details',{class:'chain arch',id:'a-'+m.id},el('summary',{},el('b',{text:m.title||''}),el('span',{class:'saved',text:' · 合并 '+(m.items||[]).length+' 条 · 完成于 '+fmt(m.doneAt)})),m.merged?el('p',{text:m.merged}):null,moduleTimeline(m)));main.append(sec)}
+  for(const rd of state.rounds){
+    const qs=state.questions.filter(q=>q.round===rd.id&&archQ(q)&&qIn(q));if(!qs.length)continue;
+    main.append(el('div',{class:'round-h'},el('h2',{text:rd.title}),el('span',{text:'已归档 '+qs.length+' 题'})));
+    for(const q of qs){const ev=eventsQ(q);const ok=ev.filter(e=>e.ok).pop();
+      main.append(el('details',{class:'chain arch',id:'a-'+q.id},el('summary',{},el('b',{text:q.num+'. '+(q.short||q.title)}),el('span',{class:'saved',text:q.closed?' · 已收起':' · 确认于 '+fmt(ok?.at)})),el('p',{class:'q-body',text:q.title}),timeline(ev)))}
+  }
+  const is=state.issues.filter(i=>archI(i)&&inKind(i));
+  if(is.length){const sec=el('section',{class:'issues'},el('h2',{text:'已归档的意见'}));for(const i of is){const ok=eventsI(i).filter(e=>e.ok).pop();sec.append(el('details',{class:'chain arch'},el('summary',{},el('b',{text:(i.text||'').slice(0,40)}),el('span',{class:'saved',text:' · 确认于 '+fmt(ok?.at)})),timeline(eventsI(i))))}main.append(sec)}
+  if(!mods.length&&!is.length&&!state.questions.some(q=>archQ(q)&&qIn(q)))main.append(el('p',{class:'empty',text:'还没有归档的内容。'}));
+}
+
+let view=location.hash==='#archive'?'archive':'open';
+// 按种类分开评审：剧情和游戏内容（玩法、界面、美术、数值）各看各的，和轮次无关；选择记在本机
+const KINDS=['剧情','玩法','界面','美术','数值'];
+let kind='全部';try{const k=localStorage.getItem('desk-kind');if(k==='全部'||KINDS.includes(k))kind=k}catch(e){}
+const kindOf=x=>x?.kind||'';
+const inKind=x=>kind==='全部'||!kindOf(x)||kindOf(x)===kind||(x.current&&curQs(x).some(q=>kindOf(q)===kind));
+const qIn=q=>kind==='全部'||kindOf(q)===kind;
+function renderKinds(){
+  const box=$('#kinds');const ms=modSet();
+  // 数的是要你处理的：模块里要你做的当前题＋没挂进模块的题
+  const live=Object.values(state.modules).filter(m=>!archM(m)).flatMap(curQs).filter(q=>needOf(q)!=='done');
+  const cnt=k=>[...live,...state.questions.filter(loose)].filter(q=>k==='全部'||kindOf(q)===k).length;
+  box.replaceChildren(el('span',{class:'lbl',text:'按种类：'}),...['全部',...KINDS].map(k=>el('button',{type:'button',class:'kind','aria-pressed':String(kind===k),onclick:()=>{kind=k;try{localStorage.setItem('desk-kind',k)}catch(e){}render.jumped=true;render();window.scrollTo(0,0)}},k+' ',el('b',{text:String(cnt(k))}))));
+}
+function renderTabs(){
+  const ms=modSet();const nOpen=state.questions.filter(loose).length+state.issues.filter(i=>!archI(i)&&!ms.has(i.id)).length+Object.values(state.modules).filter(m=>!archM(m)&&modNeedsYou(m)).length;
+  const nArch=state.questions.filter(archQ).length+state.issues.filter(archI).length;
+  renderKinds();
+  const tabs=$('#tabs');tabs.replaceChildren(
+    el('button',{type:'button',class:'tab','aria-pressed':String(view==='open'),onclick:()=>{view='open';render.jumped=true;render();window.scrollTo(0,0)}},'待处理 ',el('b',{text:String(nOpen)})),
+    el('button',{type:'button',class:'tab','aria-pressed':String(view==='archive'),onclick:()=>{view='archive';render.jumped=true;render();window.scrollTo(0,0)}},'归档 ',el('b',{text:String(nArch)})));
+}
+
+function render(){
+  const main=$('#main');const y=window.scrollY;main.replaceChildren();
+  renderTabs();
+  if(view==='archive'){renderArchive(main);renderToc();renderStatus();return}
+  const modSec=renderModules();if(modSec)main.append(modSec);
+  if(!state.questions.length){main.append(el('p',{class:'empty',text:'这一页还没有题目。Claude 出题后会写进评审记录，刷新即可看到。'}))}
+  for(const rd of state.rounds){
+    const qs=state.questions.filter(q=>q.round===rd.id&&loose(q)&&qIn(q));if(!qs.length)continue;
+    main.append(el('div',{class:'round-h'},el('h2',{text:rd.title}),el('span',{text:rd.note||''})));
+    let g=null;
+    for(const q of qs){if(q.group&&q.group!==g){g=q.group;main.append(el('div',{class:'group-h',text:g}))}main.append(renderQ(q))}
+  }
+  if(state.questions.length&&!state.questions.some(q=>loose(q)&&qIn(q)))main.append(el('p',{class:'empty',text:'「'+kind+'」这一类现在没有待处理的题。'}));
+  main.append(renderIssues());
+  renderToc();renderStatus();
+  window.scrollTo(0,y);
+  if(location.hash&&!render.jumped){render.jumped=true;document.getElementById(location.hash.slice(1))?.scrollIntoView()}
+}
+
+function renderStatus(){
+  // 只数现在真要处理的：模块的当前题＋没挂进模块的题；“等我做”数模块 todo
+  const live=Object.values(state.modules).filter(m=>!archM(m));
+  const qs=[...live.flatMap(curQs),...state.questions.filter(loose)];
+  const wait=qs.filter(q=>needOf(q)==='answer').length,review=qs.filter(q=>needOf(q)==='accept').length;
+  const mine=live.reduce((n,m)=>n+(m.todo||[]).length,0)+state.issues.filter(i=>!i.fix?.text).length;
+  $('#status').replaceChildren('待你回答 ',el('b',{text:String(wait)}),' · 待你验收整改 ',el('b',{text:String(review)}),' · 等我整改 ',el('b',{text:String(mine)}));
+}
+
+let pending=null;function schedule(){if(pending)return;pending=requestAnimationFrame(()=>{pending=null;
+  const active=document.activeElement;if(active&&active.tagName==='TEXTAREA'){setTimeout(schedule,800);return}render()})}
+
+(async()=>{
+  try{assets=await window.claude?.use?.('assets')}catch(e){assets=null}
+  try{db=await window.claude?.use?.('db')}catch(e){db=null}
+  if(!db){$('#loading').replaceWith(el('p',{class:'offline',text:'连不上评审记录：请在 claude.ai 登录后打开这一页。'}));$('#status').textContent='未连接';return}
+  const map=(snap,fn)=>snap.docs.map(d=>fn(d.id,d.data()));
+  db.collection('rounds').orderBy('order').onSnapshot(s=>{state.rounds=map(s,(id,v)=>({id,...v}));schedule()});
+  db.collection('questions').orderBy('order').onSnapshot(s=>{state.questions=map(s,(id,v)=>({id,...v}));schedule()});
+  db.collection('answers').onSnapshot(s=>{state.answers={};for(const d of s.docs)state.answers[d.id]=d.data();schedule()});
+  db.collection('fixes').onSnapshot(s=>{state.fixes={};for(const d of s.docs)state.fixes[d.id]=d.data();schedule()});
+  db.collection('issues').onSnapshot(s=>{state.issues=map(s,(id,v)=>({id,...v}));schedule()});
+  db.collection('reviews').onSnapshot(s=>{state.reviews={};for(const d of s.docs)state.reviews[d.id]=d.data();schedule()});
+  db.collection('modules').onSnapshot(s=>{state.modules={};for(const d of s.docs)state.modules[d.id]=d.data();schedule()});
+})();
+})();
+</script>
+
+</body></html>

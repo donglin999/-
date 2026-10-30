@@ -53,6 +53,7 @@
 | 养成 Q 版人物 | [统一生成与验收标准](design/cultivation-q-generation-standard.md)、[姿态差异门槛](design/cultivation-q-pose-diversity.md) |
 | 生图、素材处理 | [美术管线](art-pipeline.md) 的「当前出图接口约定」；出图、取参考前先查[弃用／不启用的测试方法清单](../../xiaojianghu-legacy-prologue/docs/assets/deprecated-tests.md) |
 | 内容扩展（场景、对话、任务、道具、敌人） | 在栖河工作区按其 `AGENTS.md` 做；本目录[内容指南](archive/content-guide.md)、[架构](archive/architecture.md)只是旧原型记录 |
+| 往评审台发题、回贴整改、整理评审台 | skill `review-desk`；[评审台出题与自查流程](review-desk.md)（R-评审-01：同模块一道题、每题附素材；跑 `tools_docs/review_desk_tidy.py --report` 和 `tools_docs/check_review_batch.py`） |
 | 战斗 | 先读[当前表现边界：普攻接触、功法特效命中](design/combat-presentation-boundary.md)，再读[battle.md](battle.md)及v2/v3 |
 
 ## 5. 本目录的代码与数据

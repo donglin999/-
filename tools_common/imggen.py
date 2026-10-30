@@ -12,11 +12,15 @@
 - 透明背景：openai_compat / flatrouter 默认传 background=transparent；openai_compat 可用 --background opaque|auto 改传（纯黑底发光素材用 opaque，2026-10-18 加，默认不变）；codex 需在提示词里写 transparent_background: true。
 - --opaque-fix：把 alpha≥250 的像素补成 255（302 出图人物 alpha 最高 254）。
 - 密钥从环境变量或 tools_por/.env 读取（key_env 字段；有 key_env_backup 的源，主密钥额度不足时自动换备用），不要写进仓库。
+- 每次调用都记入生成账本（tools_common/genledger.py），失败的也记。
 """
 import argparse, base64, datetime, json, os, subprocess, sys, tempfile, time, urllib.error, urllib.request, uuid
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-REG = os.path.join(HERE, 'imgsources.json')
+sys.path.insert(0, HERE)
+import genledger  # noqa: E402
+
+REG =os.path.join(HERE, 'imgsources.json')
 ENV_PATH = os.path.join(HERE, '..', 'tools_por', '.env')
 
 
@@ -56,7 +60,7 @@ def openai_compat(src, prompt, out, size, quality, refs, background='transparent
         keys.append(key_of(src['key_env_backup']))
     for i, key in enumerate(keys):
         try:
-            return openai_compat_once(src, key, prompt, out, size, quality, refs, background)
+            return {**openai_compat_once(src, key, prompt, out, size, quality, refs, background), 'key_env': src['key_env_backup'] if i else src['key_env']}
         except urllib.error.HTTPError as e:
             text = e.read()[:600].decode('utf-8', 'ignore')
             if i + 1 < len(keys) and is_quota_error(e.code, text):
@@ -155,9 +159,16 @@ def main():
     if 'gpt-image-2.5' not in prompt:
         print('[imggen] 提醒：提示词缺少 “Model: gpt-image-2.5（使用 gpt-image-2.5 生图模型）” 这一行', file=sys.stderr)
     extra = {'background': a.background} if src['kind'] == 'openai_compat' else {}
-    meta = KINDS[src['kind']](src, prompt, a.out, a.size, a.quality, a.ref, **extra)
-    if a.opaque_fix:
-        opaque_fix(a.out)
+    run = genledger.start('image', prompt=prompt, prompt_file=a.prompt_file, refs=a.ref, source=sid, model_requested=src.get('model'),
+                          params={'size': a.size, 'quality': a.quality, 'opaque_fix': a.opaque_fix, **extra})
+    try:
+        meta = KINDS[src['kind']](src, prompt, a.out, a.size, a.quality, a.ref, **extra)
+        if a.opaque_fix:
+            opaque_fix(a.out)
+    except BaseException as e:  # sys.exit 和 Ctrl-C 也要入账，这笔可能已经计费
+        run.fail(e)
+        raise
+    run.finish(out=a.out, meta=meta)
     print(json.dumps({'source': sid, 'out': a.out, **extra, **(meta or {})}, ensure_ascii=False, default=str))
 
 

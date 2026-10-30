@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """演员法起草台词（剧情三道关·第二关，2026-10-19）。以 xiaojianghu 目录运行：
-    python3 tools_story/minimax_actors.py <戏眼卡.json> --out <草稿目录> [--scene ID ...] [--takes 3] [--model MiniMax-M2]
+    python3 tools_story/minimax_actors.py <戏眼卡.json> --out <草稿目录> [--scene ID ...] [--takes 3] [--model MiniMax-M2.5|claude-opus-5-5]
 
 做法：编剧（主会话）先写好每场戏的“戏眼卡”：谁想要什么、什么挡着、散场时什么变了，每个人物此刻知道/不知道什么，
 以及逐句的“回合”——这一句谁说、他此刻想达到什么（意图，不是台词内容）。
@@ -12,7 +12,7 @@
 from pathlib import Path
 import json, re, sys, time, argparse
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from minimax_draft import call  # 复用重试与密钥读取
+from minimax_logic_review import call  # 按模型名分到 MiniMax／DeepSeek／302（claude-*），复用重试与密钥读取
 
 SYSTEM = """你是一位演员，正在演一部南宋背景的武侠游戏里的一个角色。你只演你自己这个角色，只说一句话。
 规则：
@@ -46,8 +46,9 @@ def clean(text):
 
 
 def main():
+    # 2026-10-28 用户定：起草默认换成 302 的 claude-opus-5-5；--model MiniMax-M2.5 可切回
     ap = argparse.ArgumentParser(); ap.add_argument('brief'); ap.add_argument('--out', required=True); ap.add_argument('--scene', nargs='*')
-    ap.add_argument('--takes', type=int, default=3); ap.add_argument('--model', default='MiniMax-M2'); ap.add_argument('--fixed', help='定稿行 JSON：{场景ID: [{speaker,text}, ...]}，按顺序替换前面回合的第 1 备选')
+    ap.add_argument('--takes', type=int, default=3); ap.add_argument('--model', default='claude-opus-5-5'); ap.add_argument('--fixed', help='定稿行 JSON：{场景ID: [{speaker,text}, ...]}，按顺序替换前面回合的第 1 备选')
     a = ap.parse_args(); brief = json.loads(Path(a.brief).read_text(encoding='utf-8')); out = Path(a.out); out.mkdir(parents=True, exist_ok=True)
     fixed = json.loads(Path(a.fixed).read_text(encoding='utf-8')) if a.fixed else {}
     for sc in brief['scenes']:

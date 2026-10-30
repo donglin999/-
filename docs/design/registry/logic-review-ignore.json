@@ -1,0 +1,74 @@
+{
+  "说明": "tools_story/minimax_logic_review.py 的忽略表：主会话复核确认是误报的条目登记在这里，以后不再报。file＝剧本文件名，line＝报告里的 #id 或 knot，type 可省（省了就是这一行所有类别都不报），reason 写为什么是误报。",
+  "ignore": [
+    {
+      "file": "村中-客栈.ink",
+      "line": "qh_inn_tab_offer",
+      "type": "后果虚",
+      "reason": "选“找管事／当面要”后由玩家去找岑霜或帮众办，qihe-town.js 接得上（分步任务）"
+    },
+    {
+      "file": "支线-蔺管事-留话.ink",
+      "line": "L8-02",
+      "reason": "“我只跟你一个人说过”是责备萧白泄密，不是矛盾"
+    },
+    {
+      "file": "支线-蔺管事-跟脚夫.ink",
+      "line": "qh_lamp_tail",
+      "reason": "lamp.noticed 在 settleEnding 统一记"
+    },
+    {
+      "file": "风起-起火.ink",
+      "line": "fq_rescue_choice",
+      "reason": "set_flag 写的 qiheChapter.rescue 与代码读的 p.rescue 是同一对象"
+    },
+    {
+      "file": "风起-山居.ink",
+      "line": "C1-11-05",
+      "reason": "叶蘅托陆衡谢的是周婶，不是周砚"
+    },
+    {
+      "file": "风起-学棍.ink",
+      "line": "fq_act_practice",
+      "reason": "grantLesson 发了练习棍和笔记"
+    },
+    {
+      "file": "三方-装卸路.ink",
+      "line": "R2-15",
+      "reason": "岑霜那句是反讽"
+    },
+    {
+      "file": "支线-蔺管事-问封皮.ink",
+      "line": "L4-ask-01",
+      "reason": "选项前那句是萧白心里话，没说出口"
+    },
+    {
+      "file": "风起-集市帮忙.ink",
+      "line": "C1-A-market-A1",
+      "reason": "文件头“改由店家送”指店家主动送绳给萧白，和台词一致"
+    },
+    {
+      "file": "风起-小耗子-保底.ink",
+      "line": "fq_aqi_pity",
+      "reason": "旧版工具截取的代码片段重叠造成“写了两遍”的错觉，已修"
+    },
+    {
+      "file": "支线-蔺管事-留话.ink",
+      "line": "L8-04",
+      "type": "后果虚",
+      "reason": "lamp_reward 已经由 qihe-lamp-watcher.js 的 ext 接通；文件头“JS 未接”是过时注释"
+    },
+    {
+      "file": "支线-蔺管事-留话.ink",
+      "line": "L8-05",
+      "type": "后果虚",
+      "reason": "lamp_reward 已经由 qihe-lamp-watcher.js 的 ext 接通；文件头“JS 未接”是过时注释"
+    },
+    {
+      "file": "支线-蔺管事-留话.ink",
+      "line": "L8-06",
+      "type": "后果虚",
+      "reason": "lamp_reward 已经由 qihe-lamp-watcher.js 的 ext 接通；文件头“JS 未接”是过时注释"
+    }
+  ]
+}

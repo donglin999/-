@@ -74,12 +74,13 @@ def prompt_for(scene, common):
 
 
 def main():
-    ap = argparse.ArgumentParser(); ap.add_argument('brief'); ap.add_argument('--out', required=True); ap.add_argument('--scene', nargs='*'); ap.add_argument('--model', default='MiniMax-M2')
+    ap = argparse.ArgumentParser(); ap.add_argument('brief'); ap.add_argument('--out', required=True); ap.add_argument('--scene', nargs='*'); ap.add_argument('--model', default='claude-opus-5-5')
     a = ap.parse_args(); brief = json.loads(Path(a.brief).read_text(encoding='utf-8')); out = Path(a.out); out.mkdir(parents=True, exist_ok=True)
     for sc in brief['scenes']:
         if a.scene and sc['id'] not in a.scene: continue
         p = prompt_for(sc, brief['common']); (out / f"{sc['id']}.prompt.txt").write_text(p, encoding='utf-8')
-        raw = call([{'role': 'system', 'content': SYSTEM}, {'role': 'user', 'content': p}], a.model)
+        from minimax_logic_review import call as route  # 按模型名分到 MiniMax／DeepSeek／302（claude-*）
+        raw = route([{'role': 'system', 'content': SYSTEM}, {'role': 'user', 'content': p}], a.model, 8000)
         (out / f"{sc['id']}.raw.txt").write_text(raw, encoding='utf-8')
         try:
             draft = parse(raw)

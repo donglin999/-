@@ -129,9 +129,21 @@
             "山菌汤",
             "王婶"
           ]
+        },
+        {
+          "what": "师母送一只小木鸟（物品 gy_wood_bird）",
+          "keywords": [
+            "木鸟"
+          ]
         }
       ],
-      "consumers": []
+      "consumers": [
+        {
+          "scene": "待定",
+          "size": "small",
+          "what": "待汉皋和第七月以后的剧情设计时定"
+        }
+      ]
     },
     "gy_fang_spar": {
       "name": "陪练",
@@ -158,9 +170,21 @@
             "剑穗挂掉",
             "剑上光秃秃"
           ]
+        },
+        {
+          "what": "和小豆逼退狼或退上高石（facts.gy_bamboo_wolves_choice）",
+          "keywords": [
+            "竹径那回"
+          ]
         }
       ],
-      "consumers": []
+      "consumers": [
+        {
+          "scene": "gy_dou_runaway",
+          "size": "small",
+          "what": "两支末尾萧白按结果劝一句；没看过不说"
+        }
+      ]
     },
     "gy_l02": {
       "name": "说早了的日子",
@@ -479,6 +503,157 @@
         }
       ],
       "consumers": []
+    },
+    "qh_hid_cave": {
+      "name": "北坡石洞",
+      "kind": "隐藏奇遇",
+      "plants": [
+        {
+          "what": "北坡石洞里冷火堆、新靴印、一角回纹布角，石匣里的《金虺剑法》（hint_huiwen_cave）",
+          "keywords": [
+            "回纹布角",
+            "北坡石洞",
+            "石匣"
+          ]
+        }
+      ],
+      "consumers": [],
+      "note": "2026-10-28 用户：石洞剧情先不启动，等后面设计时再回来补；代码 CAVE_ON=false，游戏里不出现。"
+    },
+    "qh_hid_bandit_3": {
+      "name": "帮众挑衅（和新人阿炭切磋）",
+      "kind": "隐藏奇遇",
+      "plants": [
+        {
+          "what": "归烬堂新人阿炭被帮众作践；萧白和他比过一场，赢了拿到他的《扬灰手》",
+          "keywords": [
+            "阿炭",
+            "新来的",
+            "扬灰手",
+            "木桩"
+          ]
+        },
+        {
+          "what": "册子私下还给阿炭（qh_recruit_returned）：他说出小名、阿炭好感 +8；后面归烬堂剧情里他可能帮萧白一手、递个消息——落点待游历部分设计时定",
+          "keywords": [
+            "我叫阿炭"
+          ],
+          "pending": "待游历部分定"
+        },
+        {
+          "what": "册子卖回给岑霜：银两 +20、岑霜好感 −5、归烬堂声望 −3，阿炭挨罚记恨（好感 −10）",
+          "keywords": [
+            "买小兄弟一张不爱说闲话的嘴"
+          ]
+        }
+      ],
+      "consumers": []
+    },
+    "qh_hid_village_charm": {
+      "name": "认得全村的人",
+      "kind": "隐藏奇遇",
+      "plants": [
+        {
+          "what": "撤离当晚周婶给的百家平安符，一村人一人缝一针",
+          "keywords": [
+            "平安符",
+            "一人缝了一针"
+          ]
+        }
+      ],
+      "consumers": []
+    },
+    "qh_hid_elder_night": {
+      "name": "老更夫",
+      "kind": "隐藏奇遇",
+      "plants": [
+        {
+          "what": "村口老人年轻时在汉皋府牢外打更，救过一个被穿琵琶骨的小伙（暗合《连城诀》狄云）；梆子上的刀痕；守夜见屋脊人影往北坡去；得《南窗心法》",
+          "keywords": [
+            "南窗心法",
+            "梆子",
+            "琵琶骨",
+            "看花的大哥"
+          ]
+        }
+      ],
+      "consumers": []
+    },
+    "gy_fang_leaves": {
+      "name": "方迟下山",
+      "kind": "师门",
+      "plants": [
+        {
+          "what": "道别时选“下回陪你练”或说出担心（facts.gy_fang_leaves_choice）",
+          "keywords": [
+            "下回陪你练"
+          ]
+        }
+      ],
+      "consumers": [
+        {
+          "scene": "gy_brother_hurt",
+          "size": "small",
+          "what": "守夜一支方迟按道别的选择说一句；没选过不说"
+        }
+      ]
+    },
+    "gy_dou_feed": {
+      "name": "喂鹅",
+      "kind": "师门",
+      "plants": [
+        {
+          "what": "喂鹅站定或绕水缸跑（facts.gy_dou_feed_choice）",
+          "keywords": [
+            "绕水缸"
+          ]
+        }
+      ],
+      "consumers": [
+        {
+          "scene": "gy_goose_steps",
+          "size": "small",
+          "what": "开场小豆按选择说一句"
+        }
+      ]
+    },
+    "hg_pack_review": {
+      "name": "带得走的本事",
+      "kind": "师门",
+      "plants": [
+        {
+          "what": "钟拙托带木鸟进城代卖（物品 gy_wood_bird_sale）",
+          "keywords": [
+            "卖不掉就拿回来"
+          ]
+        }
+      ],
+      "consumers": [
+        {
+          "scene": "待定",
+          "size": "small",
+          "what": "待汉皋剧情重新设计时回收：卖掉得银两或带回"
+        }
+      ]
+    },
+    "gn_depart": {
+      "name": "六十年前的汉皋",
+      "kind": "串门",
+      "plants": [
+        {
+          "what": "裴叔的裂镜片放在萧白这儿（物品 pei_lens）",
+          "keywords": [
+            "怕压碎"
+          ]
+        }
+      ],
+      "consumers": [
+        {
+          "scene": "待定",
+          "size": "small",
+          "what": "待汉皋剧情重新设计时回收：配好眼镜"
+        }
+      ]
     }
   },
   "allow": [
