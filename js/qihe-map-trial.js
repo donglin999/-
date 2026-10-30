@@ -35,7 +35,7 @@
  // 叶家门口：寒暄＋收药箱邀请（story/01-开始/第一夜-问候.ink qihe_ye_invite）
  const inviteHome=()=>story('qihe_ye_invite');
  // 药棚周婶：接下「替周婶跑一圈」、回来交差（第一夜-周婶托付.ink）。交差时剧本把 prologue.errandGift 记成 true，
- //   这里补发谢礼一盒金创药（复用 ITEMS.pill，只发一次，另记 errandGiftPaid）。
+ //   这里补发一盒金创药（复用 ITEMS.pill，只发一次，另记 errandGiftPaid）。2026-10-29 起按 F-0009：这是周婶看他手上遇狼擦破的口子给的关照，不是跑腿工钱。
  const aunt=async()=>{await story('qihe_errand_aunt');const p=state();if(p.errandGift===true&&!p.errandGiftPaid){p.errandGiftPaid=true;if(typeof giveItem==='function'&&ITEMS.pill)giveItem('pill',1);checkpoint()}};
  // 过夜（第一夜-过夜.ink）：已经过完且风起栖河已加载时直接转入风起栖河；resuming 为读档时正处在过夜途中
  async function rest(resuming=false){
@@ -58,7 +58,7 @@
   v('chen-door','陈伯家 · 门厅与独立客房',null,'chen-home',()=>goLocal('chen_hall')),
   v('clinic-door','药棚 · 周婶',null,'clinic',()=>goLocal('clinic_interior')),
   v('inn-door','客栈 · 店家',null,'inn',()=>goLocal('inn_interior')),
-  v('elder','村口老人','c_oldman',D.anchors['elder-home'].map((a,i)=>a+(i===0?45:0)),actions.elder,()=>state().errands.medicine==='accepted'),
+  v('elder','村口老人','c_qh_oldman',D.anchors['elder-home'].map((a,i)=>a+(i===0?45:0)),actions.elder,()=>state().errands.medicine==='accepted'),
   v('notice','村中路牌',null,'notice',()=>story('qihe_look_sign')),
   v('rack','客栈晒架',null,'cloth-rack',()=>story('qihe_look_rack')),
   v('herbs','药棚晒药处',null,'herbs',()=>story('qihe_look_herbs'))
@@ -71,19 +71,20 @@
   SC['prologue_'+key]={name:m.name,region:'qihe_trial',bg:m.bg,fg:m.fg,fgp:m.fgp,mask:m.mask,gw:30,gh:20,mapv:2,footX:14,preciseNav:true,previewKey:'qihe-room:'+key,revealPlayer:true,start:m.start.map(v=>v/TS),startDir:'u',arrivalWalk:false,noFollow:true,isRoom:true,walk:[],block:[],exits:[],npcs:[]};
  }
  const out=(key,label,anchor,destination)=>r(key,key+'-out',label,null,anchor,()=>goLocal('village',destination));
- SC.prologue_clinic_interior.npcs=[out('clinic_interior','药棚前门 · 回村','exit','clinic'),r('clinic_interior','aunt','周婶','c_gossip','aunt',aunt,()=>pending().length>0),r('clinic_interior','work','备药案',null,'work',()=>story('qihe_look_work'))];
+ SC.prologue_clinic_interior.npcs=[out('clinic_interior','药棚前门 · 回村','exit','clinic'),r('clinic_interior','aunt','周婶','c_opening_aunt','aunt',aunt,()=>pending().length>0),r('clinic_interior','work','备药案',null,'work',()=>story('qihe_look_work'))];
  SC.prologue_ye_house.npcs=[out('ye_house','叶家前门 · 回村','exit','ye-home'),r('ye_house','ye','叶蘅','c_ye','relic',actions.relic,()=>!state().relicSeen)];
- SC.prologue_inn_interior.npcs=[out('inn_interior','客栈前门 · 回村','exit','inn'),r('inn_interior','innkeeper','店家','c_merchant','host',actions.cloth,()=>state().errands.cloth==='accepted')];
- SC.prologue_chen_hall.npcs=[out('chen_hall','陈家前门 · 回村','exit','chen-home'),r('chen_hall','chen','陈伯','c_oldman','chen',actions.chen,()=>state().errands.bowls==='accepted'),r('chen_hall','guest-door','东侧内门 · 借宿客房',null,'guest_door',()=>goLocal('chen_guest'))];
+ SC.prologue_inn_interior.npcs=[out('inn_interior','客栈前门 · 回村','exit','inn'),r('inn_interior','innkeeper','店家','c_qh_merchant','host',actions.cloth,()=>state().errands.cloth==='accepted')];
+ SC.prologue_chen_hall.npcs=[out('chen_hall','陈家前门 · 回村','exit','chen-home'),r('chen_hall','chen','陈伯','c_opening_chen','chen',actions.chen,()=>state().errands.bowls==='accepted'),r('chen_hall','guest-door','东侧内门 · 借宿客房',null,'guest_door',()=>goLocal('chen_guest'))];
  SC.prologue_chen_guest.npcs=[r('chen_guest','guest-out','回陈伯家门厅',null,'exit',()=>goLocal('chen_hall','guest_door')),r('chen_guest','rest','借宿榻 · 收拾歇息',null,'rest',()=>rest(),()=>state().relicSeen&&!state().rested),r('chen_guest','phone','自己的现代衣包',null,'modern',()=>story('qihe_look_phone'))];
- for(const [id,name,sp,xy]of[['night-chen','陈伯','c_oldman',[700,620]],['night-aunt','周婶','c_gossip',[850,665]]]){
+ for(const [id,name,sp,xy]of[['night-chen','陈伯','c_opening_chen',[700,620]],['night-aunt','周婶','c_opening_aunt',[850,665]]]){
   const n=r('ye_house',id,name,sp,xy.map(v=>v*R.ye_house.sourceScale),async()=>{});n.show=()=>state().ending;SC.prologue_ye_house.npcs.push(n);
  }
  // Static supporting cast: standing clear of doors, with no free-roaming or new action sheets.
- SC.prologue_chen_hall.npcs.push(r('chen_hall','zhouyan','周砚','c_zhou',[560,680].map(v=>v*R.chen_hall.sourceScale),()=>story('qihe_chen_zhouyan')));
- SC.prologue_inn_interior.npcs.push(r('inn_interior','bandit','帮众','c_bandit',[760,600].map(v=>v*R.inn_interior.sourceScale),()=>story('qihe_inn_bandit')));
- SC.qihe_trial.npcs.push(v('bailiff','差役','c_soldier',D.anchors['elder-home'].map((v,i)=>v+(i===0?-60:12)),()=>story('qihe_village_bailiff')),
-  v('procurement-aide','采办随从','c_villager',D.anchors['elder-home'].map((v,i)=>v+(i===0?145:-5)),()=>story('qihe_village_aide')));
+ // 2026-10-29 逻辑排查：碗送到（散场）后周砚回河埠船家借宿（P-S1-15“明日再登门”），门厅不再放他；过夜后同理
+ {const n=r('chen_hall','zhouyan','周砚','c_opening_zhouyan',[560,680].map(v=>v*R.chen_hall.sourceScale),()=>story('qihe_chen_zhouyan'));n.show=()=>!['done','closed'].includes(state().errands.bowls);SC.prologue_chen_hall.npcs.push(n)}
+ SC.prologue_inn_interior.npcs.push(r('inn_interior','bandit','帮众','c_qh_bandit',[760,600].map(v=>v*R.inn_interior.sourceScale),()=>story('qihe_inn_bandit')));
+ SC.qihe_trial.npcs.push(v('bailiff','差役','c_opening_bailiff',D.anchors['elder-home'].map((v,i)=>v+(i===0?-60:12)),()=>story('qihe_village_bailiff')),
+  v('procurement-aide','采办随从','c_opening_procurement_aide',D.anchors['elder-home'].map((v,i)=>v+(i===0?145:-5)),()=>story('qihe_village_aide')));
  const priorQuest=questLine;questLine=function(){if(!isQiheEntry()||!S?.prologue)return priorQuest();const p=state();if(p.rested)return'回陈伯家客房歇息，第二天在村里走访';if(p.arrival.stage!=='done')return'与叶蘅一起下山，到村里歇脚';if(p.ending)return'与叶蘅道别，回陈伯客房过夜';const r=roundState();if(!p.relicSeen)return'去西北叶家帮忙收药箱 · '+(r==='none'?'替周婶跑一圈（可不做）':r==='return'?'替周婶跑一圈：回药棚交差':pending().length?'替周婶跑一圈：'+roundLeft().join('，'):'替周婶跑一圈已办完');if(r==='return')return'回药棚找周婶交差，或回陈伯独立客房歇息';if(pending().length)return'替周婶跑一圈：'+roundLeft().join('，')+' · 也可回陈伯客房歇息';return'回东北陈伯家，经门厅东侧进客房歇息'};window.questLine=questLine;
  const oldLog=questLog;questLog=function(){return isQiheEntry()?[...(state().rested?[]:[{t:'眼下',d:esc(questLine()),done:false}]),...(window.QiheMilestones?.list(S)||[]).map(m=>({t:m.t,group:'江湖经历',d:m.d,done:true}))]:oldLog()};
  const oldSide=mnQuests;mnQuests=function(){if(!isQiheEntry())return oldSide();const r=roundState();return[{t:'替周婶跑一圈',giver:'周婶',d:esc(roundText()),done:['done','partial','closed'].includes(r),closed:r==='closed'}]};

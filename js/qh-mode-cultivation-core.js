@@ -60,7 +60,10 @@ const hasActivityInPeriod=(s,id,slot=period(s))=>s.history.some(h=>h.period===sl
 const G=typeof module==='object'&&module.exports?require('./qh-mode-cultivation-growth.js'):root.CultivationGrowth;
 function growth(s){return G.growth(s,D.actions);}
 function syncNotices(s){for(const n of D.notices||[]){if(n.slot>period(s)||s.facts[n.id])continue;if(n.id==='escort_return'&&!s.facts.first_delivery)continue;s.facts[n.id]={period:n.slot};s.letters.push({id:'notice-'+n.id,recipient:'谷中消息',theme:'日程',due:n.slot,read:!!n.silent,body:n.text});}}
+// 2026-10-30 台词里交到手的东西发进背包，每样只发一次（评审台第三十轮第 4 题选甲）
+const CULT_GIFTS=[['gy_wood_bird',f=>f.gy_ledger_seen],['gy_hand_cloth',f=>f.gy_fist_or_sword_choice==='sword'],['gy_wrist_guard',f=>f.gy_zhong_kit_seen],['gy_wood_bird_sale',f=>f.hg_pack_review_seen],['pei_lens',f=>f.gn_depart_seen]];
 function reconcileWorld(world){PEI.sync(world);const s=world.cultivation;if(!s)return;const g=growth(s);world.skills||={};
+ world.cultGifts||={};world.bag||={};for(const[id,when]of CULT_GIFTS)if(!world.cultGifts[id]&&when(s.facts||{})){world.cultGifts[id]=true;world.bag[id]=(world.bag[id]||0)+1;}
  G.reconcile(world,D.actions);
  // 殷红缨在“代师出行”同行或除夕后正式入队；队伍满员时只进名册，不挤掉现有同伴。
  if(s.facts.gy_yin_recruit){world.qiheRoster||={version:1,members:['hero',...(world.party||[])],availability:{},revision:0,commands:[]};if(!world.qiheRoster.members.includes('yinhongying'))world.qiheRoster.members.push('yinhongying');world.party||=[];if(!world.party.includes('yinhongying')&&world.party.length<3&&!s.facts.gy_yin_party_offered){world.party.push('yinhongying');}s.facts.gy_yin_party_offered||=true;}
@@ -75,8 +78,14 @@ function giftRecipients(s){return D.giftRecipients.filter(n=>(n.id!=='zhou'||s.j
 // 2026-10-20 用户同意：书信只寄给不在谷里的人（陆衡、邻村乡邻、溪东裴家、下山在外的方迟）；同住的人只能送礼、当面说。
 function letterRecipients(s){return giftRecipients(s).filter(n=>['lu','neighbor','pei'].includes(n.id)||(n.id==='fang'&&s.facts.gy_fang_leaves_seen&&!s.facts.gy_brother_hurt_seen));}
 function contactReason(s,id,recipient){if(recipient===undefined)return '';if(!(id==='C01'?letterRecipients(s):giftRecipients(s)).some(n=>n.name===recipient))return'尚未认识或不能投递给这位收件人。';const sent=s.history.some(h=>h.period===period(s)&&h.action===id&&(h.recipient||s.letters.find(l=>l.id===h.id)?.recipient||'陆衡')===recipient);return sent?`${recipient}本期已${id==='C01'?'收到一封近况信':'收到一份礼物'}，下期再${id==='C01'?'寄信':'赠送'}。`:'';}
+// 好感底线（2026-10-27 用户：能偷的人放开后，“培养阶段的闲逛剧情需要加入对应的好感度底线才可以触发，不然明明是敌对，还有一些暧昧友好剧情”）：
+// 闲逛、串门、来客这类可选剧情，只要牵涉的人在开始部分已经敌对（S.qiheBond 的 hostile，偷窃失手、赠礼冒犯都会到这一步），就不触发；日历必看剧情不受影响。
+function grudge(a){if(a.auto||a.main)return '';const S0=root.S,P=root.QIHE_NPC_DATA?.PEOPLE,B=S0?.qiheBond;if(!P||!B)return '';
+ const who=new Set([a.teacher,a.heart,a.personal,a.bottleneck,...(a.cast||[])].filter(Boolean));
+ for(const[id,p]of Object.entries(P))if((who.has(p.name)||who.has(id))&&B[id]?.hostile)return p.name;return '';}
 function availability(s,a,options={}){if(a?.id==='C02'&&options.gift){if(!['food','herb','pouch'].includes(options.gift))return'此物品不能投递。';a={...a,inputs:{[options.gift]:1}};}if(!a)return'没有这个培养项目。';if(s.pending)return'请先完成或关闭当前活动结果。';if(s.mode!=='home'&&!(a.storyMode&&a.storyMode===s.mode))return s.mode==='complete'?'三年培养已结束。':'本期用于行程，不能领取据点体力。';if(a.locked)return a.locked;const balanceGate=B.gate(s,a);if(balanceGate)return balanceGate;
  if(['sword','fist'].includes(a.learn)&&!s.learned[a.learn]&&s.learned[a.learn==='sword'?'fist':'sword'])return'先练好已学的基础功法；交叉修习需要另一次传艺，目前尚未开放。';
+ {const foe=grudge(a);if(foe)return'和'+foe+'闹翻了，这段不会发生。';}   // 好感底线，先于时间窗口判定，免得提示成“不在窗口内”
  for(const k of a.requires||[]){if(k==='joined'&&!s.joined)return'先与周砚正式拜师，再接受武学指导。';if(k==='ye'&&s.month>12)return'叶蘅第二年的学习日程尚待剧情编排。';if(k==='lu'&&!(s.month===2&&s.phase>=3||s.month===3&&s.phase<=1))return'陆衡尚未到谷；来访窗口为二月下旬至三月上旬。';if(k==='village_visit'&&period(s)<2)return'一月中旬收到乡邻近况后开放读信。';if(!['joined','ye','lu','village_visit'].includes(k)&&!s.learned[k])return'尚未受过前置指导，请查看学艺或基本功课程。';}
  if(a.window&&(period(s)<a.window[0]||period(s)>a.window[1]&&!(a.main&&s.month<=5)))return'此邀约的可参与窗口已注明，当前不在窗口内。';for(const key of a.factRequires||[])if(!s.facts[key])return a.factHint||'先完成相关行程或收到邀请。';
  if(V.household?.gate){const why=V.household.gate(s,a);if(why)return why;}

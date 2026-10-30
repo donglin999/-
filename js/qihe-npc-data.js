@@ -3,7 +3,7 @@
 // 依据（都已用户拍板）：
 //   ../xiaojianghu/docs/design/npc-interaction-v2.md（2.1 金石朱印、第 3 节可见度四档 4／14／29、第 4 节查看页、第 5 节请教、第 10 节拍板）
 //   ../xiaojianghu/docs/design/npc-spar-and-insight.md（切磋、眼力只看悟性、请教一律加兵刃造诣）
-//   ../xiaojianghu/docs/design/npc-gifts-and-inventory.md（第 2 节关系轴含负向、第 4～6 节随身物品；赠礼界面本轮不做）
+//   ../xiaojianghu/docs/design/npc-gifts-and-inventory.md（第 2 节关系轴含负向；随身物品以第 11 节“随身物品 v2”为准）
 // 台词一律在 ink（R-剧情-04）；这里只有界面短句（小签、条件、卷上一句）和数值。
 (()=>{
  if(typeof isQiheEntry==='function'&&!isQiheEntry())return;
@@ -18,7 +18,7 @@
   {id:'jiao',ch:'教',lab:'请教',note:''},
   {id:'bi',ch:'比',lab:'切磋',note:'点到为止'},
   {id:'yi',ch:'易',lab:'交易',note:'买卖'},
-  {id:'qie',ch:'窃',lab:'偷窃',note:'',reserved:true}   // 留位：偷窃下一批做，本轮一律隐藏
+  {id:'qie',ch:'窃',lab:'偷窃',note:''}
  ];
 
  // ── 可见度四档（主稿第 3 节）。d = 对方等级 − 萧白等级。字段说明：
@@ -77,62 +77,100 @@
    req:[['sparred:bailiff','跟他切磋过一场','切磋过再来'],['stage:refuge','在邻村','到邻村再说']],gain:'长兵造诣 +10',fx:{zy:'棍',n:10}}
  };
 
- // ── 物品类别（赠礼稿第 4 节）：普 普通｜贵 甲、绝（显示“未知物品”，悟性认）｜锁 奇遇支线奖励（未知、认不出）｜贴 贴身（不显示；乔装者“贴身收着一件”）｜剧 剧情物（朱印“剧情”）
- // 物品条目：{n:名称, id:运行时物品 id（有图标时）, c:类别, q:数量, g:品阶, glyph:无图标时的字, when/until:条件, money:两}
+ // ── 随身物品 v2（2026-10-27，赠礼稿第 11 节）。人身上的东西分三类：
+ //   gear：穿戴装备 {weapon,armor,acc}，每格 {n:名称, id?, g:品阶, look?:只可见}。查看页装备栏照常显示；不可偷、不进易物秤。习武的人兵器缺省取战斗档。
+ //   bag：随身物。偷窃清单与易物秤都只从这里取。条目字段（偷窃稿第 10 节口径）：
+ //     n 名称｜id 运行时物品 id｜q 数量｜c 类别（缺省普通；贵 甲绝未知物品｜锁 奇遇奖励｜贴 贴身｜剧 剧情物）｜g 品阶｜glyph 无图标时的字
+ //     diff 偷窃难度 1～6（没有＝不可偷；noSteal 的人照写物品本身难度，只作参考，整人不进偷窃，待 js/qihe-steal.js 认 noSteal）｜gate 窃术门槛（0＝开始部分也能试）｜money 银两｜stealable 剧情物例外可偷
+ //     swap:false 不肯换（自用、公物、门派秘籍、回礼专用）｜use:'任' 任务用具（不送、不换）｜ret 熟络回礼挑这件｜look 只可见｜when/until 条件
+ //   商店货不在人身上：店家、药商、货郎的货单在 js/qihe-npc-items.js 的 SHOPS，只走“买卖”。
+ //   人物字段：trade 有“易”印（功能人物：先选以物易物／买卖）｜shop 有商店货单｜barter 熟络后肯以物易物（大侠立志传：寻常人亲密度 20 才易物）｜noSteal 不能偷的原因（偷窃稿第 7 节；2026-10-27 用户“都可以”偷，现无人标）
  // ── 人物表。battle：等级、五维、兵器、武学的来源——clash＝js/qihe-faction-clash-data.js 的 profiles；spar＝QiheSparFoes；party＝入队同伴；
  //    lv 只写设计稿已定的等级（100 级方案）；没有战斗档的人五维、武学写“未登记”，不编。
  //    npc：地图上 NPC 的名字（按名字认人）；chapter：QiheChapter.interact 用的 id；story：托的来源（main 主线这一步找他｜errand 三方跑腿｜errandCheck 跑腿问话｜stranger 宋先生回话）。
+ // 2026-10-27 用户：过场人物不另设立绘（“不然就很容易降低立绘的重要性”）——10-27 新出的 9 张半身像撤下，查看页走无立绘方案（js/qihe-npc-ui.js portraitHTML）
+ // 2026-10-27 用户：人物身上“没有任何价值、也不值得为它们生成素材”的任务物品去掉——只用一个字当图标、没有运行时编号、没有任务读它的剧情物全删；有编号、被任务或偷窃用到的（针囊、风灯、练习棍、记人笺、宋先生几件、扁石子）保留
  const PEOPLE={
   ye:{name:'叶蘅',npc:['叶蘅'],chapter:'ye',faction:'栖河村',role:'村中医者',portrait:'p_ye',special:true,unlock:'choice:clinic',
    battle:{party:'ye',lv:3,arts:[{name:'药针',grade:'',moves:['回春','百草']}]},
    story:['main'],teach:'ye_needle',spar:{deny:'companion'},
-   bag:[{n:'野草药',id:'qh_wild_herb',q:3},{n:'金疮药',id:'pill',q:2},{n:'素铜针囊',id:'needles',c:'剧',until:'has:needles'},{n:'无名字条',c:'剧',glyph:'条'},
-    {n:'种子纸包',c:'剧',glyph:'种',when:'choice:clinic'},{n:'母亲药签',c:'贴'},{n:'父亲笔记',c:'贴'},{money:8}]},
-  aunt:{name:'周婶',npc:['周婶'],faction:'栖河村',role:'药棚帮手',civilian:true,
-   bag:[{n:'羊肉笼饼',id:'bun',q:2},{n:'金疮药',id:'pill',q:1},{n:'风灯',c:'普',glyph:'灯',use:'任'},{money:12}]},
-  chen:{name:'陈伯',npc:['陈伯'],faction:'栖河村',role:'木匠',civilian:true,tools:'木匠工具',story:['errandCheck'],
-   bag:[{n:'枣木短杖',id:'club',until:'has:club'},{n:'麻绳',glyph:'绳',q:2},{n:'修车工具',c:'剧',glyph:'具'},{n:'第十七号底单',c:'贴'},{money:15}]},
-  elder:{name:'村口老人',npc:['村口老人'],faction:'栖河村',role:'村南老住户',civilian:true,
-   bag:[{n:'周婶的竹篮',c:'剧',glyph:'篮',until:'prologueErrand:medicine'},{money:4}]},
-  innkeeper:{name:'店家',npc:['店家'],faction:'栖河村',role:'客栈掌柜',civilian:true,trade:true,
-   bag:[{n:'羊肉笼饼',id:'bun',q:3},{n:'竹叶青',id:'wine',q:1},{n:'火折子',glyph:'火',q:2},{money:30}]},
-  apothecary:{name:'药商',npc:['药商'],faction:'外来药商',role:'南村口药摊',civilian:true,trade:true,story:['errandCheck'],
-   bag:[{n:'金疮药',id:'pill',q:3},{n:'野草药',id:'qh_wild_herb',q:4},{n:'旧药罐',c:'剧',glyph:'罐',q:7},{n:'行诊药囊',glyph:'囊',g:'丙'},{money:40}]},
-  aide:{name:'采办随从',npc:['采办随从'],faction:'巡江司采办队',role:'采办随从',civilian:true,
-   bag:[{n:'采办单',c:'剧',glyph:'单'},{n:'竹叶青',id:'wine',q:1},{money:20}]},
-  bailiff:{name:'差役',npc:['差役'],faction:'巡江司',role:'守路差役',story:['errandCheck'],
+   bag:[{n:'野草药',id:'qh_wild_herb',q:3,diff:1,ret:true},{n:'金疮药',id:'pill',q:2,diff:2},{n:'素铜针囊',id:'needles',c:'剧',until:'has:needles'},
+    {n:'母亲药签',c:'贴'},{n:'父亲笔记',c:'贴'},{money:8,diff:2}]},
+  // 2026-10-30 评审台第二十四轮第 1 题用户选甲：没有专属立绘的人按身份共用通用立绘（p_qh_generic_*_20261030；采办随从与差役同用“公差”）。
+  aunt:{name:'周婶',portrait:'p_qh_generic_aunt_20261030',npc:['周婶'],faction:'栖河村',role:'药棚帮手',civilian:true,barter:true,
+   bag:[{n:'羊肉笼饼',id:'bun',q:2,diff:1,ret:true},{n:'金疮药',id:'pill',q:1,diff:2},{n:'针线包',id:'qh_sewing_kit',q:1,diff:2},{n:'风灯',id:'qh_storm_lantern',c:'剧',use:'任',swap:false},{money:12,diff:2}]},
+  chen:{name:'陈伯',portrait:'p_qh_generic_chen_20261030',npc:['陈伯'],faction:'栖河村',role:'木匠',civilian:true,tools:'木匠工具',story:['errandCheck'],barter:true,
+   gear:{weapon:{n:'木匠工具'}},
+   bag:[{n:'枣木短杖',id:'club',until:'has:club',diff:2,swap:false,ret:true},{n:'麻绳',id:'qh_rope',q:2,diff:1},{n:'枯枝',id:'qh_dry_branch',q:3,diff:1},{n:'第十七号底单',c:'贴'},{money:15,diff:2}]},
+  elder:{name:'村口老人',portrait:'p_qh_generic_elder_20261030',npc:['村口老人'],faction:'栖河村',role:'村南老住户',civilian:true,barter:true,
+   gear:{weapon:{n:'拐杖'}},
+   bag:[{n:'炒米',id:'qh_fried_rice',q:2,diff:1,ret:true},{n:'芦苇',id:'qh_river_reed',q:2,diff:1},{money:4,diff:2}]},
+  innkeeper:{name:'店家',portrait:'p_qh_generic_innkeeper_20261030',npc:['店家'],faction:'栖河村',role:'客栈掌柜',civilian:true,trade:true,shop:'innkeeper',
+   bag:[{n:'火折子',id:'qh_tinder',q:2,diff:2,ret:true},{n:'山狼皮',id:'pelt',q:1,diff:2},{n:'枯枝',id:'qh_dry_branch',q:4,diff:1},{money:30,diff:3}]},
+  apothecary:{name:'药商',portrait:'p_qh_generic_apothecary_20261030',npc:['药商'],faction:'外来药商',role:'南村口药摊',civilian:true,trade:true,shop:'apothecary',story:['errandCheck'],
+   bag:[{n:'野草药',id:'qh_wild_herb',q:4,diff:1},{n:'芦苇',id:'qh_river_reed',q:3,diff:1},{n:'山狼皮',id:'pelt',q:1,diff:2},{n:'行诊药囊',id:'qh_medical_kit',g:'丙',diff:3,swap:false},
+    {money:40,diff:3}]},
+  aide:{name:'采办随从',portrait:'p_qh_generic_bailiff_20261030',npc:['采办随从'],faction:'巡江司采办队',role:'采办随从',civilian:true,barter:true,
+   bag:[{n:'竹叶青',id:'wine',q:1,diff:2,ret:true},{n:'羊肉笼饼',id:'bun',q:2,diff:1},{n:'厌胜钱',id:'charm',q:1,diff:3},{money:20,diff:2}]},
+  bailiff:{name:'差役',portrait:'p_qh_generic_bailiff_20261030',npc:['差役'],faction:'巡江司',role:'守路差役',story:['errandCheck'],barter:true,
    battle:{spar:'bailiff',arts:[{name:'护路棍法',grade:'丙',lv:1,moves:['横杆护身']}]},
    teach:'bailiff_stance',spar:{},
-   bag:[{n:'羊肉笼饼',id:'bun',q:1},{money:10}]},
-  retainer:{name:'护院',npc:['护院'],faction:'正道盟',role:'徐令仪的护院',
+   gear:{weapon:{n:'枣木短杖',id:'club',g:'丁'}},
+   bag:[{n:'铁锁链',id:'qh_iron_chain',q:1,diff:2,swap:false},{n:'羊肉笼饼',id:'bun',q:1,diff:1,ret:true},{n:'火折子',id:'qh_tinder',q:1,diff:2},{money:10,diff:2}]},
+  retainer:{name:'护院',portrait:'p_qh_generic_retainer_20261030',npc:['护院'],faction:'正道盟',role:'徐令仪的护院',barter:true,
    battle:{clash:'guard_front',art:'c_qh_clash_guard'},
    spar:{first:true,firstNote:'徐令仪已点头',firstWhen:'event:evidence-v2'},
-   bag:[{n:'随行干粮',glyph:'粮',q:2},{n:'金疮药',id:'pill',q:1},{money:20}]},
-  bandit:{name:'帮众',npc:['帮众'],faction:'归烬堂',role:'乌魁手下',
+   gear:{weapon:{n:'短柄铁刀'},armor:{n:'牛皮护心甲',id:'vest',g:'丙'}},
+   bag:[{n:'麻缠护手',id:'qh_hand_wrap',g:'丁',q:1,diff:2},{n:'随行干粮',id:'qh_ration',q:2,diff:2,ret:true},{n:'金疮药',id:'pill',q:1,diff:2},{money:20,diff:3}]},
+  bandit:{name:'帮众',portrait:'p_qh_generic_bandit_20261030',npc:['帮众'],faction:'归烬堂',role:'乌魁手下',barter:true,
    battle:{clash:'adept',art:'c_qh_clash_guard'},spar:{},
-   bag:[{n:'竹叶青',id:'wine',q:1},{money:2}]},
-  xulingyi:{name:'徐令仪',npc:['徐令仪'],chapter:'xulingyi',faction:'正道盟',role:'文议执事',portrait:'p_qh_xulingyi_story',special:true,unlock:'errand:letter:done',
+   gear:{weapon:{n:'短柄铁刀'},acc:{n:'小酒葫芦',g:'丙'}},
+   bag:[{n:'竹叶青',id:'wine',q:1,diff:2,ret:true},{n:'火折子',id:'qh_tinder',q:1,diff:2},{n:'厚背樵刀',id:'knife',q:1,diff:2},{money:2,diff:2}]},
+  xulingyi:{name:'徐令仪',npc:['徐令仪'],chapter:'xulingyi',faction:'正道盟',role:'文议执事',portrait:'p_qh_xulingyi_story',special:true,unlock:'errand:letter:done',barter:true,
    battle:{clash:'xu',weaponName:'青锋剑'},story:['errand'],teach:'xu_sword',spar:{},
-   bag:[{n:'收货单附页',c:'剧',glyph:'札',until:'event:evidence-v2'},{n:'拜帖',c:'剧',glyph:'帖',when:'errand:letter:none'},{n:'金疮药',id:'pill',q:2},{n:'羊肉笼饼',id:'bun',q:2},
-    {n:'短锋相照',glyph:'册',g:'丙'},{n:'笔管坠',glyph:'坠',g:'乙',look:true},{money:60}]},
-  censhuang:{name:'岑霜',npc:['岑霜'],chapter:'censhuang',faction:'归烬堂',role:'对外管事',portrait:'p_qh_censhuang_story',special:true,unlock:'errand:account:done',
+   gear:{weapon:{n:'青锋剑',id:'iron',g:'丙'},armor:{n:'行旅夹衣',id:'mianjia',g:'丙'},acc:{n:'笔管坠',g:'乙',look:true}},
+   bag:[
+    {n:'金疮药',id:'pill',q:2,diff:2},{n:'羊肉笼饼',id:'bun',q:2,diff:2},{n:'短锋相照',diff:3,glyph:'册',g:'丙',swap:false,ret:true},{money:60,diff:3}]},
+  censhuang:{name:'岑霜',npc:['岑霜'],chapter:'censhuang',faction:'归烬堂',role:'对外管事',portrait:'p_qh_censhuang_story',special:true,unlock:'errand:account:done',barter:true,
    battle:{clash:'cen',acc:'窄面折扇'},story:['errand'],spar:{},
-   bag:[{n:'旧货账',c:'剧',glyph:'账'},{n:'竹叶青',id:'wine',q:1},{n:'燃隙刀',glyph:'册',g:'丙'},{n:'蜻蜓翠簪',key:'qh_dragonfly_hairpin',c:'贵',g:'甲'},{money:120}]},
-  shenyanhui:{name:'沈雁回',npc:['沈雁回'],chapter:'shenyanhui',faction:'巡江司',role:'民间委办',portrait:'p_qh_shenyanhui_story',special:true,unlock:'errand:ledger:done',
+   gear:{weapon:{n:'乌藤软鞭'},acc:{n:'窄面折扇'}},
+   bag:[{n:'竹叶青',id:'wine',q:1,diff:2},{n:'藏锋短刀',id:'qh_hidden_dagger',g:'丙',diff:4,swap:false},{n:'燃隙刀',diff:3,glyph:'册',g:'丙',swap:false,ret:true},
+    {n:'蜻蜓翠簪',key:'qh_dragonfly_hairpin',c:'贵',g:'甲',diff:6,gate:0},{money:120,diff:3}]},
+  shenyanhui:{name:'沈雁回',npc:['沈雁回'],chapter:'shenyanhui',faction:'巡江司',role:'民间委办',portrait:'p_qh_shenyanhui_story',special:true,unlock:'errand:ledger:done',barter:true,
    battle:{lv:24,weapon:'截江棍',weaponGrade:'丙'},story:['errand'],teach:'shen_staff',spar:{},
-   bag:[{n:'采办队附页',c:'剧',glyph:'札'},{n:'行旅凭牌',c:'剧',glyph:'牌'},{n:'野草药',id:'qh_wild_herb',q:2},{n:'药香荷包',glyph:'包',g:'丙'},{money:50}]},
-  luheng:{name:'陆衡',npc:['陆衡'],chapter:'luheng',faction:'跑山路护运',role:'护运',portrait:'p_opening_luheng',special:true,unlock:'choice:transport',
+   gear:{weapon:{n:'截江棍',g:'丙'},acc:{n:'行旅凭牌',g:'丙'}},
+   bag:[{n:'野草药',id:'qh_wild_herb',q:2,diff:2},{n:'随行干粮',id:'qh_ration',q:2,diff:2},{n:'药香荷包',id:'qh_herb_pouch',g:'丙',diff:3,ret:true},{money:50,diff:3}]},
+  luheng:{name:'陆衡',npc:['陆衡'],chapter:'luheng',faction:'跑山路护运',role:'护运',portrait:'p_opening_luheng',special:true,unlock:'choice:transport',barter:true,
    battle:{lv:16,weapon:'护行刀',weaponGrade:'丙',acc:'铁钱串',accGrade:'乙',arts:[{name:'护路棍法',grade:'丙',moves:['横杆护身']}]},
    story:['main'],teach:'luheng_staff',spar:{noProfile:true},
-   bag:[{n:'练习棍',id:'qh_practice_staff',c:'剧',until:'learned:qh_hulu_staff'},{n:'路单',c:'剧',glyph:'单',use:'任'},{n:'随行干粮',glyph:'粮',q:3},{n:'麻绳',glyph:'绳',q:1},{money:35}]},
+   gear:{weapon:{n:'护行刀',g:'丙'},acc:{n:'铁钱串',g:'乙',look:true}},
+   bag:[{n:'练习棍',id:'qh_practice_staff',c:'剧',until:'learned:qh_hulu_staff'},{n:'随行干粮',id:'qh_ration',q:3,diff:2,ret:true},{n:'麻绳',id:'qh_rope',q:1,diff:1},
+    {n:'火折子',id:'qh_tinder',q:1,diff:2},{money:35,diff:2}]},
   zhouyan:{name:'周砚',npc:['周砚'],faction:'归云谷',role:'以旧友身份来访',portrait:'p_opening_zhouyan',special:true,unlock:'never',bondFloor:-49,
    battle:{lv:88},spar:{noProfile:true},
-   bag:[{n:'随行干粮',glyph:'粮',q:2},{n:'金疮药',id:'pill',q:1},{n:'出岫心经',glyph:'册',g:'丙',look:true},{n:'归云剑诀',key:'qh_guiyun_sword_manual',c:'贵',g:'甲'},{money:200}]},
+   gear:{weapon:{n:'长剑'}},
+   bag:[{n:'随行干粮',id:'qh_ration',q:2,diff:2},{n:'金疮药',id:'pill',q:1,diff:2},{n:'出岫心经',glyph:'册',g:'丙',look:true},{n:'归云剑诀',key:'qh_guiyun_sword_manual',c:'贵',g:'甲',diff:6,gate:0},{money:200,diff:3}]},
   song:{name:'宋先生',npc:['宋先生'],chapter:'stranger',faction:'行商账房',role:'后山倒木旁',portrait:'p_qh_song_story',special:true,unlock:'event:c1-s1',disguised:true,
-   story:['stranger'],spar:{deny:'disguised'},
-   bag:[{n:'金疮药',id:'pill',c:'剧',q:2,until:'event:c1-00b'},{n:'青绫行衣',id:'qh_song_coat',c:'剧',until:'event:c1-s1'},{n:'乌木算珠',id:'qh_song_abacus',c:'剧',until:'event:c1-s2'},
-    {n:'旧账簿',c:'剧',glyph:'簿'},{n:'红绳系的玉',c:'贴'},{n:'银铤一枚',glyph:'银',money:600,silverBar:true},{n:'寒魄符',key:'mj_art_jh_hp',c:'贵',g:'甲'},{n:'行商牙牌',key:'qh_merchant_tally',c:'贵',g:'甲'},
-    {n:'指南鱼坠',key:'qh_compass_fish',c:'贵',g:'甲'},{n:'走镖手札',key:'qh_escort_notes',c:'贵',g:'甲'},{n:'后山记人笺',c:'剧',glyph:'笺',when:'event:c1-s1'}]}
+   story:['stranger'],spar:{deny:'disguised'},flags:{breaksLine:'song'},stealLv:72,   // stealLv：没有战斗档时偷窃按这个等级算（偷窃稿第 8.4.2 节“按真实等级 72 算”）   // 偷他失手，宋先生线就断（偷窃稿第 8.4 节）
+   bag:[{n:'金疮药',diff:2,id:'pill',c:'剧',q:2,until:'event:c1-00b'},{n:'青绫行衣',id:'qh_song_coat',c:'剧',until:'event:c1-s1'},{n:'乌木算珠',id:'qh_song_abacus',c:'剧',until:'event:c1-s2'},
+    {n:'红绳系的玉',c:'贴'},{n:'银铤一枚',glyph:'银',money:600,silverBar:true,diff:6},   // 2026-10-27 主会话补难度与运行时 id（偷窃稿第 8.4 节：银铤难 6，四件甲级难 5、开始部分也能试，记人笺难 3）
+    {n:'寒魄符',id:'mj_art_jh_hp',c:'贵',g:'甲',diff:5,gate:0},{n:'行商牙牌',id:'qh_merchant_tally',c:'贵',g:'甲',diff:5,gate:0},
+    {n:'指南鱼坠',id:'qh_compass_fish',c:'贵',g:'甲',diff:5,gate:0},{n:'走镖手札',id:'qh_escort_notes',c:'贵',g:'甲',diff:5,gate:0},{n:'后山记人笺',id:'qh_song_roster',c:'剧',glyph:'笺',kind:'evidence',stealable:true,diff:3,when:'event:c1-s1'}]},
+  // 2026-10-27 地图可交互物上图的新人物（qihe-map-interactables.md；bible/人物/ 已有页）：战斗档、请教、切磋未定，按“没有战斗档不编”留空
+  fortune:{name:'算命先生',npc:['算命先生'],portrait:'p_qh_linhuizhi_hd_20261023',faction:'游方',role:'北路测字摊',civilian:true,disguised:true,
+   bag:[{n:'檀木手串',id:'jade',g:'丙',q:1,diff:3,swap:false},{n:'不点的小铜灯',c:'贴'},{money:15,diff:3}]},
+  boatman:{name:'船家',npc:['船家'],portrait:'p_qh_chuanjia_hd_20261023',faction:'栖河村',role:'东埠小码头',civilian:true,barter:true,
+   gear:{weapon:{n:'竹篙'}},
+   bag:[{n:'麻绳',id:'qh_rope',q:1,diff:1},{n:'炒米',id:'qh_fried_rice',q:2,diff:1,ret:true},{n:'芦苇',id:'qh_river_reed',q:2,diff:1},{money:10,diff:2}]},
+  peddler:{name:'货郎',npc:['货郎'],portrait:'p_qh_huolang_hd_20261023',faction:'外来货郎',role:'村心货郎担',civilian:true,trade:true,shop:'peddler',
+   bag:[{n:'枯枝',id:'qh_dry_branch',q:2,diff:1},{n:'芦苇',id:'qh_river_reed',q:2,diff:1},{n:'野草药',id:'qh_wild_herb',q:1,diff:1},{n:'厌胜钱',id:'charm',q:1,diff:3,ret:true},{money:25,diff:3}]},
+  // 2026-10-29 阿炭：归烬堂入帮两个来月的新人（帮众挑衅新版，story/01-开始/奇遇-帮众挑衅.ink）。萧白私下还了册子才知道他叫阿炭，之前名牌叫“新来的”
+  atan:{get name(){const b=window.S?.qiheHidden?.bandit;return b?.decided==='return'?'阿炭':'新来的'},npc:['新来的','阿炭'],portrait:'p_qh_atan_hd_20261029',faction:'归烬堂',role:'入帮两个来月的新人',civilian:true,
+   bag:[{money:1,diff:3}]},
+  aqi:{name:'小耗子',npc:['小耗子'],portrait:'p_qh_aqi_hd_20261023',faction:'外乡人',role:'客栈门口',civilian:true,
+   bag:[{money:2,diff:4}]},
+  ashuan:{name:'阿栓',npc:['阿栓'],portrait:'p_qh_ashuan_hd_20261023',faction:'栖河村',role:'店家的儿子',civilian:true,bag:[{n:'糖块',id:'qh_candy',q:1,diff:1,swap:false}]},
+  xiaohe:{name:'小禾',npc:['小禾'],portrait:'p_qh_xiaohe_hd_20261023',faction:'栖河村',role:'周婶的外孙女',civilian:true,bag:[{n:'扁石子',id:'qh_flat_stone',c:'剧',glyph:'石'}]}
  };
 
  // ── 托（剧情项）的来源表：label 两字，note 小注由引擎按来源填（主线这一步的标题、跑腿名等，不剧透）。
@@ -144,5 +182,11 @@
   {key:'refuge',id:'bailiff-refuge',person:'bailiff',sp:'c_opening_bailiff',at:[540,615],when:'stage:refuge event:evidence-v2',talk:false}
  ];
 
- window.QIHE_NPC_DATA={MENU,TIERS,TIER_TEXT,STAT_TRI,STAT_BAND,INSIGHT,SPAR,BOND,TEACH,PEOPLE,STORY,STATIONS};
+ // 查看页无立绘方案（2026-10-27 待用户选）：'scene' 取景｜'card' 名帖。选定后删掉另一种。
+ const INSPECT_STYLE='scene';
+ // 名帖方案用的“看得出的一句”（只写萧白当面看得到的样子，不写来历）
+ const LOOK={aunt:'袖口沾着药渣，手上有烫过的旧疤',chen:'指节粗，衣襟上挂着刨花',elder:'背驼，拄着竹杖，说话慢',innkeeper:'围裙油亮，眼睛总往门口瞟',apothecary:'背着药篓，口音不是本地的',
+  aide:'腰牌挂得端正，手里攥着单子',bailiff:'皂衣旧了，刀鞘磨得发白',retainer:'站得笔直，眼睛不离徐令仪左右',bandit:'袖子卷到肘上，腕上缠着布条'};
+ for(const[id,t]of Object.entries(LOOK))if(PEOPLE[id]&&!PEOPLE[id].look)PEOPLE[id].look=t;
+ window.QIHE_NPC_DATA={MENU,TIERS,TIER_TEXT,STAT_TRI,STAT_BAND,INSIGHT,SPAR,BOND,TEACH,PEOPLE,STORY,STATIONS,INSPECT_STYLE};
 })();

@@ -147,6 +147,15 @@
       "bible": "xiaojianghu/bible/人物/阿栓.md",
       "moods": []
     },
+    "阿炭": {
+      "bible": "xiaojianghu/bible/人物/阿炭.md",
+      "moods": []
+    },
+    "新来的": {
+      "bible": "xiaojianghu/bible/人物/阿炭.md",
+      "moods": [],
+      "aliasOf": "阿炭"
+    },
     "陆衡": {
       "bible": "xiaojianghu/bible/人物/陆衡.md",
       "moods": []

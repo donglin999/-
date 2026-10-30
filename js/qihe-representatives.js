@@ -31,19 +31,24 @@
  const scene=ctx=>({say:ctx.sayAll,ask:ctx.ask});
  const note=ctx=>(key,value)=>{ctx.p.questions||={};ctx.p.questions[key]=value};
  async function pressure(ctx){await play('qihe_reps_xu',scene(ctx),{reps_note:note(ctx)})}
- async function medicine(ctx){await play('qihe_reps_medicine',scene(ctx),{},{watched:!!window.QiheChapter?.strangerAccepted?.(ctx.p)})}
+ // 2026-10-27：装卸路“在路口数人”要答应过宋先生、且线没断（笔记 42 运行侧第 2 条）
+ async function medicine(ctx){await play('qihe_reps_medicine',scene(ctx),{},{watched:!!window.QiheChapter?.strangerAccepted?.(ctx.p)&&!S.qiheSong?.broken})}
  async function rescueOrders(ctx){await play('qihe_reps_rescue',scene(ctx),{},{clash:!!ctx.p.clashVersion})}
  async function evidence(ctx){
   const kept=ctx.ownsStrangerGifts?.()||[];
   await play('qihe_reps_evidence',scene(ctx),{
    reps_told:told=>{(ctx.p.records||={}).told_about_stranger=told},
-   reps_stranger_gift:()=>ctx.strangerGift?.('c1-07',50)
-  },{met:!!ctx.p.events['three-meeting'],watched:!!window.QiheChapter?.strangerAccepted?.(ctx.p),clash:!!ctx.p.clashVersion,has_coat:kept.includes('青绫行衣'),has_abacus:kept.includes('乌木算珠')});
+   reps_stranger_gift:()=>ctx.strangerGift?.('c1-07',50),
+   reps_hand_roster:()=>{if(S.bag?.qh_song_roster>0)S.bag.qh_song_roster--;(ctx.p.records||={}).roster_given=true}   // 交出后山记人笺（偷窃稿第 8.4 节）
+  },{has_roster:(S.bag?.qh_song_roster||0)>0,met:!!ctx.p.events['three-meeting'],watched:!!window.QiheChapter?.strangerAccepted?.(ctx.p),clash:!!ctx.p.clashVersion,has_coat:kept.includes('青绫行衣'),has_abacus:kept.includes('乌木算珠'),...cold()});
   ctx.p.evidence={version:2,receipt:'旧药罐六只',number:17,authorization:false,forgerySuspected:true,mastermindKnown:false,relicsAbsent:true,strangerNamed:!!ctx.p.records?.told_about_stranger,originalsReturned:true,responsible:['徐令仪','岑霜','沈雁回']};
  }
+ // 对证散场回扣：三方谁和萧白落到冷淡以下（关系分 < 0）
+ const cold=()=>Object.fromEntries(['alliance','guijintang','patrol'].map(f=>['cold_'+f,(window.QiheJianghu?.stage?.(f)?.score??0)<0]));
  const names={xulingyi:'徐令仪',censhuang:'岑霜',shenyanhui:'沈雁回'};
  // 找人说话：对方先按当下情形开口，再给选项（2026-10-17 试玩反馈）；跑腿选项由 QiheOutsiders 提供。
- async function interact(id,ctx){if(!names[id])return false;const after=ctx.p.stage==='refuge'&&!!ctx.p.events['evidence-v2'];
+ async function interact(id,ctx){if(!names[id])return false;if(id==='censhuang'&&(await window.QiheLamp?.sealOffer?.()||await window.QiheTown?.cenOffer?.()))return true;   // 灯二看封皮、三天酒钱找管事，各问一次   // 2026-10-27 灯二：岑霜交谈前多一问
+ const after=ctx.p.stage==='refuge'&&!!ctx.p.events['evidence-v2'];
   const errand=!!(window.QiheOutsiders?.available()&&QiheOutsiders.representativeKey(id)),q=errand&&S.prologue.outsiders?.quests?.[QiheOutsiders.representativeKey(id)],stage=q?.stage||'none';const open=errand&&QiheOutsiders.questOpen(QiheOutsiders.representativeKey(id));
   await play('qihe_reps_talk_'+id,scene(ctx),{reps_note:note(ctx),reps_errand:()=>QiheOutsiders.talk(id),reps_evidence:()=>ctx.evidence()},{
    after,refuge:ctx.p.stage==='refuge',met:!!ctx.p.events[id==='xulingyi'?'xu-meeting':'three-meeting'],

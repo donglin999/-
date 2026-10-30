@@ -26,7 +26,7 @@ async function layout(page){return page.evaluate(()=>{
 });}
 (async()=>{
  fs.mkdirSync(out,{recursive:true});
- const browser=await chromium.launch({executablePath:process.env.CHROMIUM_PATH||'/Users/wuxiuxiang/Library/Caches/ms-playwright/chromium_headless_shell-1228/chrome-headless-shell-mac-arm64/chrome-headless-shell'});
+ const browser=await chromium.launch({executablePath:process.env.CHROMIUM_PATH||'/Users/wuxiuxiang/Library/Caches/ms-playwright/chromium_headless_shell-1248/chrome-headless-shell-mac-arm64/chrome-headless-shell'});
  const report={kind:'formal-game-journal-integration',url:base,playerBrowserAccessed:false,saveIsolation:'disposable contexts / xjh.qihe-ui.review.v1',captures:[],errors:[],missingAssets:[],checks:[]};
  try{
   for(const viewport of [{width:1600,height:900},{width:1280,height:720},{width:1920,height:1080},{width:740,height:872}]){

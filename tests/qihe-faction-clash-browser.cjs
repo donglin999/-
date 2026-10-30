@@ -3,7 +3,7 @@ process.env.PW_TEST_SCREENSHOT_NO_FONTS_READY='1';
 const {chromium}=require('/Users/wuxiuxiang/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright');
 const fs=require('node:fs'),path=require('node:path'),assert=require('node:assert/strict');
 const root=path.resolve(__dirname,'..'),out=path.join(root,'art_sources/qihe-clash-jia-20261014/browser');fs.mkdirSync(out,{recursive:true});
-(async()=>{const browser=await chromium.launch({executablePath:'/Users/wuxiuxiang/Library/Caches/ms-playwright/chromium_headless_shell-1228/chrome-headless-shell-mac-arm64/chrome-headless-shell'});const report=[];
+(async()=>{const browser=await chromium.launch({executablePath:'/Users/wuxiuxiang/Library/Caches/ms-playwright/chromium_headless_shell-1248/chrome-headless-shell-mac-arm64/chrome-headless-shell'});const report=[];
 try{for(const width of [1280,1920]){
  const ctx=await browser.newContext({viewport:{width,height:Math.round(width*9/16)},recordVideo:width===1280?{dir:path.join(out,'video'),size:{width:1280,height:720}}:undefined}),p=await ctx.newPage(),errors=[];
  p.on('pageerror',e=>errors.push(e.message));p.on('console',m=>{if(m.type()==='error')errors.push(m.text())});

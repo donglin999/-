@@ -3,7 +3,7 @@ process.env.PW_TEST_SCREENSHOT_NO_FONTS_READY='1';
 const {chromium}=require('/Users/wuxiuxiang/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright');
 const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path');
 const out=path.resolve(__dirname,'../art_sources/qihe-clash-jia-20261014/browser-tail');fs.mkdirSync(out,{recursive:true});
-(async()=>{const b=await chromium.launch({executablePath:'/Users/wuxiuxiang/Library/Caches/ms-playwright/chromium_headless_shell-1228/chrome-headless-shell-mac-arm64/chrome-headless-shell'});const reports=[];
+(async()=>{const b=await chromium.launch({executablePath:'/Users/wuxiuxiang/Library/Caches/ms-playwright/chromium_headless_shell-1248/chrome-headless-shell-mac-arm64/chrome-headless-shell'});const reports=[];
 try{for(const route of ['chen','cart']){const p=await b.newPage({viewport:{width:1280,height:720}}),errors=[],seen=new Map();let evidenceStarted=false,morning=false;
 p.on('pageerror',e=>errors.push(e.message));await p.addInitScript(()=>localStorage.setItem('xjh.save','FINALE_SENTINEL'));
 await p.goto('http://127.0.0.1:8792/?battleReview=clash&tail=1&play=1#qihe-map');await p.mouse.click(20,20);const deadline=Date.now()+200000;

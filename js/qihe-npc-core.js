@@ -50,6 +50,8 @@
   add(id,delta,opts={}){if(!D.PEOPLE[id])throw Error('没有这个人物：'+id);const r=bond.raw(id),before=r.score;let v=before+delta;
    if(delta>0){const cap=bond.cap(id);if(opts.amends)v=Math.min(v,Math.max(before,0));v=Math.min(v,Math.max(cap,before))}
    v=Math.max(bond.floor(id),Math.min(100,Math.round(v)));r.score=v;if(v<=D.BOND.hostileAt)r.hostile=true;else if(v>D.BOND.hostileAt)r.hostile=false;
+   if(v!==before&&!opts.quiet)window.QiheJianghuSlips?.head(id,(opts.reason==='steal_caught_kin'?QiheJianghuSlips.sign(v-before)+' 牵连':QiheJianghuSlips.sign(v-before)+' '+stageOf(v)),v<before?'neg':'pos');   // 2026-10-27 头顶小签
+   if(v!==before)window.QiheJianghu?.settle?.('bond',{npcId:id,delta:v-before,reason:opts.reason||'bond'});   // 2026-10-27 个人关系变化折进门派（faction-reputation.md 7.3）
    return{before,after:v,stage:stageOf(v)}},
   unlock(id){const r=bond.raw(id);if(r.unlocked)return false;r.unlocked=true;return true},
   stageOf
@@ -72,7 +74,12 @@
  const tierIndex=d=>D.TIERS.findIndex(t=>d<=t.max);
  const heroWis=()=>{try{return derived().st.wis}catch(e){return S.st?.wis||0}};
  const insightK=wis=>D.INSIGHT.find(r=>wis>=r.min).k;
- function view(p){const b=battleOf(p);
+ // 穿戴装备（赠礼稿第 11 节）：p.gear 为准；习武的人没写兵器、佩饰时取战斗档。每格 {name,id,grade,glyph,look,atk} 或 null。装备不可偷、不上易物秤。
+ function gearOf(p,b){const g=p.gear||{},cell=(x,fb)=>{const c=x||fb;if(!c)return null;const it=c.id&&typeof ITEMS!=='undefined'?ITEMS[c.id]:null;
+   return{name:c.n||c.name,id:c.id||null,grade:c.g||c.grade||'',glyph:c.glyph||(c.n||c.name||'？')[0],look:!!c.look,atk:it?.weapon?.atk??c.atk??null,def:typeof it?.armor==='number'?it.armor:null}};
+  return{weapon:cell(g.weapon,b?.weapon&&{n:b.weapon.name,id:b.weapon.id,g:b.weapon.grade,atk:b.weapon.atk}),armor:cell(g.armor),acc:cell(g.acc,b?.acc&&{n:b.acc.name,g:b.acc.grade})}}
+ function view(p){const v=view0(p);v.gear=gearOf(p,v.battle);return v}
+ function view0(p){const b=battleOf(p);
   if(!b)return{civil:true};
   const party=(S.party||[]).includes(p.battle?.party);
   if(p.disguised)return{tier:D.TIERS[3],index:3,d:null,battle:b,eye:false};
@@ -93,7 +100,7 @@
    if(it.c==='贴'){if(p.disguised&&opaque&&!out.some(x=>x.close))out.push({name:'贴身收着一件',glyph:'？',close:true,dim:true});continue}
    if(it.c==='锁'){out.push({name:'未知物品',glyph:'？',dim:true,locked:true});continue}
    if(it.c==='贵'){const key=it.key||it.n,known=recognize(key,it.g),wis=heroWis();out.push(known?{name:it.n,id:it.id,glyph:it.glyph||it.n[0],grade:it.g,qty:it.q>1?'×'+it.q:'',valuable:true}:{name:'未知物品',glyph:'？',dim:true,grade:wis>=RECOG[it.g].grade?it.g:'',qty:it.q>1?'×'+it.q:''});continue}
-   out.push({name:it.n,id:it.id,glyph:it.glyph||it.n[0],grade:it.g||'',qty:it.money?it.money+' 两':it.q>1?'×'+it.q:'',story:it.c==='剧',look:!!it.look,use:it.use||''});
+   out.push({name:it.n,id:it.id,glyph:it.glyph||it.n[0],grade:it.g||'',qty:it.money?it.money+' 两':it.q>1?'×'+it.q:'',story:it.c==='剧',look:!!it.look,use:it.use||'',swap:!!window.QiheGift?.canSwap?.(p,it)});   // swap：肯拿来以物易物（随身物品 v2）
   }return out}
 
  // ───── 时段（切磋、请教共用；切磋稿 2.5） ─────
@@ -130,6 +137,9 @@
   if((s.slots[sl]||0)>=D.SPAR.perSlot)return{off:true,note:'这个时段打够了'};
   let mhp=0;try{mhp=derived().mhp}catch(e){}if(mhp&&S.hp<mhp*D.SPAR.hurtBelow)return{off:true,note:'你带着伤'};
   return{off:false,note:'点到为止'}}
+ // 2026-10-27 门派厌恶以下：易、教、比关印（faction-reputation.md 2.4、7.2 gate）；个人关系的门槛仍按 D.BOND.effects
+ const FACTION_ACT={yi:'trade',jiao:'teach',bi:'spar'};   // “托”挂着主线与跑腿，不受门派门槛（免得卡主线）
+ function factionOff(p,id){const act=FACTION_ACT[id];if(!act||!window.QiheJianghu?.gate)return null;const g=QiheJianghu.gate(p.id,act);return g.ok||/^bond_/.test(g.why||'')?null:(g.why==='faction_hostile'?'门派敌对':'门派不睦')}
  function menuFor(p,npc){syncUnlocks();const out=[],bst=bond.get(p.id).stage,neg=D.BOND.effects[bst]||{};
   for(const M of D.MENU){if(M.reserved)continue;let it={...M,st:'normal',note:M.note||''};
    switch(M.id){
@@ -138,12 +148,14 @@
     case 'guan':it.run='profile';break;
     case 'li':{const G=window.QiheGift;if(!G){it.st='off';it.note='尚未开放';break}   // 2026-10-26 开发二：赠礼／赔礼面板（js/qihe-gift-ui.js）
      const b=bond.get(p.id);if(b.stage==='仇视'){Object.assign(it,{st:'off',note:'要请中人说和'});break}
-     if(G.usedThisSlot(p)){Object.assign(it,{st:'off',note:'本时段已送'});break}
      Object.assign(it,{run:'gift',lab:b.score<0?'赔礼':'赠礼',note:b.score<0?'只收厚礼或'+pronoun(p)+'喜欢的':''});break}
     case 'jiao':{const t=teachState(p);if(!t)continue;Object.assign(it,{st:t.off?'off':'normal',note:t.note,run:'teach'});break}
-    case 'bi':{const s=sparState(p);if(s.hidden)continue;Object.assign(it,{st:s.story?'story':s.off?'off':'normal',note:s.note,run:'spar'});break}
-    case 'yi':if(!p.trade)continue;if(neg.yi)Object.assign(it,{st:'off',note:neg.yi});else{it.run=window.QiheGiftUI?'yi':'act';it.note='以物易物 · 买卖'}break;
+   case 'bi':{const s=sparState(p);if(s.hidden)continue;Object.assign(it,{st:s.story?'story':s.off?'off':'normal',note:s.note,run:'spar'});break}
+   case 'qie':{const s=stealState(p);if(s.hidden)continue;Object.assign(it,{st:s.off?'off':'normal',note:s.note,run:'steal'});break}
+    case 'yi':{if(!p.trade&&!p.barter)continue;const bs=window.QiheGift?.barterState?.(p);if(bs?.hidden)continue;   // 2026-10-27 随身物品 v2：寻常人熟络后也肯以物易物
+     if(neg.yi)Object.assign(it,{st:'off',note:neg.yi});else if(bs?.off&&!p.trade)Object.assign(it,{st:'off',note:bs.note||''});else{it.run=window.QiheGiftUI?'yi':'act';it.note=p.trade?'以物易物 · 买卖':'以物易物'}break}
    }
+   {const f=it.st!=='off'&&factionOff(p,M.id);if(f){Object.assign(it,{st:'off',note:f});const k='npc_'+p.id+'_faction_no';if(window.STORY_DATA?.[k])it.say=k}}   // 2026-10-27 印是灰的，点了由门人说一句为什么不肯（faction-reputation.md 7.2）
    out.push(it)}
   return out}
 
@@ -173,10 +185,11 @@
   finally{window.endCheck=saved.endCheck;window.victory=saved.victory;window.bigText=saved.bigText;S.hp=before.hp;S.mp=before.mp}
   const r=result==='win'?'win':result==='lose'?'lose':'draw';
   const rec=s.spar[p.id]||(s.spar[p.id]={count:0,first:false,firstWin:false,stage:'opening',slots:{}});rec.slots||={};
-  let exp=0;const raw=q.raw(r);if(raw>0&&window.CharacterGrowth){const g=CharacterGrowth.awardBattle(S,raw,[],x=>settleCharacterLevels(x,derived));exp=g.hero?.amount||0}
+  let exp=0;const raw=Math.round(q.raw(r));
+  if(raw>0&&window.CharacterGrowth){const g=CharacterGrowth.awardBattle(S,raw,[],x=>settleCharacterLevels(x,derived));exp=g.hero?.amount||0}
   if(raw>0)rec.count=(rec.count||0)+1;
   let ins=0;if(!rec.first)ins+=grantInsight('spar:'+p.id+':first:'+rec.stage,D.SPAR.insight.first,'初次切磋 · '+p.name);
-  if(r==='win'&&!rec.firstWin){ins+=grantInsight('spar:'+p.id+':firstWin:'+rec.stage,q.insight.firstWin,'首胜 · '+p.name);rec.firstWin=true}
+  if(r==='win'&&!rec.firstWin){ins+=grantInsight('spar:'+p.id+':firstWin:'+rec.stage,q.insight.firstWin,'首胜 · '+p.name);rec.firstWin=true;if((battleOf(p).lv||0)>=(S.lv||1))window.QiheJianghu?.settle?.('spar_first_win',{npcId:p.id})}   // 首胜且对手不比自己低：声誉 +1
   const learned=q.story&&!s.skills.spar;rec.first=true;
   if(q.story)s.skills.spar=true;else{rec.slots[sl]=(rec.slots[sl]||0)+1;s.slots[sl]=(s.slots[sl]||0)+1}
   save();return{result:r,exp,insight:ins,learned}}
@@ -185,6 +198,11 @@
  const byName={};for(const[id,p]of Object.entries(D.PEOPLE)){p.id=id;if(she.has(p.name))p.she=true;for(const n of p.npc||[])byName[n]=id}
  const personFor=npc=>{if(!npc||npc.resource||npc.loot||!npc.sp)return null;const id=npc.person||byName[npc.name];return id?D.PEOPLE[id]:null};
 
- window.QiheNpc={data:D,state,test,bond,syncUnlocks,battleOf,view,bagOf,menuFor,teachState,sparState,sparQuote,doTeach,runSpar,personFor,slot,heroWis,insightK,recognize,
+ function stealState(p){const ST=window.QiheSteal;if(!ST)return{hidden:true};
+  const s=state();if(!s.skills?.steal)return{off:true,note:'还不会偷窃'};
+  if(ST.isAlert(p.id))return{off:true,note:'他正盯着你'};
+  const items=ST.listItems(p.id,p);if(!items.length)return{off:true,note:'身上没什么可窃的了'};
+  return{off:false,note:'下手把握与可窃物品'}}
+ window.QiheNpc={data:D,state,test,bond,syncUnlocks,battleOf,view,bagOf,menuFor,teachState,sparState,sparQuote,doTeach,runSpar,personFor,slot,heroWis,insightK,recognize,stealState,
   get people(){return D.PEOPLE}};
 })();

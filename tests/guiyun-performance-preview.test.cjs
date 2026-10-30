@@ -3,7 +3,7 @@ const {chromium}=require('/Users/wuxiuxiang/.cache/codex-runtimes/codex-primary-
 const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path');
 const out=path.resolve(__dirname,'../review/guiyun-performance-fix-20261012');
 (async()=>{
- const b=await chromium.launch({executablePath:'/Users/wuxiuxiang/Library/Caches/ms-playwright/chromium_headless_shell-1228/chrome-headless-shell-mac-arm64/chrome-headless-shell'}),context=await b.newContext({viewport:{width:1600,height:1000}}),p=await context.newPage(),errors=[];
+ const b=await chromium.launch({executablePath:'/Users/wuxiuxiang/Library/Caches/ms-playwright/chromium_headless_shell-1248/chrome-headless-shell-mac-arm64/chrome-headless-shell'}),context=await b.newContext({viewport:{width:1600,height:1000}}),p=await context.newPage(),errors=[];
  p.on('pageerror',e=>errors.push(e.message));const report={status:'running',scenes:[],badRequests:[]};p.on('response',r=>{if(r.status()>=400&&!r.url().endsWith('favicon.ico'))report.badRequests.push({url:r.url(),status:r.status()});});
  try{
   await p.goto('http://127.0.0.1:8792/review/guiyun-performance-fix-20261012/',{waitUntil:'networkidle'});await p.waitForFunction(()=>document.querySelector('#status').textContent.includes('点击画面中的箭头'));

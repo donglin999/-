@@ -18,9 +18,10 @@ const ASSETS=['bg_title',
 const BRIGHT=true; // 已定稿：明亮画风（B 方案：原布局提亮）
 // 可选行走表：ART.walk[char] = N | {n|frames, cell|size:[w,h], order|seq:[..], file, bright, stride}；表为 4 行(d,l,r,u) × N 列
 function walkSpec(c,kind='walk'){const a=window.ART&&ART[kind]&&ART[kind][c];if(!a)return null;const o=typeof a==='number'?{n:a}:Array.isArray(a)?{order:a}:a,df='s_'+c+'_'+kind;
-  return{n:o.n||o.frames||0,cell:o.cell||o.size||null,order:o.order||o.seq||null,file:o.file||df,bright:o.bright||((o.file||df)+'_bright'),stride:o.stride||0,ms:o.ms||null}}
+  return{n:o.n||o.frames||0,cell:o.cell||o.size||null,order:o.order||o.seq||null,file:o.file||df,bright:o.bright||((o.file||df)+'_bright'),stride:o.stride||0,ms:o.ms||null,after:o.after||0,gap:o.gap||0}}
 // 跑步表 ART.run 同格式，切为 r_{char}_{dir}_{i}，登记 RUN[char]
-const WALK={},RUN={},IDLE={};   // IDLE：待机表 ART.idle → i_{char}_{dir}_{i}，按 ms 逐帧计时播放
+const WALK={},RUN={},IDLE={},FIDGET={};   // IDLE：待机表 ART.idle → i_{char}_{dir}_{i}，按 ms 逐帧计时播放
+// FIDGET：站久了的小动作 ART.fidget → f_{char}_{dir}_{i}；静止满 after 毫秒播一遍，之后每隔 gap 毫秒再播（2026-10-28 用户：静止不动一段时间后也应该有点动作）
 // 帧仅保存原精灵表与裁切坐标，不为每帧保留易丢失像素的离屏画布。
 function cut(sh,x,y,w,h){return{complete:true,naturalWidth:w,naturalHeight:h,width:w,height:h,_sheet:{image:sh,x,y,w,h}}}
 function drawImageAsset(ctx,im,...a){
@@ -38,11 +39,11 @@ function drawImageAsset(ctx,im,...a){
 function sliceSheets(){for(const c of CHARS){const sh=IMG['s_'+c],m=ART.sheet&&ART.sheet[c];if(!sh||!sh.naturalWidth||!m)continue;const[cw,ch]=m;
   'dlru'.split('').forEach((d,r)=>{for(let i=0;i<4;i++){const cv2=cut(sh,i*cw,r*ch,cw,ch);IMG[`c_${c}_${d}_${i}`]=cv2;if(!i)IMG[`c_${c}_${d}`]=cv2}})}
   // 行走表：切成 w_{char}_{dir}_{i}，WALK[char]={n,order,stride}
-  for(const[kind,pre,REG]of[['walk','w',WALK],['run','r',RUN],['idle','i',IDLE]])for(const c of CHARS){const sp=walkSpec(c,kind),sh=sp&&(IMG[pre+'_'+c]);if(!ok(sh))continue;
+  for(const[kind,pre,REG]of[['walk','w',WALK],['run','r',RUN],['idle','i',IDLE],['fidget','f',FIDGET]])for(const c of CHARS){const sp=walkSpec(c,kind),sh=sp&&(IMG[pre+'_'+c]);if(!ok(sh))continue;
     const ch=sp.cell?sp.cell[1]:sh.naturalHeight/4,n=sp.n||Math.round(sh.naturalWidth/(sp.cell?sp.cell[0]:ch*.62))||1,cw=sp.cell?sp.cell[0]:Math.floor(sh.naturalWidth/n);
     if(!(n>0&&cw>0&&ch>0))continue;
     'dlru'.split('').forEach((d,r)=>{for(let i=0;i<n;i++)IMG[`${pre}_${c}_${d}_${i}`]=cut(sh,i*cw,r*ch,cw,ch)});
-    REG[c]={n,order:(sp.order&&sp.order.length?sp.order:[...Array(n).keys()]).filter(i=>i>=0&&i<n),stride:sp.stride,ms:sp.ms}}}
+    REG[c]={n,order:(sp.order&&sp.order.length?sp.order:[...Array(n).keys()]).filter(i=>i>=0&&i<n),stride:sp.stride,ms:sp.ms,after:sp.after,gap:sp.gap}}}
 // 可选资源：404/解码失败静默忽略
 function assetImagePath(file){return window.PRODUCTION_ASSET_PATHS?.[file]||`assets/${file}.webp`}
 function loadOpt(key,file){return new Promise(res=>{const i=new Image();i.onload=()=>{IMG[key]=i;res(true)};i.onerror=()=>res(false);i.src=assetImagePath(file)})}
@@ -73,13 +74,14 @@ function loadDeferredInBackground(){const queue=DEFERRED_ASSETS.filter(qiheMapKe
   // 当前场景优先
   if(typeof S!=='undefined'&&S?.scene)for(const k of sceneAssetKeys(S.scene).reverse()){const i=queue.indexOf(k);if(i>=0){queue.splice(i,1);queue.unshift(k)}}
   next()}
-function loadAll(onProg){loadExpr();let n=0;const walks=CHARS.filter(c=>walkSpec(c)),runs=CHARS.filter(c=>walkSpec(c,'run')),idles=CHARS.filter(c=>walkSpec(c,'idle')),tot=ASSETS.length+walks.length+runs.length+idles.length+OPT_CHARS.length+OPT_PORTS.length+(BRIGHT?BRIGHT_CHARS.length:0),tick=()=>{n++;onProg(Math.min(1,n/tot))};
+function loadAll(onProg){loadExpr();let n=0;const walks=CHARS.filter(c=>walkSpec(c)),runs=CHARS.filter(c=>walkSpec(c,'run')),idles=CHARS.filter(c=>walkSpec(c,'idle')),fidgets=CHARS.filter(c=>walkSpec(c,'fidget')),tot=ASSETS.length+walks.length+runs.length+idles.length+fidgets.length+OPT_CHARS.length+OPT_PORTS.length+(BRIGHT?BRIGHT_CHARS.length:0),tick=()=>{n++;onProg(Math.min(1,n/tot))};
   for(const k of ASSETS)if(deferAsset(k)&&!DEFERRED_ASSETS.includes(k))DEFERRED_ASSETS.push(k);
   const base=ASSETS.filter(k=>!DEFERRED_ASSETS.includes(k)).map(k=>new Promise(res=>{const i=new Image();i.onload=i.onerror=()=>{tick();res()};i.src=assetImagePath(window.ART?.sheetFile?.[k]||k);IMG[k]=i}));
   n+=DEFERRED_ASSETS.length;
   const opt=walks.map(c=>{const sp=walkSpec(c);return(BRIGHT?loadOpt('w_'+c,sp.bright).then(o=>o||loadOpt('w_'+c,sp.file)):loadOpt('w_'+c,sp.file)).then(tick)});
   opt.push(...runs.map(c=>{const sp=walkSpec(c,'run');return(BRIGHT?loadOpt('r_'+c,sp.bright).then(o=>o||loadOpt('r_'+c,sp.file)):loadOpt('r_'+c,sp.file)).then(tick)}),
     ...idles.map(c=>{const sp=walkSpec(c,'idle');return(BRIGHT?loadOpt('i_'+c,sp.bright).then(o=>o||loadOpt('i_'+c,sp.file)):loadOpt('i_'+c,sp.file)).then(tick)}),
+    ...fidgets.map(c=>{const sp=walkSpec(c,'fidget');return(BRIGHT?loadOpt('f_'+c,sp.bright).then(o=>o||loadOpt('f_'+c,sp.file)):loadOpt('f_'+c,sp.file)).then(tick)}),
     ...OPT_CHARS.map(c=>loadOpt('s_'+c,'s_'+c).then(tick)),...OPT_PORTS.map(p=>loadOpt('p_'+p,'p_'+p).then(tick)));
   const br=BRIGHT?[...BRIGHT_CHARS.map(c=>loadOpt('s_'+c+'_bright',window.ART?.sheetFile?.['s_'+c+'_bright']||'s_'+c+'_bright').then(tick))]:[];
   return Promise.all([...base,...opt,...br]).then(()=>{
@@ -130,8 +132,8 @@ const SKILLS={
   staff:{name:'拨草棍',kind:'棍',mp:0,pow:1.1,range:2,shape:'single',combo:25}};
 // 价格与开局银两：见 docs/design/06-物品装备与经济.md §7（W4 经济调整）；扩充物品在 js/menu.js
 const ITEMS={
-  bun:{name:'羊肉馒头',desc:'香气扑鼻，回复 40 气血。狗子最爱。',heal:40,price:6},
-  pill:{name:'金创药',desc:'回复 120 气血。',heal:120,price:20},
+  bun:{name:'羊肉笼饼',desc:'香气扑鼻，回复 40 气血。狗子最爱。',heal:40,price:6},
+  pill:{name:'金疮药',desc:'回复 120 气血。',heal:120,price:20},
   wine:{name:'竹叶青',desc:'回复 40 内力。',mp:40,price:20},
   shovel:{name:'铁铲',desc:'可在闪光处挖掘。',key:1,price:15},
   book:{name:'武学残页',desc:'使用后令一门武学升一级。',book:1},

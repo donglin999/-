@@ -14,11 +14,22 @@ const BSTAGE=(()=>{
   // 场景氛围：tint 整体调色（叠加）、pool 脚下光斑颜色、fx 前景粒子、mist 雾色、dark 回退图压暗量
   const SC={
     // atmo：生图氛围版背景（景深、光束、光斑已烘焙进图）。rim 人物迎光面（左上）受光色，vig 暗角强度。2026-10-23 用户确认“生图氛围背景＋人物受光”。
+    qh_west:{hz:.36,tint:'rgba(65,60,35,.04)',pool:'230,222,168',fx:['dust'],mist:'180,190,155',dark:.15,atmo:{rim:'255,226,150',vig:.42}},
     qh_training:{hz:.36,tint:'rgba(65,60,35,.04)',pool:'230,222,168',fx:['dust'],mist:'180,190,155',dark:.15,atmo:{rim:'255,226,150',vig:.42}},
     qh_evacuation:{hz:.38,tint:'rgba(50,45,65,.04)',pool:'220,193,153',fx:['dust'],mist:'160,150,145',dark:.15,atmo:{rim:'255,172,96',vig:.5}},
     prologue_backhill:{hz:.55,tint:'rgba(55,65,35,.06)',pool:'230,222,168',fx:['leaf','dust'],mist:'180,190,155',dark:.25,atmo:{rim:'255,226,150',vig:.42}},
     // 栖河交锋（夜，左上灯笼）：原来走 fallback 一档，接氛围版后单列；粒子换成与氛围图一致的萤火
     qh_faction_clash_20261012:{hz:.4,tint:'rgba(40,30,70,.06)',pool:'255,190,120',fx:['fly','dust'],mist:'150,140,170',dark:.42,atmo:{rim:'255,190,118',vig:.5}},
+    // 2026-10-27 交互地点专属战斗背景（用户第二十轮 11：有人交互的地方都要有该地的战斗背景）；切磋、失手开战按所在地图取
+    qihe_trial:{hz:.4,tint:'rgba(60,40,50,.05)',pool:'255,200,140',fx:['dust'],mist:'170,150,150',dark:.2,atmo:{rim:'255,190,120',vig:.46}},
+    qh_east:{hz:.36,tint:'rgba(65,60,35,.04)',pool:'230,222,168',fx:['dust'],mist:'180,190,155',dark:.15,atmo:{rim:'255,226,150',vig:.42}},
+    qh_south:{hz:.36,tint:'rgba(65,60,35,.04)',pool:'230,222,168',fx:['dust'],mist:'180,190,155',dark:.15,atmo:{rim:'255,226,150',vig:.42}},
+    qh_north:{hz:.36,tint:'rgba(55,65,35,.05)',pool:'230,222,168',fx:['leaf','dust'],mist:'180,190,155',dark:.15,atmo:{rim:'255,226,150',vig:.42}},
+    qh_refuge:{hz:.36,tint:'rgba(65,60,35,.04)',pool:'230,222,168',fx:['dust'],mist:'180,190,155',dark:.15,atmo:{rim:'255,226,150',vig:.42}},
+    qh_mountain:{hz:.36,tint:'rgba(50,60,55,.04)',pool:'225,225,190',fx:['leaf','dust'],mist:'190,200,190',dark:.15,atmo:{rim:'255,232,170',vig:.42}},
+    prologue_inn_interior:{hz:.34,tint:'rgba(60,40,25,.05)',pool:'255,200,130',fx:['dust'],mist:'170,150,130',dark:.2,atmo:{rim:'255,196,120',vig:.5}},
+    prologue_clinic_interior:{hz:.34,tint:'rgba(60,50,35,.04)',pool:'240,220,170',fx:['dust'],mist:'180,175,160',dark:.18,atmo:{rim:'255,220,150',vig:.48}},
+    prologue_chen_hall:{hz:.34,tint:'rgba(60,45,30,.04)',pool:'245,215,160',fx:['dust'],mist:'180,170,150',dark:.18,atmo:{rim:'255,215,140',vig:.48}},
     // 未登记场景（如交锋 bb_qh_faction_clash_*）沿用的默认氛围：数值即原襄阳街市一档，2026-10-19 襄阳战斗背景归档后改名保留，画面不变。
     fallback:   {hz:.51,tint:'rgba(40,30,70,.10)', pool:'255,190,120', fx:['ember','dust'], mist:'150,140,170', dark:.42},
   };
@@ -26,7 +37,11 @@ const BSTAGE=(()=>{
   // 剧情可传 bb_* / bg_{scene} / m_{scene}(_v2)：去前缀与 _vN 后缀后查上表。2026-10-19 起襄阳/庙宇/黑风寨/渡口战斗背景随襄阳演示归档。
   // 2026-10-23 开始部分四张战斗背景换成生图氛围版（旧 bb_*_v1 / 交锋 20261012 保留，剧情仍可传旧键，按场景名映射到新图）。
   const BB_ASSET={qh_training:'bb_qh_training_atmo_20261023',qh_evacuation:'bb_qh_evacuation_atmo_20261023',prologue_backhill:'bb_prologue_backhill_atmo_20261023',
-    qh_faction_clash_20261012:'bb_qh_faction_clash_atmo_20261023'};
+    qh_faction_clash_20261012:'bb_qh_faction_clash_atmo_20261023',
+    // 2026-10-27 交互地点：西田埂就是练棍课的练场，共用练场氛围版；其余各地一张
+    qh_west:'bb_qh_training_atmo_20261023',qihe_trial:'bb_qihe_trial_atmo_20261027',qh_east:'bb_qh_east_atmo_20261027',qh_south:'bb_qh_south_atmo_20261027',qh_north:'bb_qh_north_atmo_20261027',
+    qh_refuge:'bb_qh_refuge_atmo_20261027',qh_mountain:'bb_qh_mountain_atmo_20261027',prologue_inn_interior:'bb_prologue_inn_interior_atmo_20261027',
+    prologue_clinic_interior:'bb_prologue_clinic_interior_atmo_20261027',prologue_chen_hall:'bb_prologue_chen_hall_atmo_20261027'};
   const ATMO=new Set(Object.values(BB_ASSET).filter(k=>k.includes('_atmo_')));
   let atmoOn=null;                              // 当前帧背景是否氛围版：其配置（受光、暗角），否则 null
   const bbName=k=>String(k||'').replace(/^(bb|bg|m)_/,'').replace(/_v\d+$/,'');

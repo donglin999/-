@@ -26,7 +26,7 @@ const MN_DK=['atk','def','mhp','mmp','crit','dodge','spd','block'];   // block �
 const MN_SKCAP=()=>[0,4,6,7,8,9,10][Math.min(6,(S&&S.chapter)||1)];   // 章节重数上限（04 §2.4）
 const MN_MEM={
   hero:{wk:null,slots:['weapon','armor','acc'],role:'主角'},
-  suzhi:{wk:['暗器','剑'],slots:['weapon','armor','acc'],learn:['暗器','掌','内','医','剑'],teachAff:3,role:'游方医师',sect:'baixian',
+  suzhi:{wk:['暗器','剑','医具'],slots:['weapon','armor','acc'],learn:['暗器','掌','内','医','剑'],teachAff:3,role:'游方医师',sect:'baixian',
     gives:[{sk:'huichun',aff:5,line:'回春散。药量宁少勿多——记住了？'}]},
   dog:{wk:[],slots:['acc'],learn:[],role:'忠犬',noXf:1}};
 // 默认加点偏好（03 §7.1）：一键分配时循环取用
@@ -341,7 +341,7 @@ function mnSettle(mul,exp,lv0){mnSettled=true;const ev=[];if(!S)return ev;mnEnsu
     for(const[sk,pts]of Object.entries(L))ev.push(...mnProfGain(w,sk,pts*k))}
   const who=['hero',...mnLive.map(l=>l[0])];
   if(exp>0)for(const w of who)ev.push(...mnXfGain(w,exp,lv0||S.lv));
-  if(mul>=1)for(const w of who){const tr=mnXfSum(w).tr;if(!tr.postMp&&!tr.postHp)continue;const live=w==='hero'?null:(mnLive.find(l=>l[0]===w)||[])[1];
+  if(mul>=1)for(const w of who){const t0=mnXfSum(w).tr,ph=window.QiheAccFx?.of(w).postHeal||0,tr=ph?{...t0,postHp:(t0.postHp||0)+ph,postMp:(t0.postMp||0)+ph}:t0;if(!tr.postMp&&!tr.postHp)continue;const live=w==='hero'?null:(mnLive.find(l=>l[0]===w)||[])[1];
     if(w==='hero'){const d=derived();S.mp=Math.min(d.mmp,S.mp+Math.round(d.mmp*(tr.postMp||0)));S.hp=Math.min(d.mhp,S.hp+Math.round(d.mhp*(tr.postHp||0)))}
     else if(live){live.mp=Math.min(live.mmp,live.mp+Math.round(live.mmp*(tr.postMp||0)));if(live.hp>0)live.hp=Math.min(live.mhp,live.hp+Math.round(live.mhp*(tr.postHp||0)))}
     if(tr.postMp||tr.postHp)ev.push({w,rest:1})}
@@ -425,7 +425,7 @@ function mnBlot(ch,col,sz=30){return mnMk(`bl${ch}${col}${sz}`,()=>mnB().url(mnB
 function mnAtlasIco(kind,k,sz){const a=window.MENU_ICONS,r=a&&a[kind]&&a[kind][k];if(!r)return'';
   const[x,y]=r,px=a.cols>1?x/(a.cols-1)*100:0,py=a.rows>1?y/(a.rows-1)*100:0;
   return`<span class="jm-blot jm-pxi" style="width:${sz}px;height:${sz}px;background-image:url(assets/production/icons-and-props/i_jianghu.webp?v=3);background-size:${a.cols*100}% ${a.rows*100}%;background-position:${px}% ${py}%" aria-hidden="true"></span>`}
-function mnIco(k,sz=30){const art=mnAtlasIco('item',k,sz);if(art)return art;if(icoAtlas()&&window.ART&&ART.icons&&ART.icons[k])return ico(k).replace('class="ico img"',`class="ico img jm-ai" style="width:${sz/16}em;height:${sz/16}em"`);const g=ICO[k]||(ITEMS[k]?.name||'?')[0];return`<img class="jm-blot" src="${mnBlot(g,mnQ(k)[1],sz)}" alt="">`}
+function mnIco(k,sz=30){const v4=window.ITEM_ICONS_V4?.html(k,sz);if(v4)return v4;const art=mnAtlasIco('item',k,sz);if(art)return art;if(icoAtlas()&&window.ART&&ART.icons&&ART.icons[k])return ico(k).replace('class="ico img"',`class="ico img jm-ai" style="width:${sz/16}em;height:${sz/16}em"`);const g=ICO[k]||(ITEMS[k]?.name||'?')[0];return`<img class="jm-blot" src="${mnBlot(g,mnQ(k)[1],sz)}" alt="">`}
 function mnSkIco(k,sz=30){const art=mnAtlasIco('skill',k,sz);if(art)return art;const s=SKILLS[k];const ch=(s.name||s.kind)[0];return`<img class="jm-blot" src="${mnBlot(ch,MN_KCOL[s.kind]||'#3b2c1b',sz)}" alt="">`}
 function mnXfIco(k,sz=30){return mnAtlasIco('xinfa',k,sz)||`<img class="jm-blot" src="${mnBlot('心','#3a4f8a',sz)}" alt="">`}
 function mnSeal(t,w=26,h=w){return mnMk(`se${t}${w}${h}`,()=>mnB().url(mnB().seal(t,w,h)))}
@@ -476,7 +476,7 @@ function mnClick(e){const b=e.target.closest('[data-a]');if(!b||b.disabled||!$('
   case'xfm':mnXfMain(mnWho,k);return;
   case'xfs':{const why=mnXfToggleSub(mnWho,k);if(why){toast(why,1300);snd('menu_close');return}snd('select');break}
   case'cat':mnBagCat=k;break;
-  case'bagact':{const it=ITEMS[k];if(mnSlot(k)){const why=mnCan(mnWho,k);if(why){toast(why,1300);break}if(mnEquip(mnWho,k)){snd('select');toast(`${mnName(mnWho)} 装备 ${it.name}`,900)}}else if(it.heal||it.mp||it.book||it.xfbook||it.gall){mnUse(k,mnWho);return}break}
+  case'bagact':{const it=ITEMS[k];if(mnSlot(k)){const why=mnCan(mnWho,k);if(why){toast(why,1300);break}if(mnEquip(mnWho,k)){snd('select');toast(`${mnName(mnWho)} 装备 ${it.name}`,900)}}else if(it.heal||it.mp||it.book||it.xfbook||it.gall||it.insight){mnUse(k,mnWho);return}break}
   case'uneq':mnUnequip(mnWho,k);snd('menu_close');break;
   case'cfg':mnWho=w;menuTab=k==='xinfa'?'skill':k||'attr';break;
   case'talk':mnTalk(w);return;
@@ -502,10 +502,13 @@ function mnUse(k,w){const it=ITEMS[k];if(!(S.bag[k]>0))return;
   if(it.xfbook){const L=mnXfList(w).filter(id=>(mnXf(w).lv[id]||1)<5);if(!mnXfOn()||!L.length){toast(mnXfOn()?'尚无可精进的心法':'心法【入谷培养后开放】',1200);return}
     mnWithHidden(async()=>{const X=mnXf(w),c=await choose('',`${mnName(w)}参悟哪门心法？`,[...L.map(id=>`${XINFA[id].name}（第 ${X.lv[id]||1} 层）`),'算了']);if(c>=L.length)return;
       X.lv[L[c]]=(X.lv[L[c]]||1)+1;X.prog[L[c]]=0;S.bag[k]--;await toast(`「${XINFA[L[c]].name}」进至第 ${X.lv[L[c]]} 层`)});return}
+  if(it.insight){mnWithHidden(async()=>{const c=await choose('',`翻读${it.name}？读完得江湖历练 ${it.insight}，全队共用，在队伍里分给谁都行。只能读这一回。`,['读','先留着'],undefined,1);if(c||!(S.bag[k]>0))return;
+    S.bag[k]--;(S.itemInsight||(S.itemInsight={}))[k]=true;save()});return}   // 走镖手札：记下读过，历练由 SharedInsightPool 按这条事实发放
   if(it.gall){const r=w==='hero'?S:S.mates[w];r.mpBonus=(r.mpBonus||0)+30;S.bag[k]--;toast(`${mnName(w)} 内力上限 +30`,1000);mnDraw();return}
   const{hp,mp,d}=mnHP(w);if((!it.heal||hp>=d.mhp)&&(!it.mp||mp>=d.mmp)){toast(`${mnName(w)}无需服用`,900);return}
   const yi=Math.max(0,...mnMembers().map(x=>mnJi(x).yi||0)),hk=1+Math.min(yi,MN_ZY_MAX)/200;   // 医术：队中最高者每 2 点 +1%（03 §9.3）
-  S.bag[k]--;const nh=Math.min(d.mhp,hp+Math.round((it.heal||0)*hk)),nm=Math.min(d.mmp,mp+(it.mp||0));
+  const af=1+(window.QiheAccFx?.of(w).heal||0);   // 药香荷包：戴着的人服药食多回 30%
+  S.bag[k]--;const nh=Math.min(d.mhp,hp+Math.round((it.heal||0)*hk*af)),nm=Math.min(d.mmp,mp+Math.round((it.mp||0)*af));
   if(w==='hero'){S.hp=nh;S.mp=nm}else{const m=S.mates[w];m.hp=nh>=d.mhp?null:nh;m.mp=nm>=d.mmp?null:nm}
   try{__audio.sfx('chime',.5)}catch(e){}toast(`${mnName(w)} 服下 ${it.name}`,900);mnDraw()}
 
@@ -626,7 +629,7 @@ function mnTipItem(k,w){const it=ITEMS[k],sl=mnSlot(k),q=mnQ(k),fx=Object.entrie
    ${it.heal||it.mp?`<div class="jm-tipfx">${it.heal?`<span>气血 +${it.heal}</span>`:''}${it.mp?`<span>内力 +${it.mp}</span>`:''}</div>`:''}
    ${diff.length?`<div class="jm-tipcompare"><b>装备后变化</b>${diff.map(([a,o,n,d])=>`<div><span>${MN_FXN[a]}</span><span>${o}${MN_PCT[a]?'%':''} → ${n}${MN_PCT[a]?'%':''}</span>${mnArrow(d)}</div>`).join('')}</div>`:''}
    ${it.req?`<div class="jm-tipnote">需求 ${Object.entries(it.req).map(([a,v])=>`${STATN[a]} ${v}`).join(' · ')}</div>`:''}${why?`<div class="jm-tipwarn">${esc(why)}</div>`:''}
-   <div class="jm-tipfoot">${sl?'点击装备':it.heal||it.mp?'点击使用':it.book||it.xfbook?'点击参悟':it.gall?'点击服用':'随身携带'}${it.price&&!it.key?` · 市价 ${it.price} 文`:''}</div>`}
+   <div class="jm-tipfoot">${sl?'点击装备':it.heal||it.mp?'点击使用':it.book||it.xfbook||it.insight?'点击参悟':it.gall?'点击服用':'随身携带'}${it.price&&!it.key?` · 市价 ${it.price} 文`:''}</div>`}
 function mnTipSkill(k,w){const s=SKILLS[k],n=mnSk(w)[k]||1,r=mnRec(w),on=r.load.includes(k),mp=mnSkMp(w,k),need=mnProfNeed(n,k),prof=Math.floor((r.prof||{})[k]||0),why=on?'':mnLoadWhy(w,k,r.load),up=mnUpWhy(w,k),[ua,uv]=mnUpReq(k,n+1),zt=mnBsk(k).t,zv=MN_ZY.includes(zt)?Math.floor((r.zy||{})[zt]||0):null;
   return`<div class="jm-tipkind">${s.kind} · ${on?'已装配':'已习得'}</div><div class="jm-tiphead">${mnSkIco(k,44)}<div><strong>${esc(s.name)}</strong><small>第 ${n} 重${mnIsAoe(k)?' · 群攻':''} · 内力 ${mp||0}</small></div></div>
    <p>${esc(s.desc||'')}</p><div class="jm-tipfx"><span>熟练 ${Math.min(prof,need)} / ${need}</span><span>本章上限 ${MN_SKCAP()} 重</span></div>
@@ -638,7 +641,7 @@ function mnSkillCard(k,w,r,sk){const s=SKILLS[k],n=sk[k],on=r.load.includes(k),w
   return`<button class="jm-skillcard${on?' on':''}${why?' locked':''}" data-a="ld" data-k="${k}" data-tip-kind="skill" data-w="${w}" style="--kind:${MN_KCOL[s.kind]||'#3b2c1b'}" aria-label="${esc(s.name)}，${on?'点击卸下':'点击装配'}">
     <span class="jm-skillart">${mnSkIco(k,54)}</span><span class="jm-skillname">${esc(s.name)}</span><span class="jm-skillmeta">${s.kind} · ${n} 重${mnIsAoe(k)?' · 群攻':''}</span>
     <span class="jm-skillprog"><i style="width:${pct}%"></i></span><span class="jm-skillstate">${on?'已装配':why?'暂不可装':'点击装配'}</span></button>`}
-function mnBagTile(k,w){const it=ITEMS[k],sl=mnSlot(k),active=sl||it.heal||it.mp||it.book||it.xfbook||it.gall,wear=mnWearer(k).length,q=mnQ(k);
+function mnBagTile(k,w){const it=ITEMS[k],sl=mnSlot(k),active=sl||it.heal||it.mp||it.book||it.xfbook||it.gall||it.insight,wear=mnWearer(k).length,q=mnQ(k);
   return`<button class="jm-invcell${active?' action':''}" ${active?'data-a="bagact"':''} data-k="${k}" data-tip-kind="item" data-w="${w}" style="--kind:${q[1]}" aria-label="${esc(it.name)}${active?'，点击使用或装备':''}">
     <span class="jm-invicon">${mnIco(k,56)}</span><span class="jm-invcount">${S.bag[k]}</span>${wear?'<span class="jm-invwear">装</span>':''}
     <span class="jm-invname">${esc(it.name)}</span><span class="jm-invtype">${mnCat(k)}</span></button>`}

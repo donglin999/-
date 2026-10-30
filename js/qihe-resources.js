@@ -18,7 +18,7 @@
   ['east-reed-upper','east','reed',1205,465,2,'晒架以外的自然河岸'],
   ['east-herb-meadow','east','herb',1000,810,1,'河埠南侧草坡'],
   ['west-herb-margin','west','herb',610,590,1,'菜畦以北的野草地'],
-  ['west-branch-edge','west','branch',640,170,2,'工具棚外林缘'],
+  ['west-branch-edge','west','branch',610,345,2,'工具棚外林缘'],   // 2026-10-27 原 (640,170) 落在新铺的晒谷竹席上，挪到工具棚与竹席之间（地图可交互物稿 5.2）
   ['west-reed-bank','west','reed',200,405,1,'西溪岸边'],
   ['south-branch-edge','south','branch',1150,795,1,'客栈外院南边草地'],
   ['south-reed-bank','south','reed',1335,390,1,'村口河岸'],
@@ -30,6 +30,8 @@
  const taken=id=>!!S?.qiheResources?.nodes?.[id];
  const safePhase=()=>!['fire','escape'].includes(S?.qiheChapter?.stage);
  const remaining=n=>!!S&&!taken(n.id)&&safePhase();
+ // 2026-10-27 收货人按对话距离算、不看视线：客栈店家隔着柜台，视线判断永远被柜台挡住
+ const nearTalk=n=>cur===SC[n.scene]&&Math.hypot(player.x-n.x*TS,player.y-n.y*TS)<110;
  const near=n=>cur===SC[n.scene]&&Math.hypot(player.x-n.x*TS,player.y-n.y*TS)<80&&lineOk(player.x,player.y,n.x*TS,n.y*TS);
  function commit(bag,state,silver=S.silver){
   const next={...S,bag,qiheResources:state,silver,scene:Object.keys(SC).find(k=>SC[k]===cur),x:player.x,y:player.y};
@@ -57,11 +59,11 @@
   g.restore();
  }
  const recipes=[
-  {id:'fuel',kind:'branch',cost:2,item:'bun',amount:1,text:'交枯枝 2 → 干粮 1',receivers:[['south','cloth'],['refuge','aunt'],['mountain','kitchen']]},
+  {id:'fuel',kind:'branch',cost:2,item:'bun',amount:1,text:'交枯枝 2 → 干粮 1',receivers:[['prologue_inn_interior','innkeeper'],['refuge','aunt'],['mountain','kitchen']]},   // 2026-10-27 店家搬进客栈柜台
   {id:'medicine',kind:'herb',cost:2,silver:4,text:'交野草药 2 → 4文',receivers:[['south','merchant']]},
   {id:'packing',kind:'reed',cost:2,silver:2,text:'交芦苇 2 → 2文',receivers:[['south','merchant']]}
  ];
- function receiver(r){if(!safePhase())return null;for(const[key,id]of r.receivers){const scene=QiheExpansion.ids[key];const n=SC[scene].npcs.find(n=>n.id===id);if(n&&(!n.show||n.show())&&near({...n,scene}))return n}return null}
+ function receiver(r){if(!safePhase())return null;for(const[key,id]of r.receivers){const scene=QiheExpansion.ids[key]||key;const n=SC[scene].npcs.find(n=>n.id===id);if(n&&(!n.show||n.show())&&nearTalk({...n,scene}))return n}return null}
  function exchange(id){
   const r=recipes.find(r=>r.id===id);if(!r||mode!=='scene'||!S||!receiver(r))return false;
   const item=kinds[r.kind].item;if((S.bag[item]||0)<r.cost)return false;

@@ -475,11 +475,11 @@ function allyTurn(u){return new Promise((res,reject)=>{B.bpUse=0;let committed=f
       const go=t=>done(bp=>doSkill(u,k,t,bp));B.pv=bp=>skillPv(u,k,bp);
       if(tg==='self')go([u]);else target(tg==='foe'||tg==='foes'?'foe':'ally',tg==='foes'||tg==='allies',skills,go,SKILLS[k].name)})};
   const items=inv=>{menu('道具',inv.map(([k,n])=>({label:ITEMS[k].name,val:k,ico:buiItem(k,22),right:'×'+n,desc:ITEMS[k].desc})),main,k=>target('ally',false,()=>items(inv),t=>done(async()=>{
-      const it=ITEMS[k];S.bag[k]--;const x=t[0];await lunge(u,x,.3);if(it.heal){heal(x,it.heal)}if(it.mp){x.mp=Math.min(x.mmp,x.mp+it.mp);floatTxt(x,'内力+'+it.mp,'#8cf',22)}renderCards();await wait(500)},1),ITEMS[k].name))};
+      const it=ITEMS[k];S.bag[k]--;const x=t[0];await lunge(u,x,.3);if(it.heal){heal(x,window.QiheAccFx?QiheAccFx.heal(x.isHero?'hero':x.key,it.heal):it.heal)}if(it.mp){x.mp=Math.min(x.mmp,x.mp+it.mp);floatTxt(x,'内力+'+it.mp,'#8cf',22)}renderCards();await wait(500)},1),ITEMS[k].name))};
   main();if(typeof BattleAuto!=='undefined'&&BattleAuto.allowed())BattleAuto.bind(u,a=>{B.bpUse=a.bp;
     return done(bp=>a.kind==='skill'?doSkill(u,a.skill,a.targets,bp):doAttack(u,a.targets[0],bp))},reject)})}
 // 道具图标：ART.icons 图集（96px = 32 像素 ×3），缺失回落「药」字徽
-function buiItem(k,s=24){const r=window.ART&&ART.icons&&ART.icons[k];if(!r)return BUI.img('药',20);const[x,y,w,h]=r,f=s/w;
+function buiItem(k,s=24){const v4=window.ITEM_ICONS_V4?.style(k);if(v4)return`<i class="pxi" style="width:${s}px;height:${s}px;${v4}"></i>`;const r=window.ART&&ART.icons&&ART.icons[k];if(!r)return BUI.img('药',20);const[x,y,w,h]=r,f=s/w;
   return`<i class="pxi" style="width:${s}px;height:${s}px;background:url(assets/production/icons-and-props/i_icons.webp) ${-x*f}px ${-y*f}px/${576*f}px auto no-repeat;image-rendering:pixelated"></i>`}
 
 // ───────── 画布：行动顺序条（悬挂令牌）─────────
@@ -633,8 +633,8 @@ function drawBig(now){if(!B.big)return;const U=BUI,k=(now-B.big.t0)/B.big.ms;if(
 
 // ───────── 胜利结算（结算与升级逻辑同 battle.js） ─────────
 async function victory(){await (window.BFX&&BFX.victoryPose?BFX.victoryPose():0);bsfx('chime');await bigText('胜','#f3d58e',900);
-  let exp=0,sil=0;const drops={};for(const f of B.foes){exp+=f.exp;sil+=f.silver;for(const[k,p]of Object.entries(f.drops||{}))if(ITEMS[k]&&chance(p))drops[k]=(drops[k]||0)+1}
-  exp=Math.round(exp*(B.opt.tutorial?.5:1));S.silver+=sil;for(const[k,n]of Object.entries(drops))S.bag[k]=(S.bag[k]||0)+n;
+  let exp=0,sil=0;const drops={};for(const f of B.foes){exp+=f.exp;sil+=f.silver;for(const[k,p]of Object.entries(f.drops||{}))if(ITEMS[k]&&chance(window.QiheAccFx?QiheAccFx.drop(p):p))drops[k]=(drops[k]||0)+1}
+  exp=Math.round(exp*(B.opt.tutorial?.5:1));if(window.QiheAccFx)sil=QiheAccFx.silver(sil);S.silver+=sil;for(const[k,n]of Object.entries(drops))S.bag[k]=(S.bag[k]||0)+n;
   const growth=CharacterGrowth.awardBattle(S,exp,B.allies.filter(u=>!u.isHero).map(u=>u.key),(r,id)=>settleCharacterLevels(r,id==='hero'?derived:()=>mnD(id)));const lvl=growth.hero.levels;for(const row of growth.mates)if(row.levels.length){const u=B.allies.find(u=>u.key===row.id);if(u)u.levelUpThisBattle=true;}
   if(sil)bsfx('coin');
   const U=BUI,w=document.createElement('div');w.id='bt-win';

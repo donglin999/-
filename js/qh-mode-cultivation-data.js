@@ -10,7 +10,7 @@ const actions=[
  {id:'B05',category:'basic',name:'听声辨位',teacher:'殷红缨',place:'竹径',task:'闭眼站在竹林里，听小师叔的脚步从哪边来。',learn:'listening',requires:['footwork'],factRequires:['gy_night_return_seen'],factHint:'小师叔殷红缨回谷后才能教听声；她一月底回来。',gain:'observation',amount:8,choice:['先听风声，再分脚步','请小师叔放慢一次'],feedback:'你分清了脚步与竹叶的声音，第三次转身时，正对着小师叔。'},
  {id:'B06',category:'basic',name:'观察与察势',teacher:'周砚',place:'练武场',task:'留意起手与重心的变化，先说清看到什么。',requires:['stance'],gain:'observation',amount:6,feedback:'你分清了对方的起手与重心，不急着猜下一招。'},
  {id:'K01',category:'skill',name:'试锋剑法',teacher:'周砚',place:'练武场',task:'正式学习入门起手、收势与基本距离。训练器具由练武场提供。',learn:'sword',requires:['stance'],gain:'sword',amount:8,choice:['先分解动作','跟随师父慢练'],feedback:'你完成了试锋剑法指导。往后可以独练今天受教的部分。'},
- {id:'K02',category:'skill',name:'守拙拳法',teacher:'钟拙',place:'练武场',task:'练拳架的起手与收势；首次练习包含正式教学。',learn:'fist',requires:['stance'],gain:'fist',amount:8,choice:['先练收势','请师父带着走一遍'],feedback:'周砚带你拆开拳架。这一次教学已记下，之后可练熟。'},
+ {id:'K02',category:'skill',name:'守拙拳法',teacher:'钟拙',place:'练武场',task:'练拳架的起手与收势；首次练习包含正式教学。',learn:'fist',requires:['stance'],gain:'fist',amount:8,choice:['先练收势','请二师叔带着走一遍'],feedback:'周砚带你拆开拳架。这一次教学已记下，之后可练熟。'},
  {id:'P01',category:'production',name:'照料药圃',teacher:'叶蘅',place:'药圃',task:'在许可范围整理普通药材，每期只采一份。',requires:['herb_lesson','ye'],quota:true,gain:'herbs',amount:4,outputs:{herb:1},feedback:'你照料晾架并收好一份普通药材，没有动叶家的样品。'},
  {id:'P02',category:'production',name:'准备干粮',teacher:'周砚',place:'厨房',task:'使用一份自己的普通食材，做两份可携带的干粮。',requires:['cooking'],inputs:{grain:1},outputs:{food:2},gain:'cooking',amount:4,feedback:'干粮晾凉后装好，外出时可以带上。'},
  {id:'P03',category:'production',name:'缝制普通布包',teacher:'叶蘅',place:'药圃边',task:'用一份普通布料缝一个日用布包。',requires:['sewing','ye'],inputs:{cloth:1},outputs:{pouch:1},gain:'sewing',amount:4,feedback:'布包的接缝收紧了，可以装普通日用物。'},
@@ -28,7 +28,7 @@ const actions=[
  {id:'C01',category:'mail',name:'寄送近况信',teacher:'谷中通信',place:'书案',task:'选择当前可接信的往来人物，确认寄出近况信；回信在下一期。',mail:true,gain:'correspondence',amount:0,feedback:'信已交给捎信人。下一期可免费查看回信。'},
  {id:'C02',category:'mail',name:'赠送物品',teacher:'谷中通信',place:'书案',task:'选择可交互的人物，赠送一份自己的普通物品。',costOverride:2,mail:true,inputs:{food:1},gain:'correspondence',amount:0,feedback:'物品已经送出，并从你的行囊扣除。'},
  {id:'W01',category:'stroll',name:'归云谷院内',teacher:'周砚',place:'谷中住处',task:'就修习里的一个困难认真长谈，本次只展开这一段。',requires:['stance'],once:'talk_zhou',gain:'understanding',amount:6,choice:['谈练习里的困难','问怎样面对危险'],feedback:'师父听完你的难处。谈话留下下一次练习的方向。'},
- {id:'W02',category:'stroll',name:'药圃与晾架',teacher:'叶蘅',place:'药圃',task:'参加已知的整理邀约，听她说当前的生活安排。',requires:['ye'],once:'herb_labels',gain:'medical_notes',amount:4,choice:['帮她整理标签','先听她的安排'],feedback:'你与叶蘅一起整理普通标签，家传旧物仍由她保管。'},
+ {id:'W02',category:'stroll',name:'药圃与晾架',teacher:'叶蘅',place:'药圃',task:'在药圃帮叶蘅整理药签，字糊的那张留待问师母。',requires:['ye'],once:'herb_labels',gain:'medical_notes',amount:4,choice:['帮她整理标签','先听她的安排'],feedback:'你与叶蘅一起整理普通标签，家传旧物仍由她保管。'},
  {id:'W03',category:'stroll',name:'回访乡邻',teacher:'乡邻',place:'邻村安置点',task:'听近况并记录普通需要，不自动领取全部委托。',requires:['village_visit'],once:'visit_neighbors',gain:'observation',amount:4,choice:['问问休养的近况','记下下次需要带的东西'],feedback:'乡邻说了近况；你记下普通所需，没有擅自替别人承诺。'},
  {id:'W04',category:'stroll',name:'溪畔与近山',teacher:'自然观察',place:'近山竹径',task:'观察已知近路，把受教的步法用在不同地面。',gain:'footwork',amount:4,feedback:'（这条近路走熟了。溪边那几块石头沾水就滑，下回落脚得避开。）'}
 ];
@@ -46,9 +46,9 @@ const courseBeats={
  B05:['殷红缨蒙上萧白的眼睛：“眼睛会骗人，耳朵不会。先听我在哪儿。”','小师叔这次换了三个方向。你没有急着转身，等脚步停下才判断。']
 };
 for(const a of actions)if(courseBeats[a.id])a.beats=courseBeats[a.id];
-Object.assign(actions.find(a=>a.id==='W02'),{name:'药签上的空白',window:[1,9],choice:['把确定和待问分开','先整理架子，不补未知内容'],feedback:'你们把不确定的内容留待核实。下一次帮忙，先问清许可；家传旧物没有取用。'});
+Object.assign(actions.find(a=>a.id==='W02'),{name:'药签上的空白',window:[1,9],choice:['把确定和待问分开','先整理架子，不补未知内容'],feedback:'字糊的那张留了空，等问过师母再补；其余几张你照原样抄清了。'});
 actions.push(
- {id:'W05',category:'stroll',name:'话别说得太满',teacher:'陆衡',place:'谷中院内',requires:['lu'],window:[8,11],once:'promise_scope',gain:'travel',amount:6,choice:['只列真正急的事，请他确认','回信说明改期，不替他答应'],feedback:'陆衡确认了本次委托的范围，仍要履行其他护运工作。你不再把顺路当作没有代价。'},
+ {id:'W05',category:'stroll',name:'话别说得太满',teacher:'陆衡',place:'谷中院内',requires:['lu'],window:[8,11],once:'promise_scope',gain:'travel',amount:6,choice:['只列真正急的事，请他确认','跟乡邻说日子未定，不替他先应'],feedback:'陆衡确认了本次委托的范围，仍要履行其他护运工作。你不再把顺路当作没有代价。'},
  {id:'W06',category:'stroll',name:'回来再说那半步',teacher:'周砚',place:'练武场',window:[13,17],factRequires:['first_delivery'],requires:['joined'],once:'escort_review',gain:'understanding',amount:6,choice:['解释当时的判断','请师父指出可以改的地方'],feedback:'你和师父按实际护送经历确定下一次练习方向；没有凭空学会进阶武学。'},
  {id:'W07',category:'stroll',name:'各自要办的事',teacher:'叶蘅',place:'谷中住处',window:[16,19],factRequires:['xiangyang_invitation'],requires:['ye'],once:'departure_goals',gain:'observation',amount:4,choice:['说清自己想检验的本领','问她需要哪些协助，不替她决定'],feedback:'二人分别写下出行目的。遗物仍由叶蘅决定是否携带，没有提前决定她的职业路线。'}
 );
@@ -56,7 +56,7 @@ for(const a of actions)if(['W05','W06','W07'].includes(a.id)){a.presentation='di
 function giftPortrait(teacher){return teacher==='陆衡'?'assets/production/cultivation/household-v1/lu.png':teacher==='周砚'?'assets/production/cultivation/household-v1/zhou.png':'assets/production/cultivation/household-v1/ye.png';}
 Object.assign(actions.find(a=>a.id==='W03'),{name:'袋底的木屑',teacher:'叶蘅',place:'谷中住处',window:[2,11],choice:['核实真正缺少的东西','回信说明下次能带什么'],feedback:'你们记下实际需求和未确定的事项。读信没有让陈伯痊愈，也不算已经完成实地回访。'});
 Object.assign(actions.find(a=>a.id==='W04'),{requires:['footwork'],costOverride:3,quota:true,quotaMessage:'本期观察成果已记录，可免费查看；下期再作新的观察。'});
-for(const [id,line] of Object.entries({W02:'猜错一味，人家照着抓药就麻烦了。……你要闲着，帮我把这几张抄清楚。',W03:'那就挑一截最直的。等陆大哥下回路过，和麻绳、锄头一起托他捎去。',W05:'日子我先不应。答应了到不了，比不答应还糟。',W06:'嗯。下回出门，先看清同伴站在哪儿，再迈脚。',W07:'你呢？进城想做什么，自己去跟周先生说。'}))actions.find(a=>a.id===id).resultLine=line;
+for(const [id,line] of Object.entries({W02:'猜错一味，人家照着抓药就麻烦了。……你要闲着，帮我把这几张抄清楚。',W03:'那就挑一截最直的。等陆大哥下回路过，和麻绳、锄头一起托他捎去。',W05:'日子我先不应。答应了到不了，比不答应还糟。',W06:'嗯。下回出门，先看清同伴站在哪儿，再迈脚。',W07:'你想做的，自己去跟周先生说。'}))actions.find(a=>a.id===id).resultLine=line;
 // 2026-10-08 去掉旁白：闲逛剧情开场改为逐句台词；萧白的念头用括号心声。W06 按首次送药的实际方式换开场。
 const strollIntro={
  W01:[['zhou','今天不练了，坐下说说。'],['zhou','修习里哪一处最难？挑一件，我们只把这一件谈透。']],

@@ -22,7 +22,7 @@ const {boot}=require('./harness.cjs');
  c.QiheJianghuUI.open();
  check('I 首次打开队伍；位置一致时读取不修改存档',()=>{assert.equal(state().page,'party');assert.equal(snapshot(),before);assert.match(root.innerHTML,/当前出战人物/);assert.equal((root.innerHTML.match(/class="qj-cast-person/g)||[]).length,3)});
  click('page',{id:'bag'});
- check('现有物品位图图集不被通用图标覆盖',()=>{const grid=node('panel .qj-grid').innerHTML;for(const id of ['bun','club','cloth','charm']){const tile=grid.match(new RegExp('data-id=\"'+id+'\"[^>]*>[\\s\\S]*?</button>'))?.[0];assert.ok(tile,'物品格存在：'+id);assert.match(tile,/jm-pxi/);assert.match(tile,/assets\/(?:production\/icons-and-props\/)?i_jianghu.webp/);assert.doesNotMatch(tile,/qj-painted-icon/)}});
+ check('现有物品位图图集不被通用图标覆盖',()=>{const grid=node('panel .qj-grid').innerHTML;for(const id of ['bun','club','cloth','charm']){const tile=grid.match(new RegExp('data-id=\"'+id+'\"[^>]*>[\\s\\S]*?</button>'))?.[0];assert.ok(tile,'物品格存在：'+id);assert.match(tile,/jm-blot/);assert.match(tile,/i_qh_items_v4/);assert.doesNotMatch(tile,/qj-painted-icon/)}});
  click('category',{id:'装备'});click('slotFilter',{id:'armor'});check('行囊部位筛选排除其他装备',()=>{assert.match(node('panel .qj-grid').innerHTML,/data-id="cloth"/);assert.doesNotMatch(node('panel .qj-grid').innerHTML,/data-id="club"/)});click('resetFilter');
  click('page',{id:'skill'});
  check('已学功法保留正式招式美术，基础操作不计目录',()=>{const html=root.innerHTML;for(const id of ['fuhu']){const card=html.match(new RegExp('data-id=\"'+id+'\"[^>]*>[\\s\\S]*?</button>'))?.[0];assert.ok(card);assert.match(card,/assets\/(?:production\/icons-and-props\/)?i_jianghu.webp/);assert.doesNotMatch(card,/qj-painted-icon/)}});

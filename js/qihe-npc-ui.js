@@ -57,7 +57,7 @@
  // 打开墨印：返回选中的项（对象），Esc 收起返回 null。
  function ring(npc,p,items,focusId){return new Promise(resolve=>{
   const L=ensure();L.innerHTML='';const a=anchorOf(npc);
-  let side=a.px>=a.cx?'left':'right';let angles=ringGeom(items.length,side);
+  let side=a.cx>1600-480?'left':a.cx<480?'right':a.px>=a.cx?'left':'right';let angles=ringGeom(items.length,side);   // 2026-10-27：人在画面左右三成（480）以内时弧朝画面里展开（东埠船家约 1140），不再按主角站位压到河面上
   const pos=ang=>[a.cx+R*Math.cos(ang*Math.PI/180),a.cy+R*Math.sin(ang*Math.PI/180)];
   if(angles.some(g=>{const[x]=pos(g);return x<70||x>1530})){side=side==='left'?'right':'left';angles=ringGeom(items.length,side)}
   const catchEl=document.createElement('div');catchEl.className='qn-catch';L.appendChild(catchEl);
@@ -77,7 +77,7 @@
   draw();svg.querySelectorAll('.draw').forEach(el=>{el.style.animation=''});
   let done=false;
   const finish=async v=>{if(done)return;done=true;captureKeys(null);root.classList.add('closing');await sleep(v?120:150);L.innerHTML='';resolve(v)};
-  async function pick(){const it=items[fi],el=seals[fi];if(it.st==='off'){el.classList.remove('nudge');void el.offsetWidth;el.classList.add('nudge');return}el.classList.add('press');await sleep(100);finish(it)}
+  async function pick(){const it=items[fi],el=seals[fi];if(it.st==='off'&&it.say){finish({...it,run:'say'});return}if(it.st==='off'){el.classList.remove('nudge');void el.offsetWidth;el.classList.add('nudge');return}el.classList.add('press');await sleep(100);finish(it)}
   const move=d=>{fi=(fi+d+items.length)%items.length;draw()};
   captureKeys(k=>{if(['w','arrowup','a','arrowleft'].includes(k))move(-1);else if(['s','arrowdown','d','arrowright'].includes(k))move(1);else if(['e','enter',' '].includes(k))pick();else if(['escape','q','x','backspace'].includes(k))finish(null)});
   catchEl.onclick=()=>finish(null);catchEl.onwheel=e=>{move(e.deltaY>0?1:-1)};root.onwheel=catchEl.onwheel;
@@ -88,7 +88,7 @@
  const KEYS=['str','con','agi','wil','wis'],KN=['臂力','根骨','身法','定力','悟性'];
  const hasItem=id=>!!id&&typeof ITEMS!=='undefined'&&!!ITEMS[id];
  const icon=(id,glyph,dim)=>{if(hasItem(id)&&typeof mnIco==='function')return mnIco(id,54);return`<span class="gl${dim?' dim':''}">${esc(glyph||'？')}</span>`};
- const slotHTML=it=>`<div class="it"><div class="qn-ico" style="--r:${(it.name.charCodeAt(0)%60)-30}deg">${icon(it.id,it.glyph,it.dim)}${it.qty?`<span class="qty">${esc(it.qty)}</span>`:''}${it.story?'<span class="mk">剧情</span>':it.look?'<span class="mk look">只可见</span>':''}</div>
+ const slotHTML=it=>`<div class="it"><div class="qn-ico" style="--r:${(it.name.charCodeAt(0)%60)-30}deg">${icon(it.id,it.glyph,it.dim)}${it.qty?`<span class="qty">${esc(it.qty)}</span>`:''}${it.story?'<span class="mk">剧情</span>':it.look?'<span class="mk look">只可见</span>':''}${it.swap?'<span class="sw" title="肯拿来以物易物">可换</span>':''}</div>
    <div class="nm${it.dim?' dim':''}">${esc(it.name)}${it.grade?`<span class="grade g-${esc(it.grade)}">${esc(it.grade)}</span>`:''}</div>${it.sub?`<div class="sb">${esc(it.sub)}</div>`:''}</div>`;
  function statMode(v){if(v.civil)return'civil';if(!v.battle.st)return'none';return v.tier.stats}
  function radar(v){const mode=statMode(v),st=v.battle?.st,cx=150,cy=128,RR=92;const pt=(i,r)=>{const a=(-90+i*72)*Math.PI/180;return[cx+r*Math.cos(a),cy+r*Math.sin(a)]};
@@ -107,11 +107,14 @@
   else if(v.party){pl='等级 '+v.battle.lv;sub='同伴 · 一眼看穿'}
   else{pl=t.lv==='exact'?'等级 '+v.battle.lv:D.TIER_TEXT[t.lv];const d=v.d;sub=`你 ${hero} 级 · ${d>0?'差 '+d+' 级':d<0?'低你 '+(-d)+' 级':'同级'}：${({clear:'一眼看穿',see:'看得出',rough:'看个大概',opaque:'看不透'})[t.id]}`}
   return{seal:t.seal,cls:'',pl,sub,eye:v.eye}}
- function equipHTML(p,v){const b=v.battle;const rows=[];
-  const w=b?.weapon;rows.push(w?{slot:'兵器',name:w.name,id:w.id,glyph:({剑:'剑',刀:'刀',棍:'棍',鞭:'鞭'})[w.kind]||'兵',grade:w.grade||'',sub:w.atk!=null?`${w.kind==='棍'?'长兵':w.kind} · 攻击 ${w.atk}${w.crit?' · 暴击 '+w.crit+'%':''}`:'数值待登记'}:
+ // 2026-10-27 起读 v.gear（qihe-npc-core.js gearOf：p.gear 为准，习武的人缺兵器、佩饰时取战斗档）；兵种与暴击仍从战斗档同名兵器补。
+ function equipHTML(p,v){const g=v.gear||{},bw=v.battle?.weapon;const rows=[];
+  const w=g.weapon,kind=w&&bw&&w.name===bw.name?bw.kind:null;
+  rows.push(w?{slot:'兵器',name:w.name,id:w.id,glyph:(kind&&({剑:'剑',刀:'刀',棍:'棍',鞭:'鞭'})[kind])||w.glyph||'兵',grade:w.grade||'',look:w.look,
+    sub:w.atk!=null?`${kind?(kind==='棍'?'长兵':kind)+' · ':''}攻击 ${w.atk}${kind&&bw.crit?' · 暴击 '+bw.crit+'%':''}`:kind?'数值待登记':''}:
    p.tools?{slot:'兵器',name:p.tools,glyph:'具',sub:''}:{slot:'兵器',name:'—',glyph:'—',dim:true});
-  rows.push({slot:'护具',name:'常服',glyph:'—',dim:true});
-  const acc=b?.acc;rows.push(acc?{slot:'佩饰',name:acc.name,glyph:'饰',grade:acc.grade||''}:{slot:'佩饰',name:'无',glyph:'—',dim:true});
+  const ar=g.armor;rows.push(ar?{slot:'护具',name:ar.name,id:ar.id,glyph:ar.glyph||'护',grade:ar.grade||'',look:ar.look,sub:ar.def!=null?'防御 '+ar.def:''}:{slot:'护具',name:'常服',glyph:'—',dim:true});
+  const acc=g.acc;rows.push(acc?{slot:'佩饰',name:acc.name,id:acc.id,glyph:acc.glyph||'饰',grade:acc.grade||'',look:acc.look}:{slot:'佩饰',name:'无',glyph:'—',dim:true});
   return rows.map(r=>`<div class="eq">${slotHTML({...r,id:hasItem(r.id)?r.id:null})}<div class="sl">${r.slot}</div></div>`).join('')}
  function artsHTML(p,v){if(v.civil)return{note:'',html:'<div class="empty">不习武</div>'};const t=v.tier,arts=v.battle.arts||[];
   if(t.art==='hidden')return{note:t.artNote,html:`<div class="art"><div class="an"><b class="dim">武学</b><span class="lv dim">看不透</span></div></div><div class="art"><div class="an"><b class="dim">内功</b><span class="lv dim">看不透</span></div></div>`};
@@ -124,34 +127,53 @@
   const inner=t.inner==='hidden'?'<span class="lv dim">看不出</span>':'<span class="lv dim">未登记</span>';
   const innerSub=t.inner==='hidden'?'':'<div class="mv dim">战斗档里还没有登记内功</div>';
   return{note:t.artNote,html:(rows||'<div class="empty">外功未登记</div>')+`<div class="art"><div class="an"><b>内功</b>${inner}</div>${innerSub}</div>`}}
+ // 查看页立绘 v2（2026-10-27，npc-interaction-v2.md“查看页立绘 v2”）：有立绘的人（主要人物、已有对话立绘的人）照常摆立绘。
+ // 没有立绘的过场人物（用户：“这种过程 npc 不要另设立绘，不然就很容易降低立绘的重要性”）不再出半身像，两种方案待用户选（D.INSPECT_STYLE）：
+ //   scene 取景：参考逸剑风云决的人物都在场景里——把他此刻站的那块地图截下来放进左侧画框，四周晕进纸面，像一幅小画；
+ //   card  名帖：参考大侠立志传的路人信息卡——不放人像，左侧是一张名帖：身份、来处、一句“看得出的”描述，像素小人按 2 倍压在帖角。
  function portraitHTML(p,npc){if(p.portrait)return`<img class="por" alt="" src="${esc(assetImagePath(p.portrait))}">`;
-  return`<div class="por-wash"></div><canvas class="por px" data-sp="${esc(npc?.sp||'')}"></canvas>`}
- function paintSprite(el){const sp=el.dataset.sp;const im=IMG[sp+'_d_0']||IMG[sp+'_d']||IMG[sp];if(!im)return;const w=im.naturalWidth||im.width,h=im.naturalHeight||im.height;if(!w)return;el.width=w;el.height=h;const x=el.getContext('2d');x.imageSmoothingEnabled=false;drawImageAsset(x,im,0,0,w,h);el.style.width=Math.min(360,w*360/h*1.4)+'px'}
+  const sp=esc(npc?.sp||''),style=Q.data.INSPECT_STYLE||'scene';
+  if(style==='compact')return`<div class="por-tag"><div class="ring"></div><canvas class="px" data-sp="${sp}" data-k="px3"></canvas><div class="mark">${esc((p.name||'？')[0])}</div></div>`;   // 紧凑版式：没有立绘的人不留立绘位，左边一张窄签，正文整体左移
+  if(style==='card')return`<div class="por-card"><div class="paper"><div class="head">名帖</div><div class="lines">${esc(p.look||p.role||'')}</div><canvas class="px" data-sp="${sp}" data-k="px"></canvas><div class="mark">${esc((p.name||'？')[0])}</div></div></div>`;
+  return`<div class="por-scene"><canvas class="vig" width="420" height="520"></canvas><div class="mark">${esc((p.name||'？')[0])}</div></div>`}
+ function paintSprite(el){const sp=el.dataset.sp;const im=IMG[sp+'_d_0']||IMG[sp+'_d']||IMG[sp];if(!im)return;const w=im.naturalWidth||im.width,h=im.naturalHeight||im.height;if(!w)return;el.width=w;el.height=h;const x=el.getContext('2d');x.imageSmoothingEnabled=false;drawImageAsset(x,im,0,0,w,h);
+  const k=el.dataset.k==='px3'?3:2;el.style.width=w*k+'px';el.style.height=h*k+'px'}   // 小人按整数倍（名帖 2 倍、紧凑签 3 倍；不糊、不当主视觉）
+ // 取景：从地图画布截人物所在的一块（世界 210×260，人物脚下偏下三分之一处），整数倍放大不糊
+ function paintScene(el,npc){const cv=document.getElementById('cv');if(!cv||!npc)return;const k=cv.width/(W/ZOOM),pos=typeof npcPos==='function'?npcPos(npc):{x:npc.x*TS,y:npc.y*TS};
+  const ww=210,wh=260,sx=(pos.x-ww/2-cam.x)*k,sy=(pos.y-wh*.72-cam.y)*k,g=el.getContext('2d');g.imageSmoothingEnabled=false;g.fillStyle='#e9e1cc';g.fillRect(0,0,el.width,el.height);
+  try{g.drawImage(cv,sx,sy,ww*k,wh*k,0,0,el.width,el.height)}catch(e){}}
+ // 查看页门派一栏（faction-reputation.md 第 7.4 节、渲染图 review/faction-reputation/03-profile-faction.png，第七轮已确认）：
+ // 只放他所属那一方和萧白的关系、他在那一方算不算主事；他本人的关系仍在礼卷里看。2026-10-27 接上。
+ function factionRowHTML(p){const JD=window.QiheJianghuData,J=window.QiheJianghu,m=JD?.MEMBERS?.[p.id];if(!m?.faction||(m.hidden&&!S.flags?.jianghuLinguanshiRevealed)||!J)return'';
+  const f=JD.FACTIONS[m.faction],st=J.stage(m.faction);if(!f||!st)return'';const g=JD.GATE[st.id]||{};
+  const eff=st.hostile||g.trade?'不肯和你换东西、指点、过招':[g.firstMeet?`门人初见 ${g.firstMeet>0?'+':'−'}${Math.abs(g.firstMeet)}`:'',g.priceMul?`买卖${g.priceMul>1?'贵':'便宜'}${({1:'一',1.5:'一成半',2:'两'})[Math.round(Math.abs(g.priceMul-1)*20)/2]||Math.round(Math.abs(g.priceMul-1)*10)}${Math.round(Math.abs(g.priceMul-1)*20)/2===1.5?'':'成'}`:''].filter(Boolean).join(' · ')||'还没有什么来往';
+  return`<div class="frow"><i class="fg" style="background:${esc(f.color)}">${esc(f.glyph)}</i><div><div class="fl"><b>${esc(f.name)}</b><span class="fs${st.score<0?' neg':''}">${esc(st.name)}</span><span class="fn">${st.score>0?'+':st.score<0?'−':''}${Math.abs(st.score)}</span>${m.rank==='boss'?'<span class="boss">此行主事</span>':''}</div><div class="small">${esc(eff)}</div></div></div>`}
  function nearbyPeople(){const out=[];for(const n of cur?._npcs||[]){const p=Q.personFor(n);if(!p)continue;if(Math.hypot(n.x*TS-player.x,n.y*TS-player.y)>320)continue;if(out.some(o=>o.p===p))continue;out.push({npc:n,p})}return out}
  // 返回 {act:菜单项, npc, p}（在查看页底部选了交互印）或 null（Esc 返回）。
  function profile(p,npc){return new Promise(resolve=>{const L=ensure();
   const render=()=>{const v=Q.view(p),pw=powerHTML(p,v),art=artsHTML(p,v),bag=Q.bagOf(p,v),acts=Q.menuFor(p,npc).filter(x=>x.id!=='guan');
    const sm=statMode(v),statNote=v.civil?'':sm==='none'?'未登记':v.tier.statNote;
-   L.innerHTML=`<div class="qn-page" data-person="${esc(p.id)}"><div class="wash"></div>${portraitHTML(p,npc)}
+   L.innerHTML=`<div class="qn-page${!p.portrait&&(Q.data.INSPECT_STYLE||'scene')==='compact'?' nopor':''}" data-person="${esc(p.id)}"><div class="wash"></div>${portraitHTML(p,npc)}
     <div class="namecol"><div class="vname big">${esc(p.name)}</div><div class="vname idt">${esc(p.faction+' · '+p.role)}</div></div>
     <div class="topbar"><span class="t">查看</span><span class="place">${esc(cur?.name||'')}</span></div>
     <div class="esc" data-k="esc">${sealHTML('返','normal',0)}<span>Esc</span></div>
-    <div class="col mid"><div class="power"><div class="eye${pw.cls}" title="${pw.eye?'悟性过人，看清了一档':''}">${esc(pw.seal)}${pw.eye?'<sup>眼</sup>':''}</div><div><div class="pl">${esc(pw.pl)}</div><div class="small">${esc(pw.sub)}</div></div></div>
+    <div class="col mid"><div class="power"><div class="eye${pw.cls}" title="${pw.eye?'悟性过人，看清了一档':''}">${esc(pw.seal)}${pw.eye?'<sup>眼</sup>':''}</div><div><div class="pl">${esc(pw.pl)}</div><div class="small">${esc(pw.sub)}</div></div></div>${factionRowHTML(p)}
      <h3>装备<span class="hs">随时看得见</span></h3><div class="brush"></div><div class="eqrow">${equipHTML(p,v)}</div>
      <h3 style="margin-top:22px">根基<span class="hs">${esc(statNote)}</span></h3><div class="brush"></div><div class="radar">${radar(v)}</div></div>
     <div class="col right"><h3>武学<span class="hs">${esc(art.note)}</span></h3><div class="brush"></div><div class="arts">${art.html}</div>
      <h3 style="margin-top:18px">随身物品<span class="hs">看得见的都列出</span></h3><div class="brush"></div><div class="bag">${bag.length?bag.map(slotHTML).join(''):'<div class="empty">身上没带什么</div>'}</div></div>
-    <div class="acts">${acts.map((a,i)=>`<div class="act${a.st==='off'?' off':''}" data-i="${i}">${sealHTML(a.ch,a.st,i)}<div class="al">${esc(a.lab)}${a.st!=='normal'&&a.note?`<i>${esc(a.note)}</i>`:''}</div></div>`).join('')}<span class="swap">Q / E 换人（只列身边的人）</span></div></div>`;
-   L.querySelectorAll('canvas.por').forEach(paintSprite);
+    <div class="acts">${acts.map((a,i)=>`<div class="act${a.st==='off'?' off':''}" data-i="${i}">${sealHTML(a.ch,a.st,i)}<div class="al">${esc(a.lab)}${a.st!=='normal'&&a.note?`<i>${esc(a.note)}</i>`:''}</div></div>`).join('')}<span class="swap">A / D 选印 · E 确定 · Z / C 换人（只列身边的人）· Esc 返回</span></div></div>`;
+   L.querySelectorAll('.por-card canvas.px,.por-tag canvas.px').forEach(paintSprite);L.querySelectorAll('.por-scene canvas.vig').forEach(el=>paintScene(el,npc));
    L.querySelector('.esc').onclick=()=>finish(null);
    L.querySelectorAll('.act').forEach(el=>el.onclick=()=>choose(+el.dataset.i));
    state.acts=acts;state.fi=-1};
   const state={acts:[],fi:-1};
-  const choose=i=>{const a=state.acts[i];if(!a)return;if(a.st==='off'){const el=L.querySelectorAll('.act')[i]?.querySelector('.qn-seal');el?.classList.remove('nudge');void el?.offsetWidth;el?.classList.add('nudge');return}finish({act:a,p,npc})};
+  const choose=i=>{const a=state.acts[i];if(!a)return;if(a.st==='off'&&a.say){finish({act:{...a,run:'say'},p,npc});return}if(a.st==='off'){const el=L.querySelectorAll('.act')[i]?.querySelector('.qn-seal');el?.classList.remove('nudge');void el?.offsetWidth;el?.classList.add('nudge');return}finish({act:a,p,npc})};
   const focusAct=d=>{const n=state.acts.length;if(!n)return;state.fi=(state.fi+d+n)%n;L.querySelectorAll('.act').forEach((el,i)=>el.classList.toggle('focus',i===state.fi))};
   const swap=d=>{const list=nearbyPeople();if(list.length<2)return;const i=list.findIndex(o=>o.p===p);const o=list[(i+d+list.length)%list.length];p=o.p;npc=o.npc;render()};
   let done=false;const finish=v=>{if(done)return;done=true;captureKeys(null);L.innerHTML='';resolve(v)};
-  render();captureKeys(k=>{if(['escape','x','backspace'].includes(k))finish(null);else if(k==='q')swap(-1);else if(k==='e')swap(1);else if(['a','arrowleft'].includes(k))focusAct(-1);else if(['d','arrowright'].includes(k))focusAct(1);else if(['enter',' '].includes(k)&&state.fi>=0)choose(state.fi)});
+  // 2026-10-27：E／Enter／空格与其他界面一样是“确定”（没选中交互印时先落到第一枚，不吞键）；换人改 Z／C（同行卷“切换人物”）。
+  render();captureKeys(k=>{if(['escape','x','backspace','q'].includes(k))finish(null);else if(k==='z')swap(-1);else if(k==='c')swap(1);else if(['a','arrowleft','w','arrowup'].includes(k))focusAct(-1);else if(['d','arrowright','s','arrowdown'].includes(k))focusAct(1);else if(['e','enter',' '].includes(k)){if(state.fi>=0)choose(state.fi);else focusAct(1)}});
  })}
 
  // ───── 卷：请教（图 05b）、切磋（npc-spar 图 01） ─────
@@ -200,6 +222,7 @@
  // 执行一项；返回 'again' 表示回到墨印（谈完、查看页 Esc、卷上作罢），其余结束。
  async function execute(it,p,npc){const scene=S.scene;
   switch(it.run){
+   case 'say':clear();await QiheChapter.play(it.say);return canReopen(npc,scene)?'again':'end';   // 门派不睦时点灰印：门人一句拒绝
    case 'act':await runAct(npc);if(cur)cur._npcs=npcsOf(cur);return it.id==='tan'&&canReopen(npc,scene)?'again':'end';
    case 'errand':await QiheOutsiders.talk(p.chapter);return'end';
    case 'profile':{const r=await profile(p,npc);if(!r)return'again';if(r.p!==p)return{switch:r};return execute(r.act,p,npc)}
@@ -207,7 +230,8 @@
    case 'spar':{if(!await spar(npc,p))return'again';clear();const r=await Q.runSpar(p);await result(p,r);return'end'}
    case 'gift':clear();await QiheGiftUI.gift(npc,p);return canReopen(npc,scene)?'again':'end';   // 2026-10-26 开发二
    case 'yi':{clear();const r=await QiheGiftUI.yi(npc,p);if(r==='buy'){await runAct(npc);return'end'}return canReopen(npc,scene)?'again':'end'}
-  }return'end'}
+   case 'steal':{const SUI=window.QiheStealUI;if(!SUI){console.warn('偷窃界面未加载');return'end'}clear();const r=await SUI.steal(p.id,p,npc);if(!r)return canReopen(npc,scene)?'again':'end';return'end'}
+ }return'end'}
  async function session(npc,p){let focus=null;
   for(let guard=0;guard<40;guard++){const items=Q.menuFor(p,npc);if(!items.length)return runAct(npc);
    const it=await ring(npc,p,items,focus);if(!it)return;focus=it.id;

@@ -1,9 +1,9 @@
 // Jianghu icon coverage and desktop render smoke test. Uses an isolated browser page.
 // Run: node tests/menu-icons.test.cjs [output directory]
-const { chromium } = require('/private/tmp/claude-501/pw/node_modules/playwright');
+const { chromium } = require('/Users/wuxiuxiang/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright');
 const fs = require('fs');
 const path = require('path');
-const EXE = require('os').homedir() + '/Library/Caches/ms-playwright/chromium_headless_shell-1228/chrome-headless-shell-mac-arm64/chrome-headless-shell';
+const EXE = require('os').homedir() + '/Library/Caches/ms-playwright/chromium_headless_shell-1248/chrome-headless-shell-mac-arm64/chrome-headless-shell';
 const out = process.argv[2] || 'review/jianghu-icons';
 const base = process.env.XJH_TEST_URL || 'http://localhost:8123';
 fs.mkdirSync(out, { recursive: true });

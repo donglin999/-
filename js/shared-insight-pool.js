@@ -1,7 +1,9 @@
 /* Authored shared-resource economy; every grant requires a completed game fact. */
 (function(root){'use strict';
+const items={qh_escort_notes:[360,'走镖手札']};   // 读过的成长资源（S.itemInsight[物品]===true，菜单 mnUse 写入）
 const events={rescue:[80,'栖河救援'],'evidence-v2':[80,'邻村对证'],settle:[40,'归云谷安顿'],apprenticeship:[100,'正式拜师']};
 function rewards(s){const rows=[];for(const [key,name] of [['bowls','送碗'],['cloth','备布'],['medicine','送药']])if(s.prologue?.errands?.[key]==='done')rows.push({id:'errand:'+key,amount:20,name});
+ for(const [key,[amount,name]]of Object.entries(items))if(s.itemInsight?.[key]===true)rows.push({id:'item:'+key,amount,name});
  for(const [key,[amount,name]]of Object.entries(events))if(s.qiheChapter?.events?.[key]===true)rows.push({id:'story:'+key,amount,name});
  const c=s.cultivation;if(c&&Number.isInteger(c.month)){const complete=c.mode==='complete'?36:Math.max(0,Math.min(35,c.month-1));const worked=new Set((c.history||[]).filter(h=>Number.isInteger(h.period)&&h.period>=0&&h.period<180).map(h=>Math.floor(h.period/5)+1));
   for(let m=1;m<=complete;m++)if(worked.has(m))rows.push({id:'month:'+m,amount:m<=12?80:m<=24?120:180,name:`修习第${m}月`});

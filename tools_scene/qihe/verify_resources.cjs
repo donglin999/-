@@ -36,7 +36,7 @@ const {boot}=require('./harness.cjs'),assert=require('node:assert/strict'),fs=re
  });
  await test('location-checked trades, insufficient material, atomic failure and retained resources',async()=>{
   fresh();run('S.bag.qh_dry_branch=2;S.bag.qh_wild_herb=2;S.bag.qh_river_reed=2;');await c.QiheExpansion.go('north');assert.equal(R.exchange('fuel'),false);
-  await c.QiheExpansion.go('south','innkeeper');const bun=run('S.bag.bun');assert(R.exchange('fuel'));assert.equal(run('S.bag.bun'),bun+1);assert.equal(run('S.bag.qh_dry_branch'),0);assert.equal(R.exchange('fuel'),false);
+  /* 2026-10-27 店家搬进客栈柜台，换干粮改到客栈里 */{const k=run("SC.prologue_inn_interior.npcs.find(n=>n.id==='innkeeper')");await c.goScene('prologue_inn_interior',[k.x,k.y+1])}const bun=run('S.bag.bun');assert(R.exchange('fuel'));assert.equal(run('S.bag.bun'),bun+1);assert.equal(run('S.bag.qh_dry_branch'),0);assert.equal(R.exchange('fuel'),false);
   await c.QiheExpansion.go('south','merchant');const silver=run('S.silver'),save=c.localStorage.setItem;c.localStorage.setItem=()=>{throw Error('quota')};try{assert.equal(R.exchange('medicine'),false);assert.equal(run('S.bag.qh_wild_herb'),2);assert.equal(run('S.silver'),silver)}finally{c.localStorage.setItem=save}
   assert(R.exchange('medicine'));assert(R.exchange('packing'));assert.equal(run('S.silver'),silver+6);run('S.bag.qh_dry_branch=2;S.qiheChapter.stage="cultivation"');await c.QiheExpansion.go('mountain','kitchen');assert(R.exchange('fuel'));assert.equal(run('S.qiheCultivation.energy'),7);
  });

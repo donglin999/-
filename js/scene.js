@@ -273,6 +273,7 @@ function charBounds(im){if(im._charBounds)return im._charBounds;const iw=im.natu
     return im._charBounds={top:top===ih?0:top,bottom:bottom||ih,height:Math.max(1,bottom-top),left:left===iw?0:left,right:right||iw,width:Math.max(1,right-left),trimBottom:bottom<rawBottom}}catch(_){return im._charBounds={top:0,bottom:ih,height:ih,left:0,right:iw,width:iw}}}
 // 4 帧（站/左脚/过渡/右脚）按 左-过渡-右-过渡 循环
 const CYCLE4=[1,2,3,2];
+const STILL=new Map();   // 人物开始站着的时刻（drawChar 的 t），按角色键记
 function drawChar(sp,x,y,dir='d',walk=0,t=0,opts={}){const k=spKey(sp),h=opts.h||charH(sp),n=(window.ART&&ART.frames&&ART.frames[k])|0;
   const moving=opts.moving!==undefined?opts.moving:walk>0;
   let f=0,im=null,flip=false;
@@ -281,8 +282,14 @@ function drawChar(sp,x,y,dir='d',walk=0,t=0,opts={}){const k=spKey(sp),h=opts.h|
   const rk=opts.running&&RUN[k],wk=rk||WALK[k],pre=rk?'r':'w',st=wk&&(wk.stride||(rk?.24:.16))*(opts.running&&!rk?1.2:1);
   if(moving&&wk&&wk.order.length){const i=Math.floor(walk/(h*st)),wf=wk.order[i%wk.order.length];
     im=IMG[`${pre}_${k}_${dir}_${wf}`];if(!ok(im)&&(dir==='l'||dir==='r')){im=IMG[`${pre}_${k}_${dir==='l'?'r':'l'}_${wf}`];flip=ok(im)}if(!ok(im))im=null}
+  // 站久了的小动作（ART.fidget）：记住每个人从哪一刻开始站着，满 after 毫秒播一遍，之后每隔 gap 再播；播的时候盖过待机表
+  const stillKey=k;   // 按角色键记：遮挡重绘那一遍与正常那一遍取到同一个起点
+  if(moving||!STILL.has(stillKey))STILL.set(stillKey,t);
+  if(!moving&&FIDGET[k]&&FIDGET[k].order.length){const F=FIDGET[k],ms=F.ms&&F.ms.length?F.ms:F.order.map(()=>120),D=ms.reduce((a,b)=>a+b,0),A=F.after||6000,G=F.gap||9000,st=t-STILL.get(stillKey);
+    if(st>=A){let ph=(st-A)%(D+G);if(ph<D){let j=0;while(j<ms.length-1&&ph>=ms[j]){ph-=ms[j];j++}const fi=F.order[j%F.order.length];
+      im=IMG[`f_${k}_${dir}_${fi}`];if(!ok(im)&&(dir==='l'||dir==='r')){im=IMG[`f_${k}_${dir==='l'?'r':'l'}_${fi}`];flip=ok(im)}if(!ok(im)){im=null;flip=false}}}}
   // 待机表（ART.idle）：静止时按时间逐帧播放（opts.ph 错开相位）
-  if(!moving&&IDLE[k]&&IDLE[k].order.length){const I=IDLE[k],ms=I.ms&&I.ms.length?I.ms:[200],T=ms.reduce((a,b)=>a+b,0);let tt=((t+(opts.ph||0)*400)%T+T)%T,j=0;while(j<ms.length-1&&tt>=ms[j]){tt-=ms[j];j++}
+  if(!im&&!moving&&IDLE[k]&&IDLE[k].order.length){const I=IDLE[k],ms=I.ms&&I.ms.length?I.ms:[200],T=ms.reduce((a,b)=>a+b,0);let tt=((t+(opts.ph||0)*400)%T+T)%T,j=0;while(j<ms.length-1&&tt>=ms[j]){tt-=ms[j];j++}
     const fi=I.order[j%I.order.length];im=IMG[`i_${k}_${dir}_${fi}`];if(!ok(im)&&(dir==='l'||dir==='r')){im=IMG[`i_${k}_${dir==='l'?'r':'l'}_${fi}`];flip=ok(im)}if(!ok(im)){im=null;flip=false}}
   if(!im){if(moving&&n>1){const i=Math.floor(walk/(h*.17));f=n===4?CYCLE4[i&3]:1+i%(n-1)}
   im=charImg(k,dir,f);flip=false;

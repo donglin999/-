@@ -491,6 +491,23 @@
         "js/qihe-outsiders.js（外来者委托，第 3 期迁移）"
       ],
       "recordOnly": true
+    },
+    "qiheHidden.bandit.decided": {
+      "type": "string",
+      "values": [
+        "return",
+        "keep",
+        "sell"
+      ],
+      "default": "",
+      "part": "开始",
+      "meaning": "帮众挑衅余波：萧白把《扬灰手》还给阿炭（return，阿炭此后报过名）、自己留着（keep）、卖给岑霜（sell）",
+      "readBy": [
+        "人物-失手"
+      ],
+      "legacySet": [
+        "js/qihe-hidden.js（帮众挑衅余波三选一时写入）"
+      ]
     }
   }
 }

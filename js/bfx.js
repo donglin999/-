@@ -356,7 +356,7 @@ async function doSkill(u,k,tgs,bp){const sk=SKILLS[k],bi=BSK[k]||{};if(window.Qi
   const lvM=1+.15*(((u.skLv||{})[k]||1)-1),effect=window.QiheUIModel?.skillEffects(u,k,bp);
   BFXI.act(u,'cast',true);BFXI.camOn([u,...tgs],tgs.length>1?1.08:1.12);
   try{await VFX.cast(u,k,tgs,bp);
-  if(sk.heal){for(const t of tgs)if(t.hp>0)heal(t,Math.round(t.mhp*(effect?.heal??sk.heal*lvM*(1+bp*.5))));await BFXI.bw(280);return}
+  if(sk.heal){for(const t of tgs)if(t.hp>0){const n=Math.round(t.mhp*(effect?.heal??sk.heal*lvM*(1+bp*.5)));heal(t,window.QiheAccFx&&u.side==='ally'?QiheAccFx.skillHeal(u.isHero?'hero':u.key,n):n)}await BFXI.bw(280);return}   // 行诊药囊（js/qihe-acc-fx.js）
   if(bi.buff){for(const t of tgs){t.buffs.ding=effect?.duration??2+bp;floatTxt(t,'定神 · 攻防提升','#ffe7a0',20)}renderCards();await BFXI.bw(280);return}
   const hits=effect?.hits??(bi.hits||1)+(bi.hits?bp:0),pow=effect?.power??(sk.pow||1)*lvM*(bi.hits?1/Math.sqrt(bi.hits):1)*(bi.hits?1:1+bp*.8);
   // Skills stay at their own station. Only doAttack uses weapon contacts/projectile-release poses.

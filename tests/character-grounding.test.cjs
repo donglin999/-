@@ -14,7 +14,7 @@ function fixture(extraRows=3,extraWidth=4){
 }
 function renderer(im){
   const calls=[];const g={beginPath(){},ellipse(){},fill(){},save(){},restore(){},translate(){},scale(){},fillRect(){},drawImage(...args){calls.push(args)}};
-  const context={window:{ART:{frames:{ye:4}}},g,IMG:{},RUN:{},WALK:{},IDLE:{},OPT_CHARS:[],CHAR_GRADE_OK:false,BRIGHT:true,spKey:s=>s,charH:()=>92,charImg:()=>im,ok:x=>!!x,
+  const context={drawImageAsset:(x,...a)=>x.drawImage(...a),window:{ART:{frames:{ye:4}}},g,IMG:{},RUN:{},WALK:{},IDLE:{},FIDGET:{},OPT_CHARS:[],CHAR_GRADE_OK:false,BRIGHT:true,spKey:s=>s,charH:()=>92,charImg:()=>im,ok:x=>!!x,
     document:{createElement:()=>({getContext:()=>({drawImage(){},getImageData:()=>({data:im.data})})})}};
   context.ART=context.window.ART;vm.createContext(context);vm.runInContext(rendering,context);
   return {context,calls};

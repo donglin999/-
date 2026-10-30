@@ -20,6 +20,7 @@ function harness() {
     document: {getElementById: id => id === 'cv' ? {getContext: () => ({})} : id === 'toast' ? toastEl : {}},
     window: {},
     setTimeout(fn, delay) { timers.push({at: now + delay, fn}); },
+    setInterval() {},
   });
   const source = fs.readFileSync(path.join(__dirname, '../js/core.js'), 'utf8');
   vm.runInContext(`${source}\nglobalThis.testToast = toast;`, context);

@@ -1,0 +1,130 @@
+/* 偷窃界面（2026-10-27 重做）：物品扇与袖里一按。沿用人物交互 v2 甲「金石朱印」：墨环图标、宣纸小签、金线刻度弧、石刻印。
+   样子照 ../xiaojianghu/review/npc-steal/01、01b、02（源 src/steal.css）；尺寸按 1600×900 写，js 按游戏区宽 /1600 缩放（同墨印、赠礼），
+   窄窗口再用 --qs-boost 把扇子与刻度弧放大，保证实际不小于 0.72 倍。 */
+#qs-layer{position:absolute;left:0;top:0;width:1600px;height:900px;z-index:62;overflow:hidden;pointer-events:auto;user-select:none;-webkit-user-select:none;
+ font-family:"Songti SC","Noto Serif SC","STSong",serif;color:#f2e5c9}
+#qs-layer[hidden]{display:none!important}
+#qs-layer *{box-sizing:border-box}
+#qs-layer button{all:unset;cursor:pointer;font:inherit;color:inherit}
+.qs-dim{position:absolute;inset:0;background:radial-gradient(circle at var(--fx,50%) var(--fy,50%),rgba(8,10,8,0) 130px,rgba(8,10,8,.36) 300px,rgba(8,10,8,.55) 640px);animation:qs-fade .14s ease-out}
+@keyframes qs-fade{from{opacity:0}}
+
+/* ── 物品扇 ── */
+.qs-fan,.qs-dial{position:absolute;inset:0;transform:scale(var(--qs-boost,1));transform-origin:var(--ox,800px) var(--oy,450px)}
+.qs-fanarc,.qs-dialsvg{position:absolute;left:0;top:0;overflow:visible;pointer-events:none}
+.qs-it{position:absolute;height:56px;display:flex;align-items:center;gap:10px;white-space:nowrap;cursor:pointer;animation:qs-in .16s ease-out backwards}
+#qs-layer.side-left .qs-it{flex-direction:row-reverse}
+.qs-it:nth-child(3){animation-delay:.02s}.qs-it:nth-child(4){animation-delay:.04s}.qs-it:nth-child(5){animation-delay:.06s}.qs-it:nth-child(6){animation-delay:.08s}.qs-it:nth-child(7){animation-delay:.1s}.qs-it:nth-child(8){animation-delay:.12s}
+@keyframes qs-in{from{opacity:0;translate:0 6px}}
+.qs-ico{position:relative;width:52px;height:52px;flex:none;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:2px;background-size:100% 100%;background-repeat:no-repeat;
+ filter:drop-shadow(0 2px 2px rgba(0,0,0,.5));transition:width .1s,height .1s,margin .1s}   /* 2026-10-27 底图改铜钱框（行内 background-image），去掉原来的深色圆底 */
+.qs-ico:before{content:"";position:absolute;inset:-4px;border-radius:50%;border:4px solid rgba(20,22,20,.55);border-left-color:rgba(20,22,20,.2);transform:rotate(-24deg)}
+.qs-ico:after{content:"";position:absolute;inset:0;border-radius:50%;box-shadow:0 0 0 1px rgba(226,194,124,.8) inset}
+.qs-ico>img{position:relative;width:38px;height:38px;object-fit:contain}
+.qs-ico>img.px{width:30px;height:30px;image-rendering:pixelated}
+.qs-ico>span,.qs-ico>.jm-blot{position:relative;width:38px!important;height:38px!important}
+.qs-glyph{position:relative;font-style:normal;font-size:22px;font-weight:700;color:#efce83;font-family:"Weibei SC","Kaiti SC","Songti SC",serif}
+.qs-glyph.dim{color:#9a917e}
+.qs-pct{min-width:62px;font-weight:700;font-size:26px;color:#f3dfa6;text-shadow:0 0 3px #000,0 0 6px rgba(0,0,0,.85),0 1px 0 #000}
+#qs-layer.side-left .qs-pct{text-align:right}
+.qs-pct small{font-size:14px;margin-left:1px}
+.qs-pct.gate{font-size:14px;font-weight:400;letter-spacing:1px;color:#e2d4b2}
+.qs-slip{position:relative;height:38px;display:flex;align-items:center;gap:9px;padding:0 14px 0 16px;isolation:isolate;
+ background:linear-gradient(90deg,rgba(240,229,203,.97),rgba(247,239,220,.97));color:#1d1a15;
+ clip-path:polygon(0 4%,3% 0,98% 6%,100% 50%,97% 100%,2% 96%,0 50%);filter:drop-shadow(0 2px 3px rgba(0,0,0,.45))}
+.qs-slip:before{content:"";position:absolute;inset:0;background:url(../assets/ui/jianghu-v4/background.webp) center/400px auto;opacity:.32;mix-blend-mode:multiply;z-index:-1}
+.qs-slip:after{content:"";position:absolute;top:0;bottom:0;width:4px;background:#a33f2f}
+#qs-layer.side-left .qs-slip:after{left:0}
+#qs-layer.side-right .qs-slip:after{right:0}
+.qs-slip b{font-size:18px;letter-spacing:3px;font-weight:700}
+.qs-slip em{font-style:normal;font-size:12.5px;letter-spacing:1px;color:#6b6150;border-left:1px solid rgba(107,97,80,.45);padding-left:8px}
+.qs-gr{font-size:12px;line-height:16px;padding:0 4px;border:1px solid currentColor;color:#3d6f62}
+.qs-gr.q{color:#8a3a2b}
+.qs-df{font-size:12px;line-height:18px;padding:0 5px;border-radius:1px;color:#fff3dc;background:#8a3a2b}
+.qs-df.d1,.qs-df.d2{background:#7d7464}
+.qs-df.d6{background:#5e1c14;box-shadow:0 0 0 1px #e2c27c}
+.qs-it.veiled .qs-slip b{color:#5a5244;letter-spacing:2px}
+.qs-it.focus .qs-ico{width:60px;height:60px;margin:-2px;filter:drop-shadow(0 0 7px rgba(239,206,131,.7)) drop-shadow(0 2px 2px rgba(0,0,0,.5))}
+.qs-it.focus .qs-ico:after{inset:-6px;box-shadow:none;border:1.5px solid #c4553d;animation:qs-breath 1.6s ease-in-out infinite}
+@keyframes qs-breath{50%{opacity:.55}}
+.qs-it.focus .qs-slip{height:42px}
+.qs-it.focus .qs-slip b{font-size:20px}
+.qs-it.focus .qs-pct{font-size:32px;color:#ffe7a8}
+.qs-it.focus .qs-pct.gate{font-size:15px;color:#f0b8a6}
+.qs-it.off .qs-ico{filter:grayscale(.8) brightness(.8)}
+.qs-it.off .qs-ico>*{opacity:.4;filter:grayscale(1)}
+.qs-it.off .qs-slip{background:linear-gradient(90deg,rgba(225,215,190,.86),rgba(232,223,200,.86))}
+.qs-it.off .qs-slip b{color:#7d7464}
+.qs-it.off .qs-slip:after{background:#9a917e}
+.qs-it.nudge{animation:qs-nudge .22s}
+@keyframes qs-nudge{25%{translate:-4px 0}75%{translate:4px 0}}
+.qs-fanhead{position:absolute;display:flex;align-items:center;gap:10px;white-space:nowrap;pointer-events:none}
+.qs-t{font-size:17px;letter-spacing:4px;color:#efd9a6;text-shadow:0 0 3px #000,0 1px 0 #000}
+.qs-seal,.qs-sl{position:relative;display:inline-flex;align-items:center;justify-content:center;flex:none;font-family:"Weibei SC","Kaiti SC","Songti SC",serif;color:#fbefd6;
+ background:radial-gradient(circle at 30% 25%,rgba(255,230,200,.14),transparent 45%),#96302a;box-shadow:inset 0 0 0 2px rgba(150,48,42,1),inset 0 0 0 3px #f3e6cc;filter:drop-shadow(0 2px 1.5px rgba(0,0,0,.55))}
+.qs-seal{width:24px;height:24px;font-size:14px;box-shadow:inset 0 0 0 1px #f3e6cc}
+.qs-fanfoot{position:absolute;font-size:15px;letter-spacing:1.5px;color:#e9dcbc;text-shadow:0 0 3px #000,0 0 2px #000;white-space:nowrap;line-height:2}
+#qs-layer.side-left .qs-fanfoot{text-align:right}
+.qs-fanfoot b{color:#efce83;font-weight:600}
+.qs-tip{min-height:1em;color:#f0b8a6}
+.qs-keys u{text-decoration:none;display:inline-block;min-width:18px;padding:0 4px;margin:0 3px;line-height:18px;border:1px solid rgba(215,184,116,.8);border-radius:2px;background:rgba(16,22,19,.72);color:#efce83;text-align:center}
+.qs-keys button:hover u{background:rgba(150,48,42,.85);color:#fbefd6}
+
+/* ── 袖里一按 ── */
+.qs-lab{position:absolute;transform:translate(-50%,-50%);font-size:14px;letter-spacing:2px;white-space:nowrap;pointer-events:none;text-shadow:0 0 3px #000,0 0 2px #000,0 1px 0 #000}
+.qs-lab.end{color:#cdbf9c}.qs-lab.gold{color:#efd9a6}.qs-lab.red{color:#f0b8a6}
+.qs-title{position:absolute;transform:translateX(-50%);display:flex;align-items:center;gap:10px;white-space:nowrap;pointer-events:none}
+.qs-tico{position:relative;width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:radial-gradient(circle,rgba(30,35,31,.94) 58%,rgba(30,35,31,0) 72%)}
+.qs-tico:after{content:"";position:absolute;inset:0;border-radius:50%;box-shadow:0 0 0 1px rgba(226,194,124,.8) inset}
+.qs-tico>img{width:32px;height:32px;object-fit:contain}.qs-tico>img.px{width:26px;height:26px;image-rendering:pixelated}
+.qs-tico>span,.qs-tico>.jm-blot{width:32px!important;height:32px!important}
+.qs-title b{font-size:20px;letter-spacing:4px;color:#f3e3b8;text-shadow:0 0 3px #000,0 1px 0 #000}
+.qs-title em{font-style:normal;font-size:13.5px;letter-spacing:2px;color:#e2d4b2;text-shadow:0 0 3px #000}
+.qs-under{position:absolute;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:10px;white-space:nowrap}
+.qs-beats{display:flex;gap:18px;align-items:center}
+.qs-beat{display:flex;align-items:center;gap:7px;font-size:15px;letter-spacing:2px;color:#cdbf9c;text-shadow:0 0 3px #000,0 1px 0 #000}
+.qs-beat em{font-style:normal;font-size:12px;color:#e8c27a}
+.qs-beat.fail em{color:#f0a18a}
+.qs-sl{width:36px;height:36px;font-size:19px}
+.qs-beat .qs-sl{background:#1e231f;box-shadow:inset 0 0 0 3.5px #1e231f,inset 0 0 0 4.5px #c4aa76;color:#f1e3c2}
+.qs-beat.cur{color:#efd9a6}
+.qs-beat.cur .qs-sl{width:42px;height:42px;font-size:24px;outline:1.5px solid #c4553d;outline-offset:4px}
+.qs-beat.done.great .qs-sl,.qs-beat.done.ok .qs-sl{background:#96302a;box-shadow:inset 0 0 0 3px #96302a,inset 0 0 0 4px #f3e6cc}
+.qs-beat.done.fail .qs-sl{background:rgba(244,236,216,.35);box-shadow:inset 0 0 0 2.4px rgba(24,28,24,.86);color:#2a2620}
+.qs-rule{font-size:15px;letter-spacing:1px;color:#f3e3b8;text-shadow:0 0 3px #000,0 0 2px #000}.qs-rule b{color:#ffd9a0}
+.qs-legend{display:flex;flex-direction:column;align-items:flex-start;gap:6px;font-size:14.5px;letter-spacing:1px;color:#e9dcbc;text-shadow:0 0 3px #000,0 0 2px #000}
+.qs-legend .z{display:inline-block;width:16px;height:8px;margin-right:6px;vertical-align:1px;box-shadow:0 0 0 1px rgba(10,12,10,.7)}
+.qs-legend .z.red{background:#b5432f}.qs-legend .z.gold{background:#e2c27c}.qs-legend .z.out{background:rgba(10,12,10,.7);box-shadow:0 0 0 1px #e2c27c}
+#qs-layer.mini .qs-keys{font-size:14.5px;letter-spacing:2px;color:#e9dcbc;text-shadow:0 0 3px #000,0 0 2px #000}
+/* 落针闪一下 */
+#qs-layer.hit-great .qs-zone,#qs-layer.hit-ok .qs-zone{animation:qs-flash .3s ease-out}
+#qs-layer.hit-fail .qs-dialsvg{animation:qs-shake .26s}
+@keyframes qs-flash{0%{filter:brightness(1.9) drop-shadow(0 0 8px #ffe7a8)}100%{filter:none}}
+@keyframes qs-shake{25%{translate:-5px 0}75%{translate:5px 0}}
+/* 结果印 */
+.qs-verdict{position:absolute;transform:translate(-50%,-50%);display:none;align-items:center;gap:12px;white-space:nowrap;pointer-events:none;padding:10px 34px 10px 22px;border-radius:50px;background:radial-gradient(ellipse closest-side,rgba(12,14,12,.82) 60%,rgba(12,14,12,0))}
+.qs-verdict.on{display:flex;animation:qs-stamp .18s cubic-bezier(.3,1.6,.6,1)}
+@keyframes qs-stamp{from{opacity:0;transform:translate(-50%,-50%) scale(1.5)}}
+.qs-verdict .qs-sl.big{width:60px;height:60px;font-size:36px}
+.qs-verdict.ink .qs-sl{background:#1e231f;box-shadow:inset 0 0 0 4px #1e231f,inset 0 0 0 5px #c4aa76;color:#f1e3c2}
+.qs-verdict.hol .qs-sl{background:rgba(244,236,216,.55);box-shadow:inset 0 0 0 3px rgba(24,28,24,.9);color:#2a2620}
+.qs-verdict b{font-size:26px;letter-spacing:8px;color:#f3e3b8;text-shadow:0 0 4px #000,0 1px 0 #000}
+.qs-verdict.hol b{color:#f0b8a6}
+.qs-verdict em{font-style:normal;font-size:16px;letter-spacing:2px;color:#e9dcbc;text-shadow:0 0 3px #000}
+.qs-legend b{color:#f3e3b8}
+/* 得手：物件收进袖里 */
+#qs-layer.got .qs-tico{animation:qs-sleeve .32s ease-in forwards}
+@keyframes qs-sleeve{to{transform:translate(0,190px) scale(.3);opacity:0}}
+#qs-layer.miss .qs-dial{animation:qs-shake .26s}
+/* 文字托底：淡墨晕，土路、草地上也看得清 */
+.qs-fanhead,.qs-fanfoot,.qs-under,.qs-title{padding:6px 26px;background:radial-gradient(ellipse closest-side,rgba(12,14,12,.84) 62%,rgba(12,14,12,0));border-radius:40px}
+.qs-fanhead{padding:6px 20px}
+
+.qs-wary{font-size:14px;letter-spacing:1px;color:#f0b8a6;margin-top:2px}   /* 2026-10-27 戒心提示 */
+
+/* 2026-10-27 武侠样式部件：铜钱框、漆木弧框、绣花银针（用户：实体还是几何图案） */
+.qs-ico:before,.qs-ico:after{display:none}
+.qs-it.focus .qs-ico:after{display:block}
+.qs-ico>img,.qs-ico>span,.qs-ico>.jm-blot{filter:drop-shadow(0 1px 1px rgba(0,0,0,.6))}
+.qs-dialimg{position:absolute;pointer-events:none;filter:drop-shadow(0 3px 6px rgba(0,0,0,.55))}
+.qs-needleimg{position:absolute;height:74px;width:auto;pointer-events:none;filter:drop-shadow(0 0 3px rgba(255,255,255,.35)) drop-shadow(0 2px 2px rgba(0,0,0,.6))}

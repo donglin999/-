@@ -4,7 +4,7 @@ const {chromium}=require('/Users/wuxiuxiang/.cache/codex-runtimes/codex-primary-
 const fs=require('node:fs'),path=require('node:path'),assert=require('node:assert/strict');
 const root=path.resolve(__dirname,'..'),assets=JSON.parse(fs.readFileSync(path.join(root,'art_sources/guiyun-performance-fix-20261012/adopt.json'))).assets;
 (async()=>{
- const b=await chromium.launch({executablePath:'/Users/wuxiuxiang/Library/Caches/ms-playwright/chromium_headless_shell-1228/chrome-headless-shell-mac-arm64/chrome-headless-shell'}),report={status:'running',states:0,clips:[],errors:[]};
+ const b=await chromium.launch({executablePath:'/Users/wuxiuxiang/Library/Caches/ms-playwright/chromium_headless_shell-1248/chrome-headless-shell-mac-arm64/chrome-headless-shell'}),report={status:'running',states:0,clips:[],errors:[]};
  try{for(const width of [1280,1600,1920]){
   const c=await b.newContext({viewport:{width,height:Math.round(width*9/16)}}),p=await c.newPage();p.on('pageerror',e=>report.errors.push(e.message));await p.goto('http://127.0.0.1:8792/?chapterPresentationReview=cultivation-performance-bounds-20261012&play=1#qihe-map');await p.waitForFunction(()=>window.Cultivation?.state()&&document.querySelector('#cultivation:not([hidden])'));const f=p;
   const result=await f.evaluate(async assets=>{

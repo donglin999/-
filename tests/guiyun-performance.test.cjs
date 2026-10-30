@@ -34,7 +34,7 @@ assert.deepEqual(x('gy_brother_hurt').choices.find(ch=>ch.key==='night_watch').l
 assert.deepEqual(x('gn_lamp').intro[1].cast,['hero']);
 assert.ok(!x('gs_goose_missing').intro[0].cast.includes('goose'));
 assert.ok(x('gs_goose_missing').choices.find(ch=>ch.key==='track').lines.at(-1).cast.includes('goose'));
-assert.equal(x('gy_man_herbs').closing[0].place,'herb_garden');
+/* 2026-10-20 改写后散场不换地点，沿用开场的药圃 */assert.equal(x('gy_man_herbs').closing[0].place??x('gy_man_herbs').intro[0].place,'herb_garden');
 const p={action:'gy_m02',visitor:{version:1,phase:'intro',cursor:0,selected:null,context:{...c,footwork:true,fist:false,sword:false,delivery:null}}};
 while(p.visitor.phase!=='commit'){const l=V.current(p);if(!['title','narrator'].includes(l.speaker))assert.ok(l.cast.includes(l.speaker));if(p.visitor.phase==='choice')V.choose(p,0);else V.next(p);}
 assert.ok(!V.current(p).text.includes('必要的消息'));

@@ -39,11 +39,14 @@ function say(who,text,sp){sp=window.OpeningCharacters?.dialogueSprite(who,text,s
     window.DialogueStage?.closeLine();setTimeout(()=>{if(d.hidden)lastSpeaker=null},80);res()};
   const kd=e=>{if([' ','Enter','e','E'].includes(e.key)&&!e.repeat){e.preventDefault();go()}};
   d.onclick=go;setTimeout(()=>window.addEventListener('keydown',kd),50)})}
-function choose(who,text,opts,sp){sp=window.OpeningCharacters?.dialogueSprite(who,text,sp)||sp;return new Promise(res=>{dlgBusy=true;const d=dlgSetup(who,sp,true);d.onclick=null;
+// 2026-10-27：有覆盖层（墨印、查看、请教、赠礼、易物、偷窃）开着时，江湖菜单、地图等全局热键都不响应
+function qiheOverlayOpen(){const q=window.QiheNpcUI;if(q?.open||(q?.layer&&!q.layer.hidden))return true;if(window.QiheGiftUI?.open)return true;const s=document.getElementById('qs-layer');return!!(s&&!s.hidden)}
+window.qiheOverlayOpen=qiheOverlayOpen;
+function choose(who,text,opts,sp,escIndex){sp=window.OpeningCharacters?.dialogueSprite(who,text,sp)||sp;return new Promise(res=>{dlgBusy=true;const d=dlgSetup(who,sp,true);d.onclick=null;
   d.querySelector('.txt').textContent=text||'';
   const c=d.querySelector('.choices');
   opts.forEach((o,i)=>{const b=document.createElement('button');b.innerHTML=`<span class="n">${i+1}</span>${esc(o)}`;b.onmouseenter=()=>b.focus();b.onclick=e=>{e.stopPropagation();window.removeEventListener('keydown',kd);d.hidden=true;dlgBusy=false;lastSpeaker=null;window.DialogueStage?.closeLine();res(i)};c.appendChild(b)});
-  const kd=e=>{const n=+e.key;if(n>=1&&n<=opts.length){e.preventDefault();c.children[n-1].click();return}
+  const kd=e=>{if(e.repeat)return;if(e.key==='Escape'&&escIndex!=null&&c.children[escIndex]){e.preventDefault();e.stopImmediatePropagation();c.children[escIndex].click();return}const n=+e.key;if(n>=1&&n<=opts.length){e.preventDefault();c.children[n-1].click();return}
     const bs=[...c.children],k=bs.indexOf(document.activeElement);
     if(e.key==='ArrowDown'||e.key==='s'){e.preventDefault();bs[(k+1)%bs.length].focus()}
     if(e.key==='ArrowUp'||e.key==='w'){e.preventDefault();bs[(k-1+bs.length)%bs.length].focus()}
@@ -61,7 +64,7 @@ const ICO={bun:'食',pill:'药',wine:'酒',shovel:'铲',book:'书',gall:'胆',to
 // 图标：优先 ART.icons 图集（assets/production/icons-and-props/i_icons.webp），缺失回落文字字形
 let icoImg=null,icoOK=false;
 function icoAtlas(){if(!window.ART||!ART.icons)return false;if(!icoImg){icoImg=new Image();icoImg.onload=()=>{icoOK=true;if(!$('panel').hidden&&panelRedraw)panelRedraw()};icoImg.src='assets/production/icons-and-props/i_icons.webp'}return icoOK}
-function icoHTML(k,glyph){const r=icoAtlas()&&ART.icons[k];
+function icoHTML(k,glyph){const v4=window.ITEM_ICONS_V4?.style(k);if(v4)return`<div class="ico img"><i style="${v4}"></i></div>`;const r=icoAtlas()&&ART.icons[k];
   if(r){const[x,y,w,h]=r,W0=icoImg.naturalWidth,H0=icoImg.naturalHeight;
     return`<div class="ico img"><i style="background-image:url(assets/production/icons-and-props/i_icons.webp);background-size:${W0/w*100}% ${H0/h*100}%;background-position:${W0===w?0:x/(W0-w)*100}% ${H0===h?0:y/(H0-h)*100}%"></i></div>`}
   return`<div class="ico">${glyph}</div>`}

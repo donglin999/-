@@ -9,7 +9,7 @@ async function select(page,id){await page.locator(`[data-scene="${id}"]`).click(
 async function textHas(page,term){assert.ok((await page.locator('#reader').innerText()).includes(term),term);}
 async function capture(page,name){await page.evaluate(async()=>{await document.fonts.ready;await Promise.all([...document.images].map(i=>i.decode().catch(()=>{})));});await page.screenshot({path:path.join(out,name),fullPage:false});report.captures.push(name);}
 (async()=>{
- const browser=await chromium.launch({executablePath:process.env.CHROMIUM_PATH||'/Users/wuxiuxiang/Library/Caches/ms-playwright/chromium_headless_shell-1228/chrome-headless-shell-mac-arm64/chrome-headless-shell'});
+ const browser=await chromium.launch({executablePath:process.env.CHROMIUM_PATH||'/Users/wuxiuxiang/Library/Caches/ms-playwright/chromium_headless_shell-1248/chrome-headless-shell-mac-arm64/chrome-headless-shell'});
  try{
   const context=await browser.newContext({viewport:{width:1440,height:1050}});
   await context.addInitScript(()=>{

@@ -2,20 +2,20 @@
   "说明": "用户审过的剧本指纹（迁移方案 §8.4）。改动已批准的剧本会让构建停止并列出改动，用户确认后运行 node tools_story/build_ink.cjs --approve <文件> 更新。不手改。",
   "files": {
     "01-开始/序章-进村第一夜.ink": {
-      "sha256": "35a07349325d207c475acf9be022dfebdc1d325fd4c16fccaf18b1a226e484e2",
-      "approvedAt": "2026-10-19"
+      "sha256": "3a70cabf358732a85c6d341bcf5756df8ebfaae4e0ccc90f5a4f48968ac5fe14",
+      "approvedAt": "2026-10-29"
     },
     "01-开始/三方-侧口对峙.ink": {
       "sha256": "4208b0e4084d61027bf03ae29d3b91944ef3c1c59d0982bff4dd381c52a5cdde",
       "approvedAt": "2026-10-19"
     },
     "01-开始/三方-对证.ink": {
-      "sha256": "8c608d0645b6cfb4108906895d4c2248784be0d30212709c63db804fae1bcc6a",
-      "approvedAt": "2026-10-26"
+      "sha256": "963301d4e336569649f8e0000e7a7018e8a8f743ee1a777b2b7eb0e14bc06909",
+      "approvedAt": "2026-10-29"
     },
     "01-开始/三方-徐令仪上门.ink": {
-      "sha256": "c314399c3f2347b128f5161b06ff927dae531ecf15203ef370c7f647d58a142e",
-      "approvedAt": "2026-10-19"
+      "sha256": "745bee760256bb8fb9445f534b8563abe80950bcca4ef25e1dbcd5d07c75d60e",
+      "approvedAt": "2026-10-29"
     },
     "01-开始/三方-找人交谈.ink": {
       "sha256": "d2914b8a976c59deb52c4cba70a9fafdd8bd1676331b0a2cec388541cc0ab452",
@@ -26,16 +26,16 @@
       "approvedAt": "2026-10-26"
     },
     "01-开始/三方-跑腿-拜帖.ink": {
-      "sha256": "04ff67383d77c0d7fcc8bcafe36f74080acf12d27093c4e67bd084f6cfd5b4f8",
-      "approvedAt": "2026-10-26"
+      "sha256": "b20f9504bdc25bc57c9477ad96778dcfdd0a33478eab12682bc3f1be092ec8fc",
+      "approvedAt": "2026-10-29"
     },
     "01-开始/三方-跑腿-旧货账.ink": {
       "sha256": "f9412ddca023b21e9365c2520226678d3c98cbb4f5b743f5e0adc9dc8c0f3cb8",
       "approvedAt": "2026-10-26"
     },
     "01-开始/三方-跑腿-药单.ink": {
-      "sha256": "6fbba8aac14ad4bebcd5c5681c6e6621ee9617bb6f9ad78954bc5ee871d22b56",
-      "approvedAt": "2026-10-19"
+      "sha256": "ffc38ef0c1f5f670cdd22e1a48c0414ab346483c19de505c338213ac9cb55407",
+      "approvedAt": "2026-10-29"
     },
     "01-开始/序章-后山相遇.ink": {
       "sha256": "39d08a33bf4e2689e95d982eceb8faf0308d5b7c266cfb29aa3e1c6563c75674",
@@ -66,16 +66,16 @@
       "approvedAt": "2026-10-19"
     },
     "01-开始/第一夜-过夜.ink": {
-      "sha256": "cb8f222fb9826f567b01930c9d7fd8cd65b936fec4171419320f5e43b1fa42b6",
-      "approvedAt": "2026-10-26"
+      "sha256": "8c35db6fd9b6ced3d71b117a8864fa54463e1c020cf06e3df7ef1582f6abe95c",
+      "approvedAt": "2026-10-29"
     },
     "01-开始/第一夜-还碗.ink": {
       "sha256": "4e2a280178d4edb7d2f59d61d9b8fdb117b01224e9bbc03ead56030181cff380",
       "approvedAt": "2026-10-26"
     },
     "01-开始/第一夜-送药.ink": {
-      "sha256": "b6c2bdde340530c1cbbae2bd3e1b850fb8bd887d909e253458a8e596db01c28a",
-      "approvedAt": "2026-10-26"
+      "sha256": "cc12696996053eb9a9705be28925ced89851cd437816e9debd201810fa984150",
+      "approvedAt": "2026-10-29"
     },
     "01-开始/第一夜-问候.ink": {
       "sha256": "19d7c0a6558816e7baffe8efa1939c6fa8ee5a2035e0c5074bcb26feb998e7ef",
@@ -86,12 +86,12 @@
       "approvedAt": "2026-10-21"
     },
     "01-开始/风起-修车认路.ink": {
-      "sha256": "3387d6e1f9c6eb47e066a724f119c7529e5f8a5f8ae9fb1a420e7def433c6991",
-      "approvedAt": "2026-10-19"
+      "sha256": "9d6af7830bb6eefcbebec33ae08f411fbbbbe1674d7ffa071c2b8fbd06c6e1f6",
+      "approvedAt": "2026-10-29"
     },
     "01-开始/风起-后山回话一.ink": {
-      "sha256": "217d8d5665cd85121077362381f6af4b836f5dc39d36431760f88c991eab8fa4",
-      "approvedAt": "2026-10-26"
+      "sha256": "0224c7e18f35b25e33d25af4600fdb7a52a067ccf838eb080895b5bf424ffc0b",
+      "approvedAt": "2026-10-29"
     },
     "01-开始/风起-后山回话二.ink": {
       "sha256": "a4cbe10e814420a20a0ca701d068f3ecfc47ff5a0d223b232ca0bf4a8f11b09f",
@@ -122,8 +122,8 @@
       "approvedAt": "2026-10-21"
     },
     "01-开始/风起-村中路人.ink": {
-      "sha256": "63939c313fc9e7bcdab210dccab30119e91b358bd3a31e6e8a72acfb68b945b5",
-      "approvedAt": "2026-10-19"
+      "sha256": "402d0e2ddeb184c641aee0ca52c8aa0b21dbf63a0760bd1ffe78b2ad95e48c3f",
+      "approvedAt": "2026-10-29"
     },
     "01-开始/风起-次日药摊.ink": {
       "sha256": "d3d4b1ee26526f7df97b7471d7c35ad0f6476bea274a1c0ea1ca68f0f12f65ff",
@@ -162,20 +162,20 @@
       "approvedAt": "2026-10-26"
     },
     "01-开始/人物-收礼与易物.ink": {
-      "sha256": "0ead46581979557312d0da40e78c217a5516000196c437318b511f0b7835a798",
-      "approvedAt": "2026-10-26"
+      "sha256": "c7856d5c5cf4a0eda87cc823af435ef4f343fe86c0402f39e9c5602b7660a4d7",
+      "approvedAt": "2026-10-29"
     },
     "01-开始/支线-蔺管事-回话一.ink": {
-      "sha256": "a01968042326714e1d65e44d44b95bd0640de828ff3e04fe284f8d2020156b24",
-      "approvedAt": "2026-10-26"
+      "sha256": "c3d61d53b6ab7b6c568d8fb4f47a6549fae031b02f599a935a5564af9bc7af88",
+      "approvedAt": "2026-10-29"
     },
     "01-开始/支线-蔺管事-测字.ink": {
       "sha256": "39acd0d962a61f7d4ad022fdf274df315e15db330d5e910bb0728e5afb45e043",
       "approvedAt": "2026-10-26"
     },
     "01-开始/支线-蔺管事-灯四.ink": {
-      "sha256": "4c3fb7def0cfaeb049382af482e04184f0ff5d41991d72b49d1ef6da26bed2f8",
-      "approvedAt": "2026-10-26"
+      "sha256": "a789f7be3fabd905e92a985452d35ebf59783d2cafeaeb32347eddbb65660ad7",
+      "approvedAt": "2026-10-29"
     },
     "01-开始/支线-蔺管事-留话.ink": {
       "sha256": "a5187f551f210702029251c4f182b0d6d2c0dc8d92e25c3b5b8fccdae3ec2f81",
@@ -196,6 +196,66 @@
     "01-开始/支线-蔺管事-问船家.ink": {
       "sha256": "7c2db2298004bf5fffa1d667da3859272e20c4541ffee6376a305cae993453e3",
       "approvedAt": "2026-10-26"
+    },
+    "01-开始/人物-门派不睦.ink": {
+      "sha256": "6cf81cbb43258d1722b92d56ad46b3750a5d6260c358688708c4dbc6eb5e6b2f",
+      "approvedAt": "2026-10-29"
+    },
+    "01-开始/人物-收礼与易物-补.ink": {
+      "sha256": "5bd362b24bbc6baee2a53be47da3f9a13ba569a82ab84e8d6b568eefc1634d35",
+      "approvedAt": "2026-10-29"
+    },
+    "01-开始/村中-景物.ink": {
+      "sha256": "33f9832120818956919b74cb6ce01c2517e858cd69c6ce1b16ab5aba149f1f4f",
+      "approvedAt": "2026-10-30"
+    },
+    "01-开始/人物-算命先生.ink": {
+      "sha256": "1f847a491d2e002e1b49fa1a6f9c46c177c1895969071f4f87e17ddd35aa3016",
+      "approvedAt": "2026-10-29"
+    },
+    "01-开始/支线-蔺管事-问封皮.ink": {
+      "sha256": "5dee76e115e46f1bfbd3247e53151c64271c975574bbfc09e3600f3951a6611d",
+      "approvedAt": "2026-10-27"
+    },
+    "01-开始/村中-客栈.ink": {
+      "sha256": "cf9796cebace539c0cfb0c49eff33062b1bf85f4162aec5b81ef7f208b6ea3ec",
+      "approvedAt": "2026-10-30"
+    },
+    "01-开始/村中-货郎.ink": {
+      "sha256": "c60834c2fcdbdd38fe008a4e1d2cf99acc566ad8dee72b042814a835984ea1f2",
+      "approvedAt": "2026-10-29"
+    },
+    "01-开始/村中-猜字谜.ink": {
+      "sha256": "ddb43baf5c9426f6affc6795a9383d4c7d2595422e8c0d0365ba34c2b2152ed6",
+      "approvedAt": "2026-10-29"
+    },
+    "01-开始/人物-船家.ink": {
+      "sha256": "68aaee662069b66142430552ae933557891d84f05f56c9a0e2c3aaa3408bd9df",
+      "approvedAt": "2026-10-29"
+    },
+    "01-开始/人物-易物开口.ink": {
+      "sha256": "aa8c1770fe7cfe35206e82e60a8984cdaa9ff207bbf1910137f0a1bcd43eefd4",
+      "approvedAt": "2026-10-29"
+    },
+    "01-开始/奇遇-老更夫.ink": {
+      "sha256": "ec41c0615e1449c13cd7f276396277c20e10d74439a00b0699b45deba019c8ab",
+      "approvedAt": "2026-10-29"
+    },
+    "01-开始/奇遇-全村平安符.ink": {
+      "sha256": "d0066a99c94e72e49fe40a14da413637a6593d254960f43acdfbcf353a9f82b6",
+      "approvedAt": "2026-10-29"
+    },
+    "01-开始/奇遇-帮众挑衅.ink": {
+      "sha256": "13fa982edb355fb8d2215f328fa51c23f8b9cb81284ad0c16bcc056e73586099",
+      "approvedAt": "2026-10-29"
+    },
+    "01-开始/人物-失手.ink": {
+      "sha256": "ea85a00461a60a05052206d95fb322f7ca4bd0ce53c2837fcdec46a76feb8fd4",
+      "approvedAt": "2026-10-30"
+    },
+    "01-开始/风起-小耗子-保底.ink": {
+      "sha256": "604f495a4cec7cefdc28d7e2f6b6785f2d5279c81639f6b579731e3ca1fed875",
+      "approvedAt": "2026-10-30"
     }
   }
 }

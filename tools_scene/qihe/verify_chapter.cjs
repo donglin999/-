@@ -1,3 +1,4 @@
+// 2026-10-27：小耗子的一课成了第一天白天的主线必经（js/qihe-aqi.js，另由 verify_aqi.cjs 测）；本测试只测其后的主线，开局记为已上完。
 const {boot}=require('./harness.cjs'),assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path');
 (async()=>{const {c,run,root}=await boot();c.QiheFactionClash.play=async()=> 'stopped';c.say=async()=>{};c.Cultivation.start=()=>{};let decisions=[],battleWins=0;const log=[];
 // 2026-10-17 主线改为找人推进：自由走访阶段找当前主线人物、选【主线】并确认；其他阶段仍走 rest()。
@@ -5,7 +6,7 @@ const advanceMain=async()=>{const m=c.QiheChapter.mainStep?.();return m?c.QiheCh
 c.choose=async(w,t,options)=>{const n=decisions.length?decisions.shift():0;if(n>=options.length)throw Error('bad test choice '+t);return n};c.battle=async opt=>{const units=opt.storyLesson.allies();assert(units[0].art==='hero_village');assert.equal(opt.noFlee,true);battleWins++;return'win'};
 // 2026-10-14 起，本期到期的必经剧情（如拜师面）没播完不能结束本期；测试先按默认选项播完再推进。
 function playDue(s){const C=c.CultivationCore,V=c.CultivationVisitors;let d,g=0;while((d=C.dueStory(s))&&g++<20){C.start(s,d.id,{story:true});let k=0;while(s.pending.stage!=='result'&&k++<80){if(s.pending.visitor.phase==='choice')C.visitorChoose(s,0);else C.visitorNext(s);}C.closeResult(s);}}
-function fresh(){run("S=newState();S.name='萧白';S.hp=80;S.mp=20;S.prologue=QihePrologue.fresh();S.prologue.arrival={version:1,stage:'done',borrowed:true,originExpression:'A',greeted:{}};S.prologue.rested=true;S.prologue.relicSeen=true;S.scene='qihe_trial';cur=SC.qihe_trial;buildGrid(cur);spawnWanderers();mode='scene';busy=false;dlgBusy=false;keys={};");decisions=[]}
+function fresh(){run("S=newState();S.name='萧白';S.hp=80;S.mp=20;S.prologue=QihePrologue.fresh();S.aqiTeach={step:4,wage:'quiet'};S.prologue.arrival={version:1,stage:'done',borrowed:true,originExpression:'A',greeted:{}};S.prologue.rested=true;S.prologue.relicSeen=true;S.scene='qihe_trial';cur=SC.qihe_trial;buildGrid(cur);spawnWanderers();mode='scene';busy=false;dlgBusy=false;keys={};");decisions=[]}
 for(const plan of ['all-rest','all-activities','mixed']){fresh();await c.QiheChapter.begin();assert.equal(c.QiheChapter.state().stage,'days');
  if(plan==='all-rest')for(let i=0;i<4;i++)await advanceMain();
  else if(plan==='all-activities'){for(const id of['clinic','transport','practice','market']){await c.QiheChapter.activity(id);assert.equal(c.QiheChapter.state().halfDay,0);assert.equal(c.QiheChapter.state().stage,'days');}await c.QiheChapter.activity('practice');assert.equal(c.QiheChapter.state().halfDay,0);for(let i=0;i<4;i++)await advanceMain();}

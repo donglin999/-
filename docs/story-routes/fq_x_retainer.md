@@ -4,7 +4,7 @@
 
 ## 路线 1：qiheChapter.talkCycle=0
 
-- 护院：有事找我们徐执事，她就在门口。车道别堵着。
+- 护院：有事找我们徐执事。车道别堵着。
   〔set_flag("qiheChapter.talkCycle", 1)〕
 
 ## 路线 2：qiheChapter.talkCycle=1

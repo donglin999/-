@@ -4869,11 +4869,11 @@
     },
     {
       "id": "m_qh_central_props",
-      "path": "assets/production/maps/m_qh_central_props_regen_20261026.webp",
-      "original_path": "art_sources/prop-regen-20261026/out/props.png",
+      "path": "assets/production/maps/m_qh_central_props_herbfix_20261027.webp",
+      "original_path": "art_sources/qihe-props-fix-20261027/out/props_central.png",
       "system": "maps",
       "role": "qihe-active-map",
-      "sha256": "152b4781efe44b474de16cfd797b55d154ba275f8831b755fd5958977a06f705",
+      "sha256": "52448ad34372034c31a05a09b77aa60c5d736b910567215b6ffba838b6839fde",
       "size": [
         2048,
         1475
@@ -4898,7 +4898,7 @@
       "generation_record": "art_sources/prop-holes-fix-20261025/recut_frames.py",
       "acceptance_evidence": "docs/updates/evidence/2026-10-25-prop-holes/",
       "supersedes": "assets/production/maps/m_qh_central_props_modular_20261007.webp（旧图集保留原处；2026-10-25 道具镂空整改：路牌、修理台、晾衣架重切，叶家、药棚补缺口）",
-      "acceptance_status": "; 20261026 修理台、晾衣架用 302 重画（用户第十五轮第 9 题“重新生成一个吧”），旧图集 assets/production/maps/m_qh_central_props_holefix_20261025.webp 保留"
+      "acceptance_status": "; 20261026 修理台、晾衣架用 302 重画（用户第十五轮第 9 题“重新生成一个吧”），旧图集 assets/production/maps/m_qh_central_props_holefix_20261025.webp 保留; 20261027 药棚晒药匾（切件 herbs）用 302 重画成架腿与匾连贯的一件（用户 10-27 试玩反馈“这个素材还是有问题”），候选待用户评审，旧图集 assets/production/maps/m_qh_central_props_regen_20261026.webp 保留；记录 art_sources/qihe-props-fix-20261027/pack_herbs.py"
     },
     {
       "id": "m_qh_east",
@@ -9508,7 +9508,8 @@
         "js/production-assets.js",
         "js/qh-mode-cultivation-side.js",
         "js/qh-mode-cultivation-relations.js"
-      ]
+      ],
+      "acceptance_status": "deprecated-20261027 用户试玩：「怎么用的还是很古早的素材，这应该标记为弃用啊」。栖河已全部改用重制版（s_qh_merchant、s_qh_bandit、s_qh_oldman、s_opening_aunt），运行代码不再引用；文件暂留（R-清理-01 只移不删，旧原型其他模式若无引用再移 _attic）。原状态："
     },
     {
       "id": "s_bandit_bright",
@@ -9713,7 +9714,8 @@
       "sha256": "a155eb3a96e78ee5ba69ecf2c98c635580ae2465423507ff4a00e5afbcc6430f",
       "references": [
         "js/production-assets.js"
-      ]
+      ],
+      "acceptance_status": "deprecated-20261027 用户试玩：「怎么用的还是很古早的素材，这应该标记为弃用啊」。栖河已全部改用重制版（s_qh_merchant、s_qh_bandit、s_qh_oldman、s_opening_aunt），运行代码不再引用；文件暂留（R-清理-01 只移不删，旧原型其他模式若无引用再移 _attic）。原状态："
     },
     {
       "id": "s_gossip_bright",
@@ -9891,7 +9893,8 @@
       "sha256": "166001248b87cb26fc34f6c1691e265f4f0d9404aee468195bca7ee62b84f887",
       "references": [
         "js/production-assets.js"
-      ]
+      ],
+      "acceptance_status": "deprecated-20261027 用户试玩：「怎么用的还是很古早的素材，这应该标记为弃用啊」。栖河已全部改用重制版（s_qh_merchant、s_qh_bandit、s_qh_oldman、s_opening_aunt），运行代码不再引用；文件暂留（R-清理-01 只移不删，旧原型其他模式若无引用再移 _attic）。原状态："
     },
     {
       "id": "s_merchant_bright",
@@ -9935,7 +9938,8 @@
       "sha256": "57270d502ca53214915e0d47ebdb65ab826e39a3567457d568f0e6d147b205bf",
       "references": [
         "js/production-assets.js"
-      ]
+      ],
+      "acceptance_status": "deprecated-20261027 用户试玩：「怎么用的还是很古早的素材，这应该标记为弃用啊」。栖河已全部改用重制版（s_qh_merchant、s_qh_bandit、s_qh_oldman、s_opening_aunt），运行代码不再引用；文件暂留（R-清理-01 只移不删，旧原型其他模式若无引用再移 _attic）。原状态："
     },
     {
       "id": "s_oldman_bright",
@@ -16902,6 +16906,177 @@
       "batch_source": "art_sources/batch2-cast-20261023/README.md"
     },
     {
+      "id": "p_qh_elder_hd_20261027",
+      "path": "assets/production/portraits/p_qh_elder_hd_20261027.webp",
+      "original_path": "art_sources/npc-portraits-20261027/final/p_qh_elder_hd_20261027.webp",
+      "system": "portraits",
+      "role": "registered-or-direct-runtime",
+      "sha256": "87400d101085c9913f760b15592309f08311a1040f22c4e3f0089f23ab074456",
+      "references": [
+        "js/production-assets.js",
+        "js/qihe-npc-data.js"
+      ],
+      "actual_size": [
+        960,
+        1280
+      ],
+      "acceptance_status": "candidate-pending-review-20261027",
+      "visual_acceptance_record": "候选，待用户评审（村口老人，查看页立绘 v2，2026-10-27）",
+      "generation_record": "art_sources/npc-portraits-20261027/README.md"
+    },
+    {
+      "id": "p_qh_aunt_hd_20261027",
+      "path": "assets/production/portraits/p_qh_aunt_hd_20261027.webp",
+      "original_path": "art_sources/npc-portraits-20261027/final/p_qh_aunt_hd_20261027.webp",
+      "system": "portraits",
+      "role": "registered-or-direct-runtime",
+      "sha256": "4eae3ae6e34077ffda7849611035f11c05964eea3d7c03808f0ffdb0989f5130",
+      "references": [
+        "js/production-assets.js",
+        "js/qihe-npc-data.js"
+      ],
+      "actual_size": [
+        960,
+        1280
+      ],
+      "acceptance_status": "candidate-pending-review-20261027",
+      "visual_acceptance_record": "候选，待用户评审（周婶，查看页立绘 v2，2026-10-27）",
+      "generation_record": "art_sources/npc-portraits-20261027/README.md"
+    },
+    {
+      "id": "p_qh_chen_hd_20261027",
+      "path": "assets/production/portraits/p_qh_chen_hd_20261027.webp",
+      "original_path": "art_sources/npc-portraits-20261027/final/p_qh_chen_hd_20261027.webp",
+      "system": "portraits",
+      "role": "registered-or-direct-runtime",
+      "sha256": "61919d209e65fff4b9f0abd11f6dcb0dacc9991eb84d22ed5b43f19cb42603f8",
+      "references": [
+        "js/production-assets.js",
+        "js/qihe-npc-data.js"
+      ],
+      "actual_size": [
+        960,
+        1280
+      ],
+      "acceptance_status": "candidate-pending-review-20261027",
+      "visual_acceptance_record": "候选，待用户评审（陈伯，查看页立绘 v2，2026-10-27）",
+      "generation_record": "art_sources/npc-portraits-20261027/README.md"
+    },
+    {
+      "id": "p_qh_innkeeper_hd_20261027",
+      "path": "assets/production/portraits/p_qh_innkeeper_hd_20261027.webp",
+      "original_path": "art_sources/npc-portraits-20261027/final/p_qh_innkeeper_hd_20261027.webp",
+      "system": "portraits",
+      "role": "registered-or-direct-runtime",
+      "sha256": "37920af8da983a3df463f33dd4b9b6b466f361d92961f42c05c06a82cc473979",
+      "references": [
+        "js/production-assets.js",
+        "js/qihe-npc-data.js"
+      ],
+      "actual_size": [
+        960,
+        1280
+      ],
+      "acceptance_status": "candidate-pending-review-20261027",
+      "visual_acceptance_record": "候选，待用户评审（店家，查看页立绘 v2，2026-10-27）",
+      "generation_record": "art_sources/npc-portraits-20261027/README.md"
+    },
+    {
+      "id": "p_qh_apothecary_hd_20261027",
+      "path": "assets/production/portraits/p_qh_apothecary_hd_20261027.webp",
+      "original_path": "art_sources/npc-portraits-20261027/final/p_qh_apothecary_hd_20261027.webp",
+      "system": "portraits",
+      "role": "registered-or-direct-runtime",
+      "sha256": "17e304b2e217c85ff4b46c7c3db50e3a136053d7b7d88e6dcad693572b0b287b",
+      "references": [
+        "js/production-assets.js",
+        "js/qihe-npc-data.js"
+      ],
+      "actual_size": [
+        960,
+        1280
+      ],
+      "acceptance_status": "candidate-pending-review-20261027",
+      "visual_acceptance_record": "候选，待用户评审（药商，查看页立绘 v2，2026-10-27）",
+      "generation_record": "art_sources/npc-portraits-20261027/README.md"
+    },
+    {
+      "id": "p_qh_aide_hd_20261027",
+      "path": "assets/production/portraits/p_qh_aide_hd_20261027.webp",
+      "original_path": "art_sources/npc-portraits-20261027/final/p_qh_aide_hd_20261027.webp",
+      "system": "portraits",
+      "role": "registered-or-direct-runtime",
+      "sha256": "b254a0cb0e37c02dd341170c81124ed1d1769b034614cb8d18ca7d8a24aabcb9",
+      "references": [
+        "js/production-assets.js",
+        "js/qihe-npc-data.js"
+      ],
+      "actual_size": [
+        960,
+        1280
+      ],
+      "acceptance_status": "candidate-pending-review-20261027",
+      "visual_acceptance_record": "候选，待用户评审（采办随从（类型共用），查看页立绘 v2，2026-10-27）",
+      "generation_record": "art_sources/npc-portraits-20261027/README.md"
+    },
+    {
+      "id": "p_qh_bailiff_hd_20261027",
+      "path": "assets/production/portraits/p_qh_bailiff_hd_20261027.webp",
+      "original_path": "art_sources/npc-portraits-20261027/final/p_qh_bailiff_hd_20261027.webp",
+      "system": "portraits",
+      "role": "registered-or-direct-runtime",
+      "sha256": "0fee729df3ffcabfcda4f5795c270481f0de751310c6ee8fd343d1b9a967b5cc",
+      "references": [
+        "js/production-assets.js",
+        "js/qihe-npc-data.js"
+      ],
+      "actual_size": [
+        960,
+        1280
+      ],
+      "acceptance_status": "candidate-pending-review-20261027",
+      "visual_acceptance_record": "候选，待用户评审（差役（类型共用），查看页立绘 v2，2026-10-27）",
+      "generation_record": "art_sources/npc-portraits-20261027/README.md"
+    },
+    {
+      "id": "p_qh_retainer_hd_20261027",
+      "path": "assets/production/portraits/p_qh_retainer_hd_20261027.webp",
+      "original_path": "art_sources/npc-portraits-20261027/final/p_qh_retainer_hd_20261027.webp",
+      "system": "portraits",
+      "role": "registered-or-direct-runtime",
+      "sha256": "3fc2783d09a6e4d14e0e5a1b200025f5f9767a481116b0cae1a6f9b724a938ad",
+      "references": [
+        "js/production-assets.js",
+        "js/qihe-npc-data.js"
+      ],
+      "actual_size": [
+        960,
+        1280
+      ],
+      "acceptance_status": "candidate-pending-review-20261027",
+      "visual_acceptance_record": "候选，待用户评审（护院（类型共用），查看页立绘 v2，2026-10-27）",
+      "generation_record": "art_sources/npc-portraits-20261027/README.md"
+    },
+    {
+      "id": "p_qh_bandit_hd_20261027",
+      "path": "assets/production/portraits/p_qh_bandit_hd_20261027.webp",
+      "original_path": "art_sources/npc-portraits-20261027/final/p_qh_bandit_hd_20261027.webp",
+      "system": "portraits",
+      "role": "registered-or-direct-runtime",
+      "sha256": "43a3169eba3bf269aa15aad2c95cc4a4eef17e8616ceb27a3efac066b6e095bb",
+      "references": [
+        "js/production-assets.js",
+        "js/qihe-npc-data.js"
+      ],
+      "actual_size": [
+        960,
+        1280
+      ],
+      "acceptance_status": "candidate-pending-review-20261027",
+      "visual_acceptance_record": "候选，待用户评审（帮众（类型共用），查看页立绘 v2，2026-10-27）",
+      "generation_record": "art_sources/npc-portraits-20261027/README.md"
+    },
+    {
       "id": "s_npc_qh_ashuan_20261023",
       "path": "assets/production/characters/s_npc_qh_ashuan_20261023.webp",
       "original_path": "art_sources/batch2-cast-20261023/ashuan/sprite/s_npc_qh_ashuan_20261023_b_cand.webp",
@@ -17050,6 +17225,23 @@
       ]
     },
     {
+      "id": "ui_qj_nav_rep_20261027",
+      "path": "assets/production/ui/jianghu-rep-icon-20261027/ui_qj_nav_rep_20261027.webp",
+      "original_path": "art_sources/jianghu-rep-icon-20261027/out/ui_qj_nav_rep_20261027.png",
+      "system": "ui",
+      "role": "registered-or-direct-runtime",
+      "sha256": "a26b33925bf28792378651baac8386fb723d4ab4775342d5160140a2a60989bb",
+      "actual_size": [
+        320,
+        320
+      ],
+      "acceptance_status": "pending-review-20261027 江湖菜单「关系」页签铜章图标（抱拳礼），302 生图，参考 jianghu-v5 图集；待用户评审",
+      "references": [
+        "js/qihe-jianghu-ui.js",
+        "js/production-assets.js"
+      ]
+    },
+    {
       "id": "ui_qh_trade_scale_panL",
       "path": "assets/production/ui/trade-scale-20261026/ui_qh_trade_scale_panL.webp",
       "original_path": "art_sources/gift-trade-ui-20261026/out/line_panL_768.webp",
@@ -17082,6 +17274,1026 @@
         "js/qihe-gift-ui.js",
         "js/production-assets.js"
       ]
+    },
+    {
+      "id": "prop_qh_well_20261027",
+      "path": "assets/production/maps/town-props-20261027/prop_qh_well_20261027.webp",
+      "original_path": "art_sources/qihe-town-props-20261027/out/prop_qh_well_20261027.png",
+      "system": "map",
+      "role": "registered-or-direct-runtime",
+      "sha256": "63d1a81014e26d33605b7239a16ee043da352125190945d96f8466ba83783b95",
+      "actual_size": [
+        167,
+        144
+      ],
+      "acceptance_status": "candidate-20261027 用户授权先开发、做完统一评审（「完成所有的开发先吧……完成之后我再统一评审」）；302 生图＋forge 像素后期，地图可交互物稿第 8 节，待用户评审",
+      "references": [
+        "js/qihe-town.js",
+        "js/production-assets.js"
+      ]
+    },
+    {
+      "id": "prop_qh_granary_20261027",
+      "path": "assets/production/maps/town-props-20261027/prop_qh_granary_20261027.webp",
+      "original_path": "art_sources/qihe-town-props-20261027/out/prop_qh_granary_20261027.png",
+      "system": "map",
+      "role": "registered-or-direct-runtime",
+      "sha256": "8eefb2ef43c5183681d90c905afbbe850cc48e330dd45cddccbf960210b730ea",
+      "actual_size": [
+        257,
+        209
+      ],
+      "acceptance_status": "candidate-20261027 用户授权先开发、做完统一评审（「完成所有的开发先吧……完成之后我再统一评审」）；302 生图＋forge 像素后期，地图可交互物稿第 8 节，待用户评审",
+      "references": [
+        "js/qihe-town.js",
+        "js/production-assets.js"
+      ]
+    },
+    {
+      "id": "prop_qh_grain_mat_20261027",
+      "path": "assets/production/maps/town-props-20261027/prop_qh_grain_mat_20261027.webp",
+      "original_path": "art_sources/qihe-town-props-20261027/out/prop_qh_grain_mat_20261027.png",
+      "system": "map",
+      "role": "registered-or-direct-runtime",
+      "sha256": "f19413293500a16ac08fd6e48b391a71b1a6738cf04e517897bb5a7aea9048cf",
+      "actual_size": [
+        450,
+        219
+      ],
+      "acceptance_status": "candidate-20261027 用户授权先开发、做完统一评审（「完成所有的开发先吧……完成之后我再统一评审」）；302 生图＋forge 像素后期，地图可交互物稿第 8 节，待用户评审",
+      "references": [
+        "js/qihe-town.js",
+        "js/production-assets.js"
+      ]
+    },
+    {
+      "id": "prop_qh_grain_heap_20261027",
+      "path": "assets/production/maps/town-props-20261027/prop_qh_grain_heap_20261027.webp",
+      "original_path": "art_sources/qihe-town-props-20261027/out/prop_qh_grain_heap_20261027.png",
+      "system": "map",
+      "role": "registered-or-direct-runtime",
+      "sha256": "bb86c5f5d9797c4d03fc1100711799d2cd386cc940d2a1fce4f7886a6969e9c7",
+      "actual_size": [
+        115,
+        107
+      ],
+      "acceptance_status": "candidate-20261027 用户授权先开发、做完统一评审（「完成所有的开发先吧……完成之后我再统一评审」）；302 生图＋forge 像素后期，地图可交互物稿第 8 节，待用户评审",
+      "references": [
+        "js/qihe-town.js",
+        "js/production-assets.js"
+      ]
+    },
+    {
+      "id": "prop_qh_fortune_stall_20261027",
+      "path": "assets/production/maps/town-props-20261027/prop_qh_fortune_stall_20261027.webp",
+      "original_path": "art_sources/qihe-town-props-20261027/out/prop_qh_fortune_stall_20261027.png",
+      "system": "map",
+      "role": "registered-or-direct-runtime",
+      "sha256": "b428e8baa7cf570236fef58ea6e2bd6a79275ea9620dc4e6c0879668be096820",
+      "actual_size": [
+        131,
+        141
+      ],
+      "acceptance_status": "candidate-20261027 用户授权先开发、做完统一评审（「完成所有的开发先吧……完成之后我再统一评审」）；302 生图＋forge 像素后期，地图可交互物稿第 8 节，待用户评审",
+      "references": [
+        "js/qihe-town.js",
+        "js/production-assets.js"
+      ]
+    },
+    {
+      "id": "prop_qh_peddler_load_20261027",
+      "path": "assets/production/maps/town-props-20261027/prop_qh_peddler_load_20261027.webp",
+      "original_path": "art_sources/qihe-town-props-20261027/out/prop_qh_peddler_load_20261027.png",
+      "system": "map",
+      "role": "registered-or-direct-runtime",
+      "sha256": "40eb8a5e2d8712f1596a7d0e82f8dcff14469e9723a7bc884f359ea5b1414fd4",
+      "actual_size": [
+        141,
+        78
+      ],
+      "acceptance_status": "candidate-20261027 用户授权先开发、做完统一评审（「完成所有的开发先吧……完成之后我再统一评审」）；302 生图＋forge 像素后期，地图可交互物稿第 8 节，待用户评审",
+      "references": [
+        "js/qihe-town.js",
+        "js/production-assets.js"
+      ]
+    },
+    {
+      "id": "prop_qh_peddler_load_broken_20261027",
+      "path": "assets/production/maps/town-props-20261027/prop_qh_peddler_load_broken_20261027.webp",
+      "original_path": "art_sources/qihe-town-props-20261027/out/prop_qh_peddler_load_broken_20261027.png",
+      "system": "map",
+      "role": "registered-or-direct-runtime",
+      "sha256": "31d92f64456aec05e929afa806b6ff0ed26ca32bedbb0bad4402203d04667a5c",
+      "actual_size": [
+        140,
+        58
+      ],
+      "acceptance_status": "candidate-20261027 用户授权先开发、做完统一评审（「完成所有的开发先吧……完成之后我再统一评审」）；302 生图＋forge 像素后期，地图可交互物稿第 8 节，待用户评审",
+      "references": [
+        "js/qihe-town.js",
+        "js/production-assets.js"
+      ]
+    },
+    {
+      "id": "prop_qh_granary_v2_20261027",
+      "path": "assets/production/maps/town-props-20261027/prop_qh_granary_v2_20261027.webp",
+      "original_path": "art_sources/qihe-props-fix-20261027/out/prop_qh_granary_v2_20261027.png",
+      "system": "map",
+      "role": "registered-or-direct-runtime",
+      "sha256": "fd0e9f2b2bb6399a9dff2dde70e14e3595283808c9611894b41b93e1f8211e82",
+      "actual_size": [
+        256,
+        238
+      ],
+      "acceptance_status": "候选，待用户评审：2026-10-27 用户试玩反馈旧粮仓「这个东西也太抽象了」（像缩小的民房）后重画，三张候选（干栏高脚禾仓／插板谷仓／高脚木仓＋竹编粮囤）中选 C；302 生图＋forge 像素后期，art_sources/qihe-props-fix-20261027，旧 prop_qh_granary_20261027 保留",
+      "references": [
+        "js/qihe-town.js",
+        "js/production-assets.js"
+      ]
+    },
+    {
+      "id": "prop_qh_peddler_load_v2_20261027",
+      "path": "assets/production/maps/town-props-20261027/prop_qh_peddler_load_v2_20261027.webp",
+      "original_path": "art_sources/qihe-props-fix-20261027/out/prop_qh_peddler_load_v2_20261027.png",
+      "system": "map",
+      "role": "registered-or-direct-runtime",
+      "sha256": "50bdeb3a5e8cc22d4f54e85a97b8e432d711bb896ff2d132f36e6a7b9b3d3b37",
+      "actual_size": [
+        140,
+        61
+      ],
+      "acceptance_status": "候选，待用户评审：2026-10-27 道具核查，旧货郎担扁担悬空、麻绳绷直吊着（地上无人挑却浮着）；重画为扁担搁在两筐口上、绳松垂；302 生图＋forge 像素后期，art_sources/qihe-props-fix-20261027，旧 prop_qh_peddler_load_20261027 保留",
+      "references": [
+        "js/qihe-town.js",
+        "js/production-assets.js"
+      ]
+    },
+    {
+      "id": "prop_qh_grain_heap_v2_20261027",
+      "path": "assets/production/maps/town-props-20261027/prop_qh_grain_heap_v2_20261027.webp",
+      "original_path": "art_sources/qihe-props-fix-20261027/out/prop_qh_grain_heap_v2_20261027.png",
+      "system": "map",
+      "role": "registered-or-direct-runtime",
+      "sha256": "907430df4da0b7bc311daea00196b407c7281a8d1d8674d8066167646ac0f598",
+      "actual_size": [
+        114,
+        103
+      ],
+      "acceptance_status": "候选，待用户评审：2026-10-27 道具核查，旧谷堆自带一块斜放小竹席，放在晒谷竹席上成了席上叠席、透视对不上；重画为不带底席的谷堆；302 生图＋forge 像素后期，art_sources/qihe-props-fix-20261027，旧 prop_qh_grain_heap_20261027 保留",
+      "references": [
+        "js/qihe-town.js",
+        "js/production-assets.js"
+      ]
+    },
+    {
+      "id": "prop_qh_peddler_load_broken_v2_20261027",
+      "path": "assets/production/maps/town-props-20261027/prop_qh_peddler_load_broken_v2_20261027.webp",
+      "original_path": "art_sources/qihe-icons-props-20261027/out/prop_qh_peddler_load_broken_v2_20261027.png",
+      "system": "map",
+      "role": "registered-or-direct-runtime",
+      "sha256": "3247b5486f44968c025aa759ad52b30dee5fb3a4d820a1a1a4610b966f565a85",
+      "actual_size": [
+        150,
+        74
+      ],
+      "acceptance_status": "候选，待用户评审：2026-10-27 画面复查（docs/updates/evidence/2026-10-27-dev/review-visual/report.md）；3-1 旧断扁担货郎担是一团深棕色看不出筐；以 peddler_load_v2 原图为参考重出：扁担断成两截、右筐侧翻、货物撒出；302 生图＋forge 像素后期，旧 prop_qh_peddler_load_broken_20261027 保留；art_sources/qihe-icons-props-20261027",
+      "references": [
+        "js/production-assets.js"
+      ]
+    },
+    {
+      "id": "prop_qh_fortune_stall_v2_20261027",
+      "path": "assets/production/maps/town-props-20261027/prop_qh_fortune_stall_v2_20261027.webp",
+      "original_path": "art_sources/qihe-icons-props-20261027/out/prop_qh_fortune_stall_v2_20261027.png",
+      "system": "map",
+      "role": "registered-or-direct-runtime",
+      "sha256": "809d247f6af33047aeab66b9a6024e69727a4cff71dc383d640a29c5b0802e5b",
+      "actual_size": [
+        131,
+        139
+      ],
+      "acceptance_status": "候选，待用户评审：2026-10-27 画面复查（docs/updates/evidence/2026-10-27-dev/review-visual/report.md）；3-5 旧算命摊幡上“测”字走形、桌后有条凳而先生站着；重出去掉条凳，幡面“测字”像素点阵手写（addtext.py）；旧件保留；art_sources/qihe-icons-props-20261027",
+      "references": [
+        "js/production-assets.js"
+      ]
+    },
+    {
+      "id": "prop_qh_grain_mat_v2_20261027",
+      "path": "assets/production/maps/town-props-20261027/prop_qh_grain_mat_v2_20261027.webp",
+      "original_path": "art_sources/qihe-icons-props-20261027/out/prop_qh_grain_mat_v2_20261027.png",
+      "system": "map",
+      "role": "registered-or-direct-runtime",
+      "sha256": "1ac7210b61d2bfda274339450dc2d01c85463b6261fbf5297fa272b8686f1159",
+      "actual_size": [
+        316,
+        131
+      ],
+      "acceptance_status": "候选，待用户评审：2026-10-27 画面复查（docs/updates/evidence/2026-10-27-dev/review-visual/report.md）；3-4 旧晒谷竹席约 352×171 太大、透视偏正；v2 单张竹席、远边收窄、下沿带厚度，世界约 247×102（宽缩约 30%）；旧件保留；art_sources/qihe-icons-props-20261027",
+      "references": [
+        "js/production-assets.js"
+      ]
+    },
+    {
+      "id": "prop_qh_inn_menu_board_20261027",
+      "path": "assets/production/maps/town-props-20261027/prop_qh_inn_menu_board_20261027.webp",
+      "original_path": "art_sources/qihe-icons-props-20261027/out/prop_qh_inn_menu_board_20261027.png",
+      "system": "map",
+      "role": "registered-or-direct-runtime",
+      "sha256": "eff92f0b4db2f889bec903fb72993afbccaec95dc2877b832ace5070c29027f1",
+      "actual_size": [
+        102,
+        86
+      ],
+      "acceptance_status": "候选，待用户评审：2026-10-27 画面复查（docs/updates/evidence/2026-10-27-dev/review-visual/report.md）；2-6 南村口“客栈外院菜牌”原地无图；新出立地菜牌（两桩、小瓦檐、四块木牌、酒葫芦招子），木牌留白；art_sources/qihe-icons-props-20261027",
+      "references": [
+        "js/production-assets.js"
+      ]
+    },
+    {
+      "id": "prop_qh_well_slab_20261027",
+      "path": "assets/production/maps/town-props-20261027/prop_qh_well_slab_20261027.webp",
+      "original_path": "art_sources/qihe-icons-props-20261027/out/prop_qh_well_slab_20261027.png",
+      "system": "map",
+      "role": "registered-or-direct-runtime",
+      "sha256": "3fc2650c1c90c16aec38212805a983e5f0e2bc44eea9f4d00373d62af44eb616",
+      "actual_size": [
+        270,
+        157
+      ],
+      "acceptance_status": "候选，待用户评审：2026-10-27 画面复查（docs/updates/evidence/2026-10-27-dev/review-visual/report.md）；2-11 古井没有井台石板；新出井台石板地坪（地面层，垫在古井 prop_qh_well_20261027 下面，古井不换）；art_sources/qihe-icons-props-20261027",
+      "references": [
+        "js/production-assets.js"
+      ]
+    },
+    {
+      "id": "i_qh_items_20261027",
+      "path": "assets/production/icons-and-props/i_qh_items_20261027.webp",
+      "original_path": "art_sources/qihe-icons-props-20261027/out/i_qh_items_20261027.png",
+      "system": "icons-and-props",
+      "role": "registered-or-direct-runtime",
+      "sha256": "80dc0b369741de408ae99b166359e17a38d5aad019b57276bc55fc39bf69cdd5",
+      "actual_size": [
+        1536,
+        576
+      ],
+      "acceptance_status": "候选，待用户评审：2026-10-27 画面复查（docs/updates/evidence/2026-10-27-dev/review-visual/report.md）；4-8、4-9 今天新增 22 件物品的菜单图标图集（8 列 192 格，格位见 out/icons.json），手绘墨彩同 i_jianghu 菜单图标；mnIco 经 js/qihe-jianghu-ui.js 映射；art_sources/qihe-icons-props-20261027",
+      "references": [
+        "js/qihe-jianghu-ui.js",
+        "js/production-assets.js"
+      ]
+    },
+    {
+      "id": "prop_qh_fortune_stall_v3_20261027",
+      "path": "assets/production/maps/town-props-20261027/prop_qh_fortune_stall_v3_20261027.webp",
+      "original_path": "art_sources/qihe-icons-props-20261027/out/prop_qh_fortune_stall_v3_20261027.png",
+      "system": "map",
+      "role": "registered-or-direct-runtime",
+      "sha256": "9d3fe9ac719990364538e7755615b5658ae01b96a708cf43736d6d18ead765bb",
+      "actual_size": [
+        131,
+        139
+      ],
+      "acceptance_status": "candidate-20261027 幡面改写一个“卜”字（v2 的“测字”两字在游戏比例下像“冽”；布面只有约 20 像素宽，放不下笔画多的字）；待用户评审",
+      "references": [
+        "js/production-assets.js"
+      ]
+    },
+    {
+      "id": "prop_qh_granary_fit_20261027",
+      "path": "assets/production/maps/town-props-20261027/prop_qh_granary_fit_20261027.webp",
+      "original_path": "art_sources/qihe-props-fit-20261027/out/prop_qh_granary_fit_20261027.png",
+      "system": "map",
+      "role": "registered-or-direct-runtime",
+      "sha256": "41837b3622134c534f37a3d06478c81648173cf42c3227e2fb77e99b33dfc81d",
+      "actual_size": [
+        256,
+        238
+      ],
+      "acceptance_status": "候选，待用户评审：2026-10-27 用户意见“新生成的素材硬生生嵌到背景里面……色彩，摆放地点”后按底图色彩统计压色（不重画），art_sources/qihe-props-fit-20261027，原件 prop_qh_granary_v2_20261027 保留",
+      "references": [
+        "js/qihe-town.js",
+        "js/production-assets.js"
+      ]
+    },
+    {
+      "id": "prop_qh_grain_mat_fit_20261027",
+      "path": "assets/production/maps/town-props-20261027/prop_qh_grain_mat_fit_20261027.webp",
+      "original_path": "art_sources/qihe-props-fit-20261027/out/prop_qh_grain_mat_fit_20261027.png",
+      "system": "map",
+      "role": "registered-or-direct-runtime",
+      "sha256": "cdd71f9c50a32348ba8f3170c84257faa3ac1272c2f9a25708e91d8f9f7df10c",
+      "actual_size": [
+        316,
+        131
+      ],
+      "acceptance_status": "候选，待用户评审：2026-10-27 用户意见“新生成的素材硬生生嵌到背景里面……色彩，摆放地点”后按底图色彩统计压色（不重画），art_sources/qihe-props-fit-20261027，原件 prop_qh_grain_mat_v2_20261027 保留",
+      "references": [
+        "js/qihe-town.js",
+        "js/production-assets.js"
+      ]
+    },
+    {
+      "id": "prop_qh_grain_heap_fit_20261027",
+      "path": "assets/production/maps/town-props-20261027/prop_qh_grain_heap_fit_20261027.webp",
+      "original_path": "art_sources/qihe-props-fit-20261027/out/prop_qh_grain_heap_fit_20261027.png",
+      "system": "map",
+      "role": "registered-or-direct-runtime",
+      "sha256": "8daba1d8e95ad0049bbe323e514fce3661f6c701353d943b3b03094d415db5a1",
+      "actual_size": [
+        114,
+        103
+      ],
+      "acceptance_status": "候选，待用户评审：2026-10-27 用户意见“新生成的素材硬生生嵌到背景里面……色彩，摆放地点”后按底图色彩统计压色（不重画），art_sources/qihe-props-fit-20261027，原件 prop_qh_grain_heap_v2_20261027 保留",
+      "references": [
+        "js/qihe-town.js",
+        "js/production-assets.js"
+      ]
+    },
+    {
+      "id": "prop_qh_peddler_load_fit_20261027",
+      "path": "assets/production/maps/town-props-20261027/prop_qh_peddler_load_fit_20261027.webp",
+      "original_path": "art_sources/qihe-props-fit-20261027/out/prop_qh_peddler_load_fit_20261027.png",
+      "system": "map",
+      "role": "registered-or-direct-runtime",
+      "sha256": "a32e7ec7fdb6c492ee1b7134928481723c289f8a435cd8d57a7801e302a90e2a",
+      "actual_size": [
+        140,
+        61
+      ],
+      "acceptance_status": "候选，待用户评审：2026-10-27 用户意见“新生成的素材硬生生嵌到背景里面……色彩，摆放地点”后按底图色彩统计压色（不重画），art_sources/qihe-props-fit-20261027，原件 prop_qh_peddler_load_v2_20261027 保留",
+      "references": [
+        "js/qihe-town.js",
+        "js/production-assets.js"
+      ]
+    },
+    {
+      "id": "prop_qh_peddler_load_broken_fit_20261027",
+      "path": "assets/production/maps/town-props-20261027/prop_qh_peddler_load_broken_fit_20261027.webp",
+      "original_path": "art_sources/qihe-props-fit-20261027/out/prop_qh_peddler_load_broken_fit_20261027.png",
+      "system": "map",
+      "role": "registered-or-direct-runtime",
+      "sha256": "8f71fa0c686037a5fdb545f5a69ef0e9e76b77809fb2586f0cccec99464cf7ad",
+      "actual_size": [
+        150,
+        74
+      ],
+      "acceptance_status": "候选，待用户评审：2026-10-27 用户意见“新生成的素材硬生生嵌到背景里面……色彩，摆放地点”后按底图色彩统计压色（不重画），art_sources/qihe-props-fit-20261027，原件 prop_qh_peddler_load_broken_v2_20261027 保留",
+      "references": [
+        "js/qihe-town.js",
+        "js/production-assets.js"
+      ]
+    },
+    {
+      "id": "prop_qh_fortune_stall_fit_20261027",
+      "path": "assets/production/maps/town-props-20261027/prop_qh_fortune_stall_fit_20261027.webp",
+      "original_path": "art_sources/qihe-props-fit-20261027/out/prop_qh_fortune_stall_fit_20261027.png",
+      "system": "map",
+      "role": "registered-or-direct-runtime",
+      "sha256": "9c2937b7fb62abec3af019b9fa175399b8988faef11579152a6123a74b586721",
+      "actual_size": [
+        131,
+        139
+      ],
+      "acceptance_status": "候选，待用户评审：2026-10-27 用户意见“新生成的素材硬生生嵌到背景里面……色彩，摆放地点”后按底图色彩统计压色（不重画），art_sources/qihe-props-fit-20261027，原件 prop_qh_fortune_stall_v3_20261027 保留",
+      "references": [
+        "js/qihe-town.js",
+        "js/production-assets.js"
+      ]
+    },
+    {
+      "id": "prop_qh_well_fit_20261027",
+      "path": "assets/production/maps/town-props-20261027/prop_qh_well_fit_20261027.webp",
+      "original_path": "art_sources/qihe-props-fit-20261027/out/prop_qh_well_fit_20261027.png",
+      "system": "map",
+      "role": "registered-or-direct-runtime",
+      "sha256": "d3bf17d5e54af92de7a9e93371361ebc48a597c3519fb0bb5451a4b6c21813be",
+      "actual_size": [
+        167,
+        144
+      ],
+      "acceptance_status": "候选，待用户评审：2026-10-27 用户意见“新生成的素材硬生生嵌到背景里面……色彩，摆放地点”后按底图色彩统计压色（不重画），art_sources/qihe-props-fit-20261027，原件 prop_qh_well_20261027 保留",
+      "references": [
+        "js/qihe-town.js",
+        "js/production-assets.js"
+      ]
+    },
+    {
+      "id": "prop_qh_inn_menu_board_fit_20261027",
+      "path": "assets/production/maps/town-props-20261027/prop_qh_inn_menu_board_fit_20261027.webp",
+      "original_path": "art_sources/qihe-props-fit-20261027/out/prop_qh_inn_menu_board_fit_20261027.png",
+      "system": "map",
+      "role": "registered-or-direct-runtime",
+      "sha256": "6fd04d19eaffa4bd50b609292e987c3278b471236d766dee21d36e1f2d4b83e4",
+      "actual_size": [
+        102,
+        86
+      ],
+      "acceptance_status": "候选，待用户评审：2026-10-27 用户意见“新生成的素材硬生生嵌到背景里面……色彩，摆放地点”后按底图色彩统计压色（不重画），art_sources/qihe-props-fit-20261027，原件 prop_qh_inn_menu_board_20261027 保留",
+      "references": [
+        "js/qihe-town.js",
+        "js/production-assets.js"
+      ]
+    },
+    {
+      "id": "i_qh_items_v2_20261027",
+      "path": "assets/production/icons-and-props/i_qh_items_v2_20261027.webp",
+      "original_path": "art_sources/qihe-icons-props-20261027/out/i_qh_items_v2_20261027.png",
+      "system": "icons-and-props",
+      "role": "registered-or-direct-runtime",
+      "sha256": "bdf636a064b821dd0ffc91554e65af9098b06f27fdef3535476d7ac7c0c8cd28",
+      "actual_size": [
+        1536,
+        768
+      ],
+      "acceptance_status": "候选，待用户评审：2026-10-27 在 i_qh_items_20261027 的 22 格后加枯枝、野草药、芦苇三格手绘图标（原是像素小图，和手绘图标不搭；用户：照之前的提示词限制生成补上），8 列 4 行；旧图集保留",
+      "references": [
+        "js/qihe-jianghu-ui.js",
+        "js/production-assets.js"
+      ]
+    },
+    {
+      "id": "bb_qihe_trial_atmo_20261027",
+      "path": "assets/production/battle/bb_qihe_trial_atmo_20261027.webp",
+      "original_path": "art_sources/qihe-battle-bg-20261027/out/bb_qihe_trial_atmo_20261027.webp",
+      "system": "battle",
+      "role": "registered-or-direct-runtime",
+      "sha256": "7580f7740f25e43e9b93f2525b5d462e5378f8d96c2e12a3313b89c1deb58d66",
+      "references": [
+        "js/bstage.js",
+        "js/production-assets.js"
+      ],
+      "actual_size": [
+        1672,
+        941
+      ],
+      "acceptance_status": "候选，待用户评审：2026-10-27 交互地点专属战斗背景（第二十轮 11），画风照 10-23 已确认的氛围版；参考图为该地点实机俯视截图 refs/map_qihe_trial.png"
+    },
+    {
+      "id": "bb_qh_east_atmo_20261027",
+      "path": "assets/production/battle/bb_qh_east_atmo_20261027.webp",
+      "original_path": "art_sources/qihe-battle-bg-20261027/out/bb_qh_east_atmo_20261027.webp",
+      "system": "battle",
+      "role": "registered-or-direct-runtime",
+      "sha256": "563e7770b0b283e0e3f3782149dd84d6b32341c4fea351b10051ebe3819cb6b9",
+      "references": [
+        "js/bstage.js",
+        "js/production-assets.js"
+      ],
+      "actual_size": [
+        1672,
+        941
+      ],
+      "acceptance_status": "候选，待用户评审：2026-10-27 交互地点专属战斗背景（第二十轮 11），画风照 10-23 已确认的氛围版；参考图为该地点实机俯视截图 refs/map_qh_east.png"
+    },
+    {
+      "id": "bb_qh_south_atmo_20261027",
+      "path": "assets/production/battle/bb_qh_south_atmo_20261027.webp",
+      "original_path": "art_sources/qihe-battle-bg-20261027/out/bb_qh_south_atmo_20261027.webp",
+      "system": "battle",
+      "role": "registered-or-direct-runtime",
+      "sha256": "a6527803d70a996cdb95f6a01faf621228d2374768a1a79d1dd2fd9dcead8a21",
+      "references": [
+        "js/bstage.js",
+        "js/production-assets.js"
+      ],
+      "actual_size": [
+        1672,
+        941
+      ],
+      "acceptance_status": "候选，待用户评审：2026-10-27 交互地点专属战斗背景（第二十轮 11），画风照 10-23 已确认的氛围版；参考图为该地点实机俯视截图 refs/map_qh_south.png"
+    },
+    {
+      "id": "bb_qh_north_atmo_20261027",
+      "path": "assets/production/battle/bb_qh_north_atmo_20261027.webp",
+      "original_path": "art_sources/qihe-battle-bg-20261027/out/bb_qh_north_atmo_20261027.webp",
+      "system": "battle",
+      "role": "registered-or-direct-runtime",
+      "sha256": "5f6d27ded3fc56ef189d46e7687e28489884d3cab971285343c7a897bfd0a4d8",
+      "references": [
+        "js/bstage.js",
+        "js/production-assets.js"
+      ],
+      "actual_size": [
+        1672,
+        941
+      ],
+      "acceptance_status": "候选，待用户评审：2026-10-27 交互地点专属战斗背景（第二十轮 11），画风照 10-23 已确认的氛围版；参考图为该地点实机俯视截图 refs/map_qh_north.png"
+    },
+    {
+      "id": "bb_qh_refuge_atmo_20261027",
+      "path": "assets/production/battle/bb_qh_refuge_atmo_20261027.webp",
+      "original_path": "art_sources/qihe-battle-bg-20261027/out/bb_qh_refuge_atmo_20261027.webp",
+      "system": "battle",
+      "role": "registered-or-direct-runtime",
+      "sha256": "a7d2cf630ce6565c5d5fcf389fdf94161dd20f3c1af5caeb1a71a2f440a356d7",
+      "references": [
+        "js/bstage.js",
+        "js/production-assets.js"
+      ],
+      "actual_size": [
+        1672,
+        941
+      ],
+      "acceptance_status": "候选，待用户评审：2026-10-27 交互地点专属战斗背景（第二十轮 11），画风照 10-23 已确认的氛围版；参考图为该地点实机俯视截图 refs/map_qh_refuge.png"
+    },
+    {
+      "id": "bb_qh_mountain_atmo_20261027",
+      "path": "assets/production/battle/bb_qh_mountain_atmo_20261027.webp",
+      "original_path": "art_sources/qihe-battle-bg-20261027/out/bb_qh_mountain_atmo_20261027.webp",
+      "system": "battle",
+      "role": "registered-or-direct-runtime",
+      "sha256": "1cd5359950c0ca12886e8939e0fbb6ddf035b7b21a73d3edcfd9f24558942ae1",
+      "references": [
+        "js/bstage.js",
+        "js/production-assets.js"
+      ],
+      "actual_size": [
+        1672,
+        941
+      ],
+      "acceptance_status": "候选，待用户评审：2026-10-27 交互地点专属战斗背景（第二十轮 11），画风照 10-23 已确认的氛围版；参考图为该地点实机俯视截图 refs/map_qh_mountain.png"
+    },
+    {
+      "id": "bb_prologue_inn_interior_atmo_20261027",
+      "path": "assets/production/battle/bb_prologue_inn_interior_atmo_20261027.webp",
+      "original_path": "art_sources/qihe-battle-bg-20261027/out/bb_prologue_inn_interior_atmo_20261027.webp",
+      "system": "battle",
+      "role": "registered-or-direct-runtime",
+      "sha256": "9d984f9ac13d88c7504590815776e5a6a67032933d8f8f9a7487e1d6ba12a8ff",
+      "references": [
+        "js/bstage.js",
+        "js/production-assets.js"
+      ],
+      "actual_size": [
+        1672,
+        941
+      ],
+      "acceptance_status": "候选，待用户评审：2026-10-27 交互地点专属战斗背景（第二十轮 11），画风照 10-23 已确认的氛围版；参考图为该地点实机俯视截图 refs/map_prologue_inn_interior.png"
+    },
+    {
+      "id": "bb_prologue_clinic_interior_atmo_20261027",
+      "path": "assets/production/battle/bb_prologue_clinic_interior_atmo_20261027.webp",
+      "original_path": "art_sources/qihe-battle-bg-20261027/out/bb_prologue_clinic_interior_atmo_20261027.webp",
+      "system": "battle",
+      "role": "registered-or-direct-runtime",
+      "sha256": "99fe106b2f9ea0cef812dd20cebc88a82c132c5d3ba0f466d632b1a55298253b",
+      "references": [
+        "js/bstage.js",
+        "js/production-assets.js"
+      ],
+      "actual_size": [
+        1672,
+        941
+      ],
+      "acceptance_status": "候选，待用户评审：2026-10-27 交互地点专属战斗背景（第二十轮 11），画风照 10-23 已确认的氛围版；参考图为该地点实机俯视截图 refs/map_prologue_clinic_interior.png"
+    },
+    {
+      "id": "bb_prologue_chen_hall_atmo_20261027",
+      "path": "assets/production/battle/bb_prologue_chen_hall_atmo_20261027.webp",
+      "original_path": "art_sources/qihe-battle-bg-20261027/out/bb_prologue_chen_hall_atmo_20261027.webp",
+      "system": "battle",
+      "role": "registered-or-direct-runtime",
+      "sha256": "5c134eac8301bb682c613a43b16e71e0ae461fb94a877290094995eb09b94b91",
+      "references": [
+        "js/bstage.js",
+        "js/production-assets.js"
+      ],
+      "actual_size": [
+        1672,
+        941
+      ],
+      "acceptance_status": "候选，待用户评审：2026-10-27 交互地点专属战斗背景（第二十轮 11），画风照 10-23 已确认的氛围版；参考图为该地点实机俯视截图 refs/map_prologue_chen_hall.png"
+    },
+    {
+      "id": "i_qh_items_v3_20261027",
+      "path": "assets/production/icons-and-props/i_qh_items_v3_20261027.webp",
+      "original_path": "art_sources/qihe-icons-props-20261027/out/i_qh_items_v3_20261027.png",
+      "system": "icons-and-props",
+      "role": "registered-or-direct-runtime",
+      "sha256": "e158d23e056caa1dce394a840acef94eb51b06a566a41ea9d2ff02ea8f9c9e3a",
+      "actual_size": [
+        1536,
+        768
+      ],
+      "acceptance_status": "候选，待用户评审：2026-10-27 第三轮按 R-画风-02 走 forge 像素后期（用户：画风和之前定的不一样、太写实）；v2 手绘版保留",
+      "references": [
+        "js/qihe-jianghu-ui.js",
+        "js/production-assets.js"
+      ]
+    },
+    {
+      "id": "ui_qh_steal_dial_20261027",
+      "path": "assets/production/ui/steal-wuxia-20261027/ui_qh_steal_dial_20261027.webp",
+      "original_path": "art_sources/qihe-steal-ui-wuxia-20261027/out/ui_qh_steal_dial_20261027.png",
+      "system": "ui",
+      "role": "registered-or-direct-runtime",
+      "sha256": "ebdccb6377c89b2c661394e5979cd66b75b8cd28bdf84446ff9673d653f40ac6",
+      "actual_size": [
+        1536,
+        1024
+      ],
+      "acceptance_status": "候选，待用户评审：2026-10-27 偷窃小游戏武侠样式部件（用户：实体还是几何图案）",
+      "references": [
+        "js/qihe-steal-ui.js",
+        "js/production-assets.js"
+      ]
+    },
+    {
+      "id": "ui_qh_steal_needle_20261027",
+      "path": "assets/production/ui/steal-wuxia-20261027/ui_qh_steal_needle_20261027.webp",
+      "original_path": "art_sources/qihe-steal-ui-wuxia-20261027/out/ui_qh_steal_needle_20261027.png",
+      "system": "ui",
+      "role": "registered-or-direct-runtime",
+      "sha256": "6a77757f3398702b5b7d332c7e5dc160e28b4ac0e7ceb9b436a5c82715376d0b",
+      "actual_size": [
+        194,
+        946
+      ],
+      "acceptance_status": "候选，待用户评审：2026-10-27 偷窃小游戏武侠样式部件（用户：实体还是几何图案）",
+      "references": [
+        "js/qihe-steal-ui.js",
+        "js/production-assets.js"
+      ]
+    },
+    {
+      "id": "ui_qh_steal_coin_20261027",
+      "path": "assets/production/ui/steal-wuxia-20261027/ui_qh_steal_coin_20261027.webp",
+      "original_path": "art_sources/qihe-steal-ui-wuxia-20261027/out/ui_qh_steal_coin_20261027.png",
+      "system": "ui",
+      "role": "registered-or-direct-runtime",
+      "sha256": "5e3dab57b980257a047c6481e55d5e59dc4389c7736ea58d3daaecf25b1d4fe6",
+      "actual_size": [
+        610,
+        606
+      ],
+      "acceptance_status": "候选，待用户评审：2026-10-27 偷窃小游戏武侠样式部件（用户：实体还是几何图案）",
+      "references": [
+        "js/qihe-steal-ui.js",
+        "js/production-assets.js"
+      ]
+    },
+    {
+      "id": "s_qh_ye_stand_20261028",
+      "path": "assets/production/characters/s_qh_ye_stand_20261028.webp",
+      "original_path": "art_sources/ye-motion-video-20261028/out/s_qh_ye_stand_20261028.png",
+      "system": "character",
+      "role": "registered-or-direct-runtime",
+      "sha256": "ad46faf2c5a250e9f813ca708b0ea90b5195c6bea34303489c6a32de2f404fb1",
+      "actual_size": [
+        96,
+        464
+      ],
+      "acceptance_status": "候选，待用户评审：2026-10-28 用户“叶的走路和静止模型太没有特点……重新设计一下，然后通过 wan 去生成一下走路资源和静止资源……静止不动一段时间后也应该有点动作”；302 wan3.0-video-prime 图生视频＋本地后期（art_sources/ye-motion-video-20261028）",
+      "references": [
+        "js/qihe-ye-motion-art.js",
+        "js/production-assets.js"
+      ]
+    },
+    {
+      "id": "s_qh_ye_walk_20261028",
+      "path": "assets/production/characters/s_qh_ye_walk_20261028.webp",
+      "original_path": "art_sources/ye-motion-video-20261028/out/s_qh_ye_walk_20261028.png",
+      "system": "character",
+      "role": "registered-or-direct-runtime",
+      "sha256": "6137b0a3b6f9614bfba6d22d0e40d54618928648d87eeb58fbb96e08abcefaa8",
+      "actual_size": [
+        1152,
+        464
+      ],
+      "acceptance_status": "候选，待用户评审：2026-10-28 用户“叶的走路和静止模型太没有特点……重新设计一下，然后通过 wan 去生成一下走路资源和静止资源……静止不动一段时间后也应该有点动作”；302 wan3.0-video-prime 图生视频＋本地后期（art_sources/ye-motion-video-20261028）",
+      "references": [
+        "js/qihe-ye-motion-art.js",
+        "js/production-assets.js"
+      ]
+    },
+    {
+      "id": "s_qh_ye_run_20261028",
+      "path": "assets/production/characters/s_qh_ye_run_20261028.webp",
+      "original_path": "art_sources/ye-motion-video-20261028/out/s_qh_ye_run_20261028.png",
+      "system": "character",
+      "role": "registered-or-direct-runtime",
+      "sha256": "576640952b6fea1581f1e05b19fe0f8a096275c15b1e25d7bf07297c05331f99",
+      "actual_size": [
+        960,
+        464
+      ],
+      "acceptance_status": "候选，待用户评审：2026-10-28 用户“叶的走路和静止模型太没有特点……重新设计一下，然后通过 wan 去生成一下走路资源和静止资源……静止不动一段时间后也应该有点动作”；302 wan3.0-video-prime 图生视频＋本地后期（art_sources/ye-motion-video-20261028）",
+      "references": [
+        "js/qihe-ye-motion-art.js",
+        "js/production-assets.js"
+      ]
+    },
+    {
+      "id": "s_qh_ye_idle_20261028",
+      "path": "assets/production/characters/s_qh_ye_idle_20261028.webp",
+      "original_path": "art_sources/ye-motion-video-20261028/out/s_qh_ye_idle_20261028.png",
+      "system": "character",
+      "role": "registered-or-direct-runtime",
+      "sha256": "b9b989514af9798ce82737bd56d04b79749ab53f177f884af179e93559074c3e",
+      "actual_size": [
+        384,
+        464
+      ],
+      "acceptance_status": "候选，待用户评审：2026-10-28 用户“叶的走路和静止模型太没有特点……重新设计一下，然后通过 wan 去生成一下走路资源和静止资源……静止不动一段时间后也应该有点动作”；302 wan3.0-video-prime 图生视频＋本地后期（art_sources/ye-motion-video-20261028）",
+      "references": [
+        "js/qihe-ye-motion-art.js",
+        "js/production-assets.js"
+      ]
+    },
+    {
+      "id": "s_qh_ye_fidget_20261028",
+      "path": "assets/production/characters/s_qh_ye_fidget_20261028.webp",
+      "original_path": "art_sources/ye-motion-video-20261028/out/s_qh_ye_fidget_20261028.png",
+      "system": "character",
+      "role": "registered-or-direct-runtime",
+      "sha256": "baf474eff4704a15a9fe4580a1a21603bf801eea7f7e62443389e57a26042eae",
+      "actual_size": [
+        1728,
+        464
+      ],
+      "acceptance_status": "候选，待用户评审：2026-10-28 用户“叶的走路和静止模型太没有特点……重新设计一下，然后通过 wan 去生成一下走路资源和静止资源……静止不动一段时间后也应该有点动作”；302 wan3.0-video-prime 图生视频＋本地后期（art_sources/ye-motion-video-20261028）",
+      "references": [
+        "js/qihe-ye-motion-art.js",
+        "js/production-assets.js"
+      ]
+    },
+    {
+      "id": "s_qh_hero_blue_idle_20261028",
+      "path": "assets/production/characters/s_qh_hero_blue_idle_20261028.webp",
+      "original_path": "art_sources/ye-motion-video-20261028/out/s_qh_hero_blue_idle_20261028.png",
+      "system": "character",
+      "role": "registered-or-direct-runtime",
+      "sha256": "69f0dee1eb58b82498374a8467f0aafc2851bdbbe2a6fa949bf224dabe389e13",
+      "actual_size": [
+        384,
+        464
+      ],
+      "acceptance_status": "候选，待用户评审：2026-10-28 用户“叶的走路和静止模型太没有特点……重新设计一下，然后通过 wan 去生成一下走路资源和静止资源……静止不动一段时间后也应该有点动作”；302 wan3.0-video-prime 图生视频＋本地后期（art_sources/ye-motion-video-20261028）",
+      "references": [
+        "js/qihe-ye-motion-art.js",
+        "js/production-assets.js"
+      ]
+    },
+    {
+      "id": "s_qh_hero_blue_fidget_20261028",
+      "path": "assets/production/characters/s_qh_hero_blue_fidget_20261028.webp",
+      "original_path": "art_sources/ye-motion-video-20261028/out/s_qh_hero_blue_fidget_20261028.png",
+      "system": "character",
+      "role": "registered-or-direct-runtime",
+      "sha256": "f24a7249cc086ffd04ece6c8d9c981f1f39d94b7267370b9f91c75df118b64cf",
+      "actual_size": [
+        1728,
+        464
+      ],
+      "acceptance_status": "候选，待用户评审：2026-10-28 用户“叶的走路和静止模型太没有特点……重新设计一下，然后通过 wan 去生成一下走路资源和静止资源……静止不动一段时间后也应该有点动作”；302 wan3.0-video-prime 图生视频＋本地后期（art_sources/ye-motion-video-20261028）",
+      "references": [
+        "js/qihe-ye-motion-art.js",
+        "js/production-assets.js"
+      ]
+    },
+    {
+      "id": "cg_qh_north_cave_20261028",
+      "path": "assets/production/shared/cg_qh_north_cave_20261028.webp",
+      "original_path": "art_sources/qihe-hidden-cave-20261028/out/cg_qh_north_cave_20261028.png",
+      "system": "shared",
+      "role": "registered-or-direct-runtime",
+      "sha256": "4dba7a1eec2d50ce12f1bdcbbca477b7cb454c1063a9c65c3cbfbd7721230adf",
+      "actual_size": [
+        1536,
+        864
+      ],
+      "acceptance_status": "候选，待用户评审：2026-10-28 隐藏奇遇 H1 北坡石洞新出（302ai-sunburst），已接进游戏",
+      "references": [
+        "js/qihe-fire-cinematic.js",
+        "js/qihe-hidden.js",
+        "js/production-assets.js"
+      ]
+    },
+    {
+      "id": "prop_qh_north_cave_mouth_20261028",
+      "path": "assets/production/maps/hidden-cave-20261028/prop_qh_north_cave_mouth_20261028.webp",
+      "original_path": "art_sources/qihe-hidden-cave-20261028/out/prop_qh_north_cave_mouth_20261028.png",
+      "system": "map",
+      "role": "registered-or-direct-runtime",
+      "sha256": "6c3479ca2b69e467874775a7e15bac85062b3a5e2cb58d2afbc42f23b9ff138b",
+      "actual_size": [
+        166,
+        128
+      ],
+      "acceptance_status": "候选，待用户评审：2026-10-28 隐藏奇遇 H1 北坡石洞新出（302ai-sunburst），已接进游戏",
+      "references": [
+        "js/qihe-hidden.js",
+        "js/production-assets.js"
+      ]
+    },
+    {
+      "id": "p_qh_atan_hd_20261029",
+      "path": "assets/production/portraits/p_qh_atan_hd_20261029.webp",
+      "original_path": "art_sources/atan-20261029/final/p_qh_atan_hd_20261029.webp",
+      "system": "portraits",
+      "role": "registered-or-direct-runtime",
+      "sha256": "9b5f5810d0ab8e0e9faaeba1018b8059d32cc007e34ea9ca5686ad7878fa8772",
+      "references": [
+        "js/production-assets.js"
+      ],
+      "actual_size": [
+        960,
+        1280
+      ],
+      "acceptance_status": "adopted-20261029",
+      "visual_acceptance_record": "2026-10-29 用户“直接生成就行了”：新人物阿炭（归烬堂新人）由 Claude 出图后直接采用，立绘 A 候选",
+      "generation_record": "art_sources/atan-20261029/README.md",
+      "batch_source": "art_sources/atan-20261029/README.md"
+    },
+    {
+      "id": "s_npc_qh_atan_20261029",
+      "path": "assets/production/characters/s_npc_qh_atan_20261029.webp",
+      "original_path": "art_sources/atan-20261029/sprite/s_npc_qh_atan_20261029.webp",
+      "system": "characters",
+      "role": "registered-or-direct-runtime",
+      "sha256": "2b4bbd49fe0a73c440fa3b38f0f885601a2ea66f872b6383de56f1e7a4f812e8",
+      "references": [
+        "js/production-assets.js"
+      ],
+      "actual_size": [
+        384,
+        464
+      ],
+      "acceptance_status": "adopted-20261029",
+      "visual_acceptance_record": "2026-10-29 用户“直接生成就行了”：新人物阿炭（归烬堂新人）由 Claude 出图后直接采用，立绘 A 候选",
+      "generation_record": "art_sources/atan-20261029/README.md",
+      "batch_source": "art_sources/atan-20261029/README.md"
+    },
+    {
+      "id": "p_qh_generic_aunt_20261030",
+      "path": "assets/production/portraits/p_qh_generic_aunt_20261030.webp",
+      "original_path": "art_sources/generic-portraits-20261030/final/p_qh_generic_aunt_20261030.webp",
+      "system": "portraits",
+      "role": "registered-or-direct-runtime",
+      "sha256": "cf98285449b2ae18f5b58ce6047bb71f7ed2777a39e15efee6b864aa57dba531",
+      "references": [
+        "js/production-assets.js"
+      ],
+      "actual_size": [
+        960,
+        1280
+      ],
+      "acceptance_status": "adopted-20261030",
+      "visual_acceptance_record": "评审台第二十四轮第 1 题，用户选甲“身份通用立绘”；2026-10-29 用户“直接生成就行了”，Claude 出图后直接采用",
+      "generation_record": "art_sources/generic-portraits-20261030/README.md",
+      "batch_source": "art_sources/generic-portraits-20261030/README.md"
+    },
+    {
+      "id": "p_qh_generic_chen_20261030",
+      "path": "assets/production/portraits/p_qh_generic_chen_20261030.webp",
+      "original_path": "art_sources/generic-portraits-20261030/final/p_qh_generic_chen_20261030.webp",
+      "system": "portraits",
+      "role": "registered-or-direct-runtime",
+      "sha256": "93cb06731431fec0c8b2126b1797daf7802f2cb323dcadf38d4650047de17508",
+      "references": [
+        "js/production-assets.js"
+      ],
+      "actual_size": [
+        960,
+        1280
+      ],
+      "acceptance_status": "adopted-20261030",
+      "visual_acceptance_record": "评审台第二十四轮第 1 题，用户选甲“身份通用立绘”；2026-10-29 用户“直接生成就行了”，Claude 出图后直接采用",
+      "generation_record": "art_sources/generic-portraits-20261030/README.md",
+      "batch_source": "art_sources/generic-portraits-20261030/README.md"
+    },
+    {
+      "id": "p_qh_generic_elder_20261030",
+      "path": "assets/production/portraits/p_qh_generic_elder_20261030.webp",
+      "original_path": "art_sources/generic-portraits-20261030/final/p_qh_generic_elder_20261030.webp",
+      "system": "portraits",
+      "role": "registered-or-direct-runtime",
+      "sha256": "440afc9164920b5e6462c7f5f893ef57dad62f0ad8288b6190c1d2328fbe4a23",
+      "references": [
+        "js/production-assets.js"
+      ],
+      "actual_size": [
+        960,
+        1280
+      ],
+      "acceptance_status": "adopted-20261030",
+      "visual_acceptance_record": "评审台第二十四轮第 1 题，用户选甲“身份通用立绘”；2026-10-29 用户“直接生成就行了”，Claude 出图后直接采用",
+      "generation_record": "art_sources/generic-portraits-20261030/README.md",
+      "batch_source": "art_sources/generic-portraits-20261030/README.md"
+    },
+    {
+      "id": "p_qh_generic_innkeeper_20261030",
+      "path": "assets/production/portraits/p_qh_generic_innkeeper_20261030.webp",
+      "original_path": "art_sources/generic-portraits-20261030/final/p_qh_generic_innkeeper_20261030.webp",
+      "system": "portraits",
+      "role": "registered-or-direct-runtime",
+      "sha256": "f7b8b9b329e67f70e8301c6ea2429db501bbfb3edc416310106d29888e6b2078",
+      "references": [
+        "js/production-assets.js"
+      ],
+      "actual_size": [
+        960,
+        1280
+      ],
+      "acceptance_status": "adopted-20261030",
+      "visual_acceptance_record": "评审台第二十四轮第 1 题，用户选甲“身份通用立绘”；2026-10-29 用户“直接生成就行了”，Claude 出图后直接采用",
+      "generation_record": "art_sources/generic-portraits-20261030/README.md",
+      "batch_source": "art_sources/generic-portraits-20261030/README.md"
+    },
+    {
+      "id": "p_qh_generic_apothecary_20261030",
+      "path": "assets/production/portraits/p_qh_generic_apothecary_20261030.webp",
+      "original_path": "art_sources/generic-portraits-20261030/final/p_qh_generic_apothecary_20261030.webp",
+      "system": "portraits",
+      "role": "registered-or-direct-runtime",
+      "sha256": "19770ab9eea70b69eb2f42dd66c36613b6a9d5ec78e40ae6f84846222861b3ec",
+      "references": [
+        "js/production-assets.js"
+      ],
+      "actual_size": [
+        960,
+        1280
+      ],
+      "acceptance_status": "adopted-20261030",
+      "visual_acceptance_record": "评审台第二十四轮第 1 题，用户选甲“身份通用立绘”；2026-10-29 用户“直接生成就行了”，Claude 出图后直接采用",
+      "generation_record": "art_sources/generic-portraits-20261030/README.md",
+      "batch_source": "art_sources/generic-portraits-20261030/README.md"
+    },
+    {
+      "id": "p_qh_generic_bailiff_20261030",
+      "path": "assets/production/portraits/p_qh_generic_bailiff_20261030.webp",
+      "original_path": "art_sources/generic-portraits-20261030/final/p_qh_generic_bailiff_20261030.webp",
+      "system": "portraits",
+      "role": "registered-or-direct-runtime",
+      "sha256": "296e3a65dbd59395831c05cdcf664ab77b7a57a47ad79cd148450f01efe90313",
+      "references": [
+        "js/production-assets.js"
+      ],
+      "actual_size": [
+        960,
+        1280
+      ],
+      "acceptance_status": "adopted-20261030",
+      "visual_acceptance_record": "评审台第二十四轮第 1 题，用户选甲“身份通用立绘”；2026-10-29 用户“直接生成就行了”，Claude 出图后直接采用",
+      "generation_record": "art_sources/generic-portraits-20261030/README.md",
+      "batch_source": "art_sources/generic-portraits-20261030/README.md"
+    },
+    {
+      "id": "p_qh_generic_retainer_20261030",
+      "path": "assets/production/portraits/p_qh_generic_retainer_20261030.webp",
+      "original_path": "art_sources/generic-portraits-20261030/final/p_qh_generic_retainer_20261030.webp",
+      "system": "portraits",
+      "role": "registered-or-direct-runtime",
+      "sha256": "1c5169f5ce61566b0024583dc7119d07668fd2f577cddcaaf4a4f5ae16e721ab",
+      "references": [
+        "js/production-assets.js"
+      ],
+      "actual_size": [
+        960,
+        1280
+      ],
+      "acceptance_status": "adopted-20261030",
+      "visual_acceptance_record": "评审台第二十四轮第 1 题，用户选甲“身份通用立绘”；2026-10-29 用户“直接生成就行了”，Claude 出图后直接采用",
+      "generation_record": "art_sources/generic-portraits-20261030/README.md",
+      "batch_source": "art_sources/generic-portraits-20261030/README.md"
+    },
+    {
+      "id": "p_qh_generic_bandit_20261030",
+      "path": "assets/production/portraits/p_qh_generic_bandit_20261030.webp",
+      "original_path": "art_sources/generic-portraits-20261030/final/p_qh_generic_bandit_20261030.webp",
+      "system": "portraits",
+      "role": "registered-or-direct-runtime",
+      "sha256": "e271f379993268b61034c604bd88d1119c3988465793619bbc16f99c7c8f7860",
+      "references": [
+        "js/production-assets.js"
+      ],
+      "actual_size": [
+        960,
+        1280
+      ],
+      "acceptance_status": "adopted-20261030",
+      "visual_acceptance_record": "评审台第二十四轮第 1 题，用户选甲“身份通用立绘”；2026-10-29 用户“直接生成就行了”，Claude 出图后直接采用",
+      "generation_record": "art_sources/generic-portraits-20261030/README.md",
+      "batch_source": "art_sources/generic-portraits-20261030/README.md"
+    },
+    {
+      "id": "i_qh_items_v4_20261030",
+      "path": "assets/production/icons-and-props/i_qh_items_v4_20261030.webp",
+      "original_path": "art_sources/item-icons-20261030/final/i_qh_items_v4_20261030.webp",
+      "system": "icons-and-props",
+      "role": "registered-or-direct-runtime",
+      "sha256": "5b991b7d53449340591a6419c8307e07ffbd5b0ad1edefe6e1527ebf3a05c325",
+      "references": [
+        "js/item-icons-v4.js"
+      ],
+      "actual_size": [
+        1536,
+        1536
+      ],
+      "acceptance_status": "adopted-20261030",
+      "visual_acceptance_record": "评审台第三十轮第 1 题，用户选“采用，接进游戏并改规则”（后补小木鸟、缠手布条、护腕、裂镜片 4 件，培养后果第三十轮第 4 题选甲）",
+      "generation_record": "art_sources/item-icons-20261030/README.md",
+      "batch_source": "art_sources/item-icons-20261030/README.md"
     }
   ]
 }

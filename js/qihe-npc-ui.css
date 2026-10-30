@@ -57,7 +57,8 @@
 .qn-name{position:absolute;width:104px;height:44px;margin-left:-52px;pointer-events:none;filter:drop-shadow(0 2px 2px rgba(0,0,0,.45))}
 .qn-name svg{position:absolute;left:0;top:0}
 .qn-name b{position:absolute;left:0;right:0;top:19px;text-align:center;font-weight:700;font-size:15px;letter-spacing:5px;padding-left:5px;color:#efd9a6;text-shadow:0 1px 0 #000}
-.qn-keys{position:absolute;display:flex;gap:6px;align-items:center;font-size:12px;letter-spacing:1px;color:#f2e5c9;text-shadow:0 0 3px #000,0 0 2px #000;white-space:nowrap;pointer-events:none}
+.qn-keys{position:absolute;display:flex;gap:6px;align-items:center;font-size:12px;letter-spacing:1px;color:#f2e5c9;text-shadow:0 0 3px #000,0 0 2px #000;white-space:nowrap;pointer-events:none;
+ padding:3px 9px;border-radius:3px;background:rgba(14,17,15,.78);box-shadow:0 0 0 1px rgba(226,194,124,.35),0 2px 6px rgba(0,0,0,.4)}   /* 2026-10-27：加深色托底，压在河面、亮草地上也看得清 */
 .qn-keys kbd{font:inherit;font-size:11px;min-width:16px;padding:0 4px;text-align:center;border:1px solid rgba(226,194,124,.7);background:rgba(16,20,17,.72);color:#efd9a6;border-radius:2px}
 
 /* ── 卷（请教、切磋）：撕边宣纸 ── */
@@ -102,13 +103,17 @@
 .qn-page{position:absolute;inset:0;pointer-events:auto;overflow:hidden;animation:qn-fade .16s ease-out;
  background:linear-gradient(rgba(246,240,226,.8),rgba(246,240,226,.8)),url(../assets/ui/jianghu-v4/background.webp) center/cover,#f3ecdc}
 .qn-page .wash{position:absolute;left:-80px;top:560px;width:720px;height:260px;opacity:.35;background:radial-gradient(ellipse at 40% 60%,rgba(40,44,40,.55),transparent 62%);filter:blur(6px)}
-.qn-page .por{position:absolute;left:-30px;bottom:-40px;height:900px;filter:drop-shadow(0 0 18px rgba(246,240,226,.9))}
-.qn-page .por.px{left:90px;bottom:90px;height:auto;width:360px;image-rendering:pixelated}
-.qn-page .por-wash{position:absolute;left:60px;bottom:40px;width:440px;height:620px;background:radial-gradient(ellipse at 50% 62%,rgba(34,38,34,.34),rgba(34,38,34,.08) 52%,transparent 70%);filter:blur(4px)}
-.qn-page .namecol{position:absolute;left:40px;top:110px;display:flex;gap:10px;align-items:flex-start}
+/* 查看页立绘 v2（2026-10-27）：960×1280 画布统一缩到 675×900，画布顶在屏幕上沿外 10px（发髻被画布裁到的也看不出），
+   成年男子眼线落在 y≈138、女性 y≈159、孩子更低——全由立绘画布里已归一的眼线决定，这里不逐人调。
+   左移让开竖排名字（名字列约到 x=135），右边不压中栏（620）。下缘 66%～86% 晕进纸面。 */
+.qn-page .por{position:absolute;left:40px;top:-10px;width:675px;height:900px;filter:drop-shadow(0 0 16px rgba(246,240,226,.85));
+ -webkit-mask-image:linear-gradient(to bottom,#000 66%,transparent 86%);mask-image:linear-gradient(to bottom,#000 66%,transparent 86%)}
+/* 没有立绘的人（统一模板）：淡墨人影 + 地面墨晕 + 2 倍小人 + 名字首字朱印 */
+.qn-page .namecol{position:absolute;left:40px;top:110px;display:flex;gap:10px;align-items:flex-start;z-index:2}   /* 2026-10-27：名字压在立绘上层，不被拨浪鼓、竹杖、布巾挡住 */
 .qn-page .vname{writing-mode:vertical-rl;font-weight:700;letter-spacing:12px}
 .qn-page .vname.big{font-size:54px;letter-spacing:14px;color:#1b1a16;text-shadow:0 0 10px #f6f0e2,0 0 18px #f6f0e2}
-.qn-page .vname.idt{font-size:16px;letter-spacing:6px;color:#4c463a;margin-top:10px;font-weight:400;text-shadow:0 0 8px #f6f0e2}
+.qn-page .vname.idt{font-size:16px;letter-spacing:6px;color:#4c463a;margin-top:10px;font-weight:400;text-shadow:0 0 8px #f6f0e2;
+ padding:10px 4px 4px;border-radius:14px;background:linear-gradient(rgba(246,240,226,0),rgba(246,240,226,.86) 14px,rgba(246,240,226,.86) calc(100% - 14px),rgba(246,240,226,0))}   /* 竖排身份小字加浅纸底 */
 .qn-page .topbar{position:absolute;left:620px;top:40px;display:flex;align-items:baseline;gap:22px}
 .qn-page .topbar .t{font-size:34px;letter-spacing:14px;font-weight:700}
 .qn-page .topbar .place{font-size:15px;color:#7a7060;letter-spacing:4px}
@@ -136,6 +141,7 @@
 .qn-page .qty{position:absolute;right:0;bottom:2px;font-size:13px;color:#1f1c16;background:rgba(246,240,226,.85);padding:0 3px;border-radius:6px}
 .qn-page .mk{position:absolute;left:-4px;top:-2px;font-size:11px;color:#f6ecd6;background:#8f3a2c;border-radius:50%;width:30px;height:30px;display:flex;align-items:center;justify-content:center;transform:rotate(-12deg)}
 .qn-page .mk.look{background:#4c463a;width:auto;height:18px;padding:0 6px;border-radius:9px;left:-10px;top:0;transform:rotate(-8deg);font-size:10.5px}
+.qn-page .sw{position:absolute;right:-8px;top:-4px;height:18px;line-height:18px;padding:0 5px;border-radius:9px;background:#2f5a4f;color:#f6ecd6;font-size:10.5px;letter-spacing:1px;transform:rotate(6deg)}   /* 随身物“可换”：肯拿来以物易物（bagOf 的 swap） */
 .qn-page .esc .qn-seal{position:relative;margin:0;animation:none;width:44px;height:44px;font-size:19px}
 .qn-page .grade{display:inline-block;font-size:12px;padding:1px 6px;border:1px solid currentColor;letter-spacing:1px;margin-left:6px;font-weight:400}
 .qn-page .g-甲,.qn-scroll .g-甲{color:#a0642a}.qn-page .g-乙{color:#5a4f8a}.qn-page .g-丙,.qn-scroll .g-丙{color:#3d6f62}.qn-page .g-丁{color:#6d6656}.qn-page .g-绝{color:#8a2a2a}.qn-scroll .g-常识{color:#6d6656}
@@ -162,3 +168,33 @@
 .qn-result h4{margin:0;font-size:30px;letter-spacing:14px}
 .qn-result p{margin:10px 0 0;font-size:15px;line-height:1.8;letter-spacing:1px}
 .qn-result .go{margin-top:12px;font-size:12px;color:#7a7060;letter-spacing:2px}
+
+/* 2026-10-27 无立绘的过场人物（用户：过场 NPC 不另设立绘）：两种方案待选，js/qihe-npc-ui.js portraitHTML */
+/* 取景：地图上他站的那块截进画框，四周晕进纸面 */
+.qn-page .por-scene{position:absolute;left:150px;top:170px;width:420px;height:520px;pointer-events:none}
+.qn-page .por-scene .vig{width:420px;height:520px;image-rendering:pixelated;-webkit-mask-image:radial-gradient(ellipse 50% 50% at 50% 50%,#000 58%,rgba(0,0,0,.6) 72%,transparent 92%);mask-image:radial-gradient(ellipse 50% 50% at 50% 50%,#000 58%,rgba(0,0,0,.6) 72%,transparent 92%);filter:sepia(.18) saturate(.9)}
+.qn-page .por-scene .mark,.qn-page .por-card .mark{position:absolute;width:52px;height:52px;border-radius:5px;background:#8f3a2c;color:#f6ecd6;font-size:32px;font-weight:700;display:flex;align-items:center;justify-content:center;transform:rotate(-6deg);opacity:.92;box-shadow:inset 0 0 0 3px #8f3a2c,inset 0 0 0 5px rgba(246,236,214,.7)}
+.qn-page .por-scene .mark{right:34px;bottom:58px}
+/* 名帖：不放人像，一张帖子写身份、来处、看得出的一句 */
+.qn-page .por-card{position:absolute;left:170px;top:190px;pointer-events:none}
+.qn-page .por-card .paper{position:relative;width:330px;height:470px;background:linear-gradient(180deg,#f3ead4,#e9dfc5);box-shadow:0 0 0 1px #b9a27e inset,0 0 0 8px #f3ead4,0 0 0 9px #8f3a2c,0 10px 26px rgba(40,30,15,.25);transform:rotate(-1.5deg)}
+.qn-page .por-card .head{position:absolute;right:26px;top:28px;writing-mode:vertical-rl;font-size:22px;letter-spacing:10px;color:#8f3a2c;font-weight:700}
+.qn-page .por-card .lines{position:absolute;right:80px;top:40px;height:260px;writing-mode:vertical-rl;font-size:24px;line-height:48px;letter-spacing:6px;color:#2b261d}
+.qn-page .por-card .lines i{font-style:normal;color:#5b5243;font-size:19px}
+.qn-page .por-card .px{position:absolute;left:40px;bottom:30px;image-rendering:pixelated}
+.qn-page .por-card .mark{left:120px;bottom:40px}
+/* 查看页门派一栏（渲染图 review/faction-reputation/03-profile-faction.png） */
+.qn-page .frow{display:flex;align-items:center;gap:14px;margin:-8px 0 18px}
+.qn-page .frow .fg{width:44px;height:44px;display:grid;place-items:center;font-style:normal;font-size:24px;color:#f2e9d4;border-radius:3px;box-shadow:inset 0 0 0 2px rgba(255,255,255,.18)}
+.qn-page .frow .fl{display:flex;align-items:baseline;gap:12px}.qn-page .frow .fl b{font-size:22px;letter-spacing:4px}
+.qn-page .frow .fs{font-size:20px;letter-spacing:3px;color:#3f6a45}.qn-page .frow .fs.neg{color:#a3392b}.qn-page .frow .fn{font-size:16px;color:#6b6152}
+.qn-page .frow .boss{font-size:13px;padding:1px 8px;background:#9b2f25;color:#f6e8d6;letter-spacing:2px}
+
+/* 2026-10-27 第三轮·紧凑版式（INSPECT_STYLE='compact'）：没有立绘的人不留立绘位，左边一张窄签（名字、身份、3 倍像素小人），正文整体左移 */
+.qn-page.nopor .namecol{left:60px;top:120px}
+.qn-page.nopor .topbar,.qn-page.nopor .col.mid,.qn-page.nopor .acts{left:420px}
+.qn-page.nopor .col.right{left:900px;width:600px}
+.qn-page .por-tag{position:absolute;left:30px;top:90px;width:340px;height:720px;pointer-events:none;background:linear-gradient(180deg,rgba(243,234,212,.0),rgba(233,223,197,.55) 30%,rgba(233,223,197,.55) 70%,rgba(243,234,212,0));border-right:1px solid rgba(150,130,100,.35)}
+.qn-page .por-tag .ring{position:absolute;left:110px;top:470px;width:200px;height:56px;border-radius:50%;background:radial-gradient(ellipse,rgba(34,38,34,.28),transparent 70%)}
+.qn-page .por-tag .px{position:absolute;left:210px;top:500px;transform:translate(-50%,-100%);image-rendering:pixelated}
+.qn-page .por-tag .mark{position:absolute;left:250px;top:520px;width:46px;height:46px;border-radius:5px;background:#8f3a2c;color:#f6ecd6;font-size:28px;font-weight:700;display:flex;align-items:center;justify-content:center;transform:rotate(-6deg)}

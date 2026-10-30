@@ -14,3 +14,4 @@ EXTERNAL errand_choice(n)           // 跑腿：回话时的二选一（记入�
 EXTERNAL reps_hand_roster()         // 对证时交出后山记人笺：从随身物品移走 qh_song_roster，记 records.roster_given=true（偷窃稿第 8.4 节）
 EXTERNAL lamp_omen()                // 算命摊测字：给一种小吉兆（地图可交互物稿第 5.5 节，行／安／归三类之一，约一天）
 EXTERNAL lamp_reward(kind)          // 蔺管事酬谢，只发一次并显示“获得”："blade"《守烛心经》＋铜灯牌＋经验；"book"《薪火功》；"fare" 路费 10 两
+EXTERNAL fortune_omen(kind)        // 平日测字：按挑的字给吉兆，"行"／"安"／"归"（地图可交互物稿第 5.5 节；js/qihe-lamp-watcher.js）

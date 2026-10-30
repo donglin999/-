@@ -9,7 +9,7 @@ const ART='assets/production/cultivation/household-v1/';
 const actors={recipient:'收件人',shimu:'江采薇',yin:'殷红缨',zhong:'钟拙',fang:'方迟',dou:'卢小豆',man:'周小满',goose:'将军'};
 // slot=(月-1)*5+时段（0月初 1上旬 2中旬 3下旬 4月底）。避开三月中旬送药与五、十月整月历练。
 const definitions=[
- {id:'gy_noodles',place:'kitchen',time:'day',name:'拜师面',teacher:'江采薇',actor:'shimu',auto:true,linear:true,window:[0,4],heroForm:'short',gain:'understanding',amount:2,cast:['hero_short','shimu','dou'],notice:'拜师礼后，师母江采薇在厨房煮了拜师面。'},
+ {id:'gy_noodles',place:'kitchen',time:'day',name:'拜师面',teacher:'江采薇',actor:'shimu',auto:true,linear:true,window:[0,4],heroForm:'short',gain:'understanding',amount:2,cast:['hero_short','shimu','dou','man'],notice:'拜师礼后，师母江采薇在厨房煮了拜师面。'},
  // 入谷“两个月打基础”过渡演出（2026-10-08 用户改定）：日历第一年正月开始前连播，钟拙带萧白、叶蘅熟悉谷中、站桩、初识心法；萧白由短发长成长发。
  {id:'gy_prelude_tour',place:'courtyard',time:'day',name:'熟悉谷中',teacher:'钟拙',actor:'zhong',auto:true,prelude:true,linear:true,window:[0,0],factRequires:['gy_noodles_seen'],heroForm:'short',gain:'observation',amount:2,cast:['zhong','hero_short','ye']},
  {id:'gy_prelude_stance',place:'training_ground',time:'day',name:'站桩一月',teacher:'钟拙',actor:'zhong',auto:true,prelude:true,linear:true,window:[0,0],factRequires:['gy_prelude_tour_seen'],heroForm:'mid',gain:'foundation',amount:6,cast:['zhong','hero_mid','ye']},
@@ -22,7 +22,7 @@ const definitions=[
  {id:'gy_m05',place:'mountain_road',time:'day',src:'M-05',name:'雨后这段路',teacher:'陆衡',actor:'lu',auto:true,linear:true,main:true,storyMode:'story',window:[12,12],gain:'travel',amount:4,cast:['lu','hero','ye']},
  {id:'gy_m06',place:'courtyard',time:'day',src:'M-06',name:'回来，先放下包',teacher:'周砚',actor:'zhou',auto:true,linear:true,main:true,window:[13,14],factRequires:['first_delivery'],gain:'understanding',amount:2,cast:['zhou','hero','ye']},
  {id:'gy_m07',place:'study',time:'day',src:'M-07',name:'帖子上有几件不同的事',teacher:'周砚',actor:'zhou',auto:true,linear:true,main:true,window:[15,16],gain:'understanding',amount:2,cast:['zhou','hero','ye']},
- {id:'gy_m08',place:'porch',time:'day',src:'M-08',name:'出发前，先说自己的事',teacher:'叶蘅',actor:'ye',auto:true,linear:true,main:true,window:[19,19],gain:'observation',amount:2,cast:['ye','hero','zhou']},
+ {id:'gy_m08',place:'porch',time:'day',src:'M-08',name:'送到城门',teacher:'叶蘅',actor:'ye',auto:true,linear:true,main:true,window:[19,19],gain:'observation',amount:2,cast:['ye','hero','zhou','yin']},
  {id:'gy_m09',place:'xiangyang_road',time:'day',src:'M-09',name:'城门还在前面',teacher:'周砚',actor:'zhou',auto:true,linear:true,main:true,storyMode:'journey_ready',window:[20,20],gain:'travel',amount:2,cast:['zhou','hero','ye']},
  {id:'gy_z01',place:'training_ground',time:'day',src:'Z-01',name:'记住了，还是站不稳',teacher:'周砚',actor:'zhou',window:[0,9],requires:['stance'],gain:'understanding',amount:6,cast:['zhou','hero']},
  {id:'gy_y02',place:'kitchen',time:'night',src:'Y-02',name:'饭还在锅里',teacher:'叶蘅',actor:'ye',window:[5,11],factRequires:['herb_labels'],gain:'medical_notes',amount:4,cast:['ye','hero']},
@@ -52,7 +52,7 @@ const definitions=[
  // ===== 2026-10-10 切磋与实战（文档库 romance-rules.md 第五节）=====
  // fight：开场对白后进入真实战斗，胜负各接一段；不会战败出局。过招都由剧情到时自动发生，不手动触发（2026-10-11 用户）。
  {id:'gy_spar_dou',place:'training_ground',time:'day',name:'小豆来过招',teacher:'卢小豆',actor:'dou',auto:true,window:[9,11],needSkill:true,sparWith:'dou',notice:'小豆听说你学了招式，嚷着要跟你过两手。',fight:{bg:'bb_qh_training_v1',foes:[{name:'卢小豆',sp:'c_gy_luxiaodou',combatProfile:'gy_dou_sword_v1',weapon:'wood',lv:3,st:{str:3,con:3,agi:7,wil:3,wis:4},skills:{gy_dou_basic:1,gy_s1:1},hpMul:.45,atkMul:.45,shield:2,weak:['拳','剑','棍'],h:146}]},gain:'footwork',amount:2,cast:['dou','hero']},
- {id:'gy_spar_zhong',place:'training_ground',time:'day',name:'二师叔试拳',teacher:'钟拙',actor:'zhong',auto:true,window:[14,16],needSkill:true,sparWith:'zhong',notice:'二师叔说要看看你的拳头硬不硬。',fight:{bg:'bb_qh_training_v1',foes:[{name:'钟拙',sp:'c_gy_zhongzhuo',lv:4,st:{str:8,con:7,agi:3,wil:4,wis:3},skills:{fist:1},hpMul:.7,atkMul:.36,shield:4,weak:['剑','暗器'],h:170}]},gain:'foundation',amount:2,cast:['zhong','hero']},
+ {id:'gy_spar_zhong',place:'training_ground',time:'day',name:'二师叔试手',teacher:'钟拙',actor:'zhong',auto:true,window:[14,16],needSkill:true,sparWith:'zhong',notice:'二师叔说要看看你脚下站不站得住。',fight:{bg:'bb_qh_training_v1',foes:[{name:'钟拙 · 收着打',sp:'c_gy_zhongzhuo',lv:4,st:{str:8,con:7,agi:3,wil:4,wis:3},skills:{fist:1},hpMul:.7,atkMul:.36,shield:4,weak:['剑','暗器'],h:170}]},gain:'foundation',amount:2,cast:['zhong','hero']},
  {id:'gy_spar_yin',place:'bamboo_path',time:'day',name:'竹林里的指点',teacher:'殷红缨',actor:'yin',auto:true,window:[28,31],needSkill:true,sparWith:'yin',factRequires:['gy_night_return_seen'],notice:'小师叔说竹林里地不平，正好试试你。',fight:{bg:'bb_qh_training_v1',foes:[{name:'殷红缨 · 收着打',sp:'c_gy_yinhongying',lv:6,st:{str:6,con:5,agi:10,wil:5,wis:5},skills:{fist:1},hpMul:.55,atkMul:.3,shield:4,weak:['拳','棍'],h:165}]},gain:'footwork',amount:2,cast:['yin','hero']},
  {id:'gy_bamboo_wolves',place:'bamboo_path',time:'dusk',name:'竹径的狼',teacher:'卢小豆',actor:'dou',window:[6,11],fight:{bg:'bb_prologue_backhill_v1',foes:[{name:'野狼',sp:'c_wolf',lv:1,st:{str:4,con:3,agi:6,wil:2,wis:2},skills:{bite:1},hpMul:.5,atkMul:.4,h:95},{name:'野狼',sp:'c_wolf',lv:1,st:{str:4,con:3,agi:6,wil:2,wis:2},skills:{bite:1},hpMul:.45,atkMul:.4,h:95}]},gain:'observation',amount:3,cast:['dou','hero'],notice:'卢小豆说近山竹径这几天有狼脚印，师母不许他一个人去看。'},
  {id:'gy_zhou_test',place:'training_ground',time:'day',name:'出门前的考校',teacher:'周砚',actor:'zhou',auto:true,window:[18,18],needSkill:true,fight:{bg:'bb_qh_training_v1',foes:[{name:'周砚 · 只用三成',sp:'c_opening_zhouyan',lv:5,st:{str:6,con:6,agi:6,wil:6,wis:6},skills:{fist:1},hpMul:.6,atkMul:.3,shield:4,weak:['拳','剑'],h:170}]},gain:'understanding',amount:4,cast:['zhou','hero'],notice:'去汉皋之前，师父说要亲手试试你这几个月学的东西。'},
@@ -94,7 +94,7 @@ function raw(id,c){
  if(id==='gy_noodles')return PRELUDE.noodles(c);
  if(id==='gy_ledger')return {
  intro:[line('shimu','木凳三十文，竹篮十五文，小木鸟……小木鸟送您了。——萧白，来，帮我看看这本账。'),line('shimu','谷里的米、盐、布、药，都从这本账上出。你师父只管练功，你二师叔只管做东西，没人管钱——所以我管。'),line('hero','这一页……卖出的数和收进的钱对不上，差了三十文。'),line('shimu','哦？你倒眼尖。那你说，差在哪儿？')],
- choices:[{key:'columns',text:'用“分栏对账”的法子重新排一遍',lines:[line('hero','把卖出的、赊账的、送人的分成三栏，每栏单独加总……差的三十文，是上个月赊给王婶的两只竹篮。'),line('shimu','这法子是谁教你的？'),line('hero','我家乡……记东西习惯这么排。'),line('shimu','好习惯。往后谷里的账，你帮我对一半。别得意——错一文，扣你一顿饭。'),line('hero','那对得好呢？总不能光扣不赏吧。'),line('shimu','美得你。……对得好，晚上给你留一碗山菌汤，多了没有。')]},{key:'ask_first',text:'先问师母每一笔的来历',lines:[line('hero','这三十文我猜不出来。师母，这个月有人赊过账么？'),line('shimu','不猜？'),line('hero','猜错了更麻烦。不确定的，先空着，问清了再填。'),line('shimu','这点比你师父强。对，是赊给王婶的。账上留个“待收”，比硬凑齐了强。')]}],
+ choices:[{key:'columns',text:'用“分栏对账”的法子重新排一遍',lines:[line('hero','把卖出的、赊账的、送人的分成三栏，每栏单独加总……差的三十文，是前几天赊给王婶的两只竹篮。'),line('shimu','这法子是谁教你的？'),line('hero','我家乡……记东西习惯这么排。'),line('shimu','好习惯。这一页算你对出来的。别得意——下回对错一文，扣你一顿饭。'),line('hero','那对得好呢？总不能光扣不赏吧。'),line('shimu','美得你。……对得好，晚上给你留一碗山菌汤，多了没有。')]},{key:'ask_first',text:'先问师母每一笔的来历',lines:[line('hero','这三十文我猜不出来。师母，最近有人赊过账么？'),line('shimu','不猜？'),line('hero','猜错了更麻烦。不确定的，先空着，问清了再填。'),line('shimu','这点比你师父强。对，是赊给王婶的。账上留个“待收”，比硬凑齐了强。')]}],
  closing:[line('shimu','收摊了。剩下这只木鸟送你——你二师叔做了一百只，没一只卖得出去。'),line('shimu','揣好，别让你二师叔看见。他要是知道一只没卖出去，又得念叨三天。')]};
  if(id==='gy_night_return')return {
  intro:[card('月底 · 夜半'),line('hero','（起夜……墙头上怎么有动静？）'),line('hero','谁——'),lm('hero','疼疼疼——手！放手！好大的酒味……','worry',{yin:'fun'}),line('yin','嘘。小毛贼，偷东西偷到归云谷来了？胆子不小，脸倒是挺白净。'),line('hero','我……我是新入门的弟子，萧白！'),line('yin','新弟子？师兄收徒了？我怎么不知道——'),lm('ye','我听见响动……这位姑娘，先松手。他是周先生新收的弟子——深夜到此，敢问是哪位？','serious',{hero:'worry',yin:'surprise'})],
@@ -102,14 +102,14 @@ function raw(id,c){
  closing:[line('yin','这位姑娘是？'),line('ye','叶蘅，借住在谷里。……您手上有伤，渗血了，要不要先包一下？'),line('hero','（她提着灯过来，先替我作了证，又一眼看见了伤。）'),line('yin','眼尖。不碍事——好吧，碍一点。小白脸，明早别告诉你师母我喝了酒。'),card('第二天一早',{place:'courtyard',time:'day'}),line('man','小师叔回来啦！昨晚我从窗缝里看见她把萧白哥当贼按在墙上——往后就叫你萧小贼！'),line('ye','……全谷都知道了。不是我说的。')]};
  if(id==='gy_fist_or_sword')return {
  intro:[line('zhong','我再说一遍：先练拳！拳是根，剑是梢。根都没扎稳，剑能往哪儿使？水再挑一个月，然后出拳，这叫笨功夫——'),line('yin','笨功夫练出来的就是笨人。他十七了，筋骨都长开了。再挑一个月水，江湖上的人可不等他。先学剑，见过真东西，才知道自己缺什么。'),line('shimu','吃饭呢。要吵，吃完到院里吵去，别耽误我收碗。'),card('饭后 · 院里',{place:'courtyard',time:'night'}),line('zhong','你那是速成！师父当年怎么教的？'),line('yin','师父当年也说你笨。'),line('zhong','师兄！你倒是说句话！'),lm('zhou','萧白，你自己说。往后一个月，先跟谁练？','serious',{zhong:'normal',yin:'normal'})],
- choices:[{key:'fist',text:'先跟二师叔练拳，把根扎稳',lines:[line('hero','我连站都还没站稳。先跟二师叔练根基吧。'),line('zhong','听见没！这孩子明白！明儿卯时，先挑水！'),line('yin','……行，随你。等你挑够了水，记得来找我，我教你点真正用得上的。')]},{key:'sword',text:'先跟小师叔学剑，看看真东西',lines:[line('hero','我想先看看……真的江湖上是怎么打的。'),line('yin','有眼光。明儿午后，竹林。别带酒——那是我的。'),line('zhong','唉！练坏了别来找我哭！'),line('zhong','……晚上来工棚一趟。我那儿有卷缠手的布条，练剑先把手腕缠上。')]},{key:'both',text:'“两位师叔，我都想学。”',lines:[line('hero','早上跟二师叔挑水扎根，午后跟小师叔看剑。我多吃一碗饭就是了。'),line('shimu','这话我爱听。饭管够。'),line('zhong','滑头！……不过，也行。'),line('yin','贪心。我喜欢贪心的。'),line('hero','（师父刚才……是不是笑了？）')]}],
- closing:[line('zhou','陪练就这样定。正课还得来找我，一门一门学，别以为今晚定下来就算学会了。'),line('shimu','吵完了？进来收碗。')]};
+ choices:[{key:'fist',text:'先跟二师叔练拳，把根扎稳',lines:[line('hero','我连站都还没站稳。先跟二师叔练根基吧。'),line('zhong','听见没！这孩子明白！明儿卯时，先挑水！'),line('yin','……行，随你。等你挑够了水，记得来找我，我教你点真正用得上的。')]},{key:'sword',text:'先跟小师叔学剑，看看真东西',lines:[line('hero','我想先看看……真的江湖上是怎么打的。'),line('yin','有眼光。明儿午后，竹林。别带酒——那是我的。'),line('zhong','唉！练坏了别来找我哭！'),line('zhong','……拿着，缠手的布条。练剑先把手腕缠上。')]},{key:'both',text:'“两位师叔，我都想学。”',lines:[line('hero','早上跟二师叔挑水扎根，午后跟小师叔看剑。我多吃一碗饭就是了。'),line('shimu','这话我爱听。饭管够。'),line('zhong','滑头！……不过，也行。'),line('yin','贪心。我喜欢贪心的。'),line('hero','（师父刚才……是不是笑了？）')]}],
+ closing:[line('zhou','就这样定。一门一门学，别以为今晚定下来就算学会了。'),line('shimu','吵完了？进来收碗。')]};
  if(id==='gy_welcome_back')return {
  intro:[line('shimu','汉皋回来的头一顿，都坐下！小豆，别围着萧白问个没完，让他先吃。'),line('yin','城门口那几个穿正道盟服色的，你们见着了吧？'),line('hero','见着了。他们好像认得小师叔——脸色都不太好看。'),line('yin','十几年前，我在一场寿宴上掀了他们一位执事的桌子。'),line('shimu','红缨。饭桌上。'),line('yin','好好好，不说打杀，说掀桌子总行吧？')],
  choices:[{key:'ask_why',text:'追问她为什么掀桌子',lines:[line('hero','为什么掀？'),line('yin','那人当众说一个过世的郎中“私藏秘方，死有余辜”。我听不下去。'),line('ye','……那位郎中，姓什么？'),line('yin','不记得了。只记得那人说话的样子——叫人想吐。'),lm('ye','……','worry')]},{key:'let_it_be',text:'不追问，给小师叔斟一杯茶',lines:[line('hero','小师叔，喝茶。'),line('yin','……这孩子，学会家规了。'),line('shimu','是我教得好。'),line('yin','茶就茶。下回下山，我带你见识见识，真正的江湖酒是什么味儿。')]}],
  closing:[line('shimu','都吃。回来了就好。'),line('hero','（回谷，原来就是回家。）')]};
  if(id==='gy_goose_steps')return {
- intro:[line('yin','回岚步，讲究一个“回”字——进得去，退得出。今天的教具是它。'),lm('goose','嘎——！','fun',{hero:'surprise',yin:'fun'}),line('hero','……小师叔，你认真的？'),line('yin','它是谷里最快的东西，比你小师兄还快。规矩很简单：让它追你一炷香，不许被啄到，也不许出这个院子。'),line('dou','我当年被啄了十七口……萧白，你保重。')],
+ intro:[line('yin','回岚步，讲究一个“回”字——进得去，退得出。今天的教具是它。'),lm('goose','嘎——！','fun',{hero:'surprise',yin:'fun'}),line('hero','……小师叔，你认真的？'),line('yin','它是谷里最快的东西，比你小师兄还快。规矩很简单：让它追你一炷香，不许被啄到，也不许出这个院子。'),line('dou','我当年被啄了十七口……萧白，你保重。'),...(c?.preHangao?.facts?.gy_dou_feed_choice==='calm'?[line('dou','不过喂鹅那回它就没啄你，说不定它认人。')]:c?.preHangao?.facts?.gy_dou_feed_choice==='run'?[line('dou','喂鹅那回你绕水缸跑得可快了，今天接着跑。')]:[])],
  choices:[{key:'circle',text:'绕着木人桩兜圈，用桩子挡它',lines:[line('hero','绕桩子……一圈、两圈——哇，脚滑了！'),line('yin','别看脚！看它的脖子往哪边伸，你就往另一边回！'),...(c.footwork?[line('hero','它往左伸——我往右，回！'),lm('goose','嘎！嘎！','fun')]:[line('hero','往另一边回——哎哟！慢了半拍……'),lm('goose','嘎！','fun',{hero:'worry'})]),line('yin','对了，就是这个“回”。')]},{key:'face_it',text:'不跑了，转身正面对着将军',lines:[line('hero','跑不过，那我就不跑——'),lm('goose','嘎？……嘎——！！','fun',{hero:'worry'}),line('yin','哈！有胆子！可鹅不吃这一套——回身！'),line('hero','——侧身！……它一头撞进晾着的被单里了。')]}],
  closing:[line('yin','一炷香，被啄了……我数数，五口。比小豆强。'),line('dou','我那是十四岁！'),line('yin','明天再来。将军，干得好——晚上给你加谷子。')]};
  if(id==='gy_ye_mother')return {
@@ -118,7 +118,7 @@ function raw(id,c){
  closing:[line('ye','这只是我娘的为人。她留下的东西，我还是要自己去问清楚。'),line('shimu','那是自然。问的时候，记着回家吃饭。')]};
  if(id==='gy_brother_hurt')return {
  intro:[card('七月中旬 · 夜'),line('dou','大师兄回来了——是被人抬回来的！'),line('fang','……别慌。皮外伤。先把东西……收好，信在怀里……'),line('shimu','闭嘴，躺好。萧白，烧水；叶蘅，拿药箱；小豆，去叫你师父！'),line('ye','血止住了。……师父，您看这道伤口。'),lm('zhou','这不是山匪的刀。我下山一趟。','angry',{shimu:'worry'}),lm('shimu','你不许去。','angry',{hero:'surprise'})],
- choices:[{key:'night_watch',text:'守在大师兄床边照看',lines:[card('天快亮时'),line('fang','……你守了一夜？我是大师兄，本该是我照看你们。'),line('hero','大师兄也是人，也会受伤。'),line('fang','师父一直想让我接这个门。我总怕自己……不够格。'),line('hero','你被抬回来的时候，第一句话是“把东西收好”。我觉得，这就够格了。')]},{key:'ask_story',text:'去院里，听师父和师母说话',lines:[line('shimu','你那条胳膊十年没好全。再为别人拼一次命，这个家怎么办？'),line('zhou','那是方迟。'),line('shimu','我知道是方迟。所以我更不许你去——你去了，回不来，方迟一辈子都不会原谅自己。'),line('hero','（师父身上有旧伤……我从来不知道。）')]}],
+ choices:[{key:'night_watch',text:'守在大师兄床边照看',lines:[card('天快亮时'),line('fang','……你守了一夜？我是大师兄，本该是我照看你们。'),line('hero','大师兄也是人，也会受伤。'),line('fang','师父一直想让我接这个门。我总怕自己……不够格。'),line('hero','你被抬回来的时候，第一句话是“把东西收好”。我觉得，这就够格了。'),...(c?.preHangao?.facts?.gy_fang_leaves_choice==='promise'?[line('fang','还欠你一回陪练。……这回，怕是又得往后挪了。')]:c?.preHangao?.facts?.gy_fang_leaves_choice==='worry'?[line('fang','你那回问我，没了消息上哪儿找我……差点真让你问着。')]:[])]},{key:'ask_story',text:'去院里，听师父和师母说话',lines:[line('shimu','你那条胳膊十年没好全。再为别人拼一次命，这个家怎么办？'),line('zhou','那是方迟。'),line('shimu','我知道是方迟。所以我更不许你去——你去了，回不来，方迟一辈子都不会原谅自己。'),line('hero','（师父身上有旧伤……我从来不知道。）')]}],
  closing:[line('shimu','都去歇会儿。灯我守着。')]};
  if(id==='gy_go_in_stead')return {
  intro:[line('zhou','方迟带回来的信，牵涉到一桩药材买卖。总要有人下山问个明白。'),line('yin','师兄，你那条胳膊，师嫂不让你动，我也不让。我去。'),line('zhou','你一个人去，会把事情闹大。'),line('yin','那就再带一个不会闹大的。'),line('zhou','……萧白。')],
@@ -132,7 +132,7 @@ function raw(id,c){
  closing:[line('hero','（今年的中秋，人真多。）')]};}
  if(id==='gy_dou_runaway')return {
  intro:[line('hero','小豆！天才刚亮，你背着包袱上哪儿去？'),line('dou','别拦我！小师叔十七岁就一个人闯荆襄了，我也行！'),line('hero','你包袱里装的是……三个馒头和一只木鸟？'),line('dou','……够吃两天了。'),line('yin','够吃一天半。'),line('dou','小、小师叔？！你什么时候坐在那儿的？')],
- choices:[{key:'race',text:'“比一场。你追得上小师叔，就让你走。”',lines:[line('yin','……哦？比我想的快。'),line('dou','呼……呼……三里地了……衣角都没碰到……'),line('yin','你的轻功，比我十七岁时好。'),line('dou','真的？'),line('yin','真的。所以更不能现在就走——好东西，要先磨锋利了。等你出师那年，我亲自带你下山。')]},{key:'talk',text:'坐下来，问他为什么想走',lines:[line('dou','萧白你来了以后，师父天天教你，师叔们抢着教你……我想，我是不是该走了，给你腾地方。'),line('hero','这里又不是只有一把椅子。'),line('yin','小豆，过来。'),line('yin','你是我看着长大的。这个家，谁也不用给谁腾地方。')]}],
+ choices:[{key:'race',text:'“比一场。你追得上小师叔，就让你走。”',lines:[line('yin','……哦？比我想的快。'),line('dou','呼……呼……三里地了……衣角都没碰到……'),line('yin','你的轻功，比我十七岁时好。'),line('dou','真的？'),line('yin','真的。所以更不能现在就走——好东西，要先磨锋利了。等你出师那年，我亲自带你下山。'),...(c?.preHangao?.facts?.gy_bamboo_wolves_choice==='win'?[line('hero','竹径那回，你手心全是汗，剑还是拿稳了。你不差这几天。')]:c?.preHangao?.facts?.gy_bamboo_wolves_choice==='lose'?[line('hero','竹径那回，是你那一下挡住了，我才退上石头。你不差这几天。')]:[])]},{key:'talk',text:'坐下来，问他为什么想走',lines:[line('dou','萧白你来了以后，师父天天教你，师叔们抢着教你……我想，我是不是该走了，给你腾地方。'),line('hero','这里又不是只有一把椅子。'),line('yin','小豆，过来。'),line('yin','你是我看着长大的。这个家，谁也不用给谁腾地方。'),...(c?.preHangao?.facts?.gy_bamboo_wolves_choice==='win'?[line('hero','竹径那回，你手心全是汗，剑还是拿稳了。你不差这几天。')]:c?.preHangao?.facts?.gy_bamboo_wolves_choice==='lose'?[line('hero','竹径那回，是你那一下挡住了，我才退上石头。你不差这几天。')]:[])]}],
  closing:[line('dou','我、我没哭！是风大！……走了，师弟，回谷。')]};
  if(id==='gy_shimu_birthday')return {
  intro:[line('man','萧白哥，我跟你说个秘密——后天是我娘的生辰。我爹每年都忘，今年你得帮我提醒他。'),line('hero','你直接告诉师父不就好了？'),line('man','那不行。要他自己想起来，娘才高兴。'),line('man','我还想给娘绣个香囊，可是我针线不好……叶蘅姐姐说你也学过缝补？')],
@@ -228,7 +228,7 @@ const PRELUDE={
  closing:[{...lm('goose','嘎——！','fun',{hero:'surprise',dou:'worry'}),cast:['hero','shimu','dou','goose']},{...lm('hero','门口那只鹅……脖子上还系着布带，一直盯着我？','surprise',{dou:'worry'}),cast:['hero','shimu','dou','goose']},lm('dou','那就是将军。它追咬一切新来的人。你最好——跑。','worry'),lm('shimu','将军，回窝去。……它就听我的。萧白，往后这儿就是你的家了，吃饱了再去练功。','smile',{hero:'normal'})]}),
  tour:c=>({
  intro:[card('次日清晨'),lm('zhong','起了起了！师兄说了，头两个月归我管。先认地方，再认活——谷里每块石头我都摸过，跟紧了！','fun',{hero:'surprise'}),lm('zhong','这边练武场，那边木人桩，溪边是水车，廊下晾干菜，最里头是师兄的书房——都记住没？','fun'),lm('zhong','这水车，我做的。那木人桩，我做的。那个鹅圈——也是我做的，可将军不住，它嫌小。','fun')],
- choices:one([lm('hero','师叔，往后我在哪儿练？','normal'),lm('zhong','就这儿。看见那排水缸没？明天开始，你每天把它挑满。','serious'),lm('hero','……这跟练武有关系？','surprise'),lm('zhong','关系大了！腿没劲，招式再漂亮也是花架子。笨功夫，懂不懂？','serious'),lm('ye','那边向阳的一小块地，荒着？','normal'),lm('zhong','以前种过药，没人会伺候。叶姑娘要是不嫌弃，那块地归你。我明儿给你搭个新晾架，比原来那个高三寸！','smile'),lm('ye','……有块地可以照料，心里踏实些。','smile')]),
+ choices:one([lm('hero','师叔，往后我在哪儿练？','normal'),lm('zhong','就这儿。看见那排水缸没？明天开始，你每天把它挑满。','serious'),lm('hero','……这跟练武有关系？','surprise'),lm('zhong','关系大了！腿没劲，招式再漂亮也是花架子。笨功夫，懂不懂？','serious'),lm('ye','那边向阳的一小块地，荒着？','normal'),lm('zhong','以前种过药，没人会伺候。叶姑娘不嫌弃，那块地归你。旧晾架叫雨沤烂了，明儿给你搭个新的！','smile'),lm('ye','……有块地可以照料，心里踏实些。','smile')]),
  closing:[{...lm('goose','嘎。','normal',{hero:'worry'}),cast:['zhong','hero','ye','goose']},{...lm('hero','（转了一整圈，太阳都偏西了。……那只鹅蹲在院墙根，一直在看我。）','worry'),cast:['zhong','hero','ye','goose']},lm('zhong','明天卯时，练武场。迟到一刻，多挑一担水。','serious')]}),
  stance:c=>({
  intro:[card('第一个月'),lm('zhong','这个月就两件事：挑水，站桩。别的不许想！','serious',{hero:'serious'}),lm('zhong','腰往下沉！膝盖别过脚尖！一炷香——才过了半炷你抖什么？','serious'),lm('hero','师叔……腿……不是我的了……','worry',{zhong:'serious'}),lm('zhong','是你的。等它不抖了，就真是你的了。','serious'),card('当晚',{place:'courtyard',time:'night'}),lm('ye','把裤腿挽起来。小腿绷得像石头，再不揉开明天站不住。','serious'),lm('hero','你怎么知道我腿绷着？','surprise'),lm('ye','因为你今天站完，还偷偷去加了一炷香。卢小豆告诉我的。','normal')],
@@ -248,7 +248,7 @@ const PRELUDE={
 const EXTRA={
  gy_man_herbs:c=>({
  intro:[lm('man','这个是薄荷！这个……这个也是薄荷！','smile'),lm('ye','这个是紫苏。叶背是紫的，你翻过来看。','smile'),lm('man','……哦。叶蘅姐姐，那萧白哥是什么？','surprise'),lm('hero','我是什么？','surprise'),lm('man','你练功的时候脸一会儿红一会儿白，像萝卜。白萝卜。','smile')],
- choices:[{key:'teach',text:'陪小满一起认药，认错了也不笑她',lines:[lm('hero','那你教我认，认对一个，我就不当萝卜。','smile'),lm('man','这个！叶背是紫的——紫苏！','smile'),lm('hero','那这个呢？叶背是绿的。','normal'),lm('man','……薄荷！这回是真的！','smile',{ye:'smile',hero:'smile'})]},{key:'tease',text:'“那小满是什么？小辣椒？”',lines:[lm('man','我才不是辣椒！我告诉我娘去！','angry'),lm('ye','……她真会去告状的。','normal'),lm('hero','（今晚的菜里，怕是要多一盘辣椒。）','worry')]}],
+ choices:[{key:'teach',text:'陪小满一起认药，认错了也不笑她',lines:[lm('hero','那你教我认，认对一个，我就不当萝卜。','smile'),lm('man','这个！叶背是紫的——紫苏！','smile'),lm('hero','那这个呢？叶背是绿的。','normal'),lm('man','……薄荷！这回是真的！','smile',{ye:'smile',hero:'smile'})]},{key:'tease',text:'“那小满是什么？小辣椒？”',lines:[lm('man','我才不是辣椒！我告诉我娘去！','angry'),lm('ye','……她真会去告状的。','normal'),lm('hero','好好，不是辣椒。……那这片叶背紫的，你教教我？','smile')]}],
  closing:[lm('ye','你以后带她认药，先叫她翻叶背。','normal'),lm('man','明天还来！','smile')]}),
  gy_fang_back:c=>({
  intro:[card('二月下旬'),lm('dou','大师兄回来了！萧白，快站好，大师兄最讲规矩！','surprise'),lm('fang','……小豆，我又不是师父。','normal'),lm('fang','你就是萧白？师父信里提过你。我是方迟，你大师兄。','serious'),lm('hero','大师兄好。','serious'),lm('fang','站桩站了多久？','serious'),lm('hero','快四个月了。','normal'),lm('fang','腿抖不抖？','serious')],
@@ -256,19 +256,19 @@ const EXTRA={
  closing:[lm('fang','我在谷里待到四月，之后要下山办事。有不懂的，先问我，别去烦师父。','serious'),lm('dou','大师兄就是这样，什么事都往自己身上揽。','normal')]}),
  gy_dou_feed:c=>({
  intro:[lm('dou','从今天起，喂将军的差事交给你。这是师兄对你的考验！','fun',{hero:'surprise',goose:'fun'}),lm('hero','……你是不是被它啄怕了？','normal'),lm('dou','胡说！我是在培养你！','angry'),lm('goose','嘎？','fun',{hero:'worry'})],
- choices:[{key:'calm',text:'不慌不忙地撒谷子',lines:[lm('hero','（站定，别动，慢慢撒……）','normal',{goose:'normal'}),lm('dou','……它怎么不啄你？','surprise'),lm('hero','大概是因为我没跑。','smile')]},{key:'run',text:'把簸箕往地上一放，转身就跑',lines:[lm('hero','它追来了——步法，步法！绕水缸！','worry',{goose:'fun'}),lm('dou','步法不错！再跑快点！','fun')]}],
+ choices:[{key:'calm',text:'不慌不忙地撒谷子',lines:[lm('hero','（站定，慢慢撒……它扑过来，脚下侧开半步。）','normal',{goose:'normal'}),lm('dou','……它怎么不啄你？','surprise'),lm('hero','大概是因为我没跑。','smile')]},{key:'run',text:'把簸箕往地上一放，转身就跑',lines:[lm('hero','它追来了——步法，步法！绕水缸！','worry',{goose:'fun'}),lm('dou','步法不错！再跑快点！','fun')]}],
  closing:[lm('dou','行吧，算你过了。……明天还是你喂。','normal'),lm('dou','记住了，这是归云谷第五条规矩：每天喂将军！','smile',{hero:'normal'})]}),
  gy_fang_spar:c=>({
  intro:[lm('fang','接着。木棍，我也拿一根。','serious',{hero:'serious'}),lm('fang','我不出招，只守。你把学过的都用上——哪一下让我退了半步，就算你赢。','serious'),lm('hero','大师兄，你不怕我打着你？','surprise'),lm('fang','怕的话，就不陪你练了。来。','serious')],
  choices:[{key:'win',text:'',lines:[lm('fang','……退了。','surprise'),lm('fang','不是招式让我退的，是你的脚。这几个月的桩没白站。','smile'),lm('hero','（刚才那一下，手上比平时顺。）','smile')]},{key:'lose',text:'',lines:[lm('fang','停。你的招是对的，可每一下都想一次打倒我。','serious'),lm('hero','……我太急了。','sad'),lm('fang','急不是错。先想着回来，再想着出去。明天再来。','serious')]}],
- closing:[lm('fang','我走以后，小豆会偷懒，你多盯着点。还有……师父的旧伤，别让他逞强。','worry'),lm('hero','大师兄放心。','serious')]}),
+ closing:[lm('fang','我走以后，小豆会偷懒，你多盯着点。还有……师父那人，什么都自己扛，你多看着点。','worry'),lm('hero','大师兄放心。','serious')]}),
  gy_fang_leaves:c=>({
  intro:[card('四月上旬'),lm('shimu','两包干粮，一包伤药，都给你塞进包里了。','worry',{fang:'normal',zhou:'serious',hero:'normal'}),lm('shimu','药放在最上面。受了伤先用，别省着。','worry'),lm('fang','知道了，师母。','smile'),lm('zhou','这趟去替我送一封信，再看看山下的路。不必急着回来，也不必逞强。','serious'),lm('fang','弟子明白。','serious'),lm('fang','萧白，我不在，小豆就交给你了。','serious')],
  choices:[{key:'promise',text:'“大师兄早点回来。”',lines:[lm('hero','大师兄早点回来。到时候我再攻你三下。','smile'),lm('fang','好。下次我出招。','smile')]},{key:'worry',text:'“一路上……小心。”',lines:[lm('hero','一路上小心。要是你没按时回来……我上哪儿找你？','worry'),lm('fang','那就好好学。真有那一天，你得比我现在强。','serious')]}],
  closing:[lm('fang','走了！都回去吧！','smile',{hero:'normal',shimu:'worry',zhou:'serious'})]}),
  gy_spar_dou:c=>({
  intro:[lm('dou','听说你学招式了？来来来，师兄让你三招！','fun',{hero:'normal'}),lm('hero','不用让。来。','smile')],
- choices:[{key:'win',text:'',lines:[lm('dou','等、等一下！你什么时候这么快了？！','surprise'),lm('hero','（步子跟上了，招也递得出去。）','smile'),lm('dou','……这回不算，我早上没吃饱。','sad')]},{key:'lose',text:'',lines:[lm('dou','哈！碰不到我吧！','fun'),lm('hero','（他一直在动。我光盯着他的手，忘了看脚。）','serious'),lm('dou','看脚，别看手。——这是小师叔教我的，白送你了。','smile')]}],
+ choices:[{key:'win',text:'',lines:[lm('dou','等、等一下！我说让三招，你还真往里钻？！','surprise'),lm('hero','（他让了三招，第四招我才递进去。）','smile'),lm('dou','……这回不算，我早上没吃饱。','sad')]},{key:'lose',text:'',lines:[lm('dou','哈！碰不到我吧！','fun'),lm('hero','（他一直在动。我光盯着他的手，忘了看脚。）','serious'),lm('dou','看脚，别看手。——这是小师叔教我的，白送你了。','smile')]}],
  closing:[lm('dou','下回再比！输的人扫院子！','fun')]}),
  gy_spar_zhong:c=>({
  intro:[lm('zhong','来来来！让二师叔看看你的拳头硬不硬！','fun',{hero:'normal'}),lm('hero','二师叔，你下手轻点。','worry')],
@@ -292,7 +292,7 @@ const EXTRA={
  closing:[lm('yin','这事我没跟第二个人说过。','normal'),lm('yin','回去吧。……改天月亮好的时候，到屋顶上来。','smile')]}),
  gy_zhong_kit:c=>({
  intro:[lm('zhong','拿着！出门的家伙。','fun'),lm('hero','这是……一副护腕？','surprise'),lm('zhong','牛皮的，里面夹了竹片。挡不了刀，可摔一跤不至于折了手腕。城里人多，挤来挤去的。','serious'),lm('hero','二师叔，你做了几天？','normal'),lm('zhong','不多不多，三天三夜！……咳，也就两天。','fun')],
- choices:[{key:'wear',text:'当场戴上，认真道谢',lines:[lm('hero','正合适。谢谢二师叔。','smile'),lm('zhong','合适就好！回来要是磨坏了，拿来我修。磨坏了说明你用上了，我高兴。','smile')]},{key:'ask',text:'“二师叔当年第一次下山，也有人给你做吗？”',lines:[lm('zhong','……有。你师祖给我编了一双草鞋。我嫌丑，没穿，结果第二天就把脚磨烂了。','sad'),lm('zhong','所以这护腕，丑也给我戴着。','serious'),lm('hero','不丑。','smile')]}],
+ choices:[{key:'wear',text:'当场戴上，认真道谢',lines:[lm('hero','正合适。谢谢二师叔。','smile'),lm('zhong','合适就好！线脚松了自己会补不？针从皮子背面走，拉紧。磨坏了说明你用上了，我高兴。','smile')]},{key:'ask',text:'“二师叔当年第一次下山，也有人给你做吗？”',lines:[lm('zhong','……有。你师祖给我编了一双草鞋。我嫌丑，没穿，结果第二天就把脚磨烂了。','sad'),lm('zhong','所以这护腕，丑也给我戴着。','serious'),lm('hero','不丑。','smile')]}],
  closing:[lm('zhong','去吧。城里的事，看清了再动手——这是你师父的话，我就借来说一句。','serious')]})
 };
 // 剧情选择对人物关系的推动（仍受关系阶段上限约束，见 CultivationRelations.story）。

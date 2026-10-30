@@ -2,7 +2,7 @@
 const {chromium}=require('/Users/wuxiuxiang/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright');
 const fs=require('node:fs'),path=require('node:path'),assert=require('node:assert/strict');
 const root=path.resolve(__dirname,'../..'),out=path.join(root,'art_sources/qihe-faction-clash-20261012/video-final');fs.mkdirSync(out,{recursive:true});
-(async()=>{const browser=await chromium.launch({executablePath:'/Users/wuxiuxiang/Library/Caches/ms-playwright/chromium_headless_shell-1228/chrome-headless-shell-mac-arm64/chrome-headless-shell'});try{
+(async()=>{const browser=await chromium.launch({executablePath:'/Users/wuxiuxiang/Library/Caches/ms-playwright/chromium_headless_shell-1248/chrome-headless-shell-mac-arm64/chrome-headless-shell'});try{
  const p=await browser.newPage({viewport:{width:1280,height:720}}),errors=[];p.on('pageerror',e=>errors.push(e.message));
  await p.goto('http://127.0.0.1:8792/?battleReview=clash&holdReview=1&play=1#qihe-map');await p.waitForFunction(()=>typeof QiheFactionClash!=='undefined'&&mode==='scene'&&!busy);await p.evaluate(()=>QiheFactionClash.ready());await p.waitForTimeout(2600);
  await p.mouse.click(30,30);await p.evaluate(()=>{keys={};player.path=null;busy=true;__audio.beginSfxCapture()});

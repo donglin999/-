@@ -14,7 +14,7 @@ N.skillEffects=function(u,k,bp=0){const d=L.moves[k];if(!d)return null;const v=M
 // Lu Xiaodou's sword spar uses its own fixed profile; this is a basic attack,
 // not a new teachable martial art. Its dedicated sheet is in guiyun-battle-finish.js.
 const DOU_PROFILE='gy_dou_sword_v1';
-SKILLS.gy_dou_basic={name:'点步直刺',kind:'剑',mp:0,pow:1,desc:'卢小豆以桃木剑短促直刺；普通剑击，不是可学习功法。'};
+SKILLS.gy_dou_basic={name:'点步直刺',kind:'剑',mp:0,pow:1,grade:'丁',desc:'卢小豆以桃木剑短促直刺；普通剑击，不是可学习功法。'};
 BSK.gy_dou_basic={t:'剑',tgt:'foe'};
 FXDEF.gy_dou_basic={tier:0,cls:'dmg',hit:'剑'};
 const baseMakeSparFoe=mkFoe,basePlanSpar=planIntent;

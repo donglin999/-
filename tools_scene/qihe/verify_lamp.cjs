@@ -1,0 +1,24 @@
+// 2026-10-27 归烬堂支线·蔺管事线接线（js/qihe-lamp-watcher.js）：上图、各场入口与时限、半日 4 二选一、撤摊、结局判定、结局场与奖励、行记条目。
+const assert=require('node:assert/strict');const {boot}=require('./harness.cjs');
+(async()=>{const {c,run}=await boot();const L=c.QiheLamp,Q=c.QiheChapter;let decisions=[];c.choose=async(w,t,opts)=>{const i=decisions.length?decisions.shift():0;if(i>=opts.length)throw Error('选项越界 '+i+' '+t);return i};
+ run("window.__said=[];say=async(w,t)=>{__said.push(w+'：'+t)}");const said=()=>run('__said'),clear=()=>run('__said.length=0');
+ const fresh=(deal)=>run(`S=newState();S.qiheChapter=QiheChapter.initial();S.qiheChapter.stage='days';S.qiheChapter.halfDay=0;S.prologue=QihePrologue.fresh();S.prologue.arrival={version:1,stage:'done',borrowed:true,originExpression:'A',greeted:{}};S.prologue.rested=true;S.prologue.relicSeen=true;S.bag={};S.silver=50;S.party=['ye'];${deal?`S.qiheChapter.records={stranger_deal:'${deal}'};`:''}S.scene='qihe_trial';cur=SC.qihe_trial;buildGrid(cur);mode='scene';busy=false;dlgBusy=false;keys={};`);
+ const npc=(sc,id)=>run(`SC['${sc}'].npcs.find(n=>n.id==='${id}')`);
+ const half=h=>run(`S.qiheChapter.halfDay=${h}`);const lamp=()=>run('S.qiheChapter.records.lamp||{}');
+ const checks=[];const check=async(name,fn)=>{await fn();checks.push(name);console.log('PASS',name)};
+ await check('算命先生、船家上图，半日 0 头一回是灯一',async()=>{fresh();const f=npc('qihe_trial','fortune'),b=npc('qh_east','boatman');assert(f&&b);assert.equal(f.show(),true);assert.equal(f.mark(),true);
+  decisions=[0];await f.act();assert.equal(lamp().met,true);assert.equal(lamp().meetPlayed,true);assert(said().some(s=>s.includes('测个字')));assert(run('QiheLamp.lamp().luck?.length'),'测字记一句吉利话（不给加成）')});
+ await check('问船家（半日 ≤2）→ 回话一 → briefed',async()=>{decisions=[0];await npc('qh_east','boatman').act();assert.equal(lamp().boatman,true);
+  decisions=[0];await npc('qihe_trial','fortune').act();assert.equal(lamp().report1Done,true);assert.equal(lamp().briefed,true)});
+ await check('时限：半日 3 起问不了船家，测字每时段一次、两文',async()=>{half(3);assert.equal(L.OPEN.boatman(),false);const s0=run('S.silver');decisions=[0,0];await npc('qihe_trial','fortune').act();assert.equal(run('S.silver'),s0-2);
+  clear();decisions=[0];await npc('qihe_trial','fortune').act();assert.equal(run('S.silver'),s0-2,'同一时段第二次不收钱');assert(said().some(s=>s.includes('刚测过')))});
+ await check('灯二：岑霜登场后交谈前多一问，看到封皮',async()=>{run("S.qiheChapter.events['three-meeting']=true");assert.equal(L.OPEN.seal(),true);decisions=[0,0];const ok=await L.sealOffer();assert.equal(ok,true);assert.ok(lamp().seal)});
+ await check('半日 4：跟了脚夫，后山回话二就关',async()=>{half(4);run("S.qiheChapter.records.stranger_deal='accepted'");assert.equal(L.OPEN.tail(),true);decisions=[0,0,0,0,0];await npc('qh_east','boatman').act();
+  assert.equal(lamp().t3,'tail');assert.equal(Q.strangerPending(),null);assert.equal(Q.strangerVisible(),false)});
+ await check('灯四与结局判定：跟了脚夫不算完美，结局 2',async()=>{decisions=[0,2,0,0,0,0];await npc('qihe_trial','fortune').act();assert.equal(lamp().report2Done,true);assert.equal(L.settleEnding(),'noticed');assert.equal(lamp().noticed,'tailed')});
+ await check('被说出去：撤摊、灯四关闭',async()=>{fresh();run("S.qiheChapter.records={lamp:{met:true,sold:'song'}}");half(4);assert.equal(npc('qihe_trial','fortune').show(),false);assert.equal(L.OPEN.report2(),false)});
+ await check('两条线都没碰：ending 留空，对证走原基线',async()=>{fresh();assert.equal(L.settleEnding(),null)});
+ await check('完美条件全满足：结局 3，赏书发《守烛心经》与铜灯牌，只发一次',async()=>{fresh('accepted');run("S.qiheChapter.records.stranger_report='partial';S.qiheChapter.records.lamp={met:true,hidden_watch:true,seal:'seen',porter_seen:true,deduce:'ok',handoff:'blade_order'};S.qiheChapter.stage='refuge'");
+  assert.equal(L.settleEnding(),'blade');decisions=[0,0,0,0];await L.endScene();assert.equal(run('S.bag.qh_shouzhu_jing'),1);assert.equal(run('S.bag.qh_copper_lamp_tag'),1);await L.endScene();assert.equal(run('S.bag.qh_shouzhu_jing'),1)});
+ await check('行记有蔺管事线条目',async()=>{fresh();run("S.qiheChapter.records={lamp:{met:true}}");const rows=run('window.QiheJournalExtras.length');assert(rows>=1);const got=[];run('window.QiheJournalExtras').forEach(fn=>fn(x=>got.push(x),(t,d,done)=>({t,d,done})));assert(got.some(x=>x.id==='side:lamp'))});
+ console.log(JSON.stringify({status:'PASS',checks:checks.length}));process.exit(0)})().catch(e=>{console.error(e);process.exit(1)});

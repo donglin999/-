@@ -3,7 +3,7 @@
 const {chromium}=require('/Users/wuxiuxiang/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright');
 const fs=require('node:fs'),path=require('node:path'),assert=require('node:assert/strict');
 const out=path.resolve(__dirname,'../review/cultivation-balance-20261012');
-(async()=>{const b=await chromium.launch({headless:true,executablePath:process.env.CHROMIUM_PATH||'/Users/wuxiuxiang/Library/Caches/ms-playwright/chromium_headless_shell-1228/chrome-headless-shell-mac-arm64/chrome-headless-shell'});try{
+(async()=>{const b=await chromium.launch({headless:true,executablePath:process.env.CHROMIUM_PATH||'/Users/wuxiuxiang/Library/Caches/ms-playwright/chromium_headless_shell-1248/chrome-headless-shell-mac-arm64/chrome-headless-shell'});try{
  const p=await b.newPage(),errors=[];p.on('console',m=>{if(m.text().startsWith('BALANCE '))console.log(m.text())});p.on('pageerror',e=>errors.push(e.message));await p.goto('http://127.0.0.1:8792/?chapterPresentationReview=cultivation-balance-combat-20261012&play=1#qihe-map',{waitUntil:'domcontentloaded',timeout:60000});await p.waitForFunction(()=>S?.cultivation&&CultivationBalance.battleWhy);
  const variants=JSON.parse(fs.readFileSync(path.join(out,'growth-report.json'))).variants;
  const report=await p.evaluate(async variants=>{

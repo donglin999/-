@@ -5,10 +5,12 @@
 //   MiniMax 演员法每句三备选（MiniMax-M3），主会话挑选剪辑：去掉点名具体物件的说法（送的东西不固定）、易物气泡里的心里话改成说出口的话；“ask”两句是主会话补写。2026-10-27 用户授权 Claude 代审，已冷读、批准（--approve）。
 // 2026-10-27 冷读后改：连送、赔礼收／不收三句由通用句改为逐人（R-剧情-06）；去掉“药棚”“修完车”等绑死时间地点的说法；差役两句撞句、帮众口吻、岑霜称呼、老人“不喜欢”看不出、两处“无功不受禄”撞句。多类喜好的人的“喜”句不点名东西；只喜欢一类的人点名那一类（对得上）。
 // 调用：js/qihe-gift.js QiheGift.lineFor('qh_gift_line', {pid, kind})；kind＝xi 喜｜ke 可收｜meh 不喜欢（收下不加分）｜no 婉拒｜again 连送同一样｜amend-ok／amend-no 赔礼收／不收。
+// 2026-10-29 逻辑排查（评审台，你答过的题由 Claude 落实）：差役收酒改“收工回去暖暖身子”；差役、护院婉拒按原因拆两句（why）；差役赔礼改“算赔我那份……公事公办”；护院赔礼改“得执事说了算”。
 INCLUDE ../_共用/externals.ink
 
 VAR pid = "" // 参数：人物 id（js/qihe-npc-data.js PEOPLE 的键）
 VAR kind = "" // 参数：反应
+VAR why = "" // 参数：婉拒的原因（no 这类不收／heavy 太贵重），差役、护院按原因说
 VAR who = "" // 参数：说话人的名字（2026-10-27 起通用三句改为逐人，已不用；保留声明免得旧调用报错）
 
 === qh_gift_line ===
@@ -70,13 +72,18 @@ VAR who = "" // 参数：说话人的名字（2026-10-27 起通用三句改为�
 - pid == "aide" && kind == "no":
     采办随从：这东西我不收，你拿回去吧。 #id:QG-aide-no
 - pid == "bailiff" && kind == "xi":
-    差役：这酒好，夜里巡路正拿它提神。 #id:QG-bailiff-xi
+    差役：这酒好，收工回去暖暖身子。 #id:QG-bailiff-xi
 - pid == "bailiff" && kind == "ke":
     差役：那我就收下了，多谢你。 #id:QG-bailiff-ke
 - pid == "bailiff" && kind == "meh":
     差役：行吧，搁这儿，我先收着。 #id:QG-bailiff-meh
 - pid == "bailiff" && kind == "no":
-    差役：这个我不能收，我给公家守路，不能收旁人的东西。 #id:QG-bailiff-no
+    {
+    - why == "heavy":
+        差役：这么贵重的，当差的收了说不清。 #id:QG-bailiff-no-heavy
+    - why == "no" or why == "":
+        差役：书？我认不得几个字，你留着吧。 #id:QG-bailiff-no
+    }
 - pid == "retainer" && kind == "xi":
     护院：正用得上，我收下了，多谢。 #id:QG-retainer-xi
 - pid == "retainer" && kind == "ke":
@@ -84,7 +91,12 @@ VAR who = "" // 参数：说话人的名字（2026-10-27 起通用三句改为�
 - pid == "retainer" && kind == "meh":
     护院：东西我收下了，你有心了。 #id:QG-retainer-meh
 - pid == "retainer" && kind == "no":
-    护院：这个不能收，当差之人不收旁人赠物。 #id:QG-retainer-no
+    {
+    - why == "heavy":
+        护院：这么贵重的，执事知道了要问。 #id:QG-retainer-no-heavy
+    - why == "no" or why == "":
+        护院：书我用不上，你留着吧。 #id:QG-retainer-no
+    }
 - pid == "bandit" && kind == "xi":
     帮众：好！这酒够劲，今夜就开封！ #id:QG-bandit-xi
 - pid == "bandit" && kind == "ke":
@@ -186,13 +198,13 @@ VAR who = "" // 参数：说话人的名字（2026-10-27 起通用三句改为�
 - pid == "bailiff" && kind == "again":
     差役：上回的还没用完，别再送了，叫人看见不好。 #id:QG-bailiff-again
 - pid == "bailiff" && kind == "amend-ok":
-    差役：收下了。那事我就当没见着。 #id:QG-bailiff-amendok
+    差役：这个算赔我那份。往后规矩些，再撞上，公事公办。 #id:QG-bailiff-amendok
 - pid == "bailiff" && kind == "amend-no":
     差役：拿回去。那事还没过去，收你东西说不清。 #id:QG-bailiff-amendno
 - pid == "retainer" && kind == "again":
     护院：上回那份还在，不必再送。 #id:QG-retainer-again
 - pid == "retainer" && kind == "amend-ok":
-    护院：东西收下。那事，我不再追究。 #id:QG-retainer-amendok
+    护院：东西收下。那事，得执事说了算。 #id:QG-retainer-amendok
 - pid == "retainer" && kind == "amend-no":
     护院：那件事没完，东西请拿回。 #id:QG-retainer-amendno
 - pid == "bandit" && kind == "again":

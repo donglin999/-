@@ -1,6 +1,6 @@
 /* Guiyun teaching terminates by observed actions; it never defeats the teacher. */
 (()=>{'use strict';if(!isQiheEntry())return;
-SKILLS.gy_zhou_teaching={name:'示范与叫停',kind:'剑',mp:0,pow:0,desc:'周砚考校专用示范，不向玩家授予武学。'};BSK.gy_zhou_teaching={t:'剑',tgt:'foe'};
+SKILLS.gy_zhou_teaching={name:'示范与叫停',kind:'剑',mp:0,pow:0,grade:'丁',desc:'周砚考校专用示范，不向玩家授予武学。'};BSK.gy_zhou_teaching={t:'剑',tgt:'foe'};FXDEF.gy_zhou_teaching={tier:0,cls:'dmg',hit:'剑'};
 const oldIntentLabel=intentLabel;intentLabel=function(u){if(B?.opt.training)return'示范 · 等你收招';if(u.guiyunGuardOnly)return'守住中线 · 陪练';return oldIntentLabel(u);};
 const oldEnd=endCheck,oldFoe=foeAct,oldTick=tickBuffs,oldAttack=doAttack,oldSkill=doSkill,oldVictory=victory;
 doAttack=async function(u){u.guiyunLastAction='attack';return oldAttack.apply(this,arguments);};

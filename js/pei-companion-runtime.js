@@ -6,7 +6,7 @@ MN_MEM[P.id]={wk:['书'],slots:['weapon','armor','acc'],learn:[],role:'书生 ·
 PARTY_DEF[P.id]={name:'裴知古',initialLevel:3,art:['gy_peizhigu'],por:['gy_peizhigu'],st:P.fresh().st,skills:['pei_zhi'],atkType:null,atkName:'护书轻触'};
 PORTS.push('gy_peizhigu');ASSETS.push('p_gy_peizhigu');
 ART.portraitFile||={};ART.portraitFile.p_gy_peizhigu='assets/production/cultivation/household-v1/pei_normal.png';
-for(const [id,sk]of Object.entries(P.skills)){SKILLS[id]={...sk,pow:0,personalOwner:P.id};BSK[id]={tgt:sk.tgt,buff:true};FXDEF[id]={tier:0,cls:'buff'};}
+/* 2026-10-31 品阶跟随残卷解锁档位（pei-companion.js 的 book.grade） */const PEI_GRADE={pei_zhi:'丁',pei_wen:'丙',pei_shen:'乙',pei_jiao:'甲'};for(const [id,sk]of Object.entries(P.skills)){SKILLS[id]={...sk,pow:0,personalOwner:P.id,grade:PEI_GRADE[id]};BSK[id]={tgt:sk.tgt,buff:true};FXDEF[id]={tier:0,cls:'buff'};}
 const oldCan=mnCan,oldUnequip=mnUnequip,oldSkillWhy=QiheUIModel.skillWhy;
 mnCan=function(w,k){if(ITEMS[k]?.boundTo&&ITEMS[k].boundTo!==w)return'此册只属于裴知古';if(w===P.id&&mnSlot(k)==='weapon')return'素笺为绑定书册，不能替换';return oldCan(w,k);};
 mnUnequip=function(w,slot){if(w===P.id&&slot==='weapon')return false;return oldUnequip(w,slot);};

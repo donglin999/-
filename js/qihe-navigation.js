@@ -2,7 +2,7 @@
 (()=>{
  if(!isQiheEntry())return;
  let selected=null,lastHalfDay=null,lastMap=null,thumbnail=null,mapOpen=false;
- const canToggle=()=>S&&mode==='scene'&&!busy&&!dlgBusy&&$('panel').hidden;
+ const canToggle=()=>S&&mode==='scene'&&!busy&&!dlgBusy&&$('panel').hidden&&!window.qiheOverlayOpen?.();   // 2026-10-27 墨印等覆盖层开着时不弹地图
  function toggle(force){if(!canToggle())return;mapOpen=typeof force==='boolean'?force:!mapOpen;hud();}
  addEventListener('keydown',e=>{if(e.defaultPrevented||e.repeat||e.isComposing||e.ctrlKey||e.metaKey||e.altKey||['INPUT','TEXTAREA','SELECT'].includes(e.target?.tagName)||e.target?.isContentEditable||!canToggle())return;const key=e.key.toLowerCase();if(key==='m'||(key==='escape'&&mapOpen)){e.preventDefault();e.stopImmediatePropagation();toggle(key==='m'?undefined:false);}},true);
  const ids={central:'qihe_trial',south:'qh_south',east:'qh_east',west:'qh_west',north:'qh_north',refuge:'qh_refuge',mountain:'qh_mountain'};

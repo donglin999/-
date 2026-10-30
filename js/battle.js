@@ -45,7 +45,7 @@ function statUnit(src,side){const d=derived({st:src.st,lv:src.lv||1,weapon:src.w
     bp:1,boosted:false,buffs:{},alpha:1,id:Math.random()}}
 function mkHero(){const u=statUnit({...S,name:S.name},'ally');const d=derived();Object.assign(u,{mhp:d.mhp,mmp:d.mmp,atk:d.atk,def:d.def,spd:d.spd,crit:d.crit,dodge:d.dodge});
   u.hp=clamp(S.hp,1,u.mhp);u.mp=clamp(S.mp,0,u.mmp);u.isHero=true;u.art=pickArt(['hero']);u.por='hero';
-  const w=S.weapon&&ITEMS[S.weapon]&&ITEMS[S.weapon].weapon;u.atkType=w?w.kind:'拳';u.atkName=w?ITEMS[S.weapon].name:'拳脚';
+  const w=S.weapon&&ITEMS[S.weapon]&&ITEMS[S.weapon].weapon;u.atkType=w&&WTYPES.includes(w.kind)?w.kind:'拳';   // 医具不是攻击类型，拿着它普攻按拳脚算u.atkName=w?ITEMS[S.weapon].name:'拳脚';
   u.skills=Object.keys(S.skills).filter(k=>SKILLS[k]&&k!=='fist');u.skLv=S.skills;return u}
 function mkAlly(key){const P=PARTY_DEF[key];if(!P)return null;const u=statUnit({name:P.name,st:P.st,lv:Math.max(1,S.lv)},'ally');
   u.hp=u.mhp;u.mp=u.mmp;u.art=pickArt(P.art);u.por=P.por.find(p=>ok(IMG['p_'+p]))||P.por[0];u.key=key;u.atkType=P.atkType;u.atkName=P.atkName;u.skills=P.skills.slice();u.skLv={};return u}
@@ -344,7 +344,7 @@ function allyTurn(u){return new Promise(res=>{B.bpUse=0;const cmd=$('bt-cmd');
       const go=t=>done(bp=>doSkill(u,k,t,bp));B.pv=bp=>skillPv(u,k,bp);
       if(tg==='self')go([u]);else target(tg==='foe'||tg==='foes'?'foe':'ally',tg==='foes'||tg==='allies',skills,go,SKILLS[k].name)})};
   const items=inv=>{menu('道具',inv.map(([k,n])=>({label:ITEMS[k].name,val:k,right:'×'+n,desc:ITEMS[k].desc})),main,k=>target('ally',false,()=>items(inv),t=>done(async()=>{
-      const it=ITEMS[k];S.bag[k]--;const x=t[0];await lunge(u,x,.3);if(it.heal){heal(x,it.heal)}if(it.mp){x.mp=Math.min(x.mmp,x.mp+it.mp);floatTxt(x,'内力+'+it.mp,'#8cf',22)}renderCards();await wait(500)},1),ITEMS[k].name))};
+      const it=ITEMS[k];S.bag[k]--;const x=t[0];await lunge(u,x,.3);if(it.heal){heal(x,window.QiheAccFx?QiheAccFx.heal(x.isHero?'hero':x.key,it.heal):it.heal)}if(it.mp){x.mp=Math.min(x.mmp,x.mp+it.mp);floatTxt(x,'内力+'+it.mp,'#8cf',22)}renderCards();await wait(500)},1),ITEMS[k].name))};
   main()})}
 const avg=(l,f)=>l.reduce((s,u)=>s+u[f],0)/Math.max(1,l.length);
 
@@ -356,7 +356,7 @@ async function doAttack(u,t,bp){u.stationarySkill=false;const hits=1+bp;if(bp)aw
 async function doSkill(u,k,tgs,bp){const sk=SKILLS[k],bi=BSK[k]||{};if(window.QiheUIModel&&u.side==='ally'&&QiheUIModel.skillWhy(u,k))return;u.stationarySkill=true;u.stepO=0;if(u.bx!=null)u.x=u.bx;u.mp-=window.QiheUIModel?QiheUIModel.skillCost(u,k):(sk.mp||0);renderCards();if(bp)await boostFx(u,bp);showName(u,sk.name);
   const lvM=1+.15*(((u.skLv||{})[k]||1)-1),effect=window.QiheUIModel?.skillEffects(u,k,bp);
   if(sk.heal||bi.buff){VFX.act(u,'cast');await VFX.cast(u,k,tgs,bp)}
-  if(sk.heal){for(const t of tgs)if(t.hp>0)heal(t,Math.round(t.mhp*(effect?.heal??sk.heal*lvM*(1+bp*.5))));await wait(600);return}
+  if(sk.heal){for(const t of tgs)if(t.hp>0){const n=Math.round(t.mhp*(effect?.heal??sk.heal*lvM*(1+bp*.5)));heal(t,window.QiheAccFx&&u.side==='ally'?QiheAccFx.skillHeal(u.isHero?'hero':u.key,n):n)}await wait(600);return}
   if(bi.buff){for(const t of tgs){t.buffs.ding=effect?.duration??2+bp;floatTxt(t,'定神 · 攻防提升','#ffe7a0',20)}renderCards();await wait(600);return}
   const hits=effect?.hits??(bi.hits||1)+(bi.hits?bp:0),pow=effect?.power??(sk.pow||1)*lvM*(bi.hits?1/Math.sqrt(bi.hits):1)*(bi.hits?1:1+bp*.8);
   VFX.act(u,'cast');await VFX.cast(u,k,tgs,bp);
@@ -394,8 +394,8 @@ async function bigText(t,c,ms){B.big={t,c,t0:performance.now(),ms};await wait(ms
 
 // ───────── 胜利结算 ─────────
 async function victory(){bsfx('chime');await bigText('胜','#f3d58e',900);
-  let exp=0,sil=0;const drops={};for(const f of B.foes){exp+=f.exp;sil+=f.silver;for(const[k,p]of Object.entries(f.drops||{}))if(ITEMS[k]&&chance(p))drops[k]=(drops[k]||0)+1}
-  exp=Math.round(exp*(B.opt.tutorial?.5:1));S.silver+=sil;for(const[k,n]of Object.entries(drops))S.bag[k]=(S.bag[k]||0)+n;
+  let exp=0,sil=0;const drops={};for(const f of B.foes){exp+=f.exp;sil+=f.silver;for(const[k,p]of Object.entries(f.drops||{}))if(ITEMS[k]&&chance(window.QiheAccFx?QiheAccFx.drop(p):p))drops[k]=(drops[k]||0)+1}
+  exp=Math.round(exp*(B.opt.tutorial?.5:1));if(window.QiheAccFx)sil=QiheAccFx.silver(sil);S.silver+=sil;for(const[k,n]of Object.entries(drops))S.bag[k]=(S.bag[k]||0)+n;
   const growth=CharacterGrowth.awardBattle(S,exp,B.allies.filter(u=>!u.isHero).map(u=>u.key),(r,id)=>settleCharacterLevels(r,id==='hero'?derived:()=>mnD(id)));const lvl=growth.hero.levels;for(const row of growth.mates)if(row.levels.length){const u=B.allies.find(u=>u.key===row.id);if(u)u.levelUpThisBattle=true;}
   if(sil)bsfx('coin');
   const w=document.createElement('div');w.id='bt-win';w.className='frame';

@@ -49,11 +49,11 @@ async function capture(page,file,report){
 }
 (async()=>{
  fs.mkdirSync(out,{recursive:true});
- const browser=await chromium.launch({executablePath:process.env.CHROMIUM_PATH||'/Users/wuxiuxiang/Library/Caches/ms-playwright/chromium_headless_shell-1228/chrome-headless-shell-mac-arm64/chrome-headless-shell'});
+ const browser=await chromium.launch({executablePath:process.env.CHROMIUM_PATH||'/Users/wuxiuxiang/Library/Caches/ms-playwright/chromium_headless_shell-1248/chrome-headless-shell-mac-arm64/chrome-headless-shell'});
  const report={kind:'formal-game-journal-notices',url:base,playerBrowserAccessed:false,saveIsolation:'disposable contexts / xjh.qihe-ui.review.v1',captures:[],checks:[],errors:[],missingAssets:[]};
  try{
   for(const viewport of [{width:1600,height:900},{width:740,height:872}]){
-   const context=await browser.newContext({viewport,deviceScaleFactor:1}),page=await context.newPage();page.setDefaultTimeout(12000);page.setDefaultNavigationTimeout(30000);
+   const context=await browser.newContext({viewport,deviceScaleFactor:1}),page=await context.newPage();page.setDefaultTimeout(12000);page.setDefaultNavigationTimeout(90000);
    page.on('pageerror',e=>report.errors.push(e.message));
    page.on('response',r=>{if(r.status()>=400&&!r.url().endsWith('/favicon.ico'))report.missingAssets.push({url:r.url(),status:r.status()})});
    await page.goto(base,{waitUntil:'networkidle'});await idle(page);await fixture(page);

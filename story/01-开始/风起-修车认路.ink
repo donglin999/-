@@ -3,6 +3,7 @@
 // 戏眼：药车轴销松了，老人家也要先送走，陆衡一个人顾不过来。散场时车修好了，或几位老人先去了邻村。
 // 2026-10-19 风起主线批次：从 js/qihe-chapter.js activityBody('transport') 搬入。
 // 2026-10-19 剧情三道关改写（戏眼卡 xiaojianghu/docs/design/scripts/briefs/fengqi-main-actors-brief.json）：村口老人那句“药不用一次带齐”不像临走的老人会说，改成惦记家里没锁的门。
+// 2026-10-29 逻辑排查（评审台，用户授权 Claude 代评剧情）：轴销还松着，C1-A-transport-B1 改成先让老人在边上歇着。
 INCLUDE ../_共用/externals.ink
 INCLUDE ../_共用/externals-风起主线.ink
 
@@ -14,6 +15,6 @@ INCLUDE ../_共用/externals-风起主线.ink
     陈伯：行了，推着顺手。能坐人，也能捆几件家当。 #id:C1-A-transport-A2
 * [“我先送老人家去邻村。”]
     ~ set_flag("qiheChapter.choices.transport", "elders")
-    陆衡：老人家，慢点上车。到了邻村记得留个名字和住处，家里人好找。 #id:C1-A-transport-B1
+    陆衡：老人家，车轴还得再紧一紧，您先边上歇着。到了邻村留个名字，家里人好找。 #id:C1-A-transport-B1
     村口老人：哎，家里那门好像没锁……咳，算了，也没什么好偷的。 #id:C1-A-transport-B2
 - -> END

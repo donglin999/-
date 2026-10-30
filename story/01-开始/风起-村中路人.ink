@@ -2,6 +2,7 @@
 // 地点：后山、南村口、东埠、西田埂、邻村院子、归云谷客院　在场：说话的人、萧白
 // 戏眼：守门的、让路的、坐着歇脚的人各有一句眼下的话；萧白在后山看见靴印。散场时只有“看见靴印”记一笔。
 // 2026-10-19 风起主线批次：从 js/qihe-expansion.js 的单句台词搬入。
+// 2026-10-29 逻辑排查（评审台，用户授权 Claude 代评剧情）：QX-retainer 删“她就在门口”（徐令仪还没上门）；QX-westroad 陆衡不在路口，改成萧白心里话。
 INCLUDE ../_共用/externals.ink
 INCLUDE ../_共用/externals-风起主线.ink
 
@@ -25,7 +26,7 @@ INCLUDE ../_共用/externals-风起主线.ink
 === fq_x_retainer ===
 { flag("qiheChapter.talkCycle"):
 - 0:
-    护院：有事找我们徐执事，她就在门口。车道别堵着。 #id:QX-retainer
+    护院：有事找我们徐执事。车道别堵着。 #id:QX-retainer
     ~ set_flag("qiheChapter.talkCycle", 1)
 - 1:
     护院：执事吩咐过，不许为难村里人。小兄弟请绕一步。 #id:QX-retainer-2
@@ -51,7 +52,7 @@ INCLUDE ../_共用/externals-风起主线.ink
 -> END
 
 === fq_x_westroad ===
-陆衡：往邻村走西边这条田埂，药车过得去。走之前，先把村里的事交代好。 #id:QX-westroad
+萧白：（往邻村得走西边这条田埂……先把村里的事办完再说。） #id:QX-westroad
 -> END
 
 === fq_x_elder ===

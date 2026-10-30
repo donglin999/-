@@ -31,7 +31,7 @@
  add('north','stranger-basket','周婶的竹匾',null,[950,305],()=>act('stranger-basket'),()=>CP()?.stage==='days'&&CP().halfDay===0&&!CP().events?.['c1-00b']);
  add('north','tracks','山道痕迹',null,'clue',()=>speak('fq_x_tracks'));
  add('south','merchant','药商','c_opening_apothecary','merchant',()=>act('apothecary'),beforeFire);
- add('south','cloth','店家','c_merchant','innkeeper',()=>CP()?act('innkeeper'):QihePrologue.actions.cloth(),beforeFire);
+ add('south','cloth','店家','c_qh_merchant','innkeeper',()=>CP()?act('innkeeper'):QihePrologue.actions.cloth(),beforeFire);
  add('south','retainer','护院','c_opening_retainer','retainer',()=>speak('fq_x_retainer'),beforeFire);
  add('south','bandit','帮众','c_qh_bandit','bandit',()=>act('bandit'),()=>beforeFire()&&(!CP()||CP().halfDay<4));
  add('east','aide','采办随从','c_opening_procurement_aide','procurement_aide',()=>act('aide'),beforeFire);
