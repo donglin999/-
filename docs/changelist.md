@@ -25,6 +25,22 @@
 
 ## 条目
 
+### 2026-10-31 · 结局 3 正式 CG「以书酬功」
+- 工作区：xiaojianghu-legacy-prologue
+- 谁：Claude Code（栖河整改评审）
+- 状态：已提交 `0cb6a84`（未推送），已发布到 main、qihe
+- 范围：`art_sources/faces-redesign-20261030/adopted/cg/`、`assets/production/shared/cg_qh_lamp_blade_20261031.webp`、素材登记、`story/01-开始/支线-蔺管事-赏书.ink`（只加 CG 调用，台词未改，已按代评授权登记批准）、`js/qihe-fire-cinematic.js`。
+- 更新记录：[2026-10-30-desk-finish](../../xiaojianghu-legacy-prologue/docs/updates/2026-10-30-desk-finish.md)
+- 留给接手的人：第三十二轮第 1 题新脸已通过；CG 正式版贴在同题等用户看。全量 80 个还有 11 个没过，和上一轮同一批。
+
+### 2026-10-31 · 新脸定稿接入（宋甲＋蔺甲＋程甲）
+- 工作区：xiaojianghu-legacy-prologue
+- 谁：Claude Code（栖河整改评审）
+- 状态：已提交 `0cb6a84`（未推送），已发布到 main、qihe
+- 范围：`assets/production/portraits`、`characters` 的宋先生、程铎、蔺管事新素材，`js/production-assets.js`、`js/qihe-cast-art.js`，素材登记和镂空白名单。
+- 更新记录：[2026-10-30-desk-finish](../../xiaojianghu-legacy-prologue/docs/updates/2026-10-30-desk-finish.md)
+- 留给接手的人：等第三十二轮第 1 题验收；结局 3 正式 CG 等构图确认。
+
 ### 2026-10-31 · 查清剩余测试失败，提交并发布栖河
 - 工作区：xiaojianghu-legacy-prologue
 - 谁：Claude Code（栖河整改评审）
