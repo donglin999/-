@@ -2,7 +2,7 @@
 (()=>{if(!isQiheEntry())return;
 CHARS.push('opening_zhouyan');ASSETS.push('s_opening_zhouyan');ART.sheet.opening_zhouyan=[66, 141];ART.frames.opening_zhouyan=4;ART.scale.opening_zhouyan=1;
 CHARS.push('opening_luheng');ASSETS.push('s_opening_luheng');ART.sheet.opening_luheng=[72, 141];ART.frames.opening_luheng=4;ART.scale.opening_luheng=1;
-CHARS.push('opening_chengduo');ASSETS.push('s_opening_chengduo');ART.sheet.opening_chengduo=[66, 141];ART.frames.opening_chengduo=4;ART.scale.opening_chengduo=1;
+CHARS.push('opening_chengduo');ASSETS.push('s_opening_chengduo');ART.sheet.opening_chengduo=[96, 141];ART.frames.opening_chengduo=4;ART.scale.opening_chengduo=1;
 CHARS.push('opening_censhuang');ASSETS.push('s_opening_censhuang');ART.sheet.opening_censhuang=[66, 141];ART.frames.opening_censhuang=4;ART.scale.opening_censhuang=1;
 CHARS.push('opening_wukui');ASSETS.push('s_opening_wukui');ART.sheet.opening_wukui=[66, 141];ART.frames.opening_wukui=4;ART.scale.opening_wukui=1;
 CHARS.push('opening_aunt');ASSETS.push('s_opening_aunt');ART.sheet.opening_aunt=[72, 141];ART.frames.opening_aunt=4;ART.scale.opening_aunt=1;

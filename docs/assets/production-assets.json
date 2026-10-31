@@ -117,11 +117,11 @@
     },
     {
       "id": "s_opening_chengduo",
-      "path": "assets/production/characters/s_opening_chengduo_pixfix_20261007.webp",
-      "original_path": "art_sources/character-pixel-fix-20261007/final/s_opening_chengduo.webp",
+      "path": "assets/production/characters/s_opening_chengduo_20261031.webp",
+      "original_path": "art_sources/faces-redesign-20261030/adopted/sprite/final/s_opening_chengduo_20261031.webp",
       "system": "characters",
       "role": "registered-or-direct-runtime",
-      "sha256": "a09446f3601d84f583d29012ea71b0c8dd72000e2d5de35714e12ae609a90a29",
+      "sha256": "01f6ae56662ec15fae246fd497c8388e961bb87a1964951f587edb960c23d5aa",
       "references": [
         "js/qihe-cast-art.js",
         "js/production-assets.js"
@@ -132,7 +132,13 @@
       ],
       "generation_record": "art_sources/character-pixel-fix-20261007/merge.json",
       "acceptance_evidence": "art_sources/character-pixel-fix-20261007/adopt.json",
-      "supersedes": "assets/production/characters/s_opening_chengduo.webp（已移入 _attic/2026-10-20-assets，见 docs/updates/2026-10-20-assets-cleanup.md）"
+      "supersedes": "assets/production/characters/s_opening_chengduo.webp（已移入 _attic/2026-10-20-assets，见 docs/updates/2026-10-20-assets-cleanup.md）",
+      "actual_size": [
+        384,
+        564
+      ],
+      "acceptance_status": "adopted-20261031",
+      "visual_acceptance_record": "docs/updates/2026-10-30-desk-finish.md"
     },
     {
       "id": "s_opening_hero_modern",
@@ -4580,17 +4586,17 @@
     },
     {
       "id": "p_qh_song_story",
-      "path": "assets/production/portraits/p_qh_song_story_hd_20261017.webp",
-      "original_path": "art_sources/portrait-hd-20261017/final/p_qh_song_story_hd_20261017.webp",
+      "path": "assets/production/portraits/p_qh_song_story_hd_20261031.webp",
+      "original_path": "art_sources/faces-redesign-20261030/adopted/final/p_qh_song_story_hd_20261031.webp",
       "system": "portraits",
       "role": "registered-or-direct-runtime",
-      "sha256": "f0fa1471e48c5b581eccaf6a77be4decfa9be3ade6c1521be603a53a58377110",
+      "sha256": "3ab73c8cbedfa9562a37da570242fae3347be2a6f88fe10b496060e827000811",
       "actual_size": [
         960,
         1280
       ],
-      "acceptance_status": "adopted-20261017",
-      "visual_acceptance_record": "docs/updates/2026-10-17-portrait-hd.md",
+      "acceptance_status": "adopted-20261031",
+      "visual_acceptance_record": "docs/updates/2026-10-30-desk-finish.md",
       "references": [
         "js/qihe-chapter.js",
         "js/qihe-journal.js",
@@ -4599,17 +4605,17 @@
     },
     {
       "id": "p_qh_song_story_firm",
-      "path": "assets/production/portraits/p_qh_song_story_firm_hd_20261017.webp",
-      "original_path": "art_sources/portrait-hd-20261017/final/p_qh_song_story_firm_hd_20261017.webp",
+      "path": "assets/production/portraits/p_qh_song_story_firm_hd_20261031.webp",
+      "original_path": "art_sources/faces-redesign-20261030/adopted/final/p_qh_song_story_firm_hd_20261031.webp",
       "system": "portraits",
       "role": "registered-or-direct-runtime",
-      "sha256": "0c386a22817e7112563cbadd82b5a8914679c43a82bf5da7e4d7756b3e8e8e3b",
+      "sha256": "e5426db9f5cf40c6f02ad6793b9d6ba01f3d0dfeff964e0eead90c7d78481b88",
       "actual_size": [
         960,
         1280
       ],
-      "acceptance_status": "adopted-20261017",
-      "visual_acceptance_record": "docs/updates/2026-10-17-portrait-hd.md",
+      "acceptance_status": "adopted-20261031",
+      "visual_acceptance_record": "docs/updates/2026-10-30-desk-finish.md",
       "references": [
         "js/qihe-chapter.js",
         "js/production-assets.js"
@@ -4617,17 +4623,17 @@
     },
     {
       "id": "p_qh_song_story_worry",
-      "path": "assets/production/portraits/p_qh_song_story_worry_hd_20261017.webp",
-      "original_path": "art_sources/portrait-hd-20261017/final/p_qh_song_story_worry_hd_20261017.webp",
+      "path": "assets/production/portraits/p_qh_song_story_worry_hd_20261031.webp",
+      "original_path": "art_sources/faces-redesign-20261030/adopted/final/p_qh_song_story_worry_hd_20261031.webp",
       "system": "portraits",
       "role": "registered-or-direct-runtime",
-      "sha256": "45c4da7625385f27098a0a34160b7566f988617d32bb26153eec39353f7530eb",
+      "sha256": "1844a485dd68888fc0f365a4a09ea844f05002c435eb3e97e14abbd391933f3f",
       "actual_size": [
         960,
         1280
       ],
-      "acceptance_status": "adopted-20261017",
-      "visual_acceptance_record": "docs/updates/2026-10-17-portrait-hd.md",
+      "acceptance_status": "adopted-20261031",
+      "visual_acceptance_record": "docs/updates/2026-10-30-desk-finish.md",
       "references": [
         "js/qihe-chapter.js",
         "js/production-assets.js"
@@ -5708,11 +5714,11 @@
     },
     {
       "id": "s_npc_qh_song_seated_20261010",
-      "path": "assets/production/characters/s_npc_qh_song_seated_20261010.webp",
-      "original_path": "art_sources/qihe-npc-refresh-20261010/out/qh_song_seated/s_npc_qh_song_seated_20261010.webp",
+      "path": "assets/production/characters/s_npc_qh_song_seated_20261031.webp",
+      "original_path": "art_sources/faces-redesign-20261030/adopted/sprite/final/s_npc_qh_song_seated_20261031.webp",
       "system": "characters",
       "role": "registered-or-direct-runtime",
-      "sha256": "35e925fb0df209a378afcf6b79170fcb60c5efeff97a9e750d4b70f778ca2ac6",
+      "sha256": "db1888b08ddd4875fc21d8f902d9f7ad3f590e77554244169a98deecb788470c",
       "references": [
         "js/qihe-npc-pixel-art.js",
         "js/production-assets.js"
@@ -5727,15 +5733,21 @@
         "requested_model": "gpt-image-2.5",
         "actual_model": "not_disclosed_by_tool",
         "evidence": "art_sources/qihe-npc-refresh-20261010/visual-review.json"
-      }
+      },
+      "actual_size": [
+        384,
+        464
+      ],
+      "acceptance_status": "adopted-20261031",
+      "visual_acceptance_record": "docs/updates/2026-10-30-desk-finish.md"
     },
     {
       "id": "s_npc_qh_song_story_20261010",
-      "path": "assets/production/characters/s_npc_qh_song_story_20261010.webp",
-      "original_path": "art_sources/qihe-npc-refresh-20261010/out/qh_song_story/s_npc_qh_song_story_20261010.webp",
+      "path": "assets/production/characters/s_npc_qh_song_story_20261031.webp",
+      "original_path": "art_sources/faces-redesign-20261030/adopted/sprite/final/s_npc_qh_song_story_20261031.webp",
       "system": "characters",
       "role": "registered-or-direct-runtime",
-      "sha256": "8178a474607f0549603460ff422e468df31211f078f7bc2f1f3d1331e3961158",
+      "sha256": "259dba929615b0acd1f64c72db2f791490b3563de6bfe3f4984478dab4f0f330",
       "references": [
         "js/qihe-npc-pixel-art.js",
         "js/production-assets.js"
@@ -5750,7 +5762,13 @@
         "requested_model": "gpt-image-2.5",
         "actual_model": "not_disclosed_by_tool",
         "evidence": "art_sources/qihe-npc-refresh-20261010/visual-review.json"
-      }
+      },
+      "actual_size": [
+        384,
+        464
+      ],
+      "acceptance_status": "adopted-20261031",
+      "visual_acceptance_record": "docs/updates/2026-10-30-desk-finish.md"
     },
     {
       "id": "s_npc_qh_xulingyi_story_20261010",
@@ -8760,11 +8778,11 @@
     },
     {
       "id": "p_opening_chengduo",
-      "path": "assets/production/portraits/p_opening_chengduo_hd_20261017.webp",
-      "original_path": "art_sources/portrait-hd-cast-20261017/final/p_opening_chengduo_hd_20261017.webp",
+      "path": "assets/production/portraits/p_opening_chengduo_hd_20261031.webp",
+      "original_path": "art_sources/faces-redesign-20261030/adopted/final/p_opening_chengduo_hd_20261031.webp",
       "system": "portraits",
       "role": "registered-or-direct-runtime",
-      "sha256": "be4f16141db369ee49f9b45e07abac761fa6f4680d5aa27a1841c2a04900be78",
+      "sha256": "f3ff308438c3bb59f159740c2563377940dc55676aeb386494d36a08259d3813",
       "references": [
         "js/qihe-cast-art.js",
         "js/production-assets.js"
@@ -8773,16 +8791,16 @@
         960,
         1280
       ],
-      "acceptance_status": "adopted-20261017",
-      "visual_acceptance_record": "docs/updates/2026-10-17-portrait-hd-cast.md"
+      "acceptance_status": "adopted-20261031",
+      "visual_acceptance_record": "docs/updates/2026-10-30-desk-finish.md"
     },
     {
       "id": "p_opening_chengduo_firm",
-      "path": "assets/production/portraits/p_opening_chengduo_firm_hd_20261017.webp",
-      "original_path": "art_sources/portrait-hd-cast-20261017/final/p_opening_chengduo_firm_hd_20261017.webp",
+      "path": "assets/production/portraits/p_opening_chengduo_firm_hd_20261031.webp",
+      "original_path": "art_sources/faces-redesign-20261030/adopted/final/p_opening_chengduo_firm_hd_20261031.webp",
       "system": "portraits",
       "role": "registered-or-direct-runtime",
-      "sha256": "f4764705f6ef23a40306afb8f42084438be295f1bbb555d6822e128f0cf1ec03",
+      "sha256": "5404fe24683d84d5f03293d8fefaca666a00f6741f1241b1fb54fb17625a44c6",
       "references": [
         "js/qihe-cast-art.js",
         "js/production-assets.js"
@@ -8791,16 +8809,16 @@
         960,
         1280
       ],
-      "acceptance_status": "adopted-20261017",
-      "visual_acceptance_record": "docs/updates/2026-10-17-portrait-hd-cast.md"
+      "acceptance_status": "adopted-20261031",
+      "visual_acceptance_record": "docs/updates/2026-10-30-desk-finish.md"
     },
     {
       "id": "p_opening_chengduo_worry",
-      "path": "assets/production/portraits/p_opening_chengduo_worry_hd_20261017.webp",
-      "original_path": "art_sources/portrait-hd-cast-20261017/final/p_opening_chengduo_worry_hd_20261017.webp",
+      "path": "assets/production/portraits/p_opening_chengduo_worry_hd_20261031.webp",
+      "original_path": "art_sources/faces-redesign-20261030/adopted/final/p_opening_chengduo_worry_hd_20261031.webp",
       "system": "portraits",
       "role": "registered-or-direct-runtime",
-      "sha256": "8ec1d2f34cce982365e9fe595348312923fdf25766bcbfb3790efc8ac214513f",
+      "sha256": "0a9a0de83cf3670c47f84898a3f520f3c2da7853dbf8f469a0ede36a50d7184f",
       "references": [
         "js/qihe-cast-art.js",
         "js/production-assets.js"
@@ -8809,8 +8827,8 @@
         960,
         1280
       ],
-      "acceptance_status": "adopted-20261017",
-      "visual_acceptance_record": "docs/updates/2026-10-17-portrait-hd-cast.md"
+      "acceptance_status": "adopted-20261031",
+      "visual_acceptance_record": "docs/updates/2026-10-30-desk-finish.md"
     },
     {
       "id": "p_opening_hero_modern",
@@ -16888,11 +16906,11 @@
     },
     {
       "id": "p_qh_linhuizhi_hd_20261023",
-      "path": "assets/production/portraits/p_qh_linhuizhi_hd_20261023.webp",
-      "original_path": "art_sources/batch2-cast-20261023/linhuizhi/final/p_qh_linhuizhi_hd_20261023_a_cand.webp",
+      "path": "assets/production/portraits/p_qh_linhuizhi_hd_20261031.webp",
+      "original_path": "art_sources/faces-redesign-20261030/adopted/final/p_qh_linhuizhi_hd_20261031.webp",
       "system": "portraits",
       "role": "registered-or-direct-runtime",
-      "sha256": "3354e1c1f9f3aa15238718f63f658a1704db359273c094477d250d5c9fa3a576",
+      "sha256": "c01139c0c0b033cce45c3237451edf08d0776a3294130e7a200a0c9adb1e1e3f",
       "references": [
         "js/production-assets.js"
       ],
@@ -16900,8 +16918,8 @@
         960,
         1280
       ],
-      "acceptance_status": "adopted-20261025",
-      "visual_acceptance_record": "评审台第十四轮第 7 题，用户选\"按建议\"，蔺晦之采用候选A",
+      "acceptance_status": "adopted-20261031",
+      "visual_acceptance_record": "docs/updates/2026-10-30-desk-finish.md",
       "generation_record": "art_sources/batch2-cast-20261023/linhuizhi/README.md",
       "batch_source": "art_sources/batch2-cast-20261023/README.md"
     },
@@ -17173,11 +17191,11 @@
     },
     {
       "id": "s_npc_qh_linhuizhi_20261023",
-      "path": "assets/production/characters/s_npc_qh_linhuizhi_20261023.webp",
-      "original_path": "art_sources/batch2-cast-20261023/linhuizhi/sprite/s_npc_qh_linhuizhi_20261023_a_cand.webp",
+      "path": "assets/production/characters/s_npc_qh_linhuizhi_20261031.webp",
+      "original_path": "art_sources/faces-redesign-20261030/adopted/sprite/final/s_npc_qh_linhuizhi_20261031.webp",
       "system": "characters",
       "role": "registered-or-direct-runtime",
-      "sha256": "0b42118fc549ac4d2f0aa39a749bba7ca920dc90d0df53e41f43478c3597777a",
+      "sha256": "8fba3231629b147c997119e5d59163caf0604e458593eb2ad671a063e7bfcfe6",
       "references": [
         "js/production-assets.js"
       ],
@@ -17185,8 +17203,8 @@
         384,
         464
       ],
-      "acceptance_status": "adopted-20261025",
-      "visual_acceptance_record": "评审台第十四轮第 7 题，用户选\"按建议\"，蔺晦之采用候选A",
+      "acceptance_status": "adopted-20261031",
+      "visual_acceptance_record": "docs/updates/2026-10-30-desk-finish.md",
       "generation_record": "art_sources/batch2-cast-20261023/linhuizhi/README.md",
       "batch_source": "art_sources/batch2-cast-20261023/README.md"
     },
@@ -18066,6 +18084,23 @@
       "references": [
         "js/qihe-fire-cinematic.js",
         "js/qihe-hidden.js",
+        "js/production-assets.js"
+      ]
+    },
+    {
+      "id": "cg_qh_lamp_blade_20261031",
+      "path": "assets/production/shared/cg_qh_lamp_blade_20261031.webp",
+      "original_path": "art_sources/faces-redesign-20261030/adopted/cg/cg_qh_lamp_blade_20261031.png",
+      "system": "shared",
+      "role": "registered-or-direct-runtime",
+      "sha256": "be1a1cc4a2790252049faf1b4707fc66eb94156f783a7b8805b64270edc85b28",
+      "actual_size": [
+        1536,
+        864
+      ],
+      "acceptance_status": "adopted-20261031：结局 3「以书酬功」，构图经第三十二轮第 1 题确认，成品待验收（302ai-sunburst）",
+      "references": [
+        "js/qihe-fire-cinematic.js",
         "js/production-assets.js"
       ]
     },

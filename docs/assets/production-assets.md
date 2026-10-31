@@ -383,7 +383,7 @@
 | s_opening_bailiff | `assets/production/characters/s_opening_bailiff_pixfix_20261007.webp` | `art_sources/character-pixel-fix-20261007/final/s_opening_bailiff.webp` | d0f70d3abba3 |
 | s_opening_censhuang | `assets/production/characters/s_opening_censhuang_pixfix_20261007.webp` | `art_sources/character-pixel-fix-20261007/final/s_opening_censhuang.webp` | 470c3d47fe4c |
 | s_opening_chen | `assets/production/characters/s_opening_chen_pixfix_20261007.webp` | `art_sources/character-pixel-fix-20261007/final/s_opening_chen.webp` | 8aa7ae39cf29 |
-| s_opening_chengduo | `assets/production/characters/s_opening_chengduo_pixfix_20261007.webp` | `art_sources/character-pixel-fix-20261007/final/s_opening_chengduo.webp` | a09446f3601d |
+| s_opening_chengduo | `assets/production/characters/s_opening_chengduo_20261031.webp` | `art_sources/faces-redesign-20261030/adopted/sprite/final/s_opening_chengduo_20261031.webp` | 01f6ae56662e |
 | s_opening_hero_modern | `assets/production/characters/s_opening_hero_modern_pixfix_20261007.webp` | `art_sources/character-pixel-fix-20261007/final/s_opening_hero_modern.webp` | 19bc8a709fac |
 | s_opening_luheng | `assets/production/characters/s_opening_luheng_pixfix_20261007.webp` | `art_sources/character-pixel-fix-20261007/final/s_opening_luheng.webp` | 1c288c505f7a |
 | s_opening_procurement | `assets/production/characters/s_opening_procurement_pixfix_20261007.webp` | `art_sources/character-pixel-fix-20261007/final/s_opening_procurement.webp` | 448d0e30ba5e |
@@ -431,8 +431,8 @@
 | s_npc_qh_merchant_20261010 | `assets/production/characters/s_npc_qh_merchant_20261010.webp` | `art_sources/qihe-npc-refresh-20261010/out/qh_merchant/s_npc_qh_merchant_20261010.webp` | 00cd6f57b0c8 |
 | s_npc_qh_oldman_20261010 | `assets/production/characters/s_npc_qh_oldman_20261010.webp` | `art_sources/qihe-npc-refresh-20261010/out/qh_oldman/s_npc_qh_oldman_20261010.webp` | cc46e6ffca9c |
 | s_npc_qh_shenyanhui_story_20261010 | `assets/production/characters/s_npc_qh_shenyanhui_story_20261010.webp` | `art_sources/qihe-npc-refresh-20261010/out/qh_shenyanhui_story/s_npc_qh_shenyanhui_story_20261010.webp` | e90b0a434317 |
-| s_npc_qh_song_seated_20261010 | `assets/production/characters/s_npc_qh_song_seated_20261010.webp` | `art_sources/qihe-npc-refresh-20261010/out/qh_song_seated/s_npc_qh_song_seated_20261010.webp` | 35e925fb0df2 |
-| s_npc_qh_song_story_20261010 | `assets/production/characters/s_npc_qh_song_story_20261010.webp` | `art_sources/qihe-npc-refresh-20261010/out/qh_song_story/s_npc_qh_song_story_20261010.webp` | 8178a474607f |
+| s_npc_qh_song_seated_20261010 | `assets/production/characters/s_npc_qh_song_seated_20261031.webp` | `art_sources/faces-redesign-20261030/adopted/sprite/final/s_npc_qh_song_seated_20261031.webp` | db1888b08ddd |
+| s_npc_qh_song_story_20261010 | `assets/production/characters/s_npc_qh_song_story_20261031.webp` | `art_sources/faces-redesign-20261030/adopted/sprite/final/s_npc_qh_song_story_20261031.webp` | 259dba929615 |
 | s_npc_qh_xulingyi_story_20261010 | `assets/production/characters/s_npc_qh_xulingyi_story_20261010.webp` | `art_sources/qihe-npc-refresh-20261010/out/qh_xulingyi_story/s_npc_qh_xulingyi_story_20261010.webp` | ef1cd878d3da |
 | s_npc_ye_20261010 | `assets/production/characters/s_npc_ye_20261010.webp` | `art_sources/qihe-npc-refresh-20261010/out/ye/s_npc_ye_20261010.webp` | 65dcc5a44b26 |
 | s_qh_censhuang_story | `assets/production/characters/s_qh_censhuang_story.webp` | `art_sources/qihe-representatives-adoption-20261007/s_qh_censhuang_story.webp` | c2f39a92bac9 |
@@ -529,7 +529,7 @@
 | s_npc_qh_huolang_20261023 | `assets/production/characters/s_npc_qh_huolang_20261023.webp` | `art_sources/batch2-cast-20261023/huolang/sprite/s_npc_qh_huolang_20261023_a_cand.webp` | 8d996b15207f |
 | s_npc_qh_chuanjia_20261023 | `assets/production/characters/s_npc_qh_chuanjia_20261023.webp` | `art_sources/batch2-cast-20261023/chuanjia/sprite/s_npc_qh_chuanjia_20261023_a_cand.webp` | 305e4f03b2bf |
 | s_npc_qh_aqi_20261023 | `assets/production/characters/s_npc_qh_aqi_20261023.webp` | `art_sources/batch2-cast-20261023/aqi/sprite/s_npc_qh_aqi_20261023_b_cand.webp` | 4bfd8cf60aac |
-| s_npc_qh_linhuizhi_20261023 | `assets/production/characters/s_npc_qh_linhuizhi_20261023.webp` | `art_sources/batch2-cast-20261023/linhuizhi/sprite/s_npc_qh_linhuizhi_20261023_a_cand.webp` | 0b42118fc549 |
+| s_npc_qh_linhuizhi_20261023 | `assets/production/characters/s_npc_qh_linhuizhi_20261031.webp` | `art_sources/faces-redesign-20261030/adopted/sprite/final/s_npc_qh_linhuizhi_20261031.webp` | 8fba3231629b |
 
 ### cultivation
 
@@ -948,9 +948,9 @@
 | p_gy_yinhongying_sad | `assets/production/portraits/p_gy_yinhongying_sad.webp` | `art_sources/guiyun-inkcloud-cn-20261008/out/p_gy_yinhongying_sad.webp` | 66824b088fdb |
 | p_gy_yinhongying_surprise | `assets/production/portraits/p_gy_yinhongying_surprise.webp` | `art_sources/guiyun-inkcloud-cn-20261008/out/p_gy_yinhongying_surprise.webp` | 2d1dc41648ec |
 | p_gy_yinhongying_tease | `assets/production/portraits/p_gy_yinhongying_tease.webp` | `art_sources/guiyun-inkcloud-cn-20261008/out/p_gy_yinhongying_tease.webp` | 1e896768d897 |
-| p_qh_song_story | `assets/production/portraits/p_qh_song_story_hd_20261017.webp` | `art_sources/portrait-hd-20261017/final/p_qh_song_story_hd_20261017.webp` | f0fa1471e48c |
-| p_qh_song_story_firm | `assets/production/portraits/p_qh_song_story_firm_hd_20261017.webp` | `art_sources/portrait-hd-20261017/final/p_qh_song_story_firm_hd_20261017.webp` | 0c386a22817e |
-| p_qh_song_story_worry | `assets/production/portraits/p_qh_song_story_worry_hd_20261017.webp` | `art_sources/portrait-hd-20261017/final/p_qh_song_story_worry_hd_20261017.webp` | 45c4da762538 |
+| p_qh_song_story | `assets/production/portraits/p_qh_song_story_hd_20261031.webp` | `art_sources/faces-redesign-20261030/adopted/final/p_qh_song_story_hd_20261031.webp` | 3ab73c8cbedf |
+| p_qh_song_story_firm | `assets/production/portraits/p_qh_song_story_firm_hd_20261031.webp` | `art_sources/faces-redesign-20261030/adopted/final/p_qh_song_story_firm_hd_20261031.webp` | e5426db9f5cf |
+| p_qh_song_story_worry | `assets/production/portraits/p_qh_song_story_worry_hd_20261031.webp` | `art_sources/faces-redesign-20261030/adopted/final/p_qh_song_story_worry_hd_20261031.webp` | 1844a485dd68 |
 | p_qh_censhuang_story | `assets/production/portraits/p_qh_censhuang_story_hd_20261017.webp` | `art_sources/portrait-hd-20261017/final/p_qh_censhuang_story_hd_20261017.webp` | 0cbc95969256 |
 | p_qh_censhuang_story_angry | `assets/production/portraits/p_qh_censhuang_story_angry_hd_20261017.webp` | `art_sources/portrait-hd-20261017/final/p_qh_censhuang_story_angry_hd_20261017.webp` | b0095e05b563 |
 | p_qh_censhuang_story_happy | `assets/production/portraits/p_qh_censhuang_story_happy_hd_20261017.webp` | `art_sources/portrait-hd-20261017/final/p_qh_censhuang_story_happy_hd_20261017.webp` | 2adf0f3fe6c9 |
@@ -989,9 +989,9 @@
 | p_opening_censhuang | `assets/production/portraits/p_opening_censhuang.webp` | `assets/p_opening_censhuang.webp` | a20711bef4a2 |
 | p_opening_censhuang_firm | `assets/production/portraits/p_opening_censhuang_firm.webp` | `assets/p_opening_censhuang_firm.webp` | a0cc5a60df40 |
 | p_opening_censhuang_worry | `assets/production/portraits/p_opening_censhuang_worry.webp` | `assets/p_opening_censhuang_worry.webp` | f32a0ba15680 |
-| p_opening_chengduo | `assets/production/portraits/p_opening_chengduo_hd_20261017.webp` | `art_sources/portrait-hd-cast-20261017/final/p_opening_chengduo_hd_20261017.webp` | be4f16141db3 |
-| p_opening_chengduo_firm | `assets/production/portraits/p_opening_chengduo_firm_hd_20261017.webp` | `art_sources/portrait-hd-cast-20261017/final/p_opening_chengduo_firm_hd_20261017.webp` | f4764705f6ef |
-| p_opening_chengduo_worry | `assets/production/portraits/p_opening_chengduo_worry_hd_20261017.webp` | `art_sources/portrait-hd-cast-20261017/final/p_opening_chengduo_worry_hd_20261017.webp` | 8ec1d2f34cce |
+| p_opening_chengduo | `assets/production/portraits/p_opening_chengduo_hd_20261031.webp` | `art_sources/faces-redesign-20261030/adopted/final/p_opening_chengduo_hd_20261031.webp` | f3ff308438c3 |
+| p_opening_chengduo_firm | `assets/production/portraits/p_opening_chengduo_firm_hd_20261031.webp` | `art_sources/faces-redesign-20261030/adopted/final/p_opening_chengduo_firm_hd_20261031.webp` | 5404fe24683d |
+| p_opening_chengduo_worry | `assets/production/portraits/p_opening_chengduo_worry_hd_20261031.webp` | `art_sources/faces-redesign-20261030/adopted/final/p_opening_chengduo_worry_hd_20261031.webp` | 0a9a0de83cf3 |
 | p_opening_hero_modern | `assets/production/portraits/p_opening_hero_modern_hd_20261017.webp` | `art_sources/portrait-hd-hero-20261017/final/p_opening_hero_modern_hd_20261017.webp` | 2ef4f87c70ca |
 | p_opening_hero_modern_firm | `assets/production/portraits/p_opening_hero_modern_firm_hd_20261017.webp` | `art_sources/portrait-hd-hero-20261017/final/p_opening_hero_modern_firm_hd_20261017.webp` | be81025354f9 |
 | p_opening_hero_modern_guard | `assets/production/portraits/p_opening_hero_modern_guard_hd_20261017.webp` | `art_sources/portrait-hd-hero-20261017/final/p_opening_hero_modern_guard_hd_20261017.webp` | 54305956f0cb |
@@ -1037,7 +1037,7 @@
 | p_qh_huolang_hd_20261023 | `assets/production/portraits/p_qh_huolang_hd_20261023.webp` | `art_sources/batch2-cast-20261023/huolang/final/p_qh_huolang_hd_20261023_a_cand.webp` | 22ba9886dc25 |
 | p_qh_chuanjia_hd_20261023 | `assets/production/portraits/p_qh_chuanjia_hd_20261023.webp` | `art_sources/batch2-cast-20261023/chuanjia/final/p_qh_chuanjia_hd_20261023_a_cand.webp` | f6de0191993b |
 | p_qh_aqi_hd_20261023 | `assets/production/portraits/p_qh_aqi_hd_20261023.webp` | `art_sources/batch2-cast-20261023/aqi/final/p_qh_aqi_hd_20261023_b_cand.webp` | b1081aa624a1 |
-| p_qh_linhuizhi_hd_20261023 | `assets/production/portraits/p_qh_linhuizhi_hd_20261023.webp` | `art_sources/batch2-cast-20261023/linhuizhi/final/p_qh_linhuizhi_hd_20261023_a_cand.webp` | 3354e1c1f9f3 |
+| p_qh_linhuizhi_hd_20261023 | `assets/production/portraits/p_qh_linhuizhi_hd_20261031.webp` | `art_sources/faces-redesign-20261030/adopted/final/p_qh_linhuizhi_hd_20261031.webp` | c01139c0c0b0 |
 | p_qh_elder_hd_20261027 | `assets/production/portraits/p_qh_elder_hd_20261027.webp` | `art_sources/npc-portraits-20261027/final/p_qh_elder_hd_20261027.webp` | 87400d101085 |
 | p_qh_aunt_hd_20261027 | `assets/production/portraits/p_qh_aunt_hd_20261027.webp` | `art_sources/npc-portraits-20261027/final/p_qh_aunt_hd_20261027.webp` | 4eae3ae6e340 |
 | p_qh_chen_hd_20261027 | `assets/production/portraits/p_qh_chen_hd_20261027.webp` | `art_sources/npc-portraits-20261027/final/p_qh_chen_hd_20261027.webp` | 61919d209e65 |
@@ -1055,6 +1055,7 @@
 | cg_qh_backhill_rope_v1 | `assets/production/shared/cg_qh_backhill_rope_v1.webp` | `art_sources/qh-song-disguise-20261008/final/cg_qh_backhill_rope_v1.webp` | fc55f10a87bf |
 | cg_qh_backhill_rope_v4_20261026 | `assets/production/shared/cg_qh_backhill_rope_v4_20261026.webp` | `art_sources/rectify-art-20261023/red-cord-cg/v4/final/cg_qh_backhill_rope_v4_20261026.webp` | a6f3d4c7ca30 |
 | cg_qh_north_cave_20261028 | `assets/production/shared/cg_qh_north_cave_20261028.webp` | `art_sources/qihe-hidden-cave-20261028/out/cg_qh_north_cave_20261028.png` | 4dba7a1eec2d |
+| cg_qh_lamp_blade_20261031 | `assets/production/shared/cg_qh_lamp_blade_20261031.webp` | `art_sources/faces-redesign-20261030/adopted/cg/cg_qh_lamp_blade_20261031.png` | be1a1cc4a279 |
 | cg_qh_relics_lining_v1 | `assets/production/shared/cg_qh_relics_lining_v1.webp` | `art_sources/qh-song-disguise-20261008/final/cg_qh_relics_lining_v1.webp` | bb7fdab59d7a |
 | cg_qh_fire_ignition_v2 | `assets/production/shared/cg_qh_fire_ignition_v2.webp` | `art_sources/qihe-cg-direction-20261006/ignition-native.png` | ff348e1fe92a |
 | cg_qh_fire_ignition_v3 | `assets/production/shared/cg_qh_fire_ignition_v3.webp` | `art_sources/qihe-lamp-insert-20261006/native.png` | f2a9c409595a |

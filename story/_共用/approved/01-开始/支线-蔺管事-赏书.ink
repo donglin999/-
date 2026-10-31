@@ -3,8 +3,9 @@
 // 戏眼：蔺管事想把这笔账结清，也服气这个外乡人想到了先拿船；散场时萧白拿到《守烛心经》和铜灯牌，记住“那人的脸你见过”。
 // 2026-10-23 剧本三新写（归烬堂支线·蔺管事线，设计稿 xiaojianghu/docs/design/qihe-mojiao-observer-sideline.md 第三～七节；戏眼卡 xiaojianghu/docs/design/scripts/briefs/guijintang-lin-sideline-brief.json）。2026-10-27 用户授权 Claude 代审，已冷读、批准（--approve）。；JS 未接（接口见共用笔记 42-剧本三.md）。
 //   时间：对证之后、C1-08 确认去向之前（JS 插场；没去渡口就确认去向的，JS 先插“他追上来”的短版，奖励照发）。
-//   CG-三乙「以书酬功」待出构图草图、用户确认后才做；本稿不调用 CG。“倒木已空”只由他一句话交代（第十三轮第 27 项）。
+//   CG-三乙「以书酬功」（第三十二轮第 1 题确认）：只配赏书、给灯牌两句，收图后再发奖励。“倒木已空”只由他一句话交代（第十三轮第 27 项）。
 INCLUDE ../_共用/externals.ink
+INCLUDE ../_共用/externals-风起主线.ink
 INCLUDE ../_共用/externals-三方.ink
 
 === qh_lamp_end_blade ===
@@ -13,8 +14,10 @@ INCLUDE ../_共用/externals-三方.ink
 萧白：您不生气？ #id:L7-02
 蔺管事：我最难的一步，是怎么不越过岑管事把事办了。你替我想好了。 #id:L7-03
 蔺管事：我上山的时候，倒木已经空了。 #id:L7-04
+~ fq_cg_begin("lamp_blade")
 蔺管事：这本书跟了我几十年。我自己的东西，拿着。 #id:L7-05
 蔺管事：这块灯牌也拿着。烬渡、芦花渡、汉皋，找我船上的人，搭一回船，帮一回忙。 #id:L7-06
+~ fq_cg_end()
 ~ lamp_reward("blade")
 蔺管事：那张脸，我没见过。你见过——替我记牢。 #id:L7-07
 蔺管事：能把手伸进三家转信路的，不是江湖散客。我回去一站一站对。 #id:L7-08
