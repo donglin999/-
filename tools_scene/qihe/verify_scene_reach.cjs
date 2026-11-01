@@ -1,0 +1,12 @@
+// 2026-11-01 场景重画后的走通检查：从入口用真实碰撞（standOk、脚宽 14）漫灌，门口、互动点、出口都要走得到。先起本地 8792。
+const path=require('node:path');const dep=process.env.CODEX_NODE_MODULES||'/Users/wuxiuxiang/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules';const {chromium}=require(path.join(dep,'playwright'));
+(async()=>{const b=await chromium.launch({channel:'chrome',headless:true}),p=await b.newPage({viewport:{width:1600,height:900}});const errs=[];p.on('pageerror',e=>errs.push(String(e)));
+ await p.goto('http://127.0.0.1:8792/?uiReview=1&play=1#qihe-map');await p.waitForFunction(()=>typeof S!=='undefined'&&S&&typeof SC!=='undefined'&&!!SC.qh_east&&mode==='scene'&&!busy,null,{timeout:90000});
+ const r=await p.evaluate(async()=>{const out=[];
+  const CASES={qh_north:{from:[790,900],to:{南口:[790,965],线索:[680,820],宋先生:[870,340],竹匾:[950,340],大树旁:[420,470],倒木旁:[620,330],山石南:[1060,485],林缘:[415,695],下山路旁:[905,825],叶蘅:[835,665]}},prologue_ye_house:{from:[586,590],to:{门口:[586,660],工作案:[688,343],药柜前:[850,328],叶蘅:[804,542],茶桌旁:[380,470],夜戏周婶:[720,470],夜戏陈伯:[540,470],叶蘅夜位:[640,340]}},qihe_trial:{from:[1062,700],to:{叶家门:[523,560],陈伯门:[1475,566],客栈门:[520,1320],药棚门:[1934,1140],老伯门:[1331,1415],修车台:[1850,556],告示:[1656,1459],古井旁:[1300,830],北口:[1062,110],南口:[1062,1500],西口:[100,722],东桥:[2290,620]}},
+   qh_refuge:{from:[1360,535],to:{东口:[1450,535],北口:[750,70],南口:[750,950],院门内:[640,430],正屋门:[385,395],周婶:[430,425],陈伯:[300,425],老人:[540,415],晒场:[720,590],栈桥:[1085,860],路边登记桌前:[1010,780],叶蘅院外:[610,565]}}};
+  for(const[sc,c]of Object.entries(CASES)){await goScene(sc,[c.from[0]/TS,c.from[1]/TS]);const W=Math.ceil(cur.gw*TS),H=Math.ceil(cur.gh*TS),st=8,seen=new Set(),q=[[Math.round(c.from[0]/st),Math.round(c.from[1]/st)]];const key=(x,y)=>x+','+y;if(!standOk(c.from[0],c.from[1]))out.push(sc+' 起点站不住');seen.add(key(...q[0]));
+   while(q.length){const[x,y]=q.pop();for(const[dx,dy]of[[1,0],[-1,0],[0,1],[0,-1]]){const nx=x+dx,ny=y+dy,k=key(nx,ny);if(seen.has(k)||nx<0||ny<0||nx*st>W||ny*st>H)continue;if(standOk(nx*st,ny*st)){seen.add(k);q.push([nx,ny])}}}
+   for(const[n,v]of Object.entries(c.to)){let ok=false;for(let a=-3;a<=3&&!ok;a++)for(let d=-3;d<=3&&!ok;d++)if(seen.has(key(Math.round(v[0]/st)+a,Math.round(v[1]/st)+d)))ok=true;if(!ok)out.push(sc+' 走不到 '+n+' '+v)}}
+  return out});
+ console.log(r.length?r.join('\n'):'场景走通检查通过','页面错误',errs.length,errs.slice(0,2));await b.close();process.exit(r.length||errs.length?1:0)})().catch(e=>{console.error(e);process.exit(1)});

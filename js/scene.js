@@ -46,7 +46,7 @@ function walkable(px,py,self){return standOk(px,py)&&!npcBlock(px,py,self)}
 const npcPos=n=>({x:n.x*TS,y:n.y*TS});
 // E/空格 的最近目标：只在场景 NPC / 互动点里选。跟随中的同伴（大黄、苏芷…）不参与——与同伴交谈走江湖菜单·队伍页（window.onCompanionTalk），
 // 需要同伴在某场景里作为剧情角色出现时，请在该场景 npcs 里另放一个带 show() 条件的 NPC（docs/design/02 §3.5）
-function nearest(){let best=null,bd=80;for(const n of cur._npcs){const d=Math.hypot(n.x*TS-player.x,n.y*TS-player.y);if(d<bd){bd=d;best={type:'npc',o:n}}}return best}
+function nearest(){let best=null,bd=80;for(const n of cur._npcs){const d=Math.hypot(n.x*TS-player.x,n.y*TS-player.y)-(n.talkR?n.talkR-80:0);if(d<bd){bd=d;best={type:'npc',o:n}}}return best}
 const compName=id=>(window.COMPANIONS&&COMPANIONS[id]&&COMPANIONS[id].name)||{suzhi:'苏芷',dog:'阿黄'}[id]||'同伴';
 function occupied(x,y,self,rad){if(Math.hypot(player.x-x,(player.y-y)*1.6)<rad+12)return true;
   for(const n of cur._npcs)if(n.sp&&Math.hypot(n.x*TS-x,(n.y*TS-y)*1.6)<rad+12)return true;
@@ -119,7 +119,7 @@ async function interact(target){if(busy||dlgBusy||mode!=='scene')return;const n=
     try{await window.onCompanionTalk?.(f.m)}finally{busy=false;f.talk=0;hud()}return}
   busy=true;$('prompt').hidden=true;player.path=null;player.goal=null;player.talkTo=null;
   const p=npcPos(n.o),dx=p.x-player.x,dy=p.y-player.y;player.dir=faceTo(dx,dy);
-  if(n.o.sp&&!n.o.fixed){n.o.dir0=n.o.dir0||n.o.dir||'d';n.o.dir=faceTo(-dx,-dy)}
+  if(n.o.sp&&!n.o.seated){n.o.dir0=n.o.dir0||n.o.dir||'d';n.o.dir=faceTo(-dx,-dy)}
   try{await n.o.act(n.o)}finally{busy=false;if(n.o.dir0){n.o.dir=n.o.dir0}if(cur)cur._npcs=npcsOf(cur);hud()}}
 async function takeExit(e){busy=true;player.path=null;player.goal=null;player.vx=player.vy=0;keys={};$('prompt').hidden=true;
   const d=exitDir(e),v=DV[d];player.dir=d;

@@ -6,7 +6,7 @@
     "id": "m_qh_central",
     "approved_reference": "art_sources/qihe-expansion-v1/central.png",
     "reference_sha256": "6012a2296407c95c141e684162dbd1f79589bbde0a8ac6ad6ecb74c3cdbb57c2",
-    "adopted_source": "art_sources/qihe-modular-central-20261007/out/hd/bg.png",
+    "adopted_source": "art_sources/qihe-scene-rebuild-20261101/out/central_bg.png",
     "actual_size": [
       3072,
       2048
@@ -16,8 +16,8 @@
       1600
     ],
     "evidence": "art_sources/qihe-modular-central-20261007/adopt.json",
-    "method": "modular map (original-pixel buildings/cliffs/trees + rule layer + codex AI edge, 3x3 tiles)",
-    "previous_adopted_source": "art_sources/qihe-central-tiled-20261007/generated-native.png"
+    "method": "modular map (original-pixel buildings/cliffs/trees + rule layer + codex AI edge, 3x3 tiles); 2026-11-01 地面补掉旧楼露出的阴影和屋基，建筑按第三十四轮第 1 题草图换新",
+    "previous_adopted_source": "art_sources/qihe-modular-central-20261007/out/hd/bg.png"
   },
   "assets": [
     {
@@ -4830,11 +4830,11 @@
     },
     {
       "id": "m_qh_central",
-      "path": "assets/production/maps/m_qh_central_modular_20261007.webp",
-      "original_path": "art_sources/qihe-modular-central-20261007/out/hd/bg.png",
+      "path": "assets/production/maps/m_qh_central_20261101.webp",
+      "original_path": "art_sources/qihe-scene-rebuild-20261101/adopt.py",
       "system": "maps",
       "role": "qihe-active-map",
-      "sha256": "29131902cd53c5a97d3367caf5e550aa5eab1fbbfe08577de2d5e3e74b1b10a4",
+      "sha256": "206917c747650591f1dd7577bf5f21ec2f897bc202893e21113d795e0e720b1b",
       "references": [
         "js/qihe-chapter.js",
         "js/quests.js",
@@ -4871,15 +4871,20 @@
       "generation_record": "art_sources/qihe-modular-central-20261007/codex",
       "acceptance_evidence": "art_sources/qihe-modular-central-20261007/adopt.json",
       "supersedes": "assets/production/maps/m_qh_central_tiled_20261007.webp（已移入 _attic/2026-10-20-assets，见 docs/updates/2026-10-20-assets-cleanup.md）",
-      "method": "modular tiled map + rule layer + codex AI edge touch-up (hd)"
+      "method": "modular tiled map + rule layer + codex AI edge touch-up (hd)",
+      "actual_size": [
+        3072,
+        2048
+      ],
+      "acceptance_status": "候选，待用户验收：2026-11-01 按第三十四轮第 1 题通过的布局草图重做"
     },
     {
       "id": "m_qh_central_props",
-      "path": "assets/production/maps/m_qh_central_props_herbfix_20261027.webp",
-      "original_path": "art_sources/qihe-props-fix-20261027/out/props_central.png",
+      "path": "assets/production/maps/m_qh_central_props_20261101.webp",
+      "original_path": "art_sources/qihe-scene-rebuild-20261101/out",
       "system": "maps",
       "role": "qihe-active-map",
-      "sha256": "52448ad34372034c31a05a09b77aa60c5d736b910567215b6ffba838b6839fde",
+      "sha256": "99c7f17ba1a5974a6faf990d55af7521e7ab508279a26d00e93ab2b008e4d489",
       "size": [
         2048,
         1475
@@ -4904,7 +4909,11 @@
       "generation_record": "art_sources/prop-holes-fix-20261025/recut_frames.py",
       "acceptance_evidence": "docs/updates/evidence/2026-10-25-prop-holes/",
       "supersedes": "assets/production/maps/m_qh_central_props_modular_20261007.webp（旧图集保留原处；2026-10-25 道具镂空整改：路牌、修理台、晾衣架重切，叶家、药棚补缺口）",
-      "acceptance_status": "; 20261026 修理台、晾衣架用 302 重画（用户第十五轮第 9 题“重新生成一个吧”），旧图集 assets/production/maps/m_qh_central_props_holefix_20261025.webp 保留; 20261027 药棚晒药匾（切件 herbs）用 302 重画成架腿与匾连贯的一件（用户 10-27 试玩反馈“这个素材还是有问题”），候选待用户评审，旧图集 assets/production/maps/m_qh_central_props_regen_20261026.webp 保留；记录 art_sources/qihe-props-fix-20261027/pack_herbs.py"
+      "acceptance_status": "候选，待用户验收：2026-11-01 按第三十四轮第 1 题通过的布局草图重做",
+      "actual_size": [
+        2048,
+        2681
+      ]
     },
     {
       "id": "m_qh_east",
@@ -4983,11 +4992,11 @@
     },
     {
       "id": "m_qh_north",
-      "path": "assets/production/maps/m_qh_north_modular_20261007.webp",
-      "original_path": "art_sources/qihe-modular-north-20261007/out/hd/bg.png",
+      "path": "assets/production/maps/m_qh_north_20261101.webp",
+      "original_path": "art_sources/qihe-scene-tail-20261101/out/north_bg.png",
       "system": "maps",
       "role": "qihe-active-map",
-      "sha256": "155c5826263f7d2722418f24a37c92296e79cbceac3215b302450c3c37f73df2",
+      "sha256": "51e881388e61699edadc78bbfef56ea3d48d5a1209863058f1cbee7e4705c61e",
       "references": [
         "js/qihe-chapter.js",
         "js/quests.js",
@@ -5023,7 +5032,12 @@
       "generation_record": "art_sources/qihe-modular-north-20261007/codex",
       "acceptance_evidence": "art_sources/qihe-modular-north-20261007/adopt.json",
       "method": "modular tiled map + rule layer + codex AI edge touch-up (hd)",
-      "supersedes": "assets/production/maps/m_qh_north.webp（已移入 _attic/2026-10-20-assets，见 docs/updates/2026-10-20-assets-cleanup.md）"
+      "supersedes": "assets/production/maps/m_qh_north.webp（已移入 _attic/2026-10-20-assets，见 docs/updates/2026-10-20-assets-cleanup.md）",
+      "actual_size": [
+        1966,
+        1311
+      ],
+      "acceptance_status": "候选，待用户评审：2026-11-01 中央大片黄土收成岔路"
     },
     {
       "id": "m_qh_north_props",
@@ -5133,11 +5147,11 @@
     },
     {
       "id": "m_qh_refuge",
-      "path": "assets/production/maps/m_qh_refuge_modular_20261007.webp",
-      "original_path": "art_sources/qihe-modular-refuge-20261007/out/hd/bg.png",
+      "path": "assets/production/maps/m_qh_refuge_20261101.webp",
+      "original_path": "art_sources/qihe-scene-rebuild-20261101/raw/refuge.png",
       "system": "maps",
       "role": "qihe-active-map",
-      "sha256": "f2491e6810f6b5472d2fea4ae4b738fcce7c84309a2991f52524765bb810c49d",
+      "sha256": "2bf2c41fd154f3c9a3147cdccf1e61bc91c5c90060f212ea43c62ba8c6e8492b",
       "references": [
         "js/qihe-chapter.js",
         "js/quests.js",
@@ -5173,15 +5187,20 @@
       "generation_record": "art_sources/qihe-modular-refuge-20261007/codex",
       "acceptance_evidence": "art_sources/qihe-modular-refuge-20261007/adopt.json",
       "method": "modular tiled map + rule layer + codex AI edge touch-up (hd)",
-      "supersedes": "assets/production/maps/m_qh_refuge.webp（已移入 _attic/2026-10-20-assets，见 docs/updates/2026-10-20-assets-cleanup.md）"
+      "supersedes": "assets/production/maps/m_qh_refuge.webp（已移入 _attic/2026-10-20-assets，见 docs/updates/2026-10-20-assets-cleanup.md）",
+      "actual_size": [
+        1536,
+        1024
+      ],
+      "acceptance_status": "候选，待用户验收：2026-11-01 按第三十四轮第 1 题通过的布局草图重做"
     },
     {
       "id": "m_qh_refuge_props",
-      "path": "assets/production/maps/m_qh_refuge_props_modular_20261007.webp",
-      "original_path": "art_sources/qihe-modular-refuge-20261007/out/hd/props.png",
+      "path": "assets/production/maps/m_qh_refuge_props_20261101.webp",
+      "original_path": "art_sources/qihe-scene-rebuild-20261101/raw/refuge.png",
       "system": "maps",
       "role": "qihe-active-map",
-      "sha256": "e2d83e8f08cf9a76e3628b4005fae61232b44bb5b778888a0e8c2cbd59958551",
+      "sha256": "bf7010849dfdf56848843b481ac855b5b69f3f391f3cfd55e7b7eb08c02408ce",
       "size": [
         2048,
         2060
@@ -5204,7 +5223,12 @@
         "index.html"
       ],
       "generation_record": "art_sources/qihe-modular-refuge-20261007/parts",
-      "acceptance_evidence": "art_sources/qihe-modular-refuge-20261007/adopt.json"
+      "acceptance_evidence": "art_sources/qihe-modular-refuge-20261007/adopt.json",
+      "actual_size": [
+        1536,
+        798
+      ],
+      "acceptance_status": "候选，待用户验收：2026-11-01 按第三十四轮第 1 题通过的布局草图重做"
     },
     {
       "id": "m_qh_west",
@@ -5283,11 +5307,11 @@
     },
     {
       "id": "s_npc_opening_apothecary_20261010",
-      "path": "assets/production/characters/s_npc_opening_apothecary_20261010.webp",
-      "original_path": "art_sources/qihe-npc-refresh-20261010/out/opening_apothecary/s_npc_opening_apothecary_20261010.webp",
+      "path": "assets/production/characters/s_npc_opening_apothecary_20261101.webp",
+      "original_path": "art_sources/npc-sprites-20261101/final/s_npc_opening_apothecary_20261101.webp",
       "system": "characters",
       "role": "registered-or-direct-runtime",
-      "sha256": "b199e2a768a21c170c7a60cbaacc878aba78ed2f77c32727c313c2b1e539c932",
+      "sha256": "9b4da1864bf8782c9cd4e7ab9a00b13fcc3861383fe6dba96d1089ffa3152051",
       "references": [
         "js/qihe-npc-pixel-art.js",
         "js/production-assets.js"
@@ -5302,15 +5326,21 @@
         "requested_model": "gpt-image-2.5",
         "actual_model": "not_disclosed_by_tool",
         "evidence": "art_sources/qihe-npc-refresh-20261010/visual-review.json"
-      }
+      },
+      "actual_size": [
+        384,
+        464
+      ],
+      "acceptance_status": "candidate-20261101",
+      "visual_acceptance_record": "docs/updates/2026-11-01-staging.md"
     },
     {
       "id": "s_npc_opening_aunt_20261010",
-      "path": "assets/production/characters/s_npc_opening_aunt_20261010.webp",
-      "original_path": "art_sources/qihe-npc-refresh-20261010/out/opening_aunt/s_npc_opening_aunt_20261010.webp",
+      "path": "assets/production/characters/s_npc_opening_aunt_20261101.webp",
+      "original_path": "art_sources/npc-sprites-20261101/final/s_npc_opening_aunt_20261101.webp",
       "system": "characters",
       "role": "registered-or-direct-runtime",
-      "sha256": "ac259ded257d387a30b35ea2f02f9a6ffb484a0210d1d680b98c9ca90bb89646",
+      "sha256": "7d8f005ea99192c2d91c37c2f0eec215a63eb4ad5d03dafdbd53bb575f6ac9ff",
       "references": [
         "js/qihe-npc-pixel-art.js",
         "js/production-assets.js"
@@ -5325,15 +5355,21 @@
         "requested_model": "gpt-image-2.5",
         "actual_model": "not_disclosed_by_tool",
         "evidence": "art_sources/qihe-npc-refresh-20261010/visual-review.json"
-      }
+      },
+      "actual_size": [
+        384,
+        464
+      ],
+      "acceptance_status": "candidate-20261101",
+      "visual_acceptance_record": "docs/updates/2026-11-01-staging.md"
     },
     {
       "id": "s_npc_opening_bailiff_20261010",
-      "path": "assets/production/characters/s_npc_opening_bailiff_20261010.webp",
-      "original_path": "art_sources/qihe-npc-refresh-20261010/out/opening_bailiff/s_npc_opening_bailiff_20261010.webp",
+      "path": "assets/production/characters/s_npc_opening_bailiff_20261101.webp",
+      "original_path": "art_sources/npc-sprites-20261101/final/s_npc_opening_bailiff_20261101.webp",
       "system": "characters",
       "role": "registered-or-direct-runtime",
-      "sha256": "16159039228cc8552aa8007006d20ad59661db2d5dfa87a42796adf93a352945",
+      "sha256": "3ace706cadd232143749b48f4f5297db117eb89066fce85a0e8311c838a9d73c",
       "references": [
         "js/qihe-npc-pixel-art.js",
         "js/production-assets.js"
@@ -5348,15 +5384,21 @@
         "requested_model": "gpt-image-2.5",
         "actual_model": "not_disclosed_by_tool",
         "evidence": "art_sources/qihe-npc-refresh-20261010/visual-review.json"
-      }
+      },
+      "actual_size": [
+        384,
+        464
+      ],
+      "acceptance_status": "candidate-20261101",
+      "visual_acceptance_record": "docs/updates/2026-11-01-staging.md"
     },
     {
       "id": "s_npc_opening_chen_20261010",
-      "path": "assets/production/characters/s_npc_opening_chen_20261010.webp",
-      "original_path": "art_sources/qihe-npc-refresh-20261010/out/opening_chen/s_npc_opening_chen_20261010.webp",
+      "path": "assets/production/characters/s_npc_opening_chen_20261101.webp",
+      "original_path": "art_sources/npc-sprites-20261101/final/s_npc_opening_chen_20261101.webp",
       "system": "characters",
       "role": "registered-or-direct-runtime",
-      "sha256": "c85d2a0d7371fd2d0e3c7a4bd1e3faf468dd8b09f956abf6522695507a8908ec",
+      "sha256": "3e3abb964c150699e17facc8d929a2dce251aa3cf7632b6696b05387c05dcc43",
       "references": [
         "js/qihe-npc-pixel-art.js",
         "js/production-assets.js"
@@ -5371,7 +5413,13 @@
         "requested_model": "gpt-image-2.5",
         "actual_model": "not_disclosed_by_tool",
         "evidence": "art_sources/qihe-npc-refresh-20261010/visual-review.json"
-      }
+      },
+      "actual_size": [
+        384,
+        464
+      ],
+      "acceptance_status": "candidate-20261101",
+      "visual_acceptance_record": "docs/updates/2026-11-01-staging.md"
     },
     {
       "id": "s_npc_opening_luheng_20261010",
@@ -5421,11 +5469,11 @@
     },
     {
       "id": "s_npc_opening_procurement_aide_20261010",
-      "path": "assets/production/characters/s_npc_opening_procurement_aide_20261010.webp",
-      "original_path": "art_sources/qihe-npc-refresh-20261010/out/opening_procurement_aide/s_npc_opening_procurement_aide_20261010.webp",
+      "path": "assets/production/characters/s_npc_opening_procurement_aide_20261101.webp",
+      "original_path": "art_sources/npc-sprites-20261101/final/s_npc_opening_procurement_aide_20261101.webp",
       "system": "characters",
       "role": "registered-or-direct-runtime",
-      "sha256": "915bfd40843b3c5eb9a61d8b08d957eaf09764ea15304c00fa017ea5912dcbdb",
+      "sha256": "4136e1a55d5955c65e2236cd71022acd55102a9b64fca9cc79adbb1c43bd8494",
       "references": [
         "js/qihe-npc-pixel-art.js",
         "js/production-assets.js"
@@ -5440,15 +5488,21 @@
         "requested_model": "gpt-image-2.5",
         "actual_model": "not_disclosed_by_tool",
         "evidence": "art_sources/qihe-npc-refresh-20261010/visual-review.json"
-      }
+      },
+      "actual_size": [
+        384,
+        464
+      ],
+      "acceptance_status": "candidate-20261101",
+      "visual_acceptance_record": "docs/updates/2026-11-01-staging.md"
     },
     {
       "id": "s_npc_opening_retainer_20261010",
-      "path": "assets/production/characters/s_npc_opening_retainer_20261010.webp",
-      "original_path": "art_sources/qihe-npc-refresh-20261010/out/opening_retainer/s_npc_opening_retainer_20261010.webp",
+      "path": "assets/production/characters/s_npc_opening_retainer_20261101.webp",
+      "original_path": "art_sources/npc-sprites-20261101/final/s_npc_opening_retainer_20261101.webp",
       "system": "characters",
       "role": "registered-or-direct-runtime",
-      "sha256": "3a2118a964b60dceb8bbea6112dce0d5146e2e0469b8e2171c4bd74cc2f3de4c",
+      "sha256": "d4d246544af9b5fb8a834ac76751646ea0446d236e306fe5b95dbdaead29a5e9",
       "references": [
         "js/qihe-npc-pixel-art.js",
         "js/production-assets.js"
@@ -5463,7 +5517,13 @@
         "requested_model": "gpt-image-2.5",
         "actual_model": "not_disclosed_by_tool",
         "evidence": "art_sources/qihe-npc-refresh-20261010/visual-review.json"
-      }
+      },
+      "actual_size": [
+        384,
+        464
+      ],
+      "acceptance_status": "candidate-20261101",
+      "visual_acceptance_record": "docs/updates/2026-11-01-staging.md"
     },
     {
       "id": "s_npc_opening_steward_20261010",
@@ -5536,11 +5596,11 @@
     },
     {
       "id": "s_npc_qh_bandit_20261010",
-      "path": "assets/production/characters/s_npc_qh_bandit_20261010.webp",
-      "original_path": "art_sources/qihe-npc-refresh-20261010/out/qh_bandit/s_npc_qh_bandit_20261010.webp",
+      "path": "assets/production/characters/s_npc_qh_bandit_20261101.webp",
+      "original_path": "art_sources/npc-sprites-20261101/final/s_npc_qh_bandit_20261101.webp",
       "system": "characters",
       "role": "registered-or-direct-runtime",
-      "sha256": "483324854db4dd02e0a95144f595183cd12680c8ee96647c1211a52d255d1e40",
+      "sha256": "df845548dbd2d0e358c3cde3c7a9306fe0190699a7d01f78b9c708b550e9e37e",
       "references": [
         "js/qihe-npc-pixel-art.js",
         "js/production-assets.js"
@@ -5555,7 +5615,13 @@
         "requested_model": "gpt-image-2.5",
         "actual_model": "not_disclosed_by_tool",
         "evidence": "art_sources/qihe-npc-refresh-20261010/visual-review.json"
-      }
+      },
+      "actual_size": [
+        384,
+        464
+      ],
+      "acceptance_status": "candidate-20261101",
+      "visual_acceptance_record": "docs/updates/2026-11-01-staging.md"
     },
     {
       "id": "s_npc_qh_censhuang_story_20261010",
@@ -5645,11 +5711,11 @@
     },
     {
       "id": "s_npc_qh_merchant_20261010",
-      "path": "assets/production/characters/s_npc_qh_merchant_20261010.webp",
-      "original_path": "art_sources/qihe-npc-refresh-20261010/out/qh_merchant/s_npc_qh_merchant_20261010.webp",
+      "path": "assets/production/characters/s_npc_qh_merchant_20261101.webp",
+      "original_path": "art_sources/npc-sprites-20261101/final/s_npc_qh_merchant_20261101.webp",
       "system": "characters",
       "role": "registered-or-direct-runtime",
-      "sha256": "00cd6f57b0c8ba2332cc68008fcaf28070c01a381b096101e4545beb7ea369a8",
+      "sha256": "3b724e0c2748a572ab275205eb553272efa74b16651b0ce17e418eb344429d3a",
       "references": [
         "js/qihe-npc-pixel-art.js",
         "js/production-assets.js"
@@ -5664,15 +5730,21 @@
         "requested_model": "gpt-image-2.5",
         "actual_model": "not_disclosed_by_tool",
         "evidence": "art_sources/qihe-npc-refresh-20261010/visual-review.json"
-      }
+      },
+      "actual_size": [
+        384,
+        464
+      ],
+      "acceptance_status": "candidate-20261101",
+      "visual_acceptance_record": "docs/updates/2026-11-01-staging.md"
     },
     {
       "id": "s_npc_qh_oldman_20261010",
-      "path": "assets/production/characters/s_npc_qh_oldman_20261010.webp",
-      "original_path": "art_sources/qihe-npc-refresh-20261010/out/qh_oldman/s_npc_qh_oldman_20261010.webp",
+      "path": "assets/production/characters/s_npc_qh_oldman_20261101.webp",
+      "original_path": "art_sources/npc-sprites-20261101/final/s_npc_qh_oldman_20261101.webp",
       "system": "characters",
       "role": "registered-or-direct-runtime",
-      "sha256": "cc46e6ffca9ce1f6f64ad9dc253bb9c6424252de9cac353138da67dbad94a72a",
+      "sha256": "faba8708ae15a40ec17b0eb1a0b1196f961510aa74b19019e23fa71a60f5558b",
       "references": [
         "js/qihe-npc-pixel-art.js",
         "js/production-assets.js"
@@ -5687,7 +5759,13 @@
         "requested_model": "gpt-image-2.5",
         "actual_model": "not_disclosed_by_tool",
         "evidence": "art_sources/qihe-npc-refresh-20261010/visual-review.json"
-      }
+      },
+      "actual_size": [
+        384,
+        464
+      ],
+      "acceptance_status": "candidate-20261101",
+      "visual_acceptance_record": "docs/updates/2026-11-01-staging.md"
     },
     {
       "id": "s_npc_qh_shenyanhui_story_20261010",
@@ -8504,51 +8582,63 @@
     },
     {
       "id": "m_qihe_inn_interior",
-      "path": "assets/production/maps/m_qihe_inn_interior.webp",
+      "path": "assets/production/maps/m_qihe_inn_interior_20261101.webp",
       "original_path": "assets/m_qihe_inn_interior.webp",
       "system": "maps",
       "role": "qihe-active-map",
-      "sha256": "305c94c84d8225a275129015a46ddac3f3f06e52a2d473a48f1578c0be0d235c",
+      "sha256": "894e545299a57844576f83f863a155c78debf3b4266edc3d725b8fbd70677125",
       "references": [
         "js/production-assets.js",
         "js/qihe-rooms-data.js"
-      ]
+      ],
+      "acceptance_status": "用户 2026-11-01 第三十三轮第 2 题选定客栈甲"
     },
     {
       "id": "m_qihe_inn_interior_fg",
-      "path": "assets/production/maps/m_qihe_inn_interior_fg.webp",
+      "path": "assets/production/maps/m_qihe_inn_interior_fg_20261101.webp",
       "original_path": "assets/m_qihe_inn_interior_fg.webp",
       "system": "maps",
       "role": "qihe-active-map",
-      "sha256": "e2d117e3bb710f833b2c99c2739ca697cce6cbf1fbbb230231d40a9acfd615c8",
+      "sha256": "69efb8432c70eabe540b14eb3fb3b6db20025e3eb01c3d26b4d8fc421019fba3",
       "references": [
         "js/production-assets.js",
         "js/qihe-rooms-data.js"
-      ]
+      ],
+      "acceptance_status": "用户 2026-11-01 第三十三轮第 2 题选定客栈甲"
     },
     {
       "id": "m_qihe_ye_house",
-      "path": "assets/production/maps/m_qihe_ye_house.webp",
+      "path": "assets/production/maps/m_qihe_ye_house_20261101.webp",
       "original_path": "assets/m_qihe_ye_house.webp",
       "system": "maps",
       "role": "qihe-active-map",
-      "sha256": "87ab18045b4ebcfc6aadd7addfbee2d7aafbb64398c9c6190004e32e4ed60f9f",
+      "sha256": "f5d152d7396ef0f0da4256f85c291c3791fbf8ee967fad8fc095bf3d42fe6f94",
       "references": [
         "js/production-assets.js",
         "js/qihe-rooms-data.js"
-      ]
+      ],
+      "actual_size": [
+        1536,
+        1024
+      ],
+      "acceptance_status": "候选，待用户评审：2026-11-01 床和接待同一间，加卧房隔断"
     },
     {
       "id": "m_qihe_ye_house_fg",
-      "path": "assets/production/maps/m_qihe_ye_house_fg.webp",
+      "path": "assets/production/maps/m_qihe_ye_house_fg_20261101.webp",
       "original_path": "assets/m_qihe_ye_house_fg.webp",
       "system": "maps",
       "role": "qihe-active-map",
-      "sha256": "b7eb4b2676e95f4bf769d4530165a7d8f4fbd37219eecc4435bc080dd9f2cd7c",
+      "sha256": "b9c6af1e80fabf053f70be4b6e3bb5dfa9c1a4dd9f56d01bed6be005cc67e25b",
       "references": [
         "js/production-assets.js",
         "js/qihe-rooms-data.js"
-      ]
+      ],
+      "actual_size": [
+        1536,
+        1024
+      ],
+      "acceptance_status": "候选，待用户评审：2026-11-01 叶家加卧房隔断"
     },
     {
       "id": "p_bandit",
@@ -17799,11 +17889,11 @@
     },
     {
       "id": "bb_qh_refuge_atmo_20261027",
-      "path": "assets/production/battle/bb_qh_refuge_atmo_20261027.webp",
-      "original_path": "art_sources/qihe-battle-bg-20261027/out/bb_qh_refuge_atmo_20261027.webp",
+      "path": "assets/production/battle/bb_qh_refuge_atmo_20261101.webp",
+      "original_path": "art_sources/qihe-battle-bg-20261027/out/bb_qh_refuge_atmo_20261101.webp",
       "system": "battle",
       "role": "registered-or-direct-runtime",
-      "sha256": "a7d2cf630ce6565c5d5fcf389fdf94161dd20f3c1af5caeb1a71a2f440a356d7",
+      "sha256": "810d16dfeed5635c4d541309fa83efb566c3b86a3e96462ef0554822e98017ef",
       "references": [
         "js/bstage.js",
         "js/production-assets.js"
@@ -17812,7 +17902,7 @@
         1672,
         941
       ],
-      "acceptance_status": "候选，待用户评审：2026-10-27 交互地点专属战斗背景（第二十轮 11），画风照 10-23 已确认的氛围版；参考图为该地点实机俯视截图 refs/map_qh_refuge.png"
+      "acceptance_status": "候选，待用户评审：2026-11-01 按新接应院重出"
     },
     {
       "id": "bb_qh_mountain_atmo_20261027",
@@ -17833,11 +17923,11 @@
     },
     {
       "id": "bb_prologue_inn_interior_atmo_20261027",
-      "path": "assets/production/battle/bb_prologue_inn_interior_atmo_20261027.webp",
-      "original_path": "art_sources/qihe-battle-bg-20261027/out/bb_prologue_inn_interior_atmo_20261027.webp",
+      "path": "assets/production/battle/bb_prologue_inn_interior_atmo_20261101.webp",
+      "original_path": "art_sources/qihe-battle-bg-20261027/out/bb_prologue_inn_interior_atmo_20261101.webp",
       "system": "battle",
       "role": "registered-or-direct-runtime",
-      "sha256": "9d984f9ac13d88c7504590815776e5a6a67032933d8f8f9a7487e1d6ba12a8ff",
+      "sha256": "7cf590d05f633b665fe24298b3e5481c7d7e3a8348c1eb74a593f120657162ff",
       "references": [
         "js/bstage.js",
         "js/production-assets.js"
@@ -17846,7 +17936,7 @@
         1672,
         941
       ],
-      "acceptance_status": "候选，待用户评审：2026-10-27 交互地点专属战斗背景（第二十轮 11），画风照 10-23 已确认的氛围版；参考图为该地点实机俯视截图 refs/map_prologue_inn_interior.png"
+      "acceptance_status": "用户 2026-11-01 第三十三轮第 2 题选定客栈甲；战斗背景按新客栈重出，候选"
     },
     {
       "id": "bb_prologue_clinic_interior_atmo_20261027",
@@ -18184,7 +18274,7 @@
       "original_path": "art_sources/generic-portraits-20261030/final/p_qh_generic_chen_20261030.webp",
       "system": "portraits",
       "role": "registered-or-direct-runtime",
-      "sha256": "93cb06731431fec0c8b2126b1797daf7802f2cb323dcadf38d4650047de17508",
+      "sha256": "9107b13c2054b0b4e71bd8c63ac5abdb771c8eeda1b8d12ce1390635a75e9a00",
       "references": [
         "js/production-assets.js"
       ],
@@ -18203,7 +18293,7 @@
       "original_path": "art_sources/generic-portraits-20261030/final/p_qh_generic_elder_20261030.webp",
       "system": "portraits",
       "role": "registered-or-direct-runtime",
-      "sha256": "440afc9164920b5e6462c7f5f893ef57dad62f0ad8288b6190c1d2328fbe4a23",
+      "sha256": "435eeea496fd4c190b18a906f3cec0121ef40b1d98b877abf271a94bf2877dd2",
       "references": [
         "js/production-assets.js"
       ],
@@ -18222,7 +18312,7 @@
       "original_path": "art_sources/generic-portraits-20261030/final/p_qh_generic_innkeeper_20261030.webp",
       "system": "portraits",
       "role": "registered-or-direct-runtime",
-      "sha256": "f7b8b9b329e67f70e8301c6ea2429db501bbfb3edc416310106d29888e6b2078",
+      "sha256": "f9c24047655de97c61212af779b83268f4f4bfc4c88243346e5605e97cffff22",
       "references": [
         "js/production-assets.js"
       ],
@@ -18241,7 +18331,7 @@
       "original_path": "art_sources/generic-portraits-20261030/final/p_qh_generic_apothecary_20261030.webp",
       "system": "portraits",
       "role": "registered-or-direct-runtime",
-      "sha256": "19770ab9eea70b69eb2f42dd66c36613b6a9d5ec78e40ae6f84846222861b3ec",
+      "sha256": "dedd1bdcb6dc0d69b7cae1bf6dc096ed1bbb7c775906db85be7778d646ddad21",
       "references": [
         "js/production-assets.js"
       ],
@@ -18260,7 +18350,7 @@
       "original_path": "art_sources/generic-portraits-20261030/final/p_qh_generic_bailiff_20261030.webp",
       "system": "portraits",
       "role": "registered-or-direct-runtime",
-      "sha256": "296e3a65dbd59395831c05cdcf664ab77b7a57a47ad79cd148450f01efe90313",
+      "sha256": "bd76308a8e72ac5233450b99163e990b33a9877fa7ee503788d13e929b82e2f0",
       "references": [
         "js/production-assets.js"
       ],
@@ -18279,7 +18369,7 @@
       "original_path": "art_sources/generic-portraits-20261030/final/p_qh_generic_retainer_20261030.webp",
       "system": "portraits",
       "role": "registered-or-direct-runtime",
-      "sha256": "1c5169f5ce61566b0024583dc7119d07668fd2f577cddcaaf4a4f5ae16e721ab",
+      "sha256": "497aeb1f77f75732d1fd54dc633d1079d3f2a42f7fb04ed0d495b3b0aad65497",
       "references": [
         "js/production-assets.js"
       ],
@@ -18329,6 +18419,57 @@
       "visual_acceptance_record": "评审台第三十轮第 1 题，用户选“采用，接进游戏并改规则”（后补小木鸟、缠手布条、护腕、裂镜片 4 件，培养后果第三十轮第 4 题选甲）",
       "generation_record": "art_sources/item-icons-20261030/README.md",
       "batch_source": "art_sources/item-icons-20261030/README.md"
+    },
+    {
+      "id": "prop_qh_east_store_shed_20261101",
+      "path": "assets/production/maps/town-props-20261101/prop_qh_east_store_shed_20261101.webp",
+      "original_path": "art_sources/qihe-east-props-20261101/out/prop_qh_east_store_shed_20261101.png",
+      "system": "map",
+      "role": "registered-or-direct-runtime",
+      "sha256": "7dfee24ab38772c77ad964c96b6f90f5197238be738e2c5320e78355776711c9",
+      "actual_size": [
+        338,
+        240
+      ],
+      "acceptance_status": "候选，待用户评审：2026-11-01 东埠缺药棚库棚和货物（第三十三轮第 2 题排查表）；302 生图＋forge 像素后期＋按底图压色",
+      "references": [
+        "js/qihe-town.js",
+        "js/production-assets.js"
+      ]
+    },
+    {
+      "id": "prop_qh_east_crates_20261101",
+      "path": "assets/production/maps/town-props-20261101/prop_qh_east_crates_20261101.webp",
+      "original_path": "art_sources/qihe-east-props-20261101/out/prop_qh_east_crates_20261101.png",
+      "system": "map",
+      "role": "registered-or-direct-runtime",
+      "sha256": "832de203e37c5f4db2392ec4158df182474a9dbca3ffb7a9e8cd29780950cc19",
+      "actual_size": [
+        168,
+        116
+      ],
+      "acceptance_status": "候选，待用户评审：2026-11-01 东埠缺药棚库棚和货物（第三十三轮第 2 题排查表）；302 生图＋forge 像素后期＋按底图压色",
+      "references": [
+        "js/qihe-town.js",
+        "js/production-assets.js"
+      ]
+    },
+    {
+      "id": "prop_qh_east_handcart_20261101",
+      "path": "assets/production/maps/town-props-20261101/prop_qh_east_handcart_20261101.webp",
+      "original_path": "art_sources/qihe-east-props-20261101/out/prop_qh_east_handcart_20261101.png",
+      "system": "map",
+      "role": "registered-or-direct-runtime",
+      "sha256": "ff522744d32541c7ba6e0b02d46f4faa88d8e417bc966ba699f650307f337c59",
+      "actual_size": [
+        176,
+        120
+      ],
+      "acceptance_status": "候选，待用户评审：2026-11-01 东埠缺药棚库棚和货物（第三十三轮第 2 题排查表）；302 生图＋forge 像素后期＋按底图压色",
+      "references": [
+        "js/qihe-town.js",
+        "js/production-assets.js"
+      ]
     }
   ]
 }

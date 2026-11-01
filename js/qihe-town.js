@@ -27,13 +27,13 @@
   qh_flat_stone:{name:'扁石子',desc:'小禾在河边捡的扁石子，磨得光溜溜的。纪念物。',key:1,q:1}
  });
  // ── 客栈（方案 A，5.4）：店家回柜台、帮众坐饮酒桌、住客簿、灶台、箱笼 ──
- // 设计稿的室内坐标（账簿 690,250、灶台 1010,250）落在柜台后、隔板后，人走不到；按实机可达改到柜台前沿、后厨入口（2026-10-27）
+ // 2026-11-01 客栈换新图（柜台后有过道、东北角门帘通后厨）：账簿在柜台前沿，灶台在后厨门帘前，箱笼靠东墙
  const INN=SC.prologue_inn_interior,inn=(id,name,sp,at,act,show)=>{const n=X.node('central',id,name,sp,at,act,show);INN.npcs.push(n);return n};
  INN.npcs=INN.npcs.filter(n=>!['innkeeper','bandit'].includes(n.id));
  const TAB_FEE=24;   // 帮众三天的酒钱（数值待核）
  const tabOpen=()=>days()&&half()<=3&&town().tab.stage!=='done';
  const banditIn=()=>beforeFire()&&!(CP()&&half()>=4);
- inn('innkeeper','店家','c_qh_merchant',[845,385],async()=>{
+ inn('innkeeper','店家','c_qh_merchant',[703,238],async()=>{
   if(!CP())return QihePrologue.actions.cloth();
   const t=town().tab;
   if(t.stage==='done'&&!t.thanked)return guarded(async()=>{t.thanked=true;await play('qh_inn_tab_done',{via:t.via})});
@@ -48,16 +48,16 @@
  inn('bandit','帮众','c_qh_bandit',[400,500],async()=>{
   if(tabOpen()&&town().tab.stage==='offered')return guarded(async()=>{if(await play('qh_inn_tab_face_ask')!=='face')return QiheChapter.interact('bandit');await play('qh_inn_tab_face');tabDone('face')});
   return QiheChapter.interact('bandit')},banditIn);
- inn('inn-book','住客簿',null,[700,300],()=>guarded(()=>play('qh_inn_book')),()=>!!CP());
- inn('inn-stove','后厨灶台',null,[890,420],()=>guarded(async()=>{const t=town(),free=t.tab.stage==='done';
+ inn('inn-book','住客簿',null,[662,310],()=>guarded(()=>play('qh_inn_book')),()=>!!CP());
+ inn('inn-stove','后厨灶台',null,[902,232],()=>guarded(async()=>{const t=town(),free=t.tab.stage==='done';
   if(t.soupAt===half())return play('qh_inn_soup_full');if(!free&&!pay(1))return play('qh_inn_soup_poor');   /* 2026-10-29：汤价按“一两”台词改 1 */t.soupAt=half();await play('qh_inn_soup',{free});restore('mp',.2)}),()=>!!CP()&&beforeFire());
- inn('inn-chest','里间箱笼',null,[990,470],()=>guarded(async()=>{const t=town();if(t.tab.stage!=='done')return play('qh_inn_chest_locked');if(t.searched.chest)return play('qh_inn_chest_empty');
+ inn('inn-chest','墙边箱笼',null,[990,470],()=>guarded(async()=>{const t=town();if(t.tab.stage!=='done')return play('qh_inn_chest_locked');if(t.searched.chest)return play('qh_inn_chest_empty');
   const pick=await play('qh_inn_chest');if(!pick)return;t.searched.chest=pick;await gain({[pick==='tinder'?'qh_tinder':'qh_old_hat']:1})}),()=>!!CP());
  // 岑霜那头：找她结账（第二天傍晚登场后才开；qihe-representatives.js 交谈前调用）
  async function cenOffer(){if(!(tabOpen()&&town().tab.stage==='offered'&&CP()?.events?.['three-meeting']))return false;if(await play('qh_inn_tab_cen_ask')!=='tab')return false;await play('qh_inn_tab_cen');tabDone('cen');return true}
- // ── 南村口：店家、帮众搬进客栈；原站位放菜牌（S1）；茶棚边木桶（S2）──
+ // ── 南村口：店家、帮众搬进客栈；菜牌 2026-11-01 挪到客栈门前（南村口不再叫客栈外院）；茶棚边木桶（S2）──
  const south=SC[X.ids.south];south.npcs=south.npcs.filter(n=>!['cloth','bandit'].includes(n.id));
- Object.assign(X.add('south','inn-menu','客栈外院菜牌',null,[580,352],()=>guarded(()=>play('qh_inn_menu')),()=>!!CP()&&beforeFire()),{prop:'prop_qh_inn_menu_board_fit_20261027',block:[30,8]});
+ Object.assign(X.add('central','inn-menu','客栈菜牌',null,[800,1290],()=>guarded(()=>play('qh_inn_menu')),()=>!!CP()&&beforeFire()),{prop:'prop_qh_inn_menu_board_fit_20261027',block:[30,8]});
  // ── 木桶（W3、S2）：每处只能翻一次（大侠立志传“破罐碎银”的简化版）──
  const barrel=(key,id,at,loot)=>X.add(key,id,'旧木桶',null,at,()=>guarded(async()=>{const t=town();if(t.searched[id])return play('qh_barrel_empty');t.searched[id]=true;await play('qh_barrel',{kind:loot.kind});await gain(loot.items||{},loot.silver||0)}),()=>!!CP()&&beforeFire());
  barrel('west','barrel-west',[540,260],{kind:'silver',silver:5});
@@ -134,11 +134,13 @@
  X.add('refuge','xiaohe','小禾','c_qh_xiaohe',[372,585],lastRiddle,refugeKids);
  // ── 道具绘制与挡路（素材 assets/production/maps/town-props-20261027，世界尺寸＝源像素 × 0.78125）──
  // 节点带 prop 就先画这张图（底边中点为锚；地面层 propTop 以上沿为锚，站上去的人都画在它上面），跟人物一起按纵坐标排序；block 是脚下挡路的椭圆半轴
- const PROP_K=.78125,TOWN_PROPS=['prop_qh_grain_mat_fit_20261027','prop_qh_grain_heap_fit_20261027','prop_qh_peddler_load_fit_20261027','prop_qh_peddler_load_broken_fit_20261027','prop_qh_fortune_stall_fit_20261027','prop_qh_well_fit_20261027','prop_qh_inn_menu_board_fit_20261027'];   // 2026-10-27 只载压色版（art_sources/qihe-props-fit-20261027）；v1、v2 原件留在素材库不加载
+ const PROP_K=.78125,TOWN_PROPS=['prop_qh_grain_mat_fit_20261027','prop_qh_grain_heap_fit_20261027','prop_qh_peddler_load_fit_20261027','prop_qh_peddler_load_broken_fit_20261027','prop_qh_fortune_stall_fit_20261027','prop_qh_well_fit_20261027','prop_qh_inn_menu_board_fit_20261027','prop_qh_east_store_shed_20261101','prop_qh_east_crates_20261101','prop_qh_east_handcart_20261101'];   // 2026-10-27 只载压色版（art_sources/qihe-props-fit-20261027）；v1、v2 原件留在素材库不加载
  ASSETS.push(...TOWN_PROPS);
  {const grain=SC[X.ids.west].npcs.find(n=>n.id==='grain-yard');grain.propTop=true;}
  // 算命摊：摆在算命先生身前（js/qihe-lamp-watcher.js 的 fortune 站在摊后）
  Object.assign(X.add('central','fortune-stall','算命摊',null,[1005,362],()=>window.QiheLamp?.fortuneTalk(),()=>!!window.QiheLamp&&days()&&half()<=4&&!QiheLamp.exposed()),{prop:'prop_qh_fortune_stall_fit_20261027',block:[44,12]});
+ // 2026-11-01 东埠：起火戏写在“药棚装卸侧口”，这里补药棚的库棚和待装的货（只摆着，不能交谈：talkR 负值让 nearest 选不到）
+ for(const[id,name,prop,at,block]of[['east-store','药棚库棚','prop_qh_east_store_shed_20261101',[1020,300],[105,14]],['east-crates','货箱','prop_qh_east_crates_20261101',[960,705],[46,12]],['east-cart','手推车','prop_qh_east_handcart_20261101',[1105,735],[62,12]]])Object.assign(X.add('east',id,name,null,at,async()=>{}),{prop,block,talkR:-1000});
  {const base=drawNpc;drawNpc=function(n,t,near){if(!n.prop)return base(n,t,near);const im=IMG[n.prop],x=n.x*TS,y=n.y*TS;let top=y;
    if(ok(im)){const w=im.width*PROP_K,h=im.height*PROP_K;top=n.propTop?y:y-h;g.save();g.imageSmoothingEnabled=false;
    if(!n.propTop){g.fillStyle='rgba(28,24,12,.28)';g.beginPath();g.ellipse(x,y-2,w*.46,Math.max(5,h*.07),0,0,Math.PI*2);g.fill()}   // 2026-10-27 贴地阴影：用户说新道具“硬生生嵌到背景里”，脚下压一圈淡影落地

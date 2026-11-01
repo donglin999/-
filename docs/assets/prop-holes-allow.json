@@ -4529,2536 +4529,6 @@
       ]
     },
     {
-      "key": "m_qh_refuge_props@62,1963,41,53",
-      "desc": "refuge:table-stool0",
-      "status": "reviewed",
-      "reason": "凳子：凳面下四腿之间透空",
-      "holes": [
-        {
-          "kind": "hole",
-          "bbox": [
-            12,
-            27,
-            28,
-            33
-          ],
-          "area": 69
-        }
-      ]
-    },
-    {
-      "key": "m_qh_refuge_props@231,1963,40,51",
-      "desc": "refuge:table-stool1",
-      "status": "reviewed",
-      "reason": "凳子：凳面下四腿之间透空",
-      "holes": [
-        {
-          "kind": "hole",
-          "bbox": [
-            13,
-            26,
-            27,
-            31
-          ],
-          "area": 63
-        }
-      ]
-    },
-    {
-      "key": "m_qh_refuge_props@1765,1767,233,56",
-      "desc": "refuge:fence-north",
-      "status": "reviewed",
-      "reason": "栅栏：横杆之间本应透空",
-      "holes": [
-        {
-          "kind": "hole",
-          "bbox": [
-            23,
-            28,
-            73,
-            34
-          ],
-          "area": 276
-        },
-        {
-          "kind": "hole",
-          "bbox": [
-            92,
-            28,
-            141,
-            34
-          ],
-          "area": 272
-        },
-        {
-          "kind": "hole",
-          "bbox": [
-            160,
-            28,
-            209,
-            34
-          ],
-          "area": 269
-        }
-      ]
-    },
-    {
-      "key": "m_qh_refuge_props@0,1847,233,56",
-      "desc": "refuge:fence-north",
-      "status": "reviewed",
-      "reason": "栅栏：横杆之间本应透空",
-      "holes": [
-        {
-          "kind": "hole",
-          "bbox": [
-            23,
-            28,
-            73,
-            34
-          ],
-          "area": 271
-        },
-        {
-          "kind": "hole",
-          "bbox": [
-            92,
-            28,
-            141,
-            34
-          ],
-          "area": 272
-        },
-        {
-          "kind": "hole",
-          "bbox": [
-            160,
-            28,
-            209,
-            34
-          ],
-          "area": 271
-        }
-      ]
-    },
-    {
-      "key": "m_qh_refuge_props@235,1847,233,56",
-      "desc": "refuge:fence-north",
-      "status": "reviewed",
-      "reason": "栅栏：横杆之间本应透空",
-      "holes": [
-        {
-          "kind": "hole",
-          "bbox": [
-            23,
-            28,
-            73,
-            34
-          ],
-          "area": 276
-        },
-        {
-          "kind": "hole",
-          "bbox": [
-            92,
-            28,
-            141,
-            34
-          ],
-          "area": 272
-        },
-        {
-          "kind": "hole",
-          "bbox": [
-            160,
-            28,
-            209,
-            34
-          ],
-          "area": 269
-        }
-      ]
-    },
-    {
-      "key": "m_qh_refuge_props@470,1847,233,56",
-      "desc": "refuge:fence-north",
-      "status": "reviewed",
-      "reason": "栅栏：横杆之间本应透空",
-      "holes": [
-        {
-          "kind": "hole",
-          "bbox": [
-            23,
-            28,
-            73,
-            34
-          ],
-          "area": 271
-        },
-        {
-          "kind": "hole",
-          "bbox": [
-            92,
-            28,
-            141,
-            34
-          ],
-          "area": 272
-        },
-        {
-          "kind": "hole",
-          "bbox": [
-            160,
-            28,
-            209,
-            34
-          ],
-          "area": 271
-        }
-      ]
-    },
-    {
-      "key": "m_qh_refuge_props@705,1847,233,56",
-      "desc": "refuge:fence-north",
-      "status": "reviewed",
-      "reason": "栅栏：横杆之间本应透空",
-      "holes": [
-        {
-          "kind": "hole",
-          "bbox": [
-            23,
-            28,
-            73,
-            34
-          ],
-          "area": 276
-        },
-        {
-          "kind": "hole",
-          "bbox": [
-            92,
-            28,
-            141,
-            34
-          ],
-          "area": 272
-        },
-        {
-          "kind": "hole",
-          "bbox": [
-            160,
-            28,
-            209,
-            34
-          ],
-          "area": 269
-        }
-      ]
-    },
-    {
-      "key": "m_qh_refuge_props@940,1847,233,56",
-      "desc": "refuge:fence-north",
-      "status": "reviewed",
-      "reason": "栅栏：横杆之间本应透空",
-      "holes": [
-        {
-          "kind": "hole",
-          "bbox": [
-            23,
-            28,
-            73,
-            34
-          ],
-          "area": 271
-        },
-        {
-          "kind": "hole",
-          "bbox": [
-            92,
-            28,
-            141,
-            34
-          ],
-          "area": 272
-        },
-        {
-          "kind": "hole",
-          "bbox": [
-            160,
-            28,
-            209,
-            34
-          ],
-          "area": 271
-        }
-      ]
-    },
-    {
-      "key": "m_qh_refuge_props@1175,1847,233,56",
-      "desc": "refuge:fence-north",
-      "status": "reviewed",
-      "reason": "栅栏：横杆之间本应透空",
-      "holes": [
-        {
-          "kind": "hole",
-          "bbox": [
-            23,
-            28,
-            73,
-            34
-          ],
-          "area": 276
-        },
-        {
-          "kind": "hole",
-          "bbox": [
-            92,
-            28,
-            141,
-            34
-          ],
-          "area": 272
-        },
-        {
-          "kind": "hole",
-          "bbox": [
-            160,
-            28,
-            209,
-            34
-          ],
-          "area": 269
-        }
-      ]
-    },
-    {
-      "key": "m_qh_refuge_props@1410,1847,233,56",
-      "desc": "refuge:fence-north",
-      "status": "reviewed",
-      "reason": "栅栏：横杆之间本应透空",
-      "holes": [
-        {
-          "kind": "hole",
-          "bbox": [
-            23,
-            28,
-            73,
-            34
-          ],
-          "area": 271
-        },
-        {
-          "kind": "hole",
-          "bbox": [
-            92,
-            28,
-            141,
-            34
-          ],
-          "area": 272
-        },
-        {
-          "kind": "hole",
-          "bbox": [
-            160,
-            28,
-            209,
-            34
-          ],
-          "area": 271
-        }
-      ]
-    },
-    {
-      "key": "m_qh_refuge_props@1645,1847,233,56",
-      "desc": "refuge:fence-south",
-      "status": "reviewed",
-      "reason": "栅栏：横杆之间本应透空",
-      "holes": [
-        {
-          "kind": "hole",
-          "bbox": [
-            23,
-            28,
-            73,
-            34
-          ],
-          "area": 276
-        },
-        {
-          "kind": "hole",
-          "bbox": [
-            92,
-            28,
-            141,
-            34
-          ],
-          "area": 272
-        },
-        {
-          "kind": "hole",
-          "bbox": [
-            160,
-            28,
-            209,
-            34
-          ],
-          "area": 269
-        }
-      ]
-    },
-    {
-      "key": "m_qh_refuge_props@0,1905,233,56",
-      "desc": "refuge:fence-south",
-      "status": "reviewed",
-      "reason": "栅栏：横杆之间本应透空",
-      "holes": [
-        {
-          "kind": "hole",
-          "bbox": [
-            23,
-            28,
-            73,
-            34
-          ],
-          "area": 271
-        },
-        {
-          "kind": "hole",
-          "bbox": [
-            92,
-            28,
-            141,
-            34
-          ],
-          "area": 272
-        },
-        {
-          "kind": "hole",
-          "bbox": [
-            160,
-            28,
-            209,
-            34
-          ],
-          "area": 271
-        }
-      ]
-    },
-    {
-      "key": "m_qh_refuge_props@235,1905,233,56",
-      "desc": "refuge:fence-south",
-      "status": "reviewed",
-      "reason": "栅栏：横杆之间本应透空",
-      "holes": [
-        {
-          "kind": "hole",
-          "bbox": [
-            23,
-            28,
-            73,
-            34
-          ],
-          "area": 276
-        },
-        {
-          "kind": "hole",
-          "bbox": [
-            92,
-            28,
-            141,
-            34
-          ],
-          "area": 272
-        },
-        {
-          "kind": "hole",
-          "bbox": [
-            160,
-            28,
-            209,
-            34
-          ],
-          "area": 269
-        }
-      ]
-    },
-    {
-      "key": "m_qh_refuge_props@470,1905,233,56",
-      "desc": "refuge:fence-south",
-      "status": "reviewed",
-      "reason": "栅栏：横杆之间本应透空",
-      "holes": [
-        {
-          "kind": "hole",
-          "bbox": [
-            23,
-            28,
-            73,
-            34
-          ],
-          "area": 271
-        },
-        {
-          "kind": "hole",
-          "bbox": [
-            92,
-            28,
-            141,
-            34
-          ],
-          "area": 272
-        },
-        {
-          "kind": "hole",
-          "bbox": [
-            160,
-            28,
-            209,
-            34
-          ],
-          "area": 271
-        }
-      ]
-    },
-    {
-      "key": "m_qh_refuge_props@705,1905,233,56",
-      "desc": "refuge:fence-south",
-      "status": "reviewed",
-      "reason": "栅栏：横杆之间本应透空",
-      "holes": [
-        {
-          "kind": "hole",
-          "bbox": [
-            23,
-            28,
-            73,
-            34
-          ],
-          "area": 276
-        },
-        {
-          "kind": "hole",
-          "bbox": [
-            92,
-            28,
-            141,
-            34
-          ],
-          "area": 272
-        },
-        {
-          "kind": "hole",
-          "bbox": [
-            160,
-            28,
-            209,
-            34
-          ],
-          "area": 269
-        }
-      ]
-    },
-    {
-      "key": "m_qh_refuge_props@940,1905,233,56",
-      "desc": "refuge:fence-south",
-      "status": "reviewed",
-      "reason": "栅栏：横杆之间本应透空",
-      "holes": [
-        {
-          "kind": "hole",
-          "bbox": [
-            23,
-            28,
-            73,
-            34
-          ],
-          "area": 271
-        },
-        {
-          "kind": "hole",
-          "bbox": [
-            92,
-            28,
-            141,
-            34
-          ],
-          "area": 272
-        },
-        {
-          "kind": "hole",
-          "bbox": [
-            160,
-            28,
-            209,
-            34
-          ],
-          "area": 271
-        }
-      ]
-    },
-    {
-      "key": "m_qh_refuge_props@1175,1905,233,56",
-      "desc": "refuge:fence-south",
-      "status": "reviewed",
-      "reason": "栅栏：横杆之间本应透空",
-      "holes": [
-        {
-          "kind": "hole",
-          "bbox": [
-            23,
-            28,
-            73,
-            34
-          ],
-          "area": 276
-        },
-        {
-          "kind": "hole",
-          "bbox": [
-            92,
-            28,
-            141,
-            34
-          ],
-          "area": 272
-        },
-        {
-          "kind": "hole",
-          "bbox": [
-            160,
-            28,
-            209,
-            34
-          ],
-          "area": 269
-        }
-      ]
-    },
-    {
-      "key": "m_qh_refuge_props@1410,1905,233,56",
-      "desc": "refuge:fence-south",
-      "status": "reviewed",
-      "reason": "栅栏：横杆之间本应透空",
-      "holes": [
-        {
-          "kind": "hole",
-          "bbox": [
-            23,
-            28,
-            73,
-            34
-          ],
-          "area": 271
-        },
-        {
-          "kind": "hole",
-          "bbox": [
-            92,
-            28,
-            141,
-            34
-          ],
-          "area": 272
-        },
-        {
-          "kind": "hole",
-          "bbox": [
-            160,
-            28,
-            209,
-            34
-          ],
-          "area": 271
-        }
-      ]
-    },
-    {
-      "key": "m_qh_refuge_props@1018,0,133,200",
-      "desc": "refuge:yard-tree",
-      "status": "reviewed",
-      "reason": "树：枝杈之间透出地面、树冠外缘凹口，属造型镂空（2026-10-25 逐张看过）",
-      "holes": [
-        {
-          "kind": "gap",
-          "bbox": [
-            108,
-            104,
-            118,
-            117
-          ],
-          "area": 70
-        }
-      ]
-    },
-    {
-      "key": "m_qh_refuge_props@520,0,148,223",
-      "desc": "refuge:yard-tree",
-      "status": "reviewed",
-      "reason": "树：枝杈之间透出地面、树冠外缘凹口，属造型镂空（2026-10-25 逐张看过）",
-      "holes": [
-        {
-          "kind": "gap",
-          "bbox": [
-            16,
-            116,
-            28,
-            131
-          ],
-          "area": 87
-        }
-      ]
-    },
-    {
-      "key": "m_qh_refuge_props@1385,0,128,193",
-      "desc": "refuge:yard-tree",
-      "status": "reviewed",
-      "reason": "树：枝杈之间透出地面、树冠外缘凹口，属造型镂空（2026-10-25 逐张看过）",
-      "holes": [
-        {
-          "kind": "gap",
-          "bbox": [
-            104,
-            100,
-            113,
-            113
-          ],
-          "area": 64
-        }
-      ]
-    },
-    {
-      "key": "m_qh_refuge_props@1039,543,118,157",
-      "desc": "refuge:yard-tree",
-      "status": "reviewed",
-      "reason": "树：枝杈之间透出地面、树冠外缘凹口，属造型镂空（2026-10-25 逐张看过）",
-      "holes": [
-        {
-          "kind": "hole",
-          "bbox": [
-            42,
-            48,
-            51,
-            59
-          ],
-          "area": 30
-        },
-        {
-          "kind": "hole",
-          "bbox": [
-            47,
-            75,
-            55,
-            89
-          ],
-          "area": 52
-        },
-        {
-          "kind": "hole",
-          "bbox": [
-            67,
-            106,
-            74,
-            114
-          ],
-          "area": 30
-        }
-      ]
-    },
-    {
-      "key": "m_qh_refuge_props@820,543,110,158",
-      "desc": "refuge:tree",
-      "status": "reviewed",
-      "reason": "树：枝杈之间透出地面、树冠外缘凹口，属造型镂空（2026-10-25 逐张看过）",
-      "holes": [
-        {
-          "kind": "hole",
-          "bbox": [
-            38,
-            98,
-            43,
-            104
-          ],
-          "area": 17
-        }
-      ]
-    },
-    {
-      "key": "m_qh_refuge_props@1573,1006,114,135",
-      "desc": "refuge:tree",
-      "status": "reviewed",
-      "reason": "树：枝杈之间透出地面、树冠外缘凹口，属造型镂空（2026-10-25 逐张看过）",
-      "holes": [
-        {
-          "kind": "hole",
-          "bbox": [
-            63,
-            86,
-            69,
-            94
-          ],
-          "area": 23
-        },
-        {
-          "kind": "hole",
-          "bbox": [
-            44,
-            90,
-            50,
-            98
-          ],
-          "area": 27
-        }
-      ]
-    },
-    {
-      "key": "m_qh_refuge_props@1048,705,111,148",
-      "desc": "refuge:tree",
-      "status": "reviewed",
-      "reason": "树：枝杈之间透出地面、树冠外缘凹口，属造型镂空（2026-10-25 逐张看过）",
-      "holes": [
-        {
-          "kind": "hole",
-          "bbox": [
-            63,
-            45,
-            71,
-            55
-          ],
-          "area": 26
-        },
-        {
-          "kind": "hole",
-          "bbox": [
-            59,
-            72,
-            67,
-            84
-          ],
-          "area": 38
-        },
-        {
-          "kind": "hole",
-          "bbox": [
-            41,
-            100,
-            48,
-            107
-          ],
-          "area": 27
-        }
-      ]
-    },
-    {
-      "key": "m_qh_refuge_props@1338,1412,88,117",
-      "desc": "refuge:tree",
-      "status": "reviewed",
-      "reason": "树：枝杈之间透出地面、树冠外缘凹口，属造型镂空（2026-10-25 逐张看过）",
-      "holes": [
-        {
-          "kind": "hole",
-          "bbox": [
-            36,
-            56,
-            41,
-            66
-          ],
-          "area": 24
-        }
-      ]
-    },
-    {
-      "key": "m_qh_refuge_props@1158,1654,86,102",
-      "desc": "refuge:tree",
-      "status": "reviewed",
-      "reason": "树：枝杈之间透出地面、树冠外缘凹口，属造型镂空（2026-10-25 逐张看过）",
-      "holes": [
-        {
-          "kind": "hole",
-          "bbox": [
-            33,
-            68,
-            38,
-            74
-          ],
-          "area": 17
-        }
-      ]
-    },
-    {
-      "key": "m_qh_refuge_props@0,1006,116,138",
-      "desc": "refuge:tree",
-      "status": "reviewed",
-      "reason": "树：枝杈之间透出地面、树冠外缘凹口，属造型镂空（2026-10-25 逐张看过）",
-      "holes": [
-        {
-          "kind": "hole",
-          "bbox": [
-            46,
-            88,
-            51,
-            96
-          ],
-          "area": 24
-        },
-        {
-          "kind": "hole",
-          "bbox": [
-            65,
-            92,
-            71,
-            101
-          ],
-          "area": 30
-        }
-      ]
-    },
-    {
-      "key": "m_qh_refuge_props@1468,858,105,140",
-      "desc": "refuge:tree",
-      "status": "reviewed",
-      "reason": "树：枝杈之间透出地面、树冠外缘凹口，属造型镂空（2026-10-25 逐张看过）",
-      "holes": [
-        {
-          "kind": "hole",
-          "bbox": [
-            59,
-            43,
-            67,
-            53
-          ],
-          "area": 27
-        },
-        {
-          "kind": "hole",
-          "bbox": [
-            56,
-            67,
-            64,
-            79
-          ],
-          "area": 39
-        },
-        {
-          "kind": "hole",
-          "bbox": [
-            39,
-            94,
-            45,
-            101
-          ],
-          "area": 24
-        }
-      ]
-    },
-    {
-      "key": "m_qh_refuge_props@346,858,108,144",
-      "desc": "refuge:tree",
-      "status": "reviewed",
-      "reason": "树：枝杈之间透出地面、树冠外缘凹口，属造型镂空（2026-10-25 逐张看过）",
-      "holes": [
-        {
-          "kind": "hole",
-          "bbox": [
-            61,
-            44,
-            69,
-            54
-          ],
-          "area": 26
-        },
-        {
-          "kind": "hole",
-          "bbox": [
-            58,
-            69,
-            65,
-            81
-          ],
-          "area": 40
-        },
-        {
-          "kind": "hole",
-          "bbox": [
-            40,
-            97,
-            46,
-            104
-          ],
-          "area": 22
-        }
-      ]
-    },
-    {
-      "key": "m_qh_refuge_props@375,1536,86,115",
-      "desc": "refuge:tree",
-      "status": "reviewed",
-      "reason": "树：枝杈之间透出地面、树冠外缘凹口，属造型镂空（2026-10-25 逐张看过）",
-      "holes": [
-        {
-          "kind": "hole",
-          "bbox": [
-            34,
-            55,
-            40,
-            65
-          ],
-          "area": 26
-        }
-      ]
-    },
-    {
-      "key": "m_qh_refuge_props@1686,705,110,146",
-      "desc": "refuge:tree",
-      "status": "reviewed",
-      "reason": "树：枝杈之间透出地面、树冠外缘凹口，属造型镂空（2026-10-25 逐张看过）",
-      "holes": [
-        {
-          "kind": "hole",
-          "bbox": [
-            39,
-            45,
-            48,
-            55
-          ],
-          "area": 29
-        },
-        {
-          "kind": "hole",
-          "bbox": [
-            43,
-            70,
-            51,
-            82
-          ],
-          "area": 43
-        },
-        {
-          "kind": "hole",
-          "bbox": [
-            63,
-            98,
-            69,
-            105
-          ],
-          "area": 25
-        }
-      ]
-    },
-    {
-      "key": "m_qh_refuge_props@791,1282,95,126",
-      "desc": "refuge:tree",
-      "status": "reviewed",
-      "reason": "树：枝杈之间透出地面、树冠外缘凹口，属造型镂空（2026-10-25 逐张看过）",
-      "holes": [
-        {
-          "kind": "hole",
-          "bbox": [
-            34,
-            39,
-            41,
-            47
-          ],
-          "area": 16
-        },
-        {
-          "kind": "hole",
-          "bbox": [
-            38,
-            61,
-            44,
-            71
-          ],
-          "area": 30
-        }
-      ]
-    },
-    {
-      "key": "m_qh_refuge_props@540,1006,103,137",
-      "desc": "refuge:tree",
-      "status": "reviewed",
-      "reason": "树：枝杈之间透出地面、树冠外缘凹口，属造型镂空（2026-10-25 逐张看过）",
-      "holes": [
-        {
-          "kind": "hole",
-          "bbox": [
-            58,
-            42,
-            66,
-            51
-          ],
-          "area": 25
-        },
-        {
-          "kind": "hole",
-          "bbox": [
-            55,
-            66,
-            62,
-            77
-          ],
-          "area": 35
-        },
-        {
-          "kind": "hole",
-          "bbox": [
-            39,
-            92,
-            44,
-            99
-          ],
-          "area": 20
-        }
-      ]
-    },
-    {
-      "key": "m_qh_refuge_props@1798,705,110,146",
-      "desc": "refuge:tree",
-      "status": "reviewed",
-      "reason": "树：枝杈之间透出地面、树冠外缘凹口，属造型镂空（2026-10-25 逐张看过）",
-      "holes": [
-        {
-          "kind": "hole",
-          "bbox": [
-            39,
-            45,
-            48,
-            55
-          ],
-          "area": 29
-        },
-        {
-          "kind": "hole",
-          "bbox": [
-            43,
-            70,
-            51,
-            82
-          ],
-          "area": 43
-        },
-        {
-          "kind": "hole",
-          "bbox": [
-            63,
-            98,
-            69,
-            105
-          ],
-          "area": 25
-        }
-      ]
-    },
-    {
-      "key": "m_qh_refuge_props@645,1006,103,137",
-      "desc": "refuge:tree",
-      "status": "reviewed",
-      "reason": "树：枝杈之间透出地面、树冠外缘凹口，属造型镂空（2026-10-25 逐张看过）",
-      "holes": [
-        {
-          "kind": "hole",
-          "bbox": [
-            58,
-            42,
-            66,
-            51
-          ],
-          "area": 25
-        },
-        {
-          "kind": "hole",
-          "bbox": [
-            55,
-            66,
-            62,
-            77
-          ],
-          "area": 35
-        },
-        {
-          "kind": "hole",
-          "bbox": [
-            39,
-            92,
-            44,
-            99
-          ],
-          "area": 20
-        }
-      ]
-    },
-    {
-      "key": "m_qh_refuge_props@1260,858,106,141",
-      "desc": "refuge:tree",
-      "status": "reviewed",
-      "reason": "树：枝杈之间透出地面、树冠外缘凹口，属造型镂空（2026-10-25 逐张看过）",
-      "holes": [
-        {
-          "kind": "hole",
-          "bbox": [
-            38,
-            43,
-            46,
-            53
-          ],
-          "area": 25
-        },
-        {
-          "kind": "hole",
-          "bbox": [
-            42,
-            68,
-            49,
-            79
-          ],
-          "area": 37
-        },
-        {
-          "kind": "hole",
-          "bbox": [
-            61,
-            95,
-            66,
-            102
-          ],
-          "area": 20
-        }
-      ]
-    },
-    {
-      "key": "m_qh_refuge_props@1938,1146,108,128",
-      "desc": "refuge:tree",
-      "status": "reviewed",
-      "reason": "树：枝杈之间透出地面、树冠外缘凹口，属造型镂空（2026-10-25 逐张看过）",
-      "holes": [
-        {
-          "kind": "hole",
-          "bbox": [
-            43,
-            83,
-            48,
-            91
-          ],
-          "area": 23
-        },
-        {
-          "kind": "hole",
-          "bbox": [
-            60,
-            85,
-            66,
-            93
-          ],
-          "area": 24
-        }
-      ]
-    },
-    {
-      "key": "m_qh_refuge_props@1121,1536,85,113",
-      "desc": "refuge:tree",
-      "status": "reviewed",
-      "reason": "树：枝杈之间透出地面、树冠外缘凹口，属造型镂空（2026-10-25 逐张看过）",
-      "holes": [
-        {
-          "kind": "hole",
-          "bbox": [
-            35,
-            55,
-            39,
-            64
-          ],
-          "area": 19
-        }
-      ]
-    },
-    {
-      "key": "m_qh_refuge_props@0,1412,92,122",
-      "desc": "refuge:tree",
-      "status": "reviewed",
-      "reason": "树：枝杈之间透出地面、树冠外缘凹口，属造型镂空（2026-10-25 逐张看过）",
-      "holes": [
-        {
-          "kind": "hole",
-          "bbox": [
-            52,
-            38,
-            59,
-            46
-          ],
-          "area": 17
-        },
-        {
-          "kind": "hole",
-          "bbox": [
-            49,
-            59,
-            55,
-            69
-          ],
-          "area": 29
-        }
-      ]
-    },
-    {
-      "key": "m_qh_refuge_props@1004,359,117,169",
-      "desc": "refuge:tree",
-      "status": "reviewed",
-      "reason": "树：枝杈之间透出地面、树冠外缘凹口，属造型镂空（2026-10-25 逐张看过）",
-      "holes": [
-        {
-          "kind": "hole",
-          "bbox": [
-            40,
-            106,
-            45,
-            111
-          ],
-          "area": 17
-        }
-      ]
-    },
-    {
-      "key": "m_qh_refuge_props@463,1536,97,115",
-      "desc": "refuge:tree",
-      "status": "reviewed",
-      "reason": "树：枝杈之间透出地面、树冠外缘凹口，属造型镂空（2026-10-25 逐张看过）",
-      "holes": [
-        {
-          "kind": "hole",
-          "bbox": [
-            38,
-            74,
-            43,
-            81
-          ],
-          "area": 18
-        },
-        {
-          "kind": "hole",
-          "bbox": [
-            54,
-            78,
-            59,
-            84
-          ],
-          "area": 20
-        }
-      ]
-    },
-    {
-      "key": "m_qh_refuge_props@481,705,113,150",
-      "desc": "refuge:tree",
-      "status": "reviewed",
-      "reason": "树：枝杈之间透出地面、树冠外缘凹口，属造型镂空（2026-10-25 逐张看过）",
-      "holes": [
-        {
-          "kind": "hole",
-          "bbox": [
-            64,
-            46,
-            73,
-            56
-          ],
-          "area": 28
-        },
-        {
-          "kind": "hole",
-          "bbox": [
-            60,
-            73,
-            69,
-            85
-          ],
-          "area": 40
-        },
-        {
-          "kind": "hole",
-          "bbox": [
-            42,
-            101,
-            48,
-            108
-          ],
-          "area": 24
-        }
-      ]
-    },
-    {
-      "key": "m_qh_refuge_props@176,1654,93,110",
-      "desc": "refuge:tree",
-      "status": "reviewed",
-      "reason": "树：枝杈之间透出地面、树冠外缘凹口，属造型镂空（2026-10-25 逐张看过）",
-      "holes": [
-        {
-          "kind": "hole",
-          "bbox": [
-            52,
-            73,
-            57,
-            80
-          ],
-          "area": 18
-        }
-      ]
-    },
-    {
-      "key": "m_qh_refuge_props@843,1006,103,137",
-      "desc": "refuge:tree",
-      "status": "reviewed",
-      "reason": "树：枝杈之间透出地面、树冠外缘凹口，属造型镂空（2026-10-25 逐张看过）",
-      "holes": [
-        {
-          "kind": "hole",
-          "bbox": [
-            58,
-            42,
-            66,
-            51
-          ],
-          "area": 25
-        },
-        {
-          "kind": "hole",
-          "bbox": [
-            55,
-            66,
-            62,
-            77
-          ],
-          "area": 35
-        },
-        {
-          "kind": "hole",
-          "bbox": [
-            39,
-            92,
-            44,
-            99
-          ],
-          "area": 20
-        }
-      ]
-    },
-    {
-      "key": "m_qh_refuge_props@1068,1654,88,105",
-      "desc": "refuge:tree",
-      "status": "reviewed",
-      "reason": "树：枝杈之间透出地面、树冠外缘凹口，属造型镂空（2026-10-25 逐张看过）",
-      "holes": [
-        {
-          "kind": "hole",
-          "bbox": [
-            34,
-            71,
-            39,
-            76
-          ],
-          "area": 16
-        }
-      ]
-    },
-    {
-      "key": "m_qh_refuge_props@1361,359,115,166",
-      "desc": "refuge:tree",
-      "status": "reviewed",
-      "reason": "树：枝杈之间透出地面、树冠外缘凹口，属造型镂空（2026-10-25 逐张看过）",
-      "holes": [
-        {
-          "kind": "hole",
-          "bbox": [
-            71,
-            103,
-            76,
-            109
-          ],
-          "area": 16
-        }
-      ]
-    },
-    {
-      "key": "m_qh_refuge_props@358,1654,92,109",
-      "desc": "refuge:tree",
-      "status": "reviewed",
-      "reason": "树：枝杈之间透出地面、树冠外缘凹口，属造型镂空（2026-10-25 逐张看过）",
-      "holes": [
-        {
-          "kind": "hole",
-          "bbox": [
-            51,
-            71,
-            56,
-            77
-          ],
-          "area": 16
-        }
-      ]
-    },
-    {
-      "key": "m_qh_refuge_props@1043,1412,99,118",
-      "desc": "refuge:tree",
-      "status": "reviewed",
-      "reason": "树：枝杈之间透出地面、树冠外缘凹口，属造型镂空（2026-10-25 逐张看过）",
-      "holes": [
-        {
-          "kind": "hole",
-          "bbox": [
-            39,
-            76,
-            44,
-            84
-          ],
-          "area": 21
-        },
-        {
-          "kind": "hole",
-          "bbox": [
-            55,
-            79,
-            61,
-            85
-          ],
-          "area": 19
-        }
-      ]
-    },
-    {
-      "key": "m_qh_refuge_props@1123,359,117,169",
-      "desc": "refuge:tree",
-      "status": "reviewed",
-      "reason": "树：枝杈之间透出地面、树冠外缘凹口，属造型镂空（2026-10-25 逐张看过）",
-      "holes": [
-        {
-          "kind": "hole",
-          "bbox": [
-            40,
-            106,
-            45,
-            111
-          ],
-          "area": 17
-        }
-      ]
-    },
-    {
-      "key": "m_qh_refuge_props@562,1536,97,115",
-      "desc": "refuge:tree",
-      "status": "reviewed",
-      "reason": "树：枝杈之间透出地面、树冠外缘凹口，属造型镂空（2026-10-25 逐张看过）",
-      "holes": [
-        {
-          "kind": "hole",
-          "bbox": [
-            54,
-            74,
-            59,
-            81
-          ],
-          "area": 18
-        },
-        {
-          "kind": "hole",
-          "bbox": [
-            38,
-            78,
-            43,
-            84
-          ],
-          "area": 20
-        }
-      ]
-    },
-    {
-      "key": "m_qh_refuge_props@1515,1146,97,129",
-      "desc": "refuge:tree",
-      "status": "reviewed",
-      "reason": "树：枝杈之间透出地面、树冠外缘凹口，属造型镂空（2026-10-25 逐张看过）",
-      "holes": [
-        {
-          "kind": "hole",
-          "bbox": [
-            55,
-            40,
-            62,
-            48
-          ],
-          "area": 18
-        },
-        {
-          "kind": "hole",
-          "bbox": [
-            52,
-            62,
-            59,
-            73
-          ],
-          "area": 32
-        },
-        {
-          "kind": "hole",
-          "bbox": [
-            36,
-            88,
-            42,
-            93
-          ],
-          "area": 17
-        }
-      ]
-    },
-    {
-      "key": "m_qh_refuge_props@0,1282,108,128",
-      "desc": "refuge:tree",
-      "status": "reviewed",
-      "reason": "树：枝杈之间透出地面、树冠外缘凹口，属造型镂空（2026-10-25 逐张看过）",
-      "holes": [
-        {
-          "kind": "hole",
-          "bbox": [
-            43,
-            83,
-            48,
-            91
-          ],
-          "area": 23
-        },
-        {
-          "kind": "hole",
-          "bbox": [
-            60,
-            85,
-            66,
-            93
-          ],
-          "area": 24
-        }
-      ]
-    },
-    {
-      "key": "m_qh_refuge_props@94,1412,92,122",
-      "desc": "refuge:tree",
-      "status": "reviewed",
-      "reason": "树：枝杈之间透出地面、树冠外缘凹口，属造型镂空（2026-10-25 逐张看过）",
-      "holes": [
-        {
-          "kind": "hole",
-          "bbox": [
-            52,
-            38,
-            59,
-            46
-          ],
-          "area": 17
-        },
-        {
-          "kind": "hole",
-          "bbox": [
-            49,
-            59,
-            55,
-            69
-          ],
-          "area": 29
-        }
-      ]
-    },
-    {
-      "key": "m_qh_refuge_props@1910,705,110,146",
-      "desc": "refuge:tree",
-      "status": "reviewed",
-      "reason": "树：枝杈之间透出地面、树冠外缘凹口，属造型镂空（2026-10-25 逐张看过）",
-      "holes": [
-        {
-          "kind": "hole",
-          "bbox": [
-            39,
-            45,
-            48,
-            55
-          ],
-          "area": 29
-        },
-        {
-          "kind": "hole",
-          "bbox": [
-            43,
-            70,
-            51,
-            82
-          ],
-          "area": 43
-        },
-        {
-          "kind": "hole",
-          "bbox": [
-            63,
-            98,
-            69,
-            105
-          ],
-          "area": 25
-        }
-      ]
-    },
-    {
-      "key": "m_qh_refuge_props@1057,1006,103,137",
-      "desc": "refuge:tree",
-      "status": "reviewed",
-      "reason": "树：枝杈之间透出地面、树冠外缘凹口，属造型镂空（2026-10-25 逐张看过）",
-      "holes": [
-        {
-          "kind": "hole",
-          "bbox": [
-            58,
-            42,
-            66,
-            51
-          ],
-          "area": 25
-        },
-        {
-          "kind": "hole",
-          "bbox": [
-            55,
-            66,
-            62,
-            77
-          ],
-          "area": 35
-        },
-        {
-          "kind": "hole",
-          "bbox": [
-            39,
-            92,
-            44,
-            99
-          ],
-          "area": 20
-        }
-      ]
-    },
-    {
-      "key": "m_qh_refuge_props@1388,543,116,154",
-      "desc": "refuge:tree",
-      "status": "reviewed",
-      "reason": "树：枝杈之间透出地面、树冠外缘凹口，属造型镂空（2026-10-25 逐张看过）",
-      "holes": [
-        {
-          "kind": "hole",
-          "bbox": [
-            66,
-            47,
-            75,
-            57
-          ],
-          "area": 28
-        },
-        {
-          "kind": "hole",
-          "bbox": [
-            62,
-            74,
-            70,
-            87
-          ],
-          "area": 48
-        },
-        {
-          "kind": "hole",
-          "bbox": [
-            43,
-            104,
-            50,
-            111
-          ],
-          "area": 26
-        }
-      ]
-    },
-    {
-      "key": "m_qh_refuge_props@653,1412,100,119",
-      "desc": "refuge:tree",
-      "status": "reviewed",
-      "reason": "树：枝杈之间透出地面、树冠外缘凹口，属造型镂空（2026-10-25 逐张看过）",
-      "holes": [
-        {
-          "kind": "hole",
-          "bbox": [
-            56,
-            76,
-            60,
-            83
-          ],
-          "area": 17
-        },
-        {
-          "kind": "hole",
-          "bbox": [
-            39,
-            79,
-            44,
-            87
-          ],
-          "area": 21
-        }
-      ]
-    },
-    {
-      "key": "m_qh_refuge_props@1162,1006,103,137",
-      "desc": "refuge:tree",
-      "status": "reviewed",
-      "reason": "树：枝杈之间透出地面、树冠外缘凹口，属造型镂空（2026-10-25 逐张看过）",
-      "holes": [
-        {
-          "kind": "hole",
-          "bbox": [
-            37,
-            42,
-            45,
-            51
-          ],
-          "area": 25
-        },
-        {
-          "kind": "hole",
-          "bbox": [
-            41,
-            66,
-            48,
-            77
-          ],
-          "area": 35
-        },
-        {
-          "kind": "hole",
-          "bbox": [
-            59,
-            92,
-            64,
-            99
-          ],
-          "area": 20
-        }
-      ]
-    },
-    {
-      "key": "m_qh_refuge_props@1157,1282,105,125",
-      "desc": "refuge:tree",
-      "status": "reviewed",
-      "reason": "树：枝杈之间透出地面、树冠外缘凹口，属造型镂空（2026-10-25 逐张看过）",
-      "holes": [
-        {
-          "kind": "hole",
-          "bbox": [
-            42,
-            80,
-            46,
-            87
-          ],
-          "area": 19
-        },
-        {
-          "kind": "hole",
-          "bbox": [
-            59,
-            83,
-            64,
-            91
-          ],
-          "area": 22
-        }
-      ]
-    },
-    {
-      "key": "m_qh_refuge_props@1653,1536,83,111",
-      "desc": "refuge:tree",
-      "status": "reviewed",
-      "reason": "树：枝杈之间透出地面、树冠外缘凹口，属造型镂空（2026-10-25 逐张看过）",
-      "holes": [
-        {
-          "kind": "hole",
-          "bbox": [
-            45,
-            54,
-            49,
-            62
-          ],
-          "area": 18
-        }
-      ]
-    },
-    {
-      "key": "m_qh_refuge_props@216,1006,104,138",
-      "desc": "refuge:tree",
-      "status": "reviewed",
-      "reason": "树：枝杈之间透出地面、树冠外缘凹口，属造型镂空（2026-10-25 逐张看过）",
-      "holes": [
-        {
-          "kind": "hole",
-          "bbox": [
-            59,
-            42,
-            67,
-            52
-          ],
-          "area": 23
-        },
-        {
-          "kind": "hole",
-          "bbox": [
-            56,
-            67,
-            63,
-            78
-          ],
-          "area": 34
-        },
-        {
-          "kind": "hole",
-          "bbox": [
-            39,
-            94,
-            45,
-            100
-          ],
-          "area": 22
-        }
-      ]
-    },
-    {
-      "key": "m_qh_refuge_props@93,1536,98,116",
-      "desc": "refuge:tree",
-      "status": "reviewed",
-      "reason": "树：枝杈之间透出地面、树冠外缘凹口，属造型镂空（2026-10-25 逐张看过）",
-      "holes": [
-        {
-          "kind": "hole",
-          "bbox": [
-            39,
-            75,
-            43,
-            81
-          ],
-          "area": 16
-        },
-        {
-          "kind": "hole",
-          "bbox": [
-            55,
-            77,
-            60,
-            84
-          ],
-          "area": 19
-        }
-      ]
-    },
-    {
-      "key": "m_qh_refuge_props@1246,1654,86,102",
-      "desc": "refuge:tree",
-      "status": "reviewed",
-      "reason": "树：枝杈之间透出地面、树冠外缘凹口，属造型镂空（2026-10-25 逐张看过）",
-      "holes": [
-        {
-          "kind": "hole",
-          "bbox": [
-            33,
-            68,
-            38,
-            74
-          ],
-          "area": 17
-        }
-      ]
-    },
-    {
-      "key": "m_qh_refuge_props@1242,359,117,169",
-      "desc": "refuge:tree",
-      "status": "reviewed",
-      "reason": "树：枝杈之间透出地面、树冠外缘凹口，属造型镂空（2026-10-25 逐张看过）",
-      "holes": [
-        {
-          "kind": "hole",
-          "bbox": [
-            40,
-            106,
-            45,
-            111
-          ],
-          "area": 17
-        }
-      ]
-    },
-    {
-      "key": "m_qh_refuge_props@1614,1146,109,129",
-      "desc": "refuge:tree",
-      "status": "reviewed",
-      "reason": "树：枝杈之间透出地面、树冠外缘凹口，属造型镂空（2026-10-25 逐张看过）",
-      "holes": [
-        {
-          "kind": "hole",
-          "bbox": [
-            43,
-            82,
-            48,
-            90
-          ],
-          "area": 22
-        },
-        {
-          "kind": "hole",
-          "bbox": [
-            61,
-            87,
-            67,
-            94
-          ],
-          "area": 25
-        }
-      ]
-    },
-    {
-      "key": "m_qh_refuge_props@452,1654,92,109",
-      "desc": "refuge:tree",
-      "status": "reviewed",
-      "reason": "树：枝杈之间透出地面、树冠外缘凹口，属造型镂空（2026-10-25 逐张看过）",
-      "holes": [
-        {
-          "kind": "hole",
-          "bbox": [
-            36,
-            71,
-            41,
-            77
-          ],
-          "area": 16
-        }
-      ]
-    },
-    {
-      "key": "m_qh_refuge_props@755,1412,100,119",
-      "desc": "refuge:tree",
-      "status": "reviewed",
-      "reason": "树：枝杈之间透出地面、树冠外缘凹口，属造型镂空（2026-10-25 逐张看过）",
-      "holes": [
-        {
-          "kind": "hole",
-          "bbox": [
-            56,
-            76,
-            60,
-            83
-          ],
-          "area": 17
-        },
-        {
-          "kind": "hole",
-          "bbox": [
-            39,
-            79,
-            44,
-            87
-          ],
-          "area": 21
-        }
-      ]
-    },
-    {
-      "key": "m_qh_refuge_props@369,1412,91,121",
-      "desc": "refuge:tree",
-      "status": "reviewed",
-      "reason": "树：枝杈之间透出地面、树冠外缘凹口，属造型镂空（2026-10-25 逐张看过）",
-      "holes": [
-        {
-          "kind": "hole",
-          "bbox": [
-            49,
-            59,
-            55,
-            68
-          ],
-          "area": 27
-        },
-        {
-          "kind": "hole",
-          "bbox": [
-            34,
-            82,
-            39,
-            87
-          ],
-          "area": 16
-        }
-      ]
-    },
-    {
-      "key": "m_qh_refuge_props@582,1282,107,127",
-      "desc": "refuge:tree",
-      "status": "reviewed",
-      "reason": "树：枝杈之间透出地面、树冠外缘凹口，属造型镂空（2026-10-25 逐张看过）",
-      "holes": [
-        {
-          "kind": "hole",
-          "bbox": [
-            42,
-            81,
-            47,
-            89
-          ],
-          "area": 20
-        },
-        {
-          "kind": "hole",
-          "bbox": [
-            60,
-            85,
-            65,
-            93
-          ],
-          "area": 24
-        }
-      ]
-    },
-    {
-      "key": "m_qh_refuge_props@934,705,112,149",
-      "desc": "refuge:tree",
-      "status": "reviewed",
-      "reason": "树：枝杈之间透出地面、树冠外缘凹口，属造型镂空（2026-10-25 逐张看过）",
-      "holes": [
-        {
-          "kind": "hole",
-          "bbox": [
-            63,
-            46,
-            72,
-            56
-          ],
-          "area": 31
-        },
-        {
-          "kind": "hole",
-          "bbox": [
-            60,
-            71,
-            68,
-            84
-          ],
-          "area": 46
-        },
-        {
-          "kind": "hole",
-          "bbox": [
-            42,
-            100,
-            48,
-            107
-          ],
-          "area": 26
-        }
-      ]
-    },
-    {
-      "key": "m_qh_refuge_props@200,1146,101,134",
-      "desc": "refuge:tree",
-      "status": "reviewed",
-      "reason": "树：枝杈之间透出地面、树冠外缘凹口，属造型镂空（2026-10-25 逐张看过）",
-      "holes": [
-        {
-          "kind": "hole",
-          "bbox": [
-            36,
-            41,
-            44,
-            50
-          ],
-          "area": 22
-        },
-        {
-          "kind": "hole",
-          "bbox": [
-            40,
-            64,
-            47,
-            76
-          ],
-          "area": 40
-        },
-        {
-          "kind": "hole",
-          "bbox": [
-            58,
-            91,
-            63,
-            97
-          ],
-          "area": 19
-        }
-      ]
-    },
-    {
-      "key": "m_qh_refuge_props@1237,1412,99,118",
-      "desc": "refuge:tree",
-      "status": "reviewed",
-      "reason": "树：枝杈之间透出地面、树冠外缘凹口，属造型镂空（2026-10-25 逐张看过）",
-      "holes": [
-        {
-          "kind": "hole",
-          "bbox": [
-            39,
-            76,
-            44,
-            84
-          ],
-          "area": 21
-        },
-        {
-          "kind": "hole",
-          "bbox": [
-            55,
-            79,
-            61,
-            85
-          ],
-          "area": 19
-        }
-      ]
-    },
-    {
-      "key": "m_qh_refuge_props@1884,543,114,152",
-      "desc": "refuge:tree",
-      "status": "reviewed",
-      "reason": "树：枝杈之间透出地面、树冠外缘凹口，属造型镂空（2026-10-25 逐张看过）",
-      "holes": [
-        {
-          "kind": "hole",
-          "bbox": [
-            41,
-            47,
-            50,
-            57
-          ],
-          "area": 28
-        },
-        {
-          "kind": "hole",
-          "bbox": [
-            45,
-            73,
-            53,
-            86
-          ],
-          "area": 48
-        },
-        {
-          "kind": "hole",
-          "bbox": [
-            65,
-            102,
-            71,
-            110
-          ],
-          "area": 29
-        }
-      ]
-    },
-    {
-      "key": "m_qh_refuge_props@1334,1654,86,102",
-      "desc": "refuge:tree",
-      "status": "reviewed",
-      "reason": "树：枝杈之间透出地面、树冠外缘凹口，属造型镂空（2026-10-25 逐张看过）",
-      "holes": [
-        {
-          "kind": "hole",
-          "bbox": [
-            48,
-            68,
-            53,
-            74
-          ],
-          "area": 17
-        }
-      ]
-    },
-    {
-      "key": "m_qh_refuge_props@843,1536,96,114",
-      "desc": "refuge:tree",
-      "status": "reviewed",
-      "reason": "树：枝杈之间透出地面、树冠外缘凹口，属造型镂空（2026-10-25 逐张看过）",
-      "holes": [
-        {
-          "kind": "hole",
-          "bbox": [
-            38,
-            76,
-            42,
-            83
-          ],
-          "area": 18
-        }
-      ]
-    },
-    {
-      "key": "m_qh_refuge_props@1674,359,109,164",
-      "desc": "refuge:tree",
-      "status": "reviewed",
-      "reason": "树：枝杈之间透出地面、树冠外缘凹口，属造型镂空（2026-10-25 逐张看过）",
-      "holes": [
-        {
-          "kind": "gap",
-          "bbox": [
-            88,
-            85,
-            99,
-            96
-          ],
-          "area": 62
-        }
-      ]
-    },
-    {
-      "key": "m_qh_refuge_props@1725,1146,109,129",
-      "desc": "refuge:tree",
-      "status": "reviewed",
-      "reason": "树：枝杈之间透出地面、树冠外缘凹口，属造型镂空（2026-10-25 逐张看过）",
-      "holes": [
-        {
-          "kind": "hole",
-          "bbox": [
-            43,
-            82,
-            48,
-            90
-          ],
-          "area": 22
-        },
-        {
-          "kind": "hole",
-          "bbox": [
-            61,
-            87,
-            67,
-            94
-          ],
-          "area": 25
-        }
-      ]
-    },
-    {
-      "key": "m_qh_refuge_props@303,1146,101,134",
-      "desc": "refuge:tree",
-      "status": "reviewed",
-      "reason": "树：枝杈之间透出地面、树冠外缘凹口，属造型镂空（2026-10-25 逐张看过）",
-      "holes": [
-        {
-          "kind": "hole",
-          "bbox": [
-            57,
-            41,
-            65,
-            50
-          ],
-          "area": 22
-        },
-        {
-          "kind": "hole",
-          "bbox": [
-            54,
-            64,
-            61,
-            76
-          ],
-          "area": 40
-        },
-        {
-          "kind": "hole",
-          "bbox": [
-            38,
-            91,
-            43,
-            97
-          ],
-          "area": 19
-        }
-      ]
-    },
-    {
-      "key": "m_qh_refuge_props@1360,1006,103,137",
-      "desc": "refuge:tree",
-      "status": "reviewed",
-      "reason": "树：枝杈之间透出地面、树冠外缘凹口，属造型镂空（2026-10-25 逐张看过）",
-      "holes": [
-        {
-          "kind": "hole",
-          "bbox": [
-            37,
-            42,
-            45,
-            51
-          ],
-          "area": 25
-        },
-        {
-          "kind": "hole",
-          "bbox": [
-            41,
-            66,
-            48,
-            77
-          ],
-          "area": 35
-        },
-        {
-          "kind": "hole",
-          "bbox": [
-            59,
-            92,
-            64,
-            99
-          ],
-          "area": 20
-        }
-      ]
-    },
-    {
-      "key": "m_qh_refuge_props@1689,1006,114,135",
-      "desc": "refuge:tree",
-      "status": "reviewed",
-      "reason": "树：枝杈之间透出地面、树冠外缘凹口，属造型镂空（2026-10-25 逐张看过）",
-      "holes": [
-        {
-          "kind": "hole",
-          "bbox": [
-            45,
-            86,
-            51,
-            94
-          ],
-          "area": 23
-        },
-        {
-          "kind": "hole",
-          "bbox": [
-            64,
-            90,
-            70,
-            98
-          ],
-          "area": 27
-        }
-      ]
-    },
-    {
-      "key": "m_qh_refuge_props@1159,543,118,157",
-      "desc": "refuge:tree",
-      "status": "reviewed",
-      "reason": "树：枝杈之间透出地面、树冠外缘凹口，属造型镂空（2026-10-25 逐张看过）",
-      "holes": [
-        {
-          "kind": "hole",
-          "bbox": [
-            67,
-            48,
-            76,
-            59
-          ],
-          "area": 30
-        },
-        {
-          "kind": "hole",
-          "bbox": [
-            63,
-            75,
-            71,
-            89
-          ],
-          "area": 52
-        },
-        {
-          "kind": "hole",
-          "bbox": [
-            44,
-            106,
-            51,
-            114
-          ],
-          "area": 30
-        }
-      ]
-    },
-    {
-      "key": "m_qh_refuge_props@197,1282,96,128",
-      "desc": "refuge:tree",
-      "status": "reviewed",
-      "reason": "树：枝杈之间透出地面、树冠外缘凹口，属造型镂空（2026-10-25 逐张看过）",
-      "holes": [
-        {
-          "kind": "hole",
-          "bbox": [
-            34,
-            39,
-            42,
-            48
-          ],
-          "area": 20
-        },
-        {
-          "kind": "hole",
-          "bbox": [
-            38,
-            62,
-            45,
-            72
-          ],
-          "area": 27
-        },
-        {
-          "kind": "hole",
-          "bbox": [
-            55,
-            86,
-            60,
-            92
-          ],
-          "area": 18
-        }
-      ]
-    },
-    {
-      "key": "m_qh_refuge_props@633,1654,92,109",
-      "desc": "refuge:tree",
-      "status": "reviewed",
-      "reason": "树：枝杈之间透出地面、树冠外缘凹口，属造型镂空（2026-10-25 逐张看过）",
-      "holes": [
-        {
-          "kind": "hole",
-          "bbox": [
-            51,
-            71,
-            56,
-            77
-          ],
-          "area": 16
-        }
-      ]
-    },
-    {
-      "key": "m_qh_central_props@1351,572,602,450",
-      "desc": "central:elder-home",
-      "status": "reviewed",
-      "reason": "房屋：台基下沿缺口由屋基裙边烘入地面补齐，实机看不到",
-      "holes": [
-        {
-          "kind": "gap",
-          "bbox": [
-            561,
-            343,
-            568,
-            361
-          ],
-          "area": 77
-        }
-      ]
-    },
-    {
       "key": "m_qh_central_props@1328,1064,218,159",
       "desc": "central:repair-bench",
       "status": "reviewed",
@@ -7177,34 +4647,6 @@
             153
           ],
           "area": 36
-        }
-      ]
-    },
-    {
-      "key": "m_qh_central_props@0,1330,120,143",
-      "desc": "central:tree",
-      "status": "reviewed",
-      "reason": "树：枝杈之间透出地面、树冠外缘凹口，属造型镂空（2026-10-25 逐张看过）",
-      "holes": [
-        {
-          "kind": "hole",
-          "bbox": [
-            47,
-            93,
-            53,
-            101
-          ],
-          "area": 30
-        },
-        {
-          "kind": "hole",
-          "bbox": [
-            67,
-            95,
-            73,
-            104
-          ],
-          "area": 28
         }
       ]
     },
@@ -52824,15 +50266,15 @@
       "key": "p_qh_generic_apothecary_20261030",
       "desc": "portraits",
       "status": "reviewed",
-      "reason": "2026-10-30 放大看过（品红底）：发丝间、褡裢背带与衣服之间、握带的手指间透出的底，是造型空隙",
+      "reason": "药草枝杈、布带、褡裢绳之间透空",
       "holes": [
         {
           "kind": "hole",
           "bbox": [
             307,
-            28,
+            59,
             318,
-            48
+            79
           ],
           "area": 91
         },
@@ -52840,9 +50282,9 @@
           "kind": "hole",
           "bbox": [
             567,
-            109,
+            140,
             575,
-            120
+            151
           ],
           "area": 35
         },
@@ -52850,9 +50292,9 @@
           "kind": "hole",
           "bbox": [
             627,
-            767,
+            798,
             635,
-            788
+            819
           ],
           "area": 119
         },
@@ -52860,9 +50302,9 @@
           "kind": "hole",
           "bbox": [
             676,
-            803,
+            834,
             693,
-            816
+            847
           ],
           "area": 78
         }
@@ -52900,15 +50342,15 @@
       "key": "p_qh_generic_retainer_20261030",
       "desc": "portraits",
       "status": "reviewed",
-      "reason": "2026-10-30 放大看过（品红底）：按刀的手臂与身体之间透出的底，是造型空隙",
+      "reason": "叉腰手臂和身体之间透空",
       "holes": [
         {
           "kind": "hole",
           "bbox": [
             276,
-            783,
+            855,
             362,
-            878
+            950
           ],
           "area": 1778
         }
@@ -53515,6 +50957,578 @@
             403
           ],
           "area": 69
+        }
+      ]
+    },
+    {
+      "key": "s_npc_qh_bandit_20261010",
+      "desc": "characters",
+      "status": "reviewed",
+      "reason": "头巾系带和头发之间透空",
+      "holes": [
+        {
+          "kind": "hole",
+          "bbox": [
+            36,
+            51,
+            42,
+            56
+          ],
+          "area": 16
+        },
+        {
+          "kind": "hole",
+          "bbox": [
+            132,
+            51,
+            138,
+            56
+          ],
+          "area": 16
+        },
+        {
+          "kind": "hole",
+          "bbox": [
+            228,
+            51,
+            234,
+            56
+          ],
+          "area": 16
+        },
+        {
+          "kind": "hole",
+          "bbox": [
+            324,
+            51,
+            330,
+            56
+          ],
+          "area": 16
+        }
+      ]
+    },
+    {
+      "key": "s_npc_qh_oldman_20261010",
+      "desc": "characters",
+      "status": "reviewed",
+      "reason": "拐杖和身体之间透空",
+      "holes": [
+        {
+          "kind": "hole",
+          "bbox": [
+            62,
+            428,
+            66,
+            439
+          ],
+          "area": 24
+        },
+        {
+          "kind": "hole",
+          "bbox": [
+            158,
+            428,
+            162,
+            439
+          ],
+          "area": 24
+        },
+        {
+          "kind": "hole",
+          "bbox": [
+            254,
+            428,
+            258,
+            439
+          ],
+          "area": 24
+        },
+        {
+          "kind": "hole",
+          "bbox": [
+            350,
+            428,
+            354,
+            439
+          ],
+          "area": 24
+        }
+      ]
+    },
+    {
+      "key": "m_qh_central_props@0,1475,762,550",
+      "desc": "central:tree",
+      "status": "reviewed",
+      "reason": "客栈：酒旗杆和旗面之间的空隙",
+      "holes": [
+        {
+          "kind": "hole",
+          "area": 39,
+          "bbox": [
+            695,
+            436,
+            715,
+            440
+          ]
+        }
+      ]
+    },
+    {
+      "key": "m_qh_central_props@1329,1475,307,202",
+      "desc": "central:tree",
+      "status": "reviewed",
+      "reason": "叶家药圃：篱笆内是地面，透出草地；篱笆缝",
+      "holes": [
+        {
+          "kind": "hole",
+          "area": 119,
+          "bbox": [
+            109,
+            44,
+            136,
+            50
+          ]
+        },
+        {
+          "kind": "hole",
+          "area": 79,
+          "bbox": [
+            140,
+            44,
+            164,
+            50
+          ]
+        },
+        {
+          "kind": "hole",
+          "area": 53,
+          "bbox": [
+            39,
+            45,
+            54,
+            50
+          ]
+        },
+        {
+          "kind": "hole",
+          "area": 132,
+          "bbox": [
+            64,
+            45,
+            96,
+            50
+          ]
+        },
+        {
+          "kind": "hole",
+          "area": 21,
+          "bbox": [
+            169,
+            45,
+            175,
+            50
+          ]
+        },
+        {
+          "kind": "hole",
+          "area": 57,
+          "bbox": [
+            190,
+            45,
+            207,
+            50
+          ]
+        },
+        {
+          "kind": "hole",
+          "area": 3606,
+          "bbox": [
+            185,
+            45,
+            283,
+            161
+          ]
+        },
+        {
+          "kind": "hole",
+          "area": 17,
+          "bbox": [
+            31,
+            46,
+            36,
+            51
+          ]
+        },
+        {
+          "kind": "hole",
+          "area": 870,
+          "bbox": [
+            23,
+            54,
+            141,
+            160
+          ]
+        },
+        {
+          "kind": "hole",
+          "area": 32,
+          "bbox": [
+            144,
+            104,
+            157,
+            107
+          ]
+        },
+        {
+          "kind": "hole",
+          "area": 57,
+          "bbox": [
+            160,
+            104,
+            181,
+            107
+          ]
+        }
+      ]
+    },
+    {
+      "key": "m_qh_central_props@565,2027,243,231",
+      "desc": "central:tree",
+      "status": "reviewed",
+      "reason": "木工棚：立柱之间敞开",
+      "holes": [
+        {
+          "kind": "hole",
+          "area": 190,
+          "bbox": [
+            38,
+            138,
+            44,
+            197
+          ]
+        },
+        {
+          "kind": "hole",
+          "area": 37,
+          "bbox": [
+            205,
+            140,
+            208,
+            153
+          ]
+        },
+        {
+          "kind": "gap",
+          "area": 92,
+          "bbox": [
+            175,
+            192,
+            189,
+            203
+          ]
+        }
+      ]
+    },
+    {
+      "key": "m_qh_central_props@1158,2027,179,117",
+      "desc": "central:tree",
+      "status": "reviewed",
+      "reason": "老伯菜地：篱笆缝和菜垄之间",
+      "holes": [
+        {
+          "kind": "hole",
+          "area": 31,
+          "bbox": [
+            142,
+            23,
+            149,
+            29
+          ]
+        },
+        {
+          "kind": "hole",
+          "area": 27,
+          "bbox": [
+            82,
+            25,
+            94,
+            28
+          ]
+        },
+        {
+          "kind": "hole",
+          "area": 17,
+          "bbox": [
+            121,
+            25,
+            130,
+            28
+          ]
+        },
+        {
+          "kind": "hole",
+          "area": 30,
+          "bbox": [
+            153,
+            103,
+            163,
+            109
+          ]
+        }
+      ]
+    },
+    {
+      "key": "m_qh_central_props@1339,2027,691,299",
+      "desc": "central:?",
+      "status": "reviewed",
+      "reason": "药棚：药幌和立柱之间、敞开的檐下立柱脚",
+      "holes": [
+        {
+          "kind": "hole",
+          "area": 183,
+          "bbox": [
+            23,
+            156,
+            42,
+            170
+          ]
+        },
+        {
+          "kind": "hole",
+          "area": 18,
+          "bbox": [
+            302,
+            261,
+            305,
+            268
+          ]
+        },
+        {
+          "kind": "hole",
+          "area": 19,
+          "bbox": [
+            385,
+            261,
+            388,
+            269
+          ]
+        },
+        {
+          "kind": "hole",
+          "area": 86,
+          "bbox": [
+            460,
+            261,
+            504,
+            263
+          ]
+        },
+        {
+          "kind": "gap",
+          "area": 101,
+          "bbox": [
+            440,
+            261,
+            446,
+            278
+          ]
+        },
+        {
+          "kind": "gap",
+          "area": 68,
+          "bbox": [
+            81,
+            262,
+            93,
+            276
+          ]
+        }
+      ]
+    },
+    {
+      "key": "m_qh_central_props@0,2396,307,283",
+      "desc": "central:?",
+      "status": "reviewed",
+      "reason": "老树：树冠枝叶间的空隙",
+      "holes": [
+        {
+          "kind": "hole",
+          "area": 27,
+          "bbox": [
+            141,
+            59,
+            148,
+            68
+          ]
+        },
+        {
+          "kind": "hole",
+          "area": 24,
+          "bbox": [
+            134,
+            72,
+            140,
+            80
+          ]
+        },
+        {
+          "kind": "hole",
+          "area": 26,
+          "bbox": [
+            100,
+            95,
+            108,
+            102
+          ]
+        },
+        {
+          "kind": "hole",
+          "area": 59,
+          "bbox": [
+            192,
+            102,
+            206,
+            112
+          ]
+        },
+        {
+          "kind": "hole",
+          "area": 37,
+          "bbox": [
+            218,
+            110,
+            226,
+            116
+          ]
+        },
+        {
+          "kind": "hole",
+          "area": 236,
+          "bbox": [
+            234,
+            131,
+            261,
+            158
+          ]
+        },
+        {
+          "kind": "hole",
+          "area": 18,
+          "bbox": [
+            164,
+            138,
+            169,
+            144
+          ]
+        },
+        {
+          "kind": "hole",
+          "area": 19,
+          "bbox": [
+            58,
+            150,
+            65,
+            156
+          ]
+        },
+        {
+          "kind": "hole",
+          "area": 74,
+          "bbox": [
+            190,
+            162,
+            204,
+            175
+          ]
+        },
+        {
+          "kind": "gap",
+          "area": 65,
+          "bbox": [
+            257,
+            79,
+            271,
+            88
+          ]
+        },
+        {
+          "kind": "gap",
+          "area": 107,
+          "bbox": [
+            261,
+            140,
+            277,
+            162
+          ]
+        },
+        {
+          "kind": "gap",
+          "area": 135,
+          "bbox": [
+            55,
+            163,
+            71,
+            186
+          ]
+        }
+      ]
+    },
+    {
+      "key": "m_qh_central_props@309,2396,147,111",
+      "desc": "central:?",
+      "status": "reviewed",
+      "reason": "酒坛架：两根木桩和横木之间",
+      "holes": [
+        {
+          "kind": "hole",
+          "area": 20,
+          "bbox": [
+            28,
+            54,
+            32,
+            63
+          ]
+        },
+        {
+          "kind": "gap",
+          "area": 98,
+          "bbox": [
+            80,
+            35,
+            117,
+            41
+          ]
+        },
+        {
+          "kind": "gap",
+          "area": 92,
+          "bbox": [
+            21,
+            41,
+            31,
+            74
+          ]
+        },
+        {
+          "kind": "gap",
+          "area": 105,
+          "bbox": [
+            119,
+            45,
+            126,
+            71
+          ]
+        },
+        {
+          "kind": "gap",
+          "area": 124,
+          "bbox": [
+            35,
+            53,
+            50,
+            73
+          ]
         }
       ]
     }

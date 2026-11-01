@@ -26,7 +26,7 @@
 ## 生成标准与记录
 
 - [战斗精灵规格](../../../battle-sprite-spec.md)：六头身侧视、64逻辑像素骨架、3倍最近邻、硬透明、脚底坐标、动作与命中帧。
-- [白模动作管线](../../../anim-pipeline.md)：程序骨架/关节 → 新定妆 → 按白模生成动作 → QA → 调色/描边/组表 → 实际渲染检查。
+- [白模动作管线](../../../archive/anim-pipeline-rig.md)（本批当时的做法，只作追溯；现行做法见 R-动作-01）：程序骨架/关节 → 新定妆 → 按白模生成动作 → QA → 调色/描边/组表 → 实际渲染检查。
 - [本分支角色质量规则](../../../archive/design/qihe-map/expansion/standards/character-asset-quality.md)：角色身份、服装阶段、动作完整性及同屏清晰度。
 - [本批来源、复现方式和验收记录](../../../../art_sources/qihe-chapter1-battle-v1/README.md)：原图、全部提示词、参考、失败候选和选帧均归档。
 

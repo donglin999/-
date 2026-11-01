@@ -12,6 +12,7 @@ window.DialogueStage=(()=>{
  // 2026-10-17 起第一章所有对话立绘都换成 960×1280 高清半身像（_hd_20261017），这里按 640 高折半记录。
  const FRAMES={opening_hero_village:[108,160,'m'],opening_hero_modern:[108,160,'m'],ye:[120,171,'f'],opening_zhouyan:[104,160,'m'],opening_luheng:[106,160,'m'],
   opening_chengduo:[106,161,'m'],opening_wukui:[104,160,'m'],qh_shenyanhui_story:[120,170,'f'],qh_xulingyi_story:[116,168,'f'],qh_censhuang_story:[100,150,'f'],qh_song_story:[106,162,'m']};
+ const setFrame=(k,eye,chin,g)=>{FRAMES[k]=[eye,chin,g]};
  function frameOf(sp){const key=(sp||'').replace(/^c_/,'').split(':')[0],f=FRAMES[key];if(!f)return null;const fem=f[2]==='f';return {eye:f[0],line:fem?EYE_F:EYE_M,k:(fem?FACE_F:FACE_M)/(f[1]-f[0])};}
  function add(who,sp,slot){
   sp=resolve(who,sp);if(!sp||face(sp)==='none')return null;
@@ -80,5 +81,5 @@ window.DialogueStage=(()=>{
   d.classList.add('dialogue-staged');d.classList.toggle('hasface',!!big.length);return {big,small};
  }
  async function withCast(config,fn){const token=begin(config);try{return await fn();}finally{end(token);}}
- return {begin,end,withCast,enter,layout,render,closeLine,identity,get snapshot(){return {scene:state.scene,active:state.active,actors:layout(),scope:state.scope?.id||null};}};
+ return {frame:setFrame,begin,end,withCast,enter,layout,render,closeLine,identity,get snapshot(){return {scene:state.scene,active:state.active,actors:layout(),scope:state.scope?.id||null};}};
 })();

@@ -11,7 +11,7 @@ const {boot}=require('./harness.cjs'),assert=require('node:assert/strict'),fs=re
  await check('all five interiors: door return, anchors, furniture footprint and every interaction reachable',async()=>{
   for(const[key,m]of Object.entries(c.QIHE_ROOMS)){
    await c.QihePrologue.goLocal(key);assert(c.standOk(...m.start),key+' start');assert.equal(run('cur._ms'),2);
-   for(const n of c.rt.SC['prologue_'+key].npcs){let reached=false;for(const [dx,dy]of[[0,34],[34,0],[-34,0],[0,-34],[0,52],[52,0],[-52,0]]){const p=[n.x*40+dx,n.y*40+dy];if(c.walkable(...p)&&c.findPath(...p)){reached=true;break}}assert(reached,key+'/'+n.id)}
+   for(const n of c.rt.SC['prologue_'+key].npcs){let reached=false;for(const [dx,dy]of[[0,34],[34,0],[-34,0],[0,-34],[0,52],[52,0],[-52,0],[0,130]/* 2026-11-01 掌柜站柜台后，从柜台前搭话 */]){const p=[n.x*40+dx,n.y*40+dy];if(c.walkable(...p)&&c.findPath(...p)){reached=true;break}}assert(reached,key+'/'+n.id)}
    const door=c.rt.SC['prologue_'+key].npcs[0];await door.act();assert(run('S.scene')!=='prologue_'+key,key+' exit');assert(c.standOk(c.rt.player.x,c.rt.player.y),'exit landing');
   }
  });

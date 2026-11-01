@@ -20,10 +20,10 @@
   ['west-herb-margin','west','herb',610,590,1,'菜畦以北的野草地'],
   ['west-branch-edge','west','branch',610,345,2,'工具棚外林缘'],   // 2026-10-27 原 (640,170) 落在新铺的晒谷竹席上，挪到工具棚与竹席之间（地图可交互物稿 5.2）
   ['west-reed-bank','west','reed',200,405,1,'西溪岸边'],
-  ['south-branch-edge','south','branch',1150,795,1,'客栈外院南边草地'],
+  ['south-branch-edge','south','branch',1150,795,1,'南村口南边草地'],
   ['south-reed-bank','south','reed',1335,390,1,'村口河岸'],
   ['central-branch-edge','central','branch',890,210,1,'村北树下路边'],
-  ['refuge-branch-edge','refuge','branch',1280,760,1,'接应院边树下'],
+  ['refuge-branch-edge','refuge','branch',300,770,1,'接应院边树下'],
   ['mountain-branch-edge','mountain','branch',590,780,2,'山居院外竹木边'],
   ['mountain-herb-edge','mountain','herb',1280,510,1,'药圃围栏外的散生草丛']
  ];
@@ -31,7 +31,7 @@
  const safePhase=()=>!['fire','escape'].includes(S?.qiheChapter?.stage);
  const remaining=n=>!!S&&!taken(n.id)&&safePhase();
  // 2026-10-27 收货人按对话距离算、不看视线：客栈店家隔着柜台，视线判断永远被柜台挡住
- const nearTalk=n=>cur===SC[n.scene]&&Math.hypot(player.x-n.x*TS,player.y-n.y*TS)<110;
+ const nearTalk=n=>cur===SC[n.scene]&&Math.hypot(player.x-n.x*TS,player.y-n.y*TS)<Math.max(110,n.talkR||0);
  const near=n=>cur===SC[n.scene]&&Math.hypot(player.x-n.x*TS,player.y-n.y*TS)<80&&lineOk(player.x,player.y,n.x*TS,n.y*TS);
  function commit(bag,state,silver=S.silver){
   const next={...S,bag,qiheResources:state,silver,scene:Object.keys(SC).find(k=>SC[k]===cur),x:player.x,y:player.y};

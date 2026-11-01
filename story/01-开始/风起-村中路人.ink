@@ -64,5 +64,5 @@ INCLUDE ../_共用/externals-风起主线.ink
 -> END
 
 === fq_x_counter ===
-萧白：（掌柜不在。柜台上留了字：在南村口外院收布巾。） #id:QX-counter
+萧白：（掌柜不在。柜台上留了字：在南村口收布巾。） #id:QX-counter
 -> END

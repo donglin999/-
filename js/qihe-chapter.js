@@ -18,7 +18,7 @@
  const castSprites={新来的:'c_qh_atan',阿炭:'c_qh_atan',帮众:'c_qh_bandit',采办随从:'c_opening_procurement_aide',差役:'c_opening_bailiff',叶蘅:'c_ye',周砚:'c_opening_zhouyan',陆衡:'c_opening_luheng',周婶:'c_opening_aunt',陈伯:'c_opening_chen',药商:'c_opening_apothecary',管事:'c_opening_steward',护院:'c_opening_retainer',乌魁:'c_opening_wukui',采办使:'c_opening_procurement',店家:'c_qh_merchant',村口老人:'c_qh_oldman',宋先生:'c_qh_song_story',算命先生:'c_qh_linhuizhi',蔺管事:'c_qh_linhuizhi',船家:'c_qh_chuanjia',货郎:'c_qh_huolang',小耗子:'c_qh_aqi',阿七:'c_qh_aqi',阿栓:'c_qh_ashuan',小禾:'c_qh_xiaohe',...QiheRepresentatives.sprites};
  // 2026-10-27：画外音（window.QiheOffstage 里的人：隔门说话、远处喊）不摆站位；同一人不同名条（蔺管事＝算命先生）找同一个节点
  const CAST_ALIAS={蔺管事:'算命先生',阿炭:'新来的'};   // 2026-10-29 阿炭：还册子前名牌叫“新来的”
- function placeCast(names){const sc=cur,original=sc.npcs,cast=[...new Set(names.filter(n=>castSprites[n]&&!window.QiheOffstage?.has(n)))].slice(0,5),others=original.filter(n=>!n.sp),placed=[];
+ function placeCast(names){if(window.QiheStaging?.active())return()=>{};const sc=cur,original=sc.npcs,cast=[...new Set(names.filter(n=>castSprites[n]&&!window.QiheOffstage?.has(n)))].slice(0,5),others=original.filter(n=>!n.sp||!cast.some(c=>n.name===c||n.name===CAST_ALIAS[c])),placed=[];
   // Temporary static blocking. At most five supporting figures plus the player.
   const offsets=[[-110,-25],[110,-30],[-190,70],[180,75],[0,-125],[-80,110],[90,120],[-210,-100],[210,-90]];
   for(const name of cast){const old=original.find(n=>(n.name===name||n.name===CAST_ALIAS[name])&&(!n.show||n.show()));let pos=old&&Math.hypot(old.x*TS-player.x,old.y*TS-player.y)<250?[old.x*TS,old.y*TS]:null;
@@ -159,7 +159,7 @@
   // A completed clash has its own checkpoint. Old saves with an already visible fire
   // do not rewind to a duel in a burning courtyard.
   if(!p.fireLit&&!p.clashVersion){
-   await sayAll(QiheRepresentatives.rows.fireDemand);await sayAll(QiheRepresentatives.rows.fireCollision);
+   await QiheStaging.hold('fire',async()=>{await sayAll(QiheRepresentatives.rows.fireDemand);await sayAll(QiheRepresentatives.rows.fireCollision)});
    await play('fq_fire_before',{},{told_departure:!!p.records?.stranger_told_departure});
    await QiheFactionClash.play();p.clashVersion=QiheClashData.runtimeCheckpoint||1;savePoint();
   }
@@ -230,5 +230,5 @@
  async function menu(){if(!busy&&!dlgBusy&&$('panel').hidden)QiheJianghuUI.open('quest')}
  const oldJournal=QihePrologue.journal;QihePrologue.journal=async()=>{if(!S.qiheChapter&&!window.QiheOutsiders?.available())return oldJournal();if(busy||dlgBusy||!$('panel').hidden)return;await menu()};
  const prevQuest=questLine;questLine=function(){const p=S?.qiheChapter;if(!p)return prevQuest();const m=mainStep(p);return p.stage==='days'?(m?'主线 · '+m.title+' · '+m.where+'找'+m.who:'自由探索 · J 查看任务'):p.stage==='refuge'?(p.events?.['evidence-v2']?'对证已记 · 与周砚商量去处':'安置伤者后 · 核对三份来件'):p.stage==='ended'?'J 继续上山':p.stage==='cultivation'?'自由练习与交谈':'J 继续当前剧情'};window.questLine=questLine;
- window.QiheChapter={mainStep,MAIN_STEPS,grantStarterEquipment,purchaseEquipment,starterStock:STARTER_STOCK.slice(),activities,initial,state,applyCultivationReward,begin,rest,activity,interact,routes,evidence,menu,grantLesson,learned,storyBattle,restoreScene,strangerPending,strangerVisible,strangerAccepted,activityOpen,activityDeadline,zhouAtWest,clubPending,play,songBroken,resume:()=>guarded(resumeBody),get running(){return running}};
+ window.QiheChapter={spriteFor:spriteOf,mainStep,MAIN_STEPS,grantStarterEquipment,purchaseEquipment,starterStock:STARTER_STOCK.slice(),activities,initial,state,applyCultivationReward,begin,rest,activity,interact,routes,evidence,menu,grantLesson,learned,storyBattle,restoreScene,strangerPending,strangerVisible,strangerAccepted,activityOpen,activityDeadline,zhouAtWest,clubPending,play,songBroken,resume:()=>guarded(resumeBody),get running(){return running}};
 })();

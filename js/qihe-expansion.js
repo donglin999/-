@@ -22,7 +22,7 @@
   ASSETS.push(...[m.bg,m.fg,m.propImg].filter(Boolean));   // 模块化地图（tools_scene/qihe/modular_maps.py）无整图前景，改用道具层 propImg
   const old=SC[ids[key]];SC[ids[key]]={...(old||{}),name:m.name||old.name,region:'qihe_trial',bg:m.bg,fg:m.fg,fgp:m.fgp,props:m.props,propImg:m.propImg,propK:m.propK,water:m.water,mask:m.mask,gw:m.worldSize[0]/TS,gh:m.worldSize[1]/TS,mapv:2,preciseNav:true,revealPlayer:true,previewKey:'qh-exp1:'+key,footX:14,start:(m.start||m.anchors.start).map(v=>v/TS),arrivalWalk:false,noFollow:true,walk:[],block:[],exits:[],npcs:old?.npcs||[]};
  }
- for(const[a,aa,b,bb,label]of[['central','north','north','south','后山采药路'],['central','south','south','north','南村口 / 客栈外院'],['central','west','west','east','西田埂 / 练场'],['central','east','east','west','栖河东埠'],['south','east','east','south','沿河装卸路'],['south','west','west','south','田埂药车道']]){portal(a,aa,b,bb,'前往 · '+label);portal(b,bb,a,aa,'返回 · '+(D[a].name||'栖河村'))}
+ for(const[a,aa,b,bb,label]of[['central','north','north','south','后山采药路'],['central','south','south','north','南村口'],['central','west','west','east','西田埂 / 练场'],['central','east','east','west','栖河东埠'],['south','east','east','south','沿河装卸路'],['south','west','west','south','田埂药车道']]){portal(a,aa,b,bb,'前往 · '+label);portal(b,bb,a,aa,'返回 · '+(D[a].name||'栖河村'))}
  const act=(key,...args)=>QiheChapter?.interact?QiheChapter.interact(key,...args):speak('fq_x_wait');
  // 2026-10-08 乔装账房「宋先生」：倒木南侧固定站位。第一、二日坐在倒木前翻账簿（坐姿表），第三日站着等（站姿表）；身旁放着包袱；有待看场景时头顶「!」。素材见 art_sources/qh-song-disguise-20261008。
  const song=add('north','stranger','宋先生','c_qh_song_story',[870,300],()=>act('stranger'),()=>!!window.QiheChapter?.strangerVisible?.());
@@ -52,7 +52,7 @@
  add('west','refuge-road','西行邻村道路',null,'west',async()=>{if(CP()?.stage==='escape')return QiheChapter.resume();await speak('fq_x_westroad')});
  const atRefuge=()=>CP()?.stage==='refuge';
  for(const[key,name,sp]of[['aunt','周婶','aunt'],['chen','陈伯','chen'],['zhouyan','周砚','zhouyan'],['luheng','陆衡','luheng']])add('refuge',key,name,key==='chen'?'c_qh_chen_rest_story':'c_opening_'+sp,key,()=>act(key),atRefuge);
- add('refuge','ye','叶蘅','c_ye',[530,440],()=>act('ye'),atRefuge);
+ add('refuge','ye','叶蘅','c_ye',[610,565],()=>act('ye'),atRefuge);
  add('refuge','xulingyi','徐令仪','c_qh_xulingyi_story',[930,540],()=>act('xulingyi'),atRefuge);
  add('refuge','censhuang','岑霜','c_qh_censhuang_story','censhuang',()=>act('censhuang'),atRefuge);
  add('refuge','shenyanhui','沈雁回','c_qh_shenyanhui_story','chengduo',()=>act('shenyanhui'),atRefuge);
@@ -87,7 +87,6 @@
  const homeChen=SC.prologue_chen_hall.npcs.find(n=>n.id==='chen');const oldChen=homeChen.act,chenMark=homeChen.mark;homeChen.mark=()=>!!window.QiheChapter?.clubPending?.()||!!chenMark?.();homeChen.act=()=>window.QiheChapter?.clubPending?.()?act('chen-club'):oldChen();
  const elderly=SC.qihe_trial.npcs.find(n=>n.id==='elder');elderly.show=()=>beforeFire()&&CP()?.choices?.transport!=='elders';
  // Guests now occupy their functional outer locations, not the residential crossroads.
- SC.qihe_trial.npcs=SC.qihe_trial.npcs.filter(n=>!['bailiff','procurement-aide'].includes(n.id));
  SC.prologue_inn_interior.npcs=SC.prologue_inn_interior.npcs.filter(n=>n.id!=='bandit');const innCounter=SC.prologue_inn_interior.npcs.find(n=>n.id==='innkeeper');Object.assign(innCounter,{name:'柜台留字',sp:null,act:()=>speak('fq_x_counter')});
  SC.prologue_chen_guest.npcs.find(n=>n.id==='guest-out').act=()=>S.qiheRoomReturn?go(S.qiheRoomReturn.key,S.qiheRoomReturn.anchor):QihePrologue.goLocal('chen_hall','guest_door');
  SC.prologue_chen_guest.npcs.find(n=>n.id==='rest').act=()=>CP()?QiheChapter.rest():QihePrologue.rest();
