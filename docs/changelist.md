@@ -25,6 +25,31 @@
 
 ## 条目
 
+### 2026-11-01 · 开发方法总结（给别的游戏参考）
+- 工作区：xiaojianghu
+- 谁：Claude Code（开发方法总结，子会话）
+- 状态：本地完成（游戏仓库未提交）；脱敏副本已推送到 donglin999/gameArchitecture（main，541902d，私有）
+- 范围：新增 `docs/dev-methods-summary.md`；改 R-剧情-01、新增 R-动作-01（用户批准）；重写 `docs/anim-pipeline.md`，白模管线归档到 `docs/archive/anim-pipeline-rig.md`（两个工作区）；更新相关引用；不碰场景重画的改动
+- 更新记录：[2026-11-01-dev-methods-summary](updates/2026-11-01-dev-methods-summary.md)
+- 留给接手的人：线上是脱敏改写过的副本，不和本地脚本同步；要调模型的脚本、`build_ink.cjs`、后期脚本在副本里没实际跑过
+
+### 2026-11-01 · 开始部分场景重画（客栈甲接入起）
+- 工作区：xiaojianghu-legacy-prologue
+- 谁：Claude Code（栖河整改评审）
+- 状态：已提交（`1a1feab`）并发布（main、qihe）；中央村落、接应院、叶家、后山采药路（撤掉草药丛后）、接应院战斗背景用户都已验收通过；后山相遇、药棚室内按排查表不改
+- 范围：客栈甲接入（`rooms.json`、`assets/production/maps/m_qihe_inn_interior*_20261101.webp`、`js/qihe-rooms-data.js`、`js/qihe-town.js`、`js/qihe-staging-data.js`）、客栈战斗背景重出、南村口改名和菜牌挪位、东埠库棚和货物（`assets/production/maps/town-props-20261101/`）、3 份剧本改说法并代批。
+- 更新记录：[2026-11-01-scene-audit](../../xiaojianghu-legacy-prologue/docs/updates/2026-11-01-scene-audit.md)
+- 留给接手的人：中央、接应院重跑用 `art_sources/qihe-scene-rebuild-20261101/adopt.py`；收尾批重跑顺序见更新记录；换房间图后要同步 `assets/production/maps/`，`build_rooms.py` 只写 `assets/`。发布前全量 68/80：11 个是老问题，`verify_expansion` 并发超时、单跑通过。
+
+### 2026-11-01 · 全场站位与旧素材排查
+- 工作区：xiaojianghu-legacy-prologue
+- 谁：Claude Code（栖河整改评审）
+- 状态：已提交（`1a1feab`）并发布（main、qihe）
+- 范围：新增站位表 `js/qihe-staging-data.js`、`js/qihe-staging.js`，对话框立绘 `js/qihe-dialogue-portraits.js`，小人重画 `art_sources/npc-sprites-20261101/`；改 `js/scene.js`、`js/qihe-chapter.js`、`js/qihe-expansion.js`、`js/dialogue-stage.js`。
+- 更新记录：[2026-11-01-staging](../../xiaojianghu-legacy-prologue/docs/updates/2026-11-01-staging.md)
+- 排查记录：[2026-11-01-scene-audit](../../xiaojianghu-legacy-prologue/docs/updates/2026-11-01-scene-audit.md)
+- 留给接手的人：站位以站位表为准，不要回到按主角位置自动摆人。
+
 ### 2026-10-31 · 结局 3 正式 CG「以书酬功」
 - 工作区：xiaojianghu-legacy-prologue
 - 谁：Claude Code（栖河整改评审）
