@@ -10,7 +10,6 @@ const SPOTS=[
  ['古井','central','well',[-2,1]],
  ['货郎与孩子','central','peddler',[2,-1.5]],
  ['算命摊','central','fortune-stall',[0,2]],
- ['晒谷场','west','grain-yard',[0,3]],
  ['客栈菜牌','central','inn-menu',[0,2]],
 ];
 const wait=ms=>new Promise(r=>setTimeout(r,ms));

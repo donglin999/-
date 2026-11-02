@@ -70,6 +70,9 @@ if(SIDE)definitions.push(...SIDE.definitions);
 // 谷中人家（溪东裴家等，串门剧情）：见 qh-mode-cultivation-neighbors.js。
 const NB=typeof module==='object'&&module.exports?require('./qh-mode-cultivation-neighbors.js'):root.CultivationNeighbors;
 if(NB){definitions.push(...NB.definitions);Object.assign(actors,NB.actors);}
+// 师承线（师母、二师叔、小师叔的闲逛学艺，2026-11-02）：见 qh-mode-cultivation-mentors.js。
+const MT=typeof module==='object'&&module.exports?require('./qh-mode-cultivation-mentors.js'):root.CultivationMentors;
+if(MT){definitions.push(...MT.definitions);if(MT.REPS_ART_READY)Object.assign(actors,MT.actors);}
 const line=(speaker,text,cast)=>({speaker,text,...(cast?{cast}:{})});
 // 指定这一句萧白的发型阶段（short/mid/long），用于演出中途换形象。
 // 显式指定表情：mood 为说话人，moods 为同屏任意人（键用 hero/zhou 等基础名）。
@@ -85,6 +88,7 @@ function extra(s){const chen=s.qhOrigin?.chenCare,rel=Object.fromEntries(Object.
 function raw(id,c){
  if(SIDE?.scripts[id])return SIDE.scripts[id](c);
  if(NB?.scripts[id])return NB.scripts[id](c);
+ if(MT?.scripts[id])return MT.scripts[id](c);
  const sd=definitions.find(d=>d.id===id);if(sd?.src){const X=typeof module==='object'&&module.exports?require('./qh-mode-cultivation-scripts.js'):root.CultivationScripts;return X.expand(sd.src,c);}
  if(EXTRA[id])return EXTRA[id](c);
  if(id==='gy_prelude_tour')return PRELUDE.tour(c);
@@ -293,10 +297,10 @@ const EXTRA={
  gy_zhong_kit:c=>({
  intro:[lm('zhong','拿着！出门的家伙。','fun'),lm('hero','这是……一副护腕？','surprise'),lm('zhong','牛皮的，里面夹了竹片。挡不了刀，可摔一跤不至于折了手腕。城里人多，挤来挤去的。','serious'),lm('hero','二师叔，你做了几天？','normal'),lm('zhong','不多不多，三天三夜！……咳，也就两天。','fun')],
  choices:[{key:'wear',text:'当场戴上，认真道谢',lines:[lm('hero','正合适。谢谢二师叔。','smile'),lm('zhong','合适就好！线脚松了自己会补不？针从皮子背面走，拉紧。磨坏了说明你用上了，我高兴。','smile')]},{key:'ask',text:'“二师叔当年第一次下山，也有人给你做吗？”',lines:[lm('zhong','……有。你师祖给我编了一双草鞋。我嫌丑，没穿，结果第二天就把脚磨烂了。','sad'),lm('zhong','所以这护腕，丑也给我戴着。','serious'),lm('hero','不丑。','smile')]}],
- closing:[lm('zhong','去吧。城里的事，看清了再动手——这是你师父的话，我就借来说一句。','serious')]})
+ closing:[...(c.preHangao?.facts?.mz_notch_seen?[lm('zhong','挑水诀路上别落下。走路也能换气，又不费你什么。','normal')]:[]),lm('zhong','去吧。城里的事，看清了再动手——这是你师父的话，我就借来说一句。','serious')]})
 };
 // 剧情选择对人物关系的推动（仍受关系阶段上限约束，见 CultivationRelations.story）。
-const bonds={gy_noodles:{linear:['江采薇',5],listen_rules:['江采薇',5],eat_first:['江采薇',5]},gy_prelude_hair:{linear:['江采薇',3]},gy_ledger:{columns:['江采薇',6],ask_first:['江采薇',6]},gy_night_return:{polite:['殷红缨',5],counter:['殷红缨',6]},gy_fist_or_sword:{sword:['殷红缨',6],both:['殷红缨',3],fist:['殷红缨',1]},gy_welcome_back:{ask_why:['殷红缨',4],let_it_be:['殷红缨',5]},gy_goose_steps:{circle:['殷红缨',8],face_it:['殷红缨',8]},gy_ye_mother:{listen:['江采薇',8],ask_more:['江采薇',8]},gy_go_in_stead:{go_with_yin:['殷红缨',10],stay_home:['殷红缨',4]},gy_mid_autumn:{moon_yin:['殷红缨',12],moon_shimu:['江采薇',8]},gy_dou_runaway:{race:['殷红缨',6],talk:['殷红缨',6]},gy_shimu_birthday:{sew:['江采薇',8],remind:['江采薇',6]},gy_year_exam:{win:['殷红缨',6],lose:['殷红缨',3]}};if(SIDE)Object.assign(bonds,SIDE.bonds);if(NB)Object.assign(bonds,NB.bonds);
+const bonds={gy_noodles:{linear:['江采薇',5],listen_rules:['江采薇',5],eat_first:['江采薇',5]},gy_prelude_hair:{linear:['江采薇',3]},gy_ledger:{columns:['江采薇',6],ask_first:['江采薇',6]},gy_night_return:{polite:['殷红缨',5],counter:['殷红缨',6]},gy_fist_or_sword:{sword:['殷红缨',6],both:['殷红缨',3],fist:['殷红缨',1]},gy_welcome_back:{ask_why:['殷红缨',4],let_it_be:['殷红缨',5]},gy_goose_steps:{circle:['殷红缨',8],face_it:['殷红缨',8]},gy_ye_mother:{listen:['江采薇',8],ask_more:['江采薇',8]},gy_go_in_stead:{go_with_yin:['殷红缨',10],stay_home:['殷红缨',4]},gy_mid_autumn:{moon_yin:['殷红缨',12],moon_shimu:['江采薇',8]},gy_dou_runaway:{race:['殷红缨',6],talk:['殷红缨',6]},gy_shimu_birthday:{sew:['江采薇',8],remind:['江采薇',6]},gy_year_exam:{win:['殷红缨',6],lose:['殷红缨',3]}};if(SIDE)Object.assign(bonds,SIDE.bonds);if(NB)Object.assign(bonds,NB.bonds);if(MT)Object.assign(bonds,MT.bonds);
 // 同门四人（钟拙、方迟、卢小豆、周小满）补上往来后，旧剧情里与他们相关的选项也给关系值；与原有加成并存。
 const MORE_BONDS={gy_prelude_tour:{linear:['钟拙',3]},gy_prelude_stance:{linear:['钟拙',3]},gy_noodles:{linear:['卢小豆',2]},gy_dou_feed:{calm:['卢小豆',3],run:['卢小豆',4]},gy_fang_back:{honest:['方迟',4],brave:['方迟',2]},gy_fang_spar:{win:['方迟',4],lose:['方迟',3]},gy_fang_leaves:{promise:['方迟',4],worry:['方迟',3]},gy_zhong_kit:{wear:['钟拙',4],ask:['钟拙',5]},gy_man_herbs:{teach:['周小满',5],tease:['周小满',1]},gy_brother_hurt:{night_watch:['方迟',6],ask_story:['方迟',2]},gy_dou_runaway:{race:['卢小豆',5],talk:['卢小豆',6]},gy_shimu_birthday:{sew:['周小满',5],remind:['周小满',4]},gy_fist_or_sword:{fist:['钟拙',4],both:['钟拙',3],sword:['钟拙',1]},gy_mid_autumn:{moon_fang:['方迟',5]},gy_year_exam:{win:['钟拙',4],lose:['钟拙',4]},gy_spar_dou:{win:['卢小豆',2],lose:['卢小豆',1]},gy_spar_zhong:{win:['钟拙',2],lose:['钟拙',1]},gy_spar_yin:{win:['殷红缨',2],lose:['殷红缨',1]},gy_bamboo_wolves:{win:['卢小豆',4],lose:['卢小豆',3]},gy_zhou_test:{win:['周砚',3],lose:['周砚',2]},gy_yin_past:{right:['殷红缨',6],cost:['殷红缨',6]}};
 for(const[id,m]of Object.entries(MORE_BONDS))for(const[k,pair]of Object.entries(m)){const b=bonds[id]||={},old=b[k];b[k]=old?[...(Array.isArray(old[0])?old:[old]),pair]:[pair];}
@@ -316,6 +320,7 @@ function effects(s,p,key){const R=typeof module==='object'&&module.exports?requi
  if(p.action==='gy_prelude_stance')s.learned.stance||={source:p.action,period:p.period};
  if(p.action==='gy_prelude_xinfa')s.learned.breathing||={source:p.action,period:p.period};
  if(p.action==='gy_prelude_hair')s.facts.gy_hair_long={period:p.period};
+ if(MT)MT.effects(s,p,key);
  PH.effects(s,p,key);
 }
 PH.definitions(definitions);
@@ -338,7 +343,7 @@ for(const k of ['hero_short','hero_mid','hero_long'])actors[k]='萧白';
 const ALL=['normal','smile','serious','surprise','worry','angry','sad','fun'];
 const HERO_MOODS=['normal','smile','serious','surprise','worry','angry','sad','awkward','sleep'];
 const MOODS={hero_long:[...HERO_MOODS,'laugh','hurt'],hero_short:HERO_MOODS,hero_mid:HERO_MOODS,zhou:ALL,shimu:ALL,yin:ALL,zhong:ALL,fang:[...ALL,'hurt_normal','hurt_serious','hurt_smile','hurt_sad'],dou:[...ALL,'sleep'],man:['normal','smile','surprise','worry','sad','fun'],ye:ALL.filter(m=>m!=='fun'),goose:['normal','fun'],lu:['normal','smile','serious','surprise','worry','sad'],neighbor:['normal','smile','worry'],mo_songnian:['normal','smile','serious','surprise'],meng_zhiwei:['normal','smile','serious','worry'],zhaochuan_courier:['normal','smile','serious','surprise']};
-if(NB)Object.assign(MOODS,NB.moods);
+if(NB)Object.assign(MOODS,NB.moods);if(MT?.REPS_ART_READY)Object.assign(MOODS,MT.moods);
 // 匿名收件人借用乡邻老人形象。
 const ALIAS={recipient:'neighbor'};MOODS.recipient=MOODS.neighbor;
 // 同义回落：缺档时找最接近的一档，最后回落平静。

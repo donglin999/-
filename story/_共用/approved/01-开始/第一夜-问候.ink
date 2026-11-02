@@ -13,6 +13,7 @@ INCLUDE ../_共用/externals.ink
 === qihe_greet_aunt ===
 #cast:萧白,周婶
 周婶：吃饱了没？手伸过来我瞧瞧——蹭破皮也不吭一声，闷葫芦。 #id:P-03-greet-aunt-01
+周婶：等我忙完这阵，给你找点药抹。 #id:P-03-greet-aunt-01b
 萧白：小伤，不耽误干活。 #id:P-03-greet-aunt-02
 ~ set_flag("prologue.arrival.greeted.周婶", true)
 ~ checkpoint()

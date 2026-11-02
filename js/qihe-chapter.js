@@ -166,8 +166,8 @@
   if(!p.fireLit){await play('fq_fire_ignition');p.fireLit=true;QiheExpansion.syncFire();savePoint()}
   await QiheRepresentatives.rescueOrders(representativeContext());
  });
-  if(!p.rescue){await play('fq_rescue_choice');savePoint()}
-  await event('rescue',async()=>{await play('fq_rescue');p.chenCare=p.rescue==='chen'?'擦伤已照护':'腿伤待照护';p.supplies=(p.choices.transport==='cart'?2:0)+(p.rescue==='cart'?2:0)+(p.choices.market==='help'?1:0)});
+  // 2026-11-02 用户说救陈伯／护车二选一推进不了任何东西，去掉选择：固定跟叶蘅救陈伯（story/01-开始/风起-起火.ink）。旧档已选过护车的保留原记录。
+  await event('rescue',async()=>{await play('fq_rescue');p.rescue=p.rescue||'chen';p.chenCare=p.chenCare||'擦伤已照护'});
   await event('fire-evacuation-cg',()=>play('fq_evacuation'));p.stage='escape';savePoint();return escapeBody();
  }
  async function escapeBody(){const p=state();await go('west','guard');await event('road-intro',()=>play('fq_road_intro',{},{clash:!!p.clashVersion,learned:learned()}));
@@ -208,7 +208,7 @@
   if(p.stage==='mountain'&&id==='meal')return mountainEnd();
   if(QiheRepresentatives.names[id])return QiheRepresentatives.interact(id,representativeContext());
   if(id==='stranger'||id==='stranger-basket')return strangerTalk();
-  if(p.stage==='refuge'){if(id==='evidence'){if(!p.events['evidence-v2'])return evidenceBody();return line('对证记录','原底单只有六只旧药罐。三张附页引同一张单子，约同一个时辰、同一个口子；写附页的人，'+(p.records?.told_about_stranger?'沈雁回要去后山找那位宋姓账房问。':'还没查出来。'));}if(id==='zhouyan')return routesBody();if(id==='ye')return play('fq_refuge_ye',{},{chen_ok:p.chenCare==='擦伤已照护',evidence_done:!!p.events['evidence-v2']});
+  if(p.stage==='refuge'){if(id==='evidence'){if(!p.events['evidence-v2'])return evidenceBody();return line('对证记录','原底单只有六只旧药罐。三张附页引同一张单子，约同一个时辰、同一个口子；写附页的人，'+(p.records?.told_about_stranger?'沈雁回要去后山找那位宋姓账房问。':'还没查出来。'));}if(id==='zhouyan')return routesBody();if(id==='ye')return play('fq_refuge_ye',{},{evidence_done:!!p.events['evidence-v2']});
    return play(({aunt:'fq_refuge_aunt',chen:'fq_refuge_chen',luheng:'fq_refuge_luheng'})[id]||'fq_refuge_other')}
   if(p.stage==='days'){
    if(id==='chen-club')return clubGift();

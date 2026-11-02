@@ -5147,11 +5147,11 @@
     },
     {
       "id": "m_qh_refuge",
-      "path": "assets/production/maps/m_qh_refuge_20261101.webp",
-      "original_path": "art_sources/qihe-scene-rebuild-20261101/raw/refuge.png",
+      "path": "assets/production/maps/m_qh_refuge_20261102.webp",
+      "original_path": "art_sources/qihe-refuge-shrink-20261102/raw/refuge_small_1.png",
       "system": "maps",
       "role": "qihe-active-map",
-      "sha256": "2bf2c41fd154f3c9a3147cdccf1e61bc91c5c90060f212ea43c62ba8c6e8492b",
+      "sha256": "a35abce31dd5935c3247973f9f4f67ed85ef48d8f7c8a44e330ebd6b21fc7088",
       "references": [
         "js/qihe-chapter.js",
         "js/quests.js",
@@ -5192,15 +5192,15 @@
         1536,
         1024
       ],
-      "acceptance_status": "候选，待用户验收：2026-11-01 按第三十四轮第 1 题通过的布局草图重做"
+      "acceptance_status": "候选，待用户验收：2026-11-02 用户嫌大院太大且没剧情，选候选 1 缩成小农舍＋竹篱前院"
     },
     {
       "id": "m_qh_refuge_props",
-      "path": "assets/production/maps/m_qh_refuge_props_20261101.webp",
-      "original_path": "art_sources/qihe-scene-rebuild-20261101/raw/refuge.png",
+      "path": "assets/production/maps/m_qh_refuge_props_20261102.webp",
+      "original_path": "art_sources/qihe-refuge-shrink-20261102/raw/refuge_small_1.png",
       "system": "maps",
       "role": "qihe-active-map",
-      "sha256": "bf7010849dfdf56848843b481ac855b5b69f3f391f3cfd55e7b7eb08c02408ce",
+      "sha256": "4cdee8756a3c68bfc7d1245309832f72f722d7d02b42d2426fee22991703a85b",
       "size": [
         2048,
         2060
@@ -5226,9 +5226,9 @@
       "acceptance_evidence": "art_sources/qihe-modular-refuge-20261007/adopt.json",
       "actual_size": [
         1536,
-        798
+        374
       ],
-      "acceptance_status": "候选，待用户验收：2026-11-01 按第三十四轮第 1 题通过的布局草图重做"
+      "acceptance_status": "候选，待用户验收：2026-11-02 用户嫌大院太大且没剧情，选候选 1 缩成小农舍＋竹篱前院"
     },
     {
       "id": "m_qh_west",
@@ -6564,1286 +6564,6 @@
         "js/qihe-cultivation-core.js",
         "js/qh-mode-cultivation.js"
       ]
-    },
-    {
-      "id": "battle.chief.hurt.01",
-      "path": "assets/audio/battle-voices/chief-416d656e1ea9b61074f0.mp3",
-      "original_path": "assets/audio/battle-voices/chief-416d656e1ea9b61074f0.mp3",
-      "source_candidate": "art_sources/battle-voice-20261006/chief-416d656e1ea9b61074f0.mp3",
-      "system": "audio",
-      "role": "registered-or-direct-runtime",
-      "sha256": "416d656e1ea9b61074f071db7fcb2d218794654fb81735cd33f535ccd0c865fc",
-      "references": [
-        "js/production-assets.js"
-      ],
-      "character_id": "chief",
-      "event": "hurt",
-      "acceptance_evidence": "art_sources/battle-voice-20261006/technical-review.json",
-      "voice_binding": "existing-confirmed"
-    },
-    {
-      "id": "battle.chief.attack.02",
-      "path": "assets/audio/battle-voices/chief-4f5b7a952f4a2c86dfdd.mp3",
-      "original_path": "assets/audio/battle-voices/chief-4f5b7a952f4a2c86dfdd.mp3",
-      "source_candidate": "art_sources/battle-voice-20261006/chief-4f5b7a952f4a2c86dfdd.mp3",
-      "system": "audio",
-      "role": "registered-or-direct-runtime",
-      "sha256": "4f5b7a952f4a2c86dfddbee1f39672c0273c793c984a384cef208369d48236f4",
-      "references": [
-        "js/production-assets.js"
-      ],
-      "character_id": "chief",
-      "event": "attack",
-      "acceptance_evidence": "art_sources/battle-voice-20261006/technical-review.json",
-      "voice_binding": "existing-confirmed"
-    },
-    {
-      "id": "battle.chief.turn.01",
-      "path": "assets/audio/battle-voices/chief-76b9126b2d117b2207b6.mp3",
-      "original_path": "assets/audio/battle-voices/chief-76b9126b2d117b2207b6.mp3",
-      "source_candidate": "art_sources/battle-voice-20261006/chief-76b9126b2d117b2207b6.mp3",
-      "system": "audio",
-      "role": "registered-or-direct-runtime",
-      "sha256": "76b9126b2d117b2207b6693d551ee95e599cfafd6b8e8152ca11ff1f77a1ccaa",
-      "references": [
-        "js/production-assets.js"
-      ],
-      "character_id": "chief",
-      "event": "turn",
-      "acceptance_evidence": "art_sources/battle-voice-20261006/technical-review.json",
-      "voice_binding": "existing-confirmed"
-    },
-    {
-      "id": "battle.chief.down.01",
-      "path": "assets/audio/battle-voices/chief-7b8bcefec5c917c2f515.mp3",
-      "original_path": "assets/audio/battle-voices/chief-7b8bcefec5c917c2f515.mp3",
-      "source_candidate": "art_sources/battle-voice-20261006/chief-7b8bcefec5c917c2f515.mp3",
-      "system": "audio",
-      "role": "registered-or-direct-runtime",
-      "sha256": "7b8bcefec5c917c2f5155b1eb260e20c519f3e74d7585c72227fa091c3c94ba1",
-      "references": [
-        "js/production-assets.js"
-      ],
-      "character_id": "chief",
-      "event": "down",
-      "acceptance_evidence": "art_sources/battle-voice-20261006/technical-review.json",
-      "voice_binding": "existing-confirmed"
-    },
-    {
-      "id": "battle.chief.attack.01",
-      "path": "assets/audio/battle-voices/chief-a1b5f1daaa6975fd2065.mp3",
-      "original_path": "assets/audio/battle-voices/chief-a1b5f1daaa6975fd2065.mp3",
-      "source_candidate": "art_sources/battle-voice-20261006/chief-a1b5f1daaa6975fd2065.mp3",
-      "system": "audio",
-      "role": "registered-or-direct-runtime",
-      "sha256": "a1b5f1daaa6975fd2065ddadb50d52581dbebfc2365a5a631344d31721324d92",
-      "references": [
-        "js/production-assets.js"
-      ],
-      "character_id": "chief",
-      "event": "attack",
-      "acceptance_evidence": "art_sources/battle-voice-20261006/technical-review.json",
-      "voice_binding": "existing-confirmed"
-    },
-    {
-      "id": "battle.chief.down.02",
-      "path": "assets/audio/battle-voices/chief-ac906f216660fe18c1b2.mp3",
-      "original_path": "assets/audio/battle-voices/chief-ac906f216660fe18c1b2.mp3",
-      "source_candidate": "art_sources/battle-voice-20261006/chief-ac906f216660fe18c1b2.mp3",
-      "system": "audio",
-      "role": "registered-or-direct-runtime",
-      "sha256": "ac906f216660fe18c1b26ef24349b135afcc7a3e4c73cd85768f7effddf19421",
-      "references": [
-        "js/production-assets.js"
-      ],
-      "character_id": "chief",
-      "event": "down",
-      "acceptance_evidence": "art_sources/battle-voice-20261006/technical-review.json",
-      "voice_binding": "existing-confirmed"
-    },
-    {
-      "id": "battle.chief.turn.02",
-      "path": "assets/audio/battle-voices/chief-c25e6fd2d2c143d2835e.mp3",
-      "original_path": "assets/audio/battle-voices/chief-c25e6fd2d2c143d2835e.mp3",
-      "source_candidate": "art_sources/battle-voice-20261006/chief-c25e6fd2d2c143d2835e.mp3",
-      "system": "audio",
-      "role": "registered-or-direct-runtime",
-      "sha256": "c25e6fd2d2c143d2835eca3688cd43d62b05573a4e8d66803feecf4942cbcd10",
-      "references": [
-        "js/production-assets.js"
-      ],
-      "character_id": "chief",
-      "event": "turn",
-      "acceptance_evidence": "art_sources/battle-voice-20261006/technical-review.json",
-      "voice_binding": "existing-confirmed"
-    },
-    {
-      "id": "battle.chief.hurt.02",
-      "path": "assets/audio/battle-voices/chief-f585442f5c3d7c32445e.mp3",
-      "original_path": "assets/audio/battle-voices/chief-f585442f5c3d7c32445e.mp3",
-      "source_candidate": "art_sources/battle-voice-20261006/chief-f585442f5c3d7c32445e.mp3",
-      "system": "audio",
-      "role": "registered-or-direct-runtime",
-      "sha256": "f585442f5c3d7c32445e5895d036c0b798ff2611934cbcaf40dcd8c0d74a69c7",
-      "references": [
-        "js/production-assets.js"
-      ],
-      "character_id": "chief",
-      "event": "hurt",
-      "acceptance_evidence": "art_sources/battle-voice-20261006/technical-review.json",
-      "voice_binding": "existing-confirmed"
-    },
-    {
-      "id": "battle.langli.hurt.02",
-      "path": "assets/audio/battle-voices/langli-0895e0a17484aca189ed.mp3",
-      "original_path": "assets/audio/battle-voices/langli-0895e0a17484aca189ed.mp3",
-      "source_candidate": "art_sources/battle-voice-20261006/langli-0895e0a17484aca189ed.mp3",
-      "system": "audio",
-      "role": "registered-or-direct-runtime",
-      "sha256": "0895e0a17484aca189edb0b9496cbc0b9898a31a747386844721705976f1c5a0",
-      "references": [
-        "js/production-assets.js"
-      ],
-      "character_id": "langli",
-      "event": "hurt",
-      "acceptance_evidence": "art_sources/battle-voice-20261006/technical-review.json",
-      "voice_binding": "existing-confirmed"
-    },
-    {
-      "id": "battle.langli.attack.01",
-      "path": "assets/audio/battle-voices/langli-0bd244cbf6decdbe1b44.mp3",
-      "original_path": "assets/audio/battle-voices/langli-0bd244cbf6decdbe1b44.mp3",
-      "source_candidate": "art_sources/battle-voice-20261006/langli-0bd244cbf6decdbe1b44.mp3",
-      "system": "audio",
-      "role": "registered-or-direct-runtime",
-      "sha256": "0bd244cbf6decdbe1b44bc261301ce943d9b3063275f3d99354cca5882c50e47",
-      "references": [
-        "js/production-assets.js"
-      ],
-      "character_id": "langli",
-      "event": "attack",
-      "acceptance_evidence": "art_sources/battle-voice-20261006/technical-review.json",
-      "voice_binding": "existing-confirmed"
-    },
-    {
-      "id": "battle.langli.turn.02",
-      "path": "assets/audio/battle-voices/langli-23ed74ccce97d04c6f55.mp3",
-      "original_path": "assets/audio/battle-voices/langli-23ed74ccce97d04c6f55.mp3",
-      "source_candidate": "art_sources/battle-voice-20261006/langli-23ed74ccce97d04c6f55.mp3",
-      "system": "audio",
-      "role": "registered-or-direct-runtime",
-      "sha256": "23ed74ccce97d04c6f55f0736f56e2ba45495fbfc0ca02c59a3ce7ccfd1f3683",
-      "references": [
-        "js/production-assets.js"
-      ],
-      "character_id": "langli",
-      "event": "turn",
-      "acceptance_evidence": "art_sources/battle-voice-20261006/technical-review.json",
-      "voice_binding": "existing-confirmed"
-    },
-    {
-      "id": "battle.langli.turn.01",
-      "path": "assets/audio/battle-voices/langli-7e2f139f718af0c6f5fe.mp3",
-      "original_path": "assets/audio/battle-voices/langli-7e2f139f718af0c6f5fe.mp3",
-      "source_candidate": "art_sources/battle-voice-20261006/langli-7e2f139f718af0c6f5fe.mp3",
-      "system": "audio",
-      "role": "registered-or-direct-runtime",
-      "sha256": "7e2f139f718af0c6f5fec6410e95eb9904d91eb043054cf9d7d65c346a438415",
-      "references": [
-        "js/production-assets.js"
-      ],
-      "character_id": "langli",
-      "event": "turn",
-      "acceptance_evidence": "art_sources/battle-voice-20261006/technical-review.json",
-      "voice_binding": "existing-confirmed"
-    },
-    {
-      "id": "battle.langli.down.02",
-      "path": "assets/audio/battle-voices/langli-8dd161666f8d1dc91abd.mp3",
-      "original_path": "assets/audio/battle-voices/langli-8dd161666f8d1dc91abd.mp3",
-      "source_candidate": "art_sources/battle-voice-20261006/langli-8dd161666f8d1dc91abd.mp3",
-      "system": "audio",
-      "role": "registered-or-direct-runtime",
-      "sha256": "8dd161666f8d1dc91abdb99f4b27075d13accf10925bdedd4c18c448ed56f797",
-      "references": [
-        "js/production-assets.js"
-      ],
-      "character_id": "langli",
-      "event": "down",
-      "acceptance_evidence": "art_sources/battle-voice-20261006/technical-review.json",
-      "voice_binding": "existing-confirmed"
-    },
-    {
-      "id": "battle.langli.down.01",
-      "path": "assets/audio/battle-voices/langli-a3171644b36d49c8d388.mp3",
-      "original_path": "assets/audio/battle-voices/langli-a3171644b36d49c8d388.mp3",
-      "source_candidate": "art_sources/battle-voice-20261006/langli-a3171644b36d49c8d388.mp3",
-      "system": "audio",
-      "role": "registered-or-direct-runtime",
-      "sha256": "a3171644b36d49c8d3887ed0eefc727d49985920822f891ef45baeb9115c7237",
-      "references": [
-        "js/production-assets.js"
-      ],
-      "character_id": "langli",
-      "event": "down",
-      "acceptance_evidence": "art_sources/battle-voice-20261006/technical-review.json",
-      "voice_binding": "existing-confirmed"
-    },
-    {
-      "id": "battle.langli.attack.02",
-      "path": "assets/audio/battle-voices/langli-de3845de943e51e73264.mp3",
-      "original_path": "assets/audio/battle-voices/langli-de3845de943e51e73264.mp3",
-      "source_candidate": "art_sources/battle-voice-20261006/langli-de3845de943e51e73264.mp3",
-      "system": "audio",
-      "role": "registered-or-direct-runtime",
-      "sha256": "de3845de943e51e7326498bf6a4cd13e49bda3cc142ef7a93078f2feb53dc127",
-      "references": [
-        "js/production-assets.js"
-      ],
-      "character_id": "langli",
-      "event": "attack",
-      "acceptance_evidence": "art_sources/battle-voice-20261006/technical-review.json",
-      "voice_binding": "existing-confirmed"
-    },
-    {
-      "id": "battle.langli.hurt.01",
-      "path": "assets/audio/battle-voices/langli-f6ae08813226e098cdb1.mp3",
-      "original_path": "assets/audio/battle-voices/langli-f6ae08813226e098cdb1.mp3",
-      "source_candidate": "art_sources/battle-voice-20261006/langli-f6ae08813226e098cdb1.mp3",
-      "system": "audio",
-      "role": "registered-or-direct-runtime",
-      "sha256": "f6ae08813226e098cdb1bd376ccf5cfe498504a4f4ca1944627b7569fd75f6ab",
-      "references": [
-        "js/production-assets.js"
-      ],
-      "character_id": "langli",
-      "event": "hurt",
-      "acceptance_evidence": "art_sources/battle-voice-20261006/technical-review.json",
-      "voice_binding": "existing-confirmed"
-    },
-    {
-      "id": "battle.liu.turn.01",
-      "path": "assets/audio/battle-voices/liu-0cd80a7c248f28df4317.mp3",
-      "original_path": "assets/audio/battle-voices/liu-0cd80a7c248f28df4317.mp3",
-      "source_candidate": "art_sources/battle-voice-20261006/liu-0cd80a7c248f28df4317.mp3",
-      "system": "audio",
-      "role": "registered-or-direct-runtime",
-      "sha256": "0cd80a7c248f28df431795048b4bed8efd3273e57d81a1b7dc1417c710d2a4bf",
-      "references": [
-        "js/production-assets.js"
-      ],
-      "character_id": "liu",
-      "event": "turn",
-      "acceptance_evidence": "art_sources/battle-voice-20261006/technical-review.json",
-      "voice_binding": "existing-confirmed"
-    },
-    {
-      "id": "battle.liu.hurt.01",
-      "path": "assets/audio/battle-voices/liu-216b1a6765cb246d8b7e.mp3",
-      "original_path": "assets/audio/battle-voices/liu-216b1a6765cb246d8b7e.mp3",
-      "source_candidate": "art_sources/battle-voice-20261006/liu-216b1a6765cb246d8b7e.mp3",
-      "system": "audio",
-      "role": "registered-or-direct-runtime",
-      "sha256": "216b1a6765cb246d8b7e3a31916476db3fbcc55940675a0f272e2a10563ad7e4",
-      "references": [
-        "js/production-assets.js"
-      ],
-      "character_id": "liu",
-      "event": "hurt",
-      "acceptance_evidence": "art_sources/battle-voice-20261006/technical-review.json",
-      "voice_binding": "existing-confirmed"
-    },
-    {
-      "id": "battle.liu.down.01",
-      "path": "assets/audio/battle-voices/liu-385ffda4e05f2fa7e8c3.mp3",
-      "original_path": "assets/audio/battle-voices/liu-385ffda4e05f2fa7e8c3.mp3",
-      "source_candidate": "art_sources/battle-voice-20261006/liu-385ffda4e05f2fa7e8c3.mp3",
-      "system": "audio",
-      "role": "registered-or-direct-runtime",
-      "sha256": "385ffda4e05f2fa7e8c3cba06d21145e542b94408771def3c41fe2d91231e2fd",
-      "references": [
-        "js/production-assets.js"
-      ],
-      "character_id": "liu",
-      "event": "down",
-      "acceptance_evidence": "art_sources/battle-voice-20261006/technical-review.json",
-      "voice_binding": "existing-confirmed"
-    },
-    {
-      "id": "battle.liu.hurt.02",
-      "path": "assets/audio/battle-voices/liu-8f4090def99294d54bb4.mp3",
-      "original_path": "assets/audio/battle-voices/liu-8f4090def99294d54bb4.mp3",
-      "source_candidate": "art_sources/battle-voice-20261006/liu-8f4090def99294d54bb4.mp3",
-      "system": "audio",
-      "role": "registered-or-direct-runtime",
-      "sha256": "8f4090def99294d54bb4773f33ed5c111d9b47bbe170f7c6e69561cda2dac639",
-      "references": [
-        "js/production-assets.js"
-      ],
-      "character_id": "liu",
-      "event": "hurt",
-      "acceptance_evidence": "art_sources/battle-voice-20261006/technical-review.json",
-      "voice_binding": "existing-confirmed"
-    },
-    {
-      "id": "battle.liu.attack.01",
-      "path": "assets/audio/battle-voices/liu-b96d638bf5d68b5a7e26.mp3",
-      "original_path": "assets/audio/battle-voices/liu-b96d638bf5d68b5a7e26.mp3",
-      "source_candidate": "art_sources/battle-voice-20261006/liu-b96d638bf5d68b5a7e26.mp3",
-      "system": "audio",
-      "role": "registered-or-direct-runtime",
-      "sha256": "b96d638bf5d68b5a7e2635f3d3ad3161fb1d1afa7c9dfb024ae54aae56a05445",
-      "references": [
-        "js/production-assets.js"
-      ],
-      "character_id": "liu",
-      "event": "attack",
-      "acceptance_evidence": "art_sources/battle-voice-20261006/technical-review.json",
-      "voice_binding": "existing-confirmed"
-    },
-    {
-      "id": "battle.liu.attack.02",
-      "path": "assets/audio/battle-voices/liu-c31baf3b6d9e8ba8de2d.mp3",
-      "original_path": "assets/audio/battle-voices/liu-c31baf3b6d9e8ba8de2d.mp3",
-      "source_candidate": "art_sources/battle-voice-20261006/liu-c31baf3b6d9e8ba8de2d.mp3",
-      "system": "audio",
-      "role": "registered-or-direct-runtime",
-      "sha256": "c31baf3b6d9e8ba8de2d9b28a7f1a2219ba47c05ad62b3ac9c7dcb08301f748c",
-      "references": [
-        "js/production-assets.js"
-      ],
-      "character_id": "liu",
-      "event": "attack",
-      "acceptance_evidence": "art_sources/battle-voice-20261006/technical-review.json",
-      "voice_binding": "existing-confirmed"
-    },
-    {
-      "id": "battle.liu.down.02",
-      "path": "assets/audio/battle-voices/liu-de6d19369b2333807556.mp3",
-      "original_path": "assets/audio/battle-voices/liu-de6d19369b2333807556.mp3",
-      "source_candidate": "art_sources/battle-voice-20261006/liu-de6d19369b2333807556.mp3",
-      "system": "audio",
-      "role": "registered-or-direct-runtime",
-      "sha256": "de6d19369b2333807556feac2640ea8f3a9a88501fab9d1a14d12635910789c3",
-      "references": [
-        "js/production-assets.js"
-      ],
-      "character_id": "liu",
-      "event": "down",
-      "acceptance_evidence": "art_sources/battle-voice-20261006/technical-review.json",
-      "voice_binding": "existing-confirmed"
-    },
-    {
-      "id": "battle.liu.turn.02",
-      "path": "assets/audio/battle-voices/liu-e27b414c03dec23ef072.mp3",
-      "original_path": "assets/audio/battle-voices/liu-e27b414c03dec23ef072.mp3",
-      "source_candidate": "art_sources/battle-voice-20261006/liu-e27b414c03dec23ef072.mp3",
-      "system": "audio",
-      "role": "registered-or-direct-runtime",
-      "sha256": "e27b414c03dec23ef0723fd95e5527079c7f520b88255bb1ec8e497de3c5f913",
-      "references": [
-        "js/production-assets.js"
-      ],
-      "character_id": "liu",
-      "event": "turn",
-      "acceptance_evidence": "art_sources/battle-voice-20261006/technical-review.json",
-      "voice_binding": "existing-confirmed"
-    },
-    {
-      "id": "battle.liu-hanyan.turn.02",
-      "path": "assets/audio/battle-voices/liu-hanyan-17f800bee16a8845c685.mp3",
-      "original_path": "assets/audio/battle-voices/liu-hanyan-17f800bee16a8845c685.mp3",
-      "source_candidate": "art_sources/battle-voice-20261006/liu-hanyan-17f800bee16a8845c685.mp3",
-      "system": "audio",
-      "role": "registered-or-direct-runtime",
-      "sha256": "17f800bee16a8845c685a3af7fa0692e82d229b518ff889ae698cbea78ed1508",
-      "references": [
-        "js/production-assets.js"
-      ],
-      "character_id": "liu-hanyan",
-      "event": "turn",
-      "acceptance_evidence": "art_sources/battle-voice-20261006/technical-review.json",
-      "voice_binding": "existing-confirmed"
-    },
-    {
-      "id": "battle.liu-hanyan.attack.01",
-      "path": "assets/audio/battle-voices/liu-hanyan-1ce19128d26102d1cde4.mp3",
-      "original_path": "assets/audio/battle-voices/liu-hanyan-1ce19128d26102d1cde4.mp3",
-      "source_candidate": "art_sources/battle-voice-20261006/liu-hanyan-1ce19128d26102d1cde4.mp3",
-      "system": "audio",
-      "role": "registered-or-direct-runtime",
-      "sha256": "1ce19128d26102d1cde4745dc2a1b0afdea4aa8bb6040f56674b61b78dafd19e",
-      "references": [
-        "js/production-assets.js"
-      ],
-      "character_id": "liu-hanyan",
-      "event": "attack",
-      "acceptance_evidence": "art_sources/battle-voice-20261006/technical-review.json",
-      "voice_binding": "existing-confirmed"
-    },
-    {
-      "id": "battle.liu-hanyan.support.01",
-      "path": "assets/audio/battle-voices/liu-hanyan-3e7deaa6e00e4d2f9ccd.mp3",
-      "original_path": "assets/audio/battle-voices/liu-hanyan-3e7deaa6e00e4d2f9ccd.mp3",
-      "source_candidate": "art_sources/battle-voice-20261006/liu-hanyan-3e7deaa6e00e4d2f9ccd.mp3",
-      "system": "audio",
-      "role": "registered-or-direct-runtime",
-      "sha256": "3e7deaa6e00e4d2f9ccd7bc42bff15e69d717b719dd65da81704ed3467255bdf",
-      "references": [
-        "js/production-assets.js"
-      ],
-      "character_id": "liu-hanyan",
-      "event": "support",
-      "acceptance_evidence": "art_sources/battle-voice-20261006/technical-review.json",
-      "voice_binding": "existing-confirmed"
-    },
-    {
-      "id": "battle.liu-hanyan.down.01",
-      "path": "assets/audio/battle-voices/liu-hanyan-4e6e72aaa4a075487d7d.mp3",
-      "original_path": "assets/audio/battle-voices/liu-hanyan-4e6e72aaa4a075487d7d.mp3",
-      "source_candidate": "art_sources/battle-voice-20261006/liu-hanyan-4e6e72aaa4a075487d7d.mp3",
-      "system": "audio",
-      "role": "registered-or-direct-runtime",
-      "sha256": "4e6e72aaa4a075487d7da9c614f960f557f9d9bbbcde309372641a2171e36db3",
-      "references": [
-        "js/production-assets.js"
-      ],
-      "character_id": "liu-hanyan",
-      "event": "down",
-      "acceptance_evidence": "art_sources/battle-voice-20261006/technical-review.json",
-      "voice_binding": "existing-confirmed"
-    },
-    {
-      "id": "battle.liu-hanyan.hurt.02",
-      "path": "assets/audio/battle-voices/liu-hanyan-798003abb25406623699.mp3",
-      "original_path": "assets/audio/battle-voices/liu-hanyan-798003abb25406623699.mp3",
-      "source_candidate": "art_sources/battle-voice-20261006/liu-hanyan-798003abb25406623699.mp3",
-      "system": "audio",
-      "role": "registered-or-direct-runtime",
-      "sha256": "798003abb25406623699bb1ff729f8f17ccfc95999e4fb5a8d97bd1c58cd07a0",
-      "references": [
-        "js/production-assets.js"
-      ],
-      "character_id": "liu-hanyan",
-      "event": "hurt",
-      "acceptance_evidence": "art_sources/battle-voice-20261006/technical-review.json",
-      "voice_binding": "existing-confirmed"
-    },
-    {
-      "id": "battle.liu-hanyan.turn.01",
-      "path": "assets/audio/battle-voices/liu-hanyan-8a629c3bae53d262bee7.mp3",
-      "original_path": "assets/audio/battle-voices/liu-hanyan-8a629c3bae53d262bee7.mp3",
-      "source_candidate": "art_sources/battle-voice-20261006/liu-hanyan-8a629c3bae53d262bee7.mp3",
-      "system": "audio",
-      "role": "registered-or-direct-runtime",
-      "sha256": "8a629c3bae53d262bee70ae350ec55b9215c37cf21d63d414278cb42465733ad",
-      "references": [
-        "js/production-assets.js"
-      ],
-      "character_id": "liu-hanyan",
-      "event": "turn",
-      "acceptance_evidence": "art_sources/battle-voice-20261006/technical-review.json",
-      "voice_binding": "existing-confirmed"
-    },
-    {
-      "id": "battle.liu-hanyan.attack.02",
-      "path": "assets/audio/battle-voices/liu-hanyan-be3a720480529f01adfa.mp3",
-      "original_path": "assets/audio/battle-voices/liu-hanyan-be3a720480529f01adfa.mp3",
-      "source_candidate": "art_sources/battle-voice-20261006/liu-hanyan-be3a720480529f01adfa.mp3",
-      "system": "audio",
-      "role": "registered-or-direct-runtime",
-      "sha256": "be3a720480529f01adfaf80beea549f5aa633a82ba34b7eecb4469bd017bf168",
-      "references": [
-        "js/production-assets.js"
-      ],
-      "character_id": "liu-hanyan",
-      "event": "attack",
-      "acceptance_evidence": "art_sources/battle-voice-20261006/technical-review.json",
-      "voice_binding": "existing-confirmed"
-    },
-    {
-      "id": "battle.liu-hanyan.hurt.01",
-      "path": "assets/audio/battle-voices/liu-hanyan-ff4f4e9ee0eaa1df3af8.mp3",
-      "original_path": "assets/audio/battle-voices/liu-hanyan-ff4f4e9ee0eaa1df3af8.mp3",
-      "source_candidate": "art_sources/battle-voice-20261006/liu-hanyan-ff4f4e9ee0eaa1df3af8.mp3",
-      "system": "audio",
-      "role": "registered-or-direct-runtime",
-      "sha256": "ff4f4e9ee0eaa1df3af831ecbfe10f47aa29c9ecfe0383d6abf88d5e75c43643",
-      "references": [
-        "js/production-assets.js"
-      ],
-      "character_id": "liu-hanyan",
-      "event": "hurt",
-      "acceptance_evidence": "art_sources/battle-voice-20261006/technical-review.json",
-      "voice_binding": "existing-confirmed"
-    },
-    {
-      "id": "battle.pei-zhigu.down.01",
-      "path": "assets/audio/battle-voices/pei-zhigu-0ddf6c1e25556bde345d.mp3",
-      "original_path": "assets/audio/battle-voices/pei-zhigu-0ddf6c1e25556bde345d.mp3",
-      "source_candidate": "art_sources/battle-voice-20261006/pei-zhigu-0ddf6c1e25556bde345d.mp3",
-      "system": "audio",
-      "role": "registered-or-direct-runtime",
-      "sha256": "0ddf6c1e25556bde345d498132a9c05b9e2346798ce4d760c87bd349dd050510",
-      "references": [
-        "js/production-assets.js"
-      ],
-      "character_id": "pei-zhigu",
-      "event": "down",
-      "acceptance_evidence": "art_sources/battle-voice-20261006/technical-review.json",
-      "voice_binding": "existing-confirmed"
-    },
-    {
-      "id": "battle.pei-zhigu.hurt.02",
-      "path": "assets/audio/battle-voices/pei-zhigu-345e8028d9ddf856392b.mp3",
-      "original_path": "assets/audio/battle-voices/pei-zhigu-345e8028d9ddf856392b.mp3",
-      "source_candidate": "art_sources/battle-voice-20261006/pei-zhigu-345e8028d9ddf856392b.mp3",
-      "system": "audio",
-      "role": "registered-or-direct-runtime",
-      "sha256": "345e8028d9ddf856392b23536a9ef3c5b6ed14dadcd3b27d953e2cc991608c7d",
-      "references": [
-        "js/production-assets.js"
-      ],
-      "character_id": "pei-zhigu",
-      "event": "hurt",
-      "acceptance_evidence": "art_sources/battle-voice-20261006/technical-review.json",
-      "voice_binding": "existing-confirmed"
-    },
-    {
-      "id": "battle.pei-zhigu.support.01",
-      "path": "assets/audio/battle-voices/pei-zhigu-ae4000b935b9f9b199a5.mp3",
-      "original_path": "assets/audio/battle-voices/pei-zhigu-ae4000b935b9f9b199a5.mp3",
-      "source_candidate": "art_sources/battle-voice-20261006/pei-zhigu-ae4000b935b9f9b199a5.mp3",
-      "system": "audio",
-      "role": "registered-or-direct-runtime",
-      "sha256": "ae4000b935b9f9b199a51db91a33ad792d12a0581b03fe87482aaab3ceb3c410",
-      "references": [
-        "js/production-assets.js"
-      ],
-      "character_id": "pei-zhigu",
-      "event": "support",
-      "acceptance_evidence": "art_sources/battle-voice-20261006/technical-review.json",
-      "voice_binding": "existing-confirmed"
-    },
-    {
-      "id": "battle.pei-zhigu.hurt.01",
-      "path": "assets/audio/battle-voices/pei-zhigu-d05c6b293642e6c9aeb3.mp3",
-      "original_path": "assets/audio/battle-voices/pei-zhigu-d05c6b293642e6c9aeb3.mp3",
-      "source_candidate": "art_sources/battle-voice-20261006/pei-zhigu-d05c6b293642e6c9aeb3.mp3",
-      "system": "audio",
-      "role": "registered-or-direct-runtime",
-      "sha256": "d05c6b293642e6c9aeb3ed3029d2ca8bc2a3f8f27c773275b2c6eb8b2707c407",
-      "references": [
-        "js/production-assets.js"
-      ],
-      "character_id": "pei-zhigu",
-      "event": "hurt",
-      "acceptance_evidence": "art_sources/battle-voice-20261006/technical-review.json",
-      "voice_binding": "existing-confirmed"
-    },
-    {
-      "id": "battle.pei-zhigu.turn.02",
-      "path": "assets/audio/battle-voices/pei-zhigu-d9e411e0a83b5e604c0a.mp3",
-      "original_path": "assets/audio/battle-voices/pei-zhigu-d9e411e0a83b5e604c0a.mp3",
-      "source_candidate": "art_sources/battle-voice-20261006/pei-zhigu-d9e411e0a83b5e604c0a.mp3",
-      "system": "audio",
-      "role": "registered-or-direct-runtime",
-      "sha256": "d9e411e0a83b5e604c0ab2d7454d562355115adc6a78a69b36a1391b4ce1b28c",
-      "references": [
-        "js/production-assets.js"
-      ],
-      "character_id": "pei-zhigu",
-      "event": "turn",
-      "acceptance_evidence": "art_sources/battle-voice-20261006/technical-review.json",
-      "voice_binding": "existing-confirmed"
-    },
-    {
-      "id": "battle.pei-zhigu.attack.02",
-      "path": "assets/audio/battle-voices/pei-zhigu-dcbb97e0d5471528dde2.mp3",
-      "original_path": "assets/audio/battle-voices/pei-zhigu-dcbb97e0d5471528dde2.mp3",
-      "source_candidate": "art_sources/battle-voice-20261006/pei-zhigu-dcbb97e0d5471528dde2.mp3",
-      "system": "audio",
-      "role": "registered-or-direct-runtime",
-      "sha256": "dcbb97e0d5471528dde24303095208440ca2a5ce9ef37b4fcc7a6ea3db6eed6a",
-      "references": [
-        "js/production-assets.js"
-      ],
-      "character_id": "pei-zhigu",
-      "event": "attack",
-      "acceptance_evidence": "art_sources/battle-voice-20261006/technical-review.json",
-      "voice_binding": "existing-confirmed"
-    },
-    {
-      "id": "battle.pei-zhigu.turn.01",
-      "path": "assets/audio/battle-voices/pei-zhigu-ef48ed4713a0a20fc208.mp3",
-      "original_path": "assets/audio/battle-voices/pei-zhigu-ef48ed4713a0a20fc208.mp3",
-      "source_candidate": "art_sources/battle-voice-20261006/pei-zhigu-ef48ed4713a0a20fc208.mp3",
-      "system": "audio",
-      "role": "registered-or-direct-runtime",
-      "sha256": "ef48ed4713a0a20fc208c45b335f06fad68082679e643c772a930b5e05d06e8a",
-      "references": [
-        "js/production-assets.js"
-      ],
-      "character_id": "pei-zhigu",
-      "event": "turn",
-      "acceptance_evidence": "art_sources/battle-voice-20261006/technical-review.json",
-      "voice_binding": "existing-confirmed"
-    },
-    {
-      "id": "battle.pei-zhigu.attack.01",
-      "path": "assets/audio/battle-voices/pei-zhigu-f7f6a83b85dfb0b70372.mp3",
-      "original_path": "assets/audio/battle-voices/pei-zhigu-f7f6a83b85dfb0b70372.mp3",
-      "source_candidate": "art_sources/battle-voice-20261006/pei-zhigu-f7f6a83b85dfb0b70372.mp3",
-      "system": "audio",
-      "role": "registered-or-direct-runtime",
-      "sha256": "f7f6a83b85dfb0b7037252ad4b8a53000e1baaf2eec4496af3f820a8f3932667",
-      "references": [
-        "js/production-assets.js"
-      ],
-      "character_id": "pei-zhigu",
-      "event": "attack",
-      "acceptance_evidence": "art_sources/battle-voice-20261006/technical-review.json",
-      "voice_binding": "existing-confirmed"
-    },
-    {
-      "id": "battle.pipi.turn.02",
-      "path": "assets/audio/battle-voices/pipi-1256af7e5183d63b7149.mp3",
-      "original_path": "assets/audio/battle-voices/pipi-1256af7e5183d63b7149.mp3",
-      "source_candidate": "art_sources/battle-voice-20261006/pipi-1256af7e5183d63b7149.mp3",
-      "system": "audio",
-      "role": "registered-or-direct-runtime",
-      "sha256": "1256af7e5183d63b714993534305394a62172464a7b0b6d6849a817830592776",
-      "references": [
-        "js/production-assets.js"
-      ],
-      "character_id": "pipi",
-      "event": "turn",
-      "acceptance_evidence": "art_sources/battle-voice-20261006/technical-review.json",
-      "voice_binding": "existing-confirmed"
-    },
-    {
-      "id": "battle.pipi.attack.02",
-      "path": "assets/audio/battle-voices/pipi-26456ead31b8f949306e.mp3",
-      "original_path": "assets/audio/battle-voices/pipi-26456ead31b8f949306e.mp3",
-      "source_candidate": "art_sources/battle-voice-20261006/pipi-26456ead31b8f949306e.mp3",
-      "system": "audio",
-      "role": "registered-or-direct-runtime",
-      "sha256": "26456ead31b8f949306e03bd1d32b308469ca9836843937d353ebf209930e354",
-      "references": [
-        "js/production-assets.js"
-      ],
-      "character_id": "pipi",
-      "event": "attack",
-      "acceptance_evidence": "art_sources/battle-voice-20261006/technical-review.json",
-      "voice_binding": "existing-confirmed"
-    },
-    {
-      "id": "battle.pipi.down.01",
-      "path": "assets/audio/battle-voices/pipi-54b936ec51bc694b7d70.mp3",
-      "original_path": "assets/audio/battle-voices/pipi-54b936ec51bc694b7d70.mp3",
-      "source_candidate": "art_sources/battle-voice-20261006/pipi-54b936ec51bc694b7d70.mp3",
-      "system": "audio",
-      "role": "registered-or-direct-runtime",
-      "sha256": "54b936ec51bc694b7d705828c23179ae121281991c04c4d76428d3025c9e693e",
-      "references": [
-        "js/production-assets.js"
-      ],
-      "character_id": "pipi",
-      "event": "down",
-      "acceptance_evidence": "art_sources/battle-voice-20261006/technical-review.json",
-      "voice_binding": "existing-confirmed"
-    },
-    {
-      "id": "battle.pipi.turn.01",
-      "path": "assets/audio/battle-voices/pipi-bcb4df3cc822b43232f6.mp3",
-      "original_path": "assets/audio/battle-voices/pipi-bcb4df3cc822b43232f6.mp3",
-      "source_candidate": "art_sources/battle-voice-20261006/pipi-bcb4df3cc822b43232f6.mp3",
-      "system": "audio",
-      "role": "registered-or-direct-runtime",
-      "sha256": "bcb4df3cc822b43232f6203e07a027d915d3e710b2f7b7fa6e470c20c679bd5e",
-      "references": [
-        "js/production-assets.js"
-      ],
-      "character_id": "pipi",
-      "event": "turn",
-      "acceptance_evidence": "art_sources/battle-voice-20261006/technical-review.json",
-      "voice_binding": "existing-confirmed"
-    },
-    {
-      "id": "battle.pipi.hurt.02",
-      "path": "assets/audio/battle-voices/pipi-c231e8a6d0ab5053ffdd.mp3",
-      "original_path": "assets/audio/battle-voices/pipi-c231e8a6d0ab5053ffdd.mp3",
-      "source_candidate": "art_sources/battle-voice-20261006/pipi-c231e8a6d0ab5053ffdd.mp3",
-      "system": "audio",
-      "role": "registered-or-direct-runtime",
-      "sha256": "c231e8a6d0ab5053ffdddeebebd61a067227a51e3c40ee637c2d1e7e6524fec8",
-      "references": [
-        "js/production-assets.js"
-      ],
-      "character_id": "pipi",
-      "event": "hurt",
-      "acceptance_evidence": "art_sources/battle-voice-20261006/technical-review.json",
-      "voice_binding": "existing-confirmed"
-    },
-    {
-      "id": "battle.pipi.hurt.01",
-      "path": "assets/audio/battle-voices/pipi-c81b8fcac01d63bbf9f5.mp3",
-      "original_path": "assets/audio/battle-voices/pipi-c81b8fcac01d63bbf9f5.mp3",
-      "source_candidate": "art_sources/battle-voice-20261006/pipi-c81b8fcac01d63bbf9f5.mp3",
-      "system": "audio",
-      "role": "registered-or-direct-runtime",
-      "sha256": "c81b8fcac01d63bbf9f5a2a3a16dbbf67ebbed63f988f38f717478cff798f21f",
-      "references": [
-        "js/production-assets.js"
-      ],
-      "character_id": "pipi",
-      "event": "hurt",
-      "acceptance_evidence": "art_sources/battle-voice-20261006/technical-review.json",
-      "voice_binding": "existing-confirmed"
-    },
-    {
-      "id": "battle.pipi.down.02",
-      "path": "assets/audio/battle-voices/pipi-ca337261a07d7ae22d78.mp3",
-      "original_path": "assets/audio/battle-voices/pipi-ca337261a07d7ae22d78.mp3",
-      "source_candidate": "art_sources/battle-voice-20261006/pipi-ca337261a07d7ae22d78.mp3",
-      "system": "audio",
-      "role": "registered-or-direct-runtime",
-      "sha256": "ca337261a07d7ae22d78204058911572867795fb54a3e23b94336fb9fabb579b",
-      "references": [
-        "js/production-assets.js"
-      ],
-      "character_id": "pipi",
-      "event": "down",
-      "acceptance_evidence": "art_sources/battle-voice-20261006/technical-review.json",
-      "voice_binding": "existing-confirmed"
-    },
-    {
-      "id": "battle.pipi.attack.01",
-      "path": "assets/audio/battle-voices/pipi-e244e70ed509a75baf95.mp3",
-      "original_path": "assets/audio/battle-voices/pipi-e244e70ed509a75baf95.mp3",
-      "source_candidate": "art_sources/battle-voice-20261006/pipi-e244e70ed509a75baf95.mp3",
-      "system": "audio",
-      "role": "registered-or-direct-runtime",
-      "sha256": "e244e70ed509a75baf951107ab083e4d2a4c8867b9b98176bd4cd05de6056339",
-      "references": [
-        "js/production-assets.js"
-      ],
-      "character_id": "pipi",
-      "event": "attack",
-      "acceptance_evidence": "art_sources/battle-voice-20261006/technical-review.json",
-      "voice_binding": "existing-confirmed"
-    },
-    {
-      "id": "battle.qin-feiyuan.attack.01",
-      "path": "assets/audio/battle-voices/qin-feiyuan-42210e330daff55dcaf7.mp3",
-      "original_path": "assets/audio/battle-voices/qin-feiyuan-42210e330daff55dcaf7.mp3",
-      "source_candidate": "art_sources/battle-voice-20261006/qin-feiyuan-42210e330daff55dcaf7.mp3",
-      "system": "audio",
-      "role": "registered-or-direct-runtime",
-      "sha256": "42210e330daff55dcaf711659a769c5f1b460b33da43d4dff1b092cc985a5d7a",
-      "references": [
-        "js/production-assets.js"
-      ],
-      "character_id": "qin-feiyuan",
-      "event": "attack",
-      "acceptance_evidence": "art_sources/battle-voice-20261006/technical-review.json",
-      "voice_binding": "existing-confirmed"
-    },
-    {
-      "id": "battle.qin-feiyuan.hurt.01",
-      "path": "assets/audio/battle-voices/qin-feiyuan-4dd33b2ebf30c307dda1.mp3",
-      "original_path": "assets/audio/battle-voices/qin-feiyuan-4dd33b2ebf30c307dda1.mp3",
-      "source_candidate": "art_sources/battle-voice-20261006/qin-feiyuan-4dd33b2ebf30c307dda1.mp3",
-      "system": "audio",
-      "role": "registered-or-direct-runtime",
-      "sha256": "4dd33b2ebf30c307dda1ddf9c3b03be4593d912ee0f1b165347da9a95e6f1823",
-      "references": [
-        "js/production-assets.js"
-      ],
-      "character_id": "qin-feiyuan",
-      "event": "hurt",
-      "acceptance_evidence": "art_sources/battle-voice-20261006/technical-review.json",
-      "voice_binding": "existing-confirmed"
-    },
-    {
-      "id": "battle.qin-feiyuan.support.01",
-      "path": "assets/audio/battle-voices/qin-feiyuan-7d6802f929c86ad28bae.mp3",
-      "original_path": "assets/audio/battle-voices/qin-feiyuan-7d6802f929c86ad28bae.mp3",
-      "source_candidate": "art_sources/battle-voice-20261006/qin-feiyuan-7d6802f929c86ad28bae.mp3",
-      "system": "audio",
-      "role": "registered-or-direct-runtime",
-      "sha256": "7d6802f929c86ad28baed433b79e8acfd0846050dea2b448f5f3968ea9ba624a",
-      "references": [
-        "js/production-assets.js"
-      ],
-      "character_id": "qin-feiyuan",
-      "event": "support",
-      "acceptance_evidence": "art_sources/battle-voice-20261006/technical-review.json",
-      "voice_binding": "existing-confirmed"
-    },
-    {
-      "id": "battle.qin-feiyuan.hurt.02",
-      "path": "assets/audio/battle-voices/qin-feiyuan-8f961a64f057504a43a6.mp3",
-      "original_path": "assets/audio/battle-voices/qin-feiyuan-8f961a64f057504a43a6.mp3",
-      "source_candidate": "art_sources/battle-voice-20261006/qin-feiyuan-8f961a64f057504a43a6.mp3",
-      "system": "audio",
-      "role": "registered-or-direct-runtime",
-      "sha256": "8f961a64f057504a43a6600be1fe6b84315a372e192c0e2a59f395075d068f9f",
-      "references": [
-        "js/production-assets.js"
-      ],
-      "character_id": "qin-feiyuan",
-      "event": "hurt",
-      "acceptance_evidence": "art_sources/battle-voice-20261006/technical-review.json",
-      "voice_binding": "existing-confirmed"
-    },
-    {
-      "id": "battle.qin-feiyuan.attack.02",
-      "path": "assets/audio/battle-voices/qin-feiyuan-a0d5cddf5e2e03b7ba5e.mp3",
-      "original_path": "assets/audio/battle-voices/qin-feiyuan-a0d5cddf5e2e03b7ba5e.mp3",
-      "source_candidate": "art_sources/battle-voice-20261006/qin-feiyuan-a0d5cddf5e2e03b7ba5e.mp3",
-      "system": "audio",
-      "role": "registered-or-direct-runtime",
-      "sha256": "a0d5cddf5e2e03b7ba5e843f612e847f47a256fb57660323b484ec34709edb2c",
-      "references": [
-        "js/production-assets.js"
-      ],
-      "character_id": "qin-feiyuan",
-      "event": "attack",
-      "acceptance_evidence": "art_sources/battle-voice-20261006/technical-review.json",
-      "voice_binding": "existing-confirmed"
-    },
-    {
-      "id": "battle.qin-feiyuan.turn.02",
-      "path": "assets/audio/battle-voices/qin-feiyuan-a6538b5b527974705cf9.mp3",
-      "original_path": "assets/audio/battle-voices/qin-feiyuan-a6538b5b527974705cf9.mp3",
-      "source_candidate": "art_sources/battle-voice-20261006/qin-feiyuan-a6538b5b527974705cf9.mp3",
-      "system": "audio",
-      "role": "registered-or-direct-runtime",
-      "sha256": "a6538b5b527974705cf9e3dcee1cd9856956391a3adecdf4218f8ec93c3df048",
-      "references": [
-        "js/production-assets.js"
-      ],
-      "character_id": "qin-feiyuan",
-      "event": "turn",
-      "acceptance_evidence": "art_sources/battle-voice-20261006/technical-review.json",
-      "voice_binding": "existing-confirmed"
-    },
-    {
-      "id": "battle.qin-feiyuan.turn.01",
-      "path": "assets/audio/battle-voices/qin-feiyuan-b34e54de2c8e200b0b67.mp3",
-      "original_path": "assets/audio/battle-voices/qin-feiyuan-b34e54de2c8e200b0b67.mp3",
-      "source_candidate": "art_sources/battle-voice-20261006/qin-feiyuan-b34e54de2c8e200b0b67.mp3",
-      "system": "audio",
-      "role": "registered-or-direct-runtime",
-      "sha256": "b34e54de2c8e200b0b675651058441150bc959383c20765b1c9f4d29cef4cac5",
-      "references": [
-        "js/production-assets.js"
-      ],
-      "character_id": "qin-feiyuan",
-      "event": "turn",
-      "acceptance_evidence": "art_sources/battle-voice-20261006/technical-review.json",
-      "voice_binding": "existing-confirmed"
-    },
-    {
-      "id": "battle.qin-feiyuan.down.01",
-      "path": "assets/audio/battle-voices/qin-feiyuan-ce862821b689210fbb4f.mp3",
-      "original_path": "assets/audio/battle-voices/qin-feiyuan-ce862821b689210fbb4f.mp3",
-      "source_candidate": "art_sources/battle-voice-20261006/qin-feiyuan-ce862821b689210fbb4f.mp3",
-      "system": "audio",
-      "role": "registered-or-direct-runtime",
-      "sha256": "ce862821b689210fbb4f56fa403d60cd4a1592fa02a4b3e5df53491455a2ce39",
-      "references": [
-        "js/production-assets.js"
-      ],
-      "character_id": "qin-feiyuan",
-      "event": "down",
-      "acceptance_evidence": "art_sources/battle-voice-20261006/technical-review.json",
-      "voice_binding": "existing-confirmed"
-    },
-    {
-      "id": "battle.ruan-qingque.attack.02",
-      "path": "assets/audio/battle-voices/ruan-qingque-0b84650e263062daca93.mp3",
-      "original_path": "assets/audio/battle-voices/ruan-qingque-0b84650e263062daca93.mp3",
-      "source_candidate": "art_sources/battle-voice-20261006/ruan-qingque-0b84650e263062daca93.mp3",
-      "system": "audio",
-      "role": "registered-or-direct-runtime",
-      "sha256": "0b84650e263062daca937fe10995da27085587ae4fa71a47120bf7b16bbea58d",
-      "references": [
-        "js/production-assets.js"
-      ],
-      "character_id": "ruan-qingque",
-      "event": "attack",
-      "acceptance_evidence": "art_sources/battle-voice-20261006/technical-review.json",
-      "voice_binding": "existing-confirmed"
-    },
-    {
-      "id": "battle.ruan-qingque.hurt.02",
-      "path": "assets/audio/battle-voices/ruan-qingque-1483a4dadd9e77c68c47.mp3",
-      "original_path": "assets/audio/battle-voices/ruan-qingque-1483a4dadd9e77c68c47.mp3",
-      "source_candidate": "art_sources/battle-voice-20261006/ruan-qingque-1483a4dadd9e77c68c47.mp3",
-      "system": "audio",
-      "role": "registered-or-direct-runtime",
-      "sha256": "1483a4dadd9e77c68c47ae0831c1e83a03f876c780ae6e4f0ea3bc884568d086",
-      "references": [
-        "js/production-assets.js"
-      ],
-      "character_id": "ruan-qingque",
-      "event": "hurt",
-      "acceptance_evidence": "art_sources/battle-voice-20261006/technical-review.json",
-      "voice_binding": "existing-confirmed"
-    },
-    {
-      "id": "battle.ruan-qingque.turn.02",
-      "path": "assets/audio/battle-voices/ruan-qingque-78bb7b81df9f87ca79e1.mp3",
-      "original_path": "assets/audio/battle-voices/ruan-qingque-78bb7b81df9f87ca79e1.mp3",
-      "source_candidate": "art_sources/battle-voice-20261006/ruan-qingque-78bb7b81df9f87ca79e1.mp3",
-      "system": "audio",
-      "role": "registered-or-direct-runtime",
-      "sha256": "78bb7b81df9f87ca79e1204e0ed6fe740b0ce7bf44a3cfde47260c031eb04385",
-      "references": [
-        "js/production-assets.js"
-      ],
-      "character_id": "ruan-qingque",
-      "event": "turn",
-      "acceptance_evidence": "art_sources/battle-voice-20261006/technical-review.json",
-      "voice_binding": "existing-confirmed"
-    },
-    {
-      "id": "battle.ruan-qingque.support.01",
-      "path": "assets/audio/battle-voices/ruan-qingque-9e89b8ae47afd68bd43d.mp3",
-      "original_path": "assets/audio/battle-voices/ruan-qingque-9e89b8ae47afd68bd43d.mp3",
-      "source_candidate": "art_sources/battle-voice-20261006/ruan-qingque-9e89b8ae47afd68bd43d.mp3",
-      "system": "audio",
-      "role": "registered-or-direct-runtime",
-      "sha256": "9e89b8ae47afd68bd43dee5d9f4e6f380e77b0d549a774e2899b4c660957a1d2",
-      "references": [
-        "js/production-assets.js"
-      ],
-      "character_id": "ruan-qingque",
-      "event": "support",
-      "acceptance_evidence": "art_sources/battle-voice-20261006/technical-review.json",
-      "voice_binding": "existing-confirmed"
-    },
-    {
-      "id": "battle.ruan-qingque.attack.01",
-      "path": "assets/audio/battle-voices/ruan-qingque-a57ed40fd153296cccf2.mp3",
-      "original_path": "assets/audio/battle-voices/ruan-qingque-a57ed40fd153296cccf2.mp3",
-      "source_candidate": "art_sources/battle-voice-20261006/ruan-qingque-a57ed40fd153296cccf2.mp3",
-      "system": "audio",
-      "role": "registered-or-direct-runtime",
-      "sha256": "a57ed40fd153296cccf2084315fc486ec3e96f3bd372a733eb4a6d1874d600a7",
-      "references": [
-        "js/production-assets.js"
-      ],
-      "character_id": "ruan-qingque",
-      "event": "attack",
-      "acceptance_evidence": "art_sources/battle-voice-20261006/technical-review.json",
-      "voice_binding": "existing-confirmed"
-    },
-    {
-      "id": "battle.ruan-qingque.hurt.01",
-      "path": "assets/audio/battle-voices/ruan-qingque-c1d89c34bca5ba425463.mp3",
-      "original_path": "assets/audio/battle-voices/ruan-qingque-c1d89c34bca5ba425463.mp3",
-      "source_candidate": "art_sources/battle-voice-20261006/ruan-qingque-c1d89c34bca5ba425463.mp3",
-      "system": "audio",
-      "role": "registered-or-direct-runtime",
-      "sha256": "c1d89c34bca5ba4254634ed49de7b620cd9abbf881ad0b964ff12aa91c805a2e",
-      "references": [
-        "js/production-assets.js"
-      ],
-      "character_id": "ruan-qingque",
-      "event": "hurt",
-      "acceptance_evidence": "art_sources/battle-voice-20261006/technical-review.json",
-      "voice_binding": "existing-confirmed"
-    },
-    {
-      "id": "battle.ruan-qingque.turn.01",
-      "path": "assets/audio/battle-voices/ruan-qingque-d23bd3f375b37e269e33.mp3",
-      "original_path": "assets/audio/battle-voices/ruan-qingque-d23bd3f375b37e269e33.mp3",
-      "source_candidate": "art_sources/battle-voice-20261006/ruan-qingque-d23bd3f375b37e269e33.mp3",
-      "system": "audio",
-      "role": "registered-or-direct-runtime",
-      "sha256": "d23bd3f375b37e269e3356db899559f071b1a9bf87401262ef7ab378a41b2893",
-      "references": [
-        "js/production-assets.js"
-      ],
-      "character_id": "ruan-qingque",
-      "event": "turn",
-      "acceptance_evidence": "art_sources/battle-voice-20261006/technical-review.json",
-      "voice_binding": "existing-confirmed"
-    },
-    {
-      "id": "battle.ruan-qingque.down.01",
-      "path": "assets/audio/battle-voices/ruan-qingque-e4f922c0d3e1cf81affa.mp3",
-      "original_path": "assets/audio/battle-voices/ruan-qingque-e4f922c0d3e1cf81affa.mp3",
-      "source_candidate": "art_sources/battle-voice-20261006/ruan-qingque-e4f922c0d3e1cf81affa.mp3",
-      "system": "audio",
-      "role": "registered-or-direct-runtime",
-      "sha256": "e4f922c0d3e1cf81affa2d3a92d82a4c7dba4c07d16a7ee1a94276fa9343c3d8",
-      "references": [
-        "js/production-assets.js"
-      ],
-      "character_id": "ruan-qingque",
-      "event": "down",
-      "acceptance_evidence": "art_sources/battle-voice-20261006/technical-review.json",
-      "voice_binding": "existing-confirmed"
-    },
-    {
-      "id": "battle.suzhi.attack.02",
-      "path": "assets/audio/battle-voices/suzhi-4351d0d5ef63ec48c65c.mp3",
-      "original_path": "assets/audio/battle-voices/suzhi-4351d0d5ef63ec48c65c.mp3",
-      "source_candidate": "art_sources/battle-voice-20261006/suzhi-4351d0d5ef63ec48c65c.mp3",
-      "system": "audio",
-      "role": "registered-or-direct-runtime",
-      "sha256": "4351d0d5ef63ec48c65cdc8fe2f0ffe282fc45302f666668322f14dbfee46c07",
-      "references": [
-        "js/production-assets.js"
-      ],
-      "character_id": "suzhi",
-      "event": "attack",
-      "acceptance_evidence": "art_sources/battle-voice-20261006/technical-review.json",
-      "voice_binding": "existing-confirmed"
-    },
-    {
-      "id": "battle.suzhi.turn.01",
-      "path": "assets/audio/battle-voices/suzhi-47b3659461674f873aeb.mp3",
-      "original_path": "assets/audio/battle-voices/suzhi-47b3659461674f873aeb.mp3",
-      "source_candidate": "art_sources/battle-voice-20261006/suzhi-47b3659461674f873aeb.mp3",
-      "system": "audio",
-      "role": "registered-or-direct-runtime",
-      "sha256": "47b3659461674f873aeb29fc06ac5fca861b165226f7c7fdfcb84286aea37068",
-      "references": [
-        "js/production-assets.js"
-      ],
-      "character_id": "suzhi",
-      "event": "turn",
-      "acceptance_evidence": "art_sources/battle-voice-20261006/technical-review.json",
-      "voice_binding": "existing-confirmed"
-    },
-    {
-      "id": "battle.suzhi.hurt.01",
-      "path": "assets/audio/battle-voices/suzhi-739ad3eff22d6e79a146.mp3",
-      "original_path": "assets/audio/battle-voices/suzhi-739ad3eff22d6e79a146.mp3",
-      "source_candidate": "art_sources/battle-voice-20261006/suzhi-739ad3eff22d6e79a146.mp3",
-      "system": "audio",
-      "role": "registered-or-direct-runtime",
-      "sha256": "739ad3eff22d6e79a146c0cd86e2ed0bf78b0c3ed2ab03958e55e38958e1ff61",
-      "references": [
-        "js/production-assets.js"
-      ],
-      "character_id": "suzhi",
-      "event": "hurt",
-      "acceptance_evidence": "art_sources/battle-voice-20261006/technical-review.json",
-      "voice_binding": "existing-confirmed"
-    },
-    {
-      "id": "battle.suzhi.hurt.02",
-      "path": "assets/audio/battle-voices/suzhi-9254c6b2d4de878c646f.mp3",
-      "original_path": "assets/audio/battle-voices/suzhi-9254c6b2d4de878c646f.mp3",
-      "source_candidate": "art_sources/battle-voice-20261006/suzhi-9254c6b2d4de878c646f.mp3",
-      "system": "audio",
-      "role": "registered-or-direct-runtime",
-      "sha256": "9254c6b2d4de878c646fdba9aa5958a2590b20b107ab43fbcf5077eb86d8e7a6",
-      "references": [
-        "js/production-assets.js"
-      ],
-      "character_id": "suzhi",
-      "event": "hurt",
-      "acceptance_evidence": "art_sources/battle-voice-20261006/technical-review.json",
-      "voice_binding": "existing-confirmed"
-    },
-    {
-      "id": "battle.suzhi.turn.02",
-      "path": "assets/audio/battle-voices/suzhi-9d68e9b1a26dc2a7f47f.mp3",
-      "original_path": "assets/audio/battle-voices/suzhi-9d68e9b1a26dc2a7f47f.mp3",
-      "source_candidate": "art_sources/battle-voice-20261006/suzhi-9d68e9b1a26dc2a7f47f.mp3",
-      "system": "audio",
-      "role": "registered-or-direct-runtime",
-      "sha256": "9d68e9b1a26dc2a7f47f3903102bc6954279a633cc9a51f2f699566e722029a6",
-      "references": [
-        "js/production-assets.js"
-      ],
-      "character_id": "suzhi",
-      "event": "turn",
-      "acceptance_evidence": "art_sources/battle-voice-20261006/technical-review.json",
-      "voice_binding": "existing-confirmed"
-    },
-    {
-      "id": "battle.suzhi.support.01",
-      "path": "assets/audio/battle-voices/suzhi-b3be0684c1966e901746.mp3",
-      "original_path": "assets/audio/battle-voices/suzhi-b3be0684c1966e901746.mp3",
-      "source_candidate": "art_sources/battle-voice-20261006/suzhi-b3be0684c1966e901746.mp3",
-      "system": "audio",
-      "role": "registered-or-direct-runtime",
-      "sha256": "b3be0684c1966e9017462287d06275b198d878bc59be4ff9bedf3d0cd6916bfc",
-      "references": [
-        "js/production-assets.js"
-      ],
-      "character_id": "suzhi",
-      "event": "support",
-      "acceptance_evidence": "art_sources/battle-voice-20261006/technical-review.json",
-      "voice_binding": "existing-confirmed"
-    },
-    {
-      "id": "battle.suzhi.down.01",
-      "path": "assets/audio/battle-voices/suzhi-dcfa4b72cd2d06166258.mp3",
-      "original_path": "assets/audio/battle-voices/suzhi-dcfa4b72cd2d06166258.mp3",
-      "source_candidate": "art_sources/battle-voice-20261006/suzhi-dcfa4b72cd2d06166258.mp3",
-      "system": "audio",
-      "role": "registered-or-direct-runtime",
-      "sha256": "dcfa4b72cd2d06166258408d10d0340873f5ce50407d8abfc63555a50346ccb1",
-      "references": [
-        "js/production-assets.js"
-      ],
-      "character_id": "suzhi",
-      "event": "down",
-      "acceptance_evidence": "art_sources/battle-voice-20261006/technical-review.json",
-      "voice_binding": "existing-confirmed"
-    },
-    {
-      "id": "battle.suzhi.attack.01",
-      "path": "assets/audio/battle-voices/suzhi-e8441757f92d38690b64.mp3",
-      "original_path": "assets/audio/battle-voices/suzhi-e8441757f92d38690b64.mp3",
-      "source_candidate": "art_sources/battle-voice-20261006/suzhi-e8441757f92d38690b64.mp3",
-      "system": "audio",
-      "role": "registered-or-direct-runtime",
-      "sha256": "e8441757f92d38690b64a4f027c5cd3e1ca703175b47155c35a0abff51d8b0cb",
-      "references": [
-        "js/production-assets.js"
-      ],
-      "character_id": "suzhi",
-      "event": "attack",
-      "acceptance_evidence": "art_sources/battle-voice-20261006/technical-review.json",
-      "voice_binding": "existing-confirmed"
-    },
-    {
-      "id": "battle.ye.turn.01",
-      "path": "assets/audio/battle-voices/ye-1a76377e3fc41e1654c1.mp3",
-      "original_path": "assets/audio/battle-voices/ye-1a76377e3fc41e1654c1.mp3",
-      "source_candidate": "art_sources/battle-voice-20261006/ye-1a76377e3fc41e1654c1.mp3",
-      "system": "audio",
-      "role": "registered-or-direct-runtime",
-      "sha256": "1a76377e3fc41e1654c17c0463e5af9533fae17ff40b131dd178ee7c13a465c8",
-      "references": [
-        "js/production-assets.js"
-      ],
-      "character_id": "ye",
-      "event": "turn",
-      "acceptance_evidence": "art_sources/battle-voice-20261006/technical-review.json",
-      "voice_binding": "existing-confirmed"
-    },
-    {
-      "id": "battle.ye.turn.02",
-      "path": "assets/audio/battle-voices/ye-1b8a64d723e0d680fe32.mp3",
-      "original_path": "assets/audio/battle-voices/ye-1b8a64d723e0d680fe32.mp3",
-      "source_candidate": "art_sources/battle-voice-20261006/ye-1b8a64d723e0d680fe32.mp3",
-      "system": "audio",
-      "role": "registered-or-direct-runtime",
-      "sha256": "1b8a64d723e0d680fe326cf7e27362bea89ac47e2cc2a76e7de2c985344ff0e6",
-      "references": [
-        "js/production-assets.js"
-      ],
-      "character_id": "ye",
-      "event": "turn",
-      "acceptance_evidence": "art_sources/battle-voice-20261006/technical-review.json",
-      "voice_binding": "existing-confirmed"
-    },
-    {
-      "id": "battle.ye.attack.02",
-      "path": "assets/audio/battle-voices/ye-20238c4e5a569519185a.mp3",
-      "original_path": "assets/audio/battle-voices/ye-20238c4e5a569519185a.mp3",
-      "source_candidate": "art_sources/battle-voice-20261006/ye-20238c4e5a569519185a.mp3",
-      "system": "audio",
-      "role": "registered-or-direct-runtime",
-      "sha256": "20238c4e5a569519185a6b6cd01489cb29e6343cf0a45f471aae77aa0ff58b83",
-      "references": [
-        "js/production-assets.js"
-      ],
-      "character_id": "ye",
-      "event": "attack",
-      "acceptance_evidence": "art_sources/battle-voice-20261006/technical-review.json",
-      "voice_binding": "existing-confirmed"
-    },
-    {
-      "id": "battle.ye.support.01",
-      "path": "assets/audio/battle-voices/ye-30c02ee6352aac980423.mp3",
-      "original_path": "assets/audio/battle-voices/ye-30c02ee6352aac980423.mp3",
-      "source_candidate": "art_sources/battle-voice-20261006/ye-30c02ee6352aac980423.mp3",
-      "system": "audio",
-      "role": "registered-or-direct-runtime",
-      "sha256": "30c02ee6352aac980423cb2f8e80910b02821cecc50979fe7e474d121b3df0bd",
-      "references": [
-        "js/production-assets.js"
-      ],
-      "character_id": "ye",
-      "event": "support",
-      "acceptance_evidence": "art_sources/battle-voice-20261006/technical-review.json",
-      "voice_binding": "existing-confirmed"
-    },
-    {
-      "id": "battle.ye.hurt.02",
-      "path": "assets/audio/battle-voices/ye-431dc246522112428edc.mp3",
-      "original_path": "assets/audio/battle-voices/ye-431dc246522112428edc.mp3",
-      "source_candidate": "art_sources/battle-voice-20261006/ye-431dc246522112428edc.mp3",
-      "system": "audio",
-      "role": "registered-or-direct-runtime",
-      "sha256": "431dc246522112428edce9904bdf65976e29ce95c4859488b0fe86c345f9734c",
-      "references": [
-        "js/production-assets.js"
-      ],
-      "character_id": "ye",
-      "event": "hurt",
-      "acceptance_evidence": "art_sources/battle-voice-20261006/technical-review.json",
-      "voice_binding": "existing-confirmed"
-    },
-    {
-      "id": "battle.ye.down.01",
-      "path": "assets/audio/battle-voices/ye-9965d412d79b2256e9ca.mp3",
-      "original_path": "assets/audio/battle-voices/ye-9965d412d79b2256e9ca.mp3",
-      "source_candidate": "art_sources/battle-voice-20261006/ye-9965d412d79b2256e9ca.mp3",
-      "system": "audio",
-      "role": "registered-or-direct-runtime",
-      "sha256": "9965d412d79b2256e9ca050a6d3071fc05cf6ed4aca26e2f603ca6c2e2dae9a6",
-      "references": [
-        "js/production-assets.js"
-      ],
-      "character_id": "ye",
-      "event": "down",
-      "acceptance_evidence": "art_sources/battle-voice-20261006/technical-review.json",
-      "voice_binding": "existing-confirmed"
-    },
-    {
-      "id": "battle.ye.hurt.01",
-      "path": "assets/audio/battle-voices/ye-9ba8c322a08250270af5.mp3",
-      "original_path": "assets/audio/battle-voices/ye-9ba8c322a08250270af5.mp3",
-      "source_candidate": "art_sources/battle-voice-20261006/ye-9ba8c322a08250270af5.mp3",
-      "system": "audio",
-      "role": "registered-or-direct-runtime",
-      "sha256": "9ba8c322a08250270af52824634ad8206c3bee34ba0faa8bfaa657097a4e04f1",
-      "references": [
-        "js/production-assets.js"
-      ],
-      "character_id": "ye",
-      "event": "hurt",
-      "acceptance_evidence": "art_sources/battle-voice-20261006/technical-review.json",
-      "voice_binding": "existing-confirmed"
-    },
-    {
-      "id": "battle.ye.attack.01",
-      "path": "assets/audio/battle-voices/ye-b724b0491d2920351c9e.mp3",
-      "original_path": "assets/audio/battle-voices/ye-b724b0491d2920351c9e.mp3",
-      "source_candidate": "art_sources/battle-voice-20261006/ye-b724b0491d2920351c9e.mp3",
-      "system": "audio",
-      "role": "registered-or-direct-runtime",
-      "sha256": "b724b0491d2920351c9e9c459ff8827fa852608d81816d4ecde421ef4cb17437",
-      "references": [
-        "js/production-assets.js"
-      ],
-      "character_id": "ye",
-      "event": "attack",
-      "acceptance_evidence": "art_sources/battle-voice-20261006/technical-review.json",
-      "voice_binding": "existing-confirmed"
     },
     {
       "id": "bgm_qh_battle_v2",
@@ -10766,1206 +9486,6 @@
       "references": []
     },
     {
-      "id": "battle.tang-zhaoxue.turn.01",
-      "path": "assets/audio/battle-voices/tang-zhaoxue-e46b80f41c335d9e9bcd.mp3",
-      "original_path": "art_sources/voice-adoption-20261010/staging/assets/audio/battle-voices/tang-zhaoxue-e46b80f41c335d9e9bcd.mp3",
-      "system": "audio",
-      "role": "registered-or-direct-runtime",
-      "sha256": "e46b80f41c335d9e9bcdacdcdd53f856a4047743a864b2c114539246e784595d",
-      "references": [
-        "js/production-assets.js"
-      ],
-      "acceptance": "art_sources/voice-adoption-20261010/technical-review.json"
-    },
-    {
-      "id": "battle.tang-zhaoxue.turn.02",
-      "path": "assets/audio/battle-voices/tang-zhaoxue-a921235d60a39d4841cd.mp3",
-      "original_path": "art_sources/voice-adoption-20261010/staging/assets/audio/battle-voices/tang-zhaoxue-a921235d60a39d4841cd.mp3",
-      "system": "audio",
-      "role": "registered-or-direct-runtime",
-      "sha256": "a921235d60a39d4841cdf0777fbef41dea4d094fe4a71670a39b863291f31ac8",
-      "references": [
-        "js/production-assets.js"
-      ],
-      "acceptance": "art_sources/voice-adoption-20261010/technical-review.json"
-    },
-    {
-      "id": "battle.tang-zhaoxue.attack.01",
-      "path": "assets/audio/battle-voices/tang-zhaoxue-a68f21ed84909fa86bcd.mp3",
-      "original_path": "art_sources/voice-adoption-20261010/staging/assets/audio/battle-voices/tang-zhaoxue-a68f21ed84909fa86bcd.mp3",
-      "system": "audio",
-      "role": "registered-or-direct-runtime",
-      "sha256": "a68f21ed84909fa86bcdcee0ac144d995f67ff6be5f17a2c96e4615a5d339fb8",
-      "references": [
-        "js/production-assets.js"
-      ],
-      "acceptance": "art_sources/voice-adoption-20261010/technical-review.json"
-    },
-    {
-      "id": "battle.tang-zhaoxue.attack.02",
-      "path": "assets/audio/battle-voices/tang-zhaoxue-60376dd2d67029dff7dd.mp3",
-      "original_path": "art_sources/voice-adoption-20261010/staging/assets/audio/battle-voices/tang-zhaoxue-60376dd2d67029dff7dd.mp3",
-      "system": "audio",
-      "role": "registered-or-direct-runtime",
-      "sha256": "60376dd2d67029dff7dd50243a17b8fadd7f86f1fa9f2506462b8df4777a8c6b",
-      "references": [
-        "js/production-assets.js"
-      ],
-      "acceptance": "art_sources/voice-adoption-20261010/technical-review.json"
-    },
-    {
-      "id": "battle.tang-zhaoxue.hurt.01",
-      "path": "assets/audio/battle-voices/tang-zhaoxue-e8659154741c97d16633.mp3",
-      "original_path": "art_sources/voice-adoption-20261010/staging/assets/audio/battle-voices/tang-zhaoxue-e8659154741c97d16633.mp3",
-      "system": "audio",
-      "role": "registered-or-direct-runtime",
-      "sha256": "e8659154741c97d166334e1baa4b9f66211f257e58d44bcdb71a37b571974dde",
-      "references": [
-        "js/production-assets.js"
-      ],
-      "acceptance": "art_sources/voice-adoption-20261010/technical-review.json"
-    },
-    {
-      "id": "battle.tang-zhaoxue.hurt.02",
-      "path": "assets/audio/battle-voices/tang-zhaoxue-d99379d6e13f99ad6bf6.mp3",
-      "original_path": "art_sources/voice-adoption-20261010/staging/assets/audio/battle-voices/tang-zhaoxue-d99379d6e13f99ad6bf6.mp3",
-      "system": "audio",
-      "role": "registered-or-direct-runtime",
-      "sha256": "d99379d6e13f99ad6bf6ae3180b94f2e64f91759e5693006fe71523931b21930",
-      "references": [
-        "js/production-assets.js"
-      ],
-      "acceptance": "art_sources/voice-adoption-20261010/technical-review.json"
-    },
-    {
-      "id": "battle.tang-zhaoxue.down.01",
-      "path": "assets/audio/battle-voices/tang-zhaoxue-4baeac19cb041c36dad5.mp3",
-      "original_path": "art_sources/voice-adoption-20261010/staging/assets/audio/battle-voices/tang-zhaoxue-4baeac19cb041c36dad5.mp3",
-      "system": "audio",
-      "role": "registered-or-direct-runtime",
-      "sha256": "4baeac19cb041c36dad519f3852706222cd6fb27fc8ff18851cfd017e3f45573",
-      "references": [
-        "js/production-assets.js"
-      ],
-      "acceptance": "art_sources/voice-adoption-20261010/technical-review.json"
-    },
-    {
-      "id": "battle.tang-zhaoxue.support.01",
-      "path": "assets/audio/battle-voices/tang-zhaoxue-e4e0467c8df0cc2aa1f9.mp3",
-      "original_path": "art_sources/voice-adoption-20261010/staging/assets/audio/battle-voices/tang-zhaoxue-e4e0467c8df0cc2aa1f9.mp3",
-      "system": "audio",
-      "role": "registered-or-direct-runtime",
-      "sha256": "e4e0467c8df0cc2aa1f9a44a6621da819bc24b6fd60cfee184844448063b0f5b",
-      "references": [
-        "js/production-assets.js"
-      ],
-      "acceptance": "art_sources/voice-adoption-20261010/technical-review.json"
-    },
-    {
-      "id": "battle.duan-mingtang.turn.01",
-      "path": "assets/audio/battle-voices/duan-mingtang-7f5ae67400cf5382a68f.mp3",
-      "original_path": "art_sources/voice-adoption-20261010/staging/assets/audio/battle-voices/duan-mingtang-7f5ae67400cf5382a68f.mp3",
-      "system": "audio",
-      "role": "registered-or-direct-runtime",
-      "sha256": "7f5ae67400cf5382a68fb547e88bbe08162d50d8ce24e99ac1b3761e56c83845",
-      "references": [
-        "js/production-assets.js"
-      ],
-      "acceptance": "art_sources/voice-adoption-20261010/technical-review.json"
-    },
-    {
-      "id": "battle.duan-mingtang.turn.02",
-      "path": "assets/audio/battle-voices/duan-mingtang-10e75a24e53fae025fa7.mp3",
-      "original_path": "art_sources/voice-adoption-20261010/staging/assets/audio/battle-voices/duan-mingtang-10e75a24e53fae025fa7.mp3",
-      "system": "audio",
-      "role": "registered-or-direct-runtime",
-      "sha256": "10e75a24e53fae025fa7dab7312582a8859838830c83c6074c39e748e41976f8",
-      "references": [
-        "js/production-assets.js"
-      ],
-      "acceptance": "art_sources/voice-adoption-20261010/technical-review.json"
-    },
-    {
-      "id": "battle.duan-mingtang.attack.01",
-      "path": "assets/audio/battle-voices/duan-mingtang-896a9254cdd1165b11eb.mp3",
-      "original_path": "art_sources/voice-adoption-20261010/staging/assets/audio/battle-voices/duan-mingtang-896a9254cdd1165b11eb.mp3",
-      "system": "audio",
-      "role": "registered-or-direct-runtime",
-      "sha256": "896a9254cdd1165b11eb4aa4c6046687e4bdd0942bfdb20acb1c5084b789deb6",
-      "references": [
-        "js/production-assets.js"
-      ],
-      "acceptance": "art_sources/voice-adoption-20261010/technical-review.json"
-    },
-    {
-      "id": "battle.duan-mingtang.attack.02",
-      "path": "assets/audio/battle-voices/duan-mingtang-bd9bf6d8500ae96e552f.mp3",
-      "original_path": "art_sources/voice-adoption-20261010/staging/assets/audio/battle-voices/duan-mingtang-bd9bf6d8500ae96e552f.mp3",
-      "system": "audio",
-      "role": "registered-or-direct-runtime",
-      "sha256": "bd9bf6d8500ae96e552fa0d4d07322dc95b4b17cc6a90ecb95113ff8f0a8d97f",
-      "references": [
-        "js/production-assets.js"
-      ],
-      "acceptance": "art_sources/voice-adoption-20261010/technical-review.json"
-    },
-    {
-      "id": "battle.duan-mingtang.hurt.01",
-      "path": "assets/audio/battle-voices/duan-mingtang-157c479ba04f52781a2a.mp3",
-      "original_path": "art_sources/voice-adoption-20261010/staging/assets/audio/battle-voices/duan-mingtang-157c479ba04f52781a2a.mp3",
-      "system": "audio",
-      "role": "registered-or-direct-runtime",
-      "sha256": "157c479ba04f52781a2aa51550eea423ad36117c6da0c7f2b8bb6464fed02ade",
-      "references": [
-        "js/production-assets.js"
-      ],
-      "acceptance": "art_sources/voice-adoption-20261010/technical-review.json"
-    },
-    {
-      "id": "battle.duan-mingtang.hurt.02",
-      "path": "assets/audio/battle-voices/duan-mingtang-244baa870d9a8c353a72.mp3",
-      "original_path": "art_sources/voice-adoption-20261010/staging/assets/audio/battle-voices/duan-mingtang-244baa870d9a8c353a72.mp3",
-      "system": "audio",
-      "role": "registered-or-direct-runtime",
-      "sha256": "244baa870d9a8c353a721d1e251e080cb95e65486fc15f6f4b5be2032c14f8f8",
-      "references": [
-        "js/production-assets.js"
-      ],
-      "acceptance": "art_sources/voice-adoption-20261010/technical-review.json"
-    },
-    {
-      "id": "battle.duan-mingtang.down.01",
-      "path": "assets/audio/battle-voices/duan-mingtang-f30789ceabcc514b560f.mp3",
-      "original_path": "art_sources/voice-adoption-20261010/staging/assets/audio/battle-voices/duan-mingtang-f30789ceabcc514b560f.mp3",
-      "system": "audio",
-      "role": "registered-or-direct-runtime",
-      "sha256": "f30789ceabcc514b560f7319827ef13d616f5cbc074e87a174d12ee04ba8003d",
-      "references": [
-        "js/production-assets.js"
-      ],
-      "acceptance": "art_sources/voice-adoption-20261010/technical-review.json"
-    },
-    {
-      "id": "battle.duan-mingtang.support.01",
-      "path": "assets/audio/battle-voices/duan-mingtang-0412baa0af1c4f5f98ba.mp3",
-      "original_path": "art_sources/voice-adoption-20261010/staging/assets/audio/battle-voices/duan-mingtang-0412baa0af1c4f5f98ba.mp3",
-      "system": "audio",
-      "role": "registered-or-direct-runtime",
-      "sha256": "0412baa0af1c4f5f98baf983fd477f7b04c0dfcbdb17c7734d3ca97de839f412",
-      "references": [
-        "js/production-assets.js"
-      ],
-      "acceptance": "art_sources/voice-adoption-20261010/technical-review.json"
-    },
-    {
-      "id": "battle.wen-shutong.turn.01",
-      "path": "assets/audio/battle-voices/wen-shutong-eb45056227a987f63332.mp3",
-      "original_path": "art_sources/voice-adoption-20261010/staging/assets/audio/battle-voices/wen-shutong-eb45056227a987f63332.mp3",
-      "system": "audio",
-      "role": "registered-or-direct-runtime",
-      "sha256": "eb45056227a987f63332b8ba3088a7d66e4f88dae13bd256f6450de343d23590",
-      "references": [
-        "js/production-assets.js"
-      ],
-      "acceptance": "art_sources/voice-adoption-20261010/technical-review.json"
-    },
-    {
-      "id": "battle.wen-shutong.turn.02",
-      "path": "assets/audio/battle-voices/wen-shutong-50e70700bb6628b9398e.mp3",
-      "original_path": "art_sources/voice-adoption-20261010/staging/assets/audio/battle-voices/wen-shutong-50e70700bb6628b9398e.mp3",
-      "system": "audio",
-      "role": "registered-or-direct-runtime",
-      "sha256": "50e70700bb6628b9398e9d978c6813bbef11e53379f57bfccbcc33010d7fd211",
-      "references": [
-        "js/production-assets.js"
-      ],
-      "acceptance": "art_sources/voice-adoption-20261010/technical-review.json"
-    },
-    {
-      "id": "battle.wen-shutong.attack.01",
-      "path": "assets/audio/battle-voices/wen-shutong-84855b94e2e061d6540b.mp3",
-      "original_path": "art_sources/voice-adoption-20261010/staging/assets/audio/battle-voices/wen-shutong-84855b94e2e061d6540b.mp3",
-      "system": "audio",
-      "role": "registered-or-direct-runtime",
-      "sha256": "84855b94e2e061d6540bbdc305292408acc6852534e3dcda46ac320e62bb4869",
-      "references": [
-        "js/production-assets.js"
-      ],
-      "acceptance": "art_sources/voice-adoption-20261010/technical-review.json"
-    },
-    {
-      "id": "battle.wen-shutong.attack.02",
-      "path": "assets/audio/battle-voices/wen-shutong-fa19b820929788e87573.mp3",
-      "original_path": "art_sources/voice-adoption-20261010/staging/assets/audio/battle-voices/wen-shutong-fa19b820929788e87573.mp3",
-      "system": "audio",
-      "role": "registered-or-direct-runtime",
-      "sha256": "fa19b820929788e87573ab224ccbb6036add7f39a344443317d5a0305690c36a",
-      "references": [
-        "js/production-assets.js"
-      ],
-      "acceptance": "art_sources/voice-adoption-20261010/technical-review.json"
-    },
-    {
-      "id": "battle.wen-shutong.hurt.01",
-      "path": "assets/audio/battle-voices/wen-shutong-6ea75a875ad07eb56a28.mp3",
-      "original_path": "art_sources/voice-adoption-20261010/staging/assets/audio/battle-voices/wen-shutong-6ea75a875ad07eb56a28.mp3",
-      "system": "audio",
-      "role": "registered-or-direct-runtime",
-      "sha256": "6ea75a875ad07eb56a281c8f0854e2c2049eb3f856d3aa3cf8c7f2c2c838b8f3",
-      "references": [
-        "js/production-assets.js"
-      ],
-      "acceptance": "art_sources/voice-adoption-20261010/technical-review.json"
-    },
-    {
-      "id": "battle.wen-shutong.hurt.02",
-      "path": "assets/audio/battle-voices/wen-shutong-e913e8c435af21deec05.mp3",
-      "original_path": "art_sources/voice-adoption-20261010/staging/assets/audio/battle-voices/wen-shutong-e913e8c435af21deec05.mp3",
-      "system": "audio",
-      "role": "registered-or-direct-runtime",
-      "sha256": "e913e8c435af21deec050cc1e145a76080516a4b05ba5944ed11470f281eaa56",
-      "references": [
-        "js/production-assets.js"
-      ],
-      "acceptance": "art_sources/voice-adoption-20261010/technical-review.json"
-    },
-    {
-      "id": "battle.wen-shutong.down.01",
-      "path": "assets/audio/battle-voices/wen-shutong-19702a1145f236d589cd.mp3",
-      "original_path": "art_sources/voice-adoption-20261010/staging/assets/audio/battle-voices/wen-shutong-19702a1145f236d589cd.mp3",
-      "system": "audio",
-      "role": "registered-or-direct-runtime",
-      "sha256": "19702a1145f236d589cde6db8043a503fc38dba0b94997f4ffad84f645ef294c",
-      "references": [
-        "js/production-assets.js"
-      ],
-      "acceptance": "art_sources/voice-adoption-20261010/technical-review.json"
-    },
-    {
-      "id": "battle.wen-shutong.support.01",
-      "path": "assets/audio/battle-voices/wen-shutong-2769b4ef940961c8f1fa.mp3",
-      "original_path": "art_sources/voice-adoption-20261010/staging/assets/audio/battle-voices/wen-shutong-2769b4ef940961c8f1fa.mp3",
-      "system": "audio",
-      "role": "registered-or-direct-runtime",
-      "sha256": "2769b4ef940961c8f1fadf19b91a189511a349f250caa025b989d077176b34ec",
-      "references": [
-        "js/production-assets.js"
-      ],
-      "acceptance": "art_sources/voice-adoption-20261010/technical-review.json"
-    },
-    {
-      "id": "battle.cen-shuang.turn.01",
-      "path": "assets/audio/battle-voices/cen-shuang-651cad383c2a56ef8263.mp3",
-      "original_path": "art_sources/voice-adoption-20261010/staging/assets/audio/battle-voices/cen-shuang-651cad383c2a56ef8263.mp3",
-      "system": "audio",
-      "role": "registered-or-direct-runtime",
-      "sha256": "651cad383c2a56ef8263a02326fc740968f36ab68f0214bdfaef5a6a7781a448",
-      "references": [
-        "js/production-assets.js"
-      ],
-      "acceptance": "art_sources/voice-adoption-20261010/technical-review.json"
-    },
-    {
-      "id": "battle.cen-shuang.turn.02",
-      "path": "assets/audio/battle-voices/cen-shuang-e63aa387e29572b0668c.mp3",
-      "original_path": "art_sources/voice-adoption-20261010/staging/assets/audio/battle-voices/cen-shuang-e63aa387e29572b0668c.mp3",
-      "system": "audio",
-      "role": "registered-or-direct-runtime",
-      "sha256": "e63aa387e29572b0668ce01b5361a35173a6e7c1bc26cf0fce80797347d46cc7",
-      "references": [
-        "js/production-assets.js"
-      ],
-      "acceptance": "art_sources/voice-adoption-20261010/technical-review.json"
-    },
-    {
-      "id": "battle.cen-shuang.attack.01",
-      "path": "assets/audio/battle-voices/cen-shuang-f3dfb540d8baab07a238.mp3",
-      "original_path": "art_sources/voice-adoption-20261010/staging/assets/audio/battle-voices/cen-shuang-f3dfb540d8baab07a238.mp3",
-      "system": "audio",
-      "role": "registered-or-direct-runtime",
-      "sha256": "f3dfb540d8baab07a238bf0630cac89fa2df31234f8b3f80fe48dde6807b268b",
-      "references": [
-        "js/production-assets.js"
-      ],
-      "acceptance": "art_sources/voice-adoption-20261010/technical-review.json"
-    },
-    {
-      "id": "battle.cen-shuang.attack.02",
-      "path": "assets/audio/battle-voices/cen-shuang-8ece1dd1f00c61a8b0a2.mp3",
-      "original_path": "art_sources/voice-adoption-20261010/staging/assets/audio/battle-voices/cen-shuang-8ece1dd1f00c61a8b0a2.mp3",
-      "system": "audio",
-      "role": "registered-or-direct-runtime",
-      "sha256": "8ece1dd1f00c61a8b0a2db58e99ca04e7d14049011b66baa1c08022cdcd281c6",
-      "references": [
-        "js/production-assets.js"
-      ],
-      "acceptance": "art_sources/voice-adoption-20261010/technical-review.json"
-    },
-    {
-      "id": "battle.cen-shuang.hurt.01",
-      "path": "assets/audio/battle-voices/cen-shuang-23117823d49031e01c02.mp3",
-      "original_path": "art_sources/voice-adoption-20261010/staging/assets/audio/battle-voices/cen-shuang-23117823d49031e01c02.mp3",
-      "system": "audio",
-      "role": "registered-or-direct-runtime",
-      "sha256": "23117823d49031e01c02f06e40788b80d11c7be26a14fcb2e5abc8af5b9c305b",
-      "references": [
-        "js/production-assets.js"
-      ],
-      "acceptance": "art_sources/voice-adoption-20261010/technical-review.json"
-    },
-    {
-      "id": "battle.cen-shuang.hurt.02",
-      "path": "assets/audio/battle-voices/cen-shuang-8d9d34e6a2566b1d8984.mp3",
-      "original_path": "art_sources/voice-adoption-20261010/staging/assets/audio/battle-voices/cen-shuang-8d9d34e6a2566b1d8984.mp3",
-      "system": "audio",
-      "role": "registered-or-direct-runtime",
-      "sha256": "8d9d34e6a2566b1d8984d245604b1543938e2f2dfc22a5b3faf0d02bc3b4b8a5",
-      "references": [
-        "js/production-assets.js"
-      ],
-      "acceptance": "art_sources/voice-adoption-20261010/technical-review.json"
-    },
-    {
-      "id": "battle.cen-shuang.down.01",
-      "path": "assets/audio/battle-voices/cen-shuang-252fafa6d13518f8d790.mp3",
-      "original_path": "art_sources/voice-adoption-20261010/staging/assets/audio/battle-voices/cen-shuang-252fafa6d13518f8d790.mp3",
-      "system": "audio",
-      "role": "registered-or-direct-runtime",
-      "sha256": "252fafa6d13518f8d7904a5faff340e9d186e4840ffaa2e86ca75ef86b6924b3",
-      "references": [
-        "js/production-assets.js"
-      ],
-      "acceptance": "art_sources/voice-adoption-20261010/technical-review.json"
-    },
-    {
-      "id": "battle.cen-shuang.support.01",
-      "path": "assets/audio/battle-voices/cen-shuang-502f6f6e272a0012b2bd.mp3",
-      "original_path": "art_sources/voice-adoption-20261010/staging/assets/audio/battle-voices/cen-shuang-502f6f6e272a0012b2bd.mp3",
-      "system": "audio",
-      "role": "registered-or-direct-runtime",
-      "sha256": "502f6f6e272a0012b2bd83b610b6e8e906a31e879563361044651c6ebab53c92",
-      "references": [
-        "js/production-assets.js"
-      ],
-      "acceptance": "art_sources/voice-adoption-20261010/technical-review.json"
-    },
-    {
-      "id": "battle.xu-lingyi.turn.01",
-      "path": "assets/audio/battle-voices/xu-lingyi-6cf838f89b4f21aa80f9.mp3",
-      "original_path": "art_sources/voice-adoption-20261010/staging/assets/audio/battle-voices/xu-lingyi-6cf838f89b4f21aa80f9.mp3",
-      "system": "audio",
-      "role": "registered-or-direct-runtime",
-      "sha256": "6cf838f89b4f21aa80f97572fec627b2753606321cb7e58fb37976f98ed156f0",
-      "references": [
-        "js/production-assets.js"
-      ],
-      "acceptance": "art_sources/voice-adoption-20261010/technical-review.json"
-    },
-    {
-      "id": "battle.xu-lingyi.turn.02",
-      "path": "assets/audio/battle-voices/xu-lingyi-c111ba6b0594f41c3708.mp3",
-      "original_path": "art_sources/voice-adoption-20261010/staging/assets/audio/battle-voices/xu-lingyi-c111ba6b0594f41c3708.mp3",
-      "system": "audio",
-      "role": "registered-or-direct-runtime",
-      "sha256": "c111ba6b0594f41c37083fc35d9b2342f9851e0d486f1cb954d93611c02880a8",
-      "references": [
-        "js/production-assets.js"
-      ],
-      "acceptance": "art_sources/voice-adoption-20261010/technical-review.json"
-    },
-    {
-      "id": "battle.xu-lingyi.attack.01",
-      "path": "assets/audio/battle-voices/xu-lingyi-8959654813ed93f3d585.mp3",
-      "original_path": "art_sources/voice-adoption-20261010/staging/assets/audio/battle-voices/xu-lingyi-8959654813ed93f3d585.mp3",
-      "system": "audio",
-      "role": "registered-or-direct-runtime",
-      "sha256": "8959654813ed93f3d585409a11a79ecd173c44874556e2d49e6606e0ed0f4c83",
-      "references": [
-        "js/production-assets.js"
-      ],
-      "acceptance": "art_sources/voice-adoption-20261010/technical-review.json"
-    },
-    {
-      "id": "battle.xu-lingyi.attack.02",
-      "path": "assets/audio/battle-voices/xu-lingyi-e54c32f09bde83d2cec1.mp3",
-      "original_path": "art_sources/voice-adoption-20261010/staging/assets/audio/battle-voices/xu-lingyi-e54c32f09bde83d2cec1.mp3",
-      "system": "audio",
-      "role": "registered-or-direct-runtime",
-      "sha256": "e54c32f09bde83d2cec15626c153f9b3f8c82d7d08c439a4d5f32afaca1f5fde",
-      "references": [
-        "js/production-assets.js"
-      ],
-      "acceptance": "art_sources/voice-adoption-20261010/technical-review.json"
-    },
-    {
-      "id": "battle.xu-lingyi.hurt.01",
-      "path": "assets/audio/battle-voices/xu-lingyi-2fa967a356240df3c1f9.mp3",
-      "original_path": "art_sources/voice-adoption-20261010/staging/assets/audio/battle-voices/xu-lingyi-2fa967a356240df3c1f9.mp3",
-      "system": "audio",
-      "role": "registered-or-direct-runtime",
-      "sha256": "2fa967a356240df3c1f98889ac7dc9fa178adc75a272a7081b117e95f72640fd",
-      "references": [
-        "js/production-assets.js"
-      ],
-      "acceptance": "art_sources/voice-adoption-20261010/technical-review.json"
-    },
-    {
-      "id": "battle.xu-lingyi.hurt.02",
-      "path": "assets/audio/battle-voices/xu-lingyi-13bfc3c8350a496f68f4.mp3",
-      "original_path": "art_sources/voice-adoption-20261010/staging/assets/audio/battle-voices/xu-lingyi-13bfc3c8350a496f68f4.mp3",
-      "system": "audio",
-      "role": "registered-or-direct-runtime",
-      "sha256": "13bfc3c8350a496f68f46952c3c52b53ea0069fb5c900ec3c1d214bc03c3b1d6",
-      "references": [
-        "js/production-assets.js"
-      ],
-      "acceptance": "art_sources/voice-adoption-20261010/technical-review.json"
-    },
-    {
-      "id": "battle.xu-lingyi.down.01",
-      "path": "assets/audio/battle-voices/xu-lingyi-362dd5dc4825463291bd.mp3",
-      "original_path": "art_sources/voice-adoption-20261010/staging/assets/audio/battle-voices/xu-lingyi-362dd5dc4825463291bd.mp3",
-      "system": "audio",
-      "role": "registered-or-direct-runtime",
-      "sha256": "362dd5dc4825463291bd5fbda3f2395be73d0ce9c8b7995959925e32aac2d5e5",
-      "references": [
-        "js/production-assets.js"
-      ],
-      "acceptance": "art_sources/voice-adoption-20261010/technical-review.json"
-    },
-    {
-      "id": "battle.xu-lingyi.support.01",
-      "path": "assets/audio/battle-voices/xu-lingyi-5f731feaeecd0c503512.mp3",
-      "original_path": "art_sources/voice-adoption-20261010/staging/assets/audio/battle-voices/xu-lingyi-5f731feaeecd0c503512.mp3",
-      "system": "audio",
-      "role": "registered-or-direct-runtime",
-      "sha256": "5f731feaeecd0c50351225a986b60ce6b1bfe6f7ecc20d25ea126fd0ad8ecd68",
-      "references": [
-        "js/production-assets.js"
-      ],
-      "acceptance": "art_sources/voice-adoption-20261010/technical-review.json"
-    },
-    {
-      "id": "battle.shen-yanhui.turn.01",
-      "path": "assets/audio/battle-voices/shen-yanhui-405a35bcdf0e73c39ae6.mp3",
-      "original_path": "art_sources/voice-adoption-20261010/staging/assets/audio/battle-voices/shen-yanhui-405a35bcdf0e73c39ae6.mp3",
-      "system": "audio",
-      "role": "registered-or-direct-runtime",
-      "sha256": "405a35bcdf0e73c39ae6f32b14b1739776cfef3024121e1d3b87d55b331b826f",
-      "references": [
-        "js/production-assets.js"
-      ],
-      "acceptance": "art_sources/voice-adoption-20261010/technical-review.json"
-    },
-    {
-      "id": "battle.shen-yanhui.turn.02",
-      "path": "assets/audio/battle-voices/shen-yanhui-d83f839ccc8994ab0726.mp3",
-      "original_path": "art_sources/voice-adoption-20261010/staging/assets/audio/battle-voices/shen-yanhui-d83f839ccc8994ab0726.mp3",
-      "system": "audio",
-      "role": "registered-or-direct-runtime",
-      "sha256": "d83f839ccc8994ab0726b40179994274e7ab1e5c6ca7776d497e3e33e64f30d9",
-      "references": [
-        "js/production-assets.js"
-      ],
-      "acceptance": "art_sources/voice-adoption-20261010/technical-review.json"
-    },
-    {
-      "id": "battle.shen-yanhui.attack.01",
-      "path": "assets/audio/battle-voices/shen-yanhui-539b163971ebe17093e8.mp3",
-      "original_path": "art_sources/voice-adoption-20261010/staging/assets/audio/battle-voices/shen-yanhui-539b163971ebe17093e8.mp3",
-      "system": "audio",
-      "role": "registered-or-direct-runtime",
-      "sha256": "539b163971ebe17093e8145efa6cd223f9465dafaa4091223ba81bf66ea273e6",
-      "references": [
-        "js/production-assets.js"
-      ],
-      "acceptance": "art_sources/voice-adoption-20261010/technical-review.json"
-    },
-    {
-      "id": "battle.shen-yanhui.attack.02",
-      "path": "assets/audio/battle-voices/shen-yanhui-694d80c1c240a88a4af5.mp3",
-      "original_path": "art_sources/voice-adoption-20261010/staging/assets/audio/battle-voices/shen-yanhui-694d80c1c240a88a4af5.mp3",
-      "system": "audio",
-      "role": "registered-or-direct-runtime",
-      "sha256": "694d80c1c240a88a4af5e39c5e443c0cfa04758b2ac703b9fb7ef4030f0edb74",
-      "references": [
-        "js/production-assets.js"
-      ],
-      "acceptance": "art_sources/voice-adoption-20261010/technical-review.json"
-    },
-    {
-      "id": "battle.shen-yanhui.hurt.01",
-      "path": "assets/audio/battle-voices/shen-yanhui-7a720c2bc710b2976de2.mp3",
-      "original_path": "art_sources/voice-adoption-20261010/staging/assets/audio/battle-voices/shen-yanhui-7a720c2bc710b2976de2.mp3",
-      "system": "audio",
-      "role": "registered-or-direct-runtime",
-      "sha256": "7a720c2bc710b2976de29dafef16cc36826c68b9eda3a644ea5c8e94e4485138",
-      "references": [
-        "js/production-assets.js"
-      ],
-      "acceptance": "art_sources/voice-adoption-20261010/technical-review.json"
-    },
-    {
-      "id": "battle.shen-yanhui.hurt.02",
-      "path": "assets/audio/battle-voices/shen-yanhui-1f168023158b06553b34.mp3",
-      "original_path": "art_sources/voice-adoption-20261010/staging/assets/audio/battle-voices/shen-yanhui-1f168023158b06553b34.mp3",
-      "system": "audio",
-      "role": "registered-or-direct-runtime",
-      "sha256": "1f168023158b06553b34d758e07f9cd4a667dcef36cf55427909efe030453a94",
-      "references": [
-        "js/production-assets.js"
-      ],
-      "acceptance": "art_sources/voice-adoption-20261010/technical-review.json"
-    },
-    {
-      "id": "battle.shen-yanhui.down.01",
-      "path": "assets/audio/battle-voices/shen-yanhui-f68767a9355a0feb2aaf.mp3",
-      "original_path": "art_sources/voice-adoption-20261010/staging/assets/audio/battle-voices/shen-yanhui-f68767a9355a0feb2aaf.mp3",
-      "system": "audio",
-      "role": "registered-or-direct-runtime",
-      "sha256": "f68767a9355a0feb2aaffe9a010c5e68e4885783dfa807f0cdb5c1c706d970ff",
-      "references": [
-        "js/production-assets.js"
-      ],
-      "acceptance": "art_sources/voice-adoption-20261010/technical-review.json"
-    },
-    {
-      "id": "battle.shen-yanhui.support.01",
-      "path": "assets/audio/battle-voices/shen-yanhui-de3d57dca2c1c19bed29.mp3",
-      "original_path": "art_sources/voice-adoption-20261010/staging/assets/audio/battle-voices/shen-yanhui-de3d57dca2c1c19bed29.mp3",
-      "system": "audio",
-      "role": "registered-or-direct-runtime",
-      "sha256": "de3d57dca2c1c19bed29ee673e1f191c96c0f497a31e6bfff501db73175e16ae",
-      "references": [
-        "js/production-assets.js"
-      ],
-      "acceptance": "art_sources/voice-adoption-20261010/technical-review.json"
-    },
-    {
-      "id": "battle.yan-xiaolou.turn.01",
-      "path": "assets/audio/battle-voices/yan-xiaolou-33877c5b8828d48ebcf0.mp3",
-      "original_path": "art_sources/voice-adoption-20261010/staging/assets/audio/battle-voices/yan-xiaolou-33877c5b8828d48ebcf0.mp3",
-      "system": "audio",
-      "role": "registered-or-direct-runtime",
-      "sha256": "33877c5b8828d48ebcf004a367e3f9ae03d9eb0898a0fad8f99f68919ff0d21c",
-      "references": [
-        "js/production-assets.js"
-      ],
-      "acceptance": "art_sources/voice-adoption-20261010/technical-review.json"
-    },
-    {
-      "id": "battle.yan-xiaolou.turn.02",
-      "path": "assets/audio/battle-voices/yan-xiaolou-e4efa6bf353291ac240b.mp3",
-      "original_path": "art_sources/voice-adoption-20261010/staging/assets/audio/battle-voices/yan-xiaolou-e4efa6bf353291ac240b.mp3",
-      "system": "audio",
-      "role": "registered-or-direct-runtime",
-      "sha256": "e4efa6bf353291ac240bc3679fc66244ab93d871639444b2e2a32831edbb81e6",
-      "references": [
-        "js/production-assets.js"
-      ],
-      "acceptance": "art_sources/voice-adoption-20261010/technical-review.json"
-    },
-    {
-      "id": "battle.yan-xiaolou.attack.01",
-      "path": "assets/audio/battle-voices/yan-xiaolou-bcac6ff0e3ea70517f11.mp3",
-      "original_path": "art_sources/voice-adoption-20261010/staging/assets/audio/battle-voices/yan-xiaolou-bcac6ff0e3ea70517f11.mp3",
-      "system": "audio",
-      "role": "registered-or-direct-runtime",
-      "sha256": "bcac6ff0e3ea70517f11bfa82d93ee27d7948985c4a040f203cdae5cfc7fa48c",
-      "references": [
-        "js/production-assets.js"
-      ],
-      "acceptance": "art_sources/voice-adoption-20261010/technical-review.json"
-    },
-    {
-      "id": "battle.yan-xiaolou.attack.02",
-      "path": "assets/audio/battle-voices/yan-xiaolou-11a9134861d066b2ada7.mp3",
-      "original_path": "art_sources/voice-adoption-20261010/staging/assets/audio/battle-voices/yan-xiaolou-11a9134861d066b2ada7.mp3",
-      "system": "audio",
-      "role": "registered-or-direct-runtime",
-      "sha256": "11a9134861d066b2ada70909bf00b63342fce6e6908f1ca5fafebc11a41e5beb",
-      "references": [
-        "js/production-assets.js"
-      ],
-      "acceptance": "art_sources/voice-adoption-20261010/technical-review.json"
-    },
-    {
-      "id": "battle.yan-xiaolou.hurt.01",
-      "path": "assets/audio/battle-voices/yan-xiaolou-2816b165d98dc7c3dc1e.mp3",
-      "original_path": "art_sources/voice-adoption-20261010/staging/assets/audio/battle-voices/yan-xiaolou-2816b165d98dc7c3dc1e.mp3",
-      "system": "audio",
-      "role": "registered-or-direct-runtime",
-      "sha256": "2816b165d98dc7c3dc1e7fba2746bb04f27313a62368e279e2618d264c40d453",
-      "references": [
-        "js/production-assets.js"
-      ],
-      "acceptance": "art_sources/voice-adoption-20261010/technical-review.json"
-    },
-    {
-      "id": "battle.yan-xiaolou.hurt.02",
-      "path": "assets/audio/battle-voices/yan-xiaolou-e43f5d0a5f2f736d4832.mp3",
-      "original_path": "art_sources/voice-adoption-20261010/staging/assets/audio/battle-voices/yan-xiaolou-e43f5d0a5f2f736d4832.mp3",
-      "system": "audio",
-      "role": "registered-or-direct-runtime",
-      "sha256": "e43f5d0a5f2f736d483219e085b4ba6be686f96dbd647b34db5ded63419a6394",
-      "references": [
-        "js/production-assets.js"
-      ],
-      "acceptance": "art_sources/voice-adoption-20261010/technical-review.json"
-    },
-    {
-      "id": "battle.yan-xiaolou.down.01",
-      "path": "assets/audio/battle-voices/yan-xiaolou-dc37268dbeb4e5182b61.mp3",
-      "original_path": "art_sources/voice-adoption-20261010/staging/assets/audio/battle-voices/yan-xiaolou-dc37268dbeb4e5182b61.mp3",
-      "system": "audio",
-      "role": "registered-or-direct-runtime",
-      "sha256": "dc37268dbeb4e5182b61cf39e77fae53874f32305627999c9659f06645d4b6f7",
-      "references": [
-        "js/production-assets.js"
-      ],
-      "acceptance": "art_sources/voice-adoption-20261010/technical-review.json"
-    },
-    {
-      "id": "battle.yan-xiaolou.support.01",
-      "path": "assets/audio/battle-voices/yan-xiaolou-ca0ee341c860be1c30ef.mp3",
-      "original_path": "art_sources/voice-adoption-20261010/staging/assets/audio/battle-voices/yan-xiaolou-ca0ee341c860be1c30ef.mp3",
-      "system": "audio",
-      "role": "registered-or-direct-runtime",
-      "sha256": "ca0ee341c860be1c30efc473f2996d2e524bc8cf0b87f3eb8d47b83054975406",
-      "references": [
-        "js/production-assets.js"
-      ],
-      "acceptance": "art_sources/voice-adoption-20261010/technical-review.json"
-    },
-    {
-      "id": "battle.qiao-xingzhou.turn.01",
-      "path": "assets/audio/battle-voices/qiao-xingzhou-84dd80c0ed3afd3721c7.mp3",
-      "original_path": "art_sources/voice-adoption-20261010/staging/assets/audio/battle-voices/qiao-xingzhou-84dd80c0ed3afd3721c7.mp3",
-      "system": "audio",
-      "role": "registered-or-direct-runtime",
-      "sha256": "84dd80c0ed3afd3721c76850f314ed20b5ac06be51e3283f078f42f4c13d6935",
-      "references": [
-        "js/production-assets.js"
-      ],
-      "acceptance": "art_sources/voice-adoption-20261010/technical-review.json"
-    },
-    {
-      "id": "battle.qiao-xingzhou.turn.02",
-      "path": "assets/audio/battle-voices/qiao-xingzhou-ef3a7d780a330339e54e.mp3",
-      "original_path": "art_sources/voice-adoption-20261010/staging/assets/audio/battle-voices/qiao-xingzhou-ef3a7d780a330339e54e.mp3",
-      "system": "audio",
-      "role": "registered-or-direct-runtime",
-      "sha256": "ef3a7d780a330339e54eea88cba49725f22c044309c9503b6fa4401f8e0e7cba",
-      "references": [
-        "js/production-assets.js"
-      ],
-      "acceptance": "art_sources/voice-adoption-20261010/technical-review.json"
-    },
-    {
-      "id": "battle.qiao-xingzhou.attack.01",
-      "path": "assets/audio/battle-voices/qiao-xingzhou-4eacd8d33df256e36a22.mp3",
-      "original_path": "art_sources/voice-adoption-20261010/staging/assets/audio/battle-voices/qiao-xingzhou-4eacd8d33df256e36a22.mp3",
-      "system": "audio",
-      "role": "registered-or-direct-runtime",
-      "sha256": "4eacd8d33df256e36a228ade8556fca82d366a7ac042f9bb30b72779654daf75",
-      "references": [
-        "js/production-assets.js"
-      ],
-      "acceptance": "art_sources/voice-adoption-20261010/technical-review.json"
-    },
-    {
-      "id": "battle.qiao-xingzhou.attack.02",
-      "path": "assets/audio/battle-voices/qiao-xingzhou-2840c7b856a21c5a4683.mp3",
-      "original_path": "art_sources/voice-adoption-20261010/staging/assets/audio/battle-voices/qiao-xingzhou-2840c7b856a21c5a4683.mp3",
-      "system": "audio",
-      "role": "registered-or-direct-runtime",
-      "sha256": "2840c7b856a21c5a4683d8ed2994a88dab55a3bf817784695d2006697de07976",
-      "references": [
-        "js/production-assets.js"
-      ],
-      "acceptance": "art_sources/voice-adoption-20261010/technical-review.json"
-    },
-    {
-      "id": "battle.qiao-xingzhou.hurt.01",
-      "path": "assets/audio/battle-voices/qiao-xingzhou-65eb005321d2042b5f9f.mp3",
-      "original_path": "art_sources/voice-adoption-20261010/staging/assets/audio/battle-voices/qiao-xingzhou-65eb005321d2042b5f9f.mp3",
-      "system": "audio",
-      "role": "registered-or-direct-runtime",
-      "sha256": "65eb005321d2042b5f9f79996d22dfa5f5f37f12ac0bc1498a8223cd6da4feba",
-      "references": [
-        "js/production-assets.js"
-      ],
-      "acceptance": "art_sources/voice-adoption-20261010/technical-review.json"
-    },
-    {
-      "id": "battle.qiao-xingzhou.hurt.02",
-      "path": "assets/audio/battle-voices/qiao-xingzhou-034386754c8afd86dd08.mp3",
-      "original_path": "art_sources/voice-adoption-20261010/staging/assets/audio/battle-voices/qiao-xingzhou-034386754c8afd86dd08.mp3",
-      "system": "audio",
-      "role": "registered-or-direct-runtime",
-      "sha256": "034386754c8afd86dd083c622f5de4f211d996f1699c4e8a9e2fc882e4002ba8",
-      "references": [
-        "js/production-assets.js"
-      ],
-      "acceptance": "art_sources/voice-adoption-20261010/technical-review.json"
-    },
-    {
-      "id": "battle.qiao-xingzhou.down.01",
-      "path": "assets/audio/battle-voices/qiao-xingzhou-1df7c550c0a8ed84e4d3.mp3",
-      "original_path": "art_sources/voice-adoption-20261010/staging/assets/audio/battle-voices/qiao-xingzhou-1df7c550c0a8ed84e4d3.mp3",
-      "system": "audio",
-      "role": "registered-or-direct-runtime",
-      "sha256": "1df7c550c0a8ed84e4d326b42c3fda2d8d06748707356d1a7182dd9defbd1000",
-      "references": [
-        "js/production-assets.js"
-      ],
-      "acceptance": "art_sources/voice-adoption-20261010/technical-review.json"
-    },
-    {
-      "id": "battle.qiao-xingzhou.support.01",
-      "path": "assets/audio/battle-voices/qiao-xingzhou-c2da93a1d70b78c854dd.mp3",
-      "original_path": "art_sources/voice-adoption-20261010/staging/assets/audio/battle-voices/qiao-xingzhou-c2da93a1d70b78c854dd.mp3",
-      "system": "audio",
-      "role": "registered-or-direct-runtime",
-      "sha256": "c2da93a1d70b78c854dd4187b089c7a2d0fdfbc3180b8fbc70ae9aa3dba67cdc",
-      "references": [
-        "js/production-assets.js"
-      ],
-      "acceptance": "art_sources/voice-adoption-20261010/technical-review.json"
-    },
-    {
-      "id": "battle.shi-changgeng.turn.01",
-      "path": "assets/audio/battle-voices/shi-changgeng-75b83cb0dbc7490fd0a3.mp3",
-      "original_path": "art_sources/voice-adoption-20261010/staging/assets/audio/battle-voices/shi-changgeng-75b83cb0dbc7490fd0a3.mp3",
-      "system": "audio",
-      "role": "registered-or-direct-runtime",
-      "sha256": "75b83cb0dbc7490fd0a371767b29a1eb55b5c06c6606deda618beb2eed9c87cf",
-      "references": [
-        "js/production-assets.js"
-      ],
-      "acceptance": "art_sources/voice-adoption-20261010/technical-review.json"
-    },
-    {
-      "id": "battle.shi-changgeng.turn.02",
-      "path": "assets/audio/battle-voices/shi-changgeng-78f704ac75dd74016290.mp3",
-      "original_path": "art_sources/voice-adoption-20261010/staging/assets/audio/battle-voices/shi-changgeng-78f704ac75dd74016290.mp3",
-      "system": "audio",
-      "role": "registered-or-direct-runtime",
-      "sha256": "78f704ac75dd7401629041edfd3d57459df734360b0c4bfbd7c5ffc3606ebd1d",
-      "references": [
-        "js/production-assets.js"
-      ],
-      "acceptance": "art_sources/voice-adoption-20261010/technical-review.json"
-    },
-    {
-      "id": "battle.shi-changgeng.attack.01",
-      "path": "assets/audio/battle-voices/shi-changgeng-cc960f15e1290afd9b0a.mp3",
-      "original_path": "art_sources/voice-adoption-20261010/staging/assets/audio/battle-voices/shi-changgeng-cc960f15e1290afd9b0a.mp3",
-      "system": "audio",
-      "role": "registered-or-direct-runtime",
-      "sha256": "cc960f15e1290afd9b0ada7e9e0597e31cabd4d1889915cec41914138b8aec45",
-      "references": [
-        "js/production-assets.js"
-      ],
-      "acceptance": "art_sources/voice-adoption-20261010/technical-review.json"
-    },
-    {
-      "id": "battle.shi-changgeng.attack.02",
-      "path": "assets/audio/battle-voices/shi-changgeng-fb679b519c0595b5b8ff.mp3",
-      "original_path": "art_sources/voice-adoption-20261010/staging/assets/audio/battle-voices/shi-changgeng-fb679b519c0595b5b8ff.mp3",
-      "system": "audio",
-      "role": "registered-or-direct-runtime",
-      "sha256": "fb679b519c0595b5b8ffb9d4df91afb997b1f2fce5c1b8194fe8caac910e8e26",
-      "references": [
-        "js/production-assets.js"
-      ],
-      "acceptance": "art_sources/voice-adoption-20261010/technical-review.json"
-    },
-    {
-      "id": "battle.shi-changgeng.hurt.01",
-      "path": "assets/audio/battle-voices/shi-changgeng-8f6601d914d0420675c1.mp3",
-      "original_path": "art_sources/voice-adoption-20261010/staging/assets/audio/battle-voices/shi-changgeng-8f6601d914d0420675c1.mp3",
-      "system": "audio",
-      "role": "registered-or-direct-runtime",
-      "sha256": "8f6601d914d0420675c1eecc02dca3d6e1c2a82a5e91cc190df13b5c722d299a",
-      "references": [
-        "js/production-assets.js"
-      ],
-      "acceptance": "art_sources/voice-adoption-20261010/technical-review.json"
-    },
-    {
-      "id": "battle.shi-changgeng.hurt.02",
-      "path": "assets/audio/battle-voices/shi-changgeng-94f7c564082d2ec0c951.mp3",
-      "original_path": "art_sources/voice-adoption-20261010/staging/assets/audio/battle-voices/shi-changgeng-94f7c564082d2ec0c951.mp3",
-      "system": "audio",
-      "role": "registered-or-direct-runtime",
-      "sha256": "94f7c564082d2ec0c95195f66cc69bd3e5074850b54810f1022653d952b78f26",
-      "references": [
-        "js/production-assets.js"
-      ],
-      "acceptance": "art_sources/voice-adoption-20261010/technical-review.json"
-    },
-    {
-      "id": "battle.shi-changgeng.down.01",
-      "path": "assets/audio/battle-voices/shi-changgeng-993fb7445eeed32193ff.mp3",
-      "original_path": "art_sources/voice-adoption-20261010/staging/assets/audio/battle-voices/shi-changgeng-993fb7445eeed32193ff.mp3",
-      "system": "audio",
-      "role": "registered-or-direct-runtime",
-      "sha256": "993fb7445eeed32193ff7596b86807431c5e581ca5c4a9f408fea1386193eb8c",
-      "references": [
-        "js/production-assets.js"
-      ],
-      "acceptance": "art_sources/voice-adoption-20261010/technical-review.json"
-    },
-    {
-      "id": "battle.shi-changgeng.support.01",
-      "path": "assets/audio/battle-voices/shi-changgeng-6b8b208a55b4cc40d45d.mp3",
-      "original_path": "art_sources/voice-adoption-20261010/staging/assets/audio/battle-voices/shi-changgeng-6b8b208a55b4cc40d45d.mp3",
-      "system": "audio",
-      "role": "registered-or-direct-runtime",
-      "sha256": "6b8b208a55b4cc40d45d82915a01ed194aa13c6ba490afda27f050c8eef34700",
-      "references": [
-        "js/production-assets.js"
-      ],
-      "acceptance": "art_sources/voice-adoption-20261010/technical-review.json"
-    },
-    {
-      "id": "battle.qi-zheng.turn.01",
-      "path": "assets/audio/battle-voices/qi-zheng-472f1c5e2f9d67973004.mp3",
-      "original_path": "art_sources/voice-adoption-20261010/staging/assets/audio/battle-voices/qi-zheng-472f1c5e2f9d67973004.mp3",
-      "system": "audio",
-      "role": "registered-or-direct-runtime",
-      "sha256": "472f1c5e2f9d679730048c9dab56f9d6180bf7a43b008215e9484eeddc1cadb9",
-      "references": [
-        "js/production-assets.js"
-      ],
-      "acceptance": "art_sources/voice-adoption-20261010/technical-review.json"
-    },
-    {
-      "id": "battle.qi-zheng.turn.02",
-      "path": "assets/audio/battle-voices/qi-zheng-5ee52c3ff16e2c564a8b.mp3",
-      "original_path": "art_sources/voice-adoption-20261010/staging/assets/audio/battle-voices/qi-zheng-5ee52c3ff16e2c564a8b.mp3",
-      "system": "audio",
-      "role": "registered-or-direct-runtime",
-      "sha256": "5ee52c3ff16e2c564a8b056ef3853f7e1e757425770a887b71a64a52f8e7dfe2",
-      "references": [
-        "js/production-assets.js"
-      ],
-      "acceptance": "art_sources/voice-adoption-20261010/technical-review.json"
-    },
-    {
-      "id": "battle.qi-zheng.attack.01",
-      "path": "assets/audio/battle-voices/qi-zheng-9bd48f47395d4e907362.mp3",
-      "original_path": "art_sources/voice-adoption-20261010/staging/assets/audio/battle-voices/qi-zheng-9bd48f47395d4e907362.mp3",
-      "system": "audio",
-      "role": "registered-or-direct-runtime",
-      "sha256": "9bd48f47395d4e9073629857d9d515a5b1b18b266f6f56f87bf4b13be3cb93d2",
-      "references": [
-        "js/production-assets.js"
-      ],
-      "acceptance": "art_sources/voice-adoption-20261010/technical-review.json"
-    },
-    {
-      "id": "battle.qi-zheng.attack.02",
-      "path": "assets/audio/battle-voices/qi-zheng-8137d48056f85a688b14.mp3",
-      "original_path": "art_sources/voice-adoption-20261010/staging/assets/audio/battle-voices/qi-zheng-8137d48056f85a688b14.mp3",
-      "system": "audio",
-      "role": "registered-or-direct-runtime",
-      "sha256": "8137d48056f85a688b147739d4555e0a27b0b649f7f21c79eaf37ddb6c09d06e",
-      "references": [
-        "js/production-assets.js"
-      ],
-      "acceptance": "art_sources/voice-adoption-20261010/technical-review.json"
-    },
-    {
-      "id": "battle.qi-zheng.hurt.01",
-      "path": "assets/audio/battle-voices/qi-zheng-3a329c351b146cbae0c4.mp3",
-      "original_path": "art_sources/voice-adoption-20261010/staging/assets/audio/battle-voices/qi-zheng-3a329c351b146cbae0c4.mp3",
-      "system": "audio",
-      "role": "registered-or-direct-runtime",
-      "sha256": "3a329c351b146cbae0c4414da4ea1264c5e757e066b2853f5940d14e406e238b",
-      "references": [
-        "js/production-assets.js"
-      ],
-      "acceptance": "art_sources/voice-adoption-20261010/technical-review.json"
-    },
-    {
-      "id": "battle.qi-zheng.hurt.02",
-      "path": "assets/audio/battle-voices/qi-zheng-13c22444fc75db7b7f21.mp3",
-      "original_path": "art_sources/voice-adoption-20261010/staging/assets/audio/battle-voices/qi-zheng-13c22444fc75db7b7f21.mp3",
-      "system": "audio",
-      "role": "registered-or-direct-runtime",
-      "sha256": "13c22444fc75db7b7f21fd72fd44ea6ee389bc29fe356ae8af7ad8eb3423fc45",
-      "references": [
-        "js/production-assets.js"
-      ],
-      "acceptance": "art_sources/voice-adoption-20261010/technical-review.json"
-    },
-    {
-      "id": "battle.qi-zheng.down.01",
-      "path": "assets/audio/battle-voices/qi-zheng-d74c6558034661d3301d.mp3",
-      "original_path": "art_sources/voice-adoption-20261010/staging/assets/audio/battle-voices/qi-zheng-d74c6558034661d3301d.mp3",
-      "system": "audio",
-      "role": "registered-or-direct-runtime",
-      "sha256": "d74c6558034661d3301d41e798e9ede3a850006dee1d8499a16984e46e2a1038",
-      "references": [
-        "js/production-assets.js"
-      ],
-      "acceptance": "art_sources/voice-adoption-20261010/technical-review.json"
-    },
-    {
-      "id": "battle.qi-zheng.support.01",
-      "path": "assets/audio/battle-voices/qi-zheng-f1a281a85df96c76fe96.mp3",
-      "original_path": "art_sources/voice-adoption-20261010/staging/assets/audio/battle-voices/qi-zheng-f1a281a85df96c76fe96.mp3",
-      "system": "audio",
-      "role": "registered-or-direct-runtime",
-      "sha256": "f1a281a85df96c76fe9627698204880a172ae1eddbe5c115ea0b1dbfe7a7797b",
-      "references": [
-        "js/production-assets.js"
-      ],
-      "acceptance": "art_sources/voice-adoption-20261010/technical-review.json"
-    },
-    {
-      "id": "xy.emotion.ye.02",
-      "path": "assets/audio/voices/ye-dd15fb0db79b4df82c3d.mp3",
-      "original_path": "art_sources/voice-adoption-20261010/staging/assets/audio/voices/ye-dd15fb0db79b4df82c3d.mp3",
-      "system": "audio",
-      "role": "registered-or-direct-runtime",
-      "sha256": "dd15fb0db79b4df82c3d7957d72e4b15cc07db7fb80bb63e8f71f96a1450cd05",
-      "references": [
-        "js/production-assets.js"
-      ],
-      "acceptance": "art_sources/voice-adoption-20261010/technical-review.json"
-    },
-    {
-      "id": "opening.P-01-04",
-      "path": "assets/audio/voices/ye-40941e647bc2e99f48ba.mp3",
-      "original_path": "art_sources/voice-adoption-20261010/staging/assets/audio/voices/ye-40941e647bc2e99f48ba.mp3",
-      "system": "audio",
-      "role": "registered-or-direct-runtime",
-      "sha256": "40941e647bc2e99f48baa556cfb7f427608ad3214abe0fd12883203642330083",
-      "references": [
-        "js/production-assets.js"
-      ],
-      "acceptance": "art_sources/voice-adoption-20261010/technical-review.json"
-    },
-    {
-      "id": "opening.P-01-09",
-      "path": "assets/audio/voices/ye-6089691ae45a3fc4934c.mp3",
-      "original_path": "art_sources/voice-adoption-20261010/staging/assets/audio/voices/ye-6089691ae45a3fc4934c.mp3",
-      "system": "audio",
-      "role": "registered-or-direct-runtime",
-      "sha256": "6089691ae45a3fc4934c129c242f890a708bfaa946ee18639c70ac5061f79d2c",
-      "references": [
-        "js/production-assets.js"
-      ],
-      "acceptance": "art_sources/voice-adoption-20261010/technical-review.json"
-    },
-    {
-      "id": "opening.P-01-14",
-      "path": "assets/audio/voices/ye-efd09b85fef6f73de827.mp3",
-      "original_path": "art_sources/voice-adoption-20261010/staging/assets/audio/voices/ye-efd09b85fef6f73de827.mp3",
-      "system": "audio",
-      "role": "registered-or-direct-runtime",
-      "sha256": "efd09b85fef6f73de82707f690ec561d47e85e8e93d0690831256a5948a7eac3",
-      "references": [
-        "js/production-assets.js"
-      ],
-      "acceptance": "art_sources/voice-adoption-20261010/technical-review.json"
-    },
-    {
-      "id": "opening.P-04-10",
-      "path": "assets/audio/voices/ye-8596c8379e8a939a647e.mp3",
-      "original_path": "art_sources/voice-adoption-20261010/staging/assets/audio/voices/ye-8596c8379e8a939a647e.mp3",
-      "system": "audio",
-      "role": "registered-or-direct-runtime",
-      "sha256": "8596c8379e8a939a647e82b5e16adce595a742ad2dab6c74143081d1259d4a78",
-      "references": [
-        "js/production-assets.js"
-      ],
-      "acceptance": "art_sources/voice-adoption-20261010/technical-review.json"
-    },
-    {
-      "id": "opening.P-05-07",
-      "path": "assets/audio/voices/ye-b79f2d27e23c255d74b7.mp3",
-      "original_path": "art_sources/voice-adoption-20261010/staging/assets/audio/voices/ye-b79f2d27e23c255d74b7.mp3",
-      "system": "audio",
-      "role": "registered-or-direct-runtime",
-      "sha256": "b79f2d27e23c255d74b7d41df76310bd204af03e57d5c68ed0ea39cea9c9a662",
-      "references": [
-        "js/production-assets.js"
-      ],
-      "acceptance": "art_sources/voice-adoption-20261010/technical-review.json"
-    },
-    {
-      "id": "opening.C1-01-07",
-      "path": "assets/audio/voices/ye-543e58fc6c97dbff38cb.mp3",
-      "original_path": "art_sources/voice-adoption-20261010/staging/assets/audio/voices/ye-543e58fc6c97dbff38cb.mp3",
-      "system": "audio",
-      "role": "registered-or-direct-runtime",
-      "sha256": "543e58fc6c97dbff38cb969a895c5cad398fe3e2ba2763e8e130fa2ee2c945dc",
-      "references": [
-        "js/production-assets.js"
-      ],
-      "acceptance": "art_sources/voice-adoption-20261010/technical-review.json"
-    },
-    {
-      "id": "opening.C1-04-03",
-      "path": "assets/audio/voices/ye-212896ff92c32b5f95f0.mp3",
-      "original_path": "art_sources/voice-adoption-20261010/staging/assets/audio/voices/ye-212896ff92c32b5f95f0.mp3",
-      "system": "audio",
-      "role": "registered-or-direct-runtime",
-      "sha256": "212896ff92c32b5f95f024adc03a3bd70e3ebb9dfcbc1c6e1f1a9202ac8556e3",
-      "references": [
-        "js/production-assets.js"
-      ],
-      "acceptance": "art_sources/voice-adoption-20261010/technical-review.json"
-    },
-    {
-      "id": "opening.C1-05-02",
-      "path": "assets/audio/voices/ye-ddf11f00c05469e5cf3b.mp3",
-      "original_path": "art_sources/voice-adoption-20261010/staging/assets/audio/voices/ye-ddf11f00c05469e5cf3b.mp3",
-      "system": "audio",
-      "role": "registered-or-direct-runtime",
-      "sha256": "ddf11f00c05469e5cf3b0fd53d15bdf07b7820850fc5be2de366eba4beca8a86",
-      "references": [
-        "js/production-assets.js"
-      ],
-      "acceptance": "art_sources/voice-adoption-20261010/technical-review.json"
-    },
-    {
-      "id": "opening.C1-06-09",
-      "path": "assets/audio/voices/ye-75b63593e7bd755fbb87.mp3",
-      "original_path": "art_sources/voice-adoption-20261010/staging/assets/audio/voices/ye-75b63593e7bd755fbb87.mp3",
-      "system": "audio",
-      "role": "registered-or-direct-runtime",
-      "sha256": "75b63593e7bd755fbb87b7bbb56e77472b8ba9a3d0a1ba8422f69a9ee713b38b",
-      "references": [
-        "js/production-assets.js"
-      ],
-      "acceptance": "art_sources/voice-adoption-20261010/technical-review.json"
-    },
-    {
-      "id": "opening.C1-08-28",
-      "path": "assets/audio/voices/ye-6bd6a1030452d52dba6c.mp3",
-      "original_path": "art_sources/voice-adoption-20261010/staging/assets/audio/voices/ye-6bd6a1030452d52dba6c.mp3",
-      "system": "audio",
-      "role": "registered-or-direct-runtime",
-      "sha256": "6bd6a1030452d52dba6c1c589de78aef71b8449e362a48069d7689e881b02a64",
-      "references": [
-        "js/production-assets.js"
-      ],
-      "acceptance": "art_sources/voice-adoption-20261010/technical-review.json"
-    },
-    {
-      "id": "opening.C1-08-29",
-      "path": "assets/audio/voices/ye-17c38b300c3c4d95da8b.mp3",
-      "original_path": "art_sources/voice-adoption-20261010/staging/assets/audio/voices/ye-17c38b300c3c4d95da8b.mp3",
-      "system": "audio",
-      "role": "registered-or-direct-runtime",
-      "sha256": "17c38b300c3c4d95da8bac8cf743afe581f1dc3f709bed2318effc172d16fdd5",
-      "references": [
-        "js/production-assets.js"
-      ],
-      "acceptance": "art_sources/voice-adoption-20261010/technical-review.json"
-    },
-    {
-      "id": "opening.C1-12-15",
-      "path": "assets/audio/voices/ye-d1f74f09288c34c1746c.mp3",
-      "original_path": "art_sources/voice-adoption-20261010/staging/assets/audio/voices/ye-d1f74f09288c34c1746c.mp3",
-      "system": "audio",
-      "role": "registered-or-direct-runtime",
-      "sha256": "d1f74f09288c34c1746c0ba04d86f89adfde16d543e2e16f817c57e7f6c8543c",
-      "references": [
-        "js/production-assets.js"
-      ],
-      "acceptance": "art_sources/voice-adoption-20261010/technical-review.json"
-    },
-    {
-      "id": "xy.emotion.suzhi.01",
-      "path": "assets/audio/voices/suzhi-d3757a403ea9cb95bf1b.mp3",
-      "original_path": "art_sources/voice-adoption-20261010/staging/assets/audio/voices/suzhi-d3757a403ea9cb95bf1b.mp3",
-      "system": "audio",
-      "role": "registered-or-direct-runtime",
-      "sha256": "d3757a403ea9cb95bf1ba43ec6a417ee72a5d5d1d55db4d45f20dc38dc0bdf24",
-      "references": [
-        "js/production-assets.js"
-      ],
-      "acceptance": "art_sources/voice-adoption-20261010/technical-review.json"
-    },
-    {
-      "id": "xy.emotion.suzhi.02",
-      "path": "assets/audio/voices/suzhi-212abc39ab2d1ddabd57.mp3",
-      "original_path": "art_sources/voice-adoption-20261010/staging/assets/audio/voices/suzhi-212abc39ab2d1ddabd57.mp3",
-      "system": "audio",
-      "role": "registered-or-direct-runtime",
-      "sha256": "212abc39ab2d1ddabd57a356007cf49ecaba0d3b3d4195b98da987951e42e5fa",
-      "references": [
-        "js/production-assets.js"
-      ],
-      "acceptance": "art_sources/voice-adoption-20261010/technical-review.json"
-    },
-    {
-      "id": "opening.C1-04-16",
-      "path": "assets/audio/voices/cen-shuang-6f095e46f00197abc8c5.mp3",
-      "original_path": "art_sources/voice-adoption-20261010/staging/assets/audio/voices/cen-shuang-6f095e46f00197abc8c5.mp3",
-      "system": "audio",
-      "role": "registered-or-direct-runtime",
-      "sha256": "6f095e46f00197abc8c54b698c8c0ba6a63b892ad59bf2e271871ed973f8c60c",
-      "references": [
-        "js/production-assets.js"
-      ],
-      "acceptance": "art_sources/voice-adoption-20261010/technical-review.json"
-    },
-    {
-      "id": "opening.C1-04-18",
-      "path": "assets/audio/voices/cen-shuang-ef75e494b49765cc40dc.mp3",
-      "original_path": "art_sources/voice-adoption-20261010/staging/assets/audio/voices/cen-shuang-ef75e494b49765cc40dc.mp3",
-      "system": "audio",
-      "role": "registered-or-direct-runtime",
-      "sha256": "ef75e494b49765cc40dc63bd6174c6c9b550d945b24fca35d3ece6e37fdc85e3",
-      "references": [
-        "js/production-assets.js"
-      ],
-      "acceptance": "art_sources/voice-adoption-20261010/technical-review.json"
-    },
-    {
-      "id": "opening.C1-08-06",
-      "path": "assets/audio/voices/cen-shuang-b9f86a411bd16af582ed.mp3",
-      "original_path": "art_sources/voice-adoption-20261010/staging/assets/audio/voices/cen-shuang-b9f86a411bd16af582ed.mp3",
-      "system": "audio",
-      "role": "registered-or-direct-runtime",
-      "sha256": "b9f86a411bd16af582edd5b0c2656077ceb28876de94ffc9ed4431f89b4fea2b",
-      "references": [
-        "js/production-assets.js"
-      ],
-      "acceptance": "art_sources/voice-adoption-20261010/technical-review.json"
-    },
-    {
-      "id": "opening.C1-08-08",
-      "path": "assets/audio/voices/cen-shuang-5c5422b7f7100ff56d8a.mp3",
-      "original_path": "art_sources/voice-adoption-20261010/staging/assets/audio/voices/cen-shuang-5c5422b7f7100ff56d8a.mp3",
-      "system": "audio",
-      "role": "registered-or-direct-runtime",
-      "sha256": "5c5422b7f7100ff56d8adec790f73f426125e8228a2d1330b02b72035b151c38",
-      "references": [
-        "js/production-assets.js"
-      ],
-      "acceptance": "art_sources/voice-adoption-20261010/technical-review.json"
-    },
-    {
-      "id": "opening.C1-08-10",
-      "path": "assets/audio/voices/cen-shuang-7b591fe37aca4612c7a4.mp3",
-      "original_path": "art_sources/voice-adoption-20261010/staging/assets/audio/voices/cen-shuang-7b591fe37aca4612c7a4.mp3",
-      "system": "audio",
-      "role": "registered-or-direct-runtime",
-      "sha256": "7b591fe37aca4612c7a452764fd4d65860353f8118f2448ad81eb8b4b562d704",
-      "references": [
-        "js/production-assets.js"
-      ],
-      "acceptance": "art_sources/voice-adoption-20261010/technical-review.json"
-    },
-    {
       "id": "s_npc_gy_fangchi_20261010",
       "path": "assets/production/characters/s_npc_gy_fangchi_20261010.webp",
       "original_path": "art_sources/guiyun-spar-sprites-20261010/out/s_npc_gy_fangchi_20261010.webp",
@@ -13716,110 +11236,6 @@
       }
     },
     {
-      "id": "clash.whip.opening.0",
-      "path": "assets/audio/voices/xu-lingyi-45bf9797fd06d5f05a86.mp3",
-      "original_path": "art_sources/qihe-whip-clash-20261014/audio/xu-lingyi-45bf9797fd06d5f05a86.mp3",
-      "system": "audio",
-      "role": "confirmed-dialogue",
-      "sha256": "45bf9797fd06d5f05a868deeefd00a2c9c44be3167493c3fdcee77c022182249",
-      "references": [
-        "assets/audio/voices/manifest.js",
-        "js/voice.js"
-      ],
-      "generation_record": "art_sources/qihe-whip-clash-20261014/voice-evidence.json"
-    },
-    {
-      "id": "clash.whip.opening.1",
-      "path": "assets/audio/voices/cen-shuang-01c5022aa0c967a8840a.mp3",
-      "original_path": "art_sources/qihe-whip-clash-20261014/audio/cen-shuang-01c5022aa0c967a8840a.mp3",
-      "system": "audio",
-      "role": "confirmed-dialogue",
-      "sha256": "01c5022aa0c967a8840a388ba34cba29630e0068a2645c0d68c611e7e09e2181",
-      "references": [
-        "assets/audio/voices/manifest.js",
-        "js/voice.js"
-      ],
-      "generation_record": "art_sources/qihe-whip-clash-20261014/voice-evidence.json"
-    },
-    {
-      "id": "clash.whip.stopping.0",
-      "path": "assets/audio/voices/shen-yanhui-dddec471247494647080.mp3",
-      "original_path": "art_sources/qihe-whip-clash-20261014/audio/shen-yanhui-dddec471247494647080.mp3",
-      "system": "audio",
-      "role": "confirmed-dialogue",
-      "sha256": "dddec471247494647080ec77354f726b5a351301dba7de72f82f03881e98fcca",
-      "references": [
-        "assets/audio/voices/manifest.js",
-        "js/voice.js"
-      ],
-      "generation_record": "art_sources/qihe-whip-clash-20261014/voice-evidence.json"
-    },
-    {
-      "id": "clash.whip.stopping.1",
-      "path": "assets/audio/voices/xu-lingyi-4dde8f0a0d4f7161be19.mp3",
-      "original_path": "art_sources/qihe-whip-clash-20261014/audio/xu-lingyi-4dde8f0a0d4f7161be19.mp3",
-      "system": "audio",
-      "role": "confirmed-dialogue",
-      "sha256": "4dde8f0a0d4f7161be19d6cc154e8261f965e52db4e9788b11c0bfc3bb60c104",
-      "references": [
-        "assets/audio/voices/manifest.js",
-        "js/voice.js"
-      ],
-      "generation_record": "art_sources/qihe-whip-clash-20261014/voice-evidence.json"
-    },
-    {
-      "id": "clash.whip.stopping.2",
-      "path": "assets/audio/voices/cen-shuang-96f55d1b295bdf5dca0a.mp3",
-      "original_path": "art_sources/qihe-whip-clash-20261014/audio/cen-shuang-96f55d1b295bdf5dca0a.mp3",
-      "system": "audio",
-      "role": "confirmed-dialogue",
-      "sha256": "96f55d1b295bdf5dca0adb3fb12113734ec05f22bf243c8c368ba1be2fa33512",
-      "references": [
-        "assets/audio/voices/manifest.js",
-        "js/voice.js"
-      ],
-      "generation_record": "art_sources/qihe-whip-clash-20261014/voice-evidence.json"
-    },
-    {
-      "id": "clash.whip.beam",
-      "path": "assets/audio/voices/xu-lingyi-5073662de466a2323adb.mp3",
-      "original_path": "art_sources/qihe-whip-clash-20261014/audio/xu-lingyi-5073662de466a2323adb.mp3",
-      "system": "audio",
-      "role": "confirmed-dialogue",
-      "sha256": "5073662de466a2323adbfaa8cd9e2d7c7fc422fda983fb11732a4045cc686c09",
-      "references": [
-        "assets/audio/voices/manifest.js",
-        "js/voice.js"
-      ],
-      "generation_record": "art_sources/qihe-whip-clash-20261014/voice-evidence.json"
-    },
-    {
-      "id": "clash.whip.responsibility.xu",
-      "path": "assets/audio/voices/xu-lingyi-84e11cc2dd7b4d7b3351.mp3",
-      "original_path": "art_sources/qihe-whip-clash-20261014/audio/xu-lingyi-84e11cc2dd7b4d7b3351.mp3",
-      "system": "audio",
-      "role": "confirmed-dialogue",
-      "sha256": "84e11cc2dd7b4d7b3351e099c260c0db38eb4a63a2faf662c7d9bd36099de88f",
-      "references": [
-        "assets/audio/voices/manifest.js",
-        "js/voice.js"
-      ],
-      "generation_record": "art_sources/qihe-whip-clash-20261014/voice-evidence.json"
-    },
-    {
-      "id": "clash.whip.responsibility.cen",
-      "path": "assets/audio/voices/cen-shuang-dcad95c45a70b155987d.mp3",
-      "original_path": "art_sources/qihe-whip-clash-20261014/audio/cen-shuang-dcad95c45a70b155987d.mp3",
-      "system": "audio",
-      "role": "confirmed-dialogue",
-      "sha256": "dcad95c45a70b155987da90ee74349374199c368397199f201bfffb50405ffca",
-      "references": [
-        "assets/audio/voices/manifest.js",
-        "js/voice.js"
-      ],
-      "generation_record": "art_sources/qihe-whip-clash-20261014/voice-evidence.json"
-    },
-    {
       "id": "cg_qh_ignition_night_20261014",
       "path": "assets/production/shared/cg_qh_ignition_night_20261014.webp",
       "original_path": "art_sources/qihe-whip-clash-20261014/cg/ignition.png",
@@ -14164,1033 +11580,6 @@
         "authorization": "user_requested_finish_all_pre_city_character_work",
         "evidence": "art_sources/hero-unarmed-dialogue-20261014/packing-evidence.json"
       }
-    },
-    {
-      "id": "prehg.ye.17dad18eabceae",
-      "path": "assets/audio/voices/ye-10798247abe9644059ea.mp3",
-      "original_path": "art_sources/guiyun-battle-finish-20261014/voice-originals/ye-10798247abe9644059ea.mp3",
-      "system": "audio",
-      "role": "confirmed-pre-hangao-dialogue",
-      "sha256": "10798247abe9644059eaa57871f94d97e259226fd08b69dd315c1ca259946fd6",
-      "references": [
-        "assets/audio/voices/manifest.js",
-        "js/voice.js"
-      ],
-      "acceptance": "art_sources/guiyun-battle-finish-20261014/voice-equip.json"
-    },
-    {
-      "id": "prehg.ye.cfb44540705848",
-      "path": "assets/audio/voices/ye-c6b6a1cbe748e386f698.mp3",
-      "original_path": "art_sources/guiyun-battle-finish-20261014/voice-originals/ye-c6b6a1cbe748e386f698.mp3",
-      "system": "audio",
-      "role": "confirmed-pre-hangao-dialogue",
-      "sha256": "c6b6a1cbe748e386f698c0668433191c46f12eed15f0c357893e57e1348a6923",
-      "references": [
-        "assets/audio/voices/manifest.js",
-        "js/voice.js"
-      ],
-      "acceptance": "art_sources/guiyun-battle-finish-20261014/voice-equip.json"
-    },
-    {
-      "id": "prehg.ye.ab2f3b4aea512c",
-      "path": "assets/audio/voices/ye-0da6153ad4b52f82aed5.mp3",
-      "original_path": "art_sources/guiyun-battle-finish-20261014/voice-originals/ye-0da6153ad4b52f82aed5.mp3",
-      "system": "audio",
-      "role": "confirmed-pre-hangao-dialogue",
-      "sha256": "0da6153ad4b52f82aed53f121cf44f2c96b6e514d8537240ef46b931894e8675",
-      "references": [
-        "assets/audio/voices/manifest.js",
-        "js/voice.js"
-      ],
-      "acceptance": "art_sources/guiyun-battle-finish-20261014/voice-equip.json"
-    },
-    {
-      "id": "prehg.ye.4fff7aa8285000",
-      "path": "assets/audio/voices/ye-1bd0af4c9781c3a5c08d.mp3",
-      "original_path": "art_sources/guiyun-battle-finish-20261014/voice-originals/ye-1bd0af4c9781c3a5c08d.mp3",
-      "system": "audio",
-      "role": "confirmed-pre-hangao-dialogue",
-      "sha256": "1bd0af4c9781c3a5c08d7f9542166e81404ea7d5faafd8ff73d660911e3e3c61",
-      "references": [
-        "assets/audio/voices/manifest.js",
-        "js/voice.js"
-      ],
-      "acceptance": "art_sources/guiyun-battle-finish-20261014/voice-equip.json"
-    },
-    {
-      "id": "prehg.ye.2dd8a16361086b",
-      "path": "assets/audio/voices/ye-47d78c63d24bf4d44572.mp3",
-      "original_path": "art_sources/guiyun-battle-finish-20261014/voice-originals/ye-47d78c63d24bf4d44572.mp3",
-      "system": "audio",
-      "role": "confirmed-pre-hangao-dialogue",
-      "sha256": "47d78c63d24bf4d4457277a8747331fef01accf27beeb3b1780b6ebe3914bb51",
-      "references": [
-        "assets/audio/voices/manifest.js",
-        "js/voice.js"
-      ],
-      "acceptance": "art_sources/guiyun-battle-finish-20261014/voice-equip.json"
-    },
-    {
-      "id": "prehg.ye.805aaa343711a9",
-      "path": "assets/audio/voices/ye-395aef7433130c45aa16.mp3",
-      "original_path": "art_sources/guiyun-battle-finish-20261014/voice-originals/ye-395aef7433130c45aa16.mp3",
-      "system": "audio",
-      "role": "confirmed-pre-hangao-dialogue",
-      "sha256": "395aef7433130c45aa16fa78ef6d1b46f0d2bf2d1bfda1df31603992ab421393",
-      "references": [
-        "assets/audio/voices/manifest.js",
-        "js/voice.js"
-      ],
-      "acceptance": "art_sources/guiyun-battle-finish-20261014/voice-equip.json"
-    },
-    {
-      "id": "prehg.ye.42e9b27c4da20c",
-      "path": "assets/audio/voices/ye-fc1fcf198c9a0b274a96.mp3",
-      "original_path": "art_sources/guiyun-battle-finish-20261014/voice-originals/ye-fc1fcf198c9a0b274a96.mp3",
-      "system": "audio",
-      "role": "confirmed-pre-hangao-dialogue",
-      "sha256": "fc1fcf198c9a0b274a969f8a3ab48f899f58a192c66e596e2d029a2055b5cbdb",
-      "references": [
-        "assets/audio/voices/manifest.js",
-        "js/voice.js"
-      ],
-      "acceptance": "art_sources/guiyun-battle-finish-20261014/voice-equip.json"
-    },
-    {
-      "id": "prehg.ye.41891b6bd1d423",
-      "path": "assets/audio/voices/ye-f0fc2c1060ec5d6b5187.mp3",
-      "original_path": "art_sources/guiyun-battle-finish-20261014/voice-originals/ye-f0fc2c1060ec5d6b5187.mp3",
-      "system": "audio",
-      "role": "confirmed-pre-hangao-dialogue",
-      "sha256": "f0fc2c1060ec5d6b51874a3f8c30c52bdce3ab1321549a33ce3c00af4290d17e",
-      "references": [
-        "assets/audio/voices/manifest.js",
-        "js/voice.js"
-      ],
-      "acceptance": "art_sources/guiyun-battle-finish-20261014/voice-equip.json"
-    },
-    {
-      "id": "prehg.ye.0b162dde18d643",
-      "path": "assets/audio/voices/ye-c896c3bfcdbb394887c8.mp3",
-      "original_path": "art_sources/guiyun-battle-finish-20261014/voice-originals/ye-c896c3bfcdbb394887c8.mp3",
-      "system": "audio",
-      "role": "confirmed-pre-hangao-dialogue",
-      "sha256": "c896c3bfcdbb394887c8f6d81e8f446e1039d049929153fdf2b2cccedfd6ab66",
-      "references": [
-        "assets/audio/voices/manifest.js",
-        "js/voice.js"
-      ],
-      "acceptance": "art_sources/guiyun-battle-finish-20261014/voice-equip.json"
-    },
-    {
-      "id": "prehg.ye.f137d0d8932475",
-      "path": "assets/audio/voices/ye-7fe76992a1c1a9d00e0d.mp3",
-      "original_path": "art_sources/guiyun-battle-finish-20261014/voice-originals/ye-7fe76992a1c1a9d00e0d.mp3",
-      "system": "audio",
-      "role": "confirmed-pre-hangao-dialogue",
-      "sha256": "7fe76992a1c1a9d00e0da4f1b57f91db0ae571ccf7eee3903fb954ea6486a080",
-      "references": [
-        "assets/audio/voices/manifest.js",
-        "js/voice.js"
-      ],
-      "acceptance": "art_sources/guiyun-battle-finish-20261014/voice-equip.json"
-    },
-    {
-      "id": "prehg.ye.54b88a1637a287",
-      "path": "assets/audio/voices/ye-3f44a18dc13e3cebca40.mp3",
-      "original_path": "art_sources/guiyun-battle-finish-20261014/voice-originals/ye-3f44a18dc13e3cebca40.mp3",
-      "system": "audio",
-      "role": "confirmed-pre-hangao-dialogue",
-      "sha256": "3f44a18dc13e3cebca4066113a9d323e86a65206f709e3d0b84fcfe16d92df5b",
-      "references": [
-        "assets/audio/voices/manifest.js",
-        "js/voice.js"
-      ],
-      "acceptance": "art_sources/guiyun-battle-finish-20261014/voice-equip.json"
-    },
-    {
-      "id": "prehg.ye.c01bfe60605866",
-      "path": "assets/audio/voices/ye-bfb0bdd00bcc37dc922d.mp3",
-      "original_path": "art_sources/guiyun-battle-finish-20261014/voice-originals/ye-bfb0bdd00bcc37dc922d.mp3",
-      "system": "audio",
-      "role": "confirmed-pre-hangao-dialogue",
-      "sha256": "bfb0bdd00bcc37dc922d9e4c2f0e707c7281d10ce7cd1a95cda69c73b49df25c",
-      "references": [
-        "assets/audio/voices/manifest.js",
-        "js/voice.js"
-      ],
-      "acceptance": "art_sources/guiyun-battle-finish-20261014/voice-equip.json"
-    },
-    {
-      "id": "prehg.ye.9b27c9f3d5ca10",
-      "path": "assets/audio/voices/ye-a80b3ff2133a4637339c.mp3",
-      "original_path": "art_sources/guiyun-battle-finish-20261014/voice-originals/ye-a80b3ff2133a4637339c.mp3",
-      "system": "audio",
-      "role": "confirmed-pre-hangao-dialogue",
-      "sha256": "a80b3ff2133a4637339cd655000d16d0bc7281ea4ca0c1b4fecfef83dda6e2c0",
-      "references": [
-        "assets/audio/voices/manifest.js",
-        "js/voice.js"
-      ],
-      "acceptance": "art_sources/guiyun-battle-finish-20261014/voice-equip.json"
-    },
-    {
-      "id": "prehg.ye.c3829ea09b948a",
-      "path": "assets/audio/voices/ye-09a3a22070324e0dfec6.mp3",
-      "original_path": "art_sources/guiyun-battle-finish-20261014/voice-originals/ye-09a3a22070324e0dfec6.mp3",
-      "system": "audio",
-      "role": "confirmed-pre-hangao-dialogue",
-      "sha256": "09a3a22070324e0dfec6bea9314a1b3788ffce9fe2a3fe5535f2d80107880945",
-      "references": [
-        "assets/audio/voices/manifest.js",
-        "js/voice.js"
-      ],
-      "acceptance": "art_sources/guiyun-battle-finish-20261014/voice-equip.json"
-    },
-    {
-      "id": "prehg.ye.08b1d1ce243ff1",
-      "path": "assets/audio/voices/ye-8b5b3b5c371683d6ed5e.mp3",
-      "original_path": "art_sources/guiyun-battle-finish-20261014/voice-originals/ye-8b5b3b5c371683d6ed5e.mp3",
-      "system": "audio",
-      "role": "confirmed-pre-hangao-dialogue",
-      "sha256": "8b5b3b5c371683d6ed5e9f4bd1a9733b5421930c0591da4484fc0a7adbb786f0",
-      "references": [
-        "assets/audio/voices/manifest.js",
-        "js/voice.js"
-      ],
-      "acceptance": "art_sources/guiyun-battle-finish-20261014/voice-equip.json"
-    },
-    {
-      "id": "prehg.ye.488b76f608ac4f",
-      "path": "assets/audio/voices/ye-4ebea2994b962ee82a0a.mp3",
-      "original_path": "art_sources/guiyun-battle-finish-20261014/voice-originals/ye-4ebea2994b962ee82a0a.mp3",
-      "system": "audio",
-      "role": "confirmed-pre-hangao-dialogue",
-      "sha256": "4ebea2994b962ee82a0a1e04330ef48bb95e35882260f9d5cbc067fbeb4ceaa2",
-      "references": [
-        "assets/audio/voices/manifest.js",
-        "js/voice.js"
-      ],
-      "acceptance": "art_sources/guiyun-battle-finish-20261014/voice-equip.json"
-    },
-    {
-      "id": "prehg.ye.9824764cdc4d5f",
-      "path": "assets/audio/voices/ye-b569e20a16782d219c65.mp3",
-      "original_path": "art_sources/guiyun-battle-finish-20261014/voice-originals/ye-b569e20a16782d219c65.mp3",
-      "system": "audio",
-      "role": "confirmed-pre-hangao-dialogue",
-      "sha256": "b569e20a16782d219c650230f2c74499461e60f65a64790b1ccdb53976a13a38",
-      "references": [
-        "assets/audio/voices/manifest.js",
-        "js/voice.js"
-      ],
-      "acceptance": "art_sources/guiyun-battle-finish-20261014/voice-equip.json"
-    },
-    {
-      "id": "prehg.ye.e541fe609bcce7",
-      "path": "assets/audio/voices/ye-97bc48aef6c4f7ce8d1b.mp3",
-      "original_path": "art_sources/guiyun-battle-finish-20261014/voice-originals/ye-97bc48aef6c4f7ce8d1b.mp3",
-      "system": "audio",
-      "role": "confirmed-pre-hangao-dialogue",
-      "sha256": "97bc48aef6c4f7ce8d1ba7830ba23cd88f2635d602ce5a67d6cde59ce493bbf2",
-      "references": [
-        "assets/audio/voices/manifest.js",
-        "js/voice.js"
-      ],
-      "acceptance": "art_sources/guiyun-battle-finish-20261014/voice-equip.json"
-    },
-    {
-      "id": "prehg.ye.f5d2d39a085142",
-      "path": "assets/audio/voices/ye-9b722addabc006eff716.mp3",
-      "original_path": "art_sources/guiyun-battle-finish-20261014/voice-originals/ye-9b722addabc006eff716.mp3",
-      "system": "audio",
-      "role": "confirmed-pre-hangao-dialogue",
-      "sha256": "9b722addabc006eff716e4acf240c0c4ee98cf66fd3a67d0f1aa0628ffbddb0c",
-      "references": [
-        "assets/audio/voices/manifest.js",
-        "js/voice.js"
-      ],
-      "acceptance": "art_sources/guiyun-battle-finish-20261014/voice-equip.json"
-    },
-    {
-      "id": "prehg.ye.e55faef4b1da0c",
-      "path": "assets/audio/voices/ye-38e8defa5721c6c65071.mp3",
-      "original_path": "art_sources/guiyun-battle-finish-20261014/voice-originals/ye-38e8defa5721c6c65071.mp3",
-      "system": "audio",
-      "role": "confirmed-pre-hangao-dialogue",
-      "sha256": "38e8defa5721c6c65071a413be2ee948584f78316c1230c08dd5236e825e7951",
-      "references": [
-        "assets/audio/voices/manifest.js",
-        "js/voice.js"
-      ],
-      "acceptance": "art_sources/guiyun-battle-finish-20261014/voice-equip.json"
-    },
-    {
-      "id": "prehg.ye.6da7285d0a71ab",
-      "path": "assets/audio/voices/ye-fcf51d0611be1d1ff869.mp3",
-      "original_path": "art_sources/guiyun-battle-finish-20261014/voice-originals/ye-fcf51d0611be1d1ff869.mp3",
-      "system": "audio",
-      "role": "confirmed-pre-hangao-dialogue",
-      "sha256": "fcf51d0611be1d1ff869d5a1fcc1e8b738440742c35b42e76285d4e34a9a4c7e",
-      "references": [
-        "assets/audio/voices/manifest.js",
-        "js/voice.js"
-      ],
-      "acceptance": "art_sources/guiyun-battle-finish-20261014/voice-equip.json"
-    },
-    {
-      "id": "prehg.ye.b9856302803d74",
-      "path": "assets/audio/voices/ye-2adbe66dee5eb79df437.mp3",
-      "original_path": "art_sources/guiyun-battle-finish-20261014/voice-originals/ye-2adbe66dee5eb79df437.mp3",
-      "system": "audio",
-      "role": "confirmed-pre-hangao-dialogue",
-      "sha256": "2adbe66dee5eb79df4374ac80252ee9e95f55b4b42691a684123c1653ee3727f",
-      "references": [
-        "assets/audio/voices/manifest.js",
-        "js/voice.js"
-      ],
-      "acceptance": "art_sources/guiyun-battle-finish-20261014/voice-equip.json"
-    },
-    {
-      "id": "prehg.ye.c3ceb7e833ca42",
-      "path": "assets/audio/voices/ye-ea934605e5867ecaf752.mp3",
-      "original_path": "art_sources/guiyun-battle-finish-20261014/voice-originals/ye-ea934605e5867ecaf752.mp3",
-      "system": "audio",
-      "role": "confirmed-pre-hangao-dialogue",
-      "sha256": "ea934605e5867ecaf752517b2021209d9a450ae318080911e2ca8013f5bf17e7",
-      "references": [
-        "assets/audio/voices/manifest.js",
-        "js/voice.js"
-      ],
-      "acceptance": "art_sources/guiyun-battle-finish-20261014/voice-equip.json"
-    },
-    {
-      "id": "prehg.ye.2f5c705a00fda4",
-      "path": "assets/audio/voices/ye-4acd03c5a88613d23214.mp3",
-      "original_path": "art_sources/guiyun-battle-finish-20261014/voice-originals/ye-4acd03c5a88613d23214.mp3",
-      "system": "audio",
-      "role": "confirmed-pre-hangao-dialogue",
-      "sha256": "4acd03c5a88613d23214b0969abe00c8b47dc4daf983dde30eb2f1a02e45af6e",
-      "references": [
-        "assets/audio/voices/manifest.js",
-        "js/voice.js"
-      ],
-      "acceptance": "art_sources/guiyun-battle-finish-20261014/voice-equip.json"
-    },
-    {
-      "id": "prehg.ye.da0651419a6761",
-      "path": "assets/audio/voices/ye-0a5aaa59e4ab9767b793.mp3",
-      "original_path": "art_sources/guiyun-battle-finish-20261014/voice-originals/ye-0a5aaa59e4ab9767b793.mp3",
-      "system": "audio",
-      "role": "confirmed-pre-hangao-dialogue",
-      "sha256": "0a5aaa59e4ab9767b793b74f855fff871b3bae3575a88c784d19af6f0e63a189",
-      "references": [
-        "assets/audio/voices/manifest.js",
-        "js/voice.js"
-      ],
-      "acceptance": "art_sources/guiyun-battle-finish-20261014/voice-equip.json"
-    },
-    {
-      "id": "prehg.ye.d3c6dd0fe41313",
-      "path": "assets/audio/voices/ye-37d5ff45db048d4dc79d.mp3",
-      "original_path": "art_sources/guiyun-battle-finish-20261014/voice-originals/ye-37d5ff45db048d4dc79d.mp3",
-      "system": "audio",
-      "role": "confirmed-pre-hangao-dialogue",
-      "sha256": "37d5ff45db048d4dc79d363944909232ad8b70224f1c1798b0f4349322c0f65a",
-      "references": [
-        "assets/audio/voices/manifest.js",
-        "js/voice.js"
-      ],
-      "acceptance": "art_sources/guiyun-battle-finish-20261014/voice-equip.json"
-    },
-    {
-      "id": "prehg.ye.f009eeb1516fa8",
-      "path": "assets/audio/voices/ye-dbbe6d3ecdebd6b52107.mp3",
-      "original_path": "art_sources/guiyun-battle-finish-20261014/voice-originals/ye-dbbe6d3ecdebd6b52107.mp3",
-      "system": "audio",
-      "role": "confirmed-pre-hangao-dialogue",
-      "sha256": "dbbe6d3ecdebd6b521070ca366ee56253dd9cb886bd3902c67be3b3fd6c01e22",
-      "references": [
-        "assets/audio/voices/manifest.js",
-        "js/voice.js"
-      ],
-      "acceptance": "art_sources/guiyun-battle-finish-20261014/voice-equip.json"
-    },
-    {
-      "id": "prehg.ye.52f0c9a4b9ddc4",
-      "path": "assets/audio/voices/ye-afcf26306d71c52681c7.mp3",
-      "original_path": "art_sources/guiyun-battle-finish-20261014/voice-originals/ye-afcf26306d71c52681c7.mp3",
-      "system": "audio",
-      "role": "confirmed-pre-hangao-dialogue",
-      "sha256": "afcf26306d71c52681c787507abc693553e10bf0fe1a197191df1d69af2b513d",
-      "references": [
-        "assets/audio/voices/manifest.js",
-        "js/voice.js"
-      ],
-      "acceptance": "art_sources/guiyun-battle-finish-20261014/voice-equip.json"
-    },
-    {
-      "id": "prehg.ye.a0f0c01a0ea115",
-      "path": "assets/audio/voices/ye-64487ba6a16e795a4532.mp3",
-      "original_path": "art_sources/guiyun-battle-finish-20261014/voice-originals/ye-64487ba6a16e795a4532.mp3",
-      "system": "audio",
-      "role": "confirmed-pre-hangao-dialogue",
-      "sha256": "64487ba6a16e795a45329406a76f3e0f2ecadadec80ec34f8892d61439f1624e",
-      "references": [
-        "assets/audio/voices/manifest.js",
-        "js/voice.js"
-      ],
-      "acceptance": "art_sources/guiyun-battle-finish-20261014/voice-equip.json"
-    },
-    {
-      "id": "prehg.ye.551216c90f9a3a",
-      "path": "assets/audio/voices/ye-c9aae1413c5570672e2b.mp3",
-      "original_path": "art_sources/guiyun-battle-finish-20261014/voice-originals/ye-c9aae1413c5570672e2b.mp3",
-      "system": "audio",
-      "role": "confirmed-pre-hangao-dialogue",
-      "sha256": "c9aae1413c5570672e2be61c250f4450a4800d84c8d65bb409b2ec2fcd4d9a19",
-      "references": [
-        "assets/audio/voices/manifest.js",
-        "js/voice.js"
-      ],
-      "acceptance": "art_sources/guiyun-battle-finish-20261014/voice-equip.json"
-    },
-    {
-      "id": "prehg.ye.531f1bbd2ad71c",
-      "path": "assets/audio/voices/ye-a74ff9b924d4391cb7b6.mp3",
-      "original_path": "art_sources/guiyun-battle-finish-20261014/voice-originals/ye-a74ff9b924d4391cb7b6.mp3",
-      "system": "audio",
-      "role": "confirmed-pre-hangao-dialogue",
-      "sha256": "a74ff9b924d4391cb7b6a990d7c610d8aa852136a4224d8f5932500278329029",
-      "references": [
-        "assets/audio/voices/manifest.js",
-        "js/voice.js"
-      ],
-      "acceptance": "art_sources/guiyun-battle-finish-20261014/voice-equip.json"
-    },
-    {
-      "id": "prehg.ye.da23565689f0dd",
-      "path": "assets/audio/voices/ye-36ac2c9bda7178db75de.mp3",
-      "original_path": "art_sources/guiyun-battle-finish-20261014/voice-originals/ye-36ac2c9bda7178db75de.mp3",
-      "system": "audio",
-      "role": "confirmed-pre-hangao-dialogue",
-      "sha256": "36ac2c9bda7178db75def02adfe1048e68d0cc2901e4a89514bb0819662e99ba",
-      "references": [
-        "assets/audio/voices/manifest.js",
-        "js/voice.js"
-      ],
-      "acceptance": "art_sources/guiyun-battle-finish-20261014/voice-equip.json"
-    },
-    {
-      "id": "prehg.ye.af7df02927c099",
-      "path": "assets/audio/voices/ye-309f48a1463480482d33.mp3",
-      "original_path": "art_sources/guiyun-battle-finish-20261014/voice-originals/ye-309f48a1463480482d33.mp3",
-      "system": "audio",
-      "role": "confirmed-pre-hangao-dialogue",
-      "sha256": "309f48a1463480482d33945cdee657b2a83b775c7be3b6eb9dd44d2dcdb81579",
-      "references": [
-        "assets/audio/voices/manifest.js",
-        "js/voice.js"
-      ],
-      "acceptance": "art_sources/guiyun-battle-finish-20261014/voice-equip.json"
-    },
-    {
-      "id": "prehg.ye.664af4cf637a45",
-      "path": "assets/audio/voices/ye-ba5a2644f95b716009f9.mp3",
-      "original_path": "art_sources/guiyun-battle-finish-20261014/voice-originals/ye-ba5a2644f95b716009f9.mp3",
-      "system": "audio",
-      "role": "confirmed-pre-hangao-dialogue",
-      "sha256": "ba5a2644f95b716009f96893cb173ca6249b5826c68e1725c6e33f01225a8672",
-      "references": [
-        "assets/audio/voices/manifest.js",
-        "js/voice.js"
-      ],
-      "acceptance": "art_sources/guiyun-battle-finish-20261014/voice-equip.json"
-    },
-    {
-      "id": "prehg.ye.50b7eea3d8b2fe",
-      "path": "assets/audio/voices/ye-9dc0254225ad2172b590.mp3",
-      "original_path": "art_sources/guiyun-battle-finish-20261014/voice-originals/ye-9dc0254225ad2172b590.mp3",
-      "system": "audio",
-      "role": "confirmed-pre-hangao-dialogue",
-      "sha256": "9dc0254225ad2172b590d0c02936b3084a3fe964d3739ffcef832249c3338330",
-      "references": [
-        "assets/audio/voices/manifest.js",
-        "js/voice.js"
-      ],
-      "acceptance": "art_sources/guiyun-battle-finish-20261014/voice-equip.json"
-    },
-    {
-      "id": "prehg.ye.c2e8dc0569b7fe",
-      "path": "assets/audio/voices/ye-a39df919ca1da8c1501a.mp3",
-      "original_path": "art_sources/guiyun-battle-finish-20261014/voice-originals/ye-a39df919ca1da8c1501a.mp3",
-      "system": "audio",
-      "role": "confirmed-pre-hangao-dialogue",
-      "sha256": "a39df919ca1da8c1501a0409a53a74db451923e9bd50824ef6cc22b45ea256f0",
-      "references": [
-        "assets/audio/voices/manifest.js",
-        "js/voice.js"
-      ],
-      "acceptance": "art_sources/guiyun-battle-finish-20261014/voice-equip.json"
-    },
-    {
-      "id": "prehg.pei-zhigu.a544e051d885ed",
-      "path": "assets/audio/voices/pei-zhigu-a63b6d879de9bbb06e39.mp3",
-      "original_path": "art_sources/guiyun-battle-finish-20261014/voice-originals/pei-zhigu-a63b6d879de9bbb06e39.mp3",
-      "system": "audio",
-      "role": "confirmed-pre-hangao-dialogue",
-      "sha256": "a63b6d879de9bbb06e39a606ec7495f243b8b0d0fe40317c1836fdd7bf32eaba",
-      "references": [
-        "assets/audio/voices/manifest.js",
-        "js/voice.js"
-      ],
-      "acceptance": "art_sources/guiyun-battle-finish-20261014/voice-equip.json"
-    },
-    {
-      "id": "prehg.pei-zhigu.f9bd0f496da5ea",
-      "path": "assets/audio/voices/pei-zhigu-3842bfe90a83ba1cd8a5.mp3",
-      "original_path": "art_sources/guiyun-battle-finish-20261014/voice-originals/pei-zhigu-3842bfe90a83ba1cd8a5.mp3",
-      "system": "audio",
-      "role": "confirmed-pre-hangao-dialogue",
-      "sha256": "3842bfe90a83ba1cd8a5927b009e9660b37c5491f6d9a7fb98804b97adbbf1d0",
-      "references": [
-        "assets/audio/voices/manifest.js",
-        "js/voice.js"
-      ],
-      "acceptance": "art_sources/guiyun-battle-finish-20261014/voice-equip.json"
-    },
-    {
-      "id": "prehg.pei-zhigu.3696d7aab12abd",
-      "path": "assets/audio/voices/pei-zhigu-58ce7410c23aeb43376e.mp3",
-      "original_path": "art_sources/guiyun-battle-finish-20261014/voice-originals/pei-zhigu-58ce7410c23aeb43376e.mp3",
-      "system": "audio",
-      "role": "confirmed-pre-hangao-dialogue",
-      "sha256": "58ce7410c23aeb43376e452336b48082cebfb683b81d08105d7ceb4dcaab525e",
-      "references": [
-        "assets/audio/voices/manifest.js",
-        "js/voice.js"
-      ],
-      "acceptance": "art_sources/guiyun-battle-finish-20261014/voice-equip.json"
-    },
-    {
-      "id": "prehg.pei-zhigu.ad5d58b4f37ab9",
-      "path": "assets/audio/voices/pei-zhigu-cd202304e8af51734151.mp3",
-      "original_path": "art_sources/guiyun-battle-finish-20261014/voice-originals/pei-zhigu-cd202304e8af51734151.mp3",
-      "system": "audio",
-      "role": "confirmed-pre-hangao-dialogue",
-      "sha256": "cd202304e8af51734151970b631f7b5f82a66c88e48e897d764269ebcc1b8e14",
-      "references": [
-        "assets/audio/voices/manifest.js",
-        "js/voice.js"
-      ],
-      "acceptance": "art_sources/guiyun-battle-finish-20261014/voice-equip.json"
-    },
-    {
-      "id": "prehg.pei-zhigu.fca59da15f692c",
-      "path": "assets/audio/voices/pei-zhigu-292f9afcff902c7ee133.mp3",
-      "original_path": "art_sources/guiyun-battle-finish-20261014/voice-originals/pei-zhigu-292f9afcff902c7ee133.mp3",
-      "system": "audio",
-      "role": "confirmed-pre-hangao-dialogue",
-      "sha256": "292f9afcff902c7ee1336ed45ea260690cc421efed454b835142c653f45a575b",
-      "references": [
-        "assets/audio/voices/manifest.js",
-        "js/voice.js"
-      ],
-      "acceptance": "art_sources/guiyun-battle-finish-20261014/voice-equip.json"
-    },
-    {
-      "id": "prehg.pei-zhigu.197019f672e9bd",
-      "path": "assets/audio/voices/pei-zhigu-35d325fbaccc1946f970.mp3",
-      "original_path": "art_sources/guiyun-battle-finish-20261014/voice-originals/pei-zhigu-35d325fbaccc1946f970.mp3",
-      "system": "audio",
-      "role": "confirmed-pre-hangao-dialogue",
-      "sha256": "35d325fbaccc1946f970fa219f4a22a8a162f93f4c577f7a476b94e9883cb797",
-      "references": [
-        "assets/audio/voices/manifest.js",
-        "js/voice.js"
-      ],
-      "acceptance": "art_sources/guiyun-battle-finish-20261014/voice-equip.json"
-    },
-    {
-      "id": "prehg.pei-zhigu.79f59cfd189454",
-      "path": "assets/audio/voices/pei-zhigu-6a4f457ff6db6f5a48ce.mp3",
-      "original_path": "art_sources/guiyun-battle-finish-20261014/voice-originals/pei-zhigu-6a4f457ff6db6f5a48ce.mp3",
-      "system": "audio",
-      "role": "confirmed-pre-hangao-dialogue",
-      "sha256": "6a4f457ff6db6f5a48ce37d911f7b5254cc79f8d2854bbf2f6be72958c1f1f73",
-      "references": [
-        "assets/audio/voices/manifest.js",
-        "js/voice.js"
-      ],
-      "acceptance": "art_sources/guiyun-battle-finish-20261014/voice-equip.json"
-    },
-    {
-      "id": "prehg.pei-zhigu.c758196ac3f926",
-      "path": "assets/audio/voices/pei-zhigu-479c2cff1306980c8935.mp3",
-      "original_path": "art_sources/guiyun-battle-finish-20261014/voice-originals/pei-zhigu-479c2cff1306980c8935.mp3",
-      "system": "audio",
-      "role": "confirmed-pre-hangao-dialogue",
-      "sha256": "479c2cff1306980c8935d9279d145a96913068882087cd30d00e80fb7599d1e4",
-      "references": [
-        "assets/audio/voices/manifest.js",
-        "js/voice.js"
-      ],
-      "acceptance": "art_sources/guiyun-battle-finish-20261014/voice-equip.json"
-    },
-    {
-      "id": "prehg.pei-zhigu.db950f09906cca",
-      "path": "assets/audio/voices/pei-zhigu-4f8dbdcd8c167d0afa59.mp3",
-      "original_path": "art_sources/guiyun-battle-finish-20261014/voice-originals/pei-zhigu-4f8dbdcd8c167d0afa59.mp3",
-      "system": "audio",
-      "role": "confirmed-pre-hangao-dialogue",
-      "sha256": "4f8dbdcd8c167d0afa596db6858cdd21cf54cdde54a048ce8a4938fc18beff9f",
-      "references": [
-        "assets/audio/voices/manifest.js",
-        "js/voice.js"
-      ],
-      "acceptance": "art_sources/guiyun-battle-finish-20261014/voice-equip.json"
-    },
-    {
-      "id": "prehg.pei-zhigu.ec756012072f4f",
-      "path": "assets/audio/voices/pei-zhigu-9dc49e3fd5f6e7a0e2ac.mp3",
-      "original_path": "art_sources/guiyun-battle-finish-20261014/voice-originals/pei-zhigu-9dc49e3fd5f6e7a0e2ac.mp3",
-      "system": "audio",
-      "role": "confirmed-pre-hangao-dialogue",
-      "sha256": "9dc49e3fd5f6e7a0e2ac255dadba1bf0672f42ae229b4d4f036b5f6b96b38d6c",
-      "references": [
-        "assets/audio/voices/manifest.js",
-        "js/voice.js"
-      ],
-      "acceptance": "art_sources/guiyun-battle-finish-20261014/voice-equip.json"
-    },
-    {
-      "id": "prehg.pei-zhigu.28d699ca5e322c",
-      "path": "assets/audio/voices/pei-zhigu-e6591d33428284931962.mp3",
-      "original_path": "art_sources/guiyun-battle-finish-20261014/voice-originals/pei-zhigu-e6591d33428284931962.mp3",
-      "system": "audio",
-      "role": "confirmed-pre-hangao-dialogue",
-      "sha256": "e6591d33428284931962dd2404b6da882fb3225d66f62815090f1e558ed74672",
-      "references": [
-        "assets/audio/voices/manifest.js",
-        "js/voice.js"
-      ],
-      "acceptance": "art_sources/guiyun-battle-finish-20261014/voice-equip.json"
-    },
-    {
-      "id": "prehg.pei-zhigu.a38da086205ab7",
-      "path": "assets/audio/voices/pei-zhigu-530d7ec03a41395b598b.mp3",
-      "original_path": "art_sources/guiyun-battle-finish-20261014/voice-originals/pei-zhigu-530d7ec03a41395b598b.mp3",
-      "system": "audio",
-      "role": "confirmed-pre-hangao-dialogue",
-      "sha256": "530d7ec03a41395b598bdec31982060d7785f5e083d33a12218f6e360dcf6d69",
-      "references": [
-        "assets/audio/voices/manifest.js",
-        "js/voice.js"
-      ],
-      "acceptance": "art_sources/guiyun-battle-finish-20261014/voice-equip.json"
-    },
-    {
-      "id": "prehg.pei-zhigu.7b33a3b8ac3bd0",
-      "path": "assets/audio/voices/pei-zhigu-50f655dd4eec11b4f512.mp3",
-      "original_path": "art_sources/guiyun-battle-finish-20261014/voice-originals/pei-zhigu-50f655dd4eec11b4f512.mp3",
-      "system": "audio",
-      "role": "confirmed-pre-hangao-dialogue",
-      "sha256": "50f655dd4eec11b4f5122a6bdf11189eb17c9f148d0bee8d2838049f371ad65e",
-      "references": [
-        "assets/audio/voices/manifest.js",
-        "js/voice.js"
-      ],
-      "acceptance": "art_sources/guiyun-battle-finish-20261014/voice-equip.json"
-    },
-    {
-      "id": "prehg.pei-zhigu.d4d4ca1632c632",
-      "path": "assets/audio/voices/pei-zhigu-d7cf0cc7c35dca94f383.mp3",
-      "original_path": "art_sources/guiyun-battle-finish-20261014/voice-originals/pei-zhigu-d7cf0cc7c35dca94f383.mp3",
-      "system": "audio",
-      "role": "confirmed-pre-hangao-dialogue",
-      "sha256": "d7cf0cc7c35dca94f3835370046ead0fba6ea6d2611b23d8c665d1a47d91f925",
-      "references": [
-        "assets/audio/voices/manifest.js",
-        "js/voice.js"
-      ],
-      "acceptance": "art_sources/guiyun-battle-finish-20261014/voice-equip.json"
-    },
-    {
-      "id": "prehg.pei-zhigu.f7cb8cf7ed8b43",
-      "path": "assets/audio/voices/pei-zhigu-c8bf7864171b9b923f8c.mp3",
-      "original_path": "art_sources/guiyun-battle-finish-20261014/voice-originals/pei-zhigu-c8bf7864171b9b923f8c.mp3",
-      "system": "audio",
-      "role": "confirmed-pre-hangao-dialogue",
-      "sha256": "c8bf7864171b9b923f8c0b94db5221f38fa94ffe709d504dd3197d2de9a0932a",
-      "references": [
-        "assets/audio/voices/manifest.js",
-        "js/voice.js"
-      ],
-      "acceptance": "art_sources/guiyun-battle-finish-20261014/voice-equip.json"
-    },
-    {
-      "id": "prehg.pei-zhigu.b4ea31b944584f",
-      "path": "assets/audio/voices/pei-zhigu-039571331dbeefee0f11.mp3",
-      "original_path": "art_sources/guiyun-battle-finish-20261014/voice-originals/pei-zhigu-039571331dbeefee0f11.mp3",
-      "system": "audio",
-      "role": "confirmed-pre-hangao-dialogue",
-      "sha256": "039571331dbeefee0f1102f622da5a7ed615d9037e502aa8a90b5f43d1ef5216",
-      "references": [
-        "assets/audio/voices/manifest.js",
-        "js/voice.js"
-      ],
-      "acceptance": "art_sources/guiyun-battle-finish-20261014/voice-equip.json"
-    },
-    {
-      "id": "prehg.pei-zhigu.4776d56175c03f",
-      "path": "assets/audio/voices/pei-zhigu-6270dd02770a2f42e826.mp3",
-      "original_path": "art_sources/guiyun-battle-finish-20261014/voice-originals/pei-zhigu-6270dd02770a2f42e826.mp3",
-      "system": "audio",
-      "role": "confirmed-pre-hangao-dialogue",
-      "sha256": "6270dd02770a2f42e826e8be0291fcef82a30cf38353ebd248600614d1a99513",
-      "references": [
-        "assets/audio/voices/manifest.js",
-        "js/voice.js"
-      ],
-      "acceptance": "art_sources/guiyun-battle-finish-20261014/voice-equip.json"
-    },
-    {
-      "id": "prehg.pei-zhigu.76cdfaff9d73b1",
-      "path": "assets/audio/voices/pei-zhigu-6deb41ca192675a472f8.mp3",
-      "original_path": "art_sources/guiyun-battle-finish-20261014/voice-originals/pei-zhigu-6deb41ca192675a472f8.mp3",
-      "system": "audio",
-      "role": "confirmed-pre-hangao-dialogue",
-      "sha256": "6deb41ca192675a472f86e844fd3221e0b46e6153db357f5dc0e37ec39735571",
-      "references": [
-        "assets/audio/voices/manifest.js",
-        "js/voice.js"
-      ],
-      "acceptance": "art_sources/guiyun-battle-finish-20261014/voice-equip.json"
-    },
-    {
-      "id": "prehg.pei-zhigu.df4d5b469f1ac8",
-      "path": "assets/audio/voices/pei-zhigu-1e943a581ffbcbf37aac.mp3",
-      "original_path": "art_sources/guiyun-battle-finish-20261014/voice-originals/pei-zhigu-1e943a581ffbcbf37aac.mp3",
-      "system": "audio",
-      "role": "confirmed-pre-hangao-dialogue",
-      "sha256": "1e943a581ffbcbf37aac4f5ef077435a98fc01b267e6e82547003a5cf637d324",
-      "references": [
-        "assets/audio/voices/manifest.js",
-        "js/voice.js"
-      ],
-      "acceptance": "art_sources/guiyun-battle-finish-20261014/voice-equip.json"
-    },
-    {
-      "id": "prehg.pei-zhigu.e36611dfe6b333",
-      "path": "assets/audio/voices/pei-zhigu-147170006651af50e180.mp3",
-      "original_path": "art_sources/guiyun-battle-finish-20261014/voice-originals/pei-zhigu-147170006651af50e180.mp3",
-      "system": "audio",
-      "role": "confirmed-pre-hangao-dialogue",
-      "sha256": "147170006651af50e180d872db7209ff4cbd0271b61225aaf4c0225874997491",
-      "references": [
-        "assets/audio/voices/manifest.js",
-        "js/voice.js"
-      ],
-      "acceptance": "art_sources/guiyun-battle-finish-20261014/voice-equip.json"
-    },
-    {
-      "id": "prehg.pei-zhigu.f60c3f1c266dec",
-      "path": "assets/audio/voices/pei-zhigu-7471c8c28210e8f37fd0.mp3",
-      "original_path": "art_sources/guiyun-battle-finish-20261014/voice-originals/pei-zhigu-7471c8c28210e8f37fd0.mp3",
-      "system": "audio",
-      "role": "confirmed-pre-hangao-dialogue",
-      "sha256": "7471c8c28210e8f37fd03dd61a34dcf842d7adc184dac495abcc2baddfd415cd",
-      "references": [
-        "assets/audio/voices/manifest.js",
-        "js/voice.js"
-      ],
-      "acceptance": "art_sources/guiyun-battle-finish-20261014/voice-equip.json"
-    },
-    {
-      "id": "prehg.pei-zhigu.e0d59db421c1d5",
-      "path": "assets/audio/voices/pei-zhigu-67585427f9393db01ab7.mp3",
-      "original_path": "art_sources/guiyun-battle-finish-20261014/voice-originals/pei-zhigu-67585427f9393db01ab7.mp3",
-      "system": "audio",
-      "role": "confirmed-pre-hangao-dialogue",
-      "sha256": "67585427f9393db01ab7d73c228149c1e4dc08a47e5213e7e47b649eba262885",
-      "references": [
-        "assets/audio/voices/manifest.js",
-        "js/voice.js"
-      ],
-      "acceptance": "art_sources/guiyun-battle-finish-20261014/voice-equip.json"
-    },
-    {
-      "id": "prehg.pei-zhigu.226dd8733a93a9",
-      "path": "assets/audio/voices/pei-zhigu-d343187df21e888d426f.mp3",
-      "original_path": "art_sources/guiyun-battle-finish-20261014/voice-originals/pei-zhigu-d343187df21e888d426f.mp3",
-      "system": "audio",
-      "role": "confirmed-pre-hangao-dialogue",
-      "sha256": "d343187df21e888d426f43e1a40eee8b959a1c13784ce8a6507cabd4d5d54724",
-      "references": [
-        "assets/audio/voices/manifest.js",
-        "js/voice.js"
-      ],
-      "acceptance": "art_sources/guiyun-battle-finish-20261014/voice-equip.json"
-    },
-    {
-      "id": "prehg.pei-zhigu.8fa75ac1c28ced",
-      "path": "assets/audio/voices/pei-zhigu-a4f641547b4cfd2559c5.mp3",
-      "original_path": "art_sources/guiyun-battle-finish-20261014/voice-originals/pei-zhigu-a4f641547b4cfd2559c5.mp3",
-      "system": "audio",
-      "role": "confirmed-pre-hangao-dialogue",
-      "sha256": "a4f641547b4cfd2559c54957cb6db27b26a12b223777b40514e7e7f46b80a6b2",
-      "references": [
-        "assets/audio/voices/manifest.js",
-        "js/voice.js"
-      ],
-      "acceptance": "art_sources/guiyun-battle-finish-20261014/voice-equip.json"
-    },
-    {
-      "id": "prehg.pei-zhigu.a0b655df856078",
-      "path": "assets/audio/voices/pei-zhigu-e528701c0579f2059681.mp3",
-      "original_path": "art_sources/guiyun-battle-finish-20261014/voice-originals/pei-zhigu-e528701c0579f2059681.mp3",
-      "system": "audio",
-      "role": "confirmed-pre-hangao-dialogue",
-      "sha256": "e528701c0579f2059681813d329ebb3c40c963f5a79b8b56991cc5a472aeb15f",
-      "references": [
-        "assets/audio/voices/manifest.js",
-        "js/voice.js"
-      ],
-      "acceptance": "art_sources/guiyun-battle-finish-20261014/voice-equip.json"
-    },
-    {
-      "id": "prehg.pei-zhigu.a1f648d2551635",
-      "path": "assets/audio/voices/pei-zhigu-f2788576b90b24f1761c.mp3",
-      "original_path": "art_sources/guiyun-battle-finish-20261014/voice-originals/pei-zhigu-f2788576b90b24f1761c.mp3",
-      "system": "audio",
-      "role": "confirmed-pre-hangao-dialogue",
-      "sha256": "f2788576b90b24f1761c63e8d6060eaeb6d78702fcfe72a70d9f6dd0795fe011",
-      "references": [
-        "assets/audio/voices/manifest.js",
-        "js/voice.js"
-      ],
-      "acceptance": "art_sources/guiyun-battle-finish-20261014/voice-equip.json"
-    },
-    {
-      "id": "prehg.pei-zhigu.311ea89e08ff9d",
-      "path": "assets/audio/voices/pei-zhigu-809bee3d34bebab85ba9.mp3",
-      "original_path": "art_sources/guiyun-battle-finish-20261014/voice-originals/pei-zhigu-809bee3d34bebab85ba9.mp3",
-      "system": "audio",
-      "role": "confirmed-pre-hangao-dialogue",
-      "sha256": "809bee3d34bebab85ba929e3767d90d2671ea63d64502c2e3977f2c398294a85",
-      "references": [
-        "assets/audio/voices/manifest.js",
-        "js/voice.js"
-      ],
-      "acceptance": "art_sources/guiyun-battle-finish-20261014/voice-equip.json"
-    },
-    {
-      "id": "prehg.pei-zhigu.7a17fd4ada20ec",
-      "path": "assets/audio/voices/pei-zhigu-635da3d4b5d39de71859.mp3",
-      "original_path": "art_sources/guiyun-battle-finish-20261014/voice-originals/pei-zhigu-635da3d4b5d39de71859.mp3",
-      "system": "audio",
-      "role": "confirmed-pre-hangao-dialogue",
-      "sha256": "635da3d4b5d39de7185919eb6c73e74341360fc5e4b6c0afe8c769b5bd14ecef",
-      "references": [
-        "assets/audio/voices/manifest.js",
-        "js/voice.js"
-      ],
-      "acceptance": "art_sources/guiyun-battle-finish-20261014/voice-equip.json"
-    },
-    {
-      "id": "prehg.pei-zhigu.7440732b63b819",
-      "path": "assets/audio/voices/pei-zhigu-f93c3968f443f3f7fc87.mp3",
-      "original_path": "art_sources/guiyun-battle-finish-20261014/voice-originals/pei-zhigu-f93c3968f443f3f7fc87.mp3",
-      "system": "audio",
-      "role": "confirmed-pre-hangao-dialogue",
-      "sha256": "f93c3968f443f3f7fc87d544e64a3b8c7be7dcbc66f2d3fb321452766535c5c1",
-      "references": [
-        "assets/audio/voices/manifest.js",
-        "js/voice.js"
-      ],
-      "acceptance": "art_sources/guiyun-battle-finish-20261014/voice-equip.json"
-    },
-    {
-      "id": "prehg.pei-zhigu.6e0e477380cc4d",
-      "path": "assets/audio/voices/pei-zhigu-ff71762a0380200eb19e.mp3",
-      "original_path": "art_sources/guiyun-battle-finish-20261014/voice-originals/pei-zhigu-ff71762a0380200eb19e.mp3",
-      "system": "audio",
-      "role": "confirmed-pre-hangao-dialogue",
-      "sha256": "ff71762a0380200eb19e4570a79279eb646d722c37422a19934c30d212c3c320",
-      "references": [
-        "assets/audio/voices/manifest.js",
-        "js/voice.js"
-      ],
-      "acceptance": "art_sources/guiyun-battle-finish-20261014/voice-equip.json"
-    },
-    {
-      "id": "prehg.pei-zhigu.88ce51e39fddc5",
-      "path": "assets/audio/voices/pei-zhigu-359c94803bc65ac8928c.mp3",
-      "original_path": "art_sources/guiyun-battle-finish-20261014/voice-originals/pei-zhigu-359c94803bc65ac8928c.mp3",
-      "system": "audio",
-      "role": "confirmed-pre-hangao-dialogue",
-      "sha256": "359c94803bc65ac8928c03acd84ecaea9b67c84b5e887bba5e40b3839b20dd53",
-      "references": [
-        "assets/audio/voices/manifest.js",
-        "js/voice.js"
-      ],
-      "acceptance": "art_sources/guiyun-battle-finish-20261014/voice-equip.json"
-    },
-    {
-      "id": "prehg.pei-zhigu.549532a88edfed",
-      "path": "assets/audio/voices/pei-zhigu-dfae160498c00d1b8657.mp3",
-      "original_path": "art_sources/guiyun-battle-finish-20261014/voice-originals/pei-zhigu-dfae160498c00d1b8657.mp3",
-      "system": "audio",
-      "role": "confirmed-pre-hangao-dialogue",
-      "sha256": "dfae160498c00d1b86572701605b4334a47fe58d181c7e7d9dd5279b7e846a58",
-      "references": [
-        "assets/audio/voices/manifest.js",
-        "js/voice.js"
-      ],
-      "acceptance": "art_sources/guiyun-battle-finish-20261014/voice-equip.json"
-    },
-    {
-      "id": "prehg.pei-zhigu.660615b5d62221",
-      "path": "assets/audio/voices/pei-zhigu-c71d5cf1d38a4a407ae0.mp3",
-      "original_path": "art_sources/guiyun-battle-finish-20261014/voice-originals/pei-zhigu-c71d5cf1d38a4a407ae0.mp3",
-      "system": "audio",
-      "role": "confirmed-pre-hangao-dialogue",
-      "sha256": "c71d5cf1d38a4a407ae0be83e8c0ce82574766f7f391405bef05e3bbbebf0dd1",
-      "references": [
-        "assets/audio/voices/manifest.js",
-        "js/voice.js"
-      ],
-      "acceptance": "art_sources/guiyun-battle-finish-20261014/voice-equip.json"
-    },
-    {
-      "id": "prehg.pei-zhigu.59af65ebf5ffb3",
-      "path": "assets/audio/voices/pei-zhigu-6a1dc8b76b6b3beb8e0e.mp3",
-      "original_path": "art_sources/guiyun-battle-finish-20261014/voice-originals/pei-zhigu-6a1dc8b76b6b3beb8e0e.mp3",
-      "system": "audio",
-      "role": "confirmed-pre-hangao-dialogue",
-      "sha256": "6a1dc8b76b6b3beb8e0e9c0a4b3eb146a75a67977e19a0d658f9aeefad4517da",
-      "references": [
-        "assets/audio/voices/manifest.js",
-        "js/voice.js"
-      ],
-      "acceptance": "art_sources/guiyun-battle-finish-20261014/voice-equip.json"
-    },
-    {
-      "id": "prehg.pei-zhigu.2345239eecc81e",
-      "path": "assets/audio/voices/pei-zhigu-3c4c3499a09506df4ded.mp3",
-      "original_path": "art_sources/guiyun-battle-finish-20261014/voice-originals/pei-zhigu-3c4c3499a09506df4ded.mp3",
-      "system": "audio",
-      "role": "confirmed-pre-hangao-dialogue",
-      "sha256": "3c4c3499a09506df4ded9315e7cba464fa4551f39d9354fcc71e841b27c01c03",
-      "references": [
-        "assets/audio/voices/manifest.js",
-        "js/voice.js"
-      ],
-      "acceptance": "art_sources/guiyun-battle-finish-20261014/voice-equip.json"
-    },
-    {
-      "id": "prehg.pei-zhigu.6f6bb671872cd5",
-      "path": "assets/audio/voices/pei-zhigu-f8f0fe8ad2b613acce48.mp3",
-      "original_path": "art_sources/guiyun-battle-finish-20261014/voice-originals/pei-zhigu-f8f0fe8ad2b613acce48.mp3",
-      "system": "audio",
-      "role": "confirmed-pre-hangao-dialogue",
-      "sha256": "f8f0fe8ad2b613acce48acf56deb3cdee06b57b966e7b22edefb062d9d047c3a",
-      "references": [
-        "assets/audio/voices/manifest.js",
-        "js/voice.js"
-      ],
-      "acceptance": "art_sources/guiyun-battle-finish-20261014/voice-equip.json"
-    },
-    {
-      "id": "prehg.pei-zhigu.e5c6a4a4287af2",
-      "path": "assets/audio/voices/pei-zhigu-1d9798fe2e66bd8b3688.mp3",
-      "original_path": "art_sources/guiyun-battle-finish-20261014/voice-originals/pei-zhigu-1d9798fe2e66bd8b3688.mp3",
-      "system": "audio",
-      "role": "confirmed-pre-hangao-dialogue",
-      "sha256": "1d9798fe2e66bd8b368850aa5e1375c6f59519c438a5017ece3be1a56bbd4e5a",
-      "references": [
-        "assets/audio/voices/manifest.js",
-        "js/voice.js"
-      ],
-      "acceptance": "art_sources/guiyun-battle-finish-20261014/voice-equip.json"
-    },
-    {
-      "id": "prehg.pei-zhigu.4ff0edb46a244c",
-      "path": "assets/audio/voices/pei-zhigu-f3417df3c96785e0b880.mp3",
-      "original_path": "art_sources/guiyun-battle-finish-20261014/voice-originals/pei-zhigu-f3417df3c96785e0b880.mp3",
-      "system": "audio",
-      "role": "confirmed-pre-hangao-dialogue",
-      "sha256": "f3417df3c96785e0b88036e74487fe49bc8c4b82c4c085db91e8ae3113a9d543",
-      "references": [
-        "assets/audio/voices/manifest.js",
-        "js/voice.js"
-      ],
-      "acceptance": "art_sources/guiyun-battle-finish-20261014/voice-equip.json"
-    },
-    {
-      "id": "prehg.pei-zhigu.fbc9fdc7821dd6",
-      "path": "assets/audio/voices/pei-zhigu-b06928dd2347e065c38c.mp3",
-      "original_path": "art_sources/guiyun-battle-finish-20261014/voice-originals/pei-zhigu-b06928dd2347e065c38c.mp3",
-      "system": "audio",
-      "role": "confirmed-pre-hangao-dialogue",
-      "sha256": "b06928dd2347e065c38c1468955c5e9e4cd7f346a42c9a21d658d343155bbc44",
-      "references": [
-        "assets/audio/voices/manifest.js",
-        "js/voice.js"
-      ],
-      "acceptance": "art_sources/guiyun-battle-finish-20261014/voice-equip.json"
-    },
-    {
-      "id": "prehg.pei-zhigu.46fd70bd6d9713",
-      "path": "assets/audio/voices/pei-zhigu-66450a732a75e9a504c6.mp3",
-      "original_path": "art_sources/guiyun-battle-finish-20261014/voice-originals/pei-zhigu-66450a732a75e9a504c6.mp3",
-      "system": "audio",
-      "role": "confirmed-pre-hangao-dialogue",
-      "sha256": "66450a732a75e9a504c6a8748b4d4b8cf8e11dcbae96583369ec60306ab3e721",
-      "references": [
-        "assets/audio/voices/manifest.js",
-        "js/voice.js"
-      ],
-      "acceptance": "art_sources/guiyun-battle-finish-20261014/voice-equip.json"
-    },
-    {
-      "id": "prehg.pei-zhigu.b10b253edcda1a",
-      "path": "assets/audio/voices/pei-zhigu-e892e8fa46c7dfaa2062.mp3",
-      "original_path": "art_sources/guiyun-battle-finish-20261014/voice-originals/pei-zhigu-e892e8fa46c7dfaa2062.mp3",
-      "system": "audio",
-      "role": "confirmed-pre-hangao-dialogue",
-      "sha256": "e892e8fa46c7dfaa20624de3dff8cf848ea0a16d799a4fc5f747536268a2fcd5",
-      "references": [
-        "assets/audio/voices/manifest.js",
-        "js/voice.js"
-      ],
-      "acceptance": "art_sources/guiyun-battle-finish-20261014/voice-equip.json"
-    },
-    {
-      "id": "prehg.pei-zhigu.26d537a3d53de4",
-      "path": "assets/audio/voices/pei-zhigu-20493ba3f658845f211a.mp3",
-      "original_path": "art_sources/guiyun-battle-finish-20261014/voice-originals/pei-zhigu-20493ba3f658845f211a.mp3",
-      "system": "audio",
-      "role": "confirmed-pre-hangao-dialogue",
-      "sha256": "20493ba3f658845f211ae4311e9353828f948a21ddbcca3ed433837085e4ecf0",
-      "references": [
-        "assets/audio/voices/manifest.js",
-        "js/voice.js"
-      ],
-      "acceptance": "art_sources/guiyun-battle-finish-20261014/voice-equip.json"
-    },
-    {
-      "id": "prehg.pei-zhigu.406d1ebf8f5d30",
-      "path": "assets/audio/voices/pei-zhigu-8271877ed205d703d0b7.mp3",
-      "original_path": "art_sources/guiyun-battle-finish-20261014/voice-originals/pei-zhigu-8271877ed205d703d0b7.mp3",
-      "system": "audio",
-      "role": "confirmed-pre-hangao-dialogue",
-      "sha256": "8271877ed205d703d0b7f6f66b2732690498ee6c983e4121b7fdacac42ee8139",
-      "references": [
-        "assets/audio/voices/manifest.js",
-        "js/voice.js"
-      ],
-      "acceptance": "art_sources/guiyun-battle-finish-20261014/voice-equip.json"
     },
     {
       "id": "cu_hero_short_empty_normal_20261014",
@@ -18468,6 +14857,700 @@
       "acceptance_status": "候选，待用户评审：2026-11-01 东埠缺药棚库棚和货物（第三十三轮第 2 题排查表）；302 生图＋forge 像素后期＋按底图压色",
       "references": [
         "js/qihe-town.js",
+        "js/production-assets.js"
+      ]
+    },
+    {
+      "id": "cu_household-v1_xu_png",
+      "path": "assets/production/cultivation/household-v1/xu.png",
+      "original_path": "art_sources/qihe-reps-q-20261102/base/xu.png",
+      "system": "cultivation",
+      "role": "registered-or-direct-runtime",
+      "sha256": "80cf0951650d20b9d3736f0a57385caf90ccb0f88096994e735400f9c78d2029",
+      "actual_size": [
+        1024,
+        1536
+      ],
+      "generation": "302ai-sunburst（提示词请求 gpt-image-2.5，实际模型未确认）；原生透明 + --opaque-fix；朝左版为翻转后请模型改回右衽",
+      "acceptance_status": "adopted-20261102-user-passed-review-desk-r35-q2",
+      "source_manifest": "art_sources/qihe-reps-q-20261102/README.md",
+      "references": [
+        "js/qh-mode-cultivation-mentors.js"
+      ]
+    },
+    {
+      "id": "cu_household-v1_xu_normal_png",
+      "path": "assets/production/cultivation/household-v1/xu_normal.png",
+      "original_path": "art_sources/qihe-reps-q-20261102/base/xu.png",
+      "system": "cultivation",
+      "role": "registered-or-direct-runtime",
+      "sha256": "80cf0951650d20b9d3736f0a57385caf90ccb0f88096994e735400f9c78d2029",
+      "actual_size": [
+        1024,
+        1536
+      ],
+      "generation": "302ai-sunburst（提示词请求 gpt-image-2.5，实际模型未确认）；原生透明 + --opaque-fix；朝左版为翻转后请模型改回右衽",
+      "acceptance_status": "adopted-20261102-user-passed-review-desk-r35-q2",
+      "source_manifest": "art_sources/qihe-reps-q-20261102/README.md",
+      "references": [
+        "js/qh-mode-cultivation-mentors.js"
+      ]
+    },
+    {
+      "id": "cu_household-v1_cen_png",
+      "path": "assets/production/cultivation/household-v1/cen.png",
+      "original_path": "art_sources/qihe-reps-q-20261102/base/cen.png",
+      "system": "cultivation",
+      "role": "registered-or-direct-runtime",
+      "sha256": "372a7cd01b56e9261518496a47e12581016ce50b166bdd4a4e73c558c74419c1",
+      "actual_size": [
+        1024,
+        1536
+      ],
+      "generation": "302ai-sunburst（提示词请求 gpt-image-2.5，实际模型未确认）；原生透明 + --opaque-fix；朝左版为翻转后请模型改回右衽",
+      "acceptance_status": "adopted-20261102-user-passed-review-desk-r35-q2",
+      "source_manifest": "art_sources/qihe-reps-q-20261102/README.md",
+      "references": [
+        "js/qh-mode-cultivation-mentors.js"
+      ]
+    },
+    {
+      "id": "cu_household-v1_cen_normal_png",
+      "path": "assets/production/cultivation/household-v1/cen_normal.png",
+      "original_path": "art_sources/qihe-reps-q-20261102/base/cen.png",
+      "system": "cultivation",
+      "role": "registered-or-direct-runtime",
+      "sha256": "372a7cd01b56e9261518496a47e12581016ce50b166bdd4a4e73c558c74419c1",
+      "actual_size": [
+        1024,
+        1536
+      ],
+      "generation": "302ai-sunburst（提示词请求 gpt-image-2.5，实际模型未确认）；原生透明 + --opaque-fix；朝左版为翻转后请模型改回右衽",
+      "acceptance_status": "adopted-20261102-user-passed-review-desk-r35-q2",
+      "source_manifest": "art_sources/qihe-reps-q-20261102/README.md",
+      "references": [
+        "js/qh-mode-cultivation-mentors.js"
+      ]
+    },
+    {
+      "id": "cu_household-v1_shen_png",
+      "path": "assets/production/cultivation/household-v1/shen.png",
+      "original_path": "art_sources/qihe-reps-q-20261102/base/shen.png",
+      "system": "cultivation",
+      "role": "registered-or-direct-runtime",
+      "sha256": "4464d7bf9f65c243ca98472e7a219a126ab8a1934eb403ae66c3d0d07d4196d3",
+      "actual_size": [
+        1024,
+        1536
+      ],
+      "generation": "302ai-sunburst（提示词请求 gpt-image-2.5，实际模型未确认）；原生透明 + --opaque-fix；朝左版为翻转后请模型改回右衽",
+      "acceptance_status": "adopted-20261102-user-passed-review-desk-r35-q2",
+      "source_manifest": "art_sources/qihe-reps-q-20261102/README.md",
+      "references": [
+        "js/qh-mode-cultivation-mentors.js"
+      ]
+    },
+    {
+      "id": "cu_household-v1_shen_normal_png",
+      "path": "assets/production/cultivation/household-v1/shen_normal.png",
+      "original_path": "art_sources/qihe-reps-q-20261102/base/shen.png",
+      "system": "cultivation",
+      "role": "registered-or-direct-runtime",
+      "sha256": "4464d7bf9f65c243ca98472e7a219a126ab8a1934eb403ae66c3d0d07d4196d3",
+      "actual_size": [
+        1024,
+        1536
+      ],
+      "generation": "302ai-sunburst（提示词请求 gpt-image-2.5，实际模型未确认）；原生透明 + --opaque-fix；朝左版为翻转后请模型改回右衽",
+      "acceptance_status": "adopted-20261102-user-passed-review-desk-r35-q2",
+      "source_manifest": "art_sources/qihe-reps-q-20261102/README.md",
+      "references": [
+        "js/qh-mode-cultivation-mentors.js"
+      ]
+    },
+    {
+      "id": "cu_household-v1_cen_serious_png",
+      "path": "assets/production/cultivation/household-v1/cen_serious.png",
+      "original_path": "art_sources/qihe-reps-q-20261102/moods/cen_serious.png",
+      "system": "cultivation",
+      "role": "registered-or-direct-runtime",
+      "sha256": "1b49b8e7bda1a2976d48764a4ca496ebc8f3159a6049a5185582e766bee847c5",
+      "actual_size": [
+        1024,
+        1536
+      ],
+      "generation": "302ai-sunburst（提示词请求 gpt-image-2.5，实际模型未确认）；原生透明 + --opaque-fix；朝左版为翻转后请模型改回右衽",
+      "acceptance_status": "adopted-20261102-user-passed-review-desk-r35-q2",
+      "source_manifest": "art_sources/qihe-reps-q-20261102/README.md",
+      "references": [
+        "js/qh-mode-cultivation-mentors.js"
+      ]
+    },
+    {
+      "id": "cu_household-v1_cen_smile_png",
+      "path": "assets/production/cultivation/household-v1/cen_smile.png",
+      "original_path": "art_sources/qihe-reps-q-20261102/moods/cen_smile.png",
+      "system": "cultivation",
+      "role": "registered-or-direct-runtime",
+      "sha256": "e18b471ba38100873455ef38512d11b412000c8b34e32c1c0bb6240f2f540304",
+      "actual_size": [
+        1024,
+        1536
+      ],
+      "generation": "302ai-sunburst（提示词请求 gpt-image-2.5，实际模型未确认）；原生透明 + --opaque-fix；朝左版为翻转后请模型改回右衽",
+      "acceptance_status": "adopted-20261102-user-passed-review-desk-r35-q2",
+      "source_manifest": "art_sources/qihe-reps-q-20261102/README.md",
+      "references": [
+        "js/qh-mode-cultivation-mentors.js"
+      ]
+    },
+    {
+      "id": "cu_household-v1_cen_surprise_png",
+      "path": "assets/production/cultivation/household-v1/cen_surprise.png",
+      "original_path": "art_sources/qihe-reps-q-20261102/moods/cen_surprise.png",
+      "system": "cultivation",
+      "role": "registered-or-direct-runtime",
+      "sha256": "5d58ef5885e36243ce6f0e499deb8fc8844ac4a4b88bfb3de1c138f3e6dcdce7",
+      "actual_size": [
+        1024,
+        1536
+      ],
+      "generation": "302ai-sunburst（提示词请求 gpt-image-2.5，实际模型未确认）；原生透明 + --opaque-fix；朝左版为翻转后请模型改回右衽",
+      "acceptance_status": "adopted-20261102-user-passed-review-desk-r35-q2",
+      "source_manifest": "art_sources/qihe-reps-q-20261102/README.md",
+      "references": [
+        "js/qh-mode-cultivation-mentors.js"
+      ]
+    },
+    {
+      "id": "cu_household-v1_shen_sad_png",
+      "path": "assets/production/cultivation/household-v1/shen_sad.png",
+      "original_path": "art_sources/qihe-reps-q-20261102/moods/shen_sad.png",
+      "system": "cultivation",
+      "role": "registered-or-direct-runtime",
+      "sha256": "3091edd0b92b1bd50fe1601e815f61cdba25f830b2d985be68dc02679c599249",
+      "actual_size": [
+        1024,
+        1536
+      ],
+      "generation": "302ai-sunburst（提示词请求 gpt-image-2.5，实际模型未确认）；原生透明 + --opaque-fix；朝左版为翻转后请模型改回右衽",
+      "acceptance_status": "adopted-20261102-user-passed-review-desk-r35-q2",
+      "source_manifest": "art_sources/qihe-reps-q-20261102/README.md",
+      "references": [
+        "js/qh-mode-cultivation-mentors.js"
+      ]
+    },
+    {
+      "id": "cu_household-v1_shen_serious_png",
+      "path": "assets/production/cultivation/household-v1/shen_serious.png",
+      "original_path": "art_sources/qihe-reps-q-20261102/moods/shen_serious.png",
+      "system": "cultivation",
+      "role": "registered-or-direct-runtime",
+      "sha256": "997417e8049e86f13f75523bfd1ad46f406c8f5c07f7118bbc670c5423aeb08c",
+      "actual_size": [
+        1024,
+        1536
+      ],
+      "generation": "302ai-sunburst（提示词请求 gpt-image-2.5，实际模型未确认）；原生透明 + --opaque-fix；朝左版为翻转后请模型改回右衽",
+      "acceptance_status": "adopted-20261102-user-passed-review-desk-r35-q2",
+      "source_manifest": "art_sources/qihe-reps-q-20261102/README.md",
+      "references": [
+        "js/qh-mode-cultivation-mentors.js"
+      ]
+    },
+    {
+      "id": "cu_household-v1_shen_smile_png",
+      "path": "assets/production/cultivation/household-v1/shen_smile.png",
+      "original_path": "art_sources/qihe-reps-q-20261102/moods/shen_smile.png",
+      "system": "cultivation",
+      "role": "registered-or-direct-runtime",
+      "sha256": "03797ed7b732849618c1400b14765487f43aa93e99a6f88308f894da1d3959d1",
+      "actual_size": [
+        1024,
+        1536
+      ],
+      "generation": "302ai-sunburst（提示词请求 gpt-image-2.5，实际模型未确认）；原生透明 + --opaque-fix；朝左版为翻转后请模型改回右衽",
+      "acceptance_status": "adopted-20261102-user-passed-review-desk-r35-q2",
+      "source_manifest": "art_sources/qihe-reps-q-20261102/README.md",
+      "references": [
+        "js/qh-mode-cultivation-mentors.js"
+      ]
+    },
+    {
+      "id": "cu_household-v1_shen_surprise_png",
+      "path": "assets/production/cultivation/household-v1/shen_surprise.png",
+      "original_path": "art_sources/qihe-reps-q-20261102/moods/shen_surprise.png",
+      "system": "cultivation",
+      "role": "registered-or-direct-runtime",
+      "sha256": "42311d6f05e03425abacf3a500c8065eb170d8b49a9f0c01880d8c71ec60020a",
+      "actual_size": [
+        1024,
+        1536
+      ],
+      "generation": "302ai-sunburst（提示词请求 gpt-image-2.5，实际模型未确认）；原生透明 + --opaque-fix；朝左版为翻转后请模型改回右衽",
+      "acceptance_status": "adopted-20261102-user-passed-review-desk-r35-q2",
+      "source_manifest": "art_sources/qihe-reps-q-20261102/README.md",
+      "references": [
+        "js/qh-mode-cultivation-mentors.js"
+      ]
+    },
+    {
+      "id": "cu_household-v1_shen_worry_png",
+      "path": "assets/production/cultivation/household-v1/shen_worry.png",
+      "original_path": "art_sources/qihe-reps-q-20261102/moods/shen_worry.png",
+      "system": "cultivation",
+      "role": "registered-or-direct-runtime",
+      "sha256": "f3e209ad3be0dc894d6538b4abe68ff33f8a7aa85c7b21033456b0a9d2a3005b",
+      "actual_size": [
+        1024,
+        1536
+      ],
+      "generation": "302ai-sunburst（提示词请求 gpt-image-2.5，实际模型未确认）；原生透明 + --opaque-fix；朝左版为翻转后请模型改回右衽",
+      "acceptance_status": "adopted-20261102-user-passed-review-desk-r35-q2",
+      "source_manifest": "art_sources/qihe-reps-q-20261102/README.md",
+      "references": [
+        "js/qh-mode-cultivation-mentors.js"
+      ]
+    },
+    {
+      "id": "cu_household-v1_xu_sad_png",
+      "path": "assets/production/cultivation/household-v1/xu_sad.png",
+      "original_path": "art_sources/qihe-reps-q-20261102/moods/xu_sad.png",
+      "system": "cultivation",
+      "role": "registered-or-direct-runtime",
+      "sha256": "0de0ad16b5586302b3ec12fa5749cea7b2ffe159b0055250983b373a31370776",
+      "actual_size": [
+        1024,
+        1536
+      ],
+      "generation": "302ai-sunburst（提示词请求 gpt-image-2.5，实际模型未确认）；原生透明 + --opaque-fix；朝左版为翻转后请模型改回右衽",
+      "acceptance_status": "adopted-20261102-user-passed-review-desk-r35-q2",
+      "source_manifest": "art_sources/qihe-reps-q-20261102/README.md",
+      "references": [
+        "js/qh-mode-cultivation-mentors.js"
+      ]
+    },
+    {
+      "id": "cu_household-v1_xu_serious_png",
+      "path": "assets/production/cultivation/household-v1/xu_serious.png",
+      "original_path": "art_sources/qihe-reps-q-20261102/moods/xu_serious.png",
+      "system": "cultivation",
+      "role": "registered-or-direct-runtime",
+      "sha256": "20010f2df05b7029597e4ed56119006d5bb5ec9c408a09f5f606057074ecaeb3",
+      "actual_size": [
+        1024,
+        1536
+      ],
+      "generation": "302ai-sunburst（提示词请求 gpt-image-2.5，实际模型未确认）；原生透明 + --opaque-fix；朝左版为翻转后请模型改回右衽",
+      "acceptance_status": "adopted-20261102-user-passed-review-desk-r35-q2",
+      "source_manifest": "art_sources/qihe-reps-q-20261102/README.md",
+      "references": [
+        "js/qh-mode-cultivation-mentors.js"
+      ]
+    },
+    {
+      "id": "cu_household-v1_xu_smile_png",
+      "path": "assets/production/cultivation/household-v1/xu_smile.png",
+      "original_path": "art_sources/qihe-reps-q-20261102/moods/xu_smile.png",
+      "system": "cultivation",
+      "role": "registered-or-direct-runtime",
+      "sha256": "b34c7fad5a3a2ad64328721a5d176947550b97a589720dc80e80245bcb39a381",
+      "actual_size": [
+        1024,
+        1536
+      ],
+      "generation": "302ai-sunburst（提示词请求 gpt-image-2.5，实际模型未确认）；原生透明 + --opaque-fix；朝左版为翻转后请模型改回右衽",
+      "acceptance_status": "adopted-20261102-user-passed-review-desk-r35-q2",
+      "source_manifest": "art_sources/qihe-reps-q-20261102/README.md",
+      "references": [
+        "js/qh-mode-cultivation-mentors.js"
+      ]
+    },
+    {
+      "id": "cu_household-v1_cen_normal_left_png",
+      "path": "assets/production/cultivation/household-v1/cen_normal_left.png",
+      "original_path": "art_sources/qihe-reps-q-20261102/left/cen_normal_left.png",
+      "system": "cultivation",
+      "role": "registered-or-direct-runtime",
+      "sha256": "895b870a41173605167b41abfabf00f58b7407ce1536da7b36e8e25c21683bba",
+      "actual_size": [
+        1024,
+        1536
+      ],
+      "generation": "302ai-sunburst（提示词请求 gpt-image-2.5，实际模型未确认）；原生透明 + --opaque-fix；朝左版为翻转后请模型改回右衽",
+      "acceptance_status": "adopted-20261102-user-passed-review-desk-r35-q2",
+      "source_manifest": "art_sources/qihe-reps-q-20261102/README.md",
+      "references": [
+        "js/qh-mode-cultivation-mentors.js"
+      ]
+    },
+    {
+      "id": "cu_household-v1_cen_serious_left_png",
+      "path": "assets/production/cultivation/household-v1/cen_serious_left.png",
+      "original_path": "art_sources/qihe-reps-q-20261102/left/cen_serious_left.png",
+      "system": "cultivation",
+      "role": "registered-or-direct-runtime",
+      "sha256": "e497291aca37f319069cbbb0d64f853d81d014c55795a32e6dcd65dce432ef58",
+      "actual_size": [
+        1024,
+        1536
+      ],
+      "generation": "302ai-sunburst（提示词请求 gpt-image-2.5，实际模型未确认）；原生透明 + --opaque-fix；朝左版为翻转后请模型改回右衽",
+      "acceptance_status": "adopted-20261102-user-passed-review-desk-r35-q2",
+      "source_manifest": "art_sources/qihe-reps-q-20261102/README.md",
+      "references": [
+        "js/qh-mode-cultivation-mentors.js"
+      ]
+    },
+    {
+      "id": "cu_household-v1_cen_smile_left_png",
+      "path": "assets/production/cultivation/household-v1/cen_smile_left.png",
+      "original_path": "art_sources/qihe-reps-q-20261102/left/cen_smile_left.png",
+      "system": "cultivation",
+      "role": "registered-or-direct-runtime",
+      "sha256": "a225f0033355ab68361144b96064daead394598b0e1ea896793969d48d24c371",
+      "actual_size": [
+        1024,
+        1536
+      ],
+      "generation": "302ai-sunburst（提示词请求 gpt-image-2.5，实际模型未确认）；原生透明 + --opaque-fix；朝左版为翻转后请模型改回右衽",
+      "acceptance_status": "adopted-20261102-user-passed-review-desk-r35-q2",
+      "source_manifest": "art_sources/qihe-reps-q-20261102/README.md",
+      "references": [
+        "js/qh-mode-cultivation-mentors.js"
+      ]
+    },
+    {
+      "id": "cu_household-v1_cen_surprise_left_png",
+      "path": "assets/production/cultivation/household-v1/cen_surprise_left.png",
+      "original_path": "art_sources/qihe-reps-q-20261102/left/cen_surprise_left.png",
+      "system": "cultivation",
+      "role": "registered-or-direct-runtime",
+      "sha256": "f533ec454a0e9bc257f83a1145a2793d8cf95582f571874aca98202ba0c21d55",
+      "actual_size": [
+        1024,
+        1536
+      ],
+      "generation": "302ai-sunburst（提示词请求 gpt-image-2.5，实际模型未确认）；原生透明 + --opaque-fix；朝左版为翻转后请模型改回右衽",
+      "acceptance_status": "adopted-20261102-user-passed-review-desk-r35-q2",
+      "source_manifest": "art_sources/qihe-reps-q-20261102/README.md",
+      "references": [
+        "js/qh-mode-cultivation-mentors.js"
+      ]
+    },
+    {
+      "id": "cu_household-v1_shen_normal_left_png",
+      "path": "assets/production/cultivation/household-v1/shen_normal_left.png",
+      "original_path": "art_sources/qihe-reps-q-20261102/left/shen_normal_left.png",
+      "system": "cultivation",
+      "role": "registered-or-direct-runtime",
+      "sha256": "72c78d3667d30e001f11f6c8d276b58b45baa543e99faa39cdc5c4ac7023f267",
+      "actual_size": [
+        1024,
+        1536
+      ],
+      "generation": "302ai-sunburst（提示词请求 gpt-image-2.5，实际模型未确认）；原生透明 + --opaque-fix；朝左版为翻转后请模型改回右衽",
+      "acceptance_status": "adopted-20261102-user-passed-review-desk-r35-q2",
+      "source_manifest": "art_sources/qihe-reps-q-20261102/README.md",
+      "references": [
+        "js/qh-mode-cultivation-mentors.js"
+      ]
+    },
+    {
+      "id": "cu_household-v1_shen_sad_left_png",
+      "path": "assets/production/cultivation/household-v1/shen_sad_left.png",
+      "original_path": "art_sources/qihe-reps-q-20261102/left/shen_sad_left.png",
+      "system": "cultivation",
+      "role": "registered-or-direct-runtime",
+      "sha256": "aaa3fb771597591464525773abd330f056134c24ee2a9f2d90cf992ad86c55a6",
+      "actual_size": [
+        1024,
+        1536
+      ],
+      "generation": "302ai-sunburst（提示词请求 gpt-image-2.5，实际模型未确认）；原生透明 + --opaque-fix；朝左版为翻转后请模型改回右衽",
+      "acceptance_status": "adopted-20261102-user-passed-review-desk-r35-q2",
+      "source_manifest": "art_sources/qihe-reps-q-20261102/README.md",
+      "references": [
+        "js/qh-mode-cultivation-mentors.js"
+      ]
+    },
+    {
+      "id": "cu_household-v1_shen_serious_left_png",
+      "path": "assets/production/cultivation/household-v1/shen_serious_left.png",
+      "original_path": "art_sources/qihe-reps-q-20261102/left/shen_serious_left.png",
+      "system": "cultivation",
+      "role": "registered-or-direct-runtime",
+      "sha256": "bf8cbb92a1e90ad2e12c07a704f8748a43f66856d443f6ea22099f5d39055138",
+      "actual_size": [
+        1024,
+        1536
+      ],
+      "generation": "302ai-sunburst（提示词请求 gpt-image-2.5，实际模型未确认）；原生透明 + --opaque-fix；朝左版为翻转后请模型改回右衽",
+      "acceptance_status": "adopted-20261102-user-passed-review-desk-r35-q2",
+      "source_manifest": "art_sources/qihe-reps-q-20261102/README.md",
+      "references": [
+        "js/qh-mode-cultivation-mentors.js"
+      ]
+    },
+    {
+      "id": "cu_household-v1_shen_smile_left_png",
+      "path": "assets/production/cultivation/household-v1/shen_smile_left.png",
+      "original_path": "art_sources/qihe-reps-q-20261102/left/shen_smile_left.png",
+      "system": "cultivation",
+      "role": "registered-or-direct-runtime",
+      "sha256": "22213ff5f312809ea72ed1566fbdc6b9b5e8f39094340b1c19d79881fe55f1be",
+      "actual_size": [
+        1024,
+        1536
+      ],
+      "generation": "302ai-sunburst（提示词请求 gpt-image-2.5，实际模型未确认）；原生透明 + --opaque-fix；朝左版为翻转后请模型改回右衽",
+      "acceptance_status": "adopted-20261102-user-passed-review-desk-r35-q2",
+      "source_manifest": "art_sources/qihe-reps-q-20261102/README.md",
+      "references": [
+        "js/qh-mode-cultivation-mentors.js"
+      ]
+    },
+    {
+      "id": "cu_household-v1_shen_surprise_left_png",
+      "path": "assets/production/cultivation/household-v1/shen_surprise_left.png",
+      "original_path": "art_sources/qihe-reps-q-20261102/left/shen_surprise_left.png",
+      "system": "cultivation",
+      "role": "registered-or-direct-runtime",
+      "sha256": "be371515049aa093496c019d493cab095905168659a9b32b32b10090ae00bae5",
+      "actual_size": [
+        1024,
+        1536
+      ],
+      "generation": "302ai-sunburst（提示词请求 gpt-image-2.5，实际模型未确认）；原生透明 + --opaque-fix；朝左版为翻转后请模型改回右衽",
+      "acceptance_status": "adopted-20261102-user-passed-review-desk-r35-q2",
+      "source_manifest": "art_sources/qihe-reps-q-20261102/README.md",
+      "references": [
+        "js/qh-mode-cultivation-mentors.js"
+      ]
+    },
+    {
+      "id": "cu_household-v1_shen_worry_left_png",
+      "path": "assets/production/cultivation/household-v1/shen_worry_left.png",
+      "original_path": "art_sources/qihe-reps-q-20261102/left/shen_worry_left.png",
+      "system": "cultivation",
+      "role": "registered-or-direct-runtime",
+      "sha256": "e4431967e89e21a23aeb90be936ca4083b31cc211347f56ba65f12cd8bdfb5d1",
+      "actual_size": [
+        1024,
+        1536
+      ],
+      "generation": "302ai-sunburst（提示词请求 gpt-image-2.5，实际模型未确认）；原生透明 + --opaque-fix；朝左版为翻转后请模型改回右衽",
+      "acceptance_status": "adopted-20261102-user-passed-review-desk-r35-q2",
+      "source_manifest": "art_sources/qihe-reps-q-20261102/README.md",
+      "references": [
+        "js/qh-mode-cultivation-mentors.js"
+      ]
+    },
+    {
+      "id": "cu_household-v1_xu_normal_left_png",
+      "path": "assets/production/cultivation/household-v1/xu_normal_left.png",
+      "original_path": "art_sources/qihe-reps-q-20261102/left/xu_normal_left.png",
+      "system": "cultivation",
+      "role": "registered-or-direct-runtime",
+      "sha256": "50a23dc72541625f87a25eab056014a6473aeebc7a2751b94e4849aebb3f218e",
+      "actual_size": [
+        1024,
+        1536
+      ],
+      "generation": "302ai-sunburst（提示词请求 gpt-image-2.5，实际模型未确认）；原生透明 + --opaque-fix；朝左版为翻转后请模型改回右衽",
+      "acceptance_status": "adopted-20261102-user-passed-review-desk-r35-q2",
+      "source_manifest": "art_sources/qihe-reps-q-20261102/README.md",
+      "references": [
+        "js/qh-mode-cultivation-mentors.js"
+      ]
+    },
+    {
+      "id": "cu_household-v1_xu_sad_left_png",
+      "path": "assets/production/cultivation/household-v1/xu_sad_left.png",
+      "original_path": "art_sources/qihe-reps-q-20261102/left/xu_sad_left.png",
+      "system": "cultivation",
+      "role": "registered-or-direct-runtime",
+      "sha256": "cee8b84d4d13298f6e8eac69d4c8eb39ae324ce9ee3e85fde5f85c1ab2b41ae5",
+      "actual_size": [
+        1024,
+        1536
+      ],
+      "generation": "302ai-sunburst（提示词请求 gpt-image-2.5，实际模型未确认）；原生透明 + --opaque-fix；朝左版为翻转后请模型改回右衽",
+      "acceptance_status": "adopted-20261102-user-passed-review-desk-r35-q2",
+      "source_manifest": "art_sources/qihe-reps-q-20261102/README.md",
+      "references": [
+        "js/qh-mode-cultivation-mentors.js"
+      ]
+    },
+    {
+      "id": "cu_household-v1_xu_serious_left_png",
+      "path": "assets/production/cultivation/household-v1/xu_serious_left.png",
+      "original_path": "art_sources/qihe-reps-q-20261102/left/xu_serious_left.png",
+      "system": "cultivation",
+      "role": "registered-or-direct-runtime",
+      "sha256": "ebf62f0cd1b6e4d84ba0beeba31b24e44273f1b2d087b09bfaaff5a373efdced",
+      "actual_size": [
+        1024,
+        1536
+      ],
+      "generation": "302ai-sunburst（提示词请求 gpt-image-2.5，实际模型未确认）；原生透明 + --opaque-fix；朝左版为翻转后请模型改回右衽",
+      "acceptance_status": "adopted-20261102-user-passed-review-desk-r35-q2",
+      "source_manifest": "art_sources/qihe-reps-q-20261102/README.md",
+      "references": [
+        "js/qh-mode-cultivation-mentors.js"
+      ]
+    },
+    {
+      "id": "cu_household-v1_xu_smile_left_png",
+      "path": "assets/production/cultivation/household-v1/xu_smile_left.png",
+      "original_path": "art_sources/qihe-reps-q-20261102/left/xu_smile_left.png",
+      "system": "cultivation",
+      "role": "registered-or-direct-runtime",
+      "sha256": "fcc70f1690cf1cd41a6933d32c24ca5e8629f5b7b7e09497f83b809806fc9604",
+      "actual_size": [
+        1024,
+        1536
+      ],
+      "generation": "302ai-sunburst（提示词请求 gpt-image-2.5，实际模型未确认）；原生透明 + --opaque-fix；朝左版为翻转后请模型改回右衽",
+      "acceptance_status": "adopted-20261102-user-passed-review-desk-r35-q2",
+      "source_manifest": "art_sources/qihe-reps-q-20261102/README.md",
+      "references": [
+        "js/qh-mode-cultivation-mentors.js"
+      ]
+    },
+    {
+      "id": "prop_qh_chest_crate_closed_20261102",
+      "path": "assets/production/maps/town-props-20261102/prop_qh_chest_crate_closed_20261102.webp",
+      "original_path": "art_sources/qihe-chests-20261102/out/prop_qh_chest_crate_closed_20261102.png",
+      "system": "map",
+      "role": "registered-or-direct-runtime",
+      "sha256": "040be49ef3aded7e13d030373b4c58e4bc3ddd747ca95395738577c49255e149",
+      "actual_size": [
+        52,
+        56
+      ],
+      "acceptance_status": "候选，待用户评审：2026-11-02 栖河地图补物资点（用户授权自审后直接整改）；302 生图＋forge 像素后期＋按底图压色",
+      "references": [
+        "js/qihe-treasure.js",
+        "js/production-assets.js"
+      ]
+    },
+    {
+      "id": "prop_qh_chest_crate_open_20261102",
+      "path": "assets/production/maps/town-props-20261102/prop_qh_chest_crate_open_20261102.webp",
+      "original_path": "art_sources/qihe-chests-20261102/out/prop_qh_chest_crate_open_20261102.png",
+      "system": "map",
+      "role": "registered-or-direct-runtime",
+      "sha256": "bbced7a9e08d8adc0ce063d57a76bf6282e4717bfc6b0eca901d2e8642aa492d",
+      "actual_size": [
+        68,
+        56
+      ],
+      "acceptance_status": "候选，待用户评审：2026-11-02 栖河地图补物资点（用户授权自审后直接整改）；302 生图＋forge 像素后期＋按底图压色",
+      "references": [
+        "js/qihe-treasure.js",
+        "js/production-assets.js"
+      ]
+    },
+    {
+      "id": "prop_qh_chest_basket_closed_20261102",
+      "path": "assets/production/maps/town-props-20261102/prop_qh_chest_basket_closed_20261102.webp",
+      "original_path": "art_sources/qihe-chests-20261102/out/prop_qh_chest_basket_closed_20261102.png",
+      "system": "map",
+      "role": "registered-or-direct-runtime",
+      "sha256": "fcfaba30c0f5826e08eb08bd8e73e4a12e351a6c698b54009e0ce4ca62ae776f",
+      "actual_size": [
+        54,
+        52
+      ],
+      "acceptance_status": "候选，待用户评审：2026-11-02 栖河地图补物资点（用户授权自审后直接整改）；302 生图＋forge 像素后期＋按底图压色",
+      "references": [
+        "js/qihe-treasure.js",
+        "js/production-assets.js"
+      ]
+    },
+    {
+      "id": "prop_qh_chest_basket_open_20261102",
+      "path": "assets/production/maps/town-props-20261102/prop_qh_chest_basket_open_20261102.webp",
+      "original_path": "art_sources/qihe-chests-20261102/out/prop_qh_chest_basket_open_20261102.png",
+      "system": "map",
+      "role": "registered-or-direct-runtime",
+      "sha256": "a5766bca7f45a15264fb1b77b62e6fd14e1c67c58483bb33a8e884e40445c8b2",
+      "actual_size": [
+        76,
+        52
+      ],
+      "acceptance_status": "候选，待用户评审：2026-11-02 栖河地图补物资点（用户授权自审后直接整改）；302 生图＋forge 像素后期＋按底图压色",
+      "references": [
+        "js/qihe-treasure.js",
+        "js/production-assets.js"
+      ]
+    },
+    {
+      "id": "prop_qh_chest_iron_closed_20261102",
+      "path": "assets/production/maps/town-props-20261102/prop_qh_chest_iron_closed_20261102.webp",
+      "original_path": "art_sources/qihe-chests-20261102/out/prop_qh_chest_iron_closed_20261102.png",
+      "system": "map",
+      "role": "registered-or-direct-runtime",
+      "sha256": "47490cfe2485da282cb7fd538f8c84554f5a311937053defead9d130afdc0910",
+      "actual_size": [
+        82,
+        72
+      ],
+      "acceptance_status": "候选，待用户评审：2026-11-02 栖河地图补物资点（用户授权自审后直接整改）；302 生图＋forge 像素后期＋按底图压色",
+      "references": [
+        "js/qihe-treasure.js",
+        "js/production-assets.js"
+      ]
+    },
+    {
+      "id": "prop_qh_chest_iron_open_20261102",
+      "path": "assets/production/maps/town-props-20261102/prop_qh_chest_iron_open_20261102.webp",
+      "original_path": "art_sources/qihe-chests-20261102/out/prop_qh_chest_iron_open_20261102.png",
+      "system": "map",
+      "role": "registered-or-direct-runtime",
+      "sha256": "2dc4657d0b136ebef3beaa647f74f0bb32c7990d52897f712af99142bd64af32",
+      "actual_size": [
+        94,
+        102
+      ],
+      "acceptance_status": "候选，待用户评审：2026-11-02 栖河地图补物资点（用户授权自审后直接整改）；302 生图＋forge 像素后期＋按底图压色",
+      "references": [
+        "js/qihe-treasure.js",
+        "js/production-assets.js"
+      ]
+    },
+    {
+      "id": "prop_qh_chest_drift_closed_20261102",
+      "path": "assets/production/maps/town-props-20261102/prop_qh_chest_drift_closed_20261102.webp",
+      "original_path": "art_sources/qihe-chests-20261102/out/prop_qh_chest_drift_closed_20261102.png",
+      "system": "map",
+      "role": "registered-or-direct-runtime",
+      "sha256": "25d15d6d06cc09c039e8b7818a2ae87f89d8030e70fd16f8e053e220bbeb2380",
+      "actual_size": [
+        50,
+        44
+      ],
+      "acceptance_status": "候选，待用户评审：2026-11-02 栖河地图补物资点（用户授权自审后直接整改）；302 生图＋forge 像素后期＋按底图压色",
+      "references": [
+        "js/qihe-treasure.js",
+        "js/production-assets.js"
+      ]
+    },
+    {
+      "id": "prop_qh_chest_drift_open_20261102",
+      "path": "assets/production/maps/town-props-20261102/prop_qh_chest_drift_open_20261102.webp",
+      "original_path": "art_sources/qihe-chests-20261102/out/prop_qh_chest_drift_open_20261102.png",
+      "system": "map",
+      "role": "registered-or-direct-runtime",
+      "sha256": "5a7b265685c2c4140cfc83d1612778b511e0d3cb23ac033ab4ce863138bf3ce6",
+      "actual_size": [
+        76,
+        48
+      ],
+      "acceptance_status": "候选，待用户评审：2026-11-02 栖河地图补物资点（用户授权自审后直接整改）；302 生图＋forge 像素后期＋按底图压色",
+      "references": [
+        "js/qihe-treasure.js",
         "js/production-assets.js"
       ]
     }

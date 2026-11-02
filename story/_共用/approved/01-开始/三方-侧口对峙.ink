@@ -1,6 +1,6 @@
 // 风起栖河 · 第三夜侧口（三方之三）：三家撞到一处、起火后各自下令救人
 // 地点：药棚装卸侧口　在场：叶蘅、徐令仪、岑霜、沈雁回、乌魁、护院、采办随从、周砚、萧白
-// 戏眼：叶蘅只想装完最后一车药带伤者走；三家偏偏同一时辰在同一个侧口出现，各说各的约定；散场时（交锋、起火之后）三人各自收手救人，叶蘅叫萧白去救陈伯或护车。
+// 戏眼：叶蘅只想装完最后一车药带伤者走；三家偏偏同一时辰在同一个侧口出现，各说各的约定；散场时（交锋、起火之后）三人各自收手救人，叶蘅叫萧白去救陈伯（2026-11-02 起不再选救人还是护车）。
 // 2026-10-19 三方批次：从 js/qihe-representatives.js rows.fireDemand、rows.fireCollision、rescueOrders() 搬入，并按剧情三道关改写
 //   （戏眼卡 xiaojianghu/docs/design/scripts/briefs/fengqi-reps-actors-brief.json 场 S3-fire、S3-collision、S3-rescue；危急时只下命令）。
 //   前两段由主线 qihe-chapter.js 通过 QiheRepresentatives.rows.fireDemand / fireCollision 取用（接口不变），中间是交锋与起火（主线负责）。
@@ -48,5 +48,5 @@ VAR clash = false // 参数
 ~ cg_begin("shen")
 沈雁回：老人家，跟着我，脚下慢点。 #id:R3-R8
 ~ cg_end()
-叶蘅：萧白！陈伯倒在药架边，车也卡住了—— #id:R3-R10
+叶蘅：萧白！陈伯倒在药架边了——跟我来！ #id:R3-R10
 -> END

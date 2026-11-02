@@ -5,6 +5,7 @@
 // 调用：js/qihe-town.js。打水回多少、丢钱扣多少、奖励给什么都在 JS。
 // 2026-10-29 逻辑排查（评审台，你答过的题由 Claude 落实）：木桶给 5 两，台词改“一小块碎银”。
 // 2026-10-30 删 qh_granary：用户说粮仓没剧情就清掉（评审台第二十四轮第 3 题）。
+// 2026-11-02 删 qh_notice_work、qh_grain_turn、qh_grain_idle：用户说晒谷竹席“这玩意直接去掉”。
 INCLUDE ../_共用/externals.ink
 INCLUDE ../_共用/externals-风起主线.ink
 
@@ -23,22 +24,6 @@ VAR drank = false // 参数：这个时段已经打过水
 
 === qh_barrel_empty ===
 萧白：（桶里空了。） #id:QX-br-empty
--> END
-
-=== qh_notice_work ===
-萧白：（路牌旁新贴了张条子：西田埂晒谷场缺人翻谷赶雀，管一袋炒米。） #id:QX-n-01
--> END
-
-=== qh_grain_turn ===
-萧白：（麻雀比人还勤快，得先赶了再翻。） #id:QX-g-01
-* [翻谷赶雀]
-    萧白：（手心磨得发烫，谷子倒是匀了。） #id:QX-g-02
-    ~ fq_answer("done")
-* [算了]
-- -> END
-
-=== qh_grain_idle ===
-萧白：（竹席上的谷子摊得匀匀的。） #id:QX-g-idle
 -> END
 
 === qh_well ===

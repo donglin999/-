@@ -18,7 +18,7 @@ const legacyRules={
  correspondence:{name:'通信旧记录',targets:[],use:'信件、回物与实际人物关系；不再新发通信点'},
  qh_staff:{name:'护路棍法',targets:[],use:'已有护路棍法招式熟练，须有陆衡教学'}
 };
-const labels={atk:'攻击',棍:'棍造诣',mhp:'气血上限',mmp:'内力上限',crit:'暴击',dodge:'闪避',spd:'身速',con:'根骨',agi:'身法',wil:'定力',wis:'悟性',str:'臂力',yi:'医术',shi:'武学常识',food:'干粮额外产量',pouch:'布包额外产量','剑':'剑造诣','拳':'拳造诣'};
+const labels={atk:'攻击',棍:'棍造诣',暗器:'暗器造诣',mhp:'气血上限',mmp:'内力上限',crit:'暴击',dodge:'闪避',spd:'身速',con:'根骨',agi:'身法',wil:'定力',wis:'悟性',str:'臂力',yi:'医术',shi:'武学常识',food:'干粮额外产量',pouch:'布包额外产量','剑':'剑造诣','拳':'拳造诣'};
 const courses={sword:{action:'K01',skillId:'gy_s1',systemId:'system_gy_foundation_s',name:'试锋剑法',move:'试锋探路'},fist:{action:'K02',skillId:'gy_p1',systemId:'system_gy_foundation_p',name:'守拙拳法',move:'守拙立桩'},breathing:{action:'B01',skillId:'tuna',systemId:'xf_tuna',name:'吐故纳新篇'}};
 function counters(s,actions=[]){const values={...s.progress},seen=new Set(),fromHistory={};for(const h of s.history||[]){if(!h.id||seen.has(h.id))continue;seen.add(h.id);const key=h.gainKey||actions.find(a=>a.id===h.action)?.gain;if(!key||!Number.isFinite(h.gain)||h.gain<0)continue;fromHistory[key]=(fromHistory[key]||0)+h.gain;}
  // Do not add history on top of existing counters. Restore only a missing field.
@@ -40,7 +40,7 @@ function ensure(s,actions=[]){if(s.balanceVersion===B.version)return s;
  for(const k of Object.keys(rules))s.progress[k]??=0;
  s.martialXp||={};for(const [key,m]of Object.entries(old.martial)){const a=B.library.arts.find(a=>a.key===key);s.martialXp[a.id]=Math.max(s.martialXp[a.id]||0,B.thresholds(a)[m.level-1]);}
  s.balanceVersion=B.version;return s;}
-function growth(source,actions=[]){const s=source.balanceVersion===B.version?source:ensure(JSON.parse(JSON.stringify(source)),actions),p=progress(s,actions),g={version:2,counts:{},progress:p,stats:{str:0,con:0,agi:0,wil:0,wis:0},bonuses:{mhp:0,mmp:0,atk:0,spd:0,crit:0,dodge:0},ji:{yi:0,shi:0},zy:{剑:0,拳:0,棍:0},craft:{food:0,pouch:0},medicine:{yi:0},martial:{}};
+function growth(source,actions=[]){const s=source.balanceVersion===B.version?source:ensure(JSON.parse(JSON.stringify(source)),actions),p=progress(s,actions),g={version:2,counts:{},progress:p,stats:{str:0,con:0,agi:0,wil:0,wis:0},bonuses:{mhp:0,mmp:0,atk:0,spd:0,crit:0,dodge:0},ji:{yi:0,shi:0},zy:{剑:0,拳:0,棍:0,暗器:0},craft:{food:0,pouch:0},medicine:{yi:0},martial:{}};
  const seen=new Set();for(const h of s.history||[]){if(!h.id||seen.has(h.id)||h.period<0)continue;seen.add(h.id);g.counts[h.action]=(g.counts[h.action]||0)+1;}
  for(const[k,r]of Object.entries(rules))for(const[group,target,step,limit]of r.targets)g[group][target]=(g[group][target]||0)+Math.min(limit,Math.floor((p[k]||0)/step));
  g.ji.yi=Math.min(100,g.medicine.yi);g.stats.str=Math.min(9,Math.floor(((p.sword||0)+(p.fist||0))/750));

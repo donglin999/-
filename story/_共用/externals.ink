@@ -14,6 +14,7 @@ EXTERNAL change_into_village_clothes()  // 淡出换装：现代装→粗布衣�
 EXTERNAL toast_for(text, ms)        // 屏幕提示，指定停留毫秒数（原 JS 里各处时长不同，原样保留）
 // 后山（js/prologue-arrival.js 绑定）
 EXTERNAL backhill_show(shot)        // 后山站位："encounter" 相遇／"dog" 遇狼
+EXTERNAL backhill_ye()              // 相遇：叶蘅喊出声才进画面
 EXTERNAL backhill_guard(on)         // 萧白抄木杆戒备（true）／放下（false）
 EXTERNAL backhill_retreat()         // 狼群退走
 EXTERNAL wolf_battle()              // 后山遇狼战斗；输了弹“重新挑战／稍后再试”，选稍后再试则本段中止

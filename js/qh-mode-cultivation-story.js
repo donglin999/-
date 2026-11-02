@@ -15,7 +15,7 @@ function actorSrc0(id,mood){const H=root.CultivationHousehold,st=typeof S!=='und
 // 下列人物每个表情档都有重画的朝左版（文件名加 _left），多人镜头站最右位时换用；不镜像翻图。
 // 朝左版取景可能和原档不同，站位按 data-facing="left" 单独给（build_actor_layout.py 逐张量脸），舞台上脸高、脸线不变。
 const faceLeft=(id,i,n)=>n>1&&i===n-1&&LEFT_READY.has(id);
-const LEFT_READY=new Set(['pei','peishu','zhou','yin','mo_songnian','meng_zhiwei','zhaochuan_courier']);
+const LEFT_READY=new Set(['pei','peishu','zhou','yin','mo_songnian','meng_zhiwei','zhaochuan_courier','xu','cen','shen']);
 function actorSrc(id,mood,right){const src=actorSrc0(id,mood);return right&&LEFT_READY.has(id)&&src?src.replace(/\.png$/,'_left.png'):src;}
 // 多人镜头保留完整名单；当前说话人和萧白始终在三幅大图中，其他在场人物用头像展示。
 // 2026-10-20 用户：主角没有特殊原因时站在最左边和别人对话。cast 里写成什么顺序都先把萧白挪到第一位；

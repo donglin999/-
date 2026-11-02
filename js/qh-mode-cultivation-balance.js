@@ -18,13 +18,14 @@ const rules={
  sewing:{name:'缝补',targets:[['craft','pouch',40,2]],use:'每40点制作布包额外1个，最多额外2个'},
  travel:{name:'行路',targets:[['bonuses','spd',24,2]],use:'行路熟练增加身速'},
  correspondence:{name:'往来记录',targets:[],use:'人物关系、来信与回物'},
- qh_staff:{name:'护路棍法笔记',targets:[['zy','棍',10,200]],use:'每期一份笔记熟练；与实战共用护路棍法进度'}
+ qh_staff:{name:'护路棍法笔记',targets:[['zy','棍',10,200]],use:'每期一份笔记熟练；与实战共用护路棍法进度'},
+ hidden:{name:'针路经验',targets:[['zy','暗器',10,200]],use:'暗器造诣每20点增伤1%'}
 };
 const legacyScale={foundation:6,coordination:8,footwork:7.5,breathing:3.75,observation:10,listening:10,sword:3.75,fist:3.75};
 const artById=id=>L.arts.find(a=>a.id===id),artForAction=a=>L.arts.find(x=>x.action===(typeof a==='string'?a:a?.id)),artForSkill=id=>L.arts.find(a=>a.type==='external'&&a.moves.some(m=>m.id===id));
 function mood(s){return moods.find(m=>(s.mood??60)>=m.min);}
 function thresholds(a){const c=curves[a.curve];return a.type==='inner'?[c[0],c[2],c[4],c[6],c[9]]:c;}
-function cap(s,a){if(s.balanceLegacyCaps?.[a.id])return Math.max(s.balanceLegacyCaps[a.id],s.month<=5?(a.type==='inner'?2:3):(a.type==='inner'?5:10));if(a.grade==='丁'&&s.month<=5)return a.type==='inner'?2:3;return a.type==='inner'?5:10;}
+function cap(s,a){if(a.earlyCap&&s.month<=5)return a.grade==='丁'?(a.type==='inner'?2:3):a.earlyCap;if(s.balanceLegacyCaps?.[a.id])return Math.max(s.balanceLegacyCaps[a.id],s.month<=5?(a.type==='inner'?2:3):(a.type==='inner'?5:10));if(a.grade==='丁'&&s.month<=5)return a.type==='inner'?2:3;return a.type==='inner'?5:10;}
 function level(s,a){const xp=s.martialXp?.[a.id]||0,t=thresholds(a);return Math.min(cap(s,a),1+t.slice(1).filter(n=>xp>=n).length);}
 function stats(s){const p=s.progress||{},b=s.trainingBaseStats||{str:3,con:3,agi:3,wil:3,wis:3},v={str:Math.min(9,Math.floor(((p.sword||0)+(p.fist||0))/750)),con:0,agi:0,wil:0,wis:0};for(const [k,r]of Object.entries(rules))for(const [g,t,n,c]of r.targets)if(g==='stats')v[t]+=Math.min(c,Math.floor((p[k]||0)/n));return Object.fromEntries(Object.keys(v).map(k=>[k,(b[k]??3)+Math.max(v[k],s.balanceLegacy?.stats?.[k]||0)]));}
 function efficiency(s){return Math.min(10,stats(s).wis)+Math.min(10,Math.floor(Math.min(200,s.progress?.understanding||0)/20))+mood(s).index;}
@@ -40,7 +41,7 @@ function preview(s,a,first=false,fg=null){const e=efficiency(s),key=fg?.gain||a.
  return {gain,key,efficiency:e,mood:mood(s),coefficient,artId:art?.id||null,xp:art&&!first?(a.id==='QH01'?gain:5*e):0};}
 function addXp(s,id,raw){const a=artById(id);if(!a||!s.learned?.[a.key]||!Number.isFinite(raw)||raw<0)return null;s.martialXp||={};const prior=s.martialXp[id]||0,before=level(s,a),maximum=thresholds(a)[cap(s,a)-1];s.martialXp[id]=Math.min(maximum,Math.round((prior+raw)*10)/10);return {id,before,after:level(s,a),gain:s.martialXp[id]-prior};}
 function grantLevel(s,id){const a=artById(id);if(!a)return null;const n=level(s,a);if(n>=cap(s,a))return null;return addXp(s,id,thresholds(a)[n]-(s.martialXp[id]||0));}
-function gate(s,a){const art=artForAction(a);if(a.id==='QH01'&&s.history.some(h=>h.period===(s.month-1)*5+s.phase&&h.action==='QH01'))return'本期笔记已复盘，下期再来。';if(!art||s.learned[art.key])return'';if(s.month<art.month)return`《${art.name}》最早在第${art.month}个月传授。`;
+function gate(s,a){const art=artForAction(a);if(a.id==='QH01'&&s.history.some(h=>h.period===(s.month-1)*5+s.phase&&h.action==='QH01'))return'本期笔记已复盘，下期再来。';if(!art||s.learned[art.key])return'';if(art.sceneTaught)return`《${art.name}》要${art.teacherCall}亲自教，闲逛时去找${art.teacherCall}。`;if(s.month<art.month)return`《${art.name}》最早在第${art.month}个月传授。`;
  if(art.type==='external'&&art.grade!=='丁'&&art.id!=='qh_hulu_staff'&&s.facts.gy_martial_major?.path!==(art.path==='剑'?'sword':'fist'))return'须先选定对应主修路线。';
  if(art.prerequisite){const p=artById(art.prerequisite.art_id);if(!s.learned[p?.key]||level(s,p)<art.prerequisite.level)return`先把《${p?.name}》练到${art.prerequisite.level}${p?.type==='inner'?'层':'重'}。`;}
  if(art.grade==='乙'&&!s.facts.gy_year_exam_seen)return'先完成第一年的师门考校。';
@@ -50,7 +51,7 @@ function courseHint(s,a){const r=preview(s,a,!!a.learn&&!s.learned[a.learn]),art
 function mastery(k,n){const a=artForSkill(k);return n>=10&&a?.mastery?.move_ids?.includes(k)?a.mastery.effect:{};}
 function upgradeReason(s,id){const a=artById(id)||artForSkill(id);if(!a||!s.learned?.[a.key])return'尚未受教';const n=level(s,a);return n>=cap(s,a)?(cap(s,a)<thresholds(a).length?'已达当前授课上限，六月后继续修习':'已练满'):'';}
 function install(D){for(const a of D.actions){a.legacyAmount=a.amount||0;a.legacyGain=a.gain;if(a.id==='B04')a.gain='coordination';if(a.once||a.visitor||a.auto)a.amount=Math.round((a.amount||0)*(legacyScale[a.gain]||1));}for(const[k,v]of Object.entries(rules))D.progressNames[k]=v.name;
- for(const art of L.arts){if(['K01','K02','B01','QH01'].includes(art.action))continue;const fist=art.path!=='剑',alias=art.type==='inner'?'B01':fist?'K02':'K01';D.actions.push({id:art.action,category:art.type==='inner'?'basic':'skill',name:art.name,teacher:art.id==='art_gy_p2'?'殷红缨':'周砚',place:art.type==='inner'?'竹径':'练武场',requires:['stance'],learn:art.key,gain:art.type==='inner'?'breathing':fist?'fist':'sword',amount:0,artAlias:alias,task:`正式受教《${art.name}》，首次学会后才能独练；${art.grade}级，使用已有招式。`,feedback:`《${art.name}》的起手与收势已经练过。`,beats:[`${art.id==='art_gy_p2'?'殷师叔':'师父'}把《${art.name}》的起手放慢，让你跟着走了一遍。`,'本次只练已受教的部分，进度与实战共用。']});}
+ for(const art of L.arts){if(['K01','K02','B01','QH01'].includes(art.action))continue;const fist=art.path!=='剑'&&art.path!=='暗器',alias=art.type==='inner'?'B01':fist?'K02':'K01',who=art.teacher||(art.id==='art_gy_p2'?'殷红缨':'周砚');D.actions.push({id:art.action,category:art.type==='inner'?'basic':'skill',name:art.name,teacher:who,place:art.type==='inner'?'竹径':'练武场',requires:['stance'],learn:art.key,sceneTaught:!!art.sceneTaught,gain:art.type==='inner'?'breathing':art.path==='暗器'?'hidden':fist?'fist':'sword',amount:0,artAlias:alias,task:`正式受教《${art.name}》，首次学会后才能独练；${art.grade}级，使用已有招式。`,feedback:`《${art.name}》的起手与收势已经练过。`,beats:[`${art.teacherCall||(art.id==='art_gy_p2'?'殷师叔':'师父')}把《${art.name}》的起手放慢，让你跟着走了一遍。`,'本次只练已受教的部分，进度与实战共用。']});}
 }
 const api={version:2,curves,moods,rules,legacyScale,library:L,artById,artForAction,artForSkill,mood,thresholds,cap,level,stats,efficiency,preview,addXp,grantLevel,gate,courseHint,install,upgradeReason,mastery};if(typeof module==='object'&&module.exports)module.exports=api;else root.CultivationBalance=api;
 })(typeof globalThis!=='undefined'?globalThis:this);

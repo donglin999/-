@@ -35,7 +35,7 @@ INCLUDE ../_共用/externals.ink
 萧白：陈伯，周婶让我把碗送回来。 #id:P-S1-05
 陈伯：哎哎，碗搁桌上，别踩那块松木板！ #id:P-S1-06
 周砚：你们先忙，我不急。 #id:P-S1-07
--> received
+-> received_leave
 
 = received
 ~ set_flag("prologue.errands.bowls", "done")
@@ -43,6 +43,16 @@ INCLUDE ../_共用/externals.ink
 ~ checkpoint()
 ~ toast_for("碗送到了", 1300)
 陈伯：碗我收着。跟周婶说，往后要使尽管来拿，明儿我去给她修药架。 #id:P-S1-16
+-> END
+
+// 没旁听就把碗送进去的：周砚不干等，告辞回船家，不然碗一送到他就凭空不见了
+= received_leave
+~ set_flag("prologue.errands.bowls", "done")
+~ uncarry("bowls")
+~ checkpoint()
+~ toast_for("碗送到了", 1300)
+陈伯：碗我收着。跟周婶说，往后要使尽管来拿，明儿我去给她修药架。 #id:P-S1-16b
+周砚：天晚了，我也不多扰。明日再来。 #id:P-S1-07b
 -> END
 
 // 门厅里的周砚（随时可搭话的一句）

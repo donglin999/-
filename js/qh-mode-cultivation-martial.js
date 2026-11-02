@@ -1,7 +1,7 @@
 /* 8792 local adoption of existing Guiyun move contracts, with shared cultivation XP. */
 (()=>{'use strict';if(!isQiheEntry())return;
 const N=CultivationBalance,L=CultivationLibrary;
-for(const a of L.arts){if(a.type!=='external')continue;for(const m of a.moves){const d=L.moves[m.id];if(!d)continue;SKILLS[m.id]={...d.s,artName:a.name,systemId:a.id,maxLevel:10,desc:d.s.descV4||d.s.desc};BSK[m.id]={...d.b};FXDEF[m.id]={tier:d.fx[0],cls:d.fx[1],hit:d.b.t||d.b.e||'拳'};if(window.MENU_ICONS)MENU_ICONS.skill[m.id]=MENU_ICONS.skill[a.path==='剑'?'liuye':'fist'];}}
+for(const a of L.arts){if(a.type!=='external')continue;for(const m of a.moves){const d=L.moves[m.id];if(!d)continue;SKILLS[m.id]={...d.s,artName:a.name,systemId:a.id,maxLevel:10,desc:d.s.descV4||d.s.desc};BSK[m.id]={...d.b};FXDEF[m.id]={tier:d.fx[0],cls:d.fx[1],hit:d.b.t||d.b.e||'拳'};if(window.MENU_ICONS)MENU_ICONS.skill[m.id]=MENU_ICONS.skill[a.path==='剑'?'liuye':a.path==='暗器'?'jinzhen':'fist']||MENU_ICONS.skill.fist;}}
 for(const [k,f]of Object.entries(L.hearts))XINFA[k]=JSON.parse(JSON.stringify(f));
 MN_SECT.guiyun='归云谷';
 // The current battle UI consumes guard offensively; its separate defensive-choice UI is deferred.

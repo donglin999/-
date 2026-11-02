@@ -12,6 +12,7 @@ async function line(id,who,text){mark(id);await say(who,text)}
 const backhill={
  backhill_show:shot=>PrologueBackhill.show(shot),
  backhill_guard:on=>on?PrologueBackhill.guard():PrologueBackhill.guard(false),
+ backhill_ye:()=>PrologueBackhill.showYe(),
  backhill_retreat:()=>PrologueBackhill.retreat(),
  mark:id=>mark(id),
  checkpoint:()=>checkpoint()
@@ -51,7 +52,7 @@ async function play(){
  running=true;const oldZ=$('dlg').style.zIndex;busy=true;keys={};player.path=null;player.goal=null;player.talkTo=null;OpeningCharacters.modernEvent=!state().borrowed;$('dlg').style.zIndex='60';
  let castToken;
  try{
-  castToken=window.DialogueStage?.begin({id:'prologue-arrival',cast:[{who:S.name||'萧白',sp:'c_hero',slot:'left'},{who:'叶蘅',sp:'c_ye',slot:'right'}]});
+  castToken=window.DialogueStage?.begin({id:'prologue-arrival',cast:[{who:S.name||'萧白',sp:'c_hero',slot:'left'},...(state().stage==='encounter'?[]:[{who:'叶蘅',sp:'c_ye',slot:'right'}])]}); // 相遇开头萧白一个人，叶蘅喊出声才上场
   if(state().stage==='encounter')await encounter();
   if(state().stage==='dog')await dog();
   if(state().stage==='lodging')await lodging();

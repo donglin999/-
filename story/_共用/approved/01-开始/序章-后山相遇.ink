@@ -6,10 +6,11 @@
 INCLUDE ../_共用/externals.ink
 
 === prologue_encounter ===
-#cast:萧白,叶蘅
+#cast:萧白
 ~ backhill_show("encounter")
 萧白：（头好沉……这是哪儿？） #id:P-01-01
 萧白：有人吗？ #id:P-01-02
+~ backhill_ye()
 叶蘅：哎！莫往那走！ #id:P-01-03
 叶蘅：那坡全是碎石头，踩上去就滑！ #id:P-01-04
 萧白：你好……这是哪儿？ #id:P-01-05

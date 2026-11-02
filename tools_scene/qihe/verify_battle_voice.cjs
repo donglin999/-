@@ -8,8 +8,10 @@ const c={console,Audio,Math:Object.assign(Object.create(Math),{random:()=>0}),pe
 function unit(cid,extra={}){return {key:cid,name:cid,hp:50,mhp:100,side:'ally',...extra}}
 function end(){audio.filter(a=>!a.paused).forEach(a=>a.onended?.())}
 function step(ms=4000){now+=ms;const t=timers;timers=[];t.forEach(f=>f?.());const r=raf;raf=[];r.forEach(f=>f())}
+// 2026-11-02 用户暂时去掉所有配音：js/voice.js 总开关关着时战斗配音一句不播；下面照旧测开关打开时的逻辑
 const voice=c.BattleVoice,ye=unit('ye'),su=unit('suzhi'),hero=unit('hero',{isHero:true}),animal=unit('wolf'),foe=unit('liu',{side:'foe'});
 c.battleLoop();assert.equal(voice.identity(hero),null);assert.equal(voice.identity(animal),null);assert.equal(voice.identity(unit('bandit',{name:'拦路帮众'})),null);
+c.CharacterVoice={enabled:false};c.__audio.started=true;c.allyTurn(ye);assert.equal(audio.length,0,'总开关关着不该播');c.CharacterVoice={enabled:true};
 c.__audio.started=false;c.allyTurn(ye);assert.equal(audio.length,0);c.__audio.started=true;
 c.allyTurn(ye);assert.equal(voice.current.event,'turn');assert.equal(duck,1);const oldFinish=audio.at(-1).onended;
 c.doAttack(ye,animal,3);assert.equal(voice.current.event,'attack');assert.equal(audio.filter(a=>!a.paused).length,1);assert.equal(audio.filter(a=>a.dataset.event==='attack').length,1,'multi-hit only one cue');oldFinish();assert.equal(voice.current.event,'attack');assert.equal(duck,1,'stale callback cannot undo duck');

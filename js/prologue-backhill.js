@@ -6,15 +6,17 @@
  if(isQiheEntry()){for(const f of [asset,P?.propImg])if(f&&!ASSETS.includes(f))ASSETS.push(f)}
  const k=1/ZOOM,point=p=>p.map(v=>v*k),at=p=>point(p).map(v=>v/TS);
  // Keep the complete static figures above the dialogue panel, on the path.
- const poses={encounter:{hero:[490,330],ye:[620,315]},dog:{hero:[580,330],ye:[740,315],dog:[350,330]}};
- let locked=false,pose='encounter',pending=null,dogVisible=false,clinicCast=null,hintNode=null,oldHint=null;
- const sc=SC[id]={name:'栖河村后山 · 午后',bg:asset,...(P?{propImg:P.propImg,propK:P.propK,props:P.props}:{}),gw:W*k/TS,gh:H*k/TS,
+ // 遇狼：萧白站在地图上那根木杆旁（台词“脚边有根棍子”），叶蘅挡在他前面（“站我身后”），两只狼从右边分两路绕。
+ const poses={encounter:{hero:[490,330],ye:[620,315]},dog:{hero:[300,262],ye:[405,275],dog:[610,235],dog2:[640,365]}};
+ // 地图底图里那根木杆的范围（底图像素），拿起时用旁边的土路盖住。
+ const stickRect=[424,348,92,42],stickCover=[540,348];
+ let locked=false,pose='encounter',pending=null,dogVisible=false,yeVisible=true,clinicCast=null,hintNode=null,oldHint=null;
+ const sc=SC[id]={name:'栖河村后山',bg:asset,...(P?{propImg:P.propImg,propK:P.propK,props:P.props}:{}),gw:W*k/TS,gh:H*k/TS,
   mapv:1,previewKey:'prologue_backhill',artMapKey:'prologue_backhill',start:at(poses.encounter.hero),startDir:'r',
   arrivalWalk:false,noFollow:true,playerSp:'opening_hero_modern',walk:[[0,0,W*k/TS,H*k/TS]],block:[],exits:[],npcs:[],
   surfaceHeight:()=>0,under(){if(ok(IMG[asset]))return;g.fillStyle='#66755a';g.fillRect(0,0,W*k,H*k);
    g.fillStyle='#b2a080';g.beginPath();g.moveTo(180*k,H*k);g.lineTo(410*k,140*k);g.lineTo(700*k,140*k);g.lineTo(830*k,H*k);g.fill();},
-  fx(){if(!ok(IMG[asset]))sc.under();if(sc.holdingRod){g.save();g.strokeStyle='#725132';g.lineWidth=5*k;
-   g.beginPath();g.moveTo(player.x-18*k,player.y-39*k);g.lineTo(player.x+28*k,player.y-44*k);g.stroke();g.restore();}}
+  fx(){if(!ok(IMG[asset]))sc.under();if(sc.holdingRod)drawHoldingRod()}
  };
  const fixedScene=()=>locked||cur===sc||(S?.scene?.startsWith('prologue_')&&S.prologue?.arrival?.borrowed===false&&S.prologue.arrival.stage!=='done');
  function fixed(){keys={};player.path=null;player.goal=null;player.talkTo=null;player.vx=player.vy=0;player.walk=0;player.moving=false;player.running=false;player.runK=0;}
@@ -39,34 +41,42 @@
   const a=fx.getImageData(0,0,cw,ch).data;let x0=cw,y0=ch,x1=0,y1=0;for(let y=0;y<ch;y++)for(let x=0;x<cw;x++)if(a[(y*cw+x)*4+3]>=48){if(x<x0)x0=x;if(x>x1)x1=x;if(y<y0)y0=y;if(y>y1)y1=y}
   if(x1<x0){x0=0;y0=0;x1=cw-1;y1=ch-1}x0=Math.max(0,x0-2);y0=Math.max(0,y0-2);x1=Math.min(cw-1,x1+2);const w=x1-x0+1,h=y1-y0+1;
   const c=document.createElement('canvas');c.width=w;c.height=h;c.getContext('2d').drawImage(f,x0,y0,w,h,0,0,w,h);
-  c.complete=true;c.naturalWidth=w;c.naturalHeight=h;IMG.c_backhill_wolf_r=c;if(typeof charBounds==='function')c._charBounds=charBounds(c);return true;
+  c.complete=true;c.naturalWidth=w;c.naturalHeight=h;IMG.c_backhill_wolf_r=c;if(typeof charBounds==='function')c._charBounds=charBounds(c);
+  const m=document.createElement('canvas');m.width=w;m.height=h;const mx=m.getContext('2d');mx.translate(w,0);mx.scale(-1,1);mx.drawImage(c,0,0);m.complete=true;m.naturalWidth=w;m.naturalHeight=h;IMG.c_backhill_wolf_l=m;if(typeof charBounds==='function')m._charBounds=charBounds(m);return true;
  }
+ // 持棍：地图上没有单独的持棍精灵，用已采用的战斗持棍站姿第 0 帧（2026-11-02，原来是程序画的一条线）。
+ function drawHoldingRod(){const A=window.PROLOGUE_MODERN_ART?.battle,im=A&&IMG[A.file],bg=IMG[asset];
+  if(ok(bg)){const K=W*k/(bg.naturalWidth||bg.width),[x,y,w,h]=stickRect;g.drawImage(bg,stickCover[0],stickCover[1],w,h,x*K,y*K,w*K,h*K)}
+  if(!ok(im))return;const [cw,ch]=A.cell,s=(58*k)/188,[ax,ay]=A.anchor;
+  g.save();g.translate(player.x,player.y);g.scale(-s,s);g.imageSmoothingEnabled=true;g.drawImage(im,0,0,cw,ch,-ax,-ay,cw,ch);g.restore();}
  function camera(){if(cur!==sc)return;cam.x=0;cam.y=0;camC.x=W*k/2;camC.y=H*k/2;}
  async function ready(){if(pending)return pending;pending=(async()=>{
-  const files=[asset,'s_opening_hero_modern','s_prologue_wilddog_v1',wolfArt()?.file||'b_wolf',...(P?[P.propImg]:[])];
+  const files=[asset,'s_opening_hero_modern','s_prologue_wilddog_v1',wolfArt()?.file||'b_wolf',...(window.PROLOGUE_MODERN_ART?.battle?[PROLOGUE_MODERN_ART.battle.file]:[]),...(P?[P.propImg]:[])];
   const results=await Promise.all(files.map(f=>ok(IMG[f])?true:loadOpt(f,f)));
   if(results[1]||results[2])sliceSheets();
   registerStaticDog();registerStaticWolf();
   if(!results.every(Boolean))toast('部分后山素材暂未载入，可先继续对白；再次进入会重试。',2600);
   return results.every(Boolean);
  })();try{return await pending}finally{pending=null}}
- function actors(){const p=poses[pose],n=[{id:'pb_ye',name:'叶蘅',sp:'c_ye',x:at(p.ye)[0],y:at(p.ye)[1],dir:'l',fixed:true,staticScene:true,act:async()=>{}}];
-  if(dogVisible)n.push({id:'pb_wilddog',name:'受惊灰狼',sp:IMG.c_backhill_wolf_r?'c_backhill_wolf':'c_wolf',x:at(p.dog)[0],y:at(p.dog)[1],h:52,dir:'r',fixed:true,staticScene:true,act:async()=>{}});
-  if(dogVisible)n.push({...n[n.length-1],id:'pb_wolf2',x:at([430,330])[0],y:at([430,330])[1]});
+ function actors(){const p=poses[pose],n=yeVisible?[{id:'pb_ye',name:'叶蘅',sp:'c_ye',x:at(p.ye)[0],y:at(p.ye)[1],dir:pose==='dog'?'r':'l',fixed:true,staticScene:true,act:async()=>{}}]:[];
+  if(dogVisible)n.push({id:'pb_wilddog',name:'受惊灰狼',sp:IMG.c_backhill_wolf_r?'c_backhill_wolf':'c_wolf',x:at(p.dog)[0],y:at(p.dog)[1],h:52,dir:'l',fixed:true,staticScene:true,act:async()=>{}});
+  if(dogVisible)n.push({...n[n.length-1],id:'pb_wolf2',x:at(p.dog2)[0],y:at(p.dog2)[1]});
   sc.npcs=n;sc._npcs=npcsOf(sc);
  }
  async function show(next='encounter',{dog=next==='dog',rod=false,transition=true}={}){
   locked=true;fixed();if(window.OpeningCharacters)OpeningCharacters.modernEvent=true;
-  await ready();pose=next;dogVisible=dog;sc.holdingRod=rod;actors();
+  await ready();pose=next;dogVisible=dog;sc.holdingRod=rod;yeVisible=next!=='encounter';actors();
   if(cur!==sc){await goScene(id,at(poses[pose].hero),'r');busy=true}
   else if(transition)await fade(()=>{const p=point(poses[pose].hero);player.x=p[0];player.y=p[1]});
-  const p=point(poses[pose].hero);player.x=p[0];player.y=p[1];player.dir=dog?'l':'r';
+  const p=point(poses[pose].hero);player.x=p[0];player.y=p[1];player.dir=dog?'r':'l';
   player.alpha=ok(IMG.s_opening_hero_modern)?1:0;fixed();camera();
   document.body.classList?.add('prologue-fixed-scene');
   sceneHint(true);
   return sc;
  }
- function guard(value=true){sc.holdingRod=value;fixed()}
+ function guard(value=true){sc.holdingRod=value;player.alpha=value?0:1;fixed()}
+ // 相遇：萧白先一个人晃，叶蘅喊出声才进画面，他转向她。
+ function showYe(){yeVisible=true;actors();player.dir='r';fixed()}
  async function retreat(){if(cur!==sc)return;await fade(()=>{dogVisible=false;actors()});busy=true;fixed();camera()}
  function clinic(){if(!cur||clinicCast)return;const m=window.CHAPTER1_V2_MAPS?.clinic_interior;
   if(!m?.anchors.cot_side)return;
@@ -81,7 +91,7 @@
   cur._npcs=npcsOf(cur);snapCam();
  }
  function clearClinic(){if(!clinicCast)return;const c=clinicCast;clinicCast=null;c.scene.npcs=c.npcs;c.scene._npcs=npcsOf(c.scene)}
- function release(){locked=false;sc.holdingRod=false;fixed();document.body.classList?.remove('prologue-fixed-scene');sceneHint(fixedScene())}
+ function release(){locked=false;sc.holdingRod=false;player.alpha=1;fixed();document.body.classList?.remove('prologue-fixed-scene');sceneHint(fixedScene())}
  const oldPath=setPath;setPath=function(...args){if(fixedScene()&&mode==='scene'){fixed();return null}return oldPath(...args)};
  const oldUpdate=updateScene;updateScene=function(dt){if(!fixedScene()||mode!=='scene')return oldUpdate(dt);
   const wasBusy=busy;fixed();busy=true;try{return oldUpdate(dt)}finally{busy=wasBusy;fixed();camera()}};
@@ -90,5 +100,5 @@
  // Dialogue choice navigation continues to receive arrows. The scene mover is frozen above.
  if(typeof cv!=='undefined')cv.addEventListener('pointerdown',e=>{if(fixedScene()&&mode==='scene'){e.preventDefault();e.stopImmediatePropagation()}},true);
  if(typeof questLine==='function'){const oldQuest=questLine;questLine=function(){return cur===sc?(pose==='dog'?'与叶蘅配合，观察狼的行动意图。':'先站稳，跟叶姑娘说话。'):oldQuest()};window.questLine=questLine}
- window.PrologueBackhill={id,asset,poses,ready,show,guard,retreat,clinic,clearClinic,release,fixed,camera,registerStaticDog,get locked(){return locked},get pose(){return pose},get dogVisible(){return dogVisible}};
+ window.PrologueBackhill={id,asset,poses,ready,show,showYe,guard,retreat,clinic,clearClinic,release,fixed,camera,registerStaticDog,get locked(){return locked},get pose(){return pose},get dogVisible(){return dogVisible}};
 })();

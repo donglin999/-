@@ -2,7 +2,7 @@
 // 栖河地图可交互物（../xiaojianghu/docs/design/qihe-map-interactables.md 第 3～6、9 节）：D1 现有资源搬家、D4 支线、D5 小动作。
 // 台词全在 ink：story/01-开始/村中-*.ink（客栈、景物、货郎、孩子猜字谜）；这里只管站位、开放时段、存档、奖励与选项回传（fq_answer）。
 // 规则：活动不耗时（R-时间-01）；起火后村子关闭（第 3 节第 6 条）；景物调查一律走对话框（第 3 节第 7 条）。
-// 存档 S.qiheTown（第 9 节字段示意）：tab 三天酒钱、grain 翻谷、pole 断扁担、riddle 猜字谜、well 古井、searched 木桶与箱笼、gossipAt 以物换话。
+// 存档 S.qiheTown（第 9 节字段示意）：tab 三天酒钱、grain 翻谷（2026-11-02 已删）、pole 断扁担、riddle 猜字谜、well 古井、searched 木桶与箱笼、gossipAt 以物换话。
 (()=>{
  if(!isQiheEntry())return;
  const CP=()=>S?.qiheChapter,X=QiheExpansion;
@@ -62,13 +62,7 @@
  const barrel=(key,id,at,loot)=>X.add(key,id,'旧木桶',null,at,()=>guarded(async()=>{const t=town();if(t.searched[id])return play('qh_barrel_empty');t.searched[id]=true;await play('qh_barrel',{kind:loot.kind});await gain(loot.items||{},loot.silver||0)}),()=>!!CP()&&beforeFire());
  barrel('west','barrel-west',[540,260],{kind:'silver',silver:5});
  barrel('south','barrel-south',[1250,300],{kind:'rope',items:{qh_rope:1}});
- // ── 告示招工（C6）＋晒谷场翻谷（W1、Q4）＋粮仓（C5）──
- const grainOpen=()=>days()&&half()<=4&&!town().grain.done;
- {const central=SC[X.ids.central],sign=central.npcs.find(n=>n.id==='notice');if(sign){const old=sign.act;sign.act=async(...a)=>{await old(...a);if(grainOpen()&&!town().grain.seen){town().grain.seen=true;await play('qh_notice_work');save()}}}}
- const grainAct=()=>guarded(async()=>{if(!grainOpen())return play('qh_grain_idle');if(await play('qh_grain_turn')!=='done')return;town().grain.done=true;await gain({qh_fried_rice:1})});
- // 2026-10-27 用户：晒谷场“硬生生嵌到背景里”——从山脚草地挪到路口的空地上（晒谷本来就在场院、路边），压色版
- X.add('west','grain-yard','晒谷场',null,[520,440],grainAct,beforeFire).prop='prop_qh_grain_mat_fit_20261027';
- Object.assign(X.add('west','grain-heap','谷堆',null,[450,505],grainAct,beforeFire),{prop:'prop_qh_grain_heap_fit_20261027',block:[34,13]});
+ // 2026-11-02 用户看截图说晒谷竹席和谷堆“这玩意直接去掉”：晒谷场、谷堆连同告示招工翻谷一起删；素材 prop_qh_grain_mat/heap_fit_20261027 留着不删。
  // 2026-10-30 用户（评审台第二十四轮第 3 题）：粮仓没有剧情就清掉——不再摆粮仓、不再可查看；素材 prop_qh_granary_fit_20261027 留着不删。
  // ── 古井（C1）：看刻痕、打水喝（每时段一次，回少量气血）、丢颗石子听响（冷读：饮水井里丢钱不合村里习惯）──
  // 2026-10-27 井台石板撤掉：整块灰石板压在草地上太显眼（用户：新素材硬生生嵌在背景里）
@@ -134,9 +128,8 @@
  X.add('refuge','xiaohe','小禾','c_qh_xiaohe',[372,585],lastRiddle,refugeKids);
  // ── 道具绘制与挡路（素材 assets/production/maps/town-props-20261027，世界尺寸＝源像素 × 0.78125）──
  // 节点带 prop 就先画这张图（底边中点为锚；地面层 propTop 以上沿为锚，站上去的人都画在它上面），跟人物一起按纵坐标排序；block 是脚下挡路的椭圆半轴
- const PROP_K=.78125,TOWN_PROPS=['prop_qh_grain_mat_fit_20261027','prop_qh_grain_heap_fit_20261027','prop_qh_peddler_load_fit_20261027','prop_qh_peddler_load_broken_fit_20261027','prop_qh_fortune_stall_fit_20261027','prop_qh_well_fit_20261027','prop_qh_inn_menu_board_fit_20261027','prop_qh_east_store_shed_20261101','prop_qh_east_crates_20261101','prop_qh_east_handcart_20261101'];   // 2026-10-27 只载压色版（art_sources/qihe-props-fit-20261027）；v1、v2 原件留在素材库不加载
+ const PROP_K=.78125,TOWN_PROPS=['prop_qh_peddler_load_fit_20261027','prop_qh_peddler_load_broken_fit_20261027','prop_qh_fortune_stall_fit_20261027','prop_qh_well_fit_20261027','prop_qh_inn_menu_board_fit_20261027','prop_qh_east_store_shed_20261101','prop_qh_east_crates_20261101','prop_qh_east_handcart_20261101'];   // 2026-10-27 只载压色版（art_sources/qihe-props-fit-20261027）；v1、v2 原件留在素材库不加载
  ASSETS.push(...TOWN_PROPS);
- {const grain=SC[X.ids.west].npcs.find(n=>n.id==='grain-yard');grain.propTop=true;}
  // 算命摊：摆在算命先生身前（js/qihe-lamp-watcher.js 的 fortune 站在摊后）
  Object.assign(X.add('central','fortune-stall','算命摊',null,[1005,362],()=>window.QiheLamp?.fortuneTalk(),()=>!!window.QiheLamp&&days()&&half()<=4&&!QiheLamp.exposed()),{prop:'prop_qh_fortune_stall_fit_20261027',block:[44,12]});
  // 2026-11-01 东埠：起火戏写在“药棚装卸侧口”，这里补药棚的库棚和待装的货（只摆着，不能交谈：talkR 负值让 nearest 选不到）

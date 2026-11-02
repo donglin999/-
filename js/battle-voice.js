@@ -24,6 +24,7 @@
  function stop(){clearPending();if(current)finish(current.token)}
  function begin(b){stop();session=b;last.clear();variants.clear();downed=new WeakSet();turned=new WeakSet()}
  function play(request){
+  if(!window.CharacterVoice?.enabled)return false;   // 2026-11-02 用户暂时去掉所有配音：跟 js/voice.js 的总开关走
   if(!eligible()||request.session!==getBattle()||now()>request.expires)return false;
   const {cid,event}=request,cues=bank[cid]?.events?.[event];if(!cues?.length)return false;
   if(current){if(priority[event]<=priority[current.event])return false;finish(current.token)}

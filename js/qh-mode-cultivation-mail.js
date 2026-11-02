@@ -15,7 +15,10 @@ const portraits={
  zhong:{file:BASE+'portraits/zhong-menu.png',avatar:[336,40,320,330]},
  fang:{file:BASE+'portraits/fang-menu.png',avatar:[352,30,320,330]},
  dou:{file:BASE+'portraits/dou-menu.png',avatar:[371,10,320,330]},
- man:{file:BASE+'portraits/man-menu.png',avatar:[326,75,320,330]}
+ man:{file:BASE+'portraits/man-menu.png',avatar:[326,75,320,330]},
+ xu:{file:'assets/production/portraits/p_qh_xulingyi_story_hd_20261017.webp',avatar:[280,60,320,330]},
+ cen:{file:'assets/production/portraits/p_qh_censhuang_story_hd_20261017.webp',avatar:[290,70,320,330]},
+ shen:{file:'assets/production/portraits/p_qh_shenyanhui_story_hd_20261017.webp',avatar:[340,60,320,330]}
 };
 const categories=['全部','可赠送','兵器','护具','佩饰','药食','杂物','要物'];
 const giftKeys=['food','herb','pouch'],PAGE_SIZE=36;

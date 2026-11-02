@@ -2,12 +2,12 @@
   "说明": "用户审过的剧本指纹（迁移方案 §8.4）。改动已批准的剧本会让构建停止并列出改动，用户确认后运行 node tools_story/build_ink.cjs --approve <文件> 更新。不手改。",
   "files": {
     "01-开始/序章-进村第一夜.ink": {
-      "sha256": "3a70cabf358732a85c6d341bcf5756df8ebfaae4e0ccc90f5a4f48968ac5fe14",
-      "approvedAt": "2026-10-29"
+      "sha256": "f1e68bf6d4012d804e2ec3783ed0b70b524c6b1384734fdd6740706ebdc87ab4",
+      "approvedAt": "2026-11-02"
     },
     "01-开始/三方-侧口对峙.ink": {
-      "sha256": "4208b0e4084d61027bf03ae29d3b91944ef3c1c59d0982bff4dd381c52a5cdde",
-      "approvedAt": "2026-10-19"
+      "sha256": "aff4885310b37e2244872cfb3d849b3bf4c510b510cda5be96b8b91f4c6a5056",
+      "approvedAt": "2026-11-02"
     },
     "01-开始/三方-对证.ink": {
       "sha256": "963301d4e336569649f8e0000e7a7018e8a8f743ee1a777b2b7eb0e14bc06909",
@@ -38,16 +38,16 @@
       "approvedAt": "2026-10-29"
     },
     "01-开始/序章-后山相遇.ink": {
-      "sha256": "39d08a33bf4e2689e95d982eceb8faf0308d5b7c266cfb29aa3e1c6563c75674",
-      "approvedAt": "2026-10-19"
+      "sha256": "112e759f19b91c9deb8bf277d171152e8e0a04bef92e4119e36c3cb5039e2adf",
+      "approvedAt": "2026-11-02"
     },
     "01-开始/序章-递水.ink": {
       "sha256": "dd237943a75222e1e3e16c67c45956566c24f8137ac4cd7564e70c4b1f0f70a8",
       "approvedAt": "2026-10-19"
     },
     "01-开始/序章-遇狼.ink": {
-      "sha256": "0de82de0a3ecd4847bdcea840077dc8a4848402b56b50650dd960ccf6d712f77",
-      "approvedAt": "2026-10-19"
+      "sha256": "318bfe89010334ca75365ad7421a5430d553cb4b74d83f04e50377a4e5e6dcaf",
+      "approvedAt": "2026-11-02"
     },
     "01-开始/第一夜-取布.ink": {
       "sha256": "f080fbfa10349b31c683a2d68eb39d980a26c93087726e05bac420a6f4ed77e3",
@@ -66,20 +66,20 @@
       "approvedAt": "2026-10-19"
     },
     "01-开始/第一夜-过夜.ink": {
-      "sha256": "8c35db6fd9b6ced3d71b117a8864fa54463e1c020cf06e3df7ef1582f6abe95c",
-      "approvedAt": "2026-10-29"
+      "sha256": "70e9e4286b26b0c192aac1776759c41c46b8aefb96983aaf9751fea986f5cec4",
+      "approvedAt": "2026-11-02"
     },
     "01-开始/第一夜-还碗.ink": {
-      "sha256": "4e2a280178d4edb7d2f59d61d9b8fdb117b01224e9bbc03ead56030181cff380",
-      "approvedAt": "2026-10-26"
+      "sha256": "1a69eec43a6473a74373c7d603eae054e1731643427a2dbfe59819223f9765f9",
+      "approvedAt": "2026-11-02"
     },
     "01-开始/第一夜-送药.ink": {
       "sha256": "cc12696996053eb9a9705be28925ced89851cd437816e9debd201810fa984150",
       "approvedAt": "2026-10-29"
     },
     "01-开始/第一夜-问候.ink": {
-      "sha256": "19d7c0a6558816e7baffe8efa1939c6fa8ee5a2035e0c5074bcb26feb998e7ef",
-      "approvedAt": "2026-10-19"
+      "sha256": "c87903b5b3f6f8b50e3bc4f4a7b09bd8f7cb972cf5e6f069221f3c4a3d2e1d23",
+      "approvedAt": "2026-11-02"
     },
     "01-开始/风起-主线找人.ink": {
       "sha256": "9e0ccd1941bcecf719d1350f6ce80031dcbfc4e3cd0fbcc4b97e1bc577c3e546",
@@ -146,12 +146,12 @@
       "approvedAt": "2026-10-26"
     },
     "01-开始/风起-起火.ink": {
-      "sha256": "234f26b498f1af9f6752ea68eadea68d5c658e98d6a3159ea0b0b8d8ec70a82e",
-      "approvedAt": "2026-10-19"
+      "sha256": "fdbe067db3094a0496e842645b70141a7954f439570a1fd513da9a138e7e95f9",
+      "approvedAt": "2026-11-02"
     },
     "01-开始/风起-随口一句.ink": {
-      "sha256": "69c04b2e3a83509b812765825268c3b7eaec7480970678bb26b88cf046ddbc20",
-      "approvedAt": "2026-10-21"
+      "sha256": "4be128bc417be640f3d4a1952a51d1bdf85b763b04800d70765947234be0a4f2",
+      "approvedAt": "2026-11-02"
     },
     "01-开始/风起-集市帮忙.ink": {
       "sha256": "1c92712554c0c0e828dbc8eb17f32fbc69e6509dff9a5451df881bd5fe91fe20",
@@ -206,8 +206,8 @@
       "approvedAt": "2026-10-29"
     },
     "01-开始/村中-景物.ink": {
-      "sha256": "33f9832120818956919b74cb6ce01c2517e858cd69c6ce1b16ab5aba149f1f4f",
-      "approvedAt": "2026-10-30"
+      "sha256": "1a6b8c2b5e74813141d9c7bb85d48e7c9e450e678871f2f97bc5fd332c33ee1e",
+      "approvedAt": "2026-11-02"
     },
     "01-开始/人物-算命先生.ink": {
       "sha256": "1f847a491d2e002e1b49fa1a6f9c46c177c1895969071f4f87e17ddd35aa3016",

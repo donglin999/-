@@ -156,8 +156,14 @@ VAR asked_inspection = false
 叶蘅：明早我去找那个药商。你要是缓过来了，跟我走一趟？多个人听着，他不敢瞎扯。 #id:P-05-07
 萧白：好，我陪你去。 #id:P-05-08
 周婶：灯别点太久，费油。明早还有粥。 #id:P-05-10
-{ has_pending():
-    周婶：托你的那几样，没办完的不打紧，我明早自己跑一趟。 #id:P-05-10a
+{ is_pending(flag("prologue.errands.bowls")):
+    陈伯：碗你拎着，回屋搁我桌上就成。 #id:P-05-10b
+}
+{ flag("prologue.errands.cloth") == "collected":
+    周婶：布拿来吧，正好省我跑一趟。 #id:P-05-10c
+}
+{ flag("prologue.errands.cloth") == "accepted" or is_pending(flag("prologue.errands.medicine")):
+    周婶：托你的那几样，没办完的搁我这儿，我明早自己跑一趟。 #id:P-05-10a
 }
 萧白：知道了，您也早些歇。 #id:P-05-11
 陈伯：走，跟我回去睡吧。 #id:P-05-11a

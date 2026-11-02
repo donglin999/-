@@ -14,9 +14,9 @@ const {boot}=require('./harness.cjs'),assert=require('node:assert/strict'),fs=re
   lines.push({who,text,shot});
  }
  c.say=async(w,t)=>record(w,t);c.choose=async(w,t,opts)=>{assert(!active(),'choices must be on map');return choice};c.battle=async()=> 'win';
- for(const rescue of [0,1]){
+ /* 2026-11-02 起火救人不再二选一，固定跟叶蘅救陈伯（风起-起火.ink），只跑一遍 */for(const rescue of [0]){
   fresh();choice=rescue;await c.QiheChapter.resume();const p=c.QiheChapter.state();
-  assert.equal(p.stage,'refuge');assert.equal(p.rescue,rescue?'cart':'chen');assert.equal(p.supplies,rescue?5:3);/* 护车分支陈伯伤了腿，记为“腿伤待照护”（updates/2026-10-13-faction-clash.md；培养部分 qh-mode-cultivation-household.js 按此值读取） */assert.equal(p.chenCare,rescue?'腿伤待照护':'擦伤已照护');assert.equal(p.coreOwner,'叶蘅');assert.equal(p.coreIntact,true);
+  assert.equal(p.stage,'refuge');assert.equal(p.rescue,'chen');assert.equal(p.chenCare,'擦伤已照护');assert.equal(p.coreOwner,'叶蘅');assert.equal(p.coreIntact,true);
   const ignition=lines.filter(l=>l.shot==='ignition'),evac=lines.filter(l=>l.shot==='evacuation');
   /* 2026-10-19 起火一场按 ink 重写（story/01-开始/风起-起火.ink、三方-侧口对峙.ink；R-剧情-03 不用旁白、R-剧情-04 台词以 ink 为准）：起因由萧白在地图上说出，点火镜头只配叶蘅一句；岑霜、沈雁回两句各有特写镜头（cen/shen，三位主事人镜头见 updates/2026-10-07-three-heroines-cg-review.md） */
   assert(lines.some(l=>l.text.includes('灯芯掉在晾布上')&&l.shot===null));assert.equal(ignition.length,1);assert.equal(ignition[0].who,'叶蘅');assert.equal(evac.length,2);assert.deepEqual(evac.map(l=>l.who),['叶蘅','萧白']);

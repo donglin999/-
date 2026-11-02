@@ -1,0 +1,23 @@
+// 2026-11-02 栖河地图物资点（js/qihe-treasure.js）：可达、奖励固定一次、不用钥匙、起火关闭、读档不重复。
+const assert=require('node:assert/strict');const {boot}=require('./harness.cjs');
+(async()=>{const {c,run}=await boot();
+ run("window.__said=[];say=async(w,t)=>{__said.push(w+'：'+t)}");const said=()=>run('__said'),clear=()=>run('__said.length=0');
+ const fresh=()=>run(`S=newState();S.qiheChapter=QiheChapter.initial();S.qiheChapter.stage='days';S.qiheChapter.halfDay=0;S.prologue=QihePrologue.fresh();S.prologue.arrival={version:1,stage:'done',borrowed:true,originExpression:'A',greeted:{}};S.prologue.rested=true;S.silver=0;S.bag={};busy=false;dlgBusy=false;`);
+ const P=run('QiheTreasure.POINTS'),ids=run('QiheExpansion.ids');
+ const npc=p=>run(`SC['${ids[p.key]}'].npcs.find(n=>n.id==='chest-${p.id}')`);
+ const pt=id=>P.find(p=>p.id===id);
+ const checks=[];const check=async(name,fn)=>{clear();await fn();checks.push(name);console.log('PASS',name)};
+ fresh();
+ await check('14 处点位都站得到、走得通，不和别的点重叠',async()=>{assert.equal(P.length,14);
+  for(const p of P){await c.QiheExpansion.go(p.key,p.key==='central'?'start':'entry');run('busy=false;dlgBusy=false;');const n=npc(p);assert(n,p.id);
+   const reach=[[0,34],[0,-34],[34,0],[-34,0]].some(([dx,dy])=>c.standOk(p.at[0]+dx,p.at[1]+dy)&&c.findPath(p.at[0]+dx,p.at[1]+dy));assert(reach,p.id+' 走不到');
+   for(const o of run('cur.npcs'))if(o!==n)assert(Math.hypot(o.x*40-p.at[0],o.y*40-p.at[1])>=60,p.id+' 太挨着 '+o.name)}});
+ await check('奖励发一次，再开只说空了；隐藏点取后消失',async()=>{fresh();const a=npc(pt('chenyard'));await a.act();assert.equal(run('S.bag.qh_sewing_kit'),1);assert.equal(run('S.bag.qh_tinder'),1);clear();await a.act();assert.equal(run('S.bag.qh_tinder'),1);assert(!said().some(s=>s.startsWith('获得')));assert(a.show());
+  const h=npc(pt('yehou'));assert(h.show());await h.act();assert.equal(run('S.silver'),8);assert.equal(h.show(),false)});
+ await check('读档不重复发：存档字段在 S.qiheTown.chests',async()=>{assert.equal(run('S.qiheTown.chests.chenyard'),true);const s=JSON.parse(JSON.stringify(run('S')));assert.equal(s.qiheTown.chests.yehou,true)});
+ await check('铁箍箱直接能开，全表没有钥匙',async()=>{fresh();assert(!P.some(p=>p.needs));assert(!Object.keys(run('ITEMS')).some(k=>k.startsWith('qh_key_')));await npc(pt('tree')).act();assert.equal(run('S.bag.mianjia'),1);assert.equal(run('S.bag.pill'),2)});
+ await check('原钥匙点改发现钱：漂来木匣 12 两、墙缝布包 10 两；河岸铁箍箱直接开',async()=>{fresh();await npc(pt('drift')).act();assert.equal(run('S.silver'),12);await npc(pt('wall')).act();assert.equal(run('S.silver'),22);await npc(pt('sunk')).act();assert.equal(run('S.bag.charm'),1);assert.equal(run('S.silver'),52)});
+ await check('起火后村里的点关闭；接应院竹篓只在邻村开',async()=>{fresh();const v=npc(pt('field')),r=npc(pt('refuge'));assert(v.show());assert.equal(r.show(),false);run("S.qiheChapter.stage='fire'");assert.equal(v.show(),false);run("S.qiheChapter.stage='refuge'");assert.equal(v.show(),false);assert(r.show());await r.act();assert.equal(run('S.bag.bun'),2);assert.equal(run('S.bag.pill'),1)});
+ await check('奖励物品都登记过，台词都能跑',async()=>{fresh();const I=run('ITEMS');for(const p of P){for(const id of Object.keys(p.items||{}))assert(I[id],id);await npc(p).act();assert(run(`S.qiheTown.chests['${p.id}']`),p.id)}});
+ console.log('SUMMARY',checks.length,'passed');process.exit(0);
+})().catch(e=>{console.error(e);process.exit(1)});

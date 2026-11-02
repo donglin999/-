@@ -91,21 +91,14 @@
       ],
       "default": null,
       "part": "开始",
-      "meaning": "起火时萧白去救陈伯还是去护车；决定救人台词、撤离第一句、陈伯伤情与物资",
-      "setBy": [
-        "风起-起火"
-      ],
-      "readBy": [
-        "风起-起火"
-      ],
+      "meaning": "起火时救人去向。2026-11-02 起去掉二选一，新档固定为 chen（跟叶蘅救陈伯）；cart 只出现在旧档",
+      "setBy": [],
+      "readBy": [],
       "legacyRead": [
-        "js/qihe-chapter.js（fireBody 只在未选时问；chenCare、supplies 计算）",
-        "js/qihe-representatives.js 等测试"
+        "js/qihe-chapter.js（fireBody 的 rescue 事件写入 chen；旧档保留原值）",
+        "js/qihe-cultivation-bridge.js（qhOrigin.rescue 记录）"
       ],
-      "routeValues": [
-        "chen",
-        "cart"
-      ]
+      "recordOnly": true
     },
     "qiheChapter.choices.practice": {
       "type": "enum",
@@ -139,7 +132,7 @@
         "风起-收拾药箱"
       ],
       "legacyRead": [
-        "js/qihe-chapter.js（supplies 计算、已做过判断）",
+        "js/qihe-chapter.js（已做过判断）",
         "js/qihe-expansion.js（选 elders 后村口老人不再在村里）"
       ],
       "routeValues": [
@@ -179,7 +172,7 @@
       ],
       "readBy": [],
       "legacyRead": [
-        "js/qihe-chapter.js（supplies 计算、已做过判断）"
+        "js/qihe-chapter.js（已做过判断）"
       ]
     },
     "qiheChapter.talkCycle": {

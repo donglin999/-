@@ -4,8 +4,8 @@
  if(!isQiheEntry())return;
  const kinds={
   branch:{item:'qh_dry_branch',name:'枯枝',verb:'拾取',use:'捡地上的落枝，不砍树。2份可在南村口店家、接应院周婶或山居厨房换1份干粮。'},
-  herb:{item:'qh_wild_herb',name:'野草药',verb:'采集',use:'只采散生的小丛，留根。2份可交南村口药商辨收，换4文；不是可直接服用的药品。'},
-  reed:{item:'qh_river_reed',name:'芦苇',verb:'采集',use:'河岸少量取秆，留根。2份可交南村口药商作包装垫料，换2文。'}
+  herb:{item:'qh_wild_herb',name:'野草药',verb:'采集',use:'只采散生的小丛，留根。2份可交南村口药商辨收，换4两；不是可直接服用的药品。'},
+  reed:{item:'qh_river_reed',name:'芦苇',verb:'采集',use:'河岸少量取秆，留根。2份可交南村口药商作包装垫料，换2两。'}
  };
  for(const[k,v]of Object.entries(kinds)){ITEMS[v.item]={name:v.name,desc:v.use};ASSETS.push('r_qh_'+k+'_v1')}
  // World pixel coordinates. Do not randomize or reuse cultivated crop/medicine racks.
@@ -60,8 +60,8 @@
  }
  const recipes=[
   {id:'fuel',kind:'branch',cost:2,item:'bun',amount:1,text:'交枯枝 2 → 干粮 1',receivers:[['prologue_inn_interior','innkeeper'],['refuge','aunt'],['mountain','kitchen']]},   // 2026-10-27 店家搬进客栈柜台
-  {id:'medicine',kind:'herb',cost:2,silver:4,text:'交野草药 2 → 4文',receivers:[['south','merchant']]},
-  {id:'packing',kind:'reed',cost:2,silver:2,text:'交芦苇 2 → 2文',receivers:[['south','merchant']]}
+  {id:'medicine',kind:'herb',cost:2,silver:4,text:'交野草药 2 → 4两',receivers:[['south','merchant']]},
+  {id:'packing',kind:'reed',cost:2,silver:2,text:'交芦苇 2 → 2两',receivers:[['south','merchant']]}
  ];
  function receiver(r){if(!safePhase())return null;for(const[key,id]of r.receivers){const scene=QiheExpansion.ids[key]||key;const n=SC[scene].npcs.find(n=>n.id===id);if(n&&(!n.show||n.show())&&nearTalk({...n,scene}))return n}return null}
  function exchange(id){
@@ -78,7 +78,7 @@
   try{await new Promise(resolve=>{
    const panel=openPanel('qh-resource-panel');panelKind='qh-resources';panelClose=resolve;
    function render(){
-    panel.innerHTML='<header><h2>野外行囊</h2><button id="qh-resource-close">返回 · Esc</button></header><p>少量取用，留根留苗。采集不耗半日或培养体力；本段不刷新。</p><div class="qh-resource-list">'+Object.entries(kinds).map(([k,v])=>'<article><img alt="" src="assets/r_qh_'+k+'_v1.webp"><div><h3>'+v.name+' ×'+(S.bag[v.item]||0)+'</h3><p>'+v.use+'</p></div></article>').join('')+'<h3>就近交付</h3><p>到收取者身旁再交付。干粮 ×'+(S.bag.bun||0)+' · 银钱 '+(S.silver||0)+'文</p>'+recipes.map(r=>{
+    panel.innerHTML='<header><h2>野外行囊</h2><button id="qh-resource-close">返回 · Esc</button></header><p>少量取用，留根留苗。采集不耗半日或培养体力；本段不刷新。</p><div class="qh-resource-list">'+Object.entries(kinds).map(([k,v])=>'<article><img alt="" src="assets/r_qh_'+k+'_v1.webp"><div><h3>'+v.name+' ×'+(S.bag[v.item]||0)+'</h3><p>'+v.use+'</p></div></article>').join('')+'<h3>就近交付</h3><p>到收取者身旁再交付。干粮 ×'+(S.bag.bun||0)+' · 银钱 '+(S.silver||0)+'两</p>'+recipes.map(r=>{
      const n=receiver(r),enough=(S.bag[kinds[r.kind].item]||0)>=r.cost;
      return '<div class="qh-resource-trade"><button id="qh-resource-'+r.id+'" '+(!n||!enough?'disabled':'')+'>'+r.text+'</button><span>'+(!n?(r.id==='fuel'?'前往：南村口店家 / 接应院周婶 / 山居厨房':'前往：南村口药商'):!enough?'材料不足':'交给：'+n.name)+'</span></div>';
     }).join('')+'</div>';

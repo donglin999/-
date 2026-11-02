@@ -3,6 +3,8 @@
 (function(){
 const characters=window.GAME_VOICES?.characters||{}, aliases={};
 for(const [id,ch] of Object.entries(characters))for(const name of ch.aliases||[])aliases[name]=id;
+// 2026-11-02 用户：“暂时把配音都去掉，所有的配音都去掉”；同日又说“删掉配音文件和登记”，assets/audio/voices、battle-voices 已删（git 历史可找回）。播放代码留着，以后重新生成配音、补回登记并把开关改回 true 即可。
+const ENABLED=false;
 let current=null,serial=0,interaction=null;
 const lastPlayed=new Map(),cooldown=20000;
 function resolve(who,text,sp){
@@ -19,7 +21,7 @@ function stop(token){
 }
 function begin(who,text,sp){
   stop();const found=resolve(who,text,sp),handle={matched:!!found,token:++serial,finished:Promise.resolve()};
-  if(!found||document.hidden||!window.__audio?.started||window.__audio.muted)return handle;
+  if(!ENABLED||!found||document.hidden||!window.__audio?.started||window.__audio.muted)return handle;
   const {cid,ch,line}=found,now=performance.now();
   if(ch.voice_mode==='single'&&((interaction?.has(cid))||(lastPlayed.has(line.id)&&now-lastPlayed.get(line.id)<cooldown)))return handle;
   window.BattleVoice?.stop();
@@ -35,6 +37,6 @@ function begin(who,text,sp){
   return handle;
 }
 document.addEventListener('visibilitychange',()=>{if(document.hidden)stop()});
-window.CharacterVoice={begin,stop,resolve,beginInteraction(){stop();interaction=new Set()},endInteraction(){stop();interaction=null},
+window.CharacterVoice={enabled:ENABLED,begin,stop,resolve,beginInteraction(){stop();interaction=new Set()},endInteraction(){stop();interaction=null},
   get playing(){return !!current},get current(){return current?{cid:current.cid,line_id:current.line_id}:null},cooldown};
 })();

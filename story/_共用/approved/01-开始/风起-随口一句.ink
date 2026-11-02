@@ -8,7 +8,6 @@
 INCLUDE ../_共用/externals.ink
 INCLUDE ../_共用/externals-风起主线.ink
 VAR late = false // 参数：第二天下午起（halfDay>=4）
-VAR chen_ok = false // 参数：陈伯只是擦伤、已照护（p.chenCare）
 VAR evidence_done = false // 参数：对证已做完
 VAR shen_open = false // 参数：第二天起（halfDay>=2）沈雁回已到东埠
 VAR met_zhou = false // 参数：周砚已在药棚门口见过叶蘅（xu-meeting 之后）
@@ -127,11 +126,7 @@ VAR met_zhou = false // 参数：周砚已在药棚门口见过叶蘅（xu-meeti
 === fq_refuge_ye ===
 叶蘅：病人都交给邻村大夫了。……我这才算松了口气。 #id:C1-R-ye-01
 + [“陈伯的伤怎么样了？”]
-    { chen_ok:
-        叶蘅：擦伤包好了，周婶在旁边盯着呢。就怕他闲不住，又要去搬东西。 #id:C1-R-ye-chen-a
-    - else:
-        叶蘅：腿伤得重新包，邻村大夫接手了。缺的布我记着。 #id:C1-R-ye-chen-b
-    }
+    叶蘅：擦伤包好了，周婶在旁边盯着呢。就怕他闲不住，又要去搬东西。 #id:C1-R-ye-chen-a
 + [“药箱还好吧？”]
     { evidence_done:
         叶蘅：药签、笔记都拿回来了。她们要找的东西本来就不在我这儿……可昨夜的事，不能就这么算了。 #id:C1-R-ye-box-a
