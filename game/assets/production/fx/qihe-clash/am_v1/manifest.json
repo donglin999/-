@@ -1,0 +1,56 @@
+{
+  "am_short_thrust": {
+    "w": 130,
+    "h": 18,
+    "blend": "add",
+    "file": "fx_qh_clash_am_short_thrust.webp",
+    "source": "art_sources/fx_am/elements/am_short_thrust.png",
+    "source_sha256": "356b5fc56e572a123ec4b6a3c476dfbc08de4caeb02b1a409a47c0e9727715f3",
+    "reference_concept": "am_s1_a.png"
+  },
+  "am_guard_crescent": {
+    "w": 56,
+    "h": 162,
+    "blend": "add",
+    "file": "fx_qh_clash_am_guard_crescent.webp",
+    "source": "art_sources/fx_am/elements/am_guard_crescent.png",
+    "source_sha256": "eecb1cdf479b639a0607f136b8762e4444efb6b98c7a78c16f02987c39a6bd42",
+    "reference_concept": "am_s1_a.png"
+  },
+  "am_stab_mark": {
+    "w": 120,
+    "h": 80,
+    "blend": "add",
+    "file": "fx_qh_clash_am_stab_mark.webp",
+    "source": "art_sources/fx_am/elements/am_stab_mark.png",
+    "source_sha256": "1dafcdee1dc037befa535a6a166fd2f11b4e200283ac4febf50e22f2740dcdda",
+    "reference_concept": "am_s1_a.png"
+  },
+  "am_power_orb": {
+    "w": 40,
+    "h": 41,
+    "blend": "add",
+    "file": "fx_qh_clash_am_power_orb.webp",
+    "source": "art_sources/fx_am/elements/am_power_orb.png",
+    "source_sha256": "a6c6abdebe5871ce16300d7f8ad7a1e60eca0fc0171adfad88eb8bb637367ec5",
+    "reference_concept": "am_s2_a.png"
+  },
+  "am_flow_ribbon": {
+    "w": 210,
+    "h": 59,
+    "blend": "add",
+    "file": "fx_qh_clash_am_flow_ribbon.webp",
+    "source": "art_sources/fx_am/elements/am_flow_ribbon.png",
+    "source_sha256": "2d84bc128a1ccb2703299b0385ca2a3a01eac8de34b96abe0cacadb6c8132491",
+    "reference_concept": "am_s2_b.png"
+  },
+  "am_bp_pips": {
+    "w": 60,
+    "h": 21,
+    "blend": "add",
+    "file": "fx_qh_clash_am_bp_pips.webp",
+    "source": "art_sources/fx_am/elements/am_bp_pips.png",
+    "source_sha256": "4933f05b7edb5df05d1194e2e2b85115d4986b1067be40126730a2433a42e211",
+    "reference_concept": "am_s2_b.png"
+  }
+}
