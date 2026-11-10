@@ -1,0 +1,30 @@
+// 原版自动通关（与 game/scripts/tests/walkthrough.gd 同样的交互顺序），记录每一句对白与选项，供逐句比对。
+// 战斗一律按胜利处理（两边相同），三方冲突演出跳过。用法：node tools/walkthrough_web.cjs [输出文件]
+const {chromium}=require(process.env.PLAYWRIGHT_PATH||'/Users/wuxiuxiang/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright');
+const out=process.argv[2]||'web_lines.txt';
+(async()=>{const b=await chromium.launch({executablePath:process.env.CHROMIUM_PATH||'/Users/wuxiuxiang/Library/Caches/ms-playwright/chromium_headless_shell-1248/chrome-headless-shell-mac-arm64/chrome-headless-shell'});
+const p=await b.newPage({viewport:{width:1280,height:720}});const errs=[];p.on('pageerror',e=>errs.push(e.message));
+await p.addInitScript(()=>{window.__lines=[];window.__log=[];
+ const tick=()=>{const d=document.getElementById('dlg');if(d&&!d.hidden){const who=d.querySelector('.who')?.textContent||'',txt=d.querySelector('.txt')?.textContent||'',bs=[...d.querySelectorAll('.choices button')];
+   let k=who+'：'+(window.__full||txt);if(bs.length)k='【选项】'+txt+' → '+bs.map(x=>x.textContent.replace(/^\d+/,'')).join('／');const L=window.__lines;if(!L.length||L[L.length-1]!==k)L.push(k);
+   if(bs.length)bs[0].click();else d.click()}};setInterval(tick,20)});
+await p.goto('http://127.0.0.1:8792/');await p.waitForTimeout(3000);await p.click('#qh-new-journey');
+await p.waitForFunction(()=>typeof mode!=='undefined'&&mode==='scene'&&window.QiheChapter,null,{timeout:60000});
+await p.evaluate(()=>{window.__knots=[];const pl=StoryRuntime.play;StoryRuntime.play=(k,o)=>{window.__knots.push(k);return pl(k,o)};const s0=say;say=function(w,t,...a){window.__full=String(t);return s0.call(this,w,t,...a)};window.say=say;
+ window.battle=async()=>'win';if(window.PrologueStoryBattle)PrologueStoryBattle.play=async()=>'win';if(window.QiheFactionClash)QiheFactionClash.play=async()=>{}});
+const idle=async(tag='')=>{const t0=Date.now();await p.evaluate(()=>{window.__knots=window.__knots||[]});await p.waitForFunction(()=>!busy&&!dlgBusy&&!QiheChapter.running&&!PrologueArrival.running,null,{timeout:150000,polling:100}).catch(async e=>{await p.screenshot({path:'/tmp/stall.png'});console.log('等待超时',tag,await p.evaluate(()=>({busy,dlgBusy,run:QiheChapter.running,arr:PrologueArrival.running,scene:S.scene,stage:S.qiheChapter?.stage,last:window.__lines.slice(-3)})))});console.log('就绪',tag,Date.now()-t0,'ms');await p.waitForTimeout(300)};
+const act=async(scene,id)=>{await p.evaluate(async([scene,id])=>{if(S.scene!==scene)await goScene(scene);const n=SC[scene].npcs.find(n=>String(n.id)===id);window.__log.push('交互 '+scene+'/'+id);busy=true;Promise.resolve(n.act(n)).finally(()=>{busy=false})},[scene,id]);await p.waitForTimeout(400);await idle(scene+'/'+id)};
+await idle();
+await idle('序章');await act('qihe_trial','ye-door');await act('prologue_ye_house','ye');await act('prologue_chen_guest','rest');
+await p.evaluate(()=>{QiheChapter.begin()});await p.waitForTimeout(400);await idle('begin');
+for(let i=0;i<12;i++){const m=await p.evaluate(()=>{const m=QiheChapter.mainStep();return QiheChapter.state().stage==='days'&&m?{npc:m.npc,aqi:!!m.aqi}:null});if(!m)break;
+ if(m.aqi){await p.evaluate(()=>{S.aqiTeach={wage:1}});continue}else await p.evaluate(n=>{QiheChapter.interact(n)},m.npc);await p.waitForTimeout(400);await idle('main '+m.npc)}
+if(await p.evaluate(()=>QiheChapter.state().stage)==='refuge'){await act('qh_refuge','evidence');await act('qh_refuge','zhouyan')}
+await p.waitForTimeout(5000);await p.screenshot({path:out.replace('.txt','_end.png')});await (await p.$('#game')).screenshot({path:out.replace('.txt','_end_game.png')});
+if(process.env.DUMP_CULT){const dump=async(name)=>{const L=await p.evaluate(()=>{const out=[];for(const e of document.querySelectorAll('#cultivation *')){const r=e.getBoundingClientRect();if(r.width<1||r.height<1||r.bottom<0||r.top>720||getComputedStyle(e).visibility==='hidden'||getComputedStyle(e).display==='none')continue;const c=getComputedStyle(e);const own=[...e.childNodes].filter(n=>n.nodeType===3).map(n=>n.textContent.trim()).join('').slice(0,40);const o={tag:e.tagName.toLowerCase(),cls:String(e.className||'').slice(0,60),x:Math.round(r.x),y:Math.round(r.y),w:Math.round(r.width),h:Math.round(r.height)};if(own){o.text=own;o.fs=c.fontSize;o.ff=c.fontFamily.split(',')[0];o.col=c.color;o.lh=c.lineHeight}if(c.backgroundColor!=='rgba(0, 0, 0, 0)')o.bg=c.backgroundColor;if(c.backgroundImage!=='none')o.bgi=c.backgroundImage.slice(0,120);if(c.borderTopWidth!=='0px')o.border=c.borderTopWidth+' '+c.borderTopColor;if(c.borderRadius!=='0px')o.radius=c.borderRadius;out.push(o)}return out});require('fs').writeFileSync(process.env.DUMP_CULT+'/cult-'+name+'.json',JSON.stringify(L).replace(/\},\{/g,'},\n{'));await p.screenshot({path:process.env.DUMP_CULT+'/cult-'+name+'.png'})};
+ await dump('entry');await p.evaluate(()=>{const b=[...document.querySelectorAll('#cultivation button')].find(b=>/知道了/.test(b.textContent));b?.click()});await p.waitForTimeout(1500);await dump('hub');
+ const cats=await p.evaluate(()=>[...document.querySelectorAll('#cultivation button')].map(b=>b.textContent.trim()).filter(t=>t&&t.length<6).slice(0,12));console.log('按钮',cats.join('|'));
+ for(const [i,t] of cats.slice(0,8).entries()){await p.evaluate(t=>{const b=[...document.querySelectorAll('#cultivation button')].find(b=>b.textContent.trim()===t);b?.click()},t);await p.waitForTimeout(1500);await dump('p'+i);await p.keyboard.press('Escape');await p.waitForTimeout(800)}}
+if(process.env.SAVE_LS){await p.waitForTimeout(1500);const ls=await p.evaluate(()=>{const o={};for(let i=0;i<localStorage.length;i++){const k=localStorage.key(i);o[k]=localStorage.getItem(k)}return o});require('fs').writeFileSync(process.env.SAVE_LS,JSON.stringify(ls));console.log('已存 localStorage',Object.keys(ls).length)}
+const r=await p.evaluate(()=>({lines:window.__lines,stage:QiheChapter.state().stage,knots:window.__knots}));require('fs').writeFileSync(out.replace('.txt','_knots.txt'),r.knots.join('\n'));
+require('fs').writeFileSync(out,r.lines.join('\n'));console.log('对白行数',r.lines.length,'阶段',r.stage,'错误',errs.slice(0,3));await b.close()})();

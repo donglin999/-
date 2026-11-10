@@ -1,0 +1,40 @@
+{
+ "skills": {
+  "丁": [
+   "fist",
+   "jingxin",
+   "bite",
+   "lick",
+   "peck",
+   "blade",
+   "coil",
+   "palm_m",
+   "staff",
+   "sniff"
+  ],
+  "丙": [
+   "fuhu",
+   "liuye",
+   "shuaibei",
+   "bianfa",
+   "lianhua",
+   "ghost",
+   "fanjiang",
+   "jinzhen",
+   "huichun",
+   "baicao",
+   "dingshen",
+   "qh_hulu_staff"
+  ],
+  "乙": [
+   "guafeng"
+  ]
+ },
+ "desc": {
+  "fuhu": "单体两段拳击，兼具阳性内劲；每段命中弱点均可削盾。BP增加段数。",
+  "liuye": "柳叶般的剑势扫向全体敌人，需装备剑；BP提高本次伤害。",
+  "bianfa": "棍劲带鞭影扫向全体敌人；BP提高本次伤害。",
+  "lianhua": "单体毒性掌击；目标存活时中毒3次行动，每次损失气血上限的6%。",
+  "guafeng": "风雷腿势扫向全体敌人；BP提高本次伤害。"
+ }
+}

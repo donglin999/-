@@ -1,0 +1,247 @@
+{
+ "_source": "原版 js/qihe-journal.js 的 CAST / questDef / mountainPeople 字面量（node 抽取，未改动）；@portrait:键 表示 PRODUCTION_ASSET_PATHS[键]||assets/production/portraits/键.webp",
+ "cast_order": [
+  "xulingyi",
+  "censhuang",
+  "shenyanhui",
+  "ye",
+  "chen",
+  "aunt",
+  "zhouyan",
+  "luheng",
+  "song",
+  "apothecary",
+  "merchant",
+  "elder",
+  "bailiff",
+  "steward",
+  "retainer",
+  "wukui",
+  "procurement",
+  "procurement_aide",
+  "bandit",
+  "chengduo"
+ ],
+ "cast": {
+  "xulingyi": {
+   "name": "徐令仪",
+   "faction": "正道盟",
+   "role": "正道盟文议执事",
+   "art": "@portrait:p_qh_xulingyi_story",
+   "full": true
+  },
+  "censhuang": {
+   "name": "岑霜",
+   "faction": "归烬堂",
+   "role": "对外交涉者",
+   "art": "@portrait:p_qh_censhuang_story",
+   "full": true
+  },
+  "shenyanhui": {
+   "name": "沈雁回",
+   "faction": "巡江司委办",
+   "role": "受程巡检委办的查验人",
+   "art": "@portrait:p_qh_shenyanhui_story",
+   "full": true
+  },
+  "ye": {
+   "name": "叶蘅",
+   "faction": "栖河村",
+   "role": "叶家姑娘 · 药棚照料者",
+   "art": "assets/ui/jianghu-v4/portraits/ye-menu-v2.png",
+   "full": true
+  },
+  "chen": {
+   "name": "陈伯",
+   "faction": "栖河村",
+   "role": "村中长者",
+   "art": "assets/production/icons-and-props/a_opening_chen.webp",
+   "bio": "栖河的村中长者，照应初来村里的萧白。村中日常与乡邻的往来，都有他熟悉的规矩。"
+  },
+  "aunt": {
+   "name": "周婶",
+   "faction": "栖河村",
+   "role": "药棚照料者",
+   "art": "assets/production/icons-and-props/a_opening_aunt.webp",
+   "bio": "照看村里的药棚，熟悉送来的药物和病人所需，也常托人帮着处理药棚的临时差事。"
+  },
+  "zhouyan": {
+   "name": "周砚",
+   "faction": "叶家旧友",
+   "role": "行路旧友",
+   "art": "assets/production/icons-and-props/a_opening_zhouyan.webp",
+   "bio": "来到栖河的行路人，与村里的乡邻往来。"
+  },
+  "luheng": {
+   "name": "陆衡",
+   "faction": "栖河村",
+   "role": "护路与药车照应者",
+   "art": "assets/production/icons-and-props/a_opening_luheng.webp",
+   "bio": "熟悉药车和村外道路，照应乡邻出入。能用普通棍棒护路，也愿意指点初学的人。"
+  },
+  "song": {
+   "name": "宋先生",
+   "faction": "行路人",
+   "role": "自称跑账的账房",
+   "art": "@portrait:p_qh_song_story",
+   "full": true,
+   "bio": "在后山遇见的宋姓账房，自称往来跑账。他托萧白记下来人的人数与站位，并答应沿路打听叶父的消息。"
+  },
+  "apothecary": {
+   "name": "药商",
+   "faction": "村口集市",
+   "role": "药货商人",
+   "art": "assets/production/icons-and-props/a_opening_apothecary.webp",
+   "bio": "在村口做药货生意，熟悉当地旧货的往来。"
+  },
+  "merchant": {
+   "name": "店家",
+   "faction": "栖河村",
+   "role": "客栈与集市店家",
+   "bio": "村中经营日常生意的店家，也替药棚照应晾布等杂事。"
+  },
+  "elder": {
+   "name": "村口老人",
+   "faction": "栖河村",
+   "role": "村中乡邻",
+   "bio": "住在村口的老人，与药棚有送药和归还竹篮的往来。"
+  },
+  "bailiff": {
+   "name": "差役",
+   "faction": "巡江司",
+   "role": "现场差役",
+   "art": "assets/production/icons-and-props/a_opening_bailiff.webp",
+   "bio": "参与河埠现场的查验与签记。"
+  },
+  "steward": {
+   "name": "管事",
+   "faction": "正道盟来人",
+   "role": "联络院随行管事",
+   "art": "assets/production/icons-and-props/a_opening_steward.webp",
+   "bio": "跟着徐令仪来栖河的管事。"
+  },
+  "retainer": {
+   "name": "护院",
+   "faction": "正道盟来人",
+   "role": "随行护院",
+   "art": "assets/production/icons-and-props/a_opening_retainer.webp",
+   "bio": "随正道盟来人进入栖河的护院。"
+  },
+  "wukui": {
+   "name": "乌魁",
+   "faction": "归烬堂来人",
+   "role": "旧货账经手人",
+   "art": "assets/production/icons-and-props/a_opening_wukui.webp",
+   "bio": "带着旧货账进入栖河，与旧罐的买卖往来有关。"
+  },
+  "procurement": {
+   "name": "采办使",
+   "faction": "采办队",
+   "role": "药物采办经手人",
+   "art": "assets/production/icons-and-props/a_opening_procurement.webp",
+   "bio": "参与栖河药物采办的来人。"
+  },
+  "procurement_aide": {
+   "name": "采办随从",
+   "faction": "采办队",
+   "role": "采办随行人",
+   "art": "assets/production/icons-and-props/a_opening_procurement_aide.webp",
+   "bio": "随采办队来到栖河的随从。"
+  },
+  "bandit": {
+   "name": "帮众",
+   "faction": "村外来人",
+   "role": "随行帮众",
+   "bio": "进入村里的帮众，出现在来人的往来中。"
+  },
+  "chengduo": {
+   "name": "程铎",
+   "faction": "巡江司",
+   "role": "程巡检",
+   "art": "assets/production/icons-and-props/a_opening_chengduo.webp",
+   "bio": "巡江司的巡检，负责相关查验事务。"
+  }
+ },
+ "questDef": {
+  "letter": {
+   "title": "一封未落款的拜帖",
+   "owner": "xulingyi",
+   "reward": 6,
+   "origin": "徐令仪请你转问联络院递来的未落款拜帖，辨认来处与受帖人的意思。",
+   "summary": "陈伯提醒旧物有主人，登记与保管不能代替叶蘅同意。徐令仪已收到口信。",
+   "target": "chen-door",
+   "place": "村内东北 · 陈伯家门厅",
+   "first": "去陈伯家门厅，辨认拜帖的来处。"
+  },
+  "account": {
+   "title": "旧罐与玉匣",
+   "owner": "censhuang",
+   "reward": 8,
+   "origin": "岑霜托你向药商核对乌魁带来的旧货账，把收钱、卖货和玉匣传闻分开问。",
+   "summary": "药商只卖过六只旧药罐，玉匣他连见都没见过。罐子钱和玉匣是两回事。",
+   "target": "merchant",
+   "place": "南村口 · 药商",
+   "first": "找药商核对旧货账，不去叶家取物。"
+  },
+  "ledger": {
+   "title": "药单上的两道数",
+   "owner": "shenyanhui",
+   "reward": 6,
+   "origin": "沈雁回受程巡检委办查验药物。收验册载三篓，东埠实见两篓；她托你向药棚核对数量与用途。",
+   "summary": "两篓货药、一篓病人药包分栏；“已验”无签名，沈雁回已保留未验注明与争议记录。",
+   "target": "clinic-door",
+   "place": "村内东侧 · 药棚",
+   "first": "到药棚找周婶，核对药物的数量与用途。"
+  }
+ },
+ "mountainPeople": {
+  "zhouyan": {
+   "actor": "zhou",
+   "name": "周砚",
+   "role": "归云谷掌门 · 萧白的师父",
+   "bio": "收萧白入门，从站桩、调息教起。练场上话少，饭桌上也有被师母堵得说不出话的时候。"
+  },
+  "shimu": {
+   "actor": "shimu",
+   "name": "江采薇",
+   "role": "师母 · 谷中日常",
+   "bio": "管着厨房与谷里的日常，拜师那碗面给萧白多卧了一个蛋。说话爽快，记得每个人爱吃什么。"
+  },
+  "yin": {
+   "actor": "yin",
+   "name": "殷红缨",
+   "role": "小师叔 · 归云谷门人",
+   "bio": "常年在外走动，回谷喜欢翻墙。教人听声与落脚时很利落，若谈到旧事，又是另一副神情。"
+  },
+  "zhong": {
+   "actor": "zhong",
+   "name": "钟拙",
+   "role": "二师叔 · 木工与练场",
+   "bio": "木工做得好，也爱带人练腿。和师兄抬杠归抬杠，萧白要出门时，他早把行囊里缺的东西补齐了。"
+  },
+  "fang": {
+   "actor": "fang",
+   "name": "方迟",
+   "role": "大师兄 · 在外历练",
+   "bio": "练功和办事都稳妥，愿意陪新师弟过招。下山负伤后回谷休养，仍惦记着没办完的事。"
+  },
+  "dou": {
+   "actor": "dou",
+   "name": "卢小豆",
+   "role": "小师兄 · 归云谷弟子",
+   "bio": "初见时十四岁，十一岁入门。比萧白小三岁，却坚持早入门就得叫师兄。爱吃，也想下山证明自己；喂鹅时常被将军追着跑。"
+  },
+  "man": {
+   "actor": "man",
+   "name": "周小满",
+   "role": "师父与师母的女儿",
+   "bio": "嘴快，心细，娘的生辰总记得。她想认药，也敢当着大人的面问那些没人肯先开口的问题。"
+  },
+  "pei": {
+   "actor": "pei",
+   "name": "裴知古",
+   "role": "溪东书屋 · 裴家姑娘",
+   "bio": "住在溪东书屋，眼力好，读书认真；讲起旧书能忘了时辰。家中的残稿与父亲，是她一直放在心上的事。"
+  }
+ }
+}

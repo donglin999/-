@@ -1,0 +1,2 @@
+{"source": "302ai-sunburst-2.6", "out": "docs/review/r48-patch/4-ye-chili/edit.png", "background": "opaque", "seconds": 67, "usage": {"input_tokens": 1785, "input_tokens_details": {"image_tokens": 1536, "text_tokens": 249}, "output_tokens": 1372, "output_tokens_details": {"image_tokens": 1372, "text_tokens": 0}, "total_tokens": 3157}, "size": "1024x1536", "key_env": "AI302_API_KEY"}
+ 

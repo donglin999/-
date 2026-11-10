@@ -1,0 +1,347 @@
+{
+ "list": [
+  {
+   "id": "yy_herb_wine",
+   "pair": [
+    "ye",
+    "yinhongying"
+   ],
+   "venues": [
+    "worldmap"
+   ],
+   "kin": 1,
+   "title": "药和酒",
+   "lines": [
+    {
+     "speaker": "yinhongying",
+     "text": "丫头，你那药囊里有没有能下酒的？",
+     "mood": "fun"
+    },
+    {
+     "speaker": "ye",
+     "text": "有。黄连。",
+     "mood": "normal"
+    },
+    {
+     "speaker": "yinhongying",
+     "text": "……你学坏了。",
+     "mood": "surprise"
+    },
+    {
+     "speaker": "ye",
+     "text": "跟您同路打了这么多场，总得学点什么。",
+     "mood": "smile"
+    },
+    {
+     "speaker": "yinhongying",
+     "text": "行。下回我受伤，你下手轻点就算报答了。",
+     "mood": "smile"
+    }
+   ]
+  },
+  {
+   "id": "yy_pharmacy",
+   "pair": [
+    "ye",
+    "yinhongying"
+   ],
+   "venues": [
+    "hangao"
+   ],
+   "kin": 1,
+   "title": "汉皋的药铺",
+   "lines": [
+    {
+     "speaker": "ye",
+     "text": "这家铺子的当归比谷里贵三成。",
+     "mood": "serious"
+    },
+    {
+     "speaker": "yinhongying",
+     "text": "城里什么都贵。你要多少，我去讲价。",
+     "mood": "normal"
+    },
+    {
+     "speaker": "ye",
+     "text": "您会讲价？",
+     "mood": "surprise"
+    },
+    {
+     "speaker": "yinhongying",
+     "text": "我往柜台上一靠，他们自己就降了。",
+     "mood": "fun"
+    },
+    {
+     "speaker": "ye",
+     "text": "……那不叫讲价。我自己来。",
+     "mood": "normal"
+    }
+   ]
+  },
+  {
+   "id": "yy_hand",
+   "pair": [
+    "ye",
+    "yinhongying"
+   ],
+   "venues": [
+    "worldmap"
+   ],
+   "kin": 1,
+   "fact": "gy_yin_past_seen",
+   "title": "那只手",
+   "lines": [
+    {
+     "speaker": "ye",
+     "text": "方才那一场，您右手用了全力。",
+     "mood": "serious"
+    },
+    {
+     "speaker": "yinhongying",
+     "text": "看出来了？",
+     "mood": "normal"
+    },
+    {
+     "speaker": "ye",
+     "text": "回去要敷药。还有——那场寿宴的事，他同我说了一半。",
+     "mood": "normal"
+    },
+    {
+     "speaker": "yinhongying",
+     "text": "另一半你想听，就自己来问我。别从他嘴里听。",
+     "mood": "serious"
+    },
+    {
+     "speaker": "ye",
+     "text": "好。等您手好了，我来问。",
+     "mood": "smile"
+    }
+   ]
+  },
+  {
+   "id": "yy_way_home",
+   "pair": [
+    "ye",
+    "yinhongying"
+   ],
+   "venues": [
+    "worldmap"
+   ],
+   "kin": 2,
+   "title": "回谷的路",
+   "lines": [
+    {
+     "speaker": "yinhongying",
+     "text": "从这儿往西北走四天，就是谷口。",
+     "mood": "normal"
+    },
+    {
+     "speaker": "ye",
+     "text": "您记得真清楚。",
+     "mood": "normal"
+    },
+    {
+     "speaker": "yinhongying",
+     "text": "走的时候记的。那时候想的是“记清楚了，往后好绕开”。",
+     "mood": "sad"
+    },
+    {
+     "speaker": "ye",
+     "text": "现在呢？",
+     "mood": "normal"
+    },
+    {
+     "speaker": "yinhongying",
+     "text": "现在是你问我，我才发现自己还记着。……过年一道回去。",
+     "mood": "smile"
+    },
+    {
+     "speaker": "ye",
+     "text": "嗯。我跟师母说过了，两个人的碗都留着。",
+     "mood": "smile"
+    }
+   ]
+  },
+  {
+   "id": "hy_city_patient",
+   "pair": [
+    "hero",
+    "ye"
+   ],
+   "venues": [
+    "hangao"
+   ],
+   "rel": 50,
+   "title": "城里的病人",
+   "lines": [
+    {
+     "speaker": "ye",
+     "text": "方才巷口那个咳嗽的人，你看见没有？",
+     "mood": "serious"
+    },
+    {
+     "speaker": "hero",
+     "text": "看见了。你想过去。",
+     "mood": "normal"
+    },
+    {
+     "speaker": "ye",
+     "text": "想。可他没叫大夫，我不能上去就把脉。",
+     "mood": "worry"
+    },
+    {
+     "speaker": "hero",
+     "text": "那我去买他摊上的东西，你在旁边问两句。",
+     "mood": "smile"
+    },
+    {
+     "speaker": "ye",
+     "text": "……你现在比我会找由头了。走。",
+     "mood": "smile"
+    }
+   ]
+  },
+  {
+   "id": "hy_roadside",
+   "pair": [
+    "hero",
+    "ye"
+   ],
+   "venues": [
+    "worldmap"
+   ],
+   "rel": 50,
+   "title": "路边的草",
+   "lines": [
+    {
+     "speaker": "hero",
+     "text": "这个我认得。紫苏。",
+     "mood": "smile"
+    },
+    {
+     "speaker": "ye",
+     "text": "那是野苏。叶子背面不紫。",
+     "mood": "normal"
+    },
+    {
+     "speaker": "hero",
+     "text": "……差一点。",
+     "mood": "sad"
+    },
+    {
+     "speaker": "ye",
+     "text": "差一点也是认得了一半。去年你连叶子和草都分不清。",
+     "mood": "smile"
+    },
+    {
+     "speaker": "hero",
+     "text": "这算夸我？",
+     "mood": "smile"
+    },
+    {
+     "speaker": "ye",
+     "text": "算。",
+     "mood": "smile"
+    }
+   ]
+  },
+  {
+   "id": "hn_tavern",
+   "pair": [
+    "hero",
+    "yinhongying"
+   ],
+   "venues": [
+    "hangao"
+   ],
+   "rel": 50,
+   "title": "酒肆",
+   "lines": [
+    {
+     "speaker": "yinhongying",
+     "text": "这家的酒我十年前喝过。进去坐坐。",
+     "mood": "smile"
+    },
+    {
+     "speaker": "hero",
+     "text": "师母交代过，不许你带我喝酒。",
+     "mood": "serious"
+    },
+    {
+     "speaker": "yinhongying",
+     "text": "她交代的是谷里。这儿是汉皋。",
+     "mood": "fun"
+    },
+    {
+     "speaker": "hero",
+     "text": "……那我喝茶，替你数着。",
+     "mood": "normal"
+    },
+    {
+     "speaker": "yinhongying",
+     "text": "数到三就拦我。我说的是三壶。",
+     "mood": "fun"
+    }
+   ]
+  },
+  {
+   "id": "hn_back_to_back",
+   "pair": [
+    "hero",
+    "yinhongying"
+   ],
+   "venues": [
+    "worldmap"
+   ],
+   "rel": 80,
+   "adult": true,
+   "title": "背后",
+   "lines": [
+    {
+     "speaker": "yinhongying",
+     "text": "方才你一直站在我右手边。",
+     "mood": "normal"
+    },
+    {
+     "speaker": "hero",
+     "text": "你右手握不实。那边该有个人。",
+     "mood": "serious"
+    },
+    {
+     "speaker": "yinhongying",
+     "text": "……谁教你的？",
+     "mood": "surprise"
+    },
+    {
+     "speaker": "hero",
+     "text": "没人教。看了一年，自己看出来的。",
+     "mood": "smile"
+    },
+    {
+     "speaker": "yinhongying",
+     "text": "看这么仔细。往后那边就归你了，别让给别人。",
+     "mood": "smile"
+    }
+   ]
+  }
+ ],
+ "NAMES": {
+  "hero": "萧白",
+  "ye": "叶蘅",
+  "yinhongying": "殷红缨"
+ },
+ "STAGES": [
+  {
+   "at": 0,
+   "name": "生分"
+  },
+  {
+   "at": 6,
+   "name": "相熟"
+  },
+  {
+   "at": 18,
+   "name": "知己"
+  }
+ ]
+}

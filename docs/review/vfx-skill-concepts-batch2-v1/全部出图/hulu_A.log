@@ -1,0 +1,1 @@
+{"source": "302ai-sunburst-2.6", "out": "全部出图/hulu_A.png", "background": "transparent", "seconds": 84, "usage": {"input_tokens": 4480, "input_tokens_details": {"image_tokens": 3072, "text_tokens": 1408}, "output_tokens": 1372, "output_tokens_details": {"image_tokens": 1372, "text_tokens": 0}, "total_tokens": 5852}, "size": "1536x1024", "key_env": "AI302_API_KEY"}

@@ -1,0 +1,1140 @@
+{
+ "_说明": "战斗常量，照抄原版 js/battle.js、bstage.js、vfx.js、bfx.js 的字面量。",
+ "WTYPES": [
+  "刀",
+  "剑",
+  "拳",
+  "棍",
+  "暗器",
+  "音律",
+  "阳",
+  "阴",
+  "毒",
+  "雷"
+ ],
+ "WCOL": {
+  "刀": "#d8d2c0",
+  "剑": "#9fd4ee",
+  "拳": "#f0a868",
+  "棍": "#c89a60",
+  "暗器": "#b6c2d6",
+  "音律": "#8dd8c5",
+  "阳": "#ff8a3a",
+  "阴": "#9aa6ff",
+  "毒": "#86d65e",
+  "雷": "#ffe25a"
+ },
+ "FOE_DEF": {
+  "bandit": {
+   "shield": 3,
+   "weak": [
+    "棍",
+    "拳",
+    "暗器"
+   ],
+   "drops": {
+    "bun": 25
+   }
+  },
+  "wolf": {
+   "shield": 2,
+   "weak": [
+    "棍",
+    "刀",
+    "暗器",
+    "阳"
+   ],
+   "drops": {
+    "bun": 10
+   }
+  },
+  "snake": {
+   "shield": 5,
+   "weak": [
+    "刀",
+    "暗器",
+    "阳"
+   ]
+  },
+  "chief": {
+   "shield": 6,
+   "weak": [
+    "刀",
+    "暗器",
+    "阳",
+    "棍"
+   ]
+  }
+ },
+ "BSK": {
+  "fist": {
+   "t": "拳"
+  },
+  "fuhu": {
+   "t": "拳",
+   "e": "阳",
+   "hits": 2
+  },
+  "liuye": {
+   "t": "剑",
+   "tgt": "foes"
+  },
+  "jingxin": {
+   "tgt": "self"
+  },
+  "shuaibei": {
+   "t": "拳",
+   "e": "阴",
+   "stun": 1
+  },
+  "bianfa": {
+   "t": "棍",
+   "tgt": "foes"
+  },
+  "lianhua": {
+   "t": "拳",
+   "e": "毒",
+   "bleed": 1
+  },
+  "guafeng": {
+   "t": "拳",
+   "e": "雷",
+   "tgt": "foes"
+  },
+  "bite": {
+   "t": "刀"
+  },
+  "lick": {
+   "tgt": "ally"
+  },
+  "peck": {
+   "t": "刀",
+   "hits": 2
+  },
+  "blade": {
+   "t": "刀"
+  },
+  "ghost": {
+   "t": "刀",
+   "tgt": "foes"
+  },
+  "coil": {
+   "t": "拳",
+   "stun": 1
+  },
+  "palm_m": {
+   "t": "拳"
+  },
+  "staff": {
+   "t": "棍"
+  },
+  "jinzhen": {
+   "t": "暗器",
+   "reveal": 1
+  },
+  "huichun": {
+   "tgt": "ally"
+  },
+  "baicao": {
+   "tgt": "allies"
+  },
+  "dingshen": {
+   "tgt": "ally",
+   "buff": 1
+  },
+  "sniff": {
+   "t": "刀",
+   "reveal": 2
+  },
+  "qh_hulu_staff": {
+   "t": "棍"
+  },
+  "gy_zhou_teaching": {
+   "t": "剑",
+   "tgt": "foe"
+  },
+  "gy_dou_basic": {
+   "t": "剑",
+   "tgt": "foe"
+  },
+  "gj_h1": {
+   "t": "暗器",
+   "tgt": "foes",
+   "dazzle": 25
+  },
+  "xfa_jiao": {
+   "tgt": "self",
+   "heart": 1
+  },
+  "xfa_cunjin": {
+   "tgt": "self",
+   "heart": 1
+  },
+  "xfa_shouzhu": {
+   "tgt": "self",
+   "heart": 1
+  }
+ },
+ "SKILL_DEFAULTS": {
+  "jinzhen": {
+   "name": "金针刺穴",
+   "kind": "暗器",
+   "mp": 4,
+   "pow": 1.0,
+   "desc": "银针点穴，并看破敌人一处弱点。"
+  },
+  "huichun": {
+   "name": "回春散",
+   "kind": "医",
+   "mp": 6,
+   "pow": 0,
+   "heal": 0.38,
+   "desc": "为一名同伴回复气血。"
+  },
+  "baicao": {
+   "name": "百草露",
+   "kind": "医",
+   "mp": 10,
+   "pow": 0,
+   "heal": 0.2,
+   "desc": "为全体同伴回复少量气血。"
+  },
+  "dingshen": {
+   "name": "定神",
+   "kind": "医",
+   "mp": 5,
+   "pow": 0,
+   "desc": "令一名同伴心神安定：持续2回合：造成伤害提高30%，受到伤害降低20%；每点BP延长1回合。"
+  },
+  "sniff": {
+   "name": "嗅探",
+   "kind": "咬",
+   "mp": 4,
+   "pow": 0.7,
+   "desc": "大黄嗅出敌人两处弱点。"
+  }
+ },
+ "BASIC_FOE_SKILLS": [
+  "blade",
+  "fist",
+  "bite",
+  "peck",
+  "palm_m",
+  "staff",
+  "gy_dou_basic"
+ ],
+ "AL": {
+  "1": [
+   [
+    700,
+    430
+   ]
+  ],
+  "2": [
+   [
+    650,
+    408
+   ],
+   [
+    790,
+    452
+   ]
+  ],
+  "3": [
+   [
+    630,
+    396
+   ],
+   [
+    736,
+    428
+   ],
+   [
+    846,
+    464
+   ]
+  ],
+  "4": [
+   [
+    610,
+    388
+   ],
+   [
+    696,
+    412
+   ],
+   [
+    792,
+    440
+   ],
+   [
+    878,
+    472
+   ]
+  ]
+ },
+ "FL": {
+  "1": [
+   [
+    300,
+    420
+   ]
+  ],
+  "2": [
+   [
+    340,
+    392
+   ],
+   [
+    210,
+    446
+   ]
+  ],
+  "3": [
+   [
+    370,
+    378
+   ],
+   [
+    256,
+    418
+   ],
+   [
+    132,
+    462
+   ]
+  ],
+  "4": [
+   [
+    392,
+    366
+   ],
+   [
+    298,
+    396
+   ],
+   [
+    200,
+    428
+   ],
+   [
+    100,
+    466
+   ]
+  ],
+  "5": [
+   [
+    400,
+    360
+   ],
+   [
+    318,
+    388
+   ],
+   [
+    232,
+    416
+   ],
+   [
+    146,
+    446
+   ],
+   [
+    62,
+    478
+   ]
+  ]
+ },
+ "BOSS_REST": [
+  [
+   380,
+   372
+  ],
+  [
+   112,
+   470
+  ],
+  [
+   330,
+   470
+  ],
+  [
+   60,
+   392
+  ]
+ ],
+ "STG": {
+  "Y_BACK": 365,
+  "Y_FRONT": 495
+ },
+ "BATTLE_ADULT_H": 105,
+ "BATTLE_ADULT": [
+  "hero",
+  "hero_modern",
+  "hero_village",
+  "suzhi",
+  "ye",
+  "ye_initial",
+  "monk",
+  "soldier",
+  "gossip",
+  "oldman",
+  "smith",
+  "lady",
+  "beggar",
+  "boatman",
+  "bandit",
+  "villager",
+  "merchant",
+  "liu",
+  "zhou",
+  "langli",
+  "qh_luheng_v1",
+  "qh_raider_front_v1",
+  "qh_raider_rear_v1",
+  "qh_clash_guard",
+  "qh_bailiff"
+ ],
+ "BATTLE_ADULT_RATIO": {
+  "suzhi": 0.99,
+  "ye": 0.98,
+  "ye_initial": 0.9,
+  "monk": 1.03,
+  "soldier": 1.02,
+  "gossip": 0.97,
+  "oldman": 0.96,
+  "smith": 1.05,
+  "lady": 0.98,
+  "beggar": 0.98,
+  "boatman": 1.02,
+  "liu": 1.04,
+  "langli": 1.04
+ },
+ "BATTLE_BOSS_RATIO": {
+  "chief": 1.75,
+  "liu": 1.14,
+  "langli": 1.14,
+  "soldier": 1.06,
+  "monk": 1.08,
+  "beggar": 1.08
+ },
+ "BATTLE_BEAST_H": {
+  "dog": 45,
+  "wolf": 76,
+  "wilddog": 70,
+  "rooster": 72,
+  "snake": 99
+ },
+ "STAGE_SC": {
+  "qh_training": {
+   "hz": 0.36,
+   "tint": [
+    65,
+    60,
+    35,
+    0.04
+   ],
+   "pool": [
+    230,
+    222,
+    168
+   ],
+   "fx": [
+    "dust"
+   ],
+   "mist": [
+    180,
+    190,
+    155
+   ],
+   "dark": 0.15,
+   "atmo": {
+    "rim": [
+     255,
+     226,
+     150
+    ],
+    "vig": 0.42
+   }
+  },
+  "qh_evacuation": {
+   "hz": 0.38,
+   "tint": [
+    50,
+    45,
+    65,
+    0.04
+   ],
+   "pool": [
+    220,
+    193,
+    153
+   ],
+   "fx": [
+    "dust"
+   ],
+   "mist": [
+    160,
+    150,
+    145
+   ],
+   "dark": 0.15,
+   "atmo": {
+    "rim": [
+     255,
+     172,
+     96
+    ],
+    "vig": 0.5
+   }
+  },
+  "prologue_backhill": {
+   "hz": 0.55,
+   "tint": [
+    55,
+    65,
+    35,
+    0.06
+   ],
+   "pool": [
+    230,
+    222,
+    168
+   ],
+   "fx": [
+    "leaf",
+    "dust"
+   ],
+   "mist": [
+    180,
+    190,
+    155
+   ],
+   "dark": 0.25,
+   "atmo": {
+    "rim": [
+     255,
+     226,
+     150
+    ],
+    "vig": 0.42
+   }
+  },
+  "qh_faction_clash_20261012": {
+   "hz": 0.4,
+   "tint": [
+    40,
+    30,
+    70,
+    0.06
+   ],
+   "pool": [
+    255,
+    190,
+    120
+   ],
+   "fx": [
+    "fly",
+    "dust"
+   ],
+   "mist": [
+    150,
+    140,
+    170
+   ],
+   "dark": 0.42,
+   "atmo": {
+    "rim": [
+     255,
+     190,
+     118
+    ],
+    "vig": 0.5
+   }
+  },
+  "fallback": {
+   "hz": 0.57,
+   "tint": [
+    60,
+    50,
+    40,
+    0.05
+   ],
+   "pool": [
+    230,
+    222,
+    168
+   ],
+   "fx": [
+    "dust"
+   ],
+   "mist": [
+    180,
+    180,
+    170
+   ],
+   "dark": 0.2
+  },
+  "qh_west": {
+   "hz": 0.36,
+   "tint": [
+    65,
+    60,
+    35,
+    0.04
+   ],
+   "pool": [
+    230,
+    222,
+    168
+   ],
+   "fx": [
+    "dust"
+   ],
+   "mist": [
+    180,
+    190,
+    155
+   ],
+   "dark": 0.15,
+   "atmo": {
+    "rim": [
+     255,
+     226,
+     150
+    ],
+    "vig": 0.42
+   }
+  },
+  "qihe_trial": {
+   "hz": 0.4,
+   "tint": [
+    60,
+    40,
+    50,
+    0.05
+   ],
+   "pool": [
+    255,
+    200,
+    140
+   ],
+   "fx": [
+    "dust"
+   ],
+   "mist": [
+    170,
+    150,
+    150
+   ],
+   "dark": 0.2,
+   "atmo": {
+    "rim": [
+     255,
+     190,
+     120
+    ],
+    "vig": 0.46
+   }
+  },
+  "qh_east": {
+   "hz": 0.36,
+   "tint": [
+    65,
+    60,
+    35,
+    0.04
+   ],
+   "pool": [
+    230,
+    222,
+    168
+   ],
+   "fx": [
+    "dust"
+   ],
+   "mist": [
+    180,
+    190,
+    155
+   ],
+   "dark": 0.15,
+   "atmo": {
+    "rim": [
+     255,
+     226,
+     150
+    ],
+    "vig": 0.42
+   }
+  },
+  "qh_south": {
+   "hz": 0.36,
+   "tint": [
+    65,
+    60,
+    35,
+    0.04
+   ],
+   "pool": [
+    230,
+    222,
+    168
+   ],
+   "fx": [
+    "dust"
+   ],
+   "mist": [
+    180,
+    190,
+    155
+   ],
+   "dark": 0.15,
+   "atmo": {
+    "rim": [
+     255,
+     226,
+     150
+    ],
+    "vig": 0.42
+   }
+  },
+  "qh_north": {
+   "hz": 0.36,
+   "tint": [
+    55,
+    65,
+    35,
+    0.05
+   ],
+   "pool": [
+    230,
+    222,
+    168
+   ],
+   "fx": [
+    "leaf",
+    "dust"
+   ],
+   "mist": [
+    180,
+    190,
+    155
+   ],
+   "dark": 0.15,
+   "atmo": {
+    "rim": [
+     255,
+     226,
+     150
+    ],
+    "vig": 0.42
+   }
+  },
+  "qh_refuge": {
+   "hz": 0.36,
+   "tint": [
+    65,
+    60,
+    35,
+    0.04
+   ],
+   "pool": [
+    230,
+    222,
+    168
+   ],
+   "fx": [
+    "dust"
+   ],
+   "mist": [
+    180,
+    190,
+    155
+   ],
+   "dark": 0.15,
+   "atmo": {
+    "rim": [
+     255,
+     226,
+     150
+    ],
+    "vig": 0.42
+   }
+  },
+  "qh_mountain": {
+   "hz": 0.36,
+   "tint": [
+    50,
+    60,
+    55,
+    0.04
+   ],
+   "pool": [
+    225,
+    225,
+    190
+   ],
+   "fx": [
+    "leaf",
+    "dust"
+   ],
+   "mist": [
+    190,
+    200,
+    190
+   ],
+   "dark": 0.15,
+   "atmo": {
+    "rim": [
+     255,
+     232,
+     170
+    ],
+    "vig": 0.42
+   }
+  },
+  "prologue_inn_interior": {
+   "hz": 0.34,
+   "tint": [
+    60,
+    40,
+    25,
+    0.05
+   ],
+   "pool": [
+    255,
+    200,
+    130
+   ],
+   "fx": [
+    "dust"
+   ],
+   "mist": [
+    170,
+    150,
+    130
+   ],
+   "dark": 0.2,
+   "atmo": {
+    "rim": [
+     255,
+     196,
+     120
+    ],
+    "vig": 0.5
+   }
+  },
+  "prologue_clinic_interior": {
+   "hz": 0.34,
+   "tint": [
+    60,
+    50,
+    35,
+    0.04
+   ],
+   "pool": [
+    240,
+    220,
+    170
+   ],
+   "fx": [
+    "dust"
+   ],
+   "mist": [
+    180,
+    175,
+    160
+   ],
+   "dark": 0.18,
+   "atmo": {
+    "rim": [
+     255,
+     220,
+     150
+    ],
+    "vig": 0.48
+   }
+  },
+  "prologue_chen_hall": {
+   "hz": 0.34,
+   "tint": [
+    60,
+    45,
+    30,
+    0.04
+   ],
+   "pool": [
+    245,
+    215,
+    160
+   ],
+   "fx": [
+    "dust"
+   ],
+   "mist": [
+    180,
+    170,
+    150
+   ],
+   "dark": 0.18,
+   "atmo": {
+    "rim": [
+     255,
+     215,
+     140
+    ],
+    "vig": 0.48
+   }
+  }
+ },
+ "BB_ASSET": {
+  "qh_training": "bb_qh_training_atmo_20261023",
+  "qh_evacuation": "bb_qh_evacuation_atmo_20261023",
+  "prologue_backhill": "bb_prologue_backhill_atmo_20261023",
+  "qh_faction_clash_20261012": "bb_qh_faction_clash_atmo_20261023",
+  "qh_west": "bb_qh_training_atmo_20261023",
+  "qihe_trial": "bb_qihe_trial_atmo_20261027",
+  "qh_east": "bb_qh_east_atmo_20261027",
+  "qh_south": "bb_qh_south_atmo_20261027",
+  "qh_north": "bb_qh_north_atmo_20261027",
+  "qh_refuge": "bb_qh_refuge_atmo_20261027",
+  "qh_mountain": "bb_qh_mountain_atmo_20261027",
+  "prologue_inn_interior": "bb_prologue_inn_interior_atmo_20261027",
+  "prologue_clinic_interior": "bb_prologue_clinic_interior_atmo_20261027",
+  "prologue_chen_hall": "bb_prologue_chen_hall_atmo_20261027"
+ },
+ "VFX_TIER": [
+  {
+   "name": "T0 普攻",
+   "ms": 380,
+   "parts": 14,
+   "shake": 3,
+   "flash": 0,
+   "dim": 0,
+   "stop": 30
+  },
+  {
+   "name": "T1 入门",
+   "ms": 650,
+   "parts": 28,
+   "shake": 5,
+   "flash": 0.12,
+   "dim": 0,
+   "stop": 50
+  },
+  {
+   "name": "T2 进阶",
+   "ms": 950,
+   "parts": 56,
+   "shake": 8,
+   "flash": 0.22,
+   "dim": 0.25,
+   "stop": 70
+  },
+  {
+   "name": "T3 绝学",
+   "ms": 1400,
+   "parts": 110,
+   "shake": 12,
+   "flash": 0.4,
+   "dim": 0.5,
+   "stop": 110
+  }
+ ],
+ "FXDEF": {
+  "_atk": {
+   "tier": 0
+  },
+  "fist": {
+   "tier": 0,
+   "hit": "拳"
+  },
+  "blade": {
+   "tier": 0,
+   "hit": "刀"
+  },
+  "bite": {
+   "tier": 0,
+   "hit": "咬"
+  },
+  "peck": {
+   "tier": 0,
+   "hit": "啄"
+  },
+  "palm_m": {
+   "tier": 0,
+   "hit": "拳"
+  },
+  "staff": {
+   "tier": 0,
+   "hit": "棍"
+  },
+  "coil": {
+   "tier": 0,
+   "hit": "毒"
+  },
+  "jinzhen": {
+   "tier": 1
+  },
+  "sniff": {
+   "tier": 1,
+   "hit": "咬"
+  },
+  "fuhu": {
+   "tier": 1
+  },
+  "shuaibei": {
+   "tier": 1
+  },
+  "bianfa": {
+   "tier": 1
+  },
+  "liuye": {
+   "tier": 2
+  },
+  "lianhua": {
+   "tier": 2
+  },
+  "guafeng": {
+   "tier": 2
+  },
+  "dingshen": {
+   "tier": 1
+  },
+  "huichun": {
+   "tier": 1
+  },
+  "lick": {
+   "tier": 1
+  },
+  "jingxin": {
+   "tier": 1
+  },
+  "baicao": {
+   "tier": 2
+  },
+  "ghost": {
+   "tier": 3,
+   "boss": 1
+  },
+  "fanjiang": {
+   "tier": 2,
+   "hit": "刀"
+  },
+  "qh_hulu_staff": {
+   "tier": 1,
+   "hit": "棍"
+  }
+ },
+ "PAL": {
+  "音律": [
+   "#ffffff",
+   "#d5fff1",
+   "#8dd8c5",
+   "#3b998b",
+   "#23594f"
+  ],
+  "拳": [
+   "#ffffff",
+   "#fff0b0",
+   "#ffb448",
+   "#e8682c",
+   "#8a3424"
+  ],
+  "阳": [
+   "#ffffff",
+   "#ffe9a0",
+   "#ffa040",
+   "#e8582c",
+   "#8a3024"
+  ],
+  "刀": [
+   "#ffffff",
+   "#f4f0e4",
+   "#d8cfbb",
+   "#9a907e",
+   "#5a5044"
+  ],
+  "剑": [
+   "#ffffff",
+   "#d4f4ff",
+   "#7ad0ff",
+   "#4a7ae0",
+   "#2e3c80"
+  ],
+  "棍": [
+   "#ffffff",
+   "#f4dcaa",
+   "#d8a868",
+   "#906c48",
+   "#5a3a24"
+  ],
+  "暗器": [
+   "#ffffff",
+   "#fff4c0",
+   "#f0c860",
+   "#aa8a38",
+   "#5a4424"
+  ],
+  "阴": [
+   "#ffffff",
+   "#e4dcff",
+   "#b0a8ff",
+   "#7a60d0",
+   "#3e2c7a"
+  ],
+  "毒": [
+   "#ffffff",
+   "#e0ffc8",
+   "#98e868",
+   "#46a03a",
+   "#28542a"
+  ],
+  "雷": [
+   "#ffffff",
+   "#fffac8",
+   "#ffe25a",
+   "#d0b028",
+   "#6a5a1a"
+  ],
+  "医": [
+   "#ffffff",
+   "#d8ffe0",
+   "#8ff0b0",
+   "#48b07a",
+   "#245a44"
+  ],
+  "金": [
+   "#ffffff",
+   "#fff0b0",
+   "#ffcf5a",
+   "#f08a2a",
+   "#8a4414"
+  ],
+  "血": [
+   "#ffffff",
+   "#ffd0c0",
+   "#ff5a4a",
+   "#c0243a",
+   "#5a1420"
+  ],
+  "冰": [
+   "#ffffff",
+   "#e0f6ff",
+   "#9fd4ff",
+   "#5a90d0",
+   "#2e4a80"
+  ],
+  "咬": [
+   "#ffffff",
+   "#f4f0e4",
+   "#e8d8c8",
+   "#9a7a70",
+   "#5a3a30"
+  ]
+ },
+ "WSHORT": {
+  "暗器": "暗"
+ }
+}

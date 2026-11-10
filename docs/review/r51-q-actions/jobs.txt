@@ -1,0 +1,6 @@
+xu_hand_paper xu
+xu_point xu
+cen_tea cen
+cen_fan cen
+shen_medicine shen
+shen_note shen

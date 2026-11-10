@@ -1,0 +1,70 @@
+{
+ "metrics": {
+  "hero-village": {
+   "hue": 109.7,
+   "sat": 11.1,
+   "val": 81.2,
+   "warm": 0.15,
+   "top_bot": 4.9,
+   "cx": 0.493
+  },
+  "hero-modern": {
+   "hue": 214.0,
+   "sat": 15.6,
+   "val": 67.9,
+   "warm": 0.0,
+   "top_bot": 0.7,
+   "cx": 0.498
+  },
+  "hero-guiyun": {
+   "hue": 166.7,
+   "sat": 9.4,
+   "val": 81.4,
+   "warm": 0.0,
+   "top_bot": 3.3,
+   "cx": 0.518
+  },
+  "ye": {
+   "hue": 48.8,
+   "sat": 25.0,
+   "val": 76.4,
+   "warm": 0.91,
+   "top_bot": -2.5,
+   "cx": 0.498
+  },
+  "suzhi": {
+   "hue": 193.0,
+   "sat": 15.5,
+   "val": 87.1,
+   "warm": 0.0,
+   "top_bot": 5.5,
+   "cx": 0.54
+  },
+  "yinhongying": {
+   "hue": 21.9,
+   "sat": 34.6,
+   "val": 75.0,
+   "warm": 0.91,
+   "top_bot": -15.2,
+   "cx": 0.539
+  },
+  "peizhigu": {
+   "hue": 23.8,
+   "sat": 50.4,
+   "val": 74.0,
+   "warm": 1.0,
+   "top_bot": 5.3,
+   "cx": 0.475
+  },
+  "censhuang": {
+   "hue": 251.7,
+   "sat": 18.4,
+   "val": 67.0,
+   "warm": 0.0,
+   "top_bot": 13.4,
+   "cx": 0.51
+  }
+ },
+ "same_pairs": [],
+ "pairs": 28
+}

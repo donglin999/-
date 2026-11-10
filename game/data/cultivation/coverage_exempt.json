@@ -1,0 +1,7 @@
+{
+ "_说明": "分支覆盖测试的豁免登记（docs/branch-coverage.md）。每条写原因和日期；没登记的走不到、不收尾都算测试失败。",
+ "repeatable": {
+  "gy_yin_bond:not_yet": "殷红缨《屋顶上的人》选“我还想再想想”：有意清掉已发生标记，关系够了还能再上屋顶（cu_household.gd effects）。2026-11-08 登记"
+ },
+ "unreachable": {}
+}

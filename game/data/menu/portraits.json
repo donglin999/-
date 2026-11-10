@@ -1,0 +1,90 @@
+{
+ "hero-modern": {
+  "file": "assets/ui/jianghu-v4/portraits/hero-modern.webp",
+  "w": 1024,
+  "h": 1536,
+  "b": [
+   299,
+   13,
+   750,
+   1514
+  ]
+ },
+ "hero-village": {
+  "file": "assets/ui/jianghu-v4/portraits/hero-village.webp",
+  "w": 1024,
+  "h": 1536,
+  "b": [
+   257,
+   15,
+   771,
+   1495
+  ]
+ },
+ "hero-guiyun": {
+  "file": "assets/ui/jianghu-v4/portraits/hero-guiyun.webp",
+  "w": 1024,
+  "h": 1536,
+  "b": [
+   164,
+   6,
+   815,
+   1499
+  ]
+ },
+ "ye": {
+  "file": "assets/ui/jianghu-v4/portraits/ye-menu-v2.png",
+  "w": 1024,
+  "h": 1536,
+  "b": [
+   265,
+   5,
+   748,
+   1509
+  ]
+ },
+ "suzhi": {
+  "file": "assets/ui/jianghu-v4/portraits/suzhi.webp",
+  "w": 512,
+  "h": 768,
+  "b": [
+   96,
+   5,
+   405,
+   765
+  ]
+ },
+ "censhuang": {
+  "file": "assets/ui/jianghu-v4/portraits/censhuang.webp",
+  "w": 512,
+  "h": 768,
+  "b": [
+   34,
+   8,
+   481,
+   753
+  ]
+ },
+ "peizhigu": {
+  "file": "assets/ui/jianghu-v4/portraits/peizhigu.webp",
+  "w": 1024,
+  "h": 1536,
+  "b": [
+   297,
+   22,
+   813,
+   1505
+  ]
+ },
+ "yinhongying": {
+  "file": "assets/ui/jianghu-v4/portraits/yinhongying.webp",
+  "w": 480,
+  "h": 640,
+  "b": [
+   11,
+   0,
+   473,
+   640
+  ]
+ }
+}

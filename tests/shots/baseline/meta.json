@@ -1,0 +1,152 @@
+{
+ "title": {
+  "noise": 0.0,
+  "note": "标题页",
+  "updated": "2026-11-10 19:38"
+ },
+ "scene-backhill": {
+  "noise": 0.0,
+  "note": "序章后山",
+  "updated": "2026-11-10 19:38"
+ },
+ "scene-village": {
+  "noise": 0.0,
+  "note": "栖河村（序章过后）",
+  "updated": "2026-11-10 19:38"
+ },
+ "scene-clinic": {
+  "noise": 0.0,
+  "note": "药棚",
+  "updated": "2026-11-10 19:38"
+ },
+ "scene-yehouse": {
+  "noise": 1e-05,
+  "note": "叶家",
+  "updated": "2026-11-10 19:38"
+ },
+ "scene-chenhall": {
+  "noise": 0.0,
+  "note": "陈家门厅",
+  "updated": "2026-11-10 19:38"
+ },
+ "scene-inn": {
+  "noise": 0.0,
+  "note": "客栈",
+  "updated": "2026-11-10 19:38"
+ },
+ "scene-south": {
+  "noise": 0.0,
+  "note": "南村口",
+  "updated": "2026-11-10 19:38"
+ },
+ "scene-east": {
+  "noise": 0.0,
+  "note": "东埠",
+  "updated": "2026-11-10 19:38"
+ },
+ "scene-west": {
+  "noise": 0.0,
+  "note": "西田埂",
+  "updated": "2026-11-10 19:38"
+ },
+ "scene-north": {
+  "noise": 0.0,
+  "note": "后山采药路",
+  "updated": "2026-11-10 19:38"
+ },
+ "scene-refuge": {
+  "noise": 0.00012,
+  "note": "邻村接应院",
+  "updated": "2026-11-10 19:38"
+ },
+ "scene-mountain": {
+  "noise": 0.00012,
+  "note": "归云谷山上",
+  "updated": "2026-11-10 19:38"
+ },
+ "npc-seal": {
+  "noise": 0.0,
+  "note": "叶蘅墨印",
+  "updated": "2026-11-10 19:38"
+ },
+ "npc-view": {
+  "noise": 0.0,
+  "note": "叶蘅查看页",
+  "updated": "2026-11-10 19:38"
+ },
+ "npc-gift": {
+  "noise": 0.0,
+  "note": "叶蘅赠礼",
+  "updated": "2026-11-10 19:38"
+ },
+ "npc-retainer": {
+  "noise": 0.00092,
+  "note": "邻村护院墨印（有“谈”）",
+  "updated": "2026-11-10 19:38"
+ },
+ "menu-party": {
+  "noise": 0.0,
+  "note": "菜单·队伍",
+  "updated": "2026-11-10 19:38"
+ },
+ "menu-bag": {
+  "noise": 0.0,
+  "note": "菜单·行囊",
+  "updated": "2026-11-10 19:38"
+ },
+ "menu-equip": {
+  "noise": 0.0,
+  "note": "菜单·装备",
+  "updated": "2026-11-10 19:38"
+ },
+ "menu-skill": {
+  "noise": 0.0,
+  "note": "菜单·武学",
+  "updated": "2026-11-10 19:38"
+ },
+ "menu-quest": {
+  "noise": 0.0,
+  "note": "菜单·行程",
+  "updated": "2026-11-10 19:38"
+ },
+ "menu-rep": {
+  "noise": 0.0,
+  "note": "菜单·江湖",
+  "updated": "2026-11-10 19:38"
+ },
+ "menu-sys": {
+  "noise": 0.0,
+  "note": "菜单·系统",
+  "updated": "2026-11-10 19:38"
+ },
+ "cult-entry": {
+  "noise": 0.0,
+  "note": "培养·入谷",
+  "updated": "2026-11-10 19:38"
+ },
+ "cult-hub": {
+  "noise": 0.0,
+  "note": "培养·主界面",
+  "updated": "2026-11-10 19:38"
+ },
+ "cult-p3": {
+  "noise": 0.0,
+  "note": "培养·第三页",
+  "updated": "2026-11-10 19:38"
+ },
+ "battle-ye": {
+  "noise": 0.00796,
+  "note": "战斗（叶蘅）",
+  "updated": "2026-11-10 19:38"
+ },
+ "esc-scene": {
+  "noise": 0.0,
+  "note": "探索地图按 Esc（应是江湖菜单设置页）",
+  "updated": "2026-11-10 19:38"
+ },
+ "esc-cultivation": {
+  "noise": 0.0,
+  "note": "培养模式按 Esc（先关小窗，再按出江湖菜单设置页，应与探索时同一套）",
+  "updated": "2026-11-10 19:38"
+ }
+}

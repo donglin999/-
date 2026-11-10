@@ -1,0 +1,1 @@
+{"source": "302ai-sunburst-2.6", "out": "docs/review/party-b-kit/plum.png", "background": "transparent", "seconds": 58, "usage": {"input_tokens": 1676, "input_tokens_details": {"image_tokens": 1536, "text_tokens": 140}, "output_tokens": 1372, "output_tokens_details": {"image_tokens": 1372, "text_tokens": 0}, "total_tokens": 3048}, "size": "1536x1024", "key_env": "AI302_API_KEY"}

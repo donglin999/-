@@ -1,0 +1,1 @@
+{"source": "302ai-sunburst-2.6", "out": "hero-village.png", "background": "opaque", "seconds": 64, "usage": {"input_tokens": 1887, "input_tokens_details": {"image_tokens": 1536, "text_tokens": 351}, "output_tokens": 1510, "output_tokens_details": {"image_tokens": 1510, "text_tokens": 0}, "total_tokens": 3397}, "size": "1024x1280", "key_env": "AI302_API_KEY"}

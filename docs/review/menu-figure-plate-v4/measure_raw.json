@@ -1,0 +1,98 @@
+{
+ "page": {
+  "val": 84.6,
+  "con": 10.6,
+  "mist": 0.3,
+  "cx": 0.523,
+  "tb": 3.2,
+  "sat": 9.9,
+  "in_palette": 1.0
+ },
+ "metrics": {
+  "hero-village": {
+   "val": 89.0,
+   "con": 7.8,
+   "mist": 0.36,
+   "cx": 0.47,
+   "tb": 2.0,
+   "sat": 12.1,
+   "in_palette": 1.0
+  },
+  "hero-modern": {
+   "val": 91.0,
+   "con": 4.8,
+   "mist": 0.72,
+   "cx": 0.499,
+   "tb": 7.0,
+   "sat": 7.5,
+   "in_palette": 1.0
+  },
+  "hero-guiyun": {
+   "val": 87.1,
+   "con": 10.6,
+   "mist": 0.51,
+   "cx": 0.549,
+   "tb": -1.5,
+   "sat": 11.0,
+   "in_palette": 1.0
+  },
+  "ye": {
+   "val": 79.3,
+   "con": 12.4,
+   "mist": 0.13,
+   "cx": 0.49,
+   "tb": 2.1,
+   "sat": 16.8,
+   "in_palette": 1.0
+  },
+  "suzhi": {
+   "val": 91.8,
+   "con": 5.9,
+   "mist": 0.57,
+   "cx": 0.547,
+   "tb": 1.1,
+   "sat": 9.6,
+   "in_palette": 1.0
+  },
+  "yinhongying": {
+   "val": 79.0,
+   "con": 16.4,
+   "mist": 0.11,
+   "cx": 0.537,
+   "tb": -15.2,
+   "sat": 16.4,
+   "in_palette": 1.0
+  },
+  "peizhigu": {
+   "val": 72.7,
+   "con": 13.4,
+   "mist": 0.0,
+   "cx": 0.462,
+   "tb": 0.2,
+   "sat": 23.6,
+   "in_palette": 1.0
+  },
+  "censhuang": {
+   "val": 80.2,
+   "con": 10.2,
+   "mist": 0.13,
+   "cx": 0.539,
+   "tb": 10.0,
+   "sat": 13.0,
+   "in_palette": 1.0
+  }
+ },
+ "same_pairs": [
+  [
+   "hero-guiyun",
+   "suzhi"
+  ],
+  [
+   "ye",
+   "censhuang"
+  ]
+ ],
+ "off_palette": [
+  "裴知古"
+ ]
+}

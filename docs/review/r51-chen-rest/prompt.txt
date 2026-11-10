@@ -1,0 +1,9 @@
+Model: gpt-image-2.6（使用 gpt-image-2.6 生图模型）
+Use case: production pixel-art game sprites.
+Deliverable: exploration sprite sheet for the villager NPC 「陈伯」 SITTING on a low wooden stool, resting after fleeing the burning village; on genuine transparent RGBA background.
+Image 1 is 陈伯's CURRENT ADOPTED standing map sprite (4 directions, enlarged): it is BOTH the identity reference and the exact pixel-art style / density / outline / palette reference. Keep exactly the same face, grey hair tied in a high topknot with a white cloth band, short grey beard, off-white cross-collar shirt with rolled sleeves, dark brown sleeveless vest, beige long hem, carpenter's tool pouch at the waist. Same colors.
+Image 2 is his OLD seated sprite (4 directions): use it ONLY for the pose and the stool (seated on a small low stool, forearms resting on knees, slightly tired, shoulders a little slumped). Do NOT copy its old face, black hair or old clothing.
+Image 3 is his dialogue portrait, only a secondary identity check.
+After fleeing he has no wooden ruler in hand (set aside); his clothes are a bit dusty, a few soot smudges on the hem and sleeves — subtle, still clearly the same man.
+Layout: 2 rows by 2 columns, exactly FOUR separated full-body seated sprites of ONE person on the stool. Top-left FACE CAMERA (south/down), top-right FACE LEFT (west), bottom-left FACE RIGHT (east), bottom-right FACE AWAY (north/up). Same pose in all four.
+Make the seated figure (head to stool feet) about 70 logical art pixels tall, same pixel size and head size as Image 1 (he is the same man, just sitting). Logical pixels enlarged by nearest neighbor; equal grid cells, generous transparent margins, complete figure and stool visible. No caption, text, border, ground tile, drop shadow or background. No smooth illustration, gradient or blur.

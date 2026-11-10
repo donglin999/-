@@ -1,0 +1,4 @@
+已裁出 260x240，放大 3 倍，画布 1024x1024：docs/review/r51-patch/clinic-jar2/ref.png
+{"source": "302ai-sunburst-2.6", "out": "docs/review/r51-patch/clinic-jar2/edit.png", "background": "opaque", "seconds": 61, "usage": {"input_tokens": 1203, "input_tokens_details": {"image_tokens": 1024, "text_tokens": 179}, "output_tokens": 1756, "output_tokens_details": {"image_tokens": 1756, "text_tokens": 0}, "total_tokens": 2959}, "size": "1024x1024", "key_env": "AI302_API_KEY"}
+ 
+对照图：docs/review/r51-patch/clinic-jar2/cmp.png

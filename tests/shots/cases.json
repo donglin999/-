@@ -1,0 +1,262 @@
+[
+ {
+  "name": "title",
+  "args": {},
+  "ms": 2500,
+  "note": "标题页"
+ },
+ {
+  "name": "scene-backhill",
+  "args": {
+   "scene": "prologue_backhill"
+  },
+  "ms": 2000,
+  "note": "序章后山"
+ },
+ {
+  "name": "scene-village",
+  "args": {
+   "scene": "qihe_trial",
+   "stage": "done"
+  },
+  "ms": 2000,
+  "note": "栖河村（序章过后）"
+ },
+ {
+  "name": "scene-clinic",
+  "args": {
+   "scene": "prologue_clinic_interior",
+   "stage": "done"
+  },
+  "ms": 1800,
+  "note": "药棚"
+ },
+ {
+  "name": "scene-yehouse",
+  "args": {
+   "scene": "prologue_ye_house",
+   "stage": "done"
+  },
+  "ms": 1800,
+  "note": "叶家"
+ },
+ {
+  "name": "scene-chenhall",
+  "args": {
+   "scene": "prologue_chen_hall",
+   "stage": "done"
+  },
+  "ms": 1800,
+  "note": "陈家门厅"
+ },
+ {
+  "name": "scene-inn",
+  "args": {
+   "scene": "prologue_inn_interior",
+   "stage": "done"
+  },
+  "ms": 1800,
+  "note": "客栈"
+ },
+ {
+  "name": "scene-south",
+  "args": {
+   "scene": "qh_south",
+   "stage": "done",
+   "chapter": "days,2"
+  },
+  "ms": 2000,
+  "note": "南村口"
+ },
+ {
+  "name": "scene-east",
+  "args": {
+   "scene": "qh_east",
+   "stage": "done",
+   "chapter": "days,2"
+  },
+  "ms": 2000,
+  "note": "东埠"
+ },
+ {
+  "name": "scene-west",
+  "args": {
+   "scene": "qh_west",
+   "stage": "done",
+   "chapter": "days,2"
+  },
+  "ms": 2000,
+  "note": "西田埂"
+ },
+ {
+  "name": "scene-north",
+  "args": {
+   "scene": "qh_north",
+   "stage": "done",
+   "chapter": "days,2"
+  },
+  "ms": 2000,
+  "note": "后山采药路"
+ },
+ {
+  "name": "scene-refuge",
+  "args": {
+   "scene": "qh_refuge",
+   "stage": "done",
+   "chapter": "refuge,6"
+  },
+  "ms": 2000,
+  "note": "邻村接应院"
+ },
+ {
+  "name": "scene-mountain",
+  "args": {
+   "scene": "qh_mountain",
+   "stage": "done",
+   "chapter": "mountain,6"
+  },
+  "ms": 2000,
+  "note": "归云谷山上"
+ },
+ {
+  "name": "npc-seal",
+  "args": {
+   "npc": "ye:seal"
+  },
+  "ms": 1800,
+  "note": "叶蘅墨印"
+ },
+ {
+  "name": "npc-view",
+  "args": {
+   "npc": "ye:view"
+  },
+  "ms": 1800,
+  "note": "叶蘅查看页"
+ },
+ {
+  "name": "npc-gift",
+  "args": {
+   "npc": "ye:gift"
+  },
+  "ms": 1800,
+  "note": "叶蘅赠礼"
+ },
+ {
+  "name": "npc-retainer",
+  "args": {
+   "npc": "retainer@qh_refuge"
+  },
+  "ms": 1800,
+  "note": "邻村护院墨印（有“谈”）"
+ },
+ {
+  "name": "menu-party",
+  "args": {
+   "menu": "party"
+  },
+  "ms": 1500,
+  "note": "菜单·队伍"
+ },
+ {
+  "name": "menu-bag",
+  "args": {
+   "menu": "bag"
+  },
+  "ms": 1500,
+  "note": "菜单·行囊"
+ },
+ {
+  "name": "menu-equip",
+  "args": {
+   "menu": "equip"
+  },
+  "ms": 1500,
+  "note": "菜单·装备"
+ },
+ {
+  "name": "menu-skill",
+  "args": {
+   "menu": "skill"
+  },
+  "ms": 1500,
+  "note": "菜单·武学"
+ },
+ {
+  "name": "menu-quest",
+  "args": {
+   "menu": "quest"
+  },
+  "ms": 1500,
+  "note": "菜单·行程"
+ },
+ {
+  "name": "menu-rep",
+  "args": {
+   "menu": "rep"
+  },
+  "ms": 1500,
+  "note": "菜单·江湖"
+ },
+ {
+  "name": "menu-sys",
+  "args": {
+   "menu": "sys"
+  },
+  "ms": 1500,
+  "note": "菜单·系统"
+ },
+ {
+  "name": "esc-scene",
+  "args": {
+   "scene": "qihe_trial",
+   "stage": "done",
+   "chapter": "days,2"
+  },
+  "ms": 1800,
+  "keys": [
+   "Escape"
+  ],
+  "note": "探索地图按 Esc（应是江湖菜单设置页）"
+ },
+ {
+  "name": "cult-entry",
+  "args": {
+   "cultivation": "shot:entry"
+  },
+  "note": "培养·入谷"
+ },
+ {
+  "name": "cult-hub",
+  "args": {
+   "cultivation": "shot:hub"
+  },
+  "note": "培养·主界面"
+ },
+ {
+  "name": "cult-p3",
+  "args": {
+   "cultivation": "shot:p3"
+  },
+  "note": "培养·第三页"
+ },
+ {
+  "name": "esc-cultivation",
+  "args": {
+   "cultivation": "shot:p3"
+  },
+  "keys": [
+   "Escape",
+   "Escape"
+  ],
+  "note": "培养模式按 Esc（先关小窗，再按出江湖菜单设置页，应与探索时同一套）"
+ },
+ {
+  "name": "battle-ye",
+  "args": {
+   "battle": "ye"
+  },
+  "ms": 3500,
+  "note": "战斗（叶蘅）"
+ }
+]

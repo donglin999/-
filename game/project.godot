@@ -1,0 +1,66 @@
+; Engine configuration file.
+config_version=5
+
+[application]
+boot_splash/bg_color=Color(0.043, 0.035, 0.027, 1)
+boot_splash/show_image=false
+config/name="小江湖 · 栖河（Godot 版）"
+run/main_scene="res://scenes/boot.tscn"
+config/features=PackedStringArray("4.7", "GL Compatibility")
+
+[display]
+window/size/viewport_width=960
+window/size/viewport_height=540
+window/size/window_width_override=1280
+window/size/window_height_override=720
+window/stretch/mode="canvas_items"
+window/stretch/aspect="keep"
+
+[rendering]
+textures/vram_compression/import_etc2_astc=true
+environment/defaults/default_clear_color=Color(0, 0, 0, 1)
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
+textures/canvas_textures/default_texture_filter=0
+2d/snap/snap_2d_transforms_to_pixel=false
+
+[autoload]
+__InkRuntime="*res://addons/inkgd/ink_runtime.gd"
+Data="*res://scripts/core/data.gd"
+Packs="*res://scripts/core/packs.gd"
+Assets="*res://scripts/core/assets.gd"
+G="*res://scripts/core/game_state.gd"
+DB="*res://scripts/core/db.gd"
+CharArt="*res://scripts/world/char_art.gd"
+World="*res://scripts/world/world.gd"
+Lights="*res://scripts/world/lights.gd"
+UI="*res://scripts/ui/ui.gd"
+Dialog="*res://scripts/ui/dialog.gd"
+Cinematic="*res://scripts/ui/cinematic.gd"
+Bui="*res://scripts/ui/bui.gd"
+Story="*res://scripts/core/story_runtime.gd"
+Audio="*res://scripts/core/audio.gd"
+Flow="*res://scripts/flow/flow.gd"
+Battle="*res://scripts/battle/battle.gd"
+Menu="*res://scripts/menu/menu.gd"
+Npc="*res://scripts/npc/npc.gd"
+Cultivation="*res://scripts/cultivation/cultivation.gd"
+
+[importer_defaults]
+
+texture={
+"compress/mode": 1,
+"compress/lossy_quality": 0.9,
+"mipmaps/generate": false,
+"process/fix_alpha_border": true
+}
+
+[debug]
+
+gdscript/warnings/inference_on_variant=1
+gdscript/warnings/untyped_declaration=0
+gdscript/warnings/unsafe_property_access=0
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/gdUnit4/plugin.cfg")

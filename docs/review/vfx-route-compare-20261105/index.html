@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>特效路线三档比对</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@600;800&family=Noto+Sans+SC:wght@400;500;700&display=swap">
+<style>
+:root {
+  /* 单一深色主题：战斗截图在暗底上看得准。墨蓝底、宣纸色字、朱砂强调、青与金分别标“借鉴”和“现有” */
+  --ink: #12141c;
+  --panel: #1b1f2b;
+  --line: #2e3446;
+  --paper: #ece4d4;
+  --muted: #a8a294;
+  --seal: #d4553a;
+  --jade: #6fc9a4;
+  --gold: #e3b45a;
+  --display: "Noto Serif SC", "Songti SC", serif;
+  --body: "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+  /* 版式：结论在前；三档各一节，每节三列同步播放；流程与口径放后面 */
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; background: var(--ink); color: var(--paper); font-family: var(--body); line-height: 1.65; font-size: 15px; }
+a { color: var(--jade); }
+.wrap { max-width: 1500px; margin: 0 auto; padding: 24px 20px 80px; display: grid; gap: 28px; }
+h1, h2, h3 { font-family: var(--display); text-wrap: balance; margin: 0; letter-spacing: .02em; }
+h1 { font-size: 30px; }
+h2 { font-size: 22px; padding-bottom: 6px; border-bottom: 1px solid var(--line); }
+h3 { font-size: 16px; }
+p { margin: 0; max-width: 72ch; }
+.muted { color: var(--muted); }
+.pill { display: inline-block; font-size: 12px; padding: 2px 10px; border-radius: 99px; border: 1px solid var(--seal); color: var(--seal); margin-left: 8px; vertical-align: middle; font-family: var(--body); }
+header { display: grid; gap: 10px; }
+.verdict { background: var(--panel); border-left: 4px solid var(--seal); padding: 16px 18px; display: grid; gap: 8px; }
+.verdict ol { margin: 0; padding-left: 1.3em; display: grid; gap: 4px; max-width: 110ch; }
+.bar { position: sticky; top: 0; z-index: 5; background: rgba(18,20,28,.96); border-bottom: 1px solid var(--line); padding: 10px 0; display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+button, select { font: inherit; background: var(--panel); color: var(--paper); border: 1px solid var(--line); border-radius: 6px; padding: 5px 12px; cursor: pointer; }
+button:hover, select:hover { border-color: var(--muted); }
+button:focus-visible, select:focus-visible, input:focus-visible { outline: 2px solid var(--jade); outline-offset: 2px; }
+button[aria-pressed="true"] { border-color: var(--seal); color: #fff; background: #3a2220; }
+.bar .t { font-variant-numeric: tabular-nums; color: var(--muted); min-width: 22ch; }
+section.tier { display: grid; gap: 14px; }
+.why { color: var(--muted); max-width: 110ch; }
+.trio { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+@media (max-width: 1000px) { .trio { grid-template-columns: 1fr; } }
+.card { background: var(--panel); border: 1px solid var(--line); border-radius: 8px; overflow: hidden; display: grid; grid-template-rows: auto auto 1fr; }
+.card .head { display: flex; justify-content: space-between; align-items: baseline; padding: 8px 12px; gap: 8px; }
+.card .head b { font-family: var(--display); font-size: 16px; }
+.tag { font-size: 12px; padding: 1px 8px; border-radius: 4px; }
+.tag.ex { background: #3b3220; color: var(--gold); }
+.tag.px { background: #24303c; color: #9cc8ec; }
+.tag.op { background: #1e3a30; color: var(--jade); }
+canvas { display: block; width: 100%; height: auto; image-rendering: pixelated; background: #000; }
+.info { padding: 10px 12px 14px; display: grid; gap: 6px; font-size: 13.5px; }
+.info dl { margin: 0; display: grid; grid-template-columns: 5.5em 1fr; gap: 3px 10px; }
+.info dt { color: var(--muted); }
+.info dd { margin: 0; }
+.pro { color: var(--jade); }
+.con { color: #e79a86; }
+figure { margin: 0; display: grid; gap: 6px; }
+figure img { width: 100%; height: auto; border-radius: 6px; border: 1px solid var(--line); }
+figcaption { color: var(--muted); font-size: 13px; }
+table { border-collapse: collapse; width: 100%; font-size: 13.5px; }
+.tablewrap { overflow-x: auto; }
+th, td { border-bottom: 1px solid var(--line); padding: 8px 10px; text-align: left; vertical-align: top; }
+th { color: var(--muted); font-weight: 500; white-space: nowrap; }
+td.ok { color: var(--jade); white-space: nowrap; }
+td.no { color: #e79a86; white-space: nowrap; }
+td.part { color: var(--gold); white-space: nowrap; }
+.steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 12px; }
+.step { background: var(--panel); border: 1px solid var(--line); border-radius: 8px; padding: 12px 14px; display: grid; gap: 4px; font-size: 14px; }
+.step b { font-family: var(--display); }
+.step .chg { color: var(--jade); font-size: 13px; }
+.gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 14px; }
+.ask { border: 1px dashed var(--seal); border-radius: 8px; padding: 14px 16px; display: grid; gap: 6px; }
+@media (prefers-reduced-motion: reduce) { * { scroll-behavior: auto; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <h1>特效路线三档比对 <span class="pill">评审用，未接入游戏</span></h1>
+  <p class="muted">2026-11-05 · 美术 · 模块：战斗特效生成流程。同一场景、同一底图、同一帧率（30 帧／秒）下，比较我们现有成品、照 pixelfx 开源项目流程做的版本、以及按改进后流程做的版本。低档取后山狼战的普通棍击，中档、高档取第一部分尾声领队交锋里徐令仪的两招。</p>
+</header>
+
+<div class="verdict">
+  <h3>结论与推荐</h3>
+  <ol>
+    <li><b>推荐采用“优化路线”</b>：概念图照旧由你定，拆素材时改成每个元素出一张<b>关键帧条</b>（同位、同大小、同配色，只变形态），程序只补火星、光、顿帧；成品烘焙成精灵表给 Godot 直接播。三档里它的主形都是生图画的，而且主形本身会逐帧变形，不再是一张静图被程序推着走。</li>
+    <li><b>pixelfx 的“纯代码画主形”不适合我们</b>：画出来的锋面、团块是几何形，和本作手绘像素人物不是一个画风，也正是 R-特效-02 否掉的“程序绘制优先”。高档那版改了 4 轮仍像放射线图案。</li>
+    <li><b>pixelfx 值得借的是工具和工序</b>：渲染→看图→改最坏处的循环、自动检查（越界、末帧清空、单帧耗时）、粒子与光两层缓冲、命中顿帧数据化、精灵表＋JSON 导出。优化版的火星和光就是直接用它的引擎算的。</li>
+    <li><b>差距最大的是低档</b>：现有普通命中还是程序画的两圈椭圆环，在亮地面上几乎看不见。建议若采用优化路线，先从通用命中（按兵器分棍、刀、剑、拳几套）做起。</li>
+  </ol>
+</div>
+
+<div class="bar" role="toolbar" aria-label="播放控制">
+  <button id="play" aria-pressed="true">暂停</button>
+  <button id="prev" title="上一帧（←）">◀ 上一帧</button>
+  <button id="next" title="下一帧（→）">下一帧 ▶</button>
+  <label for="speed" class="muted">速度</label>
+  <select id="speed"><option value="1">1 倍（实际速度）</option><option value="0.5">0.5 倍</option><option value="0.25">0.25 倍</option></select>
+  <span class="t" id="tlabel"></span>
+  <span class="muted">空格暂停，← → 逐帧；九格共用同一时钟，同档三版逐帧对齐。</span>
+</div>
+
+<section class="tier" id="low">
+  <h2>低档 · 普通攻击命中（木杵打狼）</h2>
+  <p class="why">选它的理由：所有普通攻击共用的通用命中，出现次数最多、最基础。领队交锋里的普通攻击其实不播命中特效（只有受击闪白和数字），所以改取后山狼战萧白的木杵普通攻击。0 毫秒＝命中那一帧。</p>
+  <div class="trio">
+    <div class="card"><div class="head"><b>现有</b><span class="tag ex">程序逐点画</span></div><canvas data-strip="low_existing"></canvas>
+      <div class="info"><dl>
+        <dt>做法</dt><dd>vfx.gd 的 hit_fx「棍」分支（原版 vfx.js 移植）：受击点两圈外扩的椭圆环、脚下 8 粒尘、6 粒火星，再加震屏和顿帧。没有任何素材图。</dd>
+        <dt>用时成本</dt><dd>已在线，0 次生图。</dd>
+        <dt>帧与尺寸</dt><dd>实时模拟，60 帧／秒步进；外环最大约 68×24 特效像素（半径 34×12），连拍里约 0.2 秒内淡出。</dd>
+        <dt class="pro">优点</dt><dd>零素材、开销最小，所有兵器类型共用一套代码。</dd>
+        <dt class="con">缺点</dt><dd>在赭黄地面上几乎看不见，画面里只剩受击闪白和伤害数字；和精细的人物精灵差距最大；仍是 R-特效-02 之前的程序画法。</dd>
+      </dl></div></div>
+    <div class="card"><div class="head"><b>pixelfx 路线</b><span class="tag px">纯代码</span></div><canvas data-strip="low_pixelfx"></canvas>
+      <div class="info"><dl>
+        <dt>做法</dt><dd>照他们的流程先在库里找现成：取 impacts/blunt-hit，尺寸按本作人物（约 60 像素高，他们是 38）放大 1.4 倍，楔形和火星偏向受力方向，尘色改土黄。渲染看图改了 4 轮，跑他们的检查工具通过。</dd>
+        <dt>用时成本</dt><dd>Claude 写码与改图约 5 分钟机时；0 次生图。</dd>
+        <dt>帧与尺寸</dt><dd>19 帧，150×96 特效像素，30 帧／秒，0.6 秒；导出透明精灵表＋Aseprite 格式 JSON。</dd>
+        <dt class="pro">优点</dt><dd>节奏最利落：白热一帧、墨色楔形刺出又收回、土块落地弹一下；可换色、可重播、结果确定。</dd>
+        <dt class="con">缺点</dt><dd>主形是几何团块和三角楔，偏西式卡通；尘团在亮地面上融进底色；画风和人物精灵不搭。</dd>
+      </dl></div></div>
+    <div class="card"><div class="head"><b>优化路线</b><span class="tag op">生图关键帧＋程序点缀</span></div><canvas data-strip="low_optimized"></canvas>
+      <div class="info"><dl>
+        <dt>做法</dt><dd>1 次生图出 2×2 四格关键帧条（透明底，参考图是这场战斗的截图）：压扁白热团→冲击星→尘环→淡出。切格、锁 9 色土黄调色板、透明度量化 5 阶，按 12 帧／秒一拍持帧；火星与土块用 pixelfx 引擎的同一份代码关掉主形补上。</dd>
+        <dt>用时成本</dt><dd>1 次生图（42 秒）；整理与编排脚本约 3 分钟机时。</dd>
+        <dt>帧与尺寸</dt><dd>主形 4 张关键帧，约 52 特效像素宽；合成后 19 帧，30 帧／秒，0.6 秒。</dd>
+        <dt class="pro">优点</dt><dd>主形是画出来的：有墨色描边、多阶明暗、木屑和尘团，和人物精灵同一种笔触；主形逐帧变形。</dd>
+        <dt class="con">缺点</dt><dd>这次只做了 1 轮调整，命中点略偏狼背；尘团的半透明在 5 阶量化后有点硬；要为每种兵器各出一套。</dd>
+      </dl></div></div>
+  </div>
+  <figure><img src="img/key_low.webp" alt="低档关键帧对照：三行依次为现有、pixelfx、优化，四列为命中前后四个时刻"><figcaption>关键帧对照（行：现有／pixelfx／优化；列：命中前、命中、命中后 2 帧、命中后 5 帧）</figcaption></figure>
+</section>
+
+<section class="tier" id="mid">
+  <h2>中档 · 短锋相照（丙阶，单体招式）</h2>
+  <p class="why">选它的理由：丙阶单体招式，有“起势→刺出→命中”和“给同伴立护弧”两个主形，代表一般招式特效。0 毫秒＝出招那一帧，330 毫秒命中。</p>
+  <div class="trio">
+    <div class="card"><div class="head"><b>现有</b><span class="tag ex">静帧素材＋程序编排</span></div><canvas data-strip="mid_existing"></canvas>
+      <div class="info"><dl>
+        <dt>做法</dt><dd>fx_am.gd 的 am_s1（原版 fx-am.js 移植）：am_v1、kit_v1 两套生图静帧素材，程序负责旋聚、贝塞尔飞行、沿途碎光、命中光爆和援护月牙的显隐缩放。</dd>
+        <dt>用时成本</dt><dd>已在线；素材是 10 月按旧流程做的一批，本页未重算。</dd>
+        <dt>帧与尺寸</dt><dd>实时编排，950 毫秒；锋光横贯约 235 特效像素，护弧约 100 特效像素高。</dd>
+        <dt class="pro">优点</dt><dd>命中光爆和护弧都很亮很大，远看醒目；颜色贴合风青色带。</dd>
+        <dt class="con">缺点</dt><dd>素材是静图，锋光只是被拉伸、平移；护弧压住身后护院整个人；命中光爆偏糊，像素边不硬。</dd>
+      </dl></div></div>
+    <div class="card"><div class="head"><b>pixelfx 路线</b><span class="tag px">纯代码</span></div><canvas data-strip="mid_pixelfx"></canvas>
+      <div class="info"><dl>
+        <dt>做法</dt><dd>库里没有现成的，参考 melee/thrust、melee/sword-slash 自写：分层实心锋身（逐像素着色）、锋头长四芒星、命中交叉剑痕、护弧、旋聚细流和碎光。改了 3 轮（第一轮锋身是竖条纹，第二轮护弧太细）。</dd>
+        <dt>用时成本</dt><dd>约 4 分钟机时；0 次生图。</dd>
+        <dt>帧与尺寸</dt><dd>30 帧，410×160 特效像素，30 帧／秒，0.95 秒；检查工具警告有 33 像素画出画布。</dd>
+        <dt class="pro">优点</dt><dd>像素边最干净，锋身粗细与冷却完全可控；体积小，换色只改一行。</dd>
+        <dt class="con">缺点</dt><dd>锋光像一根发光的管子，缺少剑气的飞白和碎丝；护弧是一条细弧线，没有“气盾”的体积。</dd>
+      </dl></div></div>
+    <div class="card"><div class="head"><b>优化路线</b><span class="tag op">生图关键帧＋程序点缀</span></div><canvas data-strip="mid_optimized"></canvas>
+      <div class="info"><dl>
+        <dt>做法</dt><dd>2 张关键帧条：直刺 4 行（起势旋聚→刺出半程→刺满炸星→碎散），护弧 2×2（长出→立满→裂纹→碎散）。参考图是现有版截图，所以配色一致。按锚点对准剑尖和乌魁胸口，旋转 2.9 度贴合方向，锁风青色带，按拍持帧；碎光与光池由 pixelfx 引擎补。</dd>
+        <dt>用时成本</dt><dd>3 次生图（直刺第一张被模型画成一排小图标，改提示词重生 1 次；38＋35＋42 秒）；整理约 3 分钟机时。</dd>
+        <dt>帧与尺寸</dt><dd>主形 8 张关键帧；锋光约 235 特效像素长、护弧约 84 特效像素高；合成后 29 帧，30 帧／秒，0.95 秒。</dd>
+        <dt class="pro">优点</dt><dd>锋光带飞白和碎丝、命中炸星有层次；护弧有裂纹和碎散过程，比现有版小一圈，不再压住身后的人。</dd>
+        <dt class="con">缺点</dt><dd>起势那格的旋涡偏大偏亮；加色叠在亮地面上，深青那一阶基本看不见（现有版同样如此）。</dd>
+      </dl></div></div>
+  </div>
+  <figure><img src="img/key_mid.webp" alt="中档关键帧对照：三行依次为现有、pixelfx、优化"><figcaption>关键帧对照（列：刺出中、命中、命中后 100 毫秒、收势）</figcaption></figure>
+</section>
+
+<section class="tier" id="high">
+  <h2>高档 · 明约合锋（甲阶，领队群攻）</h2>
+  <p class="why">选它的理由：甲阶群攻，三名目标同帧命中，是这场戏的重头招，也是现有特效里最新、按 R-特效-01 完整走过概念图流程的一招。0 毫秒＝出招，260～520 毫秒扇面展开，520 毫秒三目标命中。</p>
+  <div class="trio">
+    <div class="card"><div class="head"><b>现有</b><span class="tag ex">静帧素材＋程序编排</span></div><canvas data-strip="high_existing"></canvas>
+      <div class="info"><dl>
+        <dt>做法</dt><dd>fx_clash_v2.gd 的 am_s3_v2：按流程先出概念图（2 帧各 2 版，定 2 张），再拆 4 个元素（剑身凝芒、绛青扇面、前缘弧锋、交叉命中），都是静图；程序负责扇面展开的裁切显隐、弧锋推进、命中光爆和碎光。</dd>
+        <dt>用时成本</dt><dd>概念图 4 张（生图 287 秒）＋元素 4 张（157 秒），共 8 次生图；另有编排代码 231 行。</dd>
+        <dt>帧与尺寸</dt><dd>实时编排，1250 毫秒；扇面横跨约 340 特效像素。</dd>
+        <dt class="pro">优点</dt><dd>完整走过概念图确认，画面最华丽，扇面层次（绛青、金白、暗红细线）最接近定稿。</dd>
+        <dt class="con">缺点</dt><dd>扇面是一张图从窄到宽地被“揭开”，形状本身不变；260 毫秒前后有一瞬间扇面边缘是直线裁切。</dd>
+      </dl></div></div>
+    <div class="card"><div class="head"><b>pixelfx 路线</b><span class="tag px">纯代码</span></div><canvas data-strip="high_pixelfx"></canvas>
+      <div class="info"><dl>
+        <dt>做法</dt><dd>参考 melee/sword-slash 的月牙锋面自写：极坐标逐像素画扇面，两层（金白接锋晚 60 毫秒、绛青开线），前缘两头收尖的月牙，三目标交叉剑痕和金白缺口。改了 4 轮：条纹旗→交叉网格→弯放射线→对称放射线。</dd>
+        <dt>用时成本</dt><dd>约 6 分钟机时；0 次生图。</dd>
+        <dt>帧与尺寸</dt><dd>38 帧，440×250 特效像素，30 帧／秒，1.25 秒；检查工具警告 813 像素画出画布、单帧 7.2 毫秒（他们的标准是 2 毫秒以内）。</dd>
+        <dt class="pro">优点</dt><dd>时序最准（开线、接锋、命中都卡在合同时刻），改参数就能调张角和节奏。</dd>
+        <dt class="con">缺点</dt><dd>怎么改都是“放射线图案”，没有剑气的丝缕、飞白和光点；离定稿概念图最远。</dd>
+      </dl></div></div>
+    <div class="card"><div class="head"><b>优化路线</b><span class="tag op">生图关键帧＋程序点缀</span></div><canvas data-strip="high_optimized"></canvas>
+      <div class="info"><dl>
+        <dt>做法</dt><dd>直接用已定稿的概念图和现有扇面素材做参考，出 2 张关键帧条：扇面 2×2（初张→半张→全张→碎散）、交叉命中 2×2。按扇根对准剑尖、旋转 4.3 度朝向三名目标，锁绛青＋金白＋暗红色带，扇面亮度 0.8；剑身凝芒、碎光、光池由 pixelfx 引擎补。</dd>
+        <dt>用时成本</dt><dd>2 次生图（50＋41 秒），概念图复用不重出；整理约 3 分钟机时。</dd>
+        <dt>帧与尺寸</dt><dd>主形 8 张关键帧；扇面约 345 特效像素长；合成后 39 帧，30 帧／秒，1.25 秒。</dd>
+        <dt class="pro">优点</dt><dd>扇面真的在“张开”（张角和弧锋逐帧变），收势碎成金白碎光；画风与定稿一致，像素边比现有版硬。</dd>
+        <dt class="con">缺点</dt><dd>金白在亮地面上加色后偏橙；扇面和现有版一样大，盖住三名目标（概念图如此）；碎散那格持续稍长。</dd>
+      </dl></div></div>
+  </div>
+  <figure><img src="img/key_high.webp" alt="高档关键帧对照：三行依次为现有、pixelfx、优化"><figcaption>关键帧对照（列：扇面初张、扇面全张、命中、收势）</figcaption></figure>
+</section>
+
+<section class="tier" id="flow">
+  <h2>pixelfx 是怎么做特效的</h2>
+  <p>pixelfx（patch-gg/pixelfx，MIT，244 个特效）每个特效是一份 JavaScript 文件，不用任何图片：每帧往“颜色”和“光”两块缓冲里逐像素画，光是加色叠上去的。方法来自 Sprite Fusion 的 Hugo Duprez：代码是泥，信自己的眼睛，多喂参考。下表是他们的步骤和我们能不能用。</p>
+  <div class="tablewrap"><table>
+    <thead><tr><th>他们的步骤</th><th>具体做法</th><th>我们</th><th>原因</th></tr></thead>
+    <tbody>
+      <tr><td>先在库里找现成</td><td>按关键词搜，渲染候选看图，多数需求只是换色、换种子、翻转</td><td class="part">部分可借</td><td>我们没有可搜的特效库；但“同一元素多招复用”的思路一致，可建自己的元素库</td></tr>
+      <tr><td>一句话写清艺术方向</td><td>是什么、怎么动、什么色带、多长时间</td><td class="ok">可借</td><td>对应我们的招式合同和关键帧，写法更短</td></tr>
+      <tr><td>纯代码画主形</td><td>画笔接口逐像素画月牙、团块、光束，粒子模拟火星、烟、碎块（120 Hz 物理）</td><td class="no">主形不借</td><td>R-特效-02：主形必须来自生图；三档实测，代码主形和本作画风差距明显</td></tr>
+      <tr><td>颜色＋光两层缓冲</td><td>颜色层硬边，光层加色；色带 6～7 阶、白只给最热处</td><td class="ok">可借</td><td>我们的加色素材已是这个意思，可在整理脚本里正式分两层</td></tr>
+      <tr><td>渲染→看→改最坏处，至少三轮</td><td>contact sheet 连帧总览、逐帧、MP4；和参考作并排比</td><td class="ok">可借</td><td>本页的“关特效底图＋叠层连拍”就是照这个做的，比只看评审页实时播放更容易发现问题</td></tr>
+      <tr><td>动作数据（act）</td><td>起手、出手帧、命中冻结（0.03～0.2 秒）、目标后仰、收势，写成数据</td><td class="part">部分可借</td><td>数据契约可借（命中时刻、顿帧）；他们的灰色假人和姿势系统不适用，我们用自己的人物动作</td></tr>
+      <tr><td>自动检查</td><td>画出画布、单次特效末帧没清空、循环接缝、未定种子的随机、单帧超 2 毫秒</td><td class="ok">可借</td><td>本次他们的工具抓到了 pixelfx 版的越界与超时；我们可加调色板阶数、黑块、透明度阶数检查</td></tr>
+      <tr><td>导出精灵表</td><td>透明 PNG 网格＋Aseprite 格式 JSON（帧时长、帧率、锚点、命中时刻）</td><td class="ok">可借</td><td>Godot 直接读；评审看到的就是游戏里播的，不再一份 JS、一份 GDScript</td></tr>
+      <tr><td>尺度与题材</td><td>人物 24×38、画布 96～320 宽；奇幻题材（法阵、闪电、陨石等）</td><td class="no">不适用</td><td>我们人物约 60 特效像素高、640×360 特效空间；题材禁项见 skill-vfx-pipeline</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section class="tier" id="new-flow">
+  <h2>优化后的流程（本页“优化路线”就是按这个做的）</h2>
+  <div class="steps">
+    <div class="step"><b>1　定关键帧、出概念图</b><span>照旧，概念图要你确认。</span><span class="chg">改：已有定稿概念图的招式直接复用，不重出。</span></div>
+    <div class="step"><b>2　拆素材改成关键帧条</b><span>每个元素一张 2×2 或 4 行的图：同位、同大小、同配色，只变形态（起、展、满、散）。</span><span class="chg">改：原来每个元素一张静图，主形不会变形。</span></div>
+    <div class="step"><b>3　整理</b><span>切格、按锚点对齐、盒式缩到目标像素、锁该招色带（不抖动）、透明度 5 阶；发光件走加色，实体件走透明底。</span><span class="chg">改：原来 LANCZOS 缩放＋96 色中位切分，边发软。</span></div>
+    <div class="step"><b>4　编排</b><span>关键帧按 12 帧／秒一拍持帧（手绘感）；程序只补火星、碎光、光池、起手凝芒、顿帧和震屏，用 pixelfx 的粒子与光引擎。</span><span class="chg">改：程序不再负责把静图拉伸成主形动作。</span></div>
+    <div class="step"><b>5　看图循环＋自动检查</b><span>每改一次就在真实战斗截图上连拍（关特效底图＋叠层），并跑检查：越界、末帧清空、色阶数、黑块、耗时。至少三轮。</span><span class="chg">新增，借 pixelfx。</span></div>
+    <div class="step"><b>6　评审→烘焙→接入</b><span>评审页（对照概念图）要你确认；确认后烘焙成精灵表＋JSON（帧时长、命中时刻、顿帧），Godot 直接播放。</span><span class="chg">改：不再 JS 原型＋GDScript 移植两份。</span></div>
+    <div class="step"><b>7　低档也走生图</b><span>通用命中按兵器（棍、刀、剑、拳、暗器）各出一套关键帧条，换色复用。</span><span class="chg">改：目前普通命中仍是程序画的。</span></div>
+  </div>
+</section>
+
+<section class="tier" id="material">
+  <h2>过程素材</h2>
+  <div class="gallery">
+    <figure><img src="img/gen_low_hit.webp" alt="低档生图关键帧条"><figcaption>优化·低档：木杵钝击 2×2 关键帧条（透明底，垫了土黄底方便看）</figcaption></figure>
+    <figure><img src="img/gen_mid_thrust2.webp" alt="中档直刺关键帧条"><figcaption>优化·中档：青锋直刺 4 行（重生后的一张）</figcaption></figure>
+    <figure><img src="img/gen_mid_thrust.webp" alt="中档直刺第一张，被画成一排小图标"><figcaption>优化·中档：第一张没采用，模型把每行画成了一排小图标</figcaption></figure>
+    <figure><img src="img/gen_mid_guard.webp" alt="中档护弧关键帧条"><figcaption>优化·中档：援护护弧 2×2</figcaption></figure>
+    <figure><img src="img/gen_high_fan.webp" alt="高档扇面关键帧条"><figcaption>优化·高档：扇面展开 2×2（参考定稿概念图）</figcaption></figure>
+    <figure><img src="img/gen_high_hit.webp" alt="高档命中关键帧条"><figcaption>优化·高档：交叉命中 2×2</figcaption></figure>
+    <figure><img src="img/pfx_contact_staff-hit.webp" alt="pixelfx 低档连帧总览"><figcaption>pixelfx·低档：他们工具出的连帧总览（暗底，带假人地面）</figcaption></figure>
+    <figure><img src="img/pfx_contact_short-edge.webp" alt="pixelfx 中档连帧总览"><figcaption>pixelfx·中档连帧总览</figcaption></figure>
+    <figure><img src="img/pfx_contact_fan-edge.webp" alt="pixelfx 高档连帧总览"><figcaption>pixelfx·高档连帧总览</figcaption></figure>
+  </div>
+</section>
+
+<section class="tier" id="caveats">
+  <h2>比对口径</h2>
+  <ul class="muted" style="margin:0;padding-left:1.2em;max-width:110ch;display:grid;gap:4px">
+    <li>“现有”是 Godot 版在虚拟屏上实机连拍（含震屏、顿帧）；另两版贴在同一场战斗“只关特效、照常计时”的连拍底图上，两次连拍对齐误差 1 帧以内。</li>
+    <li>三版同一裁切、同一缩放（中高档 1 特效像素＝2 屏幕像素，低档＝3 屏幕像素），同为 30 帧／秒。</li>
+    <li>pixelfx 版按他们的建议用透明精灵表普通叠加（光已烘进透明度）；优化版的发光件按我们现在的做法加色叠加。</li>
+    <li>pixelfx 版和优化版都没接进游戏，Godot 里的实际耗时未测；精灵表播放的开销低于现在的实时编排。</li>
+    <li>用时是 Claude 的机时（写码、整理、改图），不含你的评审时间；生图耗时取接口回执。</li>
+    <li>为拿干净底图，Godot 版加了两个只在命令行参数下生效的调试开关（--fx-off、--auto）和一行命中日志（--fx-log），不影响正常游玩。</li>
+  </ul>
+</section>
+
+<section class="tier" id="ask">
+  <h2>请你拍板</h2>
+  <div class="ask">
+    <p><b>是否把特效流程改成“优化路线”（R-特效-01 的第 4～6 步按上面改写），并先用它重做普通命中？</b></p>
+    <p class="muted">选项：一、采用优化路线，先做通用命中（推荐）；二、采用优化路线，但只用于今后新做的招式，普通命中暂不动；三、维持现有流程，只借 pixelfx 的看图与检查工具；四、都不采用。本页三档的 pixelfx 版和优化版都只是比对样张，不会替换现有素材。</p>
+  </div>
+</section>
+
+</div>
+<script>
+(() => {
+  const FPS = 30;
+  const STRIPS = {"low_existing": {"src": "img/low_existing.webp", "n": 23, "w": 960, "h": 480, "cols": 6}, "low_pixelfx": {"src": "img/low_pixelfx.webp", "n": 23, "w": 960, "h": 480, "cols": 6}, "low_optimized": {"src": "img/low_optimized.webp", "n": 23, "w": 960, "h": 480, "cols": 6}, "mid_existing": {"src": "img/mid_existing.webp", "n": 35, "w": 1120, "h": 480, "cols": 6}, "mid_pixelfx": {"src": "img/mid_pixelfx.webp", "n": 35, "w": 1120, "h": 480, "cols": 6}, "mid_optimized": {"src": "img/mid_optimized.webp", "n": 35, "w": 1120, "h": 480, "cols": 6}, "high_existing": {"src": "img/high_existing.webp", "n": 45, "w": 1120, "h": 480, "cols": 6}, "high_pixelfx": {"src": "img/high_pixelfx.webp", "n": 45, "w": 1120, "h": 480, "cols": 6}, "high_optimized": {"src": "img/high_optimized.webp", "n": 45, "w": 1120, "h": 480, "cols": 6}};
+  // 每档第 0 帧相对“0 毫秒”的时刻（低档：命中帧；中高档：出招帧）
+  const START = { low: -133, mid: -28, high: -26 };
+  const HOLD = 12; // 每轮末尾停 12 帧再重播
+  const imgs = {}, canvases = [...document.querySelectorAll("canvas[data-strip]")];
+  canvases.forEach((c) => {
+    const k = c.dataset.strip, s = STRIPS[k]; c.width = s.w; c.height = s.h;
+    const g = c.getContext("2d"); g.fillStyle = "#222"; g.fillRect(0, 0, s.w, s.h); g.fillStyle = "#aaa"; g.font = "24px sans-serif"; g.fillText("载入中…", 20, 40);
+    if (!imgs[k]) { imgs[k] = new Image(); imgs[k].src = s.src; imgs[k].onload = () => draw(); }
+  });
+  let frame = 0, playing = !matchMedia("(prefers-reduced-motion: reduce)").matches, speed = 1, last = performance.now(), acc = 0;
+  const playBtn = document.getElementById("play"), tl = document.getElementById("tlabel");
+  function idx(tier) { const n = STRIPS[tier + "_existing"].n; const L = n + HOLD; const f = ((frame % L) + L) % L; return Math.min(f, n - 1); }
+  function draw() {
+    canvases.forEach((c) => {
+      const k = c.dataset.strip, s = STRIPS[k], im = imgs[k]; if (!im || !im.complete || !im.naturalWidth) return;
+      const tier = k.split("_")[0], i = idx(tier), g = c.getContext("2d"); g.imageSmoothingEnabled = false;
+      g.drawImage(im, (i % s.cols) * s.w, Math.floor(i / s.cols) * s.h, s.w, s.h, 0, 0, s.w, s.h);
+    });
+    const t = (tier) => Math.round(START[tier] + idx(tier) * 1000 / FPS);
+    tl.textContent = `低 ${t("low")} 毫秒 · 中 ${t("mid")} 毫秒 · 高 ${t("high")} 毫秒`;
+  }
+  function loop(now) {
+    if (playing) { acc += (now - last) * speed; while (acc >= 1000 / FPS) { frame++; acc -= 1000 / FPS; } draw(); }
+    last = now; requestAnimationFrame(loop);
+  }
+  function setPlay(v) { playing = v; playBtn.textContent = v ? "暂停" : "播放"; playBtn.setAttribute("aria-pressed", String(v)); }
+  playBtn.addEventListener("click", () => setPlay(!playing));
+  document.getElementById("prev").addEventListener("click", () => { setPlay(false); frame--; draw(); });
+  document.getElementById("next").addEventListener("click", () => { setPlay(false); frame++; draw(); });
+  document.getElementById("speed").addEventListener("change", (e) => { speed = +e.target.value; });
+  document.addEventListener("keydown", (e) => {
+    if (e.target.closest("select,input,textarea")) return;
+    if (e.code === "Space") { e.preventDefault(); setPlay(!playing); }
+    if (e.key === "ArrowLeft") { setPlay(false); frame--; draw(); }
+    if (e.key === "ArrowRight") { setPlay(false); frame++; draw(); }
+  });
+  setPlay(playing); draw(); requestAnimationFrame(loop);
+})();
+</script>
+</body>
+</html>

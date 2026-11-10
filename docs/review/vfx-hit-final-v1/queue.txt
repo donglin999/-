@@ -1,0 +1,7 @@
+blade
+bite
+fist
+sword
+needle
+rooster
+snake

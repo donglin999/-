@@ -1,0 +1,1 @@
+{"source": "302ai-sunburst-2.6", "out": "suzhi.png", "background": "opaque", "seconds": 52, "usage": {"input_tokens": 1050, "input_tokens_details": {"image_tokens": 704, "text_tokens": 346}, "output_tokens": 1510, "output_tokens_details": {"image_tokens": 1510, "text_tokens": 0}, "total_tokens": 2560}, "size": "1024x1280", "key_env": "AI302_API_KEY"}

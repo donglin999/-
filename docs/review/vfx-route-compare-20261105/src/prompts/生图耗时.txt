@@ -1,0 +1,6 @@
+mid_thrust 退出码 0 用时 38s
+low_hit 退出码 0 用时 42s
+high_fan 退出码 0 用时 50s
+high_hit 退出码 0 用时 41s
+mid_guard 退出码 0 用时 42s
+mid_thrust2 退出码 0 用时 35s

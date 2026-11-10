@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0">
+<title>$GODOT_PROJECT_NAME</title>
+<style>
+/* 载入页仿原版 #loading：墨色底、“载入画卷中”、3px 金色进度条（宽 36%） */
+html,body{margin:0;height:100%;background:#0d0a08;color:#e9dcc0;overflow:hidden}
+#canvas{display:block;width:100%;height:100%;outline:none}
+#status{position:fixed;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.8em;background:#0b0907;font-family:"Noto Serif SC","Songti SC","STSong",serif;letter-spacing:.3em}
+#status-title{font-family:"ZCOOL XiaoWei","Noto Serif SC",serif;font-size:40.8px;letter-spacing:.3em;color:#e9dcc0}
+#status-text{font-size:17px;letter-spacing:.2em;color:#9c8b70}
+#bar{width:36%;height:3px;background:#2b2118}
+#bar i{display:block;height:100%;width:0;background:#e0bf78;transition:width .2s}
+#status-notice{display:none;max-width:80%;text-align:center;letter-spacing:.05em;color:#f0a080}
+</style>
+$GODOT_HEAD_INCLUDE
+</head>
+<body>
+<canvas id="canvas">您的浏览器不支持画布。</canvas>
+<noscript>需要开启 JavaScript。</noscript>
+<div id="status"><div id="status-title">小江湖</div><div id="bar"><i id="bar-i"></i></div><div id="status-text">载入画卷中……</div><div id="status-notice"></div></div>
+<script src="$GODOT_URL"></script>
+<script>
+const GODOT_CONFIG = $GODOT_CONFIG;
+const GODOT_THREADS_ENABLED = $GODOT_THREADS_ENABLED;
+const engine = new Engine(GODOT_CONFIG);
+(function () {
+	const status = document.getElementById('status'), bar = document.getElementById('bar-i'), notice = document.getElementById('status-notice');
+	function fail(err) { notice.style.display = 'block'; document.getElementById('status-text').textContent = '画卷未能载入，请刷新重试。'; notice.textContent = String(err); console.error(err); }
+	const missing = Engine.getMissingFeatures({ threads: GODOT_THREADS_ENABLED });
+	if (missing.length !== 0) { fail('浏览器缺少：' + missing.join('、')); return; }
+	engine.startGame({
+		onProgress: function (current, total) { if (total > 0) bar.style.width = (current / total * 100) + '%'; },
+	}).then(() => { status.style.display = 'none'; }, fail);
+}());
+</script>
+</body>
+</html>

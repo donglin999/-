@@ -1,0 +1,4 @@
+assets/production/fx/qihe-clash/am_v1/manifest.json
+assets/production/fx/qihe-clash/clash_v2/manifest.json
+assets/production/fx/qihe-clash/gj_v1/manifest.json
+assets/production/fx/qihe-clash/kit_v1/manifest.json

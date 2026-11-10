@@ -1,0 +1,84 @@
+{
+ "fist": {
+  "t": "拳"
+ },
+ "fuhu": {
+  "t": "拳",
+  "e": "阳",
+  "hits": 2
+ },
+ "liuye": {
+  "t": "剑",
+  "tgt": "foes"
+ },
+ "jingxin": {
+  "tgt": "self"
+ },
+ "shuaibei": {
+  "t": "拳",
+  "e": "阴",
+  "stun": 1
+ },
+ "bianfa": {
+  "t": "棍",
+  "tgt": "foes"
+ },
+ "lianhua": {
+  "t": "拳",
+  "e": "毒",
+  "bleed": 1
+ },
+ "guafeng": {
+  "t": "拳",
+  "e": "雷",
+  "tgt": "foes"
+ },
+ "bite": {
+  "t": "刀"
+ },
+ "lick": {
+  "tgt": "ally"
+ },
+ "peck": {
+  "t": "刀",
+  "hits": 2
+ },
+ "blade": {
+  "t": "刀"
+ },
+ "ghost": {
+  "t": "刀",
+  "tgt": "foes"
+ },
+ "coil": {
+  "t": "拳",
+  "stun": 1
+ },
+ "palm_m": {
+  "t": "拳"
+ },
+ "staff": {
+  "t": "棍"
+ },
+ "jinzhen": {
+  "t": "暗器",
+  "reveal": 1
+ },
+ "huichun": {
+  "tgt": "ally"
+ },
+ "baicao": {
+  "tgt": "allies"
+ },
+ "dingshen": {
+  "tgt": "ally",
+  "buff": 1
+ },
+ "sniff": {
+  "t": "刀",
+  "reveal": 2
+ },
+ "qh_hulu_staff": {
+  "t": "棍"
+ }
+}

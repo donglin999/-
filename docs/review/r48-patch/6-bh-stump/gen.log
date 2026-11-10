@@ -1,0 +1,2 @@
+{"source": "302ai-sunburst-2.6", "out": "docs/review/r48-patch/6-bh-stump/edit.png", "background": "transparent", "seconds": 67, "usage": {"input_tokens": 1229, "input_tokens_details": {"image_tokens": 1024, "text_tokens": 205}, "output_tokens": 1756, "output_tokens_details": {"image_tokens": 1756, "text_tokens": 0}, "total_tokens": 2985}, "size": "1024x1024", "key_env": "AI302_API_KEY"}
+ 

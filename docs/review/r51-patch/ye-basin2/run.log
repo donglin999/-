@@ -1,0 +1,4 @@
+已裁出 360x360，放大 2 倍，画布 1024x1024：docs/review/r51-patch/ye-basin2/ref.png
+{"source": "302ai-sunburst-2.6", "out": "docs/review/r51-patch/ye-basin2/edit.png", "background": "opaque", "seconds": 64, "usage": {"input_tokens": 1271, "input_tokens_details": {"image_tokens": 1024, "text_tokens": 247}, "output_tokens": 1756, "output_tokens_details": {"image_tokens": 1756, "text_tokens": 0}, "total_tokens": 3027}, "size": "1024x1024", "key_env": "AI302_API_KEY"}
+ 
+对照图：docs/review/r51-patch/ye-basin2/cmp.png

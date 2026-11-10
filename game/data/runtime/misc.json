@@ -1,0 +1,262 @@
+{
+ "chars": [
+  "hero",
+  "monk",
+  "soldier",
+  "gossip",
+  "oldman",
+  "smith",
+  "lady",
+  "beggar",
+  "boatman",
+  "bandit",
+  "chief",
+  "villager",
+  "child",
+  "merchant",
+  "dog",
+  "rooster",
+  "snake",
+  "wolf",
+  "suzhi",
+  "ye",
+  "liu",
+  "zhou",
+  "langli",
+  "opening_hero_modern",
+  "opening_zhouyan",
+  "opening_luheng",
+  "opening_chengduo",
+  "opening_censhuang",
+  "opening_wukui",
+  "opening_aunt",
+  "opening_chen",
+  "opening_apothecary",
+  "opening_steward",
+  "opening_retainer",
+  "opening_procurement",
+  "opening_procurement_aide",
+  "opening_bailiff",
+  "qh_hero_initial",
+  "qh_bandit",
+  "qh_xulingyi_story",
+  "qh_censhuang_story",
+  "qh_shenyanhui_story",
+  "qh_chen_rest_story",
+  "gy_yinhongying",
+  "gy_fangchi",
+  "gy_luxiaodou",
+  "gy_zhongzhuo",
+  "qh_merchant",
+  "qh_oldman",
+  "qh_song_story",
+  "qh_song_seated",
+  "qh_xiaohe",
+  "qh_atan",
+  "qh_ashuan",
+  "qh_aqi",
+  "qh_huolang",
+  "qh_chuanjia",
+  "qh_linhuizhi",
+  "gy_peizhigu"
+ ],
+ "ports": [
+  "hero",
+  "monk",
+  "soldier",
+  "gossip",
+  "oldman",
+  "smith",
+  "lady",
+  "beggar",
+  "boatman",
+  "bandit",
+  "chief",
+  "suzhi",
+  "ye",
+  "liu",
+  "zhou",
+  "langli",
+  "opening_hero_modern",
+  "opening_hero_village",
+  "opening_zhouyan",
+  "opening_luheng",
+  "opening_chengduo",
+  "opening_censhuang",
+  "opening_wukui",
+  "qh_xulingyi_story",
+  "qh_censhuang_story",
+  "qh_shenyanhui_story",
+  "gy_yinhongying",
+  "gy_hero_long",
+  "qh_song_story",
+  "gy_peizhigu",
+  "qh_oldman",
+  "opening_aunt",
+  "opening_chen",
+  "qh_chen_rest_story",
+  "qh_merchant",
+  "opening_apothecary",
+  "opening_retainer",
+  "qh_bandit",
+  "opening_bailiff",
+  "opening_procurement_aide",
+  "qh_atan",
+  "qh_aqi",
+  "qh_ashuan",
+  "qh_xiaohe",
+  "qh_huolang",
+  "qh_chuanjia",
+  "qh_linhuizhi"
+ ],
+ "optChars": [
+  "suzhi"
+ ],
+ "expr": {
+  "hero": [
+   "smile",
+   "angry",
+   "surprise",
+   "think",
+   "hurt",
+   "battle"
+  ],
+  "suzhi": [
+   "smile",
+   "shy",
+   "angry",
+   "worry",
+   "surprise",
+   "battle"
+  ],
+  "ye": [
+   "smile",
+   "shy",
+   "angry",
+   "worry",
+   "surprise",
+   "battle",
+   "hurt"
+  ],
+  "opening_hero_modern": [
+   "smile",
+   "worry",
+   "firm",
+   "surprise",
+   "hurt"
+  ],
+  "opening_hero_village": [
+   "smile",
+   "worry",
+   "firm",
+   "surprise",
+   "hurt"
+  ],
+  "opening_zhouyan": [
+   "firm",
+   "worry"
+  ],
+  "opening_luheng": [
+   "firm",
+   "worry"
+  ],
+  "opening_chengduo": [
+   "firm",
+   "worry"
+  ],
+  "opening_censhuang": [
+   "firm",
+   "worry"
+  ],
+  "opening_wukui": [
+   "firm",
+   "worry"
+  ],
+  "qh_xulingyi_story": [
+   "happy",
+   "sad",
+   "angry",
+   "surprise",
+   "awkward"
+  ],
+  "qh_censhuang_story": [
+   "happy",
+   "sad",
+   "angry",
+   "surprise",
+   "tease"
+  ],
+  "qh_shenyanhui_story": [
+   "happy",
+   "sad",
+   "angry",
+   "surprise",
+   "skeptical"
+  ],
+  "gy_yinhongying": [
+   "happy",
+   "sad",
+   "angry",
+   "surprise",
+   "tease"
+  ],
+  "gy_hero_long": [
+   "firm",
+   "smile",
+   "surprise",
+   "worry",
+   "hurt"
+  ],
+  "qh_song_story": [
+   "firm",
+   "worry"
+  ]
+ },
+ "occlusion": {
+  "alpha": 0.5,
+  "style": "ghost",
+  "tint": "#efe0bd",
+  "actors": {
+   "player": true,
+   "follower": true,
+   "npc": true,
+   "cast": true,
+   "wanderer": true
+  },
+  "interactiveOnly": false,
+  "occluders": {
+   "fg": true,
+   "prop": true,
+   "cloth": false
+  },
+  "minCover": 0.04,
+  "maxActors": 16,
+  "bodyW": 0.36,
+  "cell": 6
+ },
+ "size": {
+  "hero": 1,
+  "monk": 1.02,
+  "soldier": 1,
+  "gossip": 1,
+  "oldman": 0.98,
+  "smith": 1.03,
+  "lady": 1,
+  "beggar": 1,
+  "boatman": 1,
+  "bandit": 1,
+  "chief": 1.07,
+  "villager": 1,
+  "child": 0.75,
+  "merchant": 1,
+  "dog": 0.6,
+  "rooster": 0.5,
+  "snake": 0.8,
+  "wolf": 0.7,
+  "suzhi": 1,
+  "ye": 1,
+  "liu": 1.02,
+  "zhou": 1,
+  "langli": 1
+ }
+}

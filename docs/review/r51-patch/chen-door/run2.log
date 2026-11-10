@@ -1,0 +1,2 @@
+{"source": "302ai-sunburst-2.6", "out": "docs/review/r51-patch/chen-door/edit.png", "background": "opaque", "seconds": 51, "usage": {"input_tokens": 1892, "input_tokens_details": {"image_tokens": 1536, "text_tokens": 356}, "output_tokens": 1372, "output_tokens_details": {"image_tokens": 1372, "text_tokens": 0}, "total_tokens": 3264}, "size": "1024x1536", "key_env": "AI302_API_KEY"}
+ 

@@ -1,0 +1,1 @@
+{"source": "302ai-sunburst-2.6", "out": "hero-modern.png", "background": "opaque", "seconds": 53, "usage": {"input_tokens": 1886, "input_tokens_details": {"image_tokens": 1536, "text_tokens": 350}, "output_tokens": 1510, "output_tokens_details": {"image_tokens": 1510, "text_tokens": 0}, "total_tokens": 3396}, "size": "1024x1280", "key_env": "AI302_API_KEY"}

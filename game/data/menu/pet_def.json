@@ -1,0 +1,12 @@
+{
+ "dog": {
+  "guardMp": 6,
+  "guardRatio": 0.5,
+  "healRatio": 0.3,
+  "growth": [
+   "str",
+   "agi",
+   "con"
+  ]
+ }
+}

@@ -1,0 +1,20 @@
+# 小江湖 Godot 版（2026-11-10 首次入 git）
+# 测试与导出产物、旧图备份、引擎缓存不入库
+build/
+_attic/
+game/.godot/
+.DS_Store
+*.tmp
+# 评审目录只留文字、脚本、提示词：图片体积大，且含别家游戏的参考截图（公开仓库不放）
+docs/review/**/*.png
+docs/review/**/*.jpg
+docs/review/**/*.jpeg
+docs/review/**/*.webp
+docs/review/**/*.gif
+docs/review/**/*.mp4
+docs/review/**/*.mov
+docs/review/**/*.webm
+# 密钥
+.env
+*.env
+.gdunit-reports/

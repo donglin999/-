@@ -1,0 +1,1 @@
+{"source": "302ai-sunburst-2.6", "out": "A_party.png", "background": "opaque", "seconds": 55, "usage": {"input_tokens": 6251, "input_tokens_details": {"image_tokens": 5472, "text_tokens": 779}, "output_tokens": 1254, "output_tokens_details": {"image_tokens": 1254, "text_tokens": 0}, "total_tokens": 7505}, "size": "1824x1024", "key_env": "AI302_API_KEY"}

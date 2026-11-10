@@ -1,0 +1,1 @@
+{"source": "302ai-sunburst-2.6", "out": "全部出图/fuhu_B.png", "background": "transparent", "seconds": 83, "usage": {"input_tokens": 4665, "input_tokens_details": {"image_tokens": 3072, "text_tokens": 1593}, "output_tokens": 1372, "output_tokens_details": {"image_tokens": 1372, "text_tokens": 0}, "total_tokens": 6037}, "size": "1536x1024", "key_env": "AI302_API_KEY"}

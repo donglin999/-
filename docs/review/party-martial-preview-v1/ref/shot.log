@@ -1,0 +1,11 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+OpenGL API 4.1 Metal - 90.5 - Compatibility - Using Device: Apple - Apple M5 Pro
+
+【gd_bg】窗口在虚拟屏上：第 2 块屏 (5120, 2880)
+批量截图：窗口位置 (1920, 1110)，在第 2 块屏（(5120, 2880)，屏幕原点 (0, 0)）
+批量截图 1/1 /Users/wuxiuxiang/project/luotuozhuan/xiaojianghu-godot/docs/review/party-martial-preview-v1/ref/now_party.png
+批量截图完成：1 张，用时 2.8 秒
+WARNING: 8 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+   at: cleanup (core/object/object.cpp:2536)
+ERROR: 4 resources still in use at exit (run with --verbose for details).
+   at: clear (core/io/resource.cpp:822)

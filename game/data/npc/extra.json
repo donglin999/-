@@ -1,0 +1,17 @@
+{
+ "_说明": "原版 JS 里没有导出到 globals.json 的字面量，照抄（来源写在键名后的注释里）",
+ "UNLOCK_HINT": {"ye":"去药棚帮她分一回药","luheng":"跟他修一辆车、认一回路","xulingyi":"替她把那封拜帖送到陈伯那里问一句","censhuang":"替她去药商那里对一回旧货账","shenyanhui":"替她把采办单的三篓药对清","song":"替他把进村的人说一回"},
+ "_UNLOCK_HINT": "js/qihe-gift.js UNLOCK_HINT",
+ "BOND_NOTE": {"厌恶":"他厌恶你","仇视":"已成仇"},
+ "_BOND_NOTE": "js/qihe-gift.js BOND_NOTE",
+ "TIER_SCORE": [0,2,4,6],
+ "_TIER_SCORE": "js/qihe-gift.js TIER_SCORE",
+ "RECOG": {"甲":{"line":24,"grade":12},"绝":{"line":30,"grade":15}},
+ "_RECOG": "js/qihe-npc-core.js RECOG",
+ "SHE": ["叶蘅","周婶","徐令仪","岑霜","沈雁回"],
+ "_SHE": "js/qihe-npc-core.js she",
+ "SHOP_SAY": {"innkeeper":"客官要点什么？","apothecary":"金疮药，治外伤最灵。","peddler":"针头线脑、火折子，要啥有啥！"},
+ "_SHOP_SAY": "js/qihe-town.js openShop 的 say（界面提示语）",
+ "MN_Q": [["丁级","#6f6250"],["丙级","#2f6b45"],["乙级","#2d5a86"],["甲级","#6b3d8a"],["绝级","#b3561e"]],
+ "_MN_Q": "js/menu.js MN_Q"
+}

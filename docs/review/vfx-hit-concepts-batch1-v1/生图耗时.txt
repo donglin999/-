@@ -1,0 +1,21 @@
+opus_fist_B 退出码 0 用时 55s
+fable_fist_A 退出码 0 用时 61s
+opus_fist_A 退出码 0 用时 72s
+fable_fist_B 退出码 0 用时 81s
+opus_sword_A 退出码 0 用时 66s
+opus_sword_B 退出码 0 用时 75s
+fable_sword_A 退出码 0 用时 82s
+fable_sword_B 退出码 0 用时 96s
+opus_needle_A 退出码 0 用时 56s
+fable_needle_A 退出码 0 用时 63s
+fable_needle_B 退出码 0 用时 69s
+opus_needle_B 退出码 0 用时 74s
+opus_rooster_B 退出码 0 用时 65s
+opus_rooster_A 退出码 0 用时 69s
+fable_rooster_B 退出码 0 用时 70s
+fable_rooster_A 退出码 0 用时 135s
+fable_snake_B 退出码 0 用时 59s
+fable_snake_A 退出码 0 用时 74s
+opus_snake_A 退出码 0 用时 76s
+opus_snake_B 退出码 0 用时 135s
+完成

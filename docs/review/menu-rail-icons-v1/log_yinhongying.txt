@@ -1,0 +1,1 @@
+{"source": "302ai-sunburst-2.6", "out": "yinhongying.png", "background": "opaque", "seconds": 60, "usage": {"input_tokens": 1149, "input_tokens_details": {"image_tokens": 768, "text_tokens": 381}, "output_tokens": 1510, "output_tokens_details": {"image_tokens": 1510, "text_tokens": 0}, "total_tokens": 2659}, "size": "1024x1280", "key_env": "AI302_API_KEY"}
