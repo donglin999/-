@@ -25,6 +25,17 @@
 
 ## 条目
 
+### 2026-11-10 · Godot 版首次入 git、三个工作区提交推送、Windows 试玩包
+- 工作区：两边（xiaojianghu-godot、xiaojianghu、xiaojianghu-legacy-prologue）
+- 谁：Claude Code（队伍页背景会话）
+- 状态：已提交；已推送（GitHub donglin999/-：godot、claude/desk-finish-20261031、codex/legacy-prologue-map）；Windows 包已上传 GitHub 发布版
+- 范围：xiaojianghu-godot 新建 git 并加 .gitignore（不入 build、_attic、.godot、docs/review 图片）；export_presets.cfg 加 Windows 导出
+- 更新记录：[2026-11-10 Godot 版入 git 与 Windows 包](../../xiaojianghu-godot/docs/updates/2026-11-10-git-and-windows.md)
+- 留给接手的人：
+  - Godot 版以后在 godot 分支提交；
+  - 评审图片只在本机，不在仓库；
+  - Windows 包没在真 Windows 上跑过，用户试玩后看反馈
+
 ### 2026-11-10 · 遗留收尾：底图局部重画、陈伯坐姿小人、Q 版动作差分、伏虎拳／横杆护身特效成品、敌人弱点正式值（用户授权按文档自评）
 - 工作区：xiaojianghu-godot
 - 谁：Claude Code（队伍页背景会话）
