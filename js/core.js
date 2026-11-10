@@ -10,7 +10,7 @@ const PORTS=['hero','monk','soldier','gossip','oldman','smith','lady','beggar','
 const OPT_CHARS=['suzhi'],OPT_PORTS=['suzhi'];
 // 立绘表情差分 p_{角色}_{表情}.webp：对话 sp 写作 'c_suzhi:shy'，缺图时回退基础立绘（后台加载，不阻塞进度条）
 const EXPR={hero:['smile','angry','surprise','think','hurt','battle'],suzhi:['smile','shy','angry','worry','surprise','battle'],ye:['smile','shy','angry','worry','surprise','battle','hurt']};
-function loadExpr(){for(const c in EXPR)for(const e of EXPR[c])loadOpt(`p_${c}_${e}`,`p_${c}_${e}`);loadOpt('s_hero_battle','s_hero_battle')}  // 附带主角战斗动作表
+function loadExpr(){for(const c in EXPR)for(const e of EXPR[c])loadOpt(`p_${c}_${e}`,`p_${c}_${e}`,true);loadOpt('s_hero_battle','s_hero_battle')}  // 附带主角战斗动作表
 // 探索地图由各栖河场景脚本按需登记（ASSETS.push）；2026-10-19 起襄阳/庙宇/黑风寨地图与大地图 m_world 随襄阳演示归档，不再加载。
 const ASSETS=['bg_title',
   ...CHARS.filter(c=>!OPT_CHARS.includes(c)).map(c=>'s_'+c),...PORTS.filter(p=>!OPT_PORTS.includes(p)).map(p=>'p_'+p)];
@@ -46,7 +46,23 @@ function sliceSheets(){for(const c of CHARS){const sh=IMG['s_'+c],m=ART.sheet&&A
     REG[c]={n,order:(sp.order&&sp.order.length?sp.order:[...Array(n).keys()]).filter(i=>i>=0&&i<n),stride:sp.stride,ms:sp.ms,after:sp.after,gap:sp.gap}}}
 // 可选资源：404/解码失败静默忽略
 function assetImagePath(file){return window.PRODUCTION_ASSET_PATHS?.[file]||`assets/${file}.webp`}
-function loadOpt(key,file){return new Promise(res=>{const i=new Image();i.onload=()=>{IMG[key]=i;res(true)};i.onerror=()=>res(false);i.src=assetImagePath(file)})}
+// 2026-11-03 载入卡死整改：用户电脑停在“载入画卷中”七成不动。开场 550 多张图原先同时发出，线上偶有一张收了响应头却不回正文，
+//   Promise.all 就永远等下去（updates/2026-11-01-scene-audit.md“正式网址载入慢”）。改成最多 8 张并发排队，单张 12 秒没下完就换个网址参数重试，
+//   重试 2 次仍不行就放过（同失败处理，进游戏后按需再下），载入条不再被一张图卡死。
+const IMGQ={active:0,max:8,wait:[],low:[],hold:0};
+function queueImage(src,tries=2,low=false){return new Promise(done=>{
+  const run=(attempt)=>{IMGQ.active++;const i=new Image();let settled=false,timer;
+    const finish=(good)=>{if(settled)return;settled=true;clearTimeout(timer);IMGQ.active--;pump();
+      if(good)return done(i);if(attempt<tries)return (low?IMGQ.low:IMGQ.wait).push(()=>run(attempt+1)),pump();done(i)};
+    i.onload=()=>finish(true);i.onerror=()=>finish(false);
+    timer=setTimeout(()=>{i.onload=i.onerror=null;i.src='';finish(false)},12000);
+    i.src=attempt?src+(src.includes('?')?'&':'?')+'retry='+attempt:src};
+  (low?IMGQ.low:IMGQ.wait).push(()=>run(0));pump()})}
+// 后台图最多同时 3 张；正在等进场地图时（IMGQ.hold）后台图先停，把慢线路让给眼前要用的地图。
+function pump(){for(;;){if(IMGQ.active>=IMGQ.max)return;if(IMGQ.wait.length){IMGQ.wait.shift()();continue}
+  if(IMGQ.low.length&&!IMGQ.hold&&IMGQ.active<3){IMGQ.low.shift()();continue}return}}
+// low：后台慢慢下（立绘），排在开场必需素材后面
+function loadOpt(key,file,low=false){return queueImage(assetImagePath(file),2,low).then(i=>{if(i.naturalWidth>0){IMG[key]=i;return true}return false})}
 // 只请求实际入库的明亮变体；其余角色沿用常规表，避免启动时无意义的 404。
 const BRIGHT_CHARS=CHARS.filter(c=>!['ye','liu','zhou','langli'].includes(c));
 // ── 按场景加载（2026-10-17 线上卡顿整改）：栖河入口不在开场等全部地图（约 110MB），只等人物、立绘、界面等必需素材；
@@ -55,13 +71,14 @@ const DEFERRED_ASSETS=[],deferredLoads=new Map();
 function deferAsset(k){return typeof isQiheEntry==='function'&&isQiheEntry()&&/^m_/.test(k)}
 // 2026-10-18 黑屏整改：下载失败不再永久缓存失败结果，最多重试 3 次（间隔 1、2、4 秒）；全部失败后清掉记录，下次进场再试。
 function ensureAsset(k){if(!k)return Promise.resolve(true);if(ok(IMG[k]))return Promise.resolve(true);if(deferredLoads.has(k))return deferredLoads.get(k);
-  const once=n=>new Promise(res=>{const i=new Image();i.onload=()=>{IMG[k]=i;res(true)};i.onerror=()=>res(false);i.src=assetImagePath(window.ART?.sheetFile?.[k]||k)+(n?(/\?/.test(assetImagePath(k))?'&':'?')+'retry='+n:'')});
+  // 2026-11-03：线路断流时请求会一直挂着不回；单次 45 秒没下完就放弃这次、换参数重试（地图一张约 1MB，慢线路也够）。
+  const once=n=>new Promise(res=>{const i=new Image(),tm=setTimeout(()=>{i.onload=i.onerror=null;i.src='';res(false)},45000);i.onload=()=>{clearTimeout(tm);IMG[k]=i;res(true)};i.onerror=()=>{clearTimeout(tm);res(false)};i.src=assetImagePath(window.ART?.sheetFile?.[k]||k)+(n?(/\?/.test(assetImagePath(k))?'&':'?')+'retry='+n:'')});
   const pr=(async()=>{for(let n=0;n<4;n++){if(n)await new Promise(r=>setTimeout(r,1000*2**(n-1)));if(await once(n))return true}deferredLoads.delete(k);return false})();deferredLoads.set(k,pr);return pr}
 // 栖河入口用得到的地图排在前面；其他地图不在后台预下（真要进场时 ensureSceneAssets 会按需下载）。
 function qiheMapKey(k){return /^m_(qh_|qihe_|prologue_)/.test(k)}
 function sceneAssetKeys(id){const sc=typeof SC!=='undefined'&&SC[id];return sc?[sc.bg,sc.fg,sc.propImg,sc.under].filter(k=>typeof k==='string'):[]}
 async function ensureSceneAssets(id){const keys=sceneAssetKeys(id).filter(k=>!ok(IMG[k]));if(!keys.length)return;
-  const slow=setTimeout(()=>{try{toast('载入地图中……',1600)}catch(e){}},500);try{await Promise.all(keys.map(ensureAsset))}finally{clearTimeout(slow)}}
+  const slow=setTimeout(()=>{try{toast('载入地图中……',1600)}catch(e){}},500);IMGQ.hold++;try{await Promise.all(keys.map(ensureAsset))}finally{IMGQ.hold--;pump();clearTimeout(slow)}}
 const QIHE_MAP_ORDER=['prologue_backhill','qihe_clinic_interior','qihe_chen','qh_central','qihe_ye_house','qh_south','qh_east','qh_west','qh_north','qihe_inn','qh_refuge','qh_mountain'];
 const qiheMapRank=k=>{const i=QIHE_MAP_ORDER.findIndex(p=>k.startsWith('m_'+p));return i<0?99:i};
 // 兜底：当前场景的地图还没到（没经过 goScene 的换场、下载失败后重试）时，立刻插队下载，并提示“载入地图中”，不让画面一直黑着。
@@ -70,23 +87,34 @@ setInterval(()=>{if(typeof mode==='undefined'||mode!=='scene'||typeof cur==='und
   if(!deferredLoads.has(miss[0])||!window.__mapWaitToast||Date.now()-window.__mapWaitToast>4000){window.__mapWaitToast=Date.now();try{toast('载入地图中……',1600)}catch(e){}}
   miss.forEach(ensureAsset)},700);
 function loadDeferredInBackground(){const queue=DEFERRED_ASSETS.filter(qiheMapKey).sort((a,b)=>qiheMapRank(a)-qiheMapRank(b));let active=0;
-  const next=()=>{while(active<2&&queue.length){const k=queue.shift();if(ok(IMG[k]))continue;active++;ensureAsset(k).then(()=>{active--;next()})}};
+  const next=()=>{if(IMGQ.hold)return void setTimeout(next,1000);while(active<2&&queue.length){const k=queue.shift();if(ok(IMG[k]))continue;active++;ensureAsset(k).then(()=>{active--;next()})}};
   // 当前场景优先
   if(typeof S!=='undefined'&&S?.scene)for(const k of sceneAssetKeys(S.scene).reverse()){const i=queue.indexOf(k);if(i>=0){queue.splice(i,1);queue.unshift(k)}}
   next()}
-function loadAll(onProg){loadExpr();let n=0;const walks=CHARS.filter(c=>walkSpec(c)),runs=CHARS.filter(c=>walkSpec(c,'run')),idles=CHARS.filter(c=>walkSpec(c,'idle')),fidgets=CHARS.filter(c=>walkSpec(c,'fidget')),tot=ASSETS.length+walks.length+runs.length+idles.length+fidgets.length+OPT_CHARS.length+OPT_PORTS.length+(BRIGHT?BRIGHT_CHARS.length:0),tick=()=>{n++;onProg(Math.min(1,n/tot))};
+function loadAll(onProg){let n=0;const walks=CHARS.filter(c=>walkSpec(c)),runs=CHARS.filter(c=>walkSpec(c,'run')),idles=CHARS.filter(c=>walkSpec(c,'idle')),fidgets=CHARS.filter(c=>walkSpec(c,'fidget')),tot=ASSETS.length+walks.length+runs.length+idles.length+fidgets.length+OPT_CHARS.length+OPT_PORTS.length+(BRIGHT?BRIGHT_CHARS.length:0),lastTick={t:Date.now()},tick=()=>{n++;lastTick.t=Date.now();onProg(Math.min(1,n/tot))};
   for(const k of ASSETS)if(deferAsset(k)&&!DEFERRED_ASSETS.includes(k))DEFERRED_ASSETS.push(k);
-  const base=ASSETS.filter(k=>!DEFERRED_ASSETS.includes(k)).map(k=>new Promise(res=>{const i=new Image();i.onload=i.onerror=()=>{tick();res()};i.src=assetImagePath(window.ART?.sheetFile?.[k]||k);IMG[k]=i}));
+  const base=ASSETS.filter(k=>!DEFERRED_ASSETS.includes(k)&&!/^p_/.test(k)).map(k=>queueImage(assetImagePath(window.ART?.sheetFile?.[k]||k)).then(i=>{IMG[k]=i;tick()}));
   n+=DEFERRED_ASSETS.length;
+  // 2026-11-03：立绘（p_*，约 34MB）不再挡在载入条前：对话框用 CSS 网址按需显示，开战前 battle.js 会补齐要用的立绘；这里只排进后台队列。
+  const portraits=ASSETS.filter(k=>/^p_/.test(k)&&!DEFERRED_ASSETS.includes(k));n+=portraits.length;
   const opt=walks.map(c=>{const sp=walkSpec(c);return(BRIGHT?loadOpt('w_'+c,sp.bright).then(o=>o||loadOpt('w_'+c,sp.file)):loadOpt('w_'+c,sp.file)).then(tick)});
   opt.push(...runs.map(c=>{const sp=walkSpec(c,'run');return(BRIGHT?loadOpt('r_'+c,sp.bright).then(o=>o||loadOpt('r_'+c,sp.file)):loadOpt('r_'+c,sp.file)).then(tick)}),
     ...idles.map(c=>{const sp=walkSpec(c,'idle');return(BRIGHT?loadOpt('i_'+c,sp.bright).then(o=>o||loadOpt('i_'+c,sp.file)):loadOpt('i_'+c,sp.file)).then(tick)}),
     ...fidgets.map(c=>{const sp=walkSpec(c,'fidget');return(BRIGHT?loadOpt('f_'+c,sp.bright).then(o=>o||loadOpt('f_'+c,sp.file)):loadOpt('f_'+c,sp.file)).then(tick)}),
-    ...OPT_CHARS.map(c=>loadOpt('s_'+c,'s_'+c).then(tick)),...OPT_PORTS.map(p=>loadOpt('p_'+p,'p_'+p).then(tick)));
+    ...OPT_CHARS.map(c=>loadOpt('s_'+c,'s_'+c).then(tick)));
+  n+=OPT_PORTS.length;
+  for(const k of portraits)queueImage(assetImagePath(k),2,true).then(i=>{if(!ok(IMG[k]))IMG[k]=i});
+  for(const p of OPT_PORTS)loadOpt('p_'+p,'p_'+p,true);
+  loadExpr();
   const br=BRIGHT?[...BRIGHT_CHARS.map(c=>loadOpt('s_'+c+'_bright',window.ART?.sheetFile?.['s_'+c+'_bright']||'s_'+c+'_bright').then(tick))]:[];
-  return Promise.all([...base,...opt,...br]).then(()=>{
-    if(BRIGHT){for(const c of CHARS)if(ok(IMG['s_'+c+'_bright']))IMG['s_'+c]=IMG['s_'+c+'_bright']}
-    sliceSheets()})}
+  const settle=()=>{if(BRIGHT){for(const c of CHARS)if(ok(IMG['s_'+c+'_bright']))IMG['s_'+c]=IMG['s_'+c+'_bright']}sliceSheets()};
+  const all=Promise.all([...base,...opt,...br]);
+  // 2026-11-03：线路慢时整条连接可能一两分钟不回数据（用户电脑停在载入条七成）。载入条 15 秒没动、或总共等了 25 秒，就先进标题，剩下的继续在后台下；
+  //   全部下完再切一次图，没下成的开场必需图再补一次，补到了也重新切图。
+  const start=Date.now(),watchdog=new Promise(res=>{const iv=setInterval(()=>{if(Date.now()-lastTick.t>15000||Date.now()-start>25000){clearInterval(iv);console.warn('载入超时，先进入游戏，素材在后台继续下载');res('timeout')}},1000);all.then(()=>clearInterval(iv))});
+  all.then(()=>{settle();const miss=ASSETS.filter(k=>!DEFERRED_ASSETS.includes(k)&&!/^p_/.test(k)&&!ok(IMG[k]));
+    if(miss.length)Promise.all(miss.map(k=>queueImage(assetImagePath(window.ART?.sheetFile?.[k]||k),1,true).then(i=>{if(i.naturalWidth>0)IMG[k]=i}))).then(settle)});
+  return Promise.race([all,watchdog]).then(settle)}
 const ok=img=>img&&img.complete&&img.naturalWidth>0&&(!img._sheet||(ok(img._sheet.image)&&img._sheet.x>=0&&img._sheet.y>=0&&img._sheet.x+img._sheet.w<=img._sheet.image.naturalWidth&&img._sheet.y+img._sheet.h<=img._sheet.image.naturalHeight));
 
 // ───────────────────────── 工具 ─────────────────────────
