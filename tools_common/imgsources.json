@@ -1,6 +1,6 @@
 {
   "说明": "生图源登记。current 是当前默认源；用户说“切到某个源”时只改 current 并在 history 记一笔。旧源一律保留，不删除。密钥不写在这里，写在 tools_por/.env（已被 git 忽略），按 key_env 读取。",
-  "current": "302ai-sunburst",
+  "current": "302ai-sunburst-2.6",
   "sources": {
     "codex": {
       "kind": "codex",
@@ -27,6 +27,26 @@
       "added": "2026-10-17",
       "note": "OpenAI 兼容：/images/generations（JSON）、/images/edits（multipart，参考图 image[]）。2026-10-17 实测 1024x1536 透明背景 39 秒出图；人物 alpha 最高 254，入库时需补成 255。产品页 https://302ai.cn/product/detail/gpt-image-2.5-sunburst；2026-10-21 加备用密钥 key_env_backup，主密钥额度不足（402 或报错含余额／额度字样）时 imggen.py 自动换用",
       "key_env_backup": "AI302_API_KEY_BACKUP"
+    },
+    "302ai-sunburst-2.6": {
+      "kind": "openai_compat",
+      "label": "302.AI（2.6 旗舰档）",
+      "base_url": "https://api.302ai.cn/v1",
+      "model": "gpt-image-2.6-sunburst",
+      "key_env": "AI302_API_KEY",
+      "key_env_backup": "AI302_API_KEY_BACKUP",
+      "added": "2026-11-06",
+      "note": "2.6 旗舰档：渲染前做构图规划（Complexity），细节、文字、多图编辑一致性更好；最多 16 张参考图；原生透明背景。产品页 https://302ai.cn/product/detail/gpt-image-2.6-sunburst"
+    },
+    "302ai-flare-2.6": {
+      "kind": "openai_compat",
+      "label": "302.AI（2.6 快速档）",
+      "base_url": "https://api.302ai.cn/v1",
+      "model": "gpt-image-2.6-flare",
+      "key_env": "AI302_API_KEY",
+      "key_env_backup": "AI302_API_KEY_BACKUP",
+      "added": "2026-11-06",
+      "note": "2.6 快速档：比前代快约 50%，适合草图、布局稿、多版试色；最多 16 张参考图；原生透明背景。产品页 https://302ai.cn/product/detail/gpt-image-2.6-flare"
     }
   },
   "history": [
@@ -41,6 +61,12 @@
       "current": "302ai-sunburst",
       "by": "用户",
       "note": "“暂时先用这个作为生图源”；以后可能加多个源，用户说切就切到最新的，旧源保留"
+    },
+    {
+      "date": "2026-11-06",
+      "current": "302ai-sunburst-2.6",
+      "by": "用户",
+      "note": "“把原有的 2.5 升级成 2.6”；2.6 flare 同时登记为快速档，旧 2.5 源保留"
     }
   ]
 }

@@ -46,11 +46,11 @@
 | --- | --- |
 | 新建、扩展、整改地图 | [现行地图开发规范](design/map-development-standard.md)（硬参数、分区生成、拼接与验收） |
 | 新角色、角色素材 | [角色类型与必需素材](design/role-assets.md) → [质量规格](design/character-asset-quality.md) → [素材需求规范](design/asset-requirements.md) |
-| 功法、武学 | [功法结构规范 v2](design/martial-structure.md)、[64 项招式合同 v3](design/martial-review/move-contracts.md) |
+| 功法、武学 | 命名见 R-命名-01；[功法结构规范 v2](design/martial-structure.md)、[64 项招式合同 v3](design/martial-review/move-contracts.md) |
 | 物品命名 | [物品与装备命名规范](design/item-naming-standard.md) |
 | 新增或改期剧情事件 | [事件排期系统](design/event-scheduling-system.md)（先查日期、人物在场、前置和行动预算） |
 | 改人物、门派、造型、时间规则后核对一致性 | `python3 tools_docs/consistency_check.py --out <目录>`；登记 [story-atlas.json](design/story-atlas.json)，已确认规则 [consistency-rules.json](design/registry/consistency-rules.json)；流程见项目技能 `consistency-check` |
-| 养成 Q 版人物 | [统一生成与验收标准](design/cultivation-q-generation-standard.md)、[姿态差异门槛](design/cultivation-q-pose-diversity.md) |
+| 养成 Q 版人物 | R-画风-06（动作差分按戏补）；[统一生成与验收标准](design/cultivation-q-generation-standard.md)、[姿态差异门槛](design/cultivation-q-pose-diversity.md) |
 | 生图、素材处理 | [美术管线](art-pipeline.md) 的「当前出图接口约定」；出图、取参考前先查[弃用／不启用的测试方法清单](../../xiaojianghu-legacy-prologue/docs/assets/deprecated-tests.md) |
 | 内容扩展（场景、对话、任务、道具、敌人） | 在栖河工作区按其 `AGENTS.md` 做；本目录[内容指南](archive/content-guide.md)、[架构](archive/architecture.md)只是旧原型记录 |
 | 往评审台发题、回贴整改、整理评审台 | skill `review-desk`；[评审台出题与自查流程](review-desk.md)（R-评审-01：同模块一道题、每题附素材；跑 `tools_docs/review_desk_tidy.py --report` 和 `tools_docs/check_review_batch.py`） |
@@ -74,16 +74,16 @@
 6. 按风险选择测试（见第 8 节）。没执行或失败的测试要如实写明；函数测试不能写成浏览器验收或美术验收通过。
 7. 最终汇报把 **本地完成 / Git 提交 / 线上发布** 三种状态分开写。没有用户要求，不要提交、推送或发布。
 
-小任务和可独立完成的开发任务按 R-子任务-02 经路由器分流给 Claude 5.5 子任务，用法、哪些可以分派、怎么验收见[子任务分流](router-subtasks.md)。
+小任务和可独立完成的开发任务原来按 R-子任务-02 经路由器分流给 Claude 5.5 子任务；2026-11-05 路由器 Key 失效，用户定“失效就舍弃”，这条已废止，旧说明存档在[子任务分流（废止）](archive/router-subtasks.md)。现在小任务在主会话里做，或派 Claude 自己的子代理（仍按 R-子任务-01 附规则）。
 
 在 `xiaojianghu-legacy-prologue` 改动时，还要执行该目录 `AGENTS.md` 的固定步骤，完成后运行 `python3 tools_assets/check_production.py`。
 
 ## 7. 生图约定
 
-- 默认生图模型：**gpt-image-2.5**。每次生图的提示词都必须带上这一行：
+- 默认生图模型：**gpt-image-2.6**（2026-11-06 由 2.5 升级）。每次生图的提示词都必须带上这一行：
 
   ```text
-  Model: gpt-image-2.5（使用 gpt-image-2.5 生图模型）
+  Model: gpt-image-2.6（使用 gpt-image-2.6 生图模型）
   ```
 
 - 生图源、模型请求行、密钥、透明输出分别见规则 R-生图-01～04（[规则登记表](rules/规则登记表.md)）；各源的操作说明见根目录 `CLAUDE.md`「生图」。
@@ -97,6 +97,7 @@
 - 浏览器测试使用本机已有的 Playwright 与 Chromium，可用 `PLAYWRIGHT_PATH`、`CHROMIUM_PATH` 覆盖。testing.md 里部分路径是旧 Linux 环境（`/home/user/...`、`/opt/pw-browsers`）留下的，运行前先确认路径存在。
 - 文档书阁自身：`python3 tests/document-library.test.py`、`node tests/document-library-browser.test.cjs`。
 - 视觉整改按[视觉与交互验收合同](design/visual-acceptance.md)逐项判定，需要实际截图证据。
+- Godot 版交给用户试玩前，除了全套自测，还要跑**试玩审查**：按问题类型清单（交互没反馈、人物瞬移、同类界面不统一、物件没理由、摆放不合理、素材重叠、状态图不自然、任务没登记、剧情没过渡、剧情与玩法脱节）看画面、读剧本，看图交给本机命令行 Claude Code，主会话复核。见 [试玩审查](../../xiaojianghu-godot/docs/playtest-review.md)。
 
 ## 9. 发布
 

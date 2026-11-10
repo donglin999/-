@@ -10,20 +10,22 @@
 
 新增角色先读[角色类型与必需素材](design/role-assets.md)、[质量规格](design/character-asset-quality.md)和[素材需求规范](design/asset-requirements.md)。本页描述处理方法，不自动扩大生成清单；普通 NPC 专属剧情动作数为 0，任务优先对白或单张 CG。
 
-栖河现行人物动作（2026-10-19 按 8792 实际运行核对）：萧白用蓝灰 C 包（[采用合同](../../xiaojianghu-legacy-prologue/docs/design/qihe-map/hero-blue-adoption.md)：四向，单元 96×116，步行 12 帧、跑 10 帧，可见身高约 83）；叶蘅与开始部分其他人物用像素统一表（`xiaojianghu-legacy-prologue/art_sources/character-pixel-fix-20261007/`，成人可见高约 80）。OC.4 grid94 与 OC.11 走跑是主库原型开篇的规格，已归档，只供追溯，不再作为标准。
+栖河现行人物动作和做法见[动作做法](anim-pipeline.md)（R-动作-01）；下文的白模帧动画只是旧素材的来历。
 
 养成剧情中同时出场的静态Q版人物，新增[跨人物姿态差异门槛](design/cultivation-q-pose-diversity.md)：先分配行为与白模、逐人实传本人身份和姿态参考，采用前同时通过单人和整组验收；不能只换名字、衣服后复用同一默认摊掌动作。
 
 ## 当前出图接口约定
 
-**默认生图模型（2026-10-07 用户确定）：`gpt-image-2.5`。** 生图源按规则 R-生图-01 用登记表当前源；不论哪个源，提示词都必须带上下面这一行（R-生图-02）：
+**默认生图模型：`gpt-image-2.6`（2026-11-06 用户要求由 2.5 升级；2026-10-07 起原为 `gpt-image-2.5`）。** 生图源按规则 R-生图-01 用登记表当前源；不论哪个源，提示词都必须带上下面这一行（R-生图-02）：
 
 ```text
-Model: gpt-image-2.5（使用 gpt-image-2.5 生图模型）
+Model: gpt-image-2.6（使用 gpt-image-2.6 生图模型）
 ```
 
-- 内置 `image_gen` 由服务端选模型，没有模型参数，生成文件的 C2PA 元数据也只记录 `gpt-image`。这一行只是提示词里的要求，不能保证实际版本，也无法事后核实；生图记录里不能把它写成“已确认由 gpt-image-2.5 生成”。
-- FlatRouter 脚本按 `PARAMS` 选模型，下文默认 `gpt-image-2.5-sunburst` 与此一致；提示词同样要带这一行。
+2026-11-06 前的批次提示词写的是 2.5，记录保持原样，不回改。
+
+- 内置 `image_gen` 由服务端选模型，没有模型参数，生成文件的 C2PA 元数据也只记录 `gpt-image`。这一行只是提示词里的要求，不能保证实际版本，也无法事后核实；生图记录里不能把它写成“已确认由 gpt-image-2.6 生成”。
+- FlatRouter 脚本按 `PARAMS` 选模型，默认仍是 `gpt-image-2.5-sunburst`（FlatRouter 未登记 2.6）；提示词同样要带这一行。
 - 内置生图不可用时，报告原因，不要自动改用需要 `OPENAI_API_KEY` 的付费 API（`$imagegen` 的 `scripts/image_gen.py`）。
 
 ### 生成账本（2026-10-30）
@@ -41,6 +43,9 @@ Model: gpt-image-2.5（使用 gpt-image-2.5 生图模型）
 - 统一入口：`tools_common/imggen.py`，支持三类源：codex exec、FlatRouter 异步接口、OpenAI 兼容接口。用 `--list` 查看全部源。
 - 密钥放在 `tools_por/.env`（已被 git 忽略）。
 - 2026-10-17 当前源为 `302ai-sunburst`（302.AI，gpt-image-2.5-sunburst）。实测文生图、带参考图编辑都正常，单张约 40 秒；人物 alpha 最高只到 254，入库时加 `--opaque-fix`。同提示词与 codex 的对比见 `xiaojianghu-legacy-prologue/art_sources/imagegen-302-test-20261017/`。
+- 2026-11-06 当前源升级为 `302ai-sunburst-2.6`（302.AI，gpt-image-2.6-sunburst），另登记快速档 `302ai-flare-2.6`（gpt-image-2.6-flare）；`302ai-sunburst`（2.5）保留。同一份徐令仪立绘提示词实测：sunburst 2.6 用时 196 秒、flare 2.6 用时 88 秒（上线第二天，比 2.5 的约 40 秒慢）；两档人物 alpha 最高仍是 254，入库照旧加 `--opaque-fix`。对比图见 `xiaojianghu-legacy-prologue/art_sources/imagegen-302-26-test-20261106/`。
+  - 用法分工：正式立绘、表情差分、场景正式图、带多张参考图的修改用 sunburst 2.6；布局草图、多版试色、特效概念草图先用 flare 2.6（`--source 302ai-flare-2.6`），定稿再用 sunburst 出。
+  - 2.6 新增 Complexity（规划深度）参数，imggen.py 还没接，目前按接口默认值出图。
 - 2026-10-17 前“默认走 codex”的旧做法已废止，以 R-生图-01 为准。
 
 技能特效的生图（概念图、单体素材）另有专门流程：[技能特效生成流程](design/skill-vfx-pipeline.md)。

@@ -25,6 +25,344 @@
 
 ## 条目
 
+### 2026-11-10 · 遗留收尾：底图局部重画、陈伯坐姿小人、Q 版动作差分、伏虎拳／横杆护身特效成品、敌人弱点正式值（用户授权按文档自评）
+- 工作区：xiaojianghu-godot
+- 谁：Claude Code（队伍页背景会话）
+- 状态：本地完成；未提交
+- 范围：
+  - 底图：村心、后山、西田埂、药棚、叶家、陈家（含前景层）；
+  - 数据：sc.json 陈家可走格，nav/occ 重算；
+  - 小人：s_npc_qh_chen_rest_story（覆盖原文件）；
+  - 调试入口：battle.gd `--battle=skills`；
+  - 评审素材：docs/review/r51-patch、r51-chen-rest、r51-q-actions、vfx-skill-concepts-batch2-v1；
+  - 设计草案：docs/design/enemy-weakness.md
+- 更新记录：[2026-11-10 遗留问题收尾](../../xiaojianghu-godot/docs/updates/2026-11-10-leftovers.md)
+- 后续（同日）：
+  - 用户说“你直接按照文档去自我评审，我后面直接去试玩测试就行”，第五十、五十一轮按文档自评定稿；
+  - 动作差分（含朝左版）接进 6 场戏；两招特效烘焙进 fx_skills.json；敌人弱点改进 defs、globals、lesson、side_hidden、core（相克表在 stats.gd）
+- 留给接手的人：
+  - 用户接下来直接试玩，有意见在对话里提；
+  - 殷红缨缺战斗形象，有组队战时要补；
+  - 改了底图要先跑 godot --import 再截图
+
+### 2026-11-10 · 队伍页 B 版第二版：照预览图对齐纸底与装裱；叶蘅行程说法
+- 工作区：xiaojianghu-godot
+- 谁：Claude Code（队伍页背景会话）
+- 状态：本地完成；未提交
+- 范围：menu.gd（整页旧册页纸 album、页眉页脚金边、头像列细线与竹石、返回键）、page_party（册页布局、装裱、题签、字色字号、获得状态）、kit（album_band／album_strip、实底朱印、淡墨横扫加深）、素材 qj-kit-v1/album_*（纸底生图，金边与锦边裁自预览图 B）；quest.gd、chapter.gd 行程说法
+- 更新记录：[2026-11-10 队伍页 B 版第二版](../../xiaojianghu-godot/docs/updates/2026-11-10-party-b-v2.md)
+- 留给接手的人：贴在评审台第五十轮第 1 题下等用户验收（第二版）；整页纸底七页一起变了，用户要是只想队伍页变，把 menu.gd 的 PAGE_BG 按页分开；截图基准已更新
+
+### 2026-11-10 · 队伍页 B 版（册页题跋）与全页面扫查
+- 工作区：xiaojianghu-godot
+- 谁：Claude Code（队伍页背景会话）
+- 状态：本地完成；未提交
+- 范围：page_party（B 版布局）、kit（朱印题签、木签、锦纹带、修为条）、生图素材 qj-kit-v1（锦纹、远山、梅、竹）；新增 tests/menu_sweep.gd 并接进 selftest；设置页撤掉无效的“战斗界面”项；试玩审查 16 处（qihe_hud 导航与淡出、ui.gd 宋体微调加粗、world 气泡、sc.json 门口动词与站位、gift_kit、ring_ui、cu_story 立绘渐隐、cu_hub 锁定原因、page_skill／page_rep 字号与样式、page_sys 键位表、side／chapter 追踪说明）；截图基准已更新
+- 更新记录：[2026-11-10 队伍页 B 版与全页面扫查](../../xiaojianghu-godot/docs/updates/2026-11-10-party-b.md)
+- 留给接手的人：B 版和扫查整改贴在评审台第五十轮第 1 题下等用户验收；画在底图里的碎石、小溪等排进下一批局部重画；叶蘅“在队伍里却要去东埠找她”的剧情说法待理顺
+
+### 2026-11-10 · 人物行踪表与第四十九轮界面整改、队伍页第四版
+- 工作区：xiaojianghu-godot
+- 谁：Claude Code（队伍页背景会话）
+- 状态：本地完成；未提交
+- 范围：新增 docs/cast-schedule.md（自动生成）、tools/cast_schedule.py、selftest 接入；flow/chapter.gd 站位规则（FIRST_NIGHT_ONLY、DAILY、_gathering）；story/风起-日常活动-行踪版.ink；tests/harness.gd、sweep_npc.gd 新检查；界面 19 项（qihe_hud、menu 各页、gift、profile、ring、cultivation）；kit 分隔线、竹简签、墨扫标题（生图素材 qj-kit-v1）；银两图标
+- 更新记录：[2026-11-10 人物行踪表与界面整改](../../xiaojianghu-godot/docs/updates/2026-11-10-cast-schedule.md)
+- 留给接手的人：改剧情、站位、出没条件后跑全套自测看“人物行踪表”；规矩已登记为 R-剧情-09（用户批准）。队伍页改版方向待用户在评审台第五十轮第 1 题选
+
+### 2026-11-10 · 试玩审查第二轮整改（剩余摆放、站位、底图局部重画）
+- 工作区：xiaojianghu-godot
+- 谁：Claude Code（队伍页背景会话）
+- 状态：本地完成；未提交
+- 范围：sc.json（村心老树、十处人物站位、旧木桶交互点、村心地名、接应院可走格）；东埠道具图集、接应院底图、客栈底图与前景层局部重画；cu_hub 灰项短签位置；队伍页第三版（kit 题签改卷轴、page_party 圆印式武学图标与固定布局）
+- 更新记录：[2026-11-10 试玩审查第二轮整改](../../xiaojianghu-godot/docs/updates/2026-11-10-playtest-round2.md)
+- 留给接手的人：界面 19 项在评审台第四十九轮第 1 题等用户定；陈家门框、叶家脸盆架等低优先级未动
+
+### 2026-11-09 · 第四十八轮评审整改（队伍页名字与装备、界面 11 处、底图 7 处局部重画）
+- 工作区：xiaojianghu-godot
+- 谁：Claude Code（队伍页背景会话）
+- 状态：本地完成；未提交
+- 范围：page_party（名字改宋体、装备挪进人物栏）、qihe_hud（导航边距、追踪栏、时段、地名与提示条底色、交互时收起）、page_quest／page_rep／page_sys／menu 人物列、profile_ui 装备标注、cu_hub 灰项原因与技艺六图标；客栈、叶家、陈家底图和前景层，村心与后山道具图集，南村口底图；新工具 tools/patch_region.py
+- 更新记录：[2026-11-09 第四十八轮评审整改](../../xiaojianghu-godot/docs/updates/2026-11-09-r48-fixes.md)
+- 留给接手的人：第 8 处（山上三间客房同一张素材）按用户选择往后排；改室内底图要同步清前景层
+
+### 2026-11-09 · 用户试玩七条整改与自动试玩检查
+- 工作区：xiaojianghu-godot
+- 谁：Claude Code（队伍页背景会话）
+- 状态：本地完成；未提交
+- 范围：墨印点标签、采集距离、叶家门、追踪框样式、村心酒缸与老树石凳、货郎位置与断扁担图与行记、小耗子的一课二版（story/风起-小耗子-二版.ink、side_aqi、窃印）；扫荡加“没反馈”“一人两处”检查；新增 test/aqi_lesson_test.gd
+- 更新记录：[2026-11-09 试玩整改](../../xiaojianghu-godot/docs/updates/2026-11-09-playtest-fixes.md)
+- 留给接手的人：小耗子剧本由主会话代评；断扁担新图、老树去石凳为生图修改，待用户看实机
+
+### 2026-11-09 · 四款游戏参考知识库候选评审站
+- 工作区：xiaojianghu（文档库）
+- 谁：Codex（游戏参考知识库会话）
+- 状态：本地完成，候选资料待用户评审；未提交、未推送、未线上发布
+- 范围：review/game-reference-20261109/ 按当前 Godot 游戏板块组织的候选资料与评审网站；只读核对现行代码，不接入正式知识库，不改正式导航、游戏设定和实现
+- 更新记录：[2026-11-09 游戏参考候选评审站](updates/2026-11-09-game-reference-review.md)
+- 留给接手的人：用户要求先评审后入库，并结合现在的游戏板块筛选，禁止做全量百科；八方一、二代都收录并注明差异；外部事实、分析及项目采用状态分开记录
+
+### 2026-11-09 · 队伍页背景跟人物走的试样、殷红缨立绘重画
+- 工作区：xiaojianghu-godot（docs/review/menu-figure-trial-v1、yin-portrait-new-v1、yin-legs-fix-v1；game/assets/ui/jianghu-v4/portraits/bgtest/trA1～trB2 试样）
+- 谁：Claude Code（菜单重设计会话）
+- 状态：本地完成；未提交；11-09 用户选 A 分层；又按用户意见改成带人物意象的版本，八人各两张（叶蘅错用旧立绘，已换回现用立绘重出），第四十五轮用户点满意（未逐人选）；殷红缨新立绘和表情已验收；八张意象背景按推荐换进游戏；队伍页按第四十七轮 A 重排（立绘撑满、右栏武学与状态、身法归轻功），等用户验收
+- 范围：殷红缨、裴知古按人物卡与立绘出背景，分层与整张两种做法各两张；殷红缨立绘整张重画四张；按 A 给萧白三套、叶蘅、苏芷、岑霜各出两张
+- 更新记录：[2026-11-09 背景跟人物走的试样](../../xiaojianghu-godot/docs/updates/2026-11-09-figure-bg-trial.md)
+- 留给接手的人：正式 figplate/、portraits/ 没动；殷红缨现行高清原图在 legacy 的 guiyun-inkcloud-cn-20261008/yin/p_gy_yinhongying_cn.png（别用 guiyun-inkcloud-20261008 的旧图）；选定后要重出五个表情
+
+### 2026-11-08 · 接住评审台回答：背景板中档、八种命中成品、序章候选
+- 工作区：xiaojianghu-godot（figplate/ 八张、portraits/yinhongying.webp、menu.gd；assets/fx/hits/、data/battle/fx_hits.json、battle/vfx.gd、view.gd、battle.gd 调试入口；docs/review/menu-figure-plate-v2～v4、vfx-hit-final-v1、prologue-staff-water-v1；_attic/2026-11-08-figplate-test、figplate-v3）
+- 谁：Claude Code（菜单重设计会话）
+- 状态：本地完成；未提交；背景板和命中特效等验收，持棍与递水 CG 等选
+- 范围：第三十六、三十九、四十一轮的回答落实；第三十七、三十八轮缺具体选择，等用户补
+- 更新记录：[2026-11-08 接住评审台回答](../../xiaojianghu-godot/docs/updates/2026-11-08-desk-r41-followup.md)
+- 留给接手的人：命中特效第一批已验收，第二批（招式专属）还没做；持棍甲、递水 CG 甲已接进序章；背景板第四版只用菜单底图的颜色（`docs/review/menu-figure-plate-v4/`，新角色要加规格、tone.py 目标并跑 measure.py），等验收；第三十七、三十八轮配乐还缺具体选择
+
+
+### 2026-11-08 · 培养部分剧情分支覆盖测试（设计＋开发）
+- 工作区：xiaojianghu-godot（docs/branch-coverage.md、dev-conventions.md；game/test/branch_static_test.gd、branch_cases_test.gd、pre_hangao_finish_test.gd；game/scripts/cultivation/cu_coverage.gd、cultivation.gd；game/scripts/battle/rules.gd、stats.gd、turn.gd；game/data/cultivation/coverage_exempt.json；tools/selftest.py）
+- 谁：Claude Code（菜单重设计会话）
+- 状态：本地完成，已进全套自测；未提交、未发布
+- 范围：五层分支覆盖测试设计并实现前四层；顺带把师承招式战斗效果改为照原版移植
+- 更新记录：[2026-11-08 培养部分剧情分支覆盖测试](../../xiaojianghu-godot/docs/updates/2026-11-08-branch-coverage.md)
+- 留给接手的人：新剧情不用写测试，自动纳入；有意走不到或可重来的登记进 coverage_exempt.json；开始部分×培养的组合维度目前只有“带不带秘籍”
+
+
+### 2026-11-08 · 汉皋前能做的收尾（旧场下架、针路台词、内功与师承招式战斗效果）
+- 工作区：xiaojianghu-godot（game/data/runtime/globals.json、data/cultivation/scripts.json、data/battle/defs.json；scripts/battle/stats.gd、rules.gd、battle.gd、auto.gd、turn.gd；scripts/cultivation/cu_pre_hangao.gd；test/pre_hangao_finish_test.gd；_attic/2026-11-08-gy_m09/）＋ xiaojianghu（设计稿 pre-hangao-timeline.md、qihe-mojiao-observer-sideline.md、cultivation-mentor-lines.md）
+- 谁：Claude Code（菜单重设计会话）
+- 状态：本地完成；未提交、未发布；数值待评审
+- 范围：时间线第三节能做的几项＋内功主动招与特殊被动＋扬灰目眩；排查中发现师承招式在战斗里认不出类型和效果，一并接上
+- 更新记录：[2026-11-08 汉皋前能做的收尾](../../xiaojianghu-godot/docs/updates/2026-11-08-pre-hangao-finish.md)
+- 留给接手的人：新招专属特效等第三十九轮第一批画法定了再出；万壑归元诀二选一固定为加伤；薪火功三层说法不清没接；新增全程测试 `--walkthrough --fullrun`（战斗真打、培养点按钮推进到汉皋城门），三种选法都走通
+
+
+### 2026-11-07 · 招式、内功图标换成新画风
+- 工作区：xiaojianghu-godot（game/assets/ui/skill-icons-v5/ 新增 55 张；game/scripts/menu/kit.gd；docs/review/skill-icons-v5/）
+- 谁：Claude Code（菜单重设计）
+- 状态：本地完成；未提交、未发布
+- 范围：旧菜单图集的招式、心法图标停用，换成逸剑式手绘新图标；修护路棍法笔记仍显示旧图
+- 更新记录：[2026-11-07 招式、内功图标换成新画风](../../xiaojianghu-godot/docs/updates/2026-11-07-skill-icons-v5.md)
+- 留给接手的人：新学得的招式、内功要按 skill-icons-v5 的提示词补图，否则显示墨迹字；R-画风-02 已扩到招式、内功图标
+
+
+### 2026-11-06 · 江湖菜单七页按新预览图做进 Godot
+- 工作区：xiaojianghu-godot（game/scripts/menu/ 的 menu.gd、kit.gd、page_party/skill/bag/equip/quest/sys.gd；不碰 model.gd；tests/shots/baseline/ 菜单 9 张基准重拍）
+- 谁：Claude Code（菜单重设计）
+- 状态：七页和存档弹窗本地完成，自测全过；未提交、未发布
+- 范围：用户通过第四十轮第 2 题的七页预览图（含整改：行记、关系、设置无队员列，存档管理改弹窗），按 v3 预览图改菜单外壳和各页排版；自测除菜单截图外全过，菜单截图基准已重拍（行囊那张未重拍）
+- 更新记录：[2026-11-06 江湖菜单按新预览图做进游戏](../../xiaojianghu-godot/docs/updates/2026-11-06-menu-redesign.md)
+- 留给接手的人：关系页沿用原版式；培养模式设置页项目多，要滚动；左列已改切角印框＋6 张专属头像（game/assets/ui/jianghu-v4/rail/），新的可入队角色要补同规格头像；队伍页定稿为去框大立绘＋背景板（figplate/），加深版背景板与脚影／背光／虚化效果在 figplate-test/ 和 FIG_FX 开关下试样，待用户选；殷红缨立绘有未抠净的白块
+
+### 2026-11-06 · 汉皋前时间线问题整改（秘籍参悟、过渡戏后挪、外出月份、遗产线索戏）
+- 工作区：xiaojianghu-godot（数据 globals.json、scripts.json；menu/model.gd、page_bag.gd；cultivation/cu_balance.gd、cu_core.gd；flow/side_hidden.gd、side_lamp.gd）＋ xiaojianghu（设计稿 pre-hangao-timeline.md、bible 定稿事实）
+- 谁：Claude Code（汉皋前时间线，子会话）
+- 状态：本地完成；未提交；新功法数值与新剧情待评审
+- 范围：用户 11-06 对时间线问题的答复：开始部分五本秘籍背包里满足条件可参悟；培养开头“两个月后”按日历后挪；整月外出第 16 月改第 13 月；补一场三件遗产的线索戏
+- 更新记录：[2026-11-06-pre-hangao-fixes.md](../../xiaojianghu-godot/docs/updates/2026-11-06-pre-hangao-fixes.md)
+- 留给接手的人：陆衡推荐信、阿七借名、第 6 月以后的安排按用户意思暂不动；page_bag.gd 已改完，菜单重设计会话可以动了；内功主动招与暴露类被动战斗里还没接
+
+### 2026-11-06 · 江湖菜单重设计预览图（gpt-image-2.6）
+- 工作区：xiaojianghu-godot（docs/review/menu-redesign-preview-v1/、v2/、v3/，只出预览图，不改游戏代码）
+- 谁：Claude Code（生图源升级后续）
+- 状态：用户选甲后七页（v3）已出，发评审台第四十轮第 2 题等验收；未提交
+- 范围：第一版（插画式）用户说像广告，作废；对照逸剑风云决、大侠立志传、歧路旅人真实菜单截图出第二版甲乙丙，各含队伍页、设置页
+- 更新记录：[2026-11-06 江湖菜单重设计预览图](../../xiaojianghu-godot/docs/updates/2026-11-06-menu-redesign-preview.md)
+- 留给接手的人：用别家截图当参考图会被抄人物和数值，提示词要写死；评审台页面显示没验收（浏览器未登录）
+
+### 2026-11-06 · 生图源升级到 gpt-image-2.6
+- 工作区：xiaojianghu（tools_common/imgsources.json、imggen.py；规则 R-生图-01/02；CLAUDE.md、AGENTS.md、ai-onboarding、art-pipeline 等的模型说法）；测试图放在 xiaojianghu-legacy-prologue/art_sources/imagegen-302-26-test-20261106/
+- 谁：Claude Code（生图源升级）
+- 状态：本地完成，未提交
+- 范围：登记 gpt-image-2.6-sunburst（当前源）和 gpt-image-2.6-flare，旧源保留；实测两档出图
+- 更新记录：[2026-11-06 生图源升级到 gpt-image-2.6](updates/2026-11-06-imggen-2.6.md)
+- 留给接手的人：Complexity 参数没接；带参考图编辑没单独实测；2.6 出图比 2.5 慢（196 秒／88 秒）
+
+### 2026-11-05 · 现有特效分四批重做：第一批通用命中概念图
+- 工作区：xiaojianghu-godot（docs/review/vfx-hit-concepts-batch1-v1/ 概念图与提示词；不改游戏代码）
+- 谁：Claude Code（特效路线比对，子会话）
+- 状态：本地完成；拳、剑、暗器、啄、毒概念图已并进评审台第三十九轮第 2 题，等用户选；未接进游戏；未提交 git
+- 范围：用户要求“用 opus 或者 fable 去整改现有的所有技能特效”，且两个模型“用 cli 自带的，不要走 desktop 或者 302”；第一批＝拳、暗器、啄、毒、剑五种通用命中（音律没有角色用，不做）；文字模型写动作分析与提示词，出图仍用当前生图源；claude 命令行按用户指示重装过
+- 留给接手的人：用户选完后，棍击烘焙进 Godot，其余按选定版做关键帧条成品；第二批（16 个招式）由 Fable 起草提示词、Opus 复核，一招一题
+- 更新记录：[2026-11-05-vfx-route-compare.md](../../xiaojianghu-godot/docs/updates/2026-11-05-vfx-route-compare.md)（四轮一节）
+
+### 2026-11-05 · 特效流程改为优化路线＋棍击命中概念图（等用户选）
+- 工作区：xiaojianghu（rules.json R-特效-01 改写、新增 R-特效-03；docs/design/skill-vfx-pipeline.md 第 1、4～7 步）／xiaojianghu-godot（docs/review/vfx-staff-hit-concepts-v1/ 三版概念图）
+- 谁：Claude Code（特效路线比对，子会话）
+- 状态：规则已批准登记；棍击丙版成品与刀、咬概念图已发评审台第三十九轮第 2 题，等验收和选择；未接进游戏；未提交 git
+- 范围：用户定“采用优化路线”并要求“设计要符合实际”；棍击按木杵砸中重设计，甲乙丙三版
+- 更新记录：[2026-11-05-vfx-route-compare.md](../../xiaojianghu-godot/docs/updates/2026-11-05-vfx-route-compare.md)（二轮一节）
+- 留给接手的人：棍击验收后烘焙精灵表接进 Godot（vfx.gd 的「棍」命中）；刀、咬按选定版做成品；其余按评审台附件“现有特效重做清单”逐批来，每批先过概念图
+
+### 2026-11-05 · 特效路线比对：现有／pixelfx／优化 × 低中高三档（评审用，不接线）
+- 工作区：xiaojianghu-godot（vfx.gd、clash.gd、battle.gd 各加一个只在命令行参数下生效的调试开关；新增评审目录 docs/review/vfx-route-compare-20261105/）
+- 谁：Claude Code（特效路线比对，子会话）
+- 状态：本地完成；评审页已发（私有 artifact https://claude.ai/artifact/LrzeaT9r1iBDkTEPDimFJB），待用户确认；未提交 git；未发布；未替换任何现有素材
+- 范围：研究 patch-gg/pixelfx（代码只在 scratchpad）；低＝狼战木杵普通命中、中＝短锋相照、高＝明约合锋，各做现有／pixelfx／优化三版；优化路线 6 次生图（302ai，含 1 次重生）
+- 更新记录：[2026-11-05-vfx-route-compare.md](../../xiaojianghu-godot/docs/updates/2026-11-05-vfx-route-compare.md)
+- 留给接手的人：用户确认前不要把 pixelfx 版或优化版接进游戏；若采用优化流程，需按 R-文档-02 请用户批准后改 R-特效-01 与 skill-vfx-pipeline.md；调试开关 --fx-off／--fx-log／--auto 只供截图用
+
+### 2026-11-05 · 汉皋前剧情时间线（梳理，只读）
+- 工作区：xiaojianghu（只新增设计稿一份；剧本、代码未动）
+- 谁：Claude Code（时间线梳理，子会话）
+- 状态：本地完成；未提交 git；泳道图页面已发（私有 artifact https://claude.ai/artifact/ReY4Ggw5ft37eGKCjXwtyr）
+- 范围：新增 docs/design/pre-hangao-timeline.md：开始部分半日表、培养第 1～5 月日历、独立事件线（三位前辈师承功法、三方代表、宋先生、蔺管事、小耗子、隐藏奇遇等）、矛盾与断档清单；另发泳道图页面
+- 更新记录：[pre-hangao-timeline.md](design/pre-hangao-timeline.md)
+- 留给接手的人：只列问题，没改；第三节 13 条矛盾与断档待用户拍板（重点：开始部分秘籍学不了、“两个月后”在一月月初、外出月份表仍是 16、陆衡推荐信无入口）
+
+### 2026-11-05 · 舍弃子任务路由器（codex-router）
+- 工作区：xiaojianghu（入口 CLAUDE.md、Godot 版 plan.md 各改一句）
+- 谁：Claude Code（Godot 重做，子会话）
+- 状态：本地完成；未提交 git
+- 范围：R-子任务-02 废止（已登记批准）；codex-router.sh 与 .router-tasks/ 移到 _attic/2026-11-05-codex-router/；router-subtasks.md、router-api-for-agents.md 移到 docs/archive/ 并改链接；tools_por/.env 删掉失效的 ENTERPRISE_API_KEY
+- 更新记录：[2026-11-05-drop-codex-router.md](updates/2026-11-05-drop-codex-router.md)
+- 留给接手的人：不要再用 codex-router 派子任务；小任务主会话做或派 Claude 子代理（附 R-子任务-01 规则）
+
+### 2026-11-05 · 剧情工具的 Opus 改走公司路由
+- 工作区：xiaojianghu
+- 谁：Claude Code（Godot 重做，子会话）
+- 状态：本地完成；实测通过（公司路由、302 备用、演员法端到端）；未提交 git
+- 范围：tools_story/minimax_logic_review.py（call 分通道、router_call）、minimax_actors.py／minimax_draft.py 注释；R-剧情-01（已登记批准）、story-writing.md 第七节、story-writing skill、新 docs/model-router.md、router-subtasks.md 加不通提示
+- 更新记录：[2026-11-05-opus-company-router.md](updates/2026-11-05-opus-company-router.md)
+- 留给接手的人：Token路由 要切在「zleap · Claude Code」，否则剧情工具报“公司路由没就绪”，可临时 --provider 302；codex-router.sh 的 ENTERPRISE_API_KEY 已失效（401），等新 Key
+
+### 2026-11-05 · 开始部分与培养模式的 Esc 菜单统一
+- 工作区：xiaojianghu-godot（设计稿 xiaojianghu/docs/design/cultivation-implementation.md 同步一句）
+- 谁：Claude Code（Godot 重做，子会话）
+- 状态：本地完成；全套自测 13/13 通过；未提交 git；未发布
+- 范围：培养模式 Esc／齿轮改开江湖菜单设置页，原“养成设置”并入设置页（培养专有三项）；修培养模式菜单里返回首页后培养界面盖回来、bool() 收空值报错（12 处）；自测加 Esc 检查与两张截图
+- 更新记录：[2026-11-05-esc-menu.md](../../xiaojianghu-godot/docs/updates/2026-11-05-esc-menu.md)
+- 留给接手的人：两部分里同一功能的界面要用同一套；新加培养专有设置项放进 page_sys.gd 的 from_cultivation 分支
+
+### 2026-11-05 · Godot 版全套自动测试（六项）＋ 查出的 4 个问题
+- 工作区：xiaojianghu-godot
+- 谁：Claude Code（Godot 重做，子会话）
+- 状态：本地完成；全套自测 13/13 通过；未提交 git；未发布
+- 范围：新增 tools/selftest.py、ink_sweep.cjs、shot_regress.py，game/scripts/tests/harness.gd、sweep_npc.gd、savecheck.gd，tests/saves、tests/shots；改 walkthrough.gd、gd_bg.sh（窗口改放 BetterDisplay 虚拟屏 QingheTest）、export.py（导出前先自测）、boot.gd；修 prologue.gd（借宿榻条件、旧存档缺字段）、chapter.gd（回叶家那步、药棚叶蘅“谈”）、game_state.gd（测试存档不改“最近一次”）
+- 更新记录：[2026-11-05-selftest.md](../../xiaojianghu-godot/docs/updates/2026-11-05-selftest.md)
+- 留给接手的人：改完跑 `python3 tools/selftest.py`；画面有意改动后用 `tools/shot_regress.py --update` 重拍基准；需要窗口的测试一律走 gd_bg.sh（虚拟屏），不要放实际屏幕
+
+### 2026-11-05 · Godot 版装上 GdUnit4 自动测试
+- 工作区：xiaojianghu-godot
+- 谁：Claude Code（Godot 重做，子会话）
+- 状态：本地完成；11 个测试全过；未提交 git；未发布
+- 范围：game/addons/gdUnit4（6.2.3）、project.godot 启用、export_presets.cfg 排除插件和测试、tools/gd_test.sh、game/test/*_test.gd；同步 globals.json 里的旧副本 QiheNpc.data（还留着“托”和站岗不能交谈）
+- 更新记录：[2026-11-05-gdunit4.md](../../xiaojianghu-godot/docs/updates/2026-11-05-gdunit4.md)
+- 留给接手的人：新测试放 game/test/，用 tools/gd_test.sh 跑；同一文件里一个测试失败后，后面的测试不再跑
+
+### 2026-11-03 · 线上载入卡死整改
+- 工作区：xiaojianghu-legacy-prologue
+- 谁：Claude Code（栖河整改）
+- 状态：本地完成；测试预览 loadfix 已验证；未提交，main、qihe 未发布
+- 范围：js/core.js 开场预载（排队、超时重试、立绘后台下、看门狗、进场地图优先）
+- 更新记录：[2026-11-03-load-stall.md](../../xiaojianghu-legacy-prologue/docs/updates/2026-11-03-load-stall.md)
+- 留给接手的人：根子是到 Cloudflare 的线路慢，换国内托管要用户定
+
+### 2026-11-03 · Godot 版一比一重做（新目录 xiaojianghu-godot）
+- 工作区：新目录 xiaojianghu-godot（只读参照 xiaojianghu-legacy-prologue，不改原版）
+- 谁：Claude Code（Godot 重做，子会话）
+- 状态：本地完成（序章→开始部分→进入培养模式可完整游玩；Web 与 macOS 已导出并实测）；未提交 git；未发布
+- 范围：新建 xiaojianghu-godot/（Godot 4.7 工程、素材打包脚本、docs/plan 与 docs/review）；不碰原版 js/、assets/、story/
+- 更新记录：[2026-11-03-godot-remake.md](../../xiaojianghu-godot/docs/updates/2026-11-03-godot-remake.md)
+- 续做（11-03 第二轮，本地完成，未提交、未发布）：已补存档管理（新建、重命名、回收站、载入）、培养八个面板对照（4.2–6.0）、系统楷体／宋体／魏碑；三方冲突特效已移植接线并截图对照（scripts/battle/fx_*.gd）；关系页带数据对照；重导 Web/macOS 并验证；测试改为后台批量（tools/gd_bg.sh、--shots）
+- 续做（11-03 第三轮“完成还差的地方”，本地完成，未提交、未发布）：交锋辉光补上 1/4 分辨率离屏层＋8px 模糊；苹果宋体／楷体按字重从系统字体集合取（缓存在用户目录，不打包）；小数字号（12.5、13.5、14.5、18.5、20.5px 等）照原版大小显示；交锋连拍对照对齐（以第一句喊话为零点、连拍改后台编码），十帧招式一一对上；新增 `--checkall` 编译检查、`--clash-timeline` 节奏打印
+- 续做（11-03 第四轮“量化比对”，本地完成，未提交、未发布）：两边全部重跑，记录在 xiaojianghu-godot/docs/review/quant-2026-11-03.md；剧情、剧本数据、交锋规则全一致，地图差不超过压缩底数；更正交锋节奏（Godot 快约 1.8%）与旧帧耗说法；修批量截图工具标题页暗角残留
+- 续做（11-04 第五轮“修交锋节奏”，本地完成，未提交、未发布）：查明“快 1.8%”是 Godot 无头不限帧（约 144 帧）的测量偏差，原版浏览器 60 帧下每次等待也多等约 10ms，两边逻辑一致；`--clash-timeline` 改为按 60 帧测，结果落在原版自身波动内（17.76–17.81 秒对 17.76–17.91 秒）；游戏代码未改，120Hz 高刷待查
+- 续做（11-04 试玩修卡关，本地完成，未提交、未发布）：用户试玩卡在“进村第一夜”周婶留饭一句后。原因是剧本外部函数传的参数比 Godot 接的函数多（go_scene 传场景和入口），Godot 的 callv 会静默不执行，整段戏留在后山演完，演完出不去；`xiaojianghu-godot/game/scripts/core/story_runtime.gd` 改为截掉多的参数，所有剧本外部函数一并受益。自动通关复跑：序章结束在药棚，298 句与原版逐句一致；用户那份存档已改到药棚门口（原档备份在会话临时目录）
+- 续做（11-04 墨印“互”与“谈”人人都有，本地完成，未提交、未发布）：用户定今后只更新 Godot 版（规则 R-工作区-01 已改）；“托／回”改名“互”，接应院护院、差役补上“谈”和新台词（xiaojianghu-godot/story/），R-交互-01 与设计稿 npc-interaction-v2 第 2.2 节同步；插件只推荐未安装。决策记录：xiaojianghu-godot/docs/decisions/2026-11-04-interaction-hu-tan.md
+- 留给接手的人：已知差异见更新记录“未完成”一节；原版 js/core.js 另有会话在修，本目录不依赖它；序章配乐用原版现有配乐
+
+### 2026-11-02 · 删掉配音文件和登记
+- 工作区：xiaojianghu-legacy-prologue
+- 谁：Claude Code（栖河整改）
+- 状态：已提交（`61fc805`，未推送）并发布（main、qihe，11-02）
+- 范围：删 assets/audio/voices、battle-voices（269 个文件）；index.html 去掉两份登记脚本；素材表去掉 267 条配音
+- 更新记录：[2026-11-02-voice-off.md](../../xiaojianghu-legacy-prologue/docs/updates/2026-11-02-voice-off.md)
+- 留给接手的人：播放代码留着；art_sources 里的生成原件没删；用户说配音以后再处理
+
+### 2026-11-02 · 去掉起火时的救人二选一
+- 工作区：xiaojianghu-legacy-prologue
+- 谁：Claude Code（栖河整改）
+- 状态：已提交（`61fc805`，未推送）并发布（main、qihe，11-02）
+- 范围：风起-起火、三方-侧口对峙、风起-随口一句三份剧本；js/qihe-chapter.js、qihe-staging-data.js；旗标登记；三份测试
+- 更新记录：[2026-11-02-remove-rescue-choice.md](../../xiaojianghu-legacy-prologue/docs/updates/2026-11-02-remove-rescue-choice.md)
+- 留给接手的人：R3-R10 台词改了，旧配音对不上，重开配音时要重录
+
+### 2026-11-02 · 路由器接入说明（给其他 agent）
+- 工作区：xiaojianghu
+- 谁：Claude Code（骆驼传美术方法评估）
+- 状态：本地完成（未提交）
+- 范围：新增 `docs/archive/router-api-for-agents.md`；`docs/archive/router-subtasks.md` 加一句链接。实测 `/v1/models` 和三种请求格式（haiku 各一次，极少量计费）。
+- 更新记录：本条内容少，没有另写，说明见 [router-api-for-agents](archive/router-api-for-agents.md)。
+- 留给接手的人：Python SDK 写法未实测。
+
+### 2026-11-02 · 暂时关掉所有配音
+- 工作区：xiaojianghu-legacy-prologue
+- 谁：Claude Code（汉皋前培养补充，同一会话）
+- 状态：已提交（`61fc805`，未推送）并发布（main、qihe，11-02）
+- 范围：`js/voice.js`（总开关 ENABLED=false）、`js/battle-voice.js`、`tools_scene/qihe/verify_battle_voice.cjs`、`tests/qihe-clash-voice-browser.cjs`
+- 更新记录：[2026-11-02-voice-off](../../xiaojianghu-legacy-prologue/docs/updates/2026-11-02-voice-off.md)
+- 留给接手的人：配音文件和登记都在，改回 true 即恢复；重新开时要查起火夜战收场少播一句的问题
+### 2026-11-02 · 接应院缩小成小农舍；第一部分全量测试复查
+- 工作区：xiaojianghu-legacy-prologue
+- 谁：Claude Code（汉皋前培养补充，同一会话）
+- 状态：已提交（`61fc805`，未推送）并发布（main、qihe，11-02）；接应院仍待用户验收
+- 范围：接应院底图和遮挡件、`js/qihe-expansion-data.js`（接应院碰撞、锚点）、`js/qihe-staging-data.js`（对证站位）、`js/qihe-treasure.js`（东埠铁箍箱挪到 1130,805，避开芦苇采集点）、`tests/qihe-finale-browser.cjs`（选项文字跟上 10-20 改写、等到达对话后再对证、点击容错）
+- 更新记录：[2026-11-02-refuge-shrink](../../xiaojianghu-legacy-prologue/docs/updates/2026-11-02-refuge-shrink.md)
+- 留给接手的人：接应院战斗背景没重出；起火夜战收场岑霜那句配音测试只播出 4/5 句，没查清
+### 2026-11-03 · 序章配乐按情景分场出候选
+- 工作区：xiaojianghu-legacy-prologue（素材）；规划记在 xiaojianghu
+- 谁：Claude Code（音频规划，子会话）
+- 状态：本地完成（未提交、未发布）；评审台第三十八轮“序章配乐”已出题，等用户挑
+- 范围：legacy `art_sources/audio-20261103-prologue/`：六场（后山相遇、递水、遇狼、进村收留、第一夜走动、入睡），每场 Suno v5 两首、MiniMax 作曲一首，共 18 首；试听页 https://claude.ai/artifact/NzY8AUxvVrVbMPAAZ1XFjm 最上面一节；没改游戏代码、没接线
+- 更新记录：见 [audio-plan-20261102](design/audio-plan-20261102.md)“序章配乐按情景分场”一节
+- 留给接手的人：试听拷贝已统一响度，原件没动；接线时改 `qiheSoundscape` 按地图和剧情分曲，并一起改 verify_audio 的“first-night silence”断言
+
+### 2026-11-02 · 音乐、音效、配音重新规划（302 新入口：Suno、Gemini 语音、MiniMax 作曲和语音）
+- 工作区：xiaojianghu（规划文档）；盘点的是 xiaojianghu-legacy-prologue 现状
+- 谁：Claude Code（音频规划，子会话）
+- 状态：本地完成（未提交、未发布）；试听题已发评审台，等用户挑
+- 范围：新增 `docs/design/audio-plan-20261102.md`、`tools_audio/try302_audio.py`；按用户“都去尝试下”给村中白天出了试样（legacy `art_sources/audio-20261102/village-day/` 和 `ui-click/`，每家只用最好模型：配乐 3、环境声 2、吆喝 6、点击音效 9 类各 2 版），试听页 https://claude.ai/artifact/NzY8AUxvVrVbMPAAZ1XFjm ；用户随后说“现有版本挺好的，帮我补充没有的就行”，现用的都保留，补出 P0 缺口候选（legacy `art_sources/audio-20261102/p0/`：危急、安顿配乐各 3 首，火场环境声 2，战斗音效 15），并入同一试听页；没改游戏代码、没接线
+- 更新记录：规划正文即记录，见 [audio-plan-20261102](design/audio-plan-20261102.md)
+- 留给接手的人：四个新入口都做不了音效；ElevenLabs 直连密钥已失效，音效走 302 转接的 ElevenLabs；配乐 Suno 和 MiniMax 作曲要同题试样再定；302 上的 MiniMax 语音只有系统音色，现有角色音色能不能搬过去要先查；用户批准前不批量生成、不接线
+
+### 2026-11-02 · 去掉西田晒谷竹席和谷堆
+- 工作区：两边（代码在 xiaojianghu-legacy-prologue，设计稿注在 xiaojianghu）
+- 谁：Claude Code（汉皋前培养补充，同一会话）
+- 状态：已提交（`61fc805`，未推送）并发布（main、qihe，11-02）
+- 范围：`js/qihe-town.js`、`story/01-开始/村中-景物.ink`（已重新登记批准）、`tools_scene/qihe/verify_town.cjs`、`shot_spots.cjs`、`docs/design/qihe-map-interactables.md`
+- 更新记录：[2026-11-02-remove-grain-mat](../../xiaojianghu-legacy-prologue/docs/updates/2026-11-02-remove-grain-mat.md)
+- 留给接手的人：翻谷领炒米的小活随之删掉；竹席、谷堆素材文件留着
+### 2026-11-02 · 栖河物资点去掉钥匙
+- 工作区：两边（设计稿在 xiaojianghu，代码在 xiaojianghu-legacy-prologue）
+- 谁：Claude Code（汉皋前培养补充，同一会话）
+- 状态：已提交（`61fc805`，未推送）并发布（main、qihe，11-02）
+- 范围：`js/qihe-treasure.js`、`story/01-开始/村中-宝箱.ink`、`tools_scene/qihe/verify_treasure.cjs`、`docs/design/qihe-treasure-points.md` 及其戏眼卡
+- 更新记录：[2026-11-02-treasure-points](../../xiaojianghu-legacy-prologue/docs/updates/2026-11-02-treasure-points.md)（文末“追加：去掉钥匙”）
+- 留给接手的人：用户定了宝箱一律不用钥匙；以后别处加箱子也照此
+- 追加：货币单位统一写“两”（10-23 定），物资点台词和 6 页仍写“统一显示文”的设计页已改；旧更新记录和归档不改；野外行囊界面（`js/qihe-resources.js`）也已改成两
+### 2026-11-02 · 栖河地图补宝箱和隐藏物资点（参考八方旅人）
+- 工作区：两边（设计稿在 xiaojianghu，代码和素材在 xiaojianghu-legacy-prologue）
+- 谁：Claude Code（汉皋前培养补充，同一会话）
+- 状态：已提交（`61fc805`，未推送）并发布（main、qihe，11-02）
+- 范围：新增 `js/qihe-treasure.js`、`story/01-开始/村中-宝箱.ink`、`docs/design/qihe-treasure-points.md`、`assets/production/maps/town-props-20261102/`、`tools_scene/qihe/verify_treasure.cjs`；两只旧木桶改成淡蓝提示
+- 更新记录：[2026-11-02-treasure-points](../../xiaojianghu-legacy-prologue/docs/updates/2026-11-02-treasure-points.md)
+- 留给接手的人：箱子素材状态是候选；只有北坡铁箍箱亲手按键开过，其余靠 verify_treasure
+### 2026-11-02 · 序章重新排查（后山、遇狼、进村第一夜）
+- 工作区：xiaojianghu-legacy-prologue
+- 谁：Claude Code（汉皋前培养补充，同一会话）
+- 状态：已提交（`61fc805`，未推送）并发布（main、qihe，11-02）
+- 范围：`js/prologue-backhill.js`、`js/prologue-arrival.js`、`story/_共用/externals.ink`，代批了 6 份序章和第一夜剧本
+- 更新记录：[2026-11-02-prologue-audit](../../xiaojianghu-legacy-prologue/docs/updates/2026-11-02-prologue-audit.md)
+- 留给接手的人：递水 CG 和地图对不上，在评审台第三十六轮等用户定；第一夜跑腿和过夜改的台词没手动走过
+
+### 2026-11-02 · 汉皋前培养排查：师承功法线与闲逛补充
+- 工作区：xiaojianghu-legacy-prologue（代码、剧情）；xiaojianghu（设计文档、登记）
+- 谁：Claude Code（汉皋前培养补充，子会话）
+- 状态：已提交（`61fc805`，未推送）并发布（main、qihe，11-02）
+- 范围：新增 `js/qh-mode-cultivation-mentors.js`、`tests/cultivation-mentors.test.cjs`、`docs/design/cultivation-mentor-lines.md`；改 `js/qh-mode-cultivation-library.js`（追加 9 门功法）、`-balance.js`、`-core.js`、`-growth.js`、`-household.js`、`-martial.js`、`-relations.js`、`-side.js`（注释）、`js/qh-mode-cultivation.js`、`index.html`、`tools_scene/qihe/verify_household.cjs`、回扣登记表、定稿事实；只动第 1～4 月的闲逛，固定剧情只在《出门的家伙》加一句回扣，没动 ink
+- 更新记录：[2026-11-02-mentor-lines](../../xiaojianghu-legacy-prologue/docs/updates/2026-11-02-mentor-lines.md)
+- 留给接手的人：排查和缺口表在 `docs/design/cultivation-mentor-lines.md`；徐令仪、岑霜、沈雁回的立绘已采用、当面戏已开；评审台第三十五轮两题已收，学艺额度和丙级提前按现方案跑，九招用通用特效；用户批准后登记了 R-命名-01、R-画风-06；留到汉皋的三段草稿在 `art_sources/qihe-reps-q-20261102/held-scenes/`；302 主密钥 401，这次走的备用密钥；`guiyun-performance-browser` 里的 `hg_aftercare` 未查根因
+
 ### 2026-11-01 · 开发方法总结（给别的游戏参考）
 - 工作区：xiaojianghu
 - 谁：Claude Code（开发方法总结，子会话）
@@ -382,7 +720,7 @@
 - 工作区：两边
 - 谁：Claude Code（整改清单会话，多 agent；登记类同步经 codex-router 分派）
 - 状态：本地完成；整改已贴回评审台；红绳 CG 与新界面待用户在第十五轮选；未提交；未发布
-- 范围：`npc-interaction-v2.md`、`npc-gifts-and-inventory.md`、`qihe-map-interactables.md`、`review/batch2-ui/`；道具镂空（`assets/production/` 新文件、`tools_assets/check_production.py` 加检查）；红绳 CG；新人物立绘与精灵登记；`docs/router-subtasks.md` 调用场景
+- 范围：`npc-interaction-v2.md`、`npc-gifts-and-inventory.md`、`qihe-map-interactables.md`、`review/batch2-ui/`；道具镂空（`assets/production/` 新文件、`tools_assets/check_production.py` 加检查）；红绳 CG；新人物立绘与精灵登记；`docs/archive/router-subtasks.md` 调用场景
 - 更新记录：[2026-10-21-rectify](../../xiaojianghu-legacy-prologue/docs/updates/2026-10-21-rectify.md)（“第十四轮整改”一节）
 - 留给接手的人：用户回答在评审台 https://claude.ai/artifact/Na9nuGC8efHNqeR2YxTNyr 的 answers 集合
 
@@ -461,7 +799,7 @@
 - 工作区：两边（脚本与文档在 xiaojianghu）
 - 谁：Claude Code
 - 状态：本地完成；未提交
-- 范围：新脚本 `tools_common/codex-router.sh`；`tools_por/.env` 加 `ENTERPRISE_API_KEY`；新文档 `docs/router-subtasks.md`；规则 R-子任务-02（用户 2026-10-23：“这边也需要同样的分流”）；`ai-onboarding.md`、根目录 `CLAUDE.md` 引用
+- 范围：新脚本 `tools_common/codex-router.sh`；`tools_por/.env` 加 `ENTERPRISE_API_KEY`；新文档 `docs/archive/router-subtasks.md`；规则 R-子任务-02（用户 2026-10-23：“这边也需要同样的分流”）；`ai-onboarding.md`、根目录 `CLAUDE.md` 引用
 - 更新记录：[2026-10-23-router-subtasks](updates/2026-10-23-router-subtasks.md)
 - 留给接手的人：脚本须在沙箱外运行；子任务汇报不算证据，主会话要重跑检查
 

@@ -16,7 +16,7 @@
   {
    "id": "R-工作区-01",
    "area": "协作",
-   "rule": "两个独立工作区：xiaojianghu（文档库：设计文档、设定圣经、现行文档工具；旧原型已于 2026-10-20 归档）与 xiaojianghu-legacy-prologue（栖河试玩版，本地 8792，线上 luotuo-36x.pages.dev）。改动前先确认属于哪一个。",
+   "rule": "三个工作区：xiaojianghu（文档库：设计文档、设定圣经、现行文档工具；旧原型已于 2026-10-20 归档）、xiaojianghu-godot（Godot 版，2026-11-04 起唯一继续更新的游戏版本）与 xiaojianghu-legacy-prologue（栖河试玩版原版，本地 8792，线上 luotuo-36x.pages.dev；2026-11-04 起不再更新，只读作参考）。改动前先确认属于哪一个。",
    "scope": "全部",
    "source": {
     "date": "早于 2026-10-07",
@@ -29,6 +29,11 @@
      "date": "2026-10-20",
      "change": "文档库描述去掉“养成与旧原型”，注明旧原型已归档",
      "approved_by": "用户：“同意，改吧”"
+    },
+    {
+     "date": "2026-11-04",
+     "change": "加入 xiaojianghu-godot，定为唯一继续更新的版本；原版改为只读参考",
+     "approved_by": "用户：“后面应该只更新 godot 版了，所以基于现有版本多次打磨”"
     }
    ]
   },
@@ -47,7 +52,7 @@
   {
    "id": "R-生图-01",
    "area": "生图",
-   "rule": "生图用 xiaojianghu/tools_common/imgsources.json 的当前源（current），统一入口 tools_common/imggen.py。当前源为 302ai-sunburst（302.AI，gpt-image-2.5-sunburst）。用户说切到哪个源就改 current 并记 history；旧源（codex exec、FlatRouter）一律保留不删。",
+   "rule": "生图用 xiaojianghu/tools_common/imgsources.json 的当前源（current），统一入口 tools_common/imggen.py。当前源为 302ai-sunburst-2.6（302.AI，gpt-image-2.6-sunburst，2026-11-06 由 2.5 升级）；快速草图可用 302ai-flare-2.6。用户说切到哪个源就改 current 并记 history；旧源（codex exec、FlatRouter）一律保留不删。",
    "scope": "所有出图",
    "source": {
     "date": "2026-10-17",
@@ -63,12 +68,19 @@
     "生图(默认|约定)走\\s*`?codex",
     "尽量用\\s*codex",
     "FlatRouter[^。\\n]{0,16}(只|仅)(在|用于|限)[^。\\n]{0,8}codex"
+   ],
+   "history": [
+    {
+     "date": "2026-11-06",
+     "change": "生图模型由 gpt-image-2.5 升级到 gpt-image-2.6（当前源 302ai-sunburst-2.6，另登记快速档 302ai-flare-2.6），旧源保留",
+     "approved_by": "用户：“把原有的 2.5 升级成 2.6”"
+    }
    ]
   },
   {
    "id": "R-生图-02",
    "area": "生图",
-   "rule": "每次生图提示词首行带：Model: gpt-image-2.5（使用 gpt-image-2.5 生图模型）。记录里只写“提示词请求 gpt-image-2.5”，不得写成已确认由 gpt-image-2.5 生成。",
+   "rule": "每次生图提示词首行带：Model: gpt-image-2.6（使用 gpt-image-2.6 生图模型）。记录里只写“提示词请求 gpt-image-2.6”，不得写成已确认由该模型生成。2026-11-06 前的批次记的是 2.5，保持原样。",
    "scope": "所有出图",
    "source": {
     "date": "2026-10-07",
@@ -77,7 +89,14 @@
    },
    "status": "现行",
    "stale": [
-    "已确认由\\s*gpt-image-2\\.5\\s*生成"
+    "已确认由\\s*gpt-image-2\\.[56]\\s*生成"
+   ],
+   "history": [
+    {
+     "date": "2026-11-06",
+     "change": "生图模型由 gpt-image-2.5 升级到 gpt-image-2.6（当前源 302ai-sunburst-2.6，另登记快速档 302ai-flare-2.6），旧源保留",
+     "approved_by": "用户：“把原有的 2.5 升级成 2.6”"
+    }
    ]
   },
   {
@@ -119,14 +138,21 @@
   {
    "id": "R-画风-02",
    "area": "画风",
-   "rule": "角色精灵整张采用重画结果并锁调色板把关；地图道具统一走 forge pixel 后期（选择性 1px 描边、轻度提亮、透明度二值）。物品图标统一手绘（逸剑风云决式：单一清楚的剪影、深棕描边、光从左上、颜色温和略旧，品阶交给格子外框），不走像素后期；新物品拿现有 v4 图集的样张当画风参考，进 js/item-icons-v4.js。",
-   "scope": "精灵、地图道具与物品图标",
+   "rule": "角色精灵整张采用重画结果并锁调色板把关；地图道具统一走 forge pixel 后期（选择性 1px 描边、轻度提亮、透明度二值）。物品图标统一手绘（逸剑风云决式：单一清楚的剪影、深棕描边、光从左上、颜色温和略旧，品阶交给格子外框），不走像素后期；新物品拿现有 v4 图集的样张当画风参考，进 js/item-icons-v4.js。招式、内功图标同一画风：只画一个主体（兵器、器物或意象）加 1～3 道带描边的动势线，不画人、手和手臂，不要烟雾粒子和对称蝴蝶形、X 形构图，品阶交给界面的品级框；旧菜单图集 i_jianghu 的招式、心法图标停用，新招式、内功按 xiaojianghu-godot/docs/review/skill-icons-v5/ 的提示词补图，进 game/assets/ui/skill-icons-v5/。",
+   "scope": "精灵、地图道具、物品图标与招式内功图标",
    "source": {
-    "date": "2026-10-30",
-    "quote": "不仅仅是模糊了而已啊，这个 icon 也不是很好看，参考下逸剑风云决；评审台第三十轮第 1 题选“采用，接进游戏并改规则”",
-    "doc": "xiaojianghu-legacy-prologue/art_sources/item-icons-20261030/README.md"
+    "date": "2026-10-30；2026-11-07 扩到招式、内功图标",
+    "quote": "不仅仅是模糊了而已啊，这个 icon 也不是很好看，参考下逸剑风云决；评审台第三十轮第 1 题选“采用，接进游戏并改规则”；11-07：“这些招式 icon 怎么还没有被去掉啊”，选“换成新画风图标”，“写进规则”",
+    "doc": "xiaojianghu-legacy-prologue/art_sources/item-icons-20261030/README.md；xiaojianghu-godot/docs/review/skill-icons-v5/README.md"
    },
-   "status": "现行"
+   "status": "现行",
+   "history": [
+    {
+     "date": "2026-11-07",
+     "change": "扩到招式、内功图标：同一手绘画风，旧菜单图集的招式、心法图标停用，新图进 game/assets/ui/skill-icons-v5/",
+     "approved_by": "用户：“换成新画风图标”；“写进规则”"
+    }
+   ]
   },
   {
    "id": "R-画风-03",
@@ -165,6 +191,30 @@
    "status": "现行"
   },
   {
+   "id": "R-画风-06",
+   "area": "画风",
+   "rule": "Q 版立绘要有动作差分，不只换表情：基础立绘不把全部装备拿在手上，武器、文书这类平时收在身上，用到才拿；不同情绪、不同事情用不同动作。动作差分按剧情需要再补，写戏时记需求，不提前批量生成。",
+   "scope": "养成模式 Q 版立绘",
+   "source": {
+    "date": "2026-11-02",
+    "quote": "这版 Q 版还是有点死板，什么装备都拿着，动作也很少，多一些动作差分吧（写到角色素材生成那里，按照剧情需要的时候再去补充，不用立刻生成；登记这两条",
+    "doc": "xiaojianghu/docs/design/cultivation-q-generation-standard.md"
+   },
+   "status": "现行"
+  },
+  {
+   "id": "R-命名-01",
+   "area": "命名",
+   "rule": "功法和招式命名：要有武学意象，不拿日常活计或动作说明当名字；取人物本人的来历和本门意象（归云谷用云、岚、岳、壑）；招式名和功法名呼应，不和本门已有功法撞字；人物的土名写在台词里，正式名另起；按金庸、古龙主要作品和常见武侠用语比对同名，登记含义和比对结果。",
+   "scope": "新功法与招式",
+   "source": {
+    "date": "2026-11-02",
+    "quote": "功法名字很离谱啊，就叫做挑水诀，太随便了，这方面命名没有规范吗？；登记这两条",
+    "doc": "xiaojianghu/docs/design/cultivation-mentor-lines.md"
+   },
+   "status": "现行"
+  },
+  {
    "id": "R-地图-01",
    "area": "地图",
    "rule": "地图尺寸按内容定：先列内容取能装下的最小尺寸，每屏至少一个看点，空区域裁掉，用有剧情的人和事填充；不为凑倍数放大。",
@@ -179,14 +229,21 @@
   {
    "id": "R-特效-01",
    "area": "特效",
-   "rule": "新做或重做技能特效必须走 xiaojianghu/docs/design/skill-vfx-pipeline.md：定关键帧 → 参考场景 → 概念图（用户确认）→ 拆单体素材 → 整理 → 编排 → 评审页对照概念图（用户确认）→ 才能接入战斗与发布。",
-   "scope": "技能特效",
+   "rule": "新做或重做特效（技能特效与通用命中）必须走 xiaojianghu/docs/design/skill-vfx-pipeline.md：定关键帧 → 参考场景 → 概念图（用户确认）→ 拆成关键帧条（每个元素一张 2×2 或 4 行的图，同位、同大小、同配色，只变形态）→ 整理（切格、锚点对齐、锁色带、alpha 5 阶）→ 编排（关键帧按 12fps 持帧，程序只补火星、光、顿帧、震屏）→ 在实机战斗截图上连拍看图并自动检查，至少三轮 → 评审页对照概念图（用户确认）→ 烘焙成精灵表＋JSON 由 Godot 直接播放，才能接入战斗与发布。",
+   "scope": "技能特效与通用命中",
    "source": {
-    "date": "2026-10-07；2026-10-18 重申",
-    "quote": "太垃圾了，之前不是有过评审的文档吗？",
+    "date": "2026-10-07；2026-10-18 重申；2026-11-05 改为优化路线",
+    "quote": "采用优化路线",
     "doc": "xiaojianghu/docs/design/skill-vfx-pipeline.md"
    },
-   "status": "现行"
+   "status": "现行",
+   "history": [
+    {
+     "date": "2026-11-05",
+     "change": "拆单体静帧改为关键帧条；整理锁色带、alpha 5 阶；编排按 12fps 持帧；增加实机连拍看图与自动检查；成品烘焙精灵表由 Godot 直接播放；范围加上通用命中",
+     "approved_by": "用户：“采用优化路线”（评审页 https://claude.ai/artifact/LrzeaT9r1iBDkTEPDimFJB）"
+    }
+   ]
   },
   {
    "id": "R-特效-02",
@@ -206,16 +263,54 @@
    ]
   },
   {
-   "id": "R-剧情-01",
-   "area": "剧情",
-   "rule": "剧情台词按“剧情三道关”：戏眼卡（含每人知道什么）→ 演员法起草（默认 MiniMax，tools_story/minimax_actors.py）→ 冷读审读（子代理只看路线全文），查出的问题记进反例库 story-ai-patterns.md。",
-   "scope": "所有剧情台词",
+   "id": "R-特效-03",
+   "area": "特效",
+   "rule": "特效设计要符合动作实际：先想清楚这一下是什么兵器、什么动作、打在哪里、力往哪走，再定特效的形；钝器打出钝器的打击感（短促闪白、受力方向的冲击线、震波、扬尘、顿帧），不要拿爆炸、烟环这类和动作无关的通用形顶替。",
+   "scope": "所有特效设计（概念图与关键帧）",
    "source": {
-    "date": "2026-10-19",
-    "quote": "现在还是有剧情对话很 ai 化，没有逻辑……开始吧",
-    "doc": ".claude/skills/story-writing/SKILL.md"
+    "date": "2026-11-05",
+    "quote": "设计的时候要符合实际啊，你看主角用棒子打的时候怎么有这种特效呢？应该是更有打击感的特效啊",
+    "doc": "xiaojianghu/docs/design/skill-vfx-pipeline.md"
    },
    "status": "现行"
+  },
+  {
+   "id": "R-动作-01",
+   "area": "动作",
+   "rule": "人物动作按快慢选做法：走、跑、待机、闲置小动作这类慢的连续动作，用图生视频（302 的 wan3.0-video-prime，首帧是同向站姿贴纯绿底）加本地后期（抠绿、缩回 1x、锁调色板、对齐、找循环、等距取帧）；普攻、快招用一张图出整组姿势，再走同一套后期；不用逐帧单张生图；复杂技能动作不做。程序白模加参考生图的动作管线废止，不再用于新做动作（Q 版静态立绘的姿态白模不受影响）。",
+   "scope": "人物动作素材",
+   "source": {
+    "date": "2026-11-01",
+    "quote": "把你这两个问题确定了，按照现在用的路线替换了旧的，不要上传舍弃的旧信息",
+    "doc": "xiaojianghu/docs/anim-pipeline.md"
+   },
+   "status": "现行",
+   "stale": [
+    "白模[^。\\n]{0,20}正式(制作)?流程"
+   ]
+  },
+  {
+   "id": "R-剧情-01",
+   "area": "剧情",
+   "rule": "剧情台词按“剧情三道关”：戏眼卡（含每人知道什么）→ 演员法起草（默认 claude-opus-5-5，经公司路由调用，302.AI 备用；tools_story/minimax_actors.py，见 docs/model-router.md）→ 冷读审读（子代理只看路线全文），查出的问题记进反例库 story-ai-patterns.md。",
+   "scope": "所有剧情台词",
+   "source": {
+    "date": "2026-10-19；2026-11-01 改默认模型",
+    "quote": "现在还是有剧情对话很 ai 化，没有逻辑……开始吧；把你这两个问题确定了，按照现在用的路线替换了旧的",
+    "doc": ".claude/skills/story-writing/SKILL.md"
+   },
+   "status": "现行",
+   "stale": [
+    "演员法[^。\\n]{0,10}默认\\s*MiniMax",
+    "演员法[^。\\n]{0,10}默认\\s*302"
+   ],
+   "history": [
+    {
+     "date": "2026-11-05",
+     "change": "Opus 的调用方式从 302.AI 改为公司路由（Token路由 本机代理 → zleap-router），302.AI 留作备用",
+     "approved_by": "用户：“更新下 302 的 opus 调用方式https://claude.ai/artifact/JXuPVhcT3Zy5jMxtHcJa1p，更新文档”"
+    }
+   ]
   },
   {
    "id": "R-剧情-02",
@@ -445,21 +540,36 @@
    "source": {
     "date": "2026-10-23",
     "quote": "这边也需要同样的分流",
-    "doc": "xiaojianghu/docs/router-subtasks.md"
+    "doc": "xiaojianghu/docs/archive/router-subtasks.md"
    },
-   "status": "现行"
+   "status": "废止",
+   "history": [
+    {
+     "date": "2026-11-05",
+     "change": "废止：路由器 Key 失效（401），Codex 子任务没法改走 Token路由；脚本与任务日志移到 _attic/2026-11-05-codex-router/，说明文档移到 docs/archive/。小任务改在主会话或 Claude 自己的子代理里做（仍按 R-子任务-01 附规则）",
+     "approved_by": "用户：“失效就舍弃”"
+    }
+   ],
+   "stale": []
   },
   {
    "id": "R-交互-01",
    "area": "系统",
-   "rule": "人物在地图上的墨印菜单只用八枚印（托、谈、观、礼、教、比、易、窃）；以后新加的人物玩法（猜字谜、测字、答题、算命等）一律做成“谈”里的对话选项，不新增印、不做专门页面；景物调查复用对话框。",
+   "rule": "人物在地图上的墨印菜单只用八枚印（互、谈、观、礼、教、比、易、窃）：“互”（朱印，原“托／回”）只在有委托、任务要办时出现、排第一，小注写事由；“谈”所有有名字的人都有；以后新加的人物玩法（猜字谜、测字、答题、算命等）一律做成“谈”里的对话选项，不新增印、不做专门页面；景物调查复用对话框。",
    "scope": "人物交互与地图景物",
    "source": {
     "date": "2026-10-26",
     "quote": "你这里要在文档里写好一共有哪些交互功能，确定好了以后后面的一些交互（例如答题、算命等就直接放到谈上面，不要再增加新的东西了），保持一致性",
     "doc": "xiaojianghu/docs/design/npc-interaction-v2.md#22-交互功能总表"
    },
-   "status": "现行"
+   "status": "现行",
+   "history": [
+    {
+     "date": "2026-11-04",
+     "change": "“托／回”改名“互”；写明“谈”所有有名字的人都有（补上邻村站岗护院、差役）",
+     "approved_by": "用户：“所有人都需要有谈……一些委托任务交互的东西改为‘互’”；“对，托／回整个换成互”"
+    }
+   ]
   },
   {
    "id": "R-评审-01",
@@ -470,6 +580,18 @@
     "date": "2026-10-27",
     "quote": "同一个问题特么拆出了好几份给我，没有合并去给我评审，而且很多评审的内容没有附带对应的素材……每次给我评审之前先自己检查一遍（这个流程写到文档里面）",
     "doc": "xiaojianghu/docs/review-desk.md"
+   },
+   "status": "现行"
+  },
+  {
+   "id": "R-剧情-09",
+   "area": "剧情",
+   "rule": "人物同一时刻只在一处：凡是有人物表的人（含差役、采办随从这类具体某个人），同一进度只站在一个场景的地图上；日常戏（玩家自己挑时候做的活动、闲谈）只能挪动此刻已在这个场景地图上的人，不许把别处的人临时摆出来、演完又收走；说话的人要在场或正跟在主角身后，隔门隔墙答话须剧本交代人在哪，不在场的人由在场的人转述；主线大事开场把主角带到事发地、众人聚齐的除外，须在剧情里交代谁为什么来。加人物、改站位、改出没条件、加剧情后，跑全套自测，以人物行踪表（xiaojianghu-godot/docs/cast-schedule.md）“对不上 0 条”为准。",
+   "scope": "所有剧情、站位、人物出没条件（Godot 版）",
+   "source": {
+    "date": "2026-11-10",
+    "quote": "为了避免人物和剧情地点对不上的问题，你要内部开发的时候对每个角色在哪个时间段在哪里有所记录……村口老人和那几个人……对话闲谈的时候就出现那两个人，日常就看不到消失了（11-10）；评审台第四十九轮第 3 题选“可以，并登记成规则”",
+    "doc": "xiaojianghu-godot/docs/dev-conventions.md"
    },
    "status": "现行"
   }

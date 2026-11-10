@@ -8,7 +8,7 @@
   python3 imggen.py --use <源id>           # 切换当前源（只改 current，记 history，不删旧源）
 
 说明：
-- 提示词必须带一行 `Model: gpt-image-2.5（使用 gpt-image-2.5 生图模型）`（项目约定）；本脚本不改写提示词。
+- 提示词必须带一行 `Model: gpt-image-2.6（使用 gpt-image-2.6 生图模型）`（项目约定，R-生图-02；2026-11-06 前为 2.5）；本脚本不改写提示词。
 - 透明背景：openai_compat / flatrouter 默认传 background=transparent；openai_compat 可用 --background opaque|auto 改传（纯黑底发光素材用 opaque，2026-10-18 加，默认不变）；codex 需在提示词里写 transparent_background: true。
 - --opaque-fix：把 alpha≥250 的像素补成 255（302 出图人物 alpha 最高 254）。
 - 密钥从环境变量或 tools_por/.env 读取（key_env 字段；有 key_env_backup 的源，主密钥额度不足时自动换备用），不要写进仓库。
@@ -156,8 +156,8 @@ def main():
     sid = a.source or reg['current']
     src = reg['sources'][sid]
     prompt = open(a.prompt_file, encoding='utf-8').read()
-    if 'gpt-image-2.5' not in prompt:
-        print('[imggen] 提醒：提示词缺少 “Model: gpt-image-2.5（使用 gpt-image-2.5 生图模型）” 这一行', file=sys.stderr)
+    if 'gpt-image-2.6' not in prompt:
+        print('[imggen] 提醒：提示词缺少 “Model: gpt-image-2.6（使用 gpt-image-2.6 生图模型）” 这一行', file=sys.stderr)
     extra = {'background': a.background} if src['kind'] == 'openai_compat' else {}
     run = genledger.start('image', prompt=prompt, prompt_file=a.prompt_file, refs=a.ref, source=sid, model_requested=src.get('model'),
                           params={'size': a.size, 'quality': a.quality, 'opaque_fix': a.opaque_fix, **extra})

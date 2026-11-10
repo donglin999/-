@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
 """用外部模型给 ink 剧本做“逻辑初筛”，省主会话的 token。
-2026-10-28 起默认用 302.AI 的 claude-opus-5-5（三家对比里最稳，见规范第七节“逻辑初筛”）；
---provider minimax／deepseek 仍可切回。文件名沿用旧名，免得改动各处引用。
+默认模型 claude-opus-5-5（2026-10-28 三家对比里最稳，见规范第七节“逻辑初筛”）。
+2026-11-05 起 claude-* 默认走公司路由（Token路由 本机代理 → zleap-router，见 docs/model-router.md）；
+--provider 302 走 302.AI（备用），--provider minimax／deepseek 仍可切回。文件名沿用旧名，免得改动各处引用。
 
 用法（在 xiaojianghu 目录）：
-    python3 tools_story/minimax_logic_review.py <ink 文件或目录 ...> --out <输出目录> [--changed] [--rules 原则.md ...] [--provider 302|minimax|deepseek] [--jobs 5]
+    python3 tools_story/minimax_logic_review.py <ink 文件或目录 ...> --out <输出目录> [--changed] [--rules 原则.md ...] [--provider router|302|minimax|deepseek] [--jobs 5]
 
 每个剧本单独送，附上整条链路：
 - 剧本全文（含文件头的戏眼和知情说明）和构建导出的逐分支路线（docs/story-routes/）；
@@ -20,7 +21,8 @@
 主会话看报告里“成立”和“存疑”的条目，再扫一眼末尾“自复核判为误报”的一行一条（自复核也会误杀）。复核确认是误报的，登记进
 docs/design/registry/logic-review-ignore.json，以后不再报。
 --changed 只跑上次跑过之后改过的剧本（按内容哈希，缓存在 tools_story/.cache/）。
-密钥：302 用 tools_por/.env 的 AI302_API_KEY（与生图共用）；MiniMax 用 MiniMax_APIKEY；DeepSeek 用 xiaojianghu/.env 的 DEEPSEEK_API_KEY。
+密钥：公司路由用 ~/.claude/settings.json 里 Token路由 写入的 ANTHROPIC_BASE_URL／ANTHROPIC_AUTH_TOKEN（也可用环境变量 ZLEAP_BASE_URL／ZLEAP_TOKEN 覆盖）；
+302 用 tools_por/.env 的 AI302_API_KEY（与生图共用）；MiniMax 用 MiniMax_APIKEY；DeepSeek 用 xiaojianghu/.env 的 DEEPSEEK_API_KEY。
 """
 import argparse, concurrent.futures as cf, hashlib, json, os, re, sys, time, urllib.request
 from pathlib import Path
@@ -38,7 +40,7 @@ ROUTES = GAME / 'docs' / 'story-routes'
 WRITING = ROOT / 'xiaojianghu' / 'docs' / 'design' / 'story-writing.md'
 CACHE = Path(__file__).parent / '.cache' / 'logic_review.json'
 ENV = ROOT / 'xiaojianghu' / '.env'
-DEFAULT_MODEL = {'minimax': 'MiniMax-M2.5', 'deepseek': 'deepseek-flash', '302': 'claude-opus-5-5'}
+DEFAULT_MODEL = {'router': 'claude-opus-5-5', 'minimax': 'MiniMax-M2.5', 'deepseek': 'deepseek-flash', '302': '302/claude-opus-5-5'}
 POR_ENV = ROOT / 'xiaojianghu' / 'tools_por' / '.env'  # 302.AI 密钥和生图共用（R-生图-03）
 
 
@@ -73,11 +75,56 @@ def ai302_call(messages, model, max_tokens=16000):
     return json.loads(urllib.request.urlopen(req, timeout=600).read())['choices'][0]['message']['content']
 
 
+def router_conf():
+    """公司路由（2026-11-05 起 claude-* 的默认通道）：Token路由 在本机开的代理（Anthropic 原生接口），再转给 zleap-router。
+    地址和员工 Token 取自 ~/.claude/settings.json 的 env（Token路由 里把 Claude Code 切到「zleap · Claude Code」时写入）；
+    环境变量 ZLEAP_BASE_URL／ZLEAP_TOKEN 可覆盖。员工 Token 只能经这个本机代理用，直连 model-router.zleap.com 会被判无效 Key（11-05 实测）。"""
+    base = os.environ.get('ZLEAP_BASE_URL'); tok = os.environ.get('ZLEAP_TOKEN')
+    if not (base and tok):
+        try:
+            env = json.loads(Path('~/.claude/settings.json').expanduser().read_text(encoding='utf-8')).get('env', {})
+        except Exception:
+            env = {}
+        u = env.get('ANTHROPIC_BASE_URL', '')
+        if u.startswith('http://127.0.0.1:') or u.startswith('http://localhost:'):   # 只认本机的 Token路由 代理，不把员工 Token 发到别处
+            base = base or u; tok = tok or env.get('ANTHROPIC_AUTH_TOKEN')
+    if not (base and tok):
+        raise SystemExit('公司路由没就绪：在 Token路由 → 配置 → Claude Code 选「zleap · Claude Code」并启用（看到“代理就绪”），'
+                         '或设 ZLEAP_BASE_URL／ZLEAP_TOKEN；临时改走 302 用 --provider 302 或模型名写 302/claude-opus-5-5')
+    return base.rstrip('/'), tok
+
+
+def router_call(messages, model, max_tokens=16000):
+    """Anthropic Messages 接口：system 角色单独放；只取文字块。连不上本机代理时提示去开 Token路由。"""
+    base, tok = router_conf()
+    system = '\n\n'.join(m['content'] for m in messages if m['role'] == 'system')
+    body = {'model': model, 'max_tokens': max_tokens, 'messages': [m for m in messages if m['role'] != 'system']}
+    if system:
+        body['system'] = system
+    req = urllib.request.Request(base + '/v1/messages', json.dumps(body).encode(),
+                                 {'Authorization': 'Bearer ' + tok, 'anthropic-version': '2023-06-01', 'Content-Type': 'application/json'})
+    for attempt in range(4):
+        try:
+            r = json.loads(urllib.request.urlopen(req, timeout=900).read())
+            return ''.join(b.get('text', '') for b in r.get('content', []) if b.get('type') == 'text')
+        except urllib.error.HTTPError as e:
+            if e.code in (429, 500, 502, 503, 504, 529) and attempt < 3:
+                time.sleep(10 * (attempt + 1)); continue
+            raise RuntimeError(f'公司路由返回 {e.code}：{e.read()[:300].decode("utf-8", "replace")}')
+        except urllib.error.URLError as e:
+            if attempt < 3 and 'refused' not in str(e):
+                time.sleep(10 * (attempt + 1)); continue
+            raise SystemExit(f'连不上公司路由的本机代理 {base}（{e}）：确认 Token路由 已打开并显示“代理就绪”')
+
+
 def call(messages, model, max_tokens=16000):
+    """按模型名分通道：deepseek-* → DeepSeek；302/claude-* → 302.AI（备用）；claude-* → 公司路由（默认）；其余 → MiniMax。"""
     if model.startswith('deepseek'):
         return deepseek_call(messages, model, max_tokens)
+    if model.startswith('302/'):
+        return ai302_call(messages, model[4:], max_tokens)
     if model.startswith('claude'):
-        return ai302_call(messages, model, max_tokens)
+        return router_call(messages, model, max_tokens)
     return minimax_call(messages, model, max_tokens)
 VERSION = 4  # 提示词或流程改了就加一，--changed 会全部重跑
 
@@ -264,8 +311,8 @@ def main():
     ap = argparse.ArgumentParser(description='剧情逻辑初筛（挑问题 → 后果表 → 自复核），默认 302 的 claude-opus-5-5')
     ap.add_argument('paths', nargs='+')
     ap.add_argument('--out', required=True)
-    ap.add_argument('--provider', choices=['minimax', 'deepseek', '302'], default='302', help='用哪家模型（默认 302）：minimax／deepseek（DEEPSEEK_API_KEY）／302（302.AI 的 claude-opus-5-5，AI302_API_KEY）')
-    ap.add_argument('--model', help='不填按 --provider 取默认：MiniMax-M2.5／deepseek-flash／claude-opus-5-5')
+    ap.add_argument('--provider', choices=['router', '302', 'minimax', 'deepseek'], default='router', help='用哪家（默认 router）：router（公司路由的 claude-opus-5-5）／302（302.AI 的 claude-opus-5-5，备用）／minimax／deepseek')
+    ap.add_argument('--model', help='不填按 --provider 取默认：claude-opus-5-5／302/claude-opus-5-5／MiniMax-M2.5／deepseek-flash')
     ap.add_argument('--jobs', type=int, default=5)
     ap.add_argument('--rules', action='append', default=[], help='额外的审读原则文件，原文送给模型；可写多次')
     ap.add_argument('--changed', action='store_true', help='只跑上次之后改过的剧本')

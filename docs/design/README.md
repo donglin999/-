@@ -151,6 +151,7 @@
 | 做新城市地图（汉皋等） | [现行地图开发规范](map-development-standard.md) | [画板与空间合同](scene-spatial-contract.md)、[汉皋城空间切分](hangao-city-spaces.md) |
 | （历史）查旧襄阳章节剧情 | [襄阳章节脚本](../archive/design/xiangyang-chapter.md) | 青蚨散事件（已删除）、[故事主线](story.md) |
 | 制作角色语音与确认音色 | [当前人物语音同步](voice-current-cast.md) | [语音管理交互](voice-management.md)、[语音后台](voice-backend.md) |
+| 栖河地图的宝箱和隐藏物 | [栖河物资点](qihe-treasure-points.md) | [探索容器规范](exploration-containers.md) |
 | 做场景宝箱、衣柜、木桶与获取提示 | [探索容器规范](exploration-containers.md) | [生活与资源](life.md)、襄阳素材（已删除） |
 | 生活技能、师承、练习与动作音效（暂缓上线） | [生活技能规范](life-skills.md) | [NPC 交互](npc-interaction.md)、[生活与资源](life.md) |
 | 做 NPC 对话或江湖手段 | [NPC 交互](npc-interaction.md) | [三年培养](cultivation.md) |
@@ -240,7 +241,7 @@
 
 - [旧版入城前（原襄阳前）来访接入与验收](../archive/design/pre-xiangyang-visitor-acceptance.md)：本地三场可选来访、原生素材、成本与桌面截图验收。
 
-正式功法入门：[基础功法／上乘传承、主修选择与旧档核对](cultivation-formal-martial.md) · 最新修复记录（已移入 _attic，不作参考） · [各系统剧情触发与缺口](../archive/design/cultivation-story-trigger-audit.md)。
+汉皋前培养排查与师承功法线：[师母、二师叔、小师叔的闲逛学艺](cultivation-mentor-lines.md) · 正式功法入门：[基础功法／上乘传承、主修选择与旧档核对](cultivation-formal-martial.md) · 最新修复记录（已移入 _attic，不作参考） · [各系统剧情触发与缺口](../archive/design/cultivation-story-trigger-audit.md)。
 
 - [功法结构规范 v2：外功与内功](martial-structure.md)（唯一结构规范，覆盖旧定义）
 - [门派功法传承 v3：品阶定招式数](martial-lineage.md)（2026-10-07 规则已确认，名称待审）

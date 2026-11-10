@@ -1,0 +1,269 @@
+{
+ "说明": "培养第 4 月《底布上的印子》剧本存档（2026-11-06）。运行时数据在 xiaojianghu-godot/game/data/cultivation/scripts.json 的 ys_box_mark；戏眼卡 briefs/ye-box-mark-brief.json。选项：trace 拿纸把印子描下来；tell “要不要先跟师父说一声？”",
+ "scenes": [
+  {
+   "id": "ys_box_mark",
+   "title": "底布上的印子",
+   "lines": [
+    {
+     "speaker": "ye",
+     "text": "二师叔，这药箱底板翘了，合不严。下月要背去汉皋，您给看看？",
+     "cast": [
+      "zhong",
+      "ye",
+      "hero"
+     ],
+     "phase": "intro",
+     "place": "courtyard",
+     "time": "day"
+    },
+    {
+     "speaker": "zhong",
+     "text": "好料子，这榫头是下了笨功夫的！春潮吃的，小毛病，底板拆下来刨平就是。",
+     "cast": [
+      "zhong",
+      "ye",
+      "hero"
+     ],
+     "phase": "intro",
+     "place": "courtyard",
+     "time": "day",
+     "mood": "fun"
+    },
+    {
+     "speaker": "ye",
+     "text": "您只修底板就成。夹层里那块布，别动它。",
+     "cast": [
+      "zhong",
+      "ye",
+      "hero"
+     ],
+     "phase": "intro",
+     "place": "courtyard",
+     "time": "day"
+    },
+    {
+     "speaker": "zhong",
+     "text": "布我不动。哈！可这布上压着块方印子，四四方方，年头不短了。",
+     "cast": [
+      "zhong",
+      "ye",
+      "hero"
+     ],
+     "phase": "intro",
+     "place": "courtyard",
+     "time": "day",
+     "mood": "surprise"
+    },
+    {
+     "speaker": "hero",
+     "text": "（就是离村那天看见的那个空印子。）",
+     "cast": [
+      "zhong",
+      "ye",
+      "hero"
+     ],
+     "phase": "intro",
+     "place": "courtyard",
+     "time": "day"
+    },
+    {
+     "speaker": "zhong",
+     "text": "你们瞧，四个角各有个小圆坑。这是只四条矮脚的方匣子。",
+     "cast": [
+      "zhong",
+      "ye",
+      "hero"
+     ],
+     "phase": "intro",
+     "place": "courtyard",
+     "time": "day"
+    },
+    {
+     "speaker": "zhong",
+     "text": "布纹压得死实，比边上浅一圈。东西沉，少说搁了好些年。",
+     "cast": [
+      "zhong",
+      "ye",
+      "hero"
+     ],
+     "phase": "intro",
+     "place": "courtyard",
+     "time": "day",
+     "mood": "serious"
+    },
+    {
+     "speaker": "zhong",
+     "text": "还有，这夹层是后来改高的，刨痕新旧两样。专为装这只匣子改的。",
+     "cast": [
+      "zhong",
+      "ye",
+      "hero"
+     ],
+     "phase": "intro",
+     "place": "courtyard",
+     "time": "day"
+    },
+    {
+     "speaker": "ye",
+     "text": "二师叔，您看准了？是照着一只匣子改的？",
+     "cast": [
+      "zhong",
+      "ye",
+      "hero"
+     ],
+     "phase": "intro",
+     "place": "courtyard",
+     "time": "day",
+     "mood": "surprise"
+    },
+    {
+     "speaker": "zhong",
+     "text": "错不了！我摸了半辈子刨子。……那匣子呢？",
+     "cast": [
+      "zhong",
+      "ye",
+      "hero"
+     ],
+     "phase": "intro",
+     "place": "courtyard",
+     "time": "day"
+    },
+    {
+     "speaker": "ye",
+     "text": "我也不知道。娘不让拆，我头回打开，它就是空的。",
+     "cast": [
+      "zhong",
+      "ye",
+      "hero"
+     ],
+     "phase": "intro",
+     "place": "courtyard",
+     "time": "day",
+     "mood": "serious"
+    },
+    {
+     "speaker": "ye",
+     "text": "……那几个人来要匣子，我还当是瞎传。",
+     "cast": [
+      "zhong",
+      "ye",
+      "hero"
+     ],
+     "phase": "intro",
+     "place": "courtyard",
+     "time": "day"
+    },
+    {
+     "speaker": "hero",
+     "text": "我去拿张纸，把这印子连四个脚坑一起描下来，你带去汉皋？",
+     "cast": [
+      "zhong",
+      "ye",
+      "hero"
+     ],
+     "phase": "choice:trace",
+     "place": "courtyard",
+     "time": "day"
+    },
+    {
+     "speaker": "ye",
+     "text": "好，描仔细些。到了汉皋，我也好拿给那位老人家看。",
+     "cast": [
+      "zhong",
+      "ye",
+      "hero"
+     ],
+     "phase": "choice:trace",
+     "place": "courtyard",
+     "time": "day"
+    },
+    {
+     "speaker": "zhong",
+     "text": "用炭条，纸先压平了再描。你手轻些，别把布纹蹭糊了。",
+     "cast": [
+      "zhong",
+      "ye",
+      "hero"
+     ],
+     "phase": "choice:trace",
+     "place": "courtyard",
+     "time": "day"
+    },
+    {
+     "speaker": "hero",
+     "text": "这事……要不要先跟师父说一声？",
+     "cast": [
+      "zhong",
+      "ye",
+      "hero"
+     ],
+     "phase": "choice:tell",
+     "place": "courtyard",
+     "time": "day"
+    },
+    {
+     "speaker": "ye",
+     "text": "周先生那儿，我自己去讲。等见过汉皋那位老人家再说。",
+     "cast": [
+      "zhong",
+      "ye",
+      "hero"
+     ],
+     "phase": "choice:tell",
+     "place": "courtyard",
+     "time": "day"
+    },
+    {
+     "speaker": "zhong",
+     "text": "成，你家的事，你拿主意。",
+     "cast": [
+      "zhong",
+      "ye",
+      "hero"
+     ],
+     "phase": "choice:tell",
+     "place": "courtyard",
+     "time": "day"
+    },
+    {
+     "speaker": "ye",
+     "text": "二师叔，今天这事您先别往外说。布原样放回去，那是我娘铺的。",
+     "cast": [
+      "zhong",
+      "ye",
+      "hero"
+     ],
+     "phase": "closing",
+     "place": "courtyard",
+     "time": "day"
+    },
+    {
+     "speaker": "zhong",
+     "text": "放心，我不乱说。底板给你换块阴干三年的老杉，明早来拿。",
+     "cast": [
+      "zhong",
+      "ye",
+      "hero"
+     ],
+     "phase": "closing",
+     "place": "courtyard",
+     "time": "day"
+    },
+    {
+     "speaker": "zhong",
+     "text": "路上莫叫它淋了雨！",
+     "cast": [
+      "zhong",
+      "ye",
+      "hero"
+     ],
+     "phase": "closing",
+     "place": "courtyard",
+     "time": "day",
+     "mood": "smile"
+    }
+   ]
+  }
+ ]
+}

@@ -1,8 +1,12 @@
 # 子任务经路由器分流（Codex 外壳＋Claude 5.5）
 
-状态：现行　最后核对：2026-10-25
+> **2026-11-05 废止**（用户：“失效就舍弃”）：路由器 Key 失效（401），R-子任务-02 废止，脚本移到 `_attic/2026-11-05-codex-router/`。下面是当时的做法，只作存档。
 
-规则正文见 R-子任务-02（规则登记表），本页只写操作说明。做法照搬清河（gametry）的 `docs/24-router-subtasks.md`，脚本和密钥各自独立维护，不互相读取。
+状态：废止　最后核对：2026-11-05
+
+> **2026-11-05 实测不通**：`ENTERPRISE_API_KEY` 直连路由器返回 401（无效 Key），派子任务会失败，要换新 Key 才能恢复；见 [model-router.md](../model-router.md#子任务路由器codex-routersh现在不通)。剧情工具的 Opus 已改走公司路由（Token路由 本机代理），不受影响。
+
+规则正文见 R-子任务-02（规则登记表），本页只写操作说明。交给其他 agent 的接口说明（三种请求格式、模型列表、任务说明模板）见 [router-api-for-agents](router-api-for-agents.md)。做法照搬清河（gametry）的 `docs/24-router-subtasks.md`，脚本和密钥各自独立维护，不互相读取。
 
 ## 1. 配置
 

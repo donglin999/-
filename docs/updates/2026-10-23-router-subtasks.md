@@ -13,7 +13,7 @@
   - 加了 `-w all|docs|game` 选可写的工作区。
   - 只从 .env 取 `ENTERPRISE_API_KEY` 一行。
   - 日志写到 `luotuozhuan/.router-tasks/`，不进 git。
-- 新文档 `docs/router-subtasks.md`：配置、用法、哪些分派哪些不分派、任务说明怎么写、怎么验收、验证记录。
+- 新文档 `docs/archive/router-subtasks.md`：配置、用法、哪些分派哪些不分派、任务说明怎么写、怎么验收、验证记录。
 - 规则 R-子任务-02 写进 `rules.json`。依据是用户本轮要求，已 `--approve-rules`，现为 33 条。
 - 根目录 `CLAUDE.md`、`ai-onboarding.md` 第 6 节加了引用。
 

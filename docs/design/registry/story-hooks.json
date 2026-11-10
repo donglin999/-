@@ -1,6 +1,6 @@
 {
   "说明": "回扣登记表（2026-10-21 用户：“回扣应该要有文档或者系统去做为协助，不然后面都只能靠评审是不现实的”）。每段可选剧情登记它种下了什么（plants：给人看的说明＋独有关键词），以及被哪些地方用作中、大分支（consumers）。小分支（回扣台词）不手写，由检查工具从台词的 whenSeen／whenUnseen 自动收集。规范见 ../optional-story-dependencies.md；检查：xiaojianghu-legacy-prologue 下 node tools_scene/qihe/check_story_hooks.cjs。关键词只挑这一段独有的说法，普通字（泉、粥、账）不要放，免得误报。",
-  "version": "HOOKS-2026-10-23.1",
+  "version": "HOOKS-2026-11-02.1",
   "hooks": {
     "gn_lamp": {
       "name": "隔溪的灯",
@@ -654,6 +654,324 @@
           "what": "待汉皋剧情重新设计时回收：配好眼镜"
         }
       ]
+    },
+    "ms_thread": {
+      "name": "穿不过的针眼",
+      "kind": "师承",
+      "plants": [
+        {
+          "what": "师母教他第一手点腕针，给铜针囊，叫他别告诉师父",
+          "keywords": [
+            "钉在盆沿",
+            "穿过去再说",
+            "别告诉你师父"
+          ]
+        }
+      ],
+      "consumers": [
+        {
+          "scene": "ms_hand",
+          "size": "gate",
+          "what": "第二步以学会第一手、练到三重为门槛"
+        },
+        {
+          "scene": "ys_two_needles",
+          "size": "gate",
+          "what": "叶蘅看见他手上的针眼，要先学过针"
+        }
+      ]
+    },
+    "ms_hand": {
+      "name": "手上的口子",
+      "kind": "师承",
+      "plants": [
+        {
+          "what": "受伤瞒报被师母记账；教锁边三针",
+          "keywords": [
+            "锁边",
+            "三颗豆子"
+          ]
+        }
+      ],
+      "consumers": [
+        {
+          "scene": "ms_sleeve",
+          "size": "gate",
+          "what": "第三步以练到三重为门槛"
+        }
+      ]
+    },
+    "ms_sleeve": {
+      "name": "掩袖",
+      "kind": "师承",
+      "plants": [
+        {
+          "what": "师母说了半句走镖旧事（护住了药），教护人的掩袖",
+          "keywords": [
+            "掩袖",
+            "趟子手"
+          ]
+        }
+      ],
+      "consumers": []
+    },
+    "mz_bucket": {
+      "name": "先挑水",
+      "kind": "师承",
+      "plants": [
+        {
+          "what": "二师叔教沉肘短打",
+          "keywords": [
+            "沉肘",
+            "挑断三根扁担"
+          ]
+        }
+      ],
+      "consumers": [
+        {
+          "scene": "mz_dummy",
+          "size": "gate",
+          "what": "第二步门槛"
+        }
+      ]
+    },
+    "mz_dummy": {
+      "name": "听响",
+      "kind": "师承",
+      "plants": [
+        {
+          "what": "三声响；小豆拆穿三天其实是三年",
+          "keywords": [
+            "三声",
+            "换力三截"
+          ]
+        }
+      ],
+      "consumers": [
+        {
+          "scene": "mz_notch",
+          "size": "gate",
+          "what": "第三步门槛"
+        }
+      ]
+    },
+    "mz_notch": {
+      "name": "扁担上的刻痕",
+      "kind": "师承",
+      "plants": [
+        {
+          "what": "二师叔说真话：师门最笨，三千多天；传担雪诀（原叫挑水诀）",
+          "keywords": [
+            "担雪诀",
+            "三千多"
+          ]
+        }
+      ],
+      "consumers": [
+        {
+          "scene": "gy_zhong_kit",
+          "size": "small",
+          "what": "出门的家伙里回扣那根扁担"
+        }
+      ]
+    },
+    "my_twig": {
+      "name": "碰一下袖子",
+      "kind": "师承",
+      "plants": [
+        {
+          "what": "小师叔用二师叔削废的桃木剑教绕锋",
+          "keywords": [
+            "削废",
+            "碰到我袖子"
+          ]
+        }
+      ],
+      "consumers": [
+        {
+          "scene": "my_wrist",
+          "size": "gate",
+          "what": "第二步门槛"
+        }
+      ]
+    },
+    "my_wrist": {
+      "name": "换手",
+      "kind": "师承",
+      "plants": [
+        {
+          "what": "他看出她右手使不上；教换侧双点",
+          "keywords": [
+            "换手",
+            "换侧"
+          ]
+        }
+      ],
+      "consumers": [
+        {
+          "scene": "my_step",
+          "size": "gate",
+          "what": "第三步门槛"
+        }
+      ]
+    },
+    "my_step": {
+      "name": "学会走",
+      "kind": "师承",
+      "plants": [
+        {
+          "what": "她答了半句为什么总走；头一回认真叫他名字；教掩退",
+          "keywords": [
+            "走得掉",
+            "掩退"
+          ]
+        }
+      ],
+      "consumers": []
+    },
+    "ys_two_needles": {
+      "name": "两种针",
+      "kind": "闲逛",
+      "plants": [
+        {
+          "what": "叶蘅知道师母教他针，指出手腕内侧不能扎",
+          "keywords": [
+            "不能扎",
+            "两种针"
+          ]
+        }
+      ],
+      "consumers": []
+    },
+    "ys_lu_rope": {
+      "name": "捆行李",
+      "kind": "闲逛",
+      "plants": [
+        {
+          "what": "陆衡先教捆箱，再改一处棍法笔记",
+          "keywords": [
+            "箱腰",
+            "棍横起来"
+          ]
+        }
+      ],
+      "consumers": []
+    },
+    "ys_wine": {
+      "name": "赊酒",
+      "kind": "闲逛",
+      "plants": [
+        {
+          "what": "小师叔在集市赊酒，要动师母的买盐钱",
+          "keywords": [
+            "赊酒",
+            "买盐"
+          ]
+        }
+      ],
+      "consumers": []
+    },
+    "rep_shen_stall": {
+      "name": "摊上的药",
+      "kind": "三方",
+      "plants": [
+        {
+          "what": "沈雁回查掺假甘草，不敢进谷见叶蘅",
+          "keywords": [
+            "掺的东西",
+            "空手不上山"
+          ]
+        }
+      ],
+      "consumers": [
+        {
+          "scene": "rep_shen_sign",
+          "size": "gate",
+          "what": "第二次要先看第一次"
+        }
+      ]
+    },
+    "rep_shen_sign": {
+      "name": "回条",
+      "kind": "三方",
+      "plants": [
+        {
+          "what": "沈雁回进药圃，头一回先问大夫再写；程巡检批扣箱记她的错",
+          "keywords": [
+            "程巡检批了",
+            "先来问我"
+          ]
+        }
+      ],
+      "consumers": []
+    },
+    "rep_cen_pay": {
+      "name": "照价赔",
+      "kind": "三方",
+      "plants": [
+        {
+          "what": "岑霜送赔银不进门，师母硬奉茶；乌魁在船上扛包",
+          "keywords": [
+            "说亲",
+            "扛包"
+          ]
+        }
+      ],
+      "consumers": [
+        {
+          "scene": "rep_cen_gate",
+          "size": "gate",
+          "what": "第二次要先看第一次"
+        }
+      ]
+    },
+    "rep_cen_gate": {
+      "name": "别报名字",
+      "kind": "三方",
+      "plants": [
+        {
+          "what": "岑霜说汉皋有人打听栖河那场火，可以报她的名字",
+          "keywords": [
+            "打听栖河",
+            "报我岑霜"
+          ]
+        }
+      ],
+      "consumers": []
+    },
+    "rep_xu_note": {
+      "name": "一张改过的单子",
+      "kind": "三方",
+      "plants": [
+        {
+          "what": "徐令仪把叶家从保管册划掉署名，附页查到第三手断了",
+          "keywords": [
+            "保管册",
+            "第三手"
+          ]
+        }
+      ],
+      "consumers": [
+        {
+          "scene": "rep_xu_speak",
+          "size": "gate",
+          "what": "第二次要先看第一次"
+        }
+      ]
+    },
+    "rep_xu_speak": {
+      "name": "说不清",
+      "kind": "三方",
+      "plants": [
+        {
+          "what": "徐令仪替萧白排练问话：没亲眼见的就说没见",
+          "keywords": [
+            "没亲眼见",
+            "背得太齐整"
+          ]
+        }
+      ],
+      "consumers": []
     }
   },
   "allow": [

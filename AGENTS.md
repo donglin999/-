@@ -10,4 +10,4 @@
 
 启动当前游戏：`python3 ../xiaojianghu-legacy-prologue/scripts/serve-current.py`，核验用`--check`。发布见 [DEPLOY.md](DEPLOY.md)。
 
-生图：默认模型 **gpt-image-2.5**，每次生图提示词必须带上 `Model: gpt-image-2.5（使用 gpt-image-2.5 生图模型）`；详见 [美术管线 · 当前出图接口约定](docs/art-pipeline.md)。
+生图：默认模型 **gpt-image-2.6**（2026-11-06 由 2.5 升级），每次生图提示词必须带上 `Model: gpt-image-2.6（使用 gpt-image-2.6 生图模型）`；详见 [美术管线 · 当前出图接口约定](docs/art-pipeline.md)。

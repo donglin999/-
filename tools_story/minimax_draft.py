@@ -79,7 +79,7 @@ def main():
     for sc in brief['scenes']:
         if a.scene and sc['id'] not in a.scene: continue
         p = prompt_for(sc, brief['common']); (out / f"{sc['id']}.prompt.txt").write_text(p, encoding='utf-8')
-        from minimax_logic_review import call as route  # 按模型名分到 MiniMax／DeepSeek／302（claude-*）
+        from minimax_logic_review import call as route  # 按模型名分通道：claude-* 走公司路由（默认），302/claude-* 走 302.AI，另有 MiniMax／DeepSeek
         raw = route([{'role': 'system', 'content': SYSTEM}, {'role': 'user', 'content': p}], a.model, 8000)
         (out / f"{sc['id']}.raw.txt").write_text(raw, encoding='utf-8')
         try:

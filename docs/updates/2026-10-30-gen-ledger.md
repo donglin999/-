@@ -19,11 +19,11 @@
 - **账本进 Git（不忽略）**：换电脑后还在。它是提示词全文的文本文件，不含密钥。
 - **不换算费用**：没有可靠的价格来源，只记接口返回的用量，避免记出看着准确其实不对的金额。
 - **记账失败不影响产物**：只打提醒。
-- **没走路由器分派**：改动碰密钥读取和抹除，属于 `docs/router-subtasks.md` 第 3 节的“不分派”。
+- **没走路由器分派**：改动碰密钥读取和抹除，属于 `docs/archive/router-subtasks.md` 第 3 节的“不分派”。
 
 ## 核对过的文档
 
-`CLAUDE.md`、`docs/ai-onboarding.md`、`docs/art-pipeline.md`、`docs/router-subtasks.md`、规则 R-生图-01～04、R-子任务-02。
+`CLAUDE.md`、`docs/ai-onboarding.md`、`docs/art-pipeline.md`、`docs/archive/router-subtasks.md`、规则 R-生图-01～04、R-子任务-02。
 
 ## 验证
 

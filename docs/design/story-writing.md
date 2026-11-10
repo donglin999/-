@@ -141,9 +141,9 @@ python3 tools_docs/story_lint.py --out <临时目录>
 
 读 `<临时目录>/report.md`。会检查：旁白、“第几章”、占位符、游戏数值用语、现代用语、设计约束式的句子、第一年的暧昧词、需要动画的动作描写、过长的句子、一句一换的表情、重复句。只查某几场时加 `--scene 剧情id ...`。“需处理”要改掉；“提示”逐条看上下文再定。
 
-### 逻辑初筛（302 的 Opus 5.5，2026-10-28 起）
+### 逻辑初筛（Opus 5.5，2026-10-28 起；11-05 起经公司路由调用）
 
-story_lint 查的是字面；人物动机、选项后果、知情、前后矛盾这些逻辑问题，先交给外部模型初筛，主会话只复核它挑出来的，不自己逐句通读。默认用 302.AI 的 `claude-opus-5-5`（用户 10-28 定，日常和送审前都用它）。在 `xiaojianghu` 目录运行：
+story_lint 查的是字面；人物动机、选项后果、知情、前后矛盾这些逻辑问题，先交给外部模型初筛，主会话只复核它挑出来的，不自己逐句通读。默认用 `claude-opus-5-5`（用户 10-28 定，日常和送审前都用它）。2026-11-05 起经公司路由调用（Token路由 本机代理，见 [model-router.md](../model-router.md)），302.AI 留作备用：`--provider 302`。在 `xiaojianghu` 目录运行：
 
 ```bash
 python3 tools_story/minimax_logic_review.py <剧本文件或目录 ...> --out <临时目录> --changed
@@ -163,7 +163,7 @@ python3 tools_story/minimax_logic_review.py <剧本文件或目录 ...> --out <�
 | 每遍要复核的条目 | 约 60 | 约 29 | 约 50～55 |
 | 每遍用时 | 4～5 分钟 | 约 6 分钟 | 14～16 分钟 |
 
-代价是复核量最大、302 按量计费价格最高。`--provider minimax`／`--provider deepseek` 可切回另两家。
+代价是复核量最大。`--provider 302`（302.AI，按量计费）／`--provider minimax`／`--provider deepseek` 可切到别家；上表是 10-28 在 302 上测的，换公司路由后模型相同。
 
 ### 人工审读清单
 
