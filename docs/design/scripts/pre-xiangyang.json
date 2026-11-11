@@ -2,6 +2,7 @@
   "schema_version": 1,
   "version": "SCRIPT-PRE-XY-2026-10-05.1",
   "status": "complete-dialogue-draft-not-runtime-or-audio-acceptance",
+  "note": "2026-11-11：陈伯在起火当夜只是手上擦伤（定稿事实 F-0029，“选护车时伤了腿”一支已废止）；修车认路的第二个选择由“送老人去邻村”改为“探去邻村的路”，村口老人起火前一直在村里，起火当夜才撤到邻村。本文件是 2026-10-05 起的台词稿，里面“陈伯已经能拄着走短路”“陈伯还得躺着养”“陈伯腿还下不了地”是按腿伤写的旧句，没有改，不再照此写；培养部分现行台词以 xiaojianghu-godot/game/data/cultivation/scripts.json 为准，开始部分以 xiaojianghu-godot/story 现行剧本为准。",
   "scope": "P-01后山初遇至首次进入襄阳城门之前；第一章边界仍在山居安身，新增培养段单列。",
   "chapters_before_entry": [
     "序章",

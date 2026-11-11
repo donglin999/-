@@ -3,6 +3,7 @@
   "version": "VOICE-PRE-XY-2026-10-06.2",
   "scope": "当前开场至襄阳城门外",
   "status": "planning-only-not-synthesis-queue",
+  "note": "2026-11-11：陈伯在起火当夜只是手上擦伤（定稿事实 F-0029，“选护车时伤了腿”一支已废止）；修车认路的第二个选择由“送老人去邻村”改为“探去邻村的路”，村口老人起火前一直在村里，起火当夜才撤到邻村。本文件是 2026-10-06 的配音规划（配音已于 11-02 全关），里面“先送过去的几位已经安顿好了”“过来了，腿伤着”和条件“提前送过老人”没有改，不再照此写，以 xiaojianghu-godot/story 现行剧本为准。",
   "catalog_written": false,
   "bindings_changed": false,
   "audio_generated": false,

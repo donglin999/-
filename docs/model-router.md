@@ -6,6 +6,8 @@
 
 ## 优先用命令行 Claude Code（2026-11-11 用户定）
 
+规则见 R-子任务-03，这里只写操作。
+
 用户原话：“记得尽可能去用 cil 的 claudecode（写到开发文档里面去优先调用）”“反正就是尽可能节省你自身的额度，去使用 cil，但是不能影响质量”。
 
 目的是省桌面会话自己的额度。实质工作尽量交给本机命令行 Claude Code 做，主会话只管拆任务、派发、验收；质量不能因此下降。
@@ -121,4 +123,4 @@ env -u ANTHROPIC_BASE_URL -u ANTHROPIC_AUTH_TOKEN -u ANTHROPIC_MODEL claude -p -
 - 说明文档移到 [archive/router-subtasks.md](archive/router-subtasks.md)；
 - 失效的 Key 已从 `tools_por/.env` 删掉。
 
-小任务改在主会话里做，或派 Claude 自己的子代理。
+小任务改在主会话里做，或派 Claude 自己的子代理；实质工作先派命令行 Claude Code（R-子任务-03）。

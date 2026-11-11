@@ -1,5 +1,6 @@
 {
  "about": "培养第一部分进城前主线 13 场的剧情设计简报（2026-10-16 返工）。剧情由 Claude 设计，台词交 MiniMax 起草（tools_story/minimax_draft.py），再经 story_lint 与独立审读后写回 pre-xiangyang.json。段落 key、条件、效果沿用原剧本，不改玩法。",
+ "note": "2026-11-11：陈伯在起火当夜只是手上擦伤（定稿事实 F-0029，“选护车时伤了腿”一支已废止）；修车认路的第二个选择由“送老人去邻村”改为“探去邻村的路”，村口老人起火前一直在村里，起火当夜才撤到邻村。本文件是 2026-10-16 的起草记录（M-02 已在 10-20 按 cultivation-m1-m2-redo-brief.json 重做），里面按陈伯伤轻、伤重分的“拄着走短路”“还得躺着养”没有改，不再照此写；以后写周婶来信按手上擦伤，以 xiaojianghu-godot/story 现行剧本为准。",
  "common": {
   "moods": ["smile（笑）", "serious（认真）", "surprise（吃惊）", "worry（担心）", "sad（难过）", "angry（生气，陆衡和收件人没有）", "awkward（尴尬，只有萧白有）"],
   "voices": {

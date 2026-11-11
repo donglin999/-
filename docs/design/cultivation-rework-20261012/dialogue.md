@@ -2,6 +2,8 @@
 
 状态：现行　最后核对：2026-10-20（由 tools_story/build_cultivation_dialogue.py 从 chapter-two-dialogue.json 生成，不要手改）
 
+> 2026-11-11：陈伯只是手上擦伤（F-0029），本页“拄杖能走到门口了”“等我腿好了”“腿还得养”等按腿伤写的句子已过时，以 Godot 版现行数据为准（`xiaojianghu-godot/game/data/runtime/globals.json`、`game/data/cultivation/scripts.json`）；本页正文不改。
+
 > 本页台词里出现的“襄阳”是 2026-10-12 时的首城名，襄阳城已撤除；运行以 `qh-pre-hangao` 覆盖后的文本为准，本页台词原样保留作记录。
 
 2026-10-12 · 当前90场，1165条含条件差异的演出句；94条修订记录。另含32项活动说明／结果与66条往来文本。所有修订为本项目原创，不复制《侠客风云传》台词。
