@@ -25,6 +25,24 @@
 
 ## 条目
 
+### 2026-11-11 · 开始部分剧情按审读清单改 13 处
+- 工作区：xiaojianghu-godot
+- 谁：Claude Code（Fable 5.2 会话）
+- 状态：已完成（整套自测全过，12 张截图看过，已提交 git、未推送）
+- 范围：把要改的原版 ink 搬到 xiaojianghu-godot/story/ 再改（对证、随口一句、算命先生、后山回话一、找人交谈、商量去处），改小耗子二版和日常活动行踪版，chapter.gd 的送老人行踪与对证参数，定稿事实 F-0029
+- 更新记录：[2026-11-11 开始部分剧情按审读清单改 13 处](../../xiaojianghu-godot/docs/updates/2026-11-11-story-fixes-13.md)
+- 另：model-router.md、ai-onboarding.md 写入“要另外调模型时优先用命令行 Claude Code”（用户 11-11 定）；默认走法台词基准 docs/review/walkthrough-web-lines.txt 已更新
+- 留给接手的人：这七本剧本此后改 xiaojianghu-godot/story/ 里的 ink 再跑 build_story.cjs，不要再改原版或直接改 json
+
+### 2026-11-11 · 开始部分剧情用 Fable 5.2 重新审读（只读，不改剧本）
+- 工作区：xiaojianghu-godot（读 xiaojianghu-legacy-prologue/story 与 xiaojianghu-godot/story）
+- 谁：Claude Code（Fable 5.2 审读会话）
+- 状态：已完成（只出问题清单，剧本没改）
+- 范围：只读审读开始部分全部 ink 剧本，列出此前评审没发现的问题；不改剧本、数据和素材
+- 结果：Fable 5.2 初筛 9 条成立、146 条存疑；复核后建议改 13 处（含《三方-对证》1 处），可改可不改约 20 处，未核实或待定 8 处
+- 更新记录：[2026-11-11 开始部分剧情用 Fable 5.2 重新审读](../../xiaojianghu-godot/docs/updates/2026-11-11-story-review-fable52.md)
+- 留给接手的人：哪些要改等用户定；初筛带的代码是原版 JS，动手前先在 Godot 版里再对一遍
+
 ### 2026-11-10 · Godot 版首次入 git、三个工作区提交推送、Windows 试玩包
 - 工作区：两边（xiaojianghu-godot、xiaojianghu、xiaojianghu-legacy-prologue）
 - 谁：Claude Code（队伍页背景会话）

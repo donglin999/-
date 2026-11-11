@@ -1,8 +1,23 @@
 # 剧情工具调用 Opus：走公司路由
 
-状态：现行　最后核对：2026-11-05
+状态：现行　最后核对：2026-11-11
 
 规则见 R-剧情-01。这页只写操作。公司路由本身的说明见用户给的文档《[Claude Code 公司路由使用说明](https://claude.ai/artifact/JXuPVhcT3Zy5jMxtHcJa1p)》。
+
+## 优先用命令行 Claude Code（2026-11-11 用户定）
+
+用户原话：“记得尽可能去用 cil 的 claudecode（写到开发文档里面去优先调用）”。需要另外调模型做事（审读、起草、复核、整改、子任务）时，先用本机命令行 Claude Code，其次才是脚本直连公司路由，再次是 302。
+
+```bash
+env -u ANTHROPIC_BASE_URL -u ANTHROPIC_AUTH_TOKEN -u ANTHROPIC_MODEL claude -p --model claude-fable-5-2 --allowedTools "Read,Grep,Glob" < 任务说明.txt > 结果.md
+```
+
+- 桌面会话的 shell 会把 `ANTHROPIC_BASE_URL` 指到官方地址，直接调 `claude` 报 401；要像上面这样去掉这三个环境变量，让它读 `~/.claude/settings.json` 走本机代理。
+- 任务说明写进文件再从标准输入传入；只读任务只给 `Read,Grep,Glob`。
+- 模型：默认 `claude-fable-5-2`（11-11 起 settings 里的默认）；剧情起草和逻辑初筛按 R-剧情-01 仍是 `claude-opus-5-5`。
+- 命令行是流式的，长任务不会被代理上游超时掐断。11-11 实测：`minimax_logic_review.py` 直连代理审《三方-对证》两次 504，改用 `claude -p` 一次通过。
+- 下面三个剧情脚本本身还是直连公司路由（批量、并行、带忽略表）；单本超时或要读代码时改用命令行。
+- 生图不在此列，按 R-生图-01 用登记表当前源。
 
 ## 哪些工具用它
 
