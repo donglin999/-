@@ -25,6 +25,22 @@
 
 ## 条目
 
+### 2026-11-11 · 开始部分剧情审读清单余项全部做完（派命令行 Claude Code 做，主会话验收）
+- 工作区：xiaojianghu-godot、xiaojianghu
+- 谁：Claude Code（Fable 5.2 主会话拆任务与验收；命令行 claude -p 执行）
+- 状态：进行中
+- 范围：审读清单“可改可不改”约 20 处、“未核实” 8 处、《三方-对证》余项；管事与采办使在 Godot 版地图上的摆放；对白框“一”字显示；旧戏眼卡同步；没有入口的旧剧本数据归档；“优先用命令行”进规则登记表；补截图；提交并推送
+- 更新记录：完成后补
+- 留给接手的人：要改的原版 ink 一律先搬到 xiaojianghu-godot/story/ 再改
+
+### 2026-11-11 · 开发文档：实质工作尽量交给命令行 Claude Code
+- 工作区：xiaojianghu
+- 谁：Claude Code（Fable 5.2 会话）
+- 状态：已完成（已提交 git）
+- 范围：docs/model-router.md 重写“优先用命令行 Claude Code”一节（分工表、验收要求、只读与可写两种写法），docs/ai-onboarding.md 同步一句
+- 更新记录：[2026-11-11 实质工作尽量交给命令行 Claude Code](updates/2026-11-11-prefer-cli.md)
+- 留给接手的人：用户原话“尽可能节省你自身的额度，去使用 cil，但是不能影响质量”；没写进规则登记表
+
 ### 2026-11-11 · 开始部分剧情按审读清单改 13 处
 - 工作区：xiaojianghu-godot
 - 谁：Claude Code（Fable 5.2 会话）
