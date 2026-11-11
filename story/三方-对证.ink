@@ -1,0 +1,250 @@
+// 2026-11-11 审读修订：陈伯的伤统一成手上擦伤（R4-08、R4-Z4 原说“腿”，是 11-02 去掉护车分支后的残句）；
+//   萧白自己去东埠告诉过岑霜的（lamp.handoff=cen），开场改由岑霜发问（R4-O1c、R4-O3c），不再说成“有人递话”“乌魁说是正道盟找来的”。
+// 2026-11-11 从原版 xiaojianghu-legacy-prologue/story/01-开始/三方-对证.ink 搬到 Godot 版（原版不再更新）；此后以本文件为准，由 tools/build_story.cjs 编译。
+// 风起栖河 · 对证（三方之四）
+// 地点：邻村（撤离后的落脚处）　在场：徐令仪、岑霜、沈雁回、叶蘅、陈伯、周婶、萧白
+// 戏眼：三家都想弄清那晚到底谁骗了谁；各人只信自己手里那张附页，挡在中间；散场时陈伯的底单证明叶家只卖过六只旧药罐，三家认下各自的错，萧白要决定说不说出宋先生。
+// 2026-10-19 三方批次：从 js/qihe-representatives.js evidence()（rows.evidenceFirst、receipt、outsider、outsiderTold、outsiderSilent、responsibility 与徐令仪插画）搬入，并按剧情三道关改写
+//   （戏眼卡 xiaojianghu/docs/design/scripts/briefs/fengqi-reps-actors-brief.json 场 S4-evidence-a/b/c）。删去重新核对“同一时辰同一侧口”（第三夜已当众说过）；
+//   字幕改为“邻村”（对证在撤离后的落脚处，主线 evidenceBody 换场到 refuge）；原底单的字幕卡改成周婶念出来。
+//   参数 met：之前见过三方（事件 three-meeting）；没见过的旧存档先补三人自报身份。
+//   参数 clash：交锋打过（p.clashVersion）时，徐令仪、岑霜认责的说法不同。
+//   参数 has_coat、has_abacus：萧白手上还留着宋先生给的青绫行衣、乌木算珠。
+// 2026-10-23 剧本三：对证断线版（xiaojianghu/docs/design/scripts/drafts/三方-对证-断线版-草稿.md 第 2、3 节，第十三轮主会话代定）＋记人笺回扣＋归烬堂支线三个结局（qihe-mojiao-observer-sideline.md 第五、七节）。
+//   戏眼卡：xiaojianghu/docs/design/scripts/briefs/guijintang-lin-sideline-brief.json（E1-zhou、E3-blade）。2026-10-27 用户授权 Claude 代审，已冷读、批准（--approve）。
+//   为了路线遍历不超上限，拆成几个 knot：开场与三张附页（qihe_reps_evidence）→ 被问“谁的人”（reps_ev_stranger）／没人问（reps_ev_quiet_ask）／结局 3 口供（reps_ev_blade）→ 说出后（reps_ev_named）／不说（reps_ev_quiet）→ 认责（reps_ev_admit）。台词编号不变，只挪位置。
+//   参数 watched：已不用（改读 records.song_watched，装卸路“在路口数人”段真的播过才算），保留声明免得旧调用报错。
+//   读 records.stranger_deal（ink 函数 dealt()）：答应过宋先生（accepted／asked_first）。断了线（S.qiheSong.broken）也算答应过，只是说得出的少。
+//   参数 has_roster（新）：身上有后山记人笺（qh_song_roster，偷窃稿第 8.4 节）。
+//   读 records.song_asked_side：后山回话二播过（宋先生问过侧口）；没播过的说出时答“没有。他只问人。”（R4-Q5）。
+//   读 records.lamp.ending（JS 在对证前判定）：zhou＝结局 1，周砚出来主持（出场加周砚）；blade＝结局 3，岑霜带来脚夫口供；noticed／空＝现有版本。
+//   读 records.lamp.noticed：结局 2 里三家怎么注意到萧白（tailed 跟着脚夫转过营地／rumored 有人递话）。
+//   2026-10-28 散场三句回扣（门派关系稿第 13 节；评审台第二十三轮第 5 题草稿，用户“ok”）：哪一方冷淡以下，那一方的人散场时说一句；三方都不冷淡照原样散场。
+//   注意：结局 1 改了“没答应宋先生”的基线（原沈雁回开场 → 周砚主持），支线稿第十一节第 3 条，须用户点头。
+// 2026-10-29 逻辑排查（评审台，用户授权 Claude 代评剧情）：三人自报身份挪到时间卡之后（周砚结局在他劝住吵架之后），R4-I3 删“都把纸摊开”；R4-11“前天”改“昨天”（收拾药箱当天离村、夜里起火、次日清晨对证）。
+INCLUDE _共用/externals.ink
+INCLUDE _共用/externals-三方.ink
+VAR met = false // 参数
+VAR watched = false // 参数（已不用，见上）
+VAR clash = false // 参数
+VAR has_coat = false // 参数
+VAR has_abacus = false // 参数
+VAR has_roster = false // 参数
+VAR cold_alliance = false // 参数：正道盟与萧白落到冷淡以下（关系分 < 0，js/qihe-jianghu-rep.js stage）
+VAR cold_guijintang = false // 参数：归烬堂同上
+VAR cold_patrol = false // 参数：巡江司同上
+
+=== qihe_reps_evidence ===
+【次日清晨 · 邻村】 #id:R4-01
+{ flag("qiheChapter.records.lamp.ending") == "zhou":
+    护院：昨夜先抢箱子的，就是你们的人！ #id:R4-Z01
+    帮众：你们先拔的刀，还有脸说？ #id:R4-Z02
+    周砚：先把刀收起来，乡亲们都在院里呢。 #id:R4-Z03
+    周砚：进院坐下。一家一家说，纸摊开了说。 #id:R4-Z04
+}
+{ not met:
+    徐令仪：正道盟文议执事徐令仪。来叶家要谱的是我，委托和附页都在这儿。 #id:R4-I1
+    岑霜：归烬堂岑霜。乌魁是我派来的……这份传讯，也该当面对一对。 #id:R4-I2
+    沈雁回：沈雁回，替巡江司程巡检查药。 #id:R4-I3
+    ~ reps_beat()
+}
+{ flag("qiheChapter.records.lamp.ending") != "zhou":
+    沈雁回：都把附页掏出来。上头引的是哪张单子？ #id:R4-02
+}
+徐令仪：依例念给诸位：附页引的是旧药罐第十七号收货单，写的是叶家愿将医武谱交盟里保管。 #id:R4-03
+岑霜：十七号？……我这张也是十七号，写的却是还匣，还说正道盟要趁夜来接。徐执事，你真信叶家肯交书？ #id:R4-04
+徐令仪：我信的是纸。……文书读了这些年，倒叫一张纸牵着走了三天。 #id:R4-05
+沈雁回：我这张也是十七号——药验过、交药样、从侧口避查。三样事，一张单子。 #id:R4-06
+~ reps_beat()
+陈伯：十七号？那是卖六只旧药罐的单子，钱还是我帮阿蘅点的。底单在我布包里。 #id:R4-07
+陈伯：周婶，劳你从布包里拿一下。我这手使不上劲，就不去翻了。 #id:R4-08
+周婶：找着了。第十七号……就写着“旧药罐六只”，别的什么都没有。 #id:R4-09
+叶蘅：我只卖过罐子。没交书，没答应还匣子，更没请谁验药。 #id:R4-10
+叶蘅：昨天收拾行李，我拆了母亲药箱的夹层，里头就一张药签，底下压着一个空印子。 #id:R4-11
+岑霜：空印子？……什么形状？ #id:R4-11b
+叶蘅：方的。原先压着什么，我不知道——拆开就是空的。 #id:R4-11c
+叶蘅：印子你们要看便看。我爹留的是几页看病练功的笔记，不是什么谱，也不给。 #id:R4-12
+沈雁回：药签上写的什么用处？我只看字，原件你拿着。 #id:R4-13
+叶蘅：你看。我娘写的是治跌打伤筋，没一个字说别的。 #id:R4-14
+沈雁回：……附页上没有大夫签名，也没写哪天验的。我没找大夫问一句，就扣了整只箱子，是我错了。 #id:R4-15
+岑霜：三张纸，一人喂一口爱吃的饵，再引到同一道窄门，等我们自己掐起来。……手段倒是不赖。 #id:R4-17
+徐令仪：同引一单，同约一口，不是笔误。是谁改的，眼下还说不准。 #id:R4-18
+{
+- flag("qiheChapter.records.lamp.ending") == "blade":
+    -> reps_ev_blade
+- flag("qiheChapter.records.song_watched") or flag("qiheChapter.records.lamp.noticed") == "tailed" or flag("qiheChapter.records.lamp.noticed") == "rumored":
+    -> reps_ev_stranger
+- dealt():
+    -> reps_ev_quiet_ask
+}
+-> reps_ev_admit
+
+=== reps_ev_admit ===
+~ reps_beat()
+~ cg_begin("xu")
+徐令仪：叶姑娘当面回绝过，我还让人守着路。这一笔，不能只说成被人骗了。 #id:R4-X1
+{ clash:
+    徐令仪：封存我收回。护院动刀，我自己也出了剑；守路是我下的令——都记在我名下。 #id:R4-X2b
+- else:
+    徐令仪：封存我收回。护院拔刀、守路，都是我下的令，记在我名下。 #id:R4-X2
+}
+~ cg_end()
+{ clash:
+    岑霜：乌魁抢箱，我也动了手；外头还有人照旧拦车，是我没管住。烧了谁家的东西，归烬堂赔。 #id:R4-Z1b
+- else:
+    岑霜：乌魁那双手，我回去自己管。烧了谁家的东西，归烬堂赔。 #id:R4-Z1
+}
+叶蘅：传话是谁改的，你们去查。可昨夜谁抢、谁拔刀、谁堵门，查出别人来，也不能就这么算了。 #id:R4-Z2
+沈雁回：原件我带回去给程巡检看。昨夜堵门的，我一个个去问。 #id:R4-Z3
+{ flag("qiheChapter.records.lamp.ending") == "zhou":
+    周砚：话都说到了。往后谁查什么，各家自己去。 #id:R4-Zy
+}
+萧白：纸先收起来吧。陈伯的手还得换药。 #id:R4-Z4
+叶蘅：药签我收好了。你们要找的东西不在我这儿，在哪儿我也不知道。 #id:R4-Z6
+徐令仪：查到什么，我亲自来告诉你。 #id:R4-Z7
+{cold_alliance: 护院：走吧，跟这人没什么好说的。 #id:R4-C1}
+{cold_guijintang: 帮众：今天这笔，堂里记下了。 #id:R4-C2}
+{cold_patrol: 差役：你的名字，我回去也要报一报。 #id:R4-C3}
+-> END
+
+=== reps_ev_stranger ===
+// 有人问“谁的人”：在路口数过人（现有版本）／跟着脚夫转过三家营地（2b、2c）／有人递话（2c、2d）。O2、O3 微调成“我手下的人说的”（执行人先发现，支线稿第七节）。
+{
+- flag("qiheChapter.records.song_watched"):
+    沈雁回：还有一件。这两天在路口数人的那个，到底是谁的人？ #id:R4-O1
+- flag("qiheChapter.records.lamp.noticed") == "tailed":
+    沈雁回：还有一件。昨天跟着个黑衣人、在三家营地外头转来转去的那个，到底是谁的人？ #id:R4-O1t
+- flag("qiheChapter.records.lamp.handoff") == "cen":
+    岑霜：还有一件。昨天这位自己找到东埠，跟我说后山有人在牵线。他到底是谁的人？ #id:R4-O1c
+- else:
+    沈雁回：还有一件。昨天有人递话，说借住的那个外乡人在盯我们。他到底是谁的人？ #id:R4-O1r
+}
+徐令仪：护院说他是归烬堂的眼线。我怕先动手落人口实，才只让人守前路。 #id:R4-O2
+{ flag("qiheChapter.records.lamp.handoff") == "cen":
+    岑霜：他话只说了一半，我信不过，才让乌魁只看不动。……结果乌魁还是动了手。 #id:R4-O3c
+- else:
+    岑霜：乌魁说是正道盟找来的，我才让他只看不动。……结果他还是动了手。 #id:R4-O3
+}
+{
+- flag("qiheChapter.records.song_watched"):
+    沈雁回：好嘛，三家都当是别家的人，白防了两天。 #id:R4-O4
+- flag("qiheChapter.records.lamp.handoff") == "cen":
+    沈雁回：好嘛，三家各防各的，谁也没问过他本人。 #id:R4-O4c
+- else:
+    沈雁回：好嘛，三家都当是别家的人。 #id:R4-O4b
+}
+叶蘅：……萧白？ #id:R4-O5
+~ reps_beat()
+{ not dealt():
+    ~ reps_told(false)
+    萧白：我就是借住村里的客人。见着眼生的，多看了几眼。 #id:R4-P1
+    -> excuse
+}
+萧白：（……要说出宋先生吗？） #id:R4-O6
+* [（说出宋先生）]
+    ~ reps_told(true)
+    萧白：是后山倒木那儿一位姓宋的账房托我的。他说怕叶姑娘吃亏，让我记下谁来、几个人、站在哪，好去请人来护着她。 #id:R4-T01
+    -> reps_ev_named
+* [（只说自己是借住的客人）]
+    ~ reps_told(false)
+    萧白：我就是借住村里的客人。看门口来的人多，多看了几眼。 #id:R4-S1
+    -> excuse
+
+= excuse
+岑霜：多看几眼，就把三家都唬住了？……你倒比我们谁都管用。 #id:R4-S2
+沈雁回：外乡人，自称借住……我记下了。 #id:R4-S3
+-> reps_ev_quiet
+
+=== reps_ev_quiet_ask ===
+// 答应过宋先生、却没人问他（断在装卸路之前，或照蔺管事的法子看、没被注意）：只一句心里话引出选择（断线版草稿 3.1 stranger_quiet）。
+萧白：（后山那个宋账房，几天前就说会有几拨人来……要说出来吗？） #id:R4-Q1
+* [（说出宋先生）]
+    ~ reps_told(true)
+    萧白：还有件事。后山倒木那儿有位姓宋的账房，托我记下谁进村、来了几个、站在哪。 #id:R4-Q2
+    沈雁回：记这个做什么？ #id:R4-Q3
+    萧白：他说怕叶姑娘吃亏，记清了好去请人护着她。 #id:R4-Q4
+    -> reps_ev_named
+* [（先不说）]
+    ~ reps_told(false)
+    -> reps_ev_quiet
+
+=== reps_ev_blade ===
+// 结局 3「借刀」：岑霜把“堂里管船的”送来的脚夫口供当众说出（F-0037、F-0068），不说蔺管事的名字；三家只多知道一个化名。
+岑霜：是谁改的，我倒摸着半截——今早堂里送了份口供来。 #id:R4-B1
+岑霜：三张补来的附页，是同一个脚夫送的。人拿下了，是外人雇的。 #id:R4-B2
+徐令仪：谁雇的？ #id:R4-B3
+岑霜：后山倒木一个自称姓宋的账房。……已经跑了。 #id:R4-B4
+沈雁回：拿人的是谁？ #id:R4-B5
+岑霜：堂里管船的。别的，不必问。 #id:R4-B6
+~ reps_beat()
+{ not dealt():
+    -> reps_ev_admit
+}
+萧白：（宋账房……我替他记过人。要说出来吗？） #id:R4-Q1b
+* [（说出宋先生）]
+    ~ reps_told(true)
+    萧白：这个宋账房，我见过。他托我记下谁来、几个人、站在哪，说是好请人护着叶姑娘。 #id:R4-B7
+    -> reps_ev_named
+* [（先不说）]
+    ~ reps_told(false)
+    -> reps_ev_quiet
+
+=== reps_ev_named ===
+// 说出宋先生之后的共用段（断线版草稿 3.1 named）：只说得出真经历过的事——没听宋先生问过侧口的答 R4-Q5；身上有记人笺的可以交给沈雁回（3.5）；T10 以 C1-00B-15 为准改句。
+萧白：他还说……能沿路替她打听父亲的下落。 #id:R4-T02
+{ flag("qiheChapter.records.lamp.ending") == "blade":
+    沈雁回：托你记人……他问过侧口没有？ #id:R4-B8
+- else:
+    徐令仪：账房？盟里没派过。 #id:R4-T03
+    岑霜：归烬堂也没有。……只问站位，又不来见任何一家，他等的可不是护人。 #id:R4-T04
+    沈雁回：巡江司更没有。他问过侧口没有？ #id:R4-T05
+}
+{ flag("qiheChapter.records.song_asked_side"):
+    萧白：问过。问叶家那晚是不是要从装卸侧口走——侧口我从没跟他提过。 #id:R4-T06
+    沈雁回：附页上写的就是那里。 #id:R4-T07
+- else:
+    萧白：没有。他只问人。 #id:R4-Q5
+}
+{ flag("qiheChapter.records.lamp.ending") == "blade":
+    沈雁回：跑了也得找。宋姓账房，后山倒木，我记下了。 #id:R4-T08b
+- else:
+    沈雁回：宋姓账房，后山倒木。我记下了，得去找他问清楚。 #id:R4-T08
+}
+{ has_roster:
+    -> roster
+}
+-> why
+
+= roster
+* [（拿出记人笺）]
+    萧白：他记的那页，在我这儿。 #id:R4-N1
+    沈雁回：……记的都是你报的那些。这页我带走，找他时对一对。 #id:R4-N2
+    ~ reps_hand_roster()
+* [（不拿出来）]
+- -> why
+
+= why
+叶蘅：你为什么不跟我说？ #id:R4-T09
+萧白：他说先别惊动你，等他请到人再一起说。我当时信了。 #id:R4-T10
+叶蘅：下回先跟我说。我家的事，我得头一个知道。 #id:R4-T11
+萧白：……好。 #id:R4-T12
+~ reps_beat()
+{
+- has_coat and has_abacus:
+    沈雁回：这青绫行衣和乌木算珠，是他给你的？我记下样子就行，东西不收，你自己留着。 #id:R4-T13c
+- has_coat:
+    沈雁回：这青绫行衣，是他给你的？我记下样子就行，东西不收，你自己留着。 #id:R4-T13a
+- has_abacus:
+    沈雁回：这乌木算珠，是他给你的？我记下样子就行，东西不收，你自己留着。 #id:R4-T13b
+- else:
+    沈雁回：他给过你东西没有？有的话我记下样子就行，不收。 #id:R4-T13
+}
+~ reps_stranger_gift()
+-> reps_ev_admit
+
+=== reps_ev_quiet ===
+萧白：（我没敢看叶蘅。） #id:R4-S4
+-> reps_ev_admit
+
+=== function dealt() ===
+~ return flag("qiheChapter.records.stranger_deal") == "accepted" or flag("qiheChapter.records.stranger_deal") == "asked_first"

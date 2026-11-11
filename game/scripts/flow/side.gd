@@ -210,7 +210,7 @@ func milestone_latest(s) -> String:
 ## 小地图画面归 HUD；这里移植目标选择（guide / targetNode / trackNpc / trackActivity）
 const NAV_GRAPH := {"central": ["north", "south", "west", "east"], "north": ["central"], "south": ["central", "east", "west"], "east": ["central", "south"], "west": ["central", "south"], "refuge": ["west"]}
 const NAV_EXITS := {"central": {"north": "north", "south": "south", "west": "west", "east": "east"}, "south": {"central": "north", "east": "east", "west": "west"}, "east": {"central": "west", "south": "south"}, "west": {"central": "east", "south": "south"}, "north": {"central": "south"}, "refuge": {"west": "east"}}
-const NAV_SUGGEST := [["practice", "west", "luheng", "找陆衡学习护路棍法", "西田埂 · 陆衡"], ["clinic", "central", "clinic-door", "帮叶蘅整理药包", "村中药棚"], ["transport", "west", "cart", "整备药车，照应老人", "西田埂 · 药车"], ["market", "south", "cloth", "去集市搭把手", "南村口 · 店家"]]
+const NAV_SUGGEST := [["practice", "west", "luheng", "找陆衡学习护路棍法", "西田埂 · 陆衡"], ["clinic", "central", "clinic-door", "帮叶蘅整理药包", "村中药棚"], ["transport", "west", "cart", "整备药车，探邻村的路", "西田埂 · 药车"], ["market", "south", "cloth", "去集市搭把手", "南村口 · 店家"]]
 var nav_selected = null
 var _nav_last_half = null
 

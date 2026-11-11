@@ -393,7 +393,8 @@ func _install_expansion() -> void:
 		if club_pending(): await interact("chen-club")
 		else: await old_c.call(n)
 	var elder := _npc("qihe_trial", "elder")
-	elder.show = func(): var p = CP(); return before_fire() and not (p != null and p.choices.get("transport") == "elders")
+	# 2026-11-11 修车认路不再有“送老人去邻村”，老人起火前一直在村里（和行踪表、小耗子挂药、第三夜沈雁回叫他一致）
+	elder.show = before_fire
 	var counter := _npc("prologue_inn_interior", "innkeeper")
 	if not counter.is_empty():
 		counter.act = func(_n = null): await speak("fq_x_counter")

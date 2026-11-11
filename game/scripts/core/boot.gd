@@ -38,6 +38,9 @@ func run(args: Dictionary) -> void:
 	if args.has("menu-sweep"):
 		add_child(load("res://scripts/tests/menu_sweep.gd").new())
 		return
+	if args.has("story-snap"):
+		add_child(load("res://scripts/tests/story_snap.gd").new())
+		return
 	if args.has("sweep-npc"):
 		add_child(load("res://scripts/tests/sweep_npc.gd").new())
 		return

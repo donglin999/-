@@ -186,7 +186,7 @@ static func tasks(s, main_line := "") -> Array:
 	if side and side.has_method("journal_extras"):
 		side.journal_extras(func(r): _add(rows, r), func(t, d, dn = true): return step(t, d, dn))
 	var acts := {"clinic": ["药棚帮忙", "帮叶蘅处理普通药包与送药。", ["ye"], "已照应药棚的事情。"],
-		"transport": ["修车认路", "帮陆衡照应药车与乡邻出入。", ["luheng", "chen"], "已经整备药车或护送老人。"],
+		"transport": ["修车认路", "帮陆衡照应药车与乡邻出入。", ["luheng", "chen"], "已经整备药车或探过去邻村的路。"],
 		"practice": ["学习丙级《护路棍法》", "向陆衡学习护路棍法第一层。", ["luheng"], "已学横杆护身，收到练习棍与本人笔记。"],
 		"market": ["集市帮忙", "在集市照应普通家当与传话。", ["merchant"] + (["apothecary"] if _st(_st(c, "choices"), "market") == "rumor" else []), "已办过集市的事情。"]}
 	for id in acts:
