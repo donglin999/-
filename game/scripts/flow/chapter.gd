@@ -738,17 +738,18 @@ func grant_starter_equipment(opt: Dictionary = {}) -> Array:
 	return gained
 
 func equipment_shop() -> void:
-	var rows := STARTER_STOCK.map(func(id): return "%s · %d 文" % [DB.ITEMS[id].name, DB.ITEMS[id].price])
-	var n := await ask("店家", "都是行路能用的普通家当。你身上有 %d 文；看清兵器和根基要求，再决定。" % int(G.S.get("silver", 0)), rows + ["先不买"])
+	# 2026-11-11 界面文字的货币单位统一成“两”（原来写“文”“铜钱不足”；数值没动，和商店面板、货郎选项框一致）
+	var rows := STARTER_STOCK.map(func(id): return "%s · %d 两" % [DB.ITEMS[id].name, DB.ITEMS[id].price])
+	var n := await ask("店家", "都是行路能用的普通家当。你身上有银两 %d；看清兵器和根基要求，再决定。" % int(G.S.get("silver", 0)), rows + ["先不买"])
 	if n >= STARTER_STOCK.size(): return
 	var id: String = STARTER_STOCK[n]; var it: Dictionary = DB.ITEMS[id]
-	if await ask("店家", "%s：%s\n花 %d 文买一件？" % [it.name, it.desc, it.price], ["买一件", "再看看"]) != 0: return
+	if await ask("店家", "%s：%s\n花 %d 两买一件？" % [it.name, it.desc, it.price], ["买一件", "再看看"]) != 0: return
 	var ok := false; var reason := ""
-	if int(G.S.get("silver", 0)) < it.price: reason = "铜钱不足，需要 %d 文" % it.price
+	if int(G.S.get("silver", 0)) < it.price: reason = "银两不够，需要 %d 两" % it.price
 	else:
 		G.S.silver -= it.price; G.S.bag[id] = int(G.S.bag.get(id, 0)) + 1; G.save(); ok = true
 	await line("店家", "收好了。买来先放包裹，合不合身、使不使得动，还要你自己挑。" if ok else reason)
-	if ok: await line("获得", "%s ×1 · 花费 %d 文。江湖→装备，双击穿戴。" % [it.name, it.price])
+	if ok: await line("获得", "%s ×1 · 花费 %d 两。江湖→装备，双击穿戴。" % [it.name, it.price])
 
 func main_step(p = null):
 	if p == null: p = CP()
@@ -978,13 +979,12 @@ func rest() -> void:
 		await resume_body())
 
 func interact(id: String) -> void:
-	var side := get_parent().get_node_or_null("Side")
-	if side and side.has_method("outsiders_handles") and side.outsiders_handles(id) and side.outsiders_available():
-		await side.outsiders_talk(id); return
+	# 2026-11-11 清掉管事、乌魁、采办使三个旧 id：2026-10-10 起三方委托由徐令仪、岑霜、沈雁回直接对接，
+	# 这三个人两个版本地图上都没摆，原来开头“先交给跑腿”的判断和三段闲话一并删了
 	await guarded(func():
 		var p = CP()
 		if id == "bandit": await play("fq_bandit", {}, {"late": p != null and p.halfDay >= 4}); return
-		if id == "aide": await play("fq_aide"); return
+		if id == "aide": await play("fq_aide", {}, {"late": p != null and p.halfDay >= 4}); return
 		if p == null:
 			# 2026-11-10 人物行踪：原来除了陆衡一律放药商那句“我得收摊”，西田埂的练场、药车也冒出药商的声音。
 			# 西田埂的几处都是陆衡答，南村口的药商自己答；别处没人答就不出声
@@ -1025,9 +1025,11 @@ func interact(id: String) -> void:
 				if n == "shop": await equipment_shop()
 				elif n == "help": await activity_body("market")
 				return
-			if id == "zhouyan": await play("fq_zhou_idle", {}, {"shen_open": p.halfDay >= 2, "met_zhou": p.events.get("xu-meeting", false)}); return
+			# 2026-11-11 沈雁回装卸路那场（halfDay>=4）之后才在东埠；原来 halfDay>=2 就指路，那时地图上找不到她
+			if id == "zhouyan": await play("fq_zhou_idle", {}, {"shen_open": p.halfDay >= 4, "met_zhou": p.events.get("xu-meeting", false)}); return
 			if id == "ye": await activity_body("clinic"); return
-			await play({"wukui": "fq_wukui", "steward": "fq_steward"}.get(id, "fq_procurement")); return
+			# 没人认领的 id 不出声（原来一律落到采办使那句，会凭空冒出别人的声音）
+			return
 		if id == "ye": await play("fq_ye_settled"); return
 		await play("fq_tonight"))
 

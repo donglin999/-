@@ -244,6 +244,7 @@ func _build_shell() -> void:
 	panel.name = "qj"
 	panel.size = Vector2(1280, 720)
 	panel.scale = Vector2(0.75, 0.75)
+	Paint.crisp(panel)   # 字按实际显示大小光栅，缩 0.75 不丢横笔（见 ui.gd）
 	panel.mouse_filter = Control.MOUSE_FILTER_STOP
 	layer.add_child(panel)
 	# .qj-backdrop：背景画 cover + 白雾 linear-gradient(90deg,#f6f1e8f5,#f6f1e8df 50%,#f6f1e8f0)

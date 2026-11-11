@@ -1,3 +1,6 @@
+// 2026-11-11 审读修订（余项）：删掉管事、乌魁、采办使三段闲话（fq_steward／fq_wukui／fq_procurement）——2026-10-10 起三方委托由徐令仪、岑霜、沈雁回直接对接，这三个人两个版本地图上都没摆，三段一直播不到；chapter.gd 的兜底分发同时改成不出声。
+// 2026-11-11 审读修订（余项）：帮众头两天不再说“岑姑娘就在南村车道旁”（岑霜第二日傍晚才到东埠，之前地图上没有她），改成不指地方的 C1-X-bandit-v2；周砚“沈姑娘在东埠”的参数 shen_open 改为装卸路之后（halfDay>=4，沈雁回上图之后）才为真。
+// 2026-11-11 审读修订（余项）：采办随从“你问沈姑娘去”只在沈雁回到东埠之后说（参数 late，同帮众那句）；之前改说“我说了不算”。
 // 2026-11-11 审读修订：管事、采办使补第三句（原来轮换标记被别人置成 2 后两人一句不出）；邻村陆衡不再提前说“上山”（去处要等找周砚商量后才定）。
 // 2026-11-11 从原版 xiaojianghu-legacy-prologue/story/01-开始/风起-随口一句.ink 搬到 Godot 版（原版不再更新）；此后以本文件为准，由 tools/build_story.cjs 编译。
 // 风起栖河 · 随口一句：村里站着的人、邻村院子里的乡亲、做不了的事
@@ -11,7 +14,7 @@ INCLUDE _共用/externals.ink
 INCLUDE _共用/externals-风起主线.ink
 VAR late = false // 参数：第二天下午起（halfDay>=4）
 VAR evidence_done = false // 参数：对证已做完
-VAR shen_open = false // 参数：第二天起（halfDay>=2）沈雁回已到东埠
+VAR shen_open = false // 参数：装卸路那场之后（halfDay>=4）沈雁回已在东埠（之前她不在地图上）
 VAR met_zhou = false // 参数：周砚已在药棚门口见过叶蘅（xu-meeting 之后）
 
 === fq_act_busy ===
@@ -51,7 +54,7 @@ VAR met_zhou = false // 参数：周砚已在药棚门口见过叶蘅（xu-meeti
     { late:
         帮众：看什么看？有事找我们岑姑娘去，她在东埠装卸路。 #id:C1-X-bandit-late
     - else:
-        帮众：看什么看？有事找我们岑姑娘去，她就在南村车道旁。 #id:C1-X-bandit
+        帮众：看什么看？我们只听岑姑娘的，轮不到你来问。 #id:C1-X-bandit-v2
     }
     ~ set_flag("qiheChapter.talkCycle", 1)
 - 1:
@@ -66,7 +69,11 @@ VAR met_zhou = false // 参数：周砚已在药棚门口见过叶蘅（xu-meeti
 === fq_aide ===
 { flag("qiheChapter.talkCycle"):
 - 0:
-    采办随从：我就是个点篓子的。药单的事，你问沈姑娘去。 #id:C1-X-aide
+    { late:
+        采办随从：我就是个点篓子的。药单的事，你问沈姑娘去。 #id:C1-X-aide
+    - else:
+        采办随从：我就是个点篓子的。药单的事，我说了不算。 #id:C1-X-aide-early
+    }
     ~ set_flag("qiheChapter.talkCycle", 1)
 - 1:
     采办随从：三篓、两篓……别跟我说话，一打岔又数乱了。 #id:C1-X-aide-2
@@ -83,48 +90,6 @@ VAR met_zhou = false // 参数：周砚已在药棚门口见过叶蘅（xu-meeti
 
 === fq_late_merchant ===
 药商：天快黑了，我得收摊。有事明儿再来。 #id:C1-X-late-merchant
--> END
-
-=== fq_steward ===
-{ flag("qiheChapter.talkCycle"):
-- 0:
-    管事：盟里的事，不便跟外人说。 #id:C1-X-steward
-    ~ set_flag("qiheChapter.talkCycle", 1)
-- 1:
-    管事：执事在里头。有事，候着。 #id:C1-X-steward-2
-    ~ set_flag("qiheChapter.talkCycle", 2)
-- else:
-    管事：该说的都说了。执事没叫，谁也不见。 #id:C1-X-steward-3
-    ~ set_flag("qiheChapter.talkCycle", 0)
-}
--> END
-
-=== fq_wukui ===
-{ flag("qiheChapter.talkCycle"):
-- 0:
-    乌魁：瞅什么？没见过人？ #id:C1-X-wukui
-    ~ set_flag("qiheChapter.talkCycle", 1)
-- 1:
-    乌魁：滚远点！老子这会儿没空跟你磨牙。 #id:C1-X-wukui-2
-    ~ set_flag("qiheChapter.talkCycle", 2)
-- else:
-    乌魁：哼，上回那笔账还没算完……你又替谁跑腿？ #id:C1-X-wukui-3
-    ~ set_flag("qiheChapter.talkCycle", 0)
-}
--> END
-
-=== fq_procurement ===
-{ flag("qiheChapter.talkCycle"):
-- 0:
-    采办使：征药是公事，闲人别凑过来。 #id:C1-X-procurement
-    ~ set_flag("qiheChapter.talkCycle", 1)
-- 1:
-    采办使：账还没对完，回头再说。 #id:C1-X-procurement-2
-    ~ set_flag("qiheChapter.talkCycle", 2)
-- else:
-    采办使：篓子点完我们就走，碍不着你们村的事。 #id:C1-X-procurement-3
-    ~ set_flag("qiheChapter.talkCycle", 0)
-}
 -> END
 
 === fq_evidence_wait ===

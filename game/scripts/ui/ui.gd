@@ -59,6 +59,8 @@ func _ready() -> void:
 	weibei = _sys_font(["Weibei SC", "Weibei TC"], 700, kai_bold)
 	song = _ttc_face("Songti SC", 400, "STSongti-SC-Regular", serif)
 	# 11-10 试玩审查：宋体常规体笔画细，十二三号字在深底上“一”这类单横笔淡得像缺字（“选 件送她”“键位 览”）；轻微加粗
+	# 11-11 查明根因同对白框：菜单缩 0.75、人物交互层缩 0.6，字形贴图被最近邻缩小、1 像素的横笔整行丢掉，已用 Paint.crisp 修。
+	# 修后去掉加粗也不再丢笔画，但深底小字明显偏淡，是否更接近设计拿不准，加粗先留着（两处：song 0.35、song_bold 0.25）
 	if song is FontFile:
 		var sv := FontVariation.new(); sv.base_font = song; sv.variation_embolden = 0.35
 		song = sv
@@ -68,6 +70,10 @@ func _ready() -> void:
 		song_bold = bv
 	root = Control.new()
 	root.size = Vector2(1280, 720); root.scale = Vector2(0.75, 0.75)
+	# 2026-11-11：界面根缩 0.75 倍，字形贴图按最近邻缩小会整行丢像素（“一”“任”“已”的横笔只有 1 像素高，丢了就像缺字）。
+	# 让这棵树下的字按实际显示大小光栅（子节点都继承：头像栏、地名、提示条、交互提示、对白、过场），不再缩贴图。
+	# 这个开关不跨 CanvasLayer：菜单、人物交互、培养、标题页各有自己的根，分别在各自建根处设（搜 Paint.crisp）
+	Paint.crisp(root)
 	root.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	add_child(root)
 	_build_hud(); _build_place(); _build_prompt(); _build_toast(); _build_tpad(); _build_warn()

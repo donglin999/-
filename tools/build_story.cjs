@@ -27,6 +27,8 @@ for (const f of fs.readdirSync(SRC).filter(n => n.endsWith('.ink'))) {
     if (idx.knots[k] && idx.knots[k] !== out) console.warn(f, '覆盖已有入口', k, idx.knots[k], '→', out);
     idx.knots[k] = out;
   }
+  // 2026-11-11 剧本里删掉的入口也从登记里拿掉（原来只加不减，删了 fq_steward 等三段后登记还指着它们，全分支扫荡报“找不到入口”）
+  for (const k of Object.keys(idx.knots)) if (idx.knots[k] === out && !knots.includes(k)) { delete idx.knots[k]; console.log(f, '入口已删', k); }
   console.log(f, '→', out + '.json', knots.join(' '));
 }
 fs.writeFileSync(idxPath, JSON.stringify(idx, null, 1));

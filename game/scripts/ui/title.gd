@@ -11,6 +11,7 @@ func _ready() -> void:
 	Lights.vignette(true, 0.55)
 	UI.hud()
 	size = Vector2(1280, 720); scale = Vector2(0.75, 0.75)
+	Paint.crisp(self)   # 标题页挂在视口根下，不在 UI.root 里：自己设“字按实际显示大小光栅”（见 ui.gd）
 	var bg := TextureRect.new(); bg.expand_mode = TextureRect.EXPAND_IGNORE_SIZE; bg.texture = Assets.tex("bg_title"); bg.size = Vector2(1280, 720)
 	bg.stretch_mode = TextureRect.STRETCH_SCALE
 	add_child(bg)

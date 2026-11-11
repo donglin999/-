@@ -60,6 +60,9 @@ func _ready() -> void:
 
 func _build() -> void:
 	root = Control.new(); root.size = Vector2(BW, BH); root.mouse_filter = Control.MOUSE_FILTER_STOP; root.visible = false
+	# 2026-11-11：界面根缩 0.75 倍、正文再缩 20.5/21，字形贴图按最近邻缩小会整行丢像素，“一”的横笔只有 1 像素高，
+	# 正好落在被丢的那行就只剩收笔的小点。修法是让字按实际显示大小光栅——这个开关现在统一设在 UI.root 上（ui.gd 的 Paint.crisp），
+	# 对白框挂在 UI.root 下自动继承，这里原先单独设的那一行已删
 	UI.root.add_child(root)
 	UI.root.move_child(root, UI._toast.get_index())
 	root.gui_input.connect(_on_click)

@@ -43,6 +43,16 @@ static func frame(ci: CanvasItem, r: Rect2, bg := Color(22 / 255.0, 17 / 255.0, 
 		ci.draw_line(p, p + Vector2(l * s.x, 0), corner, 1)
 		ci.draw_line(p, p + Vector2(0, l * s.y), corner, 1)
 
+## 让 ci 这棵树下的字按实际显示大小光栅（2026-11-11）。界面都是按原版的设计坐标画、再整体缩到 960×540，
+## 字形贴图跟着被最近邻缩小，1 像素高的横笔会整行丢掉。开了以后引擎按“节点缩放 × 窗口缩放”取字形，贴图 1:1 上屏。
+## 子节点都继承（Label、富文本、自绘 draw_string 都算），但不跨 CanvasLayer，每个界面层的根各设一次。
+## 管不到的只有“自绘时用 draw_set_transform 缩放再画字”：那种用 draw_text / os_of 把缩放告诉引擎。
+## 注意（实测）：字形大小是在节点“重画”时按当时的缩放取的；父节点事后改缩放（比如缩放动画）并不会让里面的字重画，
+## 字仍用上一次的贴图跟着缩放——所以缩放动画没有额外开销，但带字的面板如果做“缩放弹出”，停下后要对里面的字 queue_redraw 一次。
+## 现有的缩放动画（队伍页立绘呼吸、培养心情脸、培养剧情立绘动作）节点里都只有图，没有字
+static func crisp(ci: CanvasItem) -> void:
+	ci.oversampling_with_scale = CanvasItem.OVERSAMPLING_WITH_SCALE_ENABLED
+
 ## 带字距的字体（CSS letter-spacing: em 值 × 字号）。小数字号按 fsize 排字，字距也按 fsize 算（缩回原字号后正好是 CSS 值）
 static var _fv := {}
 static func font(base: Font, size: float, spacing_em: float) -> Font:
@@ -63,13 +73,25 @@ static func fk(px: float) -> float: return px / fsize(px)
 static func text_w(f: Font, s: String, px: float) -> float:
 	return f.get_string_size(s, HORIZONTAL_ALIGNMENT_LEFT, -1, fsize(px)).x * fk(px)
 
+## 自绘文字的光栅倍率（2026-11-11）：窗口缩放 × 节点在画布里的缩放 × 调用处自己用 draw_set_transform 加的缩放 k。
+## 作为 draw_string 的 oversampling 参数传进去，字形就按上屏的实际大小光栅（显式值优先于节点上的 crisp 开关——
+## 开关只看得到节点缩放，看不到自绘变换）。只用在缩放值固定的地方：每个不同的值都要另存一套字形，逐帧变化的缩放不要传
+static func os_of(ci: CanvasItem, k := 1.0) -> float:
+	var vp := ci.get_viewport()
+	return (vp.get_oversampling() if vp else 1.0) * absf(ci.get_global_transform().get_scale().y) * absf(k)
+
 ## draw_string 的小数字号版：pos 是基线起点。xf 是调用处当前的自定义绘制变换（引擎读不到它，要调用处传进来），画完复原成 xf
+## 字形按“小数字号缩放 × xf 缩放”后的实际大小光栅，不再缩贴图（缩贴图会丢 1 像素的横笔）
 static func draw_text(ci: CanvasItem, f: Font, pos: Vector2, s: String, px: float, col: Color, xf := Transform2D.IDENTITY) -> void:
 	var k := fk(px)
-	if k == 1.0:
+	var xs := xf.get_scale().y
+	if k == 1.0 and is_equal_approx(xs, 1.0):
 		ci.draw_string(f, pos, s, HORIZONTAL_ALIGNMENT_LEFT, -1, fsize(px), col); return
+	var os := os_of(ci, k * xs)
+	if k == 1.0:
+		ci.draw_string(f, pos, s, HORIZONTAL_ALIGNMENT_LEFT, -1, fsize(px), col, TextServer.JUSTIFICATION_KASHIDA | TextServer.JUSTIFICATION_WORD_BOUND, TextServer.DIRECTION_AUTO, TextServer.ORIENTATION_HORIZONTAL, os); return
 	ci.draw_set_transform_matrix(xf * Transform2D(0, Vector2(k, k), 0, pos))
-	ci.draw_string(f, Vector2.ZERO, s, HORIZONTAL_ALIGNMENT_LEFT, -1, fsize(px), col)
+	ci.draw_string(f, Vector2.ZERO, s, HORIZONTAL_ALIGNMENT_LEFT, -1, fsize(px), col, TextServer.JUSTIFICATION_KASHIDA | TextServer.JUSTIFICATION_WORD_BOUND, TextServer.DIRECTION_AUTO, TextServer.ORIENTATION_HORIZONTAL, os)
 	ci.draw_set_transform_matrix(xf)
 
 ## 容器里的小数字号标签：Label 按整数字号排字（字号、字距、宽度都在那个尺度里设好），外面套 FracBox 缩回原字号 px，

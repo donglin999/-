@@ -40,6 +40,8 @@ func rec() -> Dictionary:
 	return p.get("records", {}) if p != null else {}
 
 func dealt() -> bool: return rec().get("stranger_deal") in ["accepted", "asked_first"]
+## 见过宋先生：竹匾那场演到选择就记 stranger_deal（答应、问过再答应、拒绝三支都记），有值就算认得他
+func met_song() -> bool: return side.C.truthy(rec().get("stranger_deal"))
 
 ## 被说出去（宋先生那里说出算命先生，或灯二对岑霜说出有人托付，或交付时去告诉岑霜）：当天撤摊，灯四关闭
 func exposed() -> bool:
@@ -124,7 +126,8 @@ func boatman_talk() -> void:
 		if pick == "ask": await play("qh_lamp_boatman"); return
 		if pick == "tail":
 			if dealt() and await Dialog.choose("行程", "这件事只能选一边：跟了脚夫，就赶不上后山宋先生那头。", ["跟上去", "再想想"]) != 0: return
-			await play("qh_lamp_tail", {"knows_song": dealt()}))
+			# 2026-11-11 认不认得宋先生按“见过”算（拒绝过的也认得，剧本注释本来就这么写）；原来传 dealt()，拒绝过的只认出“账房模样的人”
+			await play("qh_lamp_tail", {"knows_song": met_song()}))
 
 ## 灯二：岑霜交谈前多一问；问不问在 ink（qh_lamp_seal_ask）
 func seal_offer() -> bool:
@@ -161,7 +164,12 @@ func end_scene() -> void:
 	if l.get("endPlayed") or not (p.stage in ["refuge", "mountain"]): return
 	l.endPlayed = true
 	if l.get("ending") == "blade": await play("qh_lamp_end_blade")
-	elif l.get("ending") == "noticed" and l.get("met"): await play("qh_lamp_end_note", {"exposed": exposed()})
+	elif l.get("ending") == "noticed" and l.get("met"):
+		# 2026-11-11 审读修订（余项）：被说出去的那条线他已经撤走，只有挑夫带话；站位表却照样把蔺管事摆上栈桥。这条线不摆他
+		var gone := exposed()
+		if gone: side.C.offstage["蔺管事"] = true
+		await play("qh_lamp_end_note", {"exposed": gone})
+		side.C.offstage.erase("蔺管事")
 
 func _done_step(l: Dictionary, key: String) -> bool:
 	for k in key.split("|"):

@@ -139,10 +139,12 @@ func stove() -> void:
 	await play("qh_inn_soup", {"free": free})
 	restore("mp", 0.2)
 
+## 2026-11-11 审读修订（余项）：箱笼要等店家当面说过“您挑一样”（thanked）才开；原来账一结就能开，
+## 在东埠找岑霜结账的人还没回柜台，就先从箱里拿了东西，再听店家请他挑。旧存档里已经挑过的照旧。
 func inn_chest() -> void:
 	var t := town()
-	if t.tab.stage != "done": await play("qh_inn_chest_locked"); return
 	if t.searched.get("chest"): await play("qh_inn_chest_empty"); return
+	if not t.tab.get("thanked"): await play("qh_inn_chest_locked"); return
 	var pick = await play("qh_inn_chest")
 	if not pick: return
 	t.searched.chest = pick

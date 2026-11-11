@@ -155,6 +155,7 @@ func _ensure_root() -> void:
 	root.name = "cultivation"
 	root.size = Vector2(CuUI.W, CuUI.H)
 	root.scale = Vector2(960.0 / CuUI.W, 540.0 / CuUI.H)
+	Paint.crisp(root)   # 字按实际显示大小光栅，整页缩小不丢横笔（见 ui.gd）
 	root.clip_contents = true
 	root.theme = Theme.new()
 	root.theme.default_font = UI.kai

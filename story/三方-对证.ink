@@ -1,3 +1,8 @@
+// 2026-11-11 审读修订（余项·二）：自己去东埠告诉过岑霜的（lamp.handoff=cen），被问到时不再装作只是“多看了几眼”——萧白认下跟岑霜说过的话、但不多说（R4-P1c、R4-S1c），岑霜接“上回半句，今天还是半句”（R4-S2c）；选项、reps_told 取值和后果都没动。
+//   没答应宋先生却跟过脚夫的心里话按认不认得分句：竹匾那场拒绝过的认得他，直接想“宋先生”（R4-P0s）；从没见过的仍是“倒木上那个账房”（R4-P0）。side_lamp.gd 的 knows_song 同时改成“见过就算认得”。
+// 2026-11-11 审读修订（余项）：路口数人那条线（song_watched）岑霜、沈雁回不再像忘了装卸路当面说开的事（R4-O3w、R4-O4v2）；徐令仪“守路”说成早有的事、新增的只是“别碰他”（R4-O2v2）；
+//   没答应宋先生却跟过脚夫的，答话前加一句心里话交代为什么不说（R4-P0），散场心里话不再是“没敢看叶蘅”（R4-S4n，答应过的仍是 R4-S4）；沈雁回“自称借住”改“借住陈伯家”（R4-S3v2，陈伯在场）。
+//   备注：现行代码 clash 恒为真（chapter.gd fire_body 无条件记 clashVersion），else 两句（R4-X2、R4-Z1）暂时播不到；分支留着，别删。
 // 2026-11-11 审读修订：陈伯的伤统一成手上擦伤（R4-08、R4-Z4 原说“腿”，是 11-02 去掉护车分支后的残句）；
 //   萧白自己去东埠告诉过岑霜的（lamp.handoff=cen），开场改由岑霜发问（R4-O1c、R4-O3c），不再说成“有人递话”“乌魁说是正道盟找来的”。
 // 2026-11-11 从原版 xiaojianghu-legacy-prologue/story/01-开始/三方-对证.ink 搬到 Godot 版（原版不再更新）；此后以本文件为准，由 tools/build_story.cjs 编译。
@@ -119,15 +124,19 @@ VAR cold_patrol = false // 参数：巡江司同上
 - else:
     沈雁回：还有一件。昨天有人递话，说借住的那个外乡人在盯我们。他到底是谁的人？ #id:R4-O1r
 }
-徐令仪：护院说他是归烬堂的眼线。我怕先动手落人口实，才只让人守前路。 #id:R4-O2
-{ flag("qiheChapter.records.lamp.handoff") == "cen":
+徐令仪：护院说他是归烬堂的眼线。我怕先动手落人口实，只叫他们照旧守路，别碰他。 #id:R4-O2v2
+{
+- flag("qiheChapter.records.lamp.handoff") == "cen":
     岑霜：他话只说了一半，我信不过，才让乌魁只看不动。……结果乌魁还是动了手。 #id:R4-O3c
+- flag("qiheChapter.records.song_watched"):
+    // 装卸路上她自己猜过“徐执事找来的”，萧白当面否认（三方-装卸路 R2-W1～W5）
+    岑霜：我原当是正道盟找来的，他当面不认。摸不清底，才叫乌魁只看不动……结果还是动了手。 #id:R4-O3w
 - else:
     岑霜：乌魁说是正道盟找来的，我才让他只看不动。……结果他还是动了手。 #id:R4-O3
 }
 {
 - flag("qiheChapter.records.song_watched"):
-    沈雁回：好嘛，三家都当是别家的人，白防了两天。 #id:R4-O4
+    沈雁回：好嘛，装卸路上当面都说了不是自家的，转头还是各防各的，白防到昨夜。 #id:R4-O4v2
 - flag("qiheChapter.records.lamp.handoff") == "cen":
     沈雁回：好嘛，三家各防各的，谁也没问过他本人。 #id:R4-O4c
 - else:
@@ -137,7 +146,21 @@ VAR cold_patrol = false // 参数：巡江司同上
 ~ reps_beat()
 { not dealt():
     ~ reps_told(false)
-    萧白：我就是借住村里的客人。见着眼生的，多看了几眼。 #id:R4-P1
+    // 没答应宋先生却跟过脚夫：见过倒木上的人给脚夫递油纸包。不开选项，只交代他为什么不说。
+    // 竹匾那场拒绝过的认得宋先生（跟脚夫 L5-02）；从没见过的只认出“账房模样的人”（L5-02b）。
+    { flag("qiheChapter.records.lamp.t3") == "tail":
+        { flag("qiheChapter.records.stranger_deal") == "declined":
+            萧白：（宋先生给脚夫递过油纸包……可我没凭没据。三家正疑着我，说了谁信？） #id:R4-P0s
+        - else:
+            萧白：（倒木上那个账房给脚夫递过油纸包……可我没凭没据。三家正疑着我，说了谁信？） #id:R4-P0
+        }
+    }
+    // 告诉过岑霜的：岑霜刚当众说过他找上门，不能再装作什么都没看见；认下那句话，但不往下说。
+    { flag("qiheChapter.records.lamp.handoff") == "cen":
+        萧白：我就是借住村里的客人。跟岑姑娘说的那些，都是我亲眼瞧见的，没别的。 #id:R4-P1c
+    - else:
+        萧白：我就是借住村里的客人。见着眼生的，多看了几眼。 #id:R4-P1
+    }
     -> excuse
 }
 萧白：（……要说出宋先生吗？） #id:R4-O6
@@ -147,12 +170,20 @@ VAR cold_patrol = false // 参数：巡江司同上
     -> reps_ev_named
 * [（只说自己是借住的客人）]
     ~ reps_told(false)
-    萧白：我就是借住村里的客人。看门口来的人多，多看了几眼。 #id:R4-S1
+    { flag("qiheChapter.records.lamp.handoff") == "cen":
+        萧白：我就是借住村里的客人。跟岑姑娘说的，是我亲眼瞧见的，别的没有。 #id:R4-S1c
+    - else:
+        萧白：我就是借住村里的客人。看门口来的人多，多看了几眼。 #id:R4-S1
+    }
     -> excuse
 
 = excuse
-岑霜：多看几眼，就把三家都唬住了？……你倒比我们谁都管用。 #id:R4-S2
-沈雁回：外乡人，自称借住……我记下了。 #id:R4-S3
+{ flag("qiheChapter.records.lamp.handoff") == "cen":
+    岑霜：上回半句，今天还是半句。……罢了，你倒比我们谁都沉得住气。 #id:R4-S2c
+- else:
+    岑霜：多看几眼，就把三家都唬住了？……你倒比我们谁都管用。 #id:R4-S2
+}
+沈雁回：外乡人，借住陈伯家……我记下了。 #id:R4-S3v2
 -> reps_ev_quiet
 
 === reps_ev_quiet_ask ===
@@ -243,7 +274,12 @@ VAR cold_patrol = false // 参数：巡江司同上
 -> reps_ev_admit
 
 === reps_ev_quiet ===
-萧白：（我没敢看叶蘅。） #id:R4-S4
+// 答应过宋先生而不说的（三处入口）才有“瞒着叶蘅”；没答应过的只从 reps_ev_stranger 的 R4-P1 过来，没有瞒她的事（蔺管事也说过不必瞒，回话一 L3-11）。
+{ dealt():
+    萧白：（我没敢看叶蘅。） #id:R4-S4
+- else:
+    萧白：（被三家这样盯着问……叶蘅这几天，天天都是这滋味。） #id:R4-S4n
+}
 -> reps_ev_admit
 
 === function dealt() ===

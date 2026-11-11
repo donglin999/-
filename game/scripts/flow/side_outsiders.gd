@@ -38,11 +38,8 @@ func appeared(id: String) -> bool:
 	var p = side.CP()
 	return p != null and p.get("events", {}).get("xu-meeting" if id == "xulingyi" else "three-meeting", false)
 
+## 2026-11-11 清掉旧 id（steward／wukui／procurement）：三方委托只由三位代表对接，handles()、key_for() 一并删了
 func representative_key(id: String): return REPRESENTATIVES.get(id)
-func handles(id: String) -> bool: return id in ["steward", "wukui", "procurement"]
-func key_for(id: String):
-	var k = representative_key(id)
-	return k if k != null else {"steward": "letter", "wukui": "account", "procurement": "ledger"}.get(id)
 
 func available() -> bool:
 	if G.S == null: return false
@@ -183,7 +180,7 @@ func check(k: String, role: String, from_owner := false) -> void:
 	UI.toast("行程已更新：" + d.name, 1500)
 
 func talk(id: String) -> void:
-	var k = key_for(id)
+	var k = representative_key(id)
 	if k != null and available(): await guarded(func(): await owner(k))
 
 func pending_for(who: String) -> Array:

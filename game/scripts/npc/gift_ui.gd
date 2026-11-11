@@ -16,6 +16,7 @@ var active: Callable = Callable()   # 当前这一轮面板的收尾函数
 func _ready() -> void:
 	cl = CanvasLayer.new(); cl.layer = 31; add_child(cl)
 	layer = Control.new(); layer.name = "qg-layer"; layer.size = Vector2(1600, 900); layer.scale = Vector2(0.6, 0.6)
+	Paint.crisp(layer)   # 字按实际显示大小光栅（见 ui.gd）；商店、易物秤挂在这层下面，跟着继承
 	layer.mouse_filter = Control.MOUSE_FILTER_IGNORE; layer.visible = false
 	cl.add_child(layer)
 

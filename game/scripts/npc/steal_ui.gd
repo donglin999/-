@@ -18,6 +18,7 @@ var armed_at := 0.0
 func _ready() -> void:
 	cl = CanvasLayer.new(); cl.layer = 32; add_child(cl)
 	layer = Control.new(); layer.name = "qs-layer"; layer.size = Vector2(1600, 900); layer.scale = Vector2(0.6, 0.6)
+	Paint.crisp(layer)   # 字按实际显示大小光栅（见 ui.gd）
 	layer.mouse_filter = Control.MOUSE_FILTER_IGNORE; layer.visible = false
 	cl.add_child(layer)
 

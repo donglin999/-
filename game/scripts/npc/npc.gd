@@ -35,6 +35,7 @@ func _ready() -> void:
 	layer_cl = CanvasLayer.new(); layer_cl.layer = 30; add_child(layer_cl)
 	layer = Control.new(); layer.name = "qn-layer"
 	layer.size = Vector2(1600, 900); layer.scale = Vector2(0.6, 0.6)
+	Paint.crisp(layer)   # 字按实际显示大小光栅，缩 0.6 不丢横笔（见 ui.gd）
 	layer.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	layer.visible = false
 	layer_cl.add_child(layer)
