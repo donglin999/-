@@ -1,3 +1,5 @@
+// 2026-11-12 冷读后改：帮众那句去掉“轮不到你来问”（萧白这时什么都没问）。
+// 2026-11-12 删掉帮众“她在东埠装卸路”（C1-X-bandit-late）和它的 late 分支：halfDay>=4 起帮众已不在客栈，这句播不到；chapter.gd 不再给 fq_bandit 传 late。采办随从 fq_aide 的 late 照旧。
 // 2026-11-11 审读修订（余项）：删掉管事、乌魁、采办使三段闲话（fq_steward／fq_wukui／fq_procurement）——2026-10-10 起三方委托由徐令仪、岑霜、沈雁回直接对接，这三个人两个版本地图上都没摆，三段一直播不到；chapter.gd 的兜底分发同时改成不出声。
 // 2026-11-11 审读修订（余项）：帮众头两天不再说“岑姑娘就在南村车道旁”（岑霜第二日傍晚才到东埠，之前地图上没有她），改成不指地方的 C1-X-bandit-v2；周砚“沈姑娘在东埠”的参数 shen_open 改为装卸路之后（halfDay>=4，沈雁回上图之后）才为真。
 // 2026-11-11 审读修订（余项）：采办随从“你问沈姑娘去”只在沈雁回到东埠之后说（参数 late，同帮众那句）；之前改说“我说了不算”。
@@ -12,7 +14,7 @@
 // 2026-10-21 删去村中活动“村口问讯”（用户：没有引导也不推进剧情）：周砚的搭话改为 fq_zhou_idle，没在药棚门口见过叶蘅时多一句 C1-Z-idle-01。
 INCLUDE _共用/externals.ink
 INCLUDE _共用/externals-风起主线.ink
-VAR late = false // 参数：第二天下午起（halfDay>=4）
+VAR late = false // 参数：第二天下午起（halfDay>=4）；只有采办随从 fq_aide 用（帮众那句 2026-11-12 已删）
 VAR evidence_done = false // 参数：对证已做完
 VAR shen_open = false // 参数：装卸路那场之后（halfDay>=4）沈雁回已在东埠（之前她不在地图上）
 VAR met_zhou = false // 参数：周砚已在药棚门口见过叶蘅（xu-meeting 之后）
@@ -51,11 +53,7 @@ VAR met_zhou = false // 参数：周砚已在药棚门口见过叶蘅（xu-meeti
 === fq_bandit ===
 { flag("qiheChapter.talkCycle"):
 - 0:
-    { late:
-        帮众：看什么看？有事找我们岑姑娘去，她在东埠装卸路。 #id:C1-X-bandit-late
-    - else:
-        帮众：看什么看？我们只听岑姑娘的，轮不到你来问。 #id:C1-X-bandit-v2
-    }
+    帮众：看什么看？我们只听岑姑娘的。 #id:C1-X-bandit-v3
     ~ set_flag("qiheChapter.talkCycle", 1)
 - 1:
     帮众：别在这儿晃。岑姑娘交代过，不许跟村里人起冲突——你别逼我。 #id:C1-X-bandit-2

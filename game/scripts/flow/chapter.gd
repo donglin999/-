@@ -326,7 +326,10 @@ func _install_expansion() -> void:
 	var met_xu := func(): var p = CP(); return p != null and p.events.get("xu-meeting", false)
 	var met3 := func(): var p = CP(); return p != null and p.events.get("three-meeting", false)
 	_node("south", "xulingyi", act_of("xulingyi"), func(): return before_fire() and met_xu.call())
-	_node("south", "censhuang", act_of("censhuang"), func(): return before_fire() and met3.call() and CP().halfDay < 4)
+	# 2026-11-12 南村口不摆岑霜：她装卸路那场（halfDay>=4）之后才到，一到就在东埠；原来“见过三方且 halfDay<4”的条件永远不成立。
+	# 场景数据（sc.json 的 qh_south）里还留着她的站位，这里只把它藏住，不挂交互
+	var cen_south := _npc(IDS["south"], "censhuang")
+	if not cen_south.is_empty(): cen_south.show = func(): return false
 	_node("east", "shenyanhui", act_of("shenyanhui"), func(): return before_fire() and met3.call())
 	_node("east", "censhuang", act_of("censhuang"), func(): return before_fire() and met3.call() and CP().halfDay >= 4)
 	_node("west", "luheng", act_of("luheng"), func(): var p = CP(); return before_fire() and not (p != null and p.stage == "days" and p.halfDay == 4))
@@ -983,7 +986,8 @@ func interact(id: String) -> void:
 	# 这三个人两个版本地图上都没摆，原来开头“先交给跑腿”的判断和三段闲话一并删了
 	await guarded(func():
 		var p = CP()
-		if id == "bandit": await play("fq_bandit", {}, {"late": p != null and p.halfDay >= 4}); return
+		# 2026-11-12 帮众不再传 late：halfDay>=4 起他不在客栈（side_town.gd bandit_in），那一句播不到，已从剧本删掉
+		if id == "bandit": await play("fq_bandit"); return
 		if id == "aide": await play("fq_aide", {}, {"late": p != null and p.halfDay >= 4}); return
 		if p == null:
 			# 2026-11-10 人物行踪：原来除了陆衡一律放药商那句“我得收摊”，西田埂的练场、药车也冒出药商的声音。

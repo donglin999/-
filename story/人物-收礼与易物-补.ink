@@ -1,3 +1,4 @@
+// 2026-11-12 算命先生的“喜”由书改成酒（物品表九个类别里没有书，原句永远播不到；用户定“按建议改”）：收礼句 QG-fortune-xi 换成说酒的 QG-fortune-xiv2；他的婉拒句暂时播不到，加了注释，没动。
 // 2026-11-11 审读修订（余项·二）：给阿炭（pid atan）补齐七档收礼句（喜／可收／不喜欢／婉拒按原因分两句／连送／赔礼收／赔礼不收）——他有喜好清单却一句台词都没有，送礼时气泡是空的。
 // 2026-11-11 审读修订（余项）：阿栓不收的只有酒和兵甲，“我爹不让我要大人的东西”听着像什么都不能收，和他别的档痛快收下打架；改成只说这一件。
 // 2026-11-11 从原版 xiaojianghu-legacy-prologue/story/01-开始/人物-收礼与易物-补.ink 搬到 Godot 版（原版不再更新）；此后以本文件为准，由 tools/build_story.cjs 编译。
@@ -86,11 +87,12 @@ VAR who = "" // 参数：说话人的名字（赠礼面板照旧会传，这里�
 - pid == "xiaohe" && kind == "amend-no":
     小禾：我还没消气，你拿回去。 #id:QG-xiaohe-amendno
 - pid == "fortune" && kind == "xi":
-    算命先生：书？好，夜里收了摊，正好有个伴。 #id:QG-fortune-xi
+    算命先生：酒？送得准。走江湖的夜里收了摊，就缺这么个伴。 #id:QG-fortune-xiv2
 - pid == "fortune" && kind == "ke":
     算命先生：小兄弟有心，老朽收下了。 #id:QG-fortune-ke
 - pid == "fortune" && kind == "meh":
     算命先生：收下了。东西不打紧，心意老朽记着。 #id:QG-fortune-meh
+// 2026-11-12 下面这句暂时播不到：算命先生的喜好清单没有“不收”的类别，也没有“不收厚礼”（noHeavy），gift.gd judge() 不会给他判“no”。留着备用，不为它改规则。
 - pid == "fortune" && kind == "no":
     算命先生：这个太重，老朽受不起。 #id:QG-fortune-no
 - pid == "fortune" && kind == "again":

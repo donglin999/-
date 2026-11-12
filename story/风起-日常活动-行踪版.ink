@@ -1,3 +1,4 @@
+// 2026-11-12 自动检查（story_lint LONG）：陆衡 C1-A-transport-01v3 一句 45 字，拆成两句（C1-A-transport-01v4、C1-A-transport-01bv4），意思没动。
 // 2026-11-11 审读修订：
 //   学棍：陆衡转达叶蘅的话不再说“早上托我捎句话：练完回去吃饭”（萧白是当场才求教的，她早上不可能预知），改成她提过萧白手上的口子。
 //   修车认路：第二个选择由“送老人去邻村”改成“探去邻村的路”。原来第一天上午就送老人去邻村，可撤去邻村是第二天傍晚才提出来的（R2-P2、R2-P3），
@@ -44,7 +45,8 @@ EXTERNAL fq_grant_lesson()
 - -> END
 
 === fq_act_transport ===
-陆衡：药车有根轴销松了。去邻村拉药材的那条田埂路，前些天雨后塌过一段，也得有人去看看。你帮哪头？ #id:C1-A-transport-01v3
+陆衡：药车有根轴销松了，得修。 #id:C1-A-transport-01v4
+陆衡：去邻村拉药材的那条田埂路，前些天雨后塌过一段，也得有人去看看。你帮哪头？ #id:C1-A-transport-01bv4
 * [“我来帮你修车。”]
     ~ set_flag("qiheChapter.choices.transport", "cart")
     陆衡：别使蛮劲，先把轮垫住。 #id:C1-A-transport-A1v2

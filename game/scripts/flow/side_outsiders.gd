@@ -73,7 +73,8 @@ func errand_label(id: String) -> String:
 func location(id: String) -> String:
 	if id == "xulingyi": return "南村口 · 联络院门前"
 	if id == "shenyanhui": return "东埠 · 采办核货点"
-	return "东埠 · 装卸路" if side.half() >= 4 else "南村口 · 车道旁"
+	# 2026-11-12 岑霜只在东埠：她装卸路那场（halfDay>=4）之后才上图，原来 halfDay<4 时的“南村口 · 车道旁”用不到，已删
+	return "东埠 · 装卸路"
 
 ## 行记“三方对接”条目（contactRecords）
 func contact_records() -> Array:
