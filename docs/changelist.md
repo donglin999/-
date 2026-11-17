@@ -25,6 +25,14 @@
 
 ## 条目
 
+### 2026-11-13 · 试玩反馈三条：战斗指令样式与位置、交谈为空与闪屏、叶蘅瞬移
+- 工作区：xiaojianghu-godot
+- 谁：Claude Code（Fable 5.2 主会话拆任务与验收；命令行 claude -p 执行）
+- 状态：已提交并推送（xiaojianghu-godot godot 分支，2026-11-17；含追加的第四项：交谈前和散场的黑场改成人物走位，world/world.gd 走位函数、world_draw.gd、tests/stage_run.gd）
+- 范围：battle/panel.gd（指令菜单缩小、贴出手人、避让）；flow/chapter.gd、prologue.gd、world/world.gd（搭话先开口、已在跟前不黑场、叶蘅同路跟随与先走一步、主线大事散场黑场）；menu/quest.gd；新剧本 风起-搭话先开口.ink、风起-同路.ink，风起-次日药摊.ink 加一句；tests 下 battle_snap.gd、sweep_npc.gd（--talk-audit、--cast-audit、--cast-run）、walkthrough.gd；基准图 scene-west、battle-ye 和通关台词基准
+- 更新记录：[2026-11-13-playtest-fixes](../../xiaojianghu-godot/docs/updates/2026-11-13-playtest-fixes.md)
+- 留给接手的人：新台词没冷读；新检查没接进 selftest.py；四人队第二位的指令菜单偏远；其余见更新记录“没做的”
+
 ### 2026-11-12 · 审读清单留给用户定的几件按建议改，新台词补检查和冷读
 - 工作区：xiaojianghu-godot、xiaojianghu
 - 谁：Claude Code（Fable 5.2 主会话拆任务与验收；命令行 claude -p 执行）
