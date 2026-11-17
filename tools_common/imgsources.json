@@ -1,6 +1,6 @@
 {
   "说明": "生图源登记。current 是当前默认源；用户说“切到某个源”时只改 current 并在 history 记一笔。旧源一律保留，不删除。密钥不写在这里，写在 tools_por/.env（已被 git 忽略），按 key_env 读取。",
-  "current": "302ai-sunburst-2.6",
+  "current": "codex",
   "sources": {
     "codex": {
       "kind": "codex",
@@ -67,6 +67,12 @@
       "current": "302ai-sunburst-2.6",
       "by": "用户",
       "note": "“把原有的 2.5 升级成 2.6”；2.6 flare 同时登记为快速档，旧 2.5 源保留"
+    },
+    {
+      "date": "2026-11-12",
+      "current": "codex",
+      "by": "用户",
+      "note": "切换"
     }
   ]
 }
