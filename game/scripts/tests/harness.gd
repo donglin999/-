@@ -37,6 +37,8 @@ var max_choices := 0        # 这段时间里遇到的最多选项数（扫荡�
 func _ready() -> void:
 	OS.add_logger(elog)
 	Flow.skip_battles = true
+	# 2026-11-13 站位戏开场、散场改成人物走位（World.stage_walk／ghost）。无界面跑测试没人看画面，走位放 4 倍速，免得拖慢整套测试
+	if DisplayServer.get_name() == "headless": World.stage_speed = 4.0
 	_last_progress = Time.get_ticks_msec()
 	_drive()
 

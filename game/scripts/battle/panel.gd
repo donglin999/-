@@ -2,7 +2,7 @@ extends Control
 ## 战斗 DOM 界面（layer 12）。原版 #bt 是 960×540 的绝对定位层，这里同样按 960 坐标立即绘制，数值照抄 bui.js 的 CSS
 ## （battleCSS ink 主题 + bui-compact + 布局 v4 覆盖），以及 battle-auto.js 的 #bt-auto、prologue-story-battle.js 的教学指引。
 ## 墨迹签条、铜钱、朱印、宣纸、木轴用 Bui（原版参数烘焙图，见 bdraw.gd 的 SW_* / sw_row 等）。
-## 对外：render_cards / hint / hide_cmd / show_menu / cmd_hide / show_win / set_auto / teach_*。
+## 对外：render_cards / hint / hide_cmd / show_menu / cmd_rect / cmd_report / show_win / set_auto / teach_*。
 
 const BD := preload("res://scripts/battle/bdraw.gd")
 const Screen := preload("res://scripts/battle/screen.gd")
@@ -26,6 +26,7 @@ func _ready() -> void:
 	size = Vector2(W, H)
 	mouse_filter = Control.MOUSE_FILTER_IGNORE
 	texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
+	Paint.crisp(self)   # 字按实际显示大小光栅（2026-11-13 接上）：菜单字缩到 10～13px，窗口再缩时不丢横笔（见 paint.gd）
 
 func _process(_d: float) -> void:
 	queue_redraw()
@@ -190,6 +191,7 @@ func _draw_hint() -> void:
 	if teaching and tw > maxw: lines = ceili(tw / maxw)
 	var w := minf(tw, maxw) + 68; var h := (22.0 if teaching else 24.0) * lines + 10
 	var x := W / 2 - w / 2; var y := 82.0
+	_hint_r = Rect2(x, y, w, h)
 	BD.sw(self, BD.SW_HINT, Rect2(x, y, w, h))
 	var cx := x + 34; var by := y + 5 + 17; var lx := cx
 	for s in segs:
@@ -206,49 +208,171 @@ func _draw_hint() -> void:
 			if lines > 1 and lx + cw > cx + maxw: lx = cx; by += 22
 			_txt(ch, lx, by, sz, col, f); lx += cw
 
-# ── 指令菜单（#bt-cmd，ink 主题 + bui-compact：宽 140、表头 23、行高 21、选中左移 7、蓄势栏 27）──
+# ── 指令菜单（2026-11-13 重排：原版 #bt-cmd 宽 140／教学 220、行高 21／27，试玩反馈太大、盖住敌人）──
+## 尺寸：表头 20、行高 18、蓄势栏 20，教学场与平时同一套；宽度按内容算（116～196），不再固定。
+## 位置：见 _fit_cmd——贴着出手人，取离他头部最近、又不压任何东西的空位。
 ## rows：[{label,val,ico:[类型…] 或 item:键, right, right_col, why, dis, desc}]；cb：{pick(i,src), hover(i), bp(d), pip(i)}
+const C_HD := 20.0    # 表头高
+const C_RH := 18.0    # 行高（四人队带“逃跑”的五行菜单要放得进状态卡与后排头顶之间，不能再高）
+const C_FT := 20.0    # 蓄势栏高（上方另留 2）
+const C_SEL := 5.0    # 选中行左移
+const C_IC := 15.0    # 行内图标
+const C_GAP := 6.0    # 菜单与出手人之间的空隙
+
 func show_menu(u: Dictionary, title: String, rows: Array, sel: int, ft: bool, cb: Dictionary) -> void:
 	var opening: bool = cmd == null
-	cmd = {"u": u, "title": title, "rows": rows, "sel": sel, "ft": ft, "cb": cb, "t0": bt.pn() if opening else (cmd.t0 if cmd else bt.pn())}
+	var old = cmd
+	cmd = {"u": u, "title": title, "rows": rows, "sel": sel, "ft": ft, "cb": cb, "t0": bt.pn() if opening else old.t0}
+	if old != null and old.has("x"): cmd.x = old.x; cmd.y = old.y; cmd.sig = old.get("sig", "")
 	_fit_cmd()
 
+## 菜单宽高：宽度取表头、各行、蓄势栏里最宽的一个
 func _cmd_dims() -> Vector2:
-	var teaching: bool = teach.on
-	var w := 220.0 if teaching else 140.0
-	var rh := 27.0 if teaching else 21.0
-	var h: float = 23 + 1 + cmd.rows.size() * rh + (29.0 if cmd.ft else 0.0)
+	var need: float = 12 + _tw(str(cmd.u.name), 13, BD.fb()) + 10 + _tw(str(cmd.title), 10, BD.fb()) + 8
+	for r in cmd.rows:
+		var icw: float = 17.0 if r.has("item") else 17.0 * r.get("ico", []).size()
+		var n := 22 + maxf(C_IC, icw - 1) + 3 + _tw(str(r.label), 13, BD.fb()) + 8
+		if r.get("why", "") != "": n += 2 + _tw(str(r.why), 10)
+		if str(r.get("right", "")) != "": n += 6 + _tw(str(r.right), 10)
+		need = maxf(need, n)
+	if cmd.ft: need = maxf(need, 118)
+	var w := clampf(ceilf(need / 2) * 2, 116, 196)
+	var h: float = C_HD + 1 + cmd.rows.size() * C_RH + ((C_FT + 2) if cmd.ft else 0.0)
 	return Vector2(w, h)
 
-## bui.js allyTurn 覆盖版 fit：右侧 / 左侧 / 头顶三个候选，按遮挡评分取最小（同分优先右侧）
+## 单位精灵相对脚底的矩形（按当前帧的不透明范围量；量不到时按身高估）
+var _used := {}
+func _spr_rel(v: Dictionary) -> Rect2:
+	var vh: float = bt.rules.unit_h(v)
+	var body := Rect2(-vh * 0.22, -vh, vh * 0.44, vh)
+	var n = bt.view.nodes.get(v.id) if bt.view != null else null
+	if n == null or n.fr.is_empty() or n.fr.get("none", false) or n.fr.get("tex") == null: return body
+	var f: Dictionary = n.fr
+	var src: Rect2 = f.src
+	var used := Rect2(Vector2.ZERO, src.size)
+	if f.get("A") != null:
+		var key := "%s|%s" % [f.A.file, src]
+		if not _used.has(key):
+			var im: Image = bt.rules.mo.image_of(f.A.file)
+			_used[key] = Rect2(im.get_region(Rect2i(src)).get_used_rect()) if im != null else used
+		used = _used[key]
+		if used.size.x <= 0: return body
+	var k: float = f.dh / src.size.y
+	var ox: float = f.originX if f.originX != null else f.dw / 2
+	var x0: float = (src.size.x - used.end.x) * k - (f.dw - ox) if f.flip else used.position.x * k - ox
+	return Rect2(x0, -f.dh + used.position.y * k + f.get("foot", 0.0), used.size.x * k, used.size.y * k).merge(body)
+
+## 菜单不许压的东西：[名字, 矩形]。live=false 用各人站定的位置（出手人按跨出一步后的位置），算菜单落点用，不随镜头和动作抖；
+## live=true 用此刻画面上的实际位置，给 cmd_report 核对用
+func _cmd_obstacles(live: bool) -> Array:
+	var B = bt.B
+	var u: Dictionary = cmd.u
+	var out := []
+	for v in B.units:
+		if v.hp <= 0: continue
+		var px: float = v.x; var py: float = v.y
+		if not live and v.get("bx") != null:
+			px = v.bx + (-30.0 if is_same(v, u) and not v.get("stationarySkill") else 0.0)
+		var r := _spr_rel(v); r.position += Vector2(px, py)
+		if live:
+			var a: Vector2 = bt.cam.to_screen(r.position.x, r.position.y); var b: Vector2 = bt.cam.to_screen(r.end.x, r.end.y)
+			r = Rect2(a, b - a)
+		out.append([str(v.name), r.grow(3 if not live else 0)])
+		if v.side == "foe":
+			# 护盾＋弱点格（view._shield_row）与头顶意图徽（view._draw_unit_ui）
+			var n: int = v.weak.size(); var ww := n * 18.0 - 3
+			var bx := roundf(px - ww / 2 + 10)
+			out.append([str(v.name) + "的弱点格", Rect2(bx - 36, py + 6, ww + 38, 40)])
+			if v.get("intent") != null and not v.get("broken"):
+				var vh: float = bt.rules.unit_h(v)
+				out.append([str(v.name) + "的意图", Rect2(px - 15, maxf(96, py - vh - 30) - 4, 30, 30)])
+	out.append(["顺序条", Rect2(0, 0, W, 76)])
+	out.append(["队伍状态", Rect2(W - 44 - 206 - 12, 4, 220, B.allies.size() * 56 + 2)])
+	if live:
+		if _hint != null: out.append(["说明条", _hint_rect()])
+	else: out.append(["说明条", Rect2(45, 80, 870, 58 if teach.on else 38)])
+	if teach.on:
+		out.append(["指引开关", _toggle_rect().grow(2)])
+		if teach.guide != null: out.append(["指引框", _guide_rect().grow(2)])
+	if auto_btn.show: out.append(["自动战斗按钮", _auto_rect().grow(2)])
+	return out
+
+## 菜单落点（按出手人安排）：
+##  1. 先试三个贴身位——前上（朝敌一侧、与头胸齐平）、头顶、后上；哪个不压东西就用哪个；
+##  2. 都压东西时（人多、站得密），在出手人周围按 4×2 像素一格找“不压任何东西、离他头部最近”的空位，同样近时偏向前上；
+##  3. 实在没有空位，取压得最少的。
+## 不许压的东西见 _cmd_obstacles。位置只在出手人、菜单大小、场上东西变了时重算，选行时不跳。
 func _fit_cmd() -> void:
 	var B = bt.B
 	if cmd == null or B == null: return
 	var u: Dictionary = cmd.u
 	var d := _cmd_dims(); var w := d.x; var h := d.y
+	cmd.w = w; cmd.h = h
+	var alive := []
+	for v in B.units: if v.hp > 0: alive.append(v.id)
+	var sig := str([u.id, w, h, teach.on, _guide_rect().size.y if teach.on and teach.guide != null else 0.0, auto_btn.show, alive])
+	if cmd.get("sig", "") == sig and cmd.has("x"): return
+	cmd.sig = sig
+	var obs := _cmd_obstacles(false)
 	var uh: float = bt.rules.unit_h(u)
-	var p0: Vector2 = bt.cam.to_screen(u.x, u.y)
-	var ux := p0.x; var uy := p0.y
-	var cands := [[ux + uh * 0.26 + 8, uy - uh * 0.95], [ux - uh * 0.26 - 8 - w, uy - uh * 0.95], [ux - w * 0.5, uy - uh - h - 8]]
-	var sr := Rect2(W - 44 - 206, 6, 206, B.allies.size() * 56 - 2)
-	var best := Vector2(cands[0][0], cands[0][1]); var bs := 1e12
+	var ax: float = (u.bx - (0.0 if u.get("stationarySkill") else 30.0)) if u.get("bx") != null else u.x
+	var ay: float = u.y
+	var A := _spr_rel(u); A.position += Vector2(ax, ay)
+	var head := Vector2(ax, ay - uh * 0.8)
+	var mw := w + C_SEL        # 含选中行左移的占地
+	# 贴身位（占地矩形的左上角）
+	var slots := [
+		Vector2(A.position.x - C_GAP - mw, ay - uh * 0.35 - h),
+		Vector2(ax - mw / 2, A.position.y - C_GAP - h),
+		Vector2(A.end.x + C_GAP, ay - uh * 0.35 - h)]
+	var want: Vector2 = slots[0] + Vector2(mw, h) / 2
+	var cands := []
+	for s in slots: cands.append(s)
+	var gx: float = slots[0].x - 300
+	while gx <= slots[0].x + 300:
+		var gy: float = slots[0].y - 300
+		while gy <= slots[0].y + 180:
+			cands.append(Vector2(gx, gy)); gy += 2
+		gx += 4
+	var best: Vector2 = slots[0]; var bc := 1e12; var bo := 1e12
 	for i in cands.size():
-		var x0 := clampf(cands[i][0], 8, 952 - w); var y0 := clampf(cands[i][1], 70, 540 - 8 - h)
-		var a := Rect2(x0, y0, w, h)
-		var sc := i * 50.0
-		for v in B.units:
-			if is_same(v, u) or v.hp <= 0: continue
-			var vh: float = bt.rules.unit_h(v); var vw := vh * 0.5
-			var vp: Vector2 = bt.cam.to_screen(v.x, v.y)
-			sc += _ov(a, Rect2(vp.x - vw / 2, vp.y - vh, vw, vh)) * (3.0 if v.side == "ally" else 1.0)
-		sc += _ov(a, sr) * 2
-		sc += _ov(a, Rect2(ux - uh * 0.25, uy - uh, uh * 0.5, uh)) * 4
-		if sc < bs: bs = sc; best = Vector2(x0, y0)
-	cmd.x = roundf(best.x); cmd.y = roundf(best.y); cmd.w = w
+		var p: Vector2 = cands[i]
+		if p.x < 6 or p.y < 6 or p.x + mw > W - 6 or p.y + h > H - 6:
+			if i >= slots.size(): continue
+			p = Vector2(clampf(p.x, 6, W - 6 - mw), clampf(p.y, 6, H - 6 - h))
+		var m := Rect2(p, Vector2(mw, h))
+		# 离头部的距离（点到矩形）＋偏向前上的小权重；贴身位按先后各加 2，同样近时取靠前的
+		var dx := maxf(maxf(m.position.x - head.x, head.x - m.end.x), 0.0); var dy := maxf(maxf(m.position.y - head.y, head.y - m.end.y), 0.0)
+		var cost := Vector2(dx, dy).length() + 0.2 * (m.get_center() - want).length() + (i * 2.0 if i < slots.size() else 8.0)
+		if bo <= 0 and cost >= bc: continue
+		var ov := 0.0
+		for o in obs:
+			ov += _ov(m, o[1])
+			if bo <= 0 and ov > 0: break
+		if ov < bo or (ov == bo and cost < bc): bo = ov; bc = cost; best = p
+	cmd.x = roundf(best.x + C_SEL); cmd.y = roundf(best.y)
 
 static func _ov(a: Rect2, b: Rect2) -> float:
-	var r := a.intersection(b)
-	return r.get_area() if a.intersects(b) else 0.0
+	return a.intersection(b).get_area() if a.intersects(b) else 0.0
+
+## 菜单占地（含选中行左移）
+func cmd_rect() -> Rect2:
+	if cmd == null or not cmd.has("x"): return Rect2()
+	return Rect2(cmd.x - C_SEL, cmd.y, cmd.w + C_SEL, cmd.h)
+
+## 截图核对用：菜单矩形、离出手人多远、此刻压到了谁（960×540 坐标）
+func cmd_report() -> String:
+	if cmd == null: return "无菜单"
+	var m := cmd_rect()
+	var u: Dictionary = cmd.u
+	var a := _spr_rel(u); a.position += Vector2(u.x, u.y)
+	var gap := maxf(maxf(a.position.x - m.end.x, m.position.x - a.end.x), maxf(a.position.y - m.end.y, m.position.y - a.end.y))
+	var hit := []
+	for o in _cmd_obstacles(true):
+		var ar := _ov(m, o[1])
+		if ar > 0: hit.append("%s(%d)" % [o[0], roundi(ar)])
+	return "菜单[%d,%d %dx%d] %s[%d,%d %dx%d] 间隔%d %s" % [m.position.x, m.position.y, m.size.x, m.size.y, u.name, a.position.x, a.position.y, a.size.x, a.size.y, roundi(gap),
+		("压到 " + "、".join(hit)) if hit.size() else "不压东西"]
 
 func _draw_cmd(now: float) -> void:
 	_row_rects = []; _pip_rects = []; _btn_rects = {}
@@ -257,43 +381,41 @@ func _draw_cmd(now: float) -> void:
 	var B = bt.B
 	var u: Dictionary = cmd.u
 	var teaching: bool = teach.on
-	var d := _cmd_dims(); var w := d.x
-	var rh := 27.0 if teaching else 21.0
+	var w: float = cmd.w
+	var rh := C_RH
 	var e: float = now - cmd.t0
 	var k := clampf(e / 220.0, 0, 1)
-	var ox: float = 14 * (1 - k); var a := k
+	var ox: float = 10 * (1 - k); var a := k
 	var x: float = cmd.x + ox; var y: float = cmd.y
-	# 表头：深红墨带，名字 14px + 标题 11px
-	BD.sw(self, BD.SW_HD, Rect2(x, y, w, 23), a)
-	_txt(str(u.name), x + 14, y + 16, 14, Color("#f6e0b0", a), BD.fb())
+	# 表头：深红墨带，名字 13px + 标题 10px
+	BD.sw(self, BD.SW_HD, Rect2(x, y, w, C_HD), a)
+	_txt(str(u.name), x + 12, y + 15, 13, Color("#f6e0b0", a), BD.fb())
 	var tt: String = cmd.title
-	_txt(tt, x + w - 7 - _tw(tt, 11, BD.fb()), y + 16, 11, Color("#e0b8a0", a), BD.fb(), false)
-	y += 24
+	_txt(tt, x + w - 7 - _tw(tt, 10, BD.fb()), y + 14, 10, Color("#e0b8a0", a), BD.fb(), false)
+	y += C_HD + 1
 	for i in cmd.rows.size():
 		var r: Dictionary = cmd.rows[i]
 		var sel: bool = i == cmd.sel
-		var rx := x - (7.0 if sel else 0.0)
+		var rx := x - (C_SEL if sel else 0.0)
 		var rr := Rect2(rx, y, w, rh)
-		_row_rects.append([Rect2(x - 7, y, w + 7, rh), i])
+		_row_rects.append([Rect2(x - C_SEL, y, w + C_SEL, rh), i])
 		# .row 背景 var(--sw) = swRow(i%4)；选中换 swSel（bui.js 428、302）
 		BD.sw(self, BD.SW_SEL if sel else BD.sw_row(i % 4), rr, a)
-		if teaching and teach.focus_row == i: draw_rect(rr.grow(3), Color("#f1d07b", a), false, 2)
+		if teaching and teach.focus_row == i: draw_rect(rr.grow(1), Color("#f1d07b", a), false, 1.5)
 		var dis: bool = r.get("dis", false)
 		var col := Color("#6d5f4b") if dis else (Color("#ffe6a8") if sel else Color("#e8d8b8"))
 		var mid := y + rh / 2
-		if sel: BD.pointer(self, Color("#e0402a"), rx + 1, mid - 8, 16, "r")
-		var cx := rx + 14
-		if i < 9: _txt(str(i + 1), cx, mid + 4, 9, Color(col, 0.7 * a), null, false)
-		cx += 8 + 4
+		if sel: BD.pointer(self, Color("#e0402a"), rx - 1, mid - 7, 14, "r")
+		if i < 9: _txt(str(i + 1), rx + 13, mid + 3, 9, Color(col, 0.7 * a), null, false)
+		var cx := rx + 22
 		var icw := 0.0
 		for ic in r.get("ico", []):
-			BD.icon(self, ic, cx + icw, mid - 9, 18, dis); icw += 19
-		if r.has("item"): BD.item_icon(self, str(r.item), cx, mid - 9, 18, dis); icw = 19
-		cx += maxf(18, icw - 1) + 4
-		var lsz := 15 if teaching else 13
+			BD.icon(self, ic, cx + icw, mid - C_IC / 2, C_IC, dis); icw += C_IC + 1
+		if r.has("item"): BD.item_icon(self, str(r.item), cx, mid - C_IC / 2, C_IC, dis); icw = C_IC + 1
+		cx += maxf(C_IC, icw - 1) + 3
 		var right: String = str(r.get("right", ""))
 		var rw := _tw(right, 10) if right != "" else 0.0
-		var lw := _txt(str(r.label), cx, mid + 5, lsz, Color(col, a), BD.fb())
+		var lw := _txt(str(r.label), cx, mid + 5, 13, Color(col, a), BD.fb())
 		if r.get("why", "") != "": _txt(str(r.why), cx + lw + 2, mid + 4, 10, Color("#e0806a", a), null, false)
 		if right != "":
 			var rc: Color = r.get("right_col", Color("#b8a888"))
@@ -301,20 +423,20 @@ func _draw_cmd(now: float) -> void:
 		y += rh
 	if cmd.ft:
 		y += 2
-		var fr := Rect2(x, y, w, 27)
+		var fr := Rect2(x, y, w, C_FT)
 		BD.sw(self, BD.sw_row(4), fr, a)
-		var fx := x + 14; var mid2 := y + 13.5
-		_btn(fx, mid2 - 8.5, "Q", "bm"); fx += 17 + 3
-		var pw := _pips(fx, mid2 - 5, int(u.bp), int(B.bpUse), 10, 1, _pip_rects); fx += pw + 3
-		_btn(fx, mid2 - 8.5, "E", "bp")
+		var fx := x + 12; var mid2 := y + C_FT / 2
+		_btn(fx, mid2 - 7.5, "Q", "bm", 15); fx += 15 + 3
+		var pw := _pips(fx, mid2 - 4.5, int(u.bp), int(B.bpUse), 9, 1, _pip_rects); fx += pw + 3
+		_btn(fx, mid2 - 7.5, "E", "bp", 15)
 		var n := str(B.bpUse)
-		_txt(n, x + w - 7 - _tw(n, 13, BD.fb()), mid2 + 5, 13, Color("#ffcf73", a), BD.fb())
+		_txt(n, x + w - 7 - _tw(n, 12, BD.fb()), mid2 + 4, 12, Color("#ffcf73", a), BD.fb())
 
-func _btn(x: float, y: float, s: String, key: String) -> void:
-	var c := Vector2(x + 8.5, y + 8.5)
-	draw_circle(c, 8.5, Color("#7a6344")); draw_circle(c, 7.5, Color("#20150d"))
-	_txt(s, c.x - _tw(s, 11) / 2, c.y + 4, 11, Color("#f3d58e"), null, false)
-	_btn_rects[key] = Rect2(x, y, 17, 17)
+func _btn(x: float, y: float, s: String, key: String, d := 17.0) -> void:
+	var c := Vector2(x + d / 2, y + d / 2)
+	draw_circle(c, d / 2, Color("#7a6344")); draw_circle(c, d / 2 - 1, Color("#20150d"))
+	_txt(s, c.x - _tw(s, 10) / 2, c.y + 3.5, 10, Color("#f3d58e"), null, false)
+	_btn_rects[key] = Rect2(x, y, d, d)
 
 # ── 智能自动战斗按钮（battle-auto.js #bt-auto：right44 bottom18 min-width150 padding 9×16，16px）──
 func set_auto(show: bool, on: bool) -> void:
@@ -352,6 +474,13 @@ func teach_show(guide, target, visible: bool) -> void:
 
 func _toggle_rect() -> Rect2:
 	return Rect2(18, 92, _tw(teach.toggle, 13) + 20 + 2, 13 + 10 + 6)
+
+var _hint_r := Rect2()
+func _hint_rect() -> Rect2: return _hint_r
+func _guide_rect() -> Rect2:
+	if teach.guide == null: return Rect2()
+	var lines := _wrap(str(teach.guide.text), 15, 360 - 32 - 2)
+	return Rect2(18, 132, 360, 12 + 24 + 4 + lines.size() * 24 + 12 + 2.0)
 
 func _draw_teach(_now: float) -> void:
 	if not teach.on: return

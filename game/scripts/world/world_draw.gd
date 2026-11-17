@@ -51,6 +51,7 @@ static func draw_scene(W, t: float, fdt: float) -> void:
 	for n in W.npcs: DL.append([n.y * W.TS, 0, n])
 	for w in W.wanderers: DL.append([w.y, 1, w])
 	for f in W.followers: DL.append([f.y, 2, f])
+	for g in W.ghosts: DL.append([g.y, 7, g])   # 走位的影子人（2026-11-13）
 	DL.append([W.player.y, 3, W.player])
 	var cam: Vector2 = W.cam
 	var fgi := Assets.tex_ready(cur.fg) if cur.get("fg") else null
@@ -85,6 +86,10 @@ static func draw_scene(W, t: float, fdt: float) -> void:
 				var psp: String = cur.get("playerSp", "hero") if cur.get("playerSp") else G.player_sp()
 				CharArt.draw_char(ci, psp, o.x, o.y, o.dir, o.walk, t, {"moving": o.moving, "running": o.running, "alpha": pa})
 				actors.append(_actor(W, psp, o.x, o.y, o.dir, o.walk, 0.0, o.moving, o.running, 0.0, pa))
+			7:
+				if o.alpha <= 0: continue
+				CharArt.draw_char(ci, o.sp, o.x, o.y, o.dir, o.walk, t, {"h": o.h, "moving": o.moving, "ph": o.ph, "alpha": o.alpha})
+				actors.append(_actor(W, o.sp, o.x, o.y, o.dir, o.walk, o.h, o.moving, false, o.ph, o.alpha))
 			4:
 				draw_fg(W, fgi, o)
 				if occ_on: _occ_hit(W, actors, 4, o, fgi, 0.0)
@@ -113,6 +118,7 @@ static func draw_npc(W, n: Dictionary, t: float, near):
 	var ci: CanvasItem = W
 	var TS: float = W.TS
 	var x: float = n.x * TS; var y: float = n.y * TS
+	if n.get("hid"): return null   # 人还在走位的路上，由影子人（W.ghosts）替他画
 	if n.get("resource"):
 		_draw_resource(W, n, t, near); return null
 	if n.get("barrel"):

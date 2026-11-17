@@ -42,6 +42,7 @@ class Actor:
 	# 路人/跟随者用
 	var sp := ""
 	var m := ""
+	var npc = null           # 跟随者可交谈时的人物字典（follow_npc 给的；位置每帧跟着跟随者走）
 	var mode := ""
 	var source = null
 	var box = null
@@ -59,6 +60,12 @@ class Actor:
 	var hy := 0.0
 	var idle := 0.0
 	var talk := 0
+	# 走位用（2026-11-13，见“走位”一节）
+	var mv = null            # 正在走的这一段：{pts, to, speed, t, fin, fout, blink…}
+	var h := 0.0             # 影子人的身高（0＝按精灵默认）
+	var tag := ""            # 影子人的批次（"in" 入场／"out" 散场）
+	var node = null          # 影子人替哪个人物字典走（走完这个人才显出来）
+	var on_done = null
 
 var scenes := {}            # 全部场景（Dictionary）
 var cur: Dictionary = {}
@@ -185,7 +192,7 @@ func npc_h(n: Dictionary) -> float:
 
 func npc_block(px: float, py: float, self_obj = null) -> bool:
 	for n in npcs:
-		if not n.get("sp") or (self_obj is Dictionary and n == self_obj): continue
+		if not n.get("sp") or n.get("away") or (self_obj is Dictionary and n == self_obj): continue
 		var r: float = max(12.0, npc_h(n) * 0.15)
 		var dx: float = n.x * TS - px
 		var dy: float = (n.y * TS - py) * 1.8
@@ -208,6 +215,10 @@ func walkable(px: float, py: float, self_obj = null) -> bool:
 var npcs_hook: Callable = Callable()      # 平时站位规则（qihe-staging.js 包裹 npcsOf）
 var go_before: Callable = Callable()      # 换场前（站位复原）
 var go_after: Callable = Callable()       # 换场后（续摆站位）
+## 2026-11-13 开始部分的同伴跟随（用户：“要么就直接入队”）。follow_hook 返回这个场景里跟在主角身后的人（数组）；
+## 返回 null 就按老规矩（场景 noFollow、队伍名单）。follow_npc(m) 返回这个跟随者的人物字典（能搭话、有墨印）；返回 null 就只跟着、不能搭话
+var follow_hook: Callable = Callable()
+var follow_npc: Callable = Callable()
 
 func npcs_of(sc: Dictionary) -> Array:
 	if npcs_hook.is_valid(): npcs_hook.call(sc)
@@ -231,9 +242,17 @@ func exits_of(sc: Dictionary) -> Array:
 func nearest():
 	var best = null; var bd := 80.0
 	for n in npcs:
+		if n.get("hid"): continue   # 人还在走位的路上（影子人替他走）：到位之前不能搭话
 		var d: float = Vector2(n.x * TS - player.x, n.y * TS - player.y).length() - (float(n.talkR) - 80.0 if n.get("talkR") else 0.0)
 		if d < bd:
 			bd = d; best = n
+	# 能搭话的跟随者：站着的人优先（跟随者多算 14 像素），免得身后的同伴抢了面前那个人的“交谈”
+	for f in followers:
+		if not (f.npc is Dictionary): continue
+		f.npc.x = f.x / TS; f.npc.y = f.y / TS
+		var df: float = Vector2(f.x - player.x, f.y - player.y).length() + 14.0
+		if df < bd:
+			bd = df; best = f.npc
 	return best
 
 func occupied(x: float, y: float, self_obj, rad: float) -> bool:
@@ -297,7 +316,11 @@ func spawn_wanderers() -> void:
 	reset_followers()
 
 func party_here() -> Array:
-	if cur.get("noFollow") or G.S == null: return []
+	if G.S == null: return []
+	if follow_hook.is_valid():
+		var r = follow_hook.call()
+		if r is Array: return r
+	if cur.get("noFollow"): return []
 	var people := []
 	for k in G.S.get("party", []):
 		if k != G.S.get("pet") and people.size() < 3: people.append(k)
@@ -312,6 +335,10 @@ func reset_followers() -> void:
 	for i in party.size():
 		var f := Actor.new(); var p := trail_at(FOLLOW_GAP * (i + 1))
 		f.m = party[i]; f.x = p.x; f.y = p.y; f.dir = player.dir; f.ph = i * 2.3
+		if follow_npc.is_valid():
+			f.npc = follow_npc.call(f.m)
+			if f.npc is Dictionary:
+				f.npc.follower = f; f.npc.x = f.x / TS; f.npc.y = f.y / TS
 		followers.append(f)
 
 func seed_trail(length: float) -> void:
@@ -438,6 +465,8 @@ func enter_scene_now(id: String, at = null, d: String = "") -> void:
 	player.dir = dd
 	player.x = p[0] * TS; player.y = p[1] * TS; player.vx = 0; player.vy = 0
 	player.path = null; player.goal = null; player.trail = []; player.anim = null
+	if player.mv != null: _end_mv(player)
+	clear_ghosts()
 	particles = []
 	spawn_wanderers()
 	if not G.S.has("unlocked"): G.S.unlocked = {}
@@ -464,6 +493,17 @@ func interact(target = null) -> void:
 	if busy or Dialog.busy or not active or UI.panel_open(): return
 	var n = target if target != null else nearest()
 	if n == null: return
+	var fol = n.get("follower")
+	if fol is Actor:
+		# 跟随者：搭话期间站住不跟，转过来对着主角；说完接着跟
+		fol.talk = 1; fol.moving = false; fol.walk = 0
+		fol.dir = face_to(player.x - fol.x, player.y - fol.y); n.dir = fol.dir
+		await _interact(n)
+		fol.talk = 0
+		return
+	await _interact(n)
+
+func _interact(n: Dictionary) -> void:
 	if interact_hook.is_valid() and not n.get("loot"):
 		if await interact_hook.call(n): return
 	busy = true; UI.prompt_hide()
@@ -528,7 +568,10 @@ func nav_of() -> Dictionary:
 	_nav = {"NS": float(d.NS), "nw": int(d.nw), "nh": int(d.nh), "code": codes, "precise": d.precise, "astar": astar}
 	return _nav
 
-func find_path(tx: float, ty: float):
+## from：起点（缺省是主角脚下）；through：不把站着的人当障碍（走位的影子人用，人堆里穿过去）
+func find_path(tx: float, ty: float, from = null, through := false):
+	var sx: float = from.x if from != null else player.x
+	var sy: float = from.y if from != null else player.y
 	var N := nav_of()
 	var NS: float = N.NS; var nw: int = N.nw; var nh: int = N.nh
 	var code: PackedInt32Array = N.code.duplicate()
@@ -536,19 +579,19 @@ func find_path(tx: float, ty: float):
 	var npc_cells := []
 	# 站立的剧情 NPC 视为障碍
 	for n in npcs:
-		if not n.get("sp"): continue
+		if through or not n.get("sp") or n.get("away"): continue
 		var r: float = max(12.0, npc_h(n) * 0.15) + 8
 		var nx: float = n.x * TS; var ny: float = n.y * TS
 		if not precise:
 			if Vector2(nx - tx, ny - ty).length() < r + NS: continue
-			if Vector2(nx - player.x, ny - player.y).length() < r + 2: continue
+			if Vector2(nx - sx, ny - sy).length() < r + 2: continue
 		for yy in range(int(floor((ny - r / 1.8) / NS)), int(floor((ny + r / 1.8) / NS)) + 1):
 			for xx in range(int(floor((nx - r) / NS)), int(floor((nx + r) / NS)) + 1):
 				if xx >= 0 and yy >= 0 and xx < nw and yy < nh and (not precise or npc_block(xx * NS + NS / 2, yy * NS + NS / 2)):
 					if code[yy * nw + xx] & 1: npc_cells.append(yy * nw + xx)
 					code[yy * nw + xx] = 0
 	var okc := func(c: int, r: int) -> bool: return c >= 0 and r >= 0 and c < nw and r < nh and (code[r * nw + c] & 1) == 1
-	var sc := int(floor(player.x / NS)); var sr := int(floor(player.y / NS))
+	var sc := int(floor(sx / NS)); var sr := int(floor(sy / NS))
 	var tc := int(floor(tx / NS)); var tr := int(floor(ty / NS))
 	if not okc.call(sc, sr):
 		var b = _near(code, nw, nh, sc, sr)
@@ -574,7 +617,7 @@ func find_path(tx: float, ty: float):
 	# 拉直：从当前点尽量跳到最远的可直达路点（同样避开剧情 NPC）
 	var base: PackedInt32Array = N.code
 	var lineN := func(x0: float, y0: float, x1: float, y1: float) -> bool:
-		if not path_line_ok(x0, y0, x1, y1): return false
+		if not (line_ok(x0, y0, x1, y1) if through else path_line_ok(x0, y0, x1, y1)): return false
 		var d := Vector2(x1 - x0, y1 - y0).length(); var n := int(ceil(d / 8))
 		for i in range(1, n):
 			var t := float(i) / n
@@ -582,7 +625,7 @@ func find_path(tx: float, ty: float):
 			if cc >= 0 and rr >= 0 and cc < nw and rr < nh and not okc.call(cc, rr) and (base[rr * nw + cc] & 1) == 1: return false
 		return true
 	var out := []
-	var px := player.x; var py := player.y; var i := 0
+	var px := sx; var py := sy; var i := 0
 	while i < pts.size():
 		var j := pts.size() - 1
 		while j > i and not lineN.call(px, py, pts[j].x, pts[j].y): j -= 1
@@ -683,6 +726,207 @@ func update_cam(dt: float) -> void:
 	camC.x += (tx - camC.x) * k; camC.y += (ty - camC.y) * k
 	_clamp_cam()
 
+# ─────────────────────── 走位（2026-11-13） ───────────────────────
+## 用户试玩：“闪屏的问题要处理，看下别人是如何解决的，不然太生硬了”。原来开戏前、散场时用全屏黑场遮着把人瞬间挪位。
+## 改成别的像素 RPG 的做法（逸剑风云决、歧路旅人、大侠立志传）：人自己走到位，镜头照常跟着主角平移；
+## 路太远或走不通，只把这个人的精灵淡出、在站位前一小段淡入走到位（不黑屏）；散场的人朝去处走出一段再淡出。
+## 全屏黑场只留给换场景、时间跳转、地点跳转。
+## 通用入口（以后的戏都用这几个）：
+##   await World.stage_walk(x, y, dir)            主角走到站位，返回 "walk"／"blink"（淡出淡入补位）／"put"（直接到位）
+##   World.ghost(sp, from, to, {…})               一个只画不挡路、不能搭话的“影子人”从 from 走到 to（入场、散场、回原位）
+##   await World.stage_wait("in")                 等这一批影子人走完
+##   World.stage_door(pos) / World.stage_side(…)  入场、散场的方向：最近的出入口，或旁边一小段
+const STAGE_SPEED := 0.36      # 走位步速（像素/毫秒）：平时走 0.27、跑 0.51，走位略快于走
+const STAGE_MAX_MS := 1500.0   # 一段走位最长用时；超出的路不走，改淡出淡入补位
+const STAGE_FADE_MS := 220.0   # 精灵淡出／淡入各用多久
+const STAGE_TAIL := 56.0       # 淡入时从站位前多远走进来
+var stage_speed := 1.0         # 走位倍速（无界面测试里调大，免得拖慢整套测试）
+var ghosts: Array = []         # 影子人（Actor）
+
+func stage_live() -> bool:
+	return active and not cur.is_empty() and G.mode == "scene" and is_inside_tree() and not get_tree().paused
+
+func _path_len(from: Vector2, pts: Array) -> float:
+	var L := 0.0; var p := from
+	for q in pts:
+		L += p.distance_to(q); p = q
+	return L
+
+## 从 from 到 to 的路线（末点一定是 to：站位以站位表为准）；走不通返回 null
+func stage_path(from: Vector2, to: Vector2, through := true):
+	var p = null
+	if nav_data.has(cur_id): p = find_path(to.x, to.y, from, through)
+	elif line_ok(from.x, from.y, to.x, to.y): p = [to]
+	if p == null: return null
+	if p[p.size() - 1].distance_to(to) > 0.5:
+		if p[p.size() - 1].distance_to(to) < 12: p[p.size() - 1] = to
+		else: p.append(to)
+	return p
+
+func _mv(from: Vector2, to: Vector2, opt: Dictionary) -> Dictionary:
+	var pts = opt.get("pts")
+	if pts == null: pts = stage_path(from, to, opt.get("through", true))
+	var speed: float = opt.get("speed", STAGE_SPEED)
+	var max_ms: float = opt.get("max_ms", STAGE_MAX_MS)
+	var fout: float = opt.get("fout", 0.0)
+	# 入场、挪位：路走不通或 max_ms 内走不完，就淡出淡入补位；散场（fout>0）走到哪算哪，到时间淡没
+	var blink: bool = fout <= 0 and (pts == null or _path_len(from, pts) > speed * max_ms)
+	return {"pts": pts if pts != null else [to], "to": to, "speed": speed, "max_ms": max_ms, "t": 0.0, "t0": 0.0, "bt": 0.0,
+		"fin": float(opt.get("fin", 0.0)), "fout": fout, "blink": blink, "kind": "blink" if blink else "walk", "dir": str(opt.get("dir", "")), "done": false}
+
+## 推进一步；走完返回 true
+func _step_mv(o: Actor, dt: float) -> bool:
+	var M: Dictionary = o.mv
+	dt *= stage_speed
+	M.t += dt
+	var s: float = M.speed * dt
+	if M.blink:
+		# 迈两步淡出 → 在站位前一小段淡入走到位（只淡这个人，不黑屏）
+		M.bt += dt
+		if M.bt >= STAGE_FADE_MS:
+			var to: Vector2 = M.to
+			var prev: Vector2 = M.pts[M.pts.size() - 2] if M.pts.size() > 1 else Vector2(o.x, o.y)
+			var tail := to
+			if prev.distance_to(to) > 1:
+				var c: Vector2 = to + (prev - to).normalized() * min(STAGE_TAIL, prev.distance_to(to))
+				if stand_ok(c.x, c.y) and line_ok(c.x, c.y, to.x, to.y): tail = c
+			o.x = tail.x; o.y = tail.y; o.dir = face_to(to.x - tail.x, to.y - tail.y) if tail != to else o.dir
+			M.pts = [to]; M.blink = false; M.fin = STAGE_FADE_MS; M.t0 = M.t; o.alpha = 0.0
+			if o == player: player.trail = []
+			return false
+		s *= 0.6
+	var moved := 0.0
+	while s > 0 and M.pts.size():
+		var p: Vector2 = M.pts[0]
+		var dx: float = p.x - o.x; var dy: float = p.y - o.y; var d := Vector2(dx, dy).length()
+		if d > 0.5: o.dir = dir_of(dx, dy, o.dir)
+		if d <= s:
+			o.x = p.x; o.y = p.y; s -= d; moved += d; M.pts.pop_front()
+		else:
+			var nx: float = o.x + dx / d * s; var ny: float = o.y + dy / d * s
+			if M.blink and not stand_ok(nx, ny): break   # 淡出那两步不往墙里走
+			o.x = nx; o.y = ny; moved += s; s = 0
+	o.walk += moved; o.moving = moved > 0
+	var a := 1.0
+	if M.fin > 0: a *= clamp((M.t - M.t0) / M.fin, 0.0, 1.0)
+	if M.blink: a *= clamp(1.0 - M.bt / STAGE_FADE_MS, 0.0, 1.0)
+	if M.fout > 0: a *= min(clamp(_path_len(Vector2(o.x, o.y), M.pts) / M.fout, 0.0, 1.0), clamp((M.max_ms - M.t) / 250.0, 0.0, 1.0))
+	o.alpha = a
+	# 走完；散场到时间；或者超时兜底（正常不会：走不完的一开始就改成补位了）
+	return M.pts.is_empty() or (M.fout > 0 and M.t >= M.max_ms) or M.t > M.max_ms + 1200
+
+func _end_mv(o: Actor) -> void:
+	var M = o.mv
+	o.mv = null
+	if M == null: return
+	if M.fout <= 0:
+		o.x = M.to.x; o.y = M.to.y; o.alpha = 1.0
+	o.moving = false; o.walk = 0; o.running = false
+	if M.dir != "": o.dir = M.dir
+	M.done = true
+
+## 主角走到站位 (x, y)，到位后朝 dir。期间锁操作，镜头照常平滑跟随。
+## opt：far="put" 路太远时直接到位（刚换完场景、黑场还没散尽时用）；speed、max_ms 同 ghost
+func stage_walk(x: float, y: float, dir := "", opt := {}) -> String:
+	var to := Vector2(x, y); var from := Vector2(player.x, player.y)
+	player.path = null; player.goal = null; player.talk_to = null; player.vx = 0; player.vy = 0
+	var M = null
+	if stage_live() and from.distance_to(to) >= 3:
+		var o: Dictionary = opt.duplicate(); o.through = false; o.dir = dir
+		M = _mv(from, to, o)
+		if M.blink and opt.get("far") == "put": M = null
+	if M == null:
+		var jump := from.distance_to(to) > 3
+		player.x = x; player.y = y
+		if dir != "": player.dir = dir
+		if jump:
+			player.trail = []; snap_cam()
+		return "put"
+	player.mv = M
+	var t0 := Time.get_ticks_msec()
+	while player.mv == M:
+		await get_tree().process_frame
+		# 兜底：地图停了（进战斗、切界面）或墙上时钟过了 6 秒，直接到位，不卡流程
+		if player.mv == M and (not stage_live() or Time.get_ticks_msec() - t0 > 6000): _end_mv(player)
+	return M.kind
+
+## 影子人：只画、不挡路、不能搭话，从 from 走到 to 后消失。
+## opt：dir 到位后的朝向；dir0 起步朝向；h 身高；fin 起步淡入毫秒；fout 走到离终点多远开始淡出（散场用）；
+##      speed、max_ms；pts 指定路线（不寻路）；tag 批次；node 替哪个人物字典走（走完才显出这个人）；
+##      away=true 这个人走到之前也不挡路（散场回原位）；done 走完回调
+func ghost(sp: String, from: Vector2, to: Vector2, opt := {}) -> Actor:
+	var g := Actor.new()
+	g.sp = sp; g.x = from.x; g.y = from.y; g.h = float(opt.get("h", 0.0)); g.ph = from.x * 0.013
+	g.dir = str(opt.get("dir0", face_to(to.x - from.x, to.y - from.y)))
+	g.tag = str(opt.get("tag", "")); g.node = opt.get("node"); g.on_done = opt.get("done")
+	g.mv = _mv(from, to, opt)
+	g.alpha = 0.0 if g.mv.fin > 0 else 1.0
+	if g.node is Dictionary:
+		g.node.hid = true
+		if opt.get("away"): g.node.away = true
+	ghosts.append(g)
+	if not stage_live(): _end_ghost(g)
+	return g
+
+func _end_ghost(g: Actor) -> void:
+	if g.mv != null: _end_mv(g)
+	ghosts.erase(g)
+	if g.node is Dictionary:
+		# 同一个人还有别的影子在走（少见）就先不显
+		if not ghosts.any(func(x): return x.node is Dictionary and x.node == g.node):
+			g.node.erase("hid"); g.node.erase("away")
+	if g.on_done is Callable and g.on_done.is_valid(): g.on_done.call()
+
+## 收掉影子人（各就各位）；tag 为空收全部
+func clear_ghosts(tag := "") -> void:
+	for g in ghosts.duplicate():
+		if tag == "" or g.tag == tag: _end_ghost(g)
+
+func _step_ghosts(dt: float) -> void:
+	if ghosts.is_empty(): return
+	for g in ghosts.duplicate():
+		if g.mv == null or _step_mv(g, dt): _end_ghost(g)
+
+## 等这一批影子人走完（地图停了或墙上时钟超时就直接各就各位）
+func stage_wait(tag := "", wall_ms := 6000) -> void:
+	var t0 := Time.get_ticks_msec()
+	while ghosts.any(func(g): return tag == "" or g.tag == tag):
+		if not stage_live() or Time.get_ticks_msec() - t0 > wall_ms:
+			clear_ghosts(tag); break
+		await get_tree().process_frame
+
+## 离 pos 最近、走得到的出入口（路程不超过 limit）：人从这儿进场、朝这儿散。没有返回 null
+func stage_door(pos: Vector2, limit := 420.0):
+	var best = null; var bd := limit
+	var cands := []
+	for e in exits_of(cur):
+		var R: Array = e.r
+		var v: Vector2 = DV[exit_dir(e)]
+		# 出口格子中心往里退半格：人在门口露头
+		cands.append(Vector2((R[0] + R[2] + 1) * 0.5 * TS, (R[1] + R[3] + 1) * 0.5 * TS) - v * TS * 0.5)
+	# 栖河各场景的门和路口是“物件”（按 E 进门）：id 形如 exit-north、ye-door、clinic_interior-out
+	for n in npcs:
+		var nid := str(n.get("id", ""))
+		if not n.get("sp") and (nid.begins_with("exit-") or nid.ends_with("-door") or nid.ends_with("-out")): cands.append(Vector2(float(n.x) * TS, float(n.y) * TS))
+	for c in cands:
+		if c.distance_to(pos) >= bd: continue
+		var p = stage_path(c, pos)
+		if p == null: continue
+		var L := _path_len(c, p)
+		if L < bd:
+			bd = L; best = c
+	return best
+
+## pos 旁边 dist 远、能直着走过来的一点，优先朝 toward 那一侧（入场：从这点走进来；散场：朝这点走出去）。找不到就返回 pos
+func stage_side(pos: Vector2, toward: Vector2, dist := 64.0) -> Vector2:
+	var base := toward - pos
+	if base.length() < 1: base = Vector2(0, 1)
+	base = base.normalized()
+	for deg in [0, 35, -35, 70, -70, 110, -110, 150, -150, 180]:
+		var c: Vector2 = pos + base.rotated(deg_to_rad(deg)) * dist
+		if stand_ok(c.x, c.y) and line_ok(c.x, c.y, pos.x, pos.y): return c
+	return pos
+
 # ─────────────────────── 路人与跟随者 ───────────────────────
 func update_wanderers(dt: float) -> void:
 	for i in range(wanderers.size() - 1, -1, -1):
@@ -780,6 +1024,14 @@ func update_scene(dt: float) -> void:
 func _update_scene(dt: float) -> void:
 	npcs = npcs_of(cur)
 	var anim := step_anim(dt)
+	if player.mv != null:
+		# 走位：主角自己走到戏里的站位（锁操作，同脚本行走）
+		var ox0 := player.x; var oy0 := player.y
+		if _step_mv(player, dt): _end_mv(player)
+		if Vector2(player.x - ox0, player.y - oy0).length() > 0:
+			foot_dust(player, "hero"); _push_trail()
+		anim = true
+	_step_ghosts(dt)
 	update_wanderers(dt); update_followers(dt); update_cam(dt)
 	if anim: return
 	if player.goal != null: player.goal.t += dt
@@ -933,8 +1185,13 @@ func _click(screen: Vector2, touch: bool) -> void:
 	var p := get_viewport().get_canvas_transform().affine_inverse() * screen
 	var local := get_global_transform().affine_inverse() * p
 	var x := local.x; var y := local.y
+	# 点到能搭话的跟随者：就在身后，直接搭话
+	for f in followers:
+		if f.npc is Dictionary and abs(f.x - x) < 22 and y < f.y + 10 and y > f.y - CHAR_H:
+			f.npc.x = f.x / TS; f.npc.y = f.y / TS
+			interact(f.npc); return
 	for n in npcs:
-		if n.get("loot"): continue
+		if n.get("loot") or n.get("hid"): continue
 		var h: float = npc_h(n) if n.get("sp") else (60.0 if n.get("resource") else 30.0)
 		var hw: float = max(20.0, h * 0.28) if n.get("sp") else (32.0 if n.get("resource") else 24.0)
 		var nx: float = n.x * TS; var ny: float = n.y * TS

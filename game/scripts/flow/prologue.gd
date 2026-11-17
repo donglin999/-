@@ -251,7 +251,9 @@ func clinic() -> void:
 func clear_clinic() -> void:
 	if clinic_cast == null: return
 	var c: Dictionary = clinic_cast; clinic_cast = null
-	c.scene.npcs = c.npcs
+	# 2026-11-13 原来把进药棚时记下的名单整个放回去——可那份名单是站位戏摆好之后才记的（里面是“借宿”这场戏的叶蘅、周婶，
+	# 真正的周婶已被换掉），戏演完这两个摆出来的人就留在药棚里，搭话没反应；叶蘅同时又在自己家。只拿掉这场戏加的人
+	c.scene.npcs = c.scene.npcs.filter(func(n): return not str(n.get("id", "")).begins_with("pa_clinic_") and not n.get("cast"))
 
 # ─────────────────────── 递水 CG（prologue-water.js） ───────────────────────
 func play_water() -> Dictionary:

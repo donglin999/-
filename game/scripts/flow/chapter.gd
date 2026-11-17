@@ -30,12 +30,17 @@ var offstage := {}         # 画外音的人（window.QiheOffstage）
 ## 2026-11-10 用户：“对话闲谈的时候出现那两个人，日常就看不到消失了”。剧情站位或台词临时摆出来的人，
 ## 如果此刻地图上本来没有他，记一笔（人物行踪检查用：tools/cast_schedule.py；测试报告里叫 popins）
 var popins: Array = []
+## 站位戏开场黑场挪主角的记录（测试用：“谈”专项查普通搭话有没有黑场）。2026-11-13 起开场不再黑场，这里应当一直是空的
+var fades: Array = []
+## 站位戏开场、散场的走位记录（测试用）：{key, scene, kind: stay 原地／walk 走过去／blink 淡出淡入补位／put 直接到位／out 散场, d 距离, who}
+var walks: Array = []
 func _log_popin(name: String, via: String, key := "") -> void:
+	if name == "叶蘅" and _ye_tagging(): return   # 她就跟在身后，不是凭空摆出来的
 	for n in (World.npcs_of(World.cur) if not World.cur.is_empty() else []):
 		if not n.get("cast") and _named(n, name): return
 	var p = CP()
 	var stage := ("%s/%s" % [p.stage, p.get("halfDay", "-")]) if p != null else ("序章/" + str(G.S.get("prologue", {}).get("arrival", {}).get("stage", "-")) if G.S else "-")
-	popins.append({"name": name, "scene": World.cur_id, "stage": stage, "via": via, "key": key, "knot": Story._knot, "gather": _gathering() or (key != "" and not (key in DAILY))})
+	popins.append({"name": name, "scene": World.cur_id, "stage": stage, "via": via, "key": key, "knot": Story._knot, "gather": _gathering() or (key != "" and not _present_only(key))})
 var P: Node                # 序章模块
 
 func _ready() -> void:
@@ -127,6 +132,7 @@ func place_cast(names: Array) -> Callable:
 			# 2026-11-10：主线大事（开场把人带过去、众人聚齐那种）以外，不在场的人不再临时摆出来
 			if not _gathering(): continue
 			_log_popin(name, "台词临时摆人")
+			_cast_out[name] = true
 		var pos = null
 		if old != null and Vector2(old.x * TS - World.player.x, old.y * TS - World.player.y).length() < 250: pos = [old.x * TS, old.y * TS]
 		if pos == null:
@@ -138,7 +144,7 @@ func place_cast(names: Array) -> Callable:
 			placed.append({"id": "staged-" + name, "name": name, "sp": old.sp if (name == "宋先生" and old != null) else sprite_of(name), "x": pos[0] / TS, "y": pos[1] / TS, "dir": "r" if pos[0] < World.player.x else "l", "fixed": true, "idle": false, "cast": true, "act": func(_n): pass})
 	sc.npcs = others + placed
 	World.npcs = World.npcs_of(sc)
-	return func(): sc.npcs = original; World.npcs = World.npcs_of(sc)
+	return func(): _cast_out.clear(); sc.npcs = original; World.npcs = World.npcs_of(sc)
 
 func say_all(rows: Array) -> void:
 	var restore := place_cast(rows.map(func(r): return String(r[0]).split(" · ")[0]))
@@ -356,11 +362,11 @@ func _install_expansion() -> void:
 	_node("mountain", "kitchen", act_of("cultivate"), at_mountain)
 	_node("mountain", "meal", act_of("meal"), at_mountain)
 	_node("mountain", "practice", act_of("cultivate"), at_mountain)
-	_node("east", "daily-ye", act_of("ye"), func(): return ye_location() == "east")
+	_node("east", "daily-ye", act_of("ye"), func(): return _ye_stands("east"))
 	var cy := _npc("prologue_clinic_interior", "daily-ye")
 	# 2026-11-05 全人物扫荡查出：原来这两句写在一行，GDScript 会把分号后的赋值算进前一个单行 lambda（还排在 return 后面），
 	# act 从没挂上，药棚里点叶蘅“谈”只出“（这段交互尚未移植）”。分开写。
-	cy.show = func(): return ye_location() == "clinic"
+	cy.show = func(): return _ye_stands("clinic")
 	cy.act = func(_n = null): await interact("ye")
 	# 叶家门、家里的叶蘅、门厅的周砚与陈伯
 	# 2026-11-09 用户试玩：在药棚见到叶蘅，转身进叶家她已经在屋里（瞬移）。原因是村中日常时没看过旧物也会挂“应邀帮忙收药箱”的门，
@@ -376,7 +382,7 @@ func _install_expansion() -> void:
 			await P.go_local("ye_house"); return
 		await ye_door_act.call(n)
 	var home_ye := _npc("prologue_ye_house", "ye")
-	home_ye.show = func(): return ye_location() == "house"
+	home_ye.show = func(): return _ye_stands("house")
 	var old_ye: Callable = home_ye.act
 	home_ye.act = func(n = null):
 		var p = CP()
@@ -421,14 +427,79 @@ func _portal(key: String, anchor: String, to: String, dest: String) -> void:
 		if not before_fire() and not (key in ["refuge", "mountain"]): await resume(); return
 		await go(to, dest))
 
+## 叶蘅此刻站定的地方（clinic 药棚／east 东埠／house 叶家／none 地图上没有她）。
+## 2026-11-13 用户试玩：“还是存在叶在婶家，然后一会就到家里的问题，要么就直接入队，要么就处理”。规矩改成三条：
+## 1. 主线里她和萧白同路的那几段（第一日早上到收拾药箱之前），她跟在萧白身后（_ye_tagging），进了要去的那个场景才站定；
+## 2. 她先走一步的两处（借宿那晚“我收完药就回家”、收拾完药箱“能走的先在药棚聚齐”），台词交代过去向，
+##    人先留在原地（yeHold），等萧白离开那个场景她才换地方——不在玩家眼前凭空消失；
+## 3. 主线大事散场（DISPERSE）一律黑场一下再各回各处。
 func ye_location() -> String:
 	var p = CP()
-	if p == null: return "house"
+	if p == null: return "clinic" if (G.S != null and G.S.get("prologue", {}).get("yeHold") == "clinic") else "house"
 	if p.stage != "days": return "none"
 	for m in MAIN_STEPS:
 		if m.to > p.get("halfDay", 0):
-			return "east" if m.to == 4 else ("house" if m.to == 5 else "clinic")
+			if m.to == 4: return "east"
+			if m.to == 5: return "house"
+			return "house" if (m.to == 6 and p.get("yeHold") == "house") else "clinic"
 	return "clinic"
+
+const YE_SCENE := {"clinic": "prologue_clinic_interior", "east": "qh_east", "house": "prologue_ye_house"}
+## 她跟着走的场景：村里各处露天地方、药棚、自己家。别人家里（陈伯家、客房、客栈）和后山她不跟进去，在外头等
+const FOLLOW_SCENES := ["qihe_trial", "qh_south", "qh_east", "qh_west", "prologue_clinic_interior", "prologue_ye_house"]
+var _cast_out := {}        # 台词临时摆出来的人（place_cast）
+
+## 这一段主线她和萧白同路（第一日早上结伴之后，到回叶家收拾药箱为止；之后她留在药棚和大家一起等车）
+func ye_following() -> bool:
+	var p = CP()
+	return p != null and p.stage == "days" and int(p.get("halfDay", 0)) < 5
+
+## 此刻她就跟在萧白身后（这个场景画跟随者；到了她要去的那个场景就站定，不算跟着）
+func _ye_tagging() -> bool:
+	return ye_following() and World.cur_id in FOLLOW_SCENES and World.cur_id != YE_SCENE.get(ye_location(), "")
+
+## 她此刻站定在 where（药棚／东埠／叶家）：同路的那几段，要萧白也到了那个场景她才站在那儿——
+## 萧白在别处时她在他身后（或在门外等），那个场景里没有她
+func _ye_stands(where: String) -> bool:
+	return ye_location() == where and (not ye_following() or World.cur_id == YE_SCENE.get(where, ""))
+
+## World.follow_hook：开始部分村中日常由这里定谁跟在身后；别的时候返回 null，按引擎老规矩
+func _follow_list():
+	var p = CP()
+	if p == null or p.stage != "days": return null
+	if not _ye_tagging(): return []
+	# 站位戏、台词临时摆位把她摆出来的时候，身后那个不再画
+	if staging_active != null and staging_active.placed.has("叶蘅"): return []
+	if _cast_out.has("叶蘅"): return []
+	return ["ye"]
+
+## World.follow_npc：跟在身后的叶蘅也能搭话（墨印照常）
+var _ye_follow_npc := {}
+func _follow_npc(m: String):
+	if m != "ye": return null
+	if _ye_follow_npc.is_empty():
+		_ye_follow_npc = {"id": "follow-ye", "name": "叶蘅", "sp": "c_ye", "x": 0.0, "y": 0.0, "dir": "d",
+			"act": func(_n = null):
+				var tk := Dialog.begin("qihe-exp:follow-ye", [{"who": "萧白", "sp": "c_hero", "slot": "left"}, {"who": "叶蘅", "sp": "c_ye", "slot": "right"}])
+				await interact("ye")
+				Dialog.end(tk); World.keys = {}; P.checkpoint(); refresh()}
+	return _ye_follow_npc
+
+## 换了场景之后：她“先走一步”的两处，萧白一离开她就换地方；她不跟进去的地方，头一回说一声
+const HOLD_SCENE := {"clinic": "prologue_clinic_interior", "house": "prologue_ye_house"}
+const WAIT_OUTSIDE := {"prologue_inn_interior": "叶蘅在门外等你。", "prologue_chen_hall": "叶蘅在门外等你。", "qh_north": "叶蘅在路口等你。"}
+func _after_go() -> void:
+	if G.S == null: return
+	var pr = G.S.get("prologue")
+	if pr is Dictionary and pr.get("yeHold") and HOLD_SCENE.get(pr.yeHold) != World.cur_id: pr.erase("yeHold")
+	var p = CP()
+	if p == null: return
+	if p.get("yeHold") and HOLD_SCENE.get(p.yeHold) != World.cur_id: p.erase("yeHold")
+	if ye_following() and not p.get("pendingEvent") and WAIT_OUTSIDE.has(World.cur_id):
+		if not p.has("yeWaited"): p.yeWaited = {}
+		if not p.yeWaited.get(World.cur_id):
+			p.yeWaited[World.cur_id] = true
+			UI.toast(WAIT_OUTSIDE[World.cur_id], 2200)
 
 ## 起火后东埠药棚的火与碰撞（syncFire / SC.qh_east.over）
 var _fire_state = null
@@ -501,8 +572,11 @@ func _install_staging() -> void:
 		else:
 			await inner.call()
 	World.go_before = func(): _restore()
+	World.follow_hook = func(): return _follow_list()
+	World.follow_npc = func(m): return _follow_npc(m)
 	World.go_after = func():
 		_last_go = Time.get_ticks_msec()
+		_after_go()
 		if staging_pending != null and T.scenes[staging_pending].at == G.S.scene: await _apply(staging_pending)
 	Dialog.before_say = func(who): _look(who)
 	World.npcs_hook = func(sc): _apply_rest(sc)
@@ -510,16 +584,46 @@ func _install_staging() -> void:
 func _named(n: Dictionary, name: String) -> bool:
 	return n.get("name") == name or n.get("name") == STAGE_ALIAS.get(name, "")
 
-func _mount(name: String) -> void:
+## 把站位表里的人摆到站位上。2026-11-13 起不再凭空出现：walk=true 时人自己走过来（World.ghost 影子人替他走，到位才显出本人）——
+## 已在这个场景里的，从原来站的地方走过来；跟在主角身后的叶蘅，从身后走过来；不在场的，从最近的出入口走进来，
+## 附近没有出入口就在站位旁边一小段淡入走到位。walk=false（刚换完场景，黑场遮着）直接到位
+func _mount(name: String, walk := true) -> void:
 	var e: Dictionary = staging_active
 	var v = e.entry.cast.get(name)
 	if v == null or e.placed.has(name) or offstage.has(name): return
+	var TS: float = World.TS
+	var from = null   # 这个人此刻在画面上的位置
+	if e.sc == World.cur:
+		if name == "叶蘅" and _ye_tagging():
+			for f in World.followers:
+				if f.m == "ye": from = Vector2(f.x, f.y)
+		if from == null:
+			for n in World.npcs:
+				if n.get("sp") and not n.get("hid") and _named(n, name): from = Vector2(float(n.x) * TS, float(n.y) * TS); break
 	e.placed[name] = true
 	_log_popin(name, "站位表", str(e.key))
-	var TS: float = World.TS
 	var node := {"id": "staged-" + name, "name": name, "sp": sprite_of(name), "x": v[0] / TS, "y": v[1] / TS, "dir": v[2], "fixed": true, "idle": false, "cast": true, "act": func(_n): pass}
 	e.sc.npcs = e.sc.npcs.filter(func(n): return not n.get("sp") or not _named(n, name)) + [node]
 	World.npcs = World.npcs_of(e.sc)
+	if walk and e.sc == World.cur and World.stage_live(): _walk_in(node, from, str(e.key))
+
+## 入场走位：from 是这个人此刻的位置（null＝不在场）
+func _walk_in(node: Dictionary, from, key := "") -> void:
+	var TS: float = World.TS
+	var to := Vector2(float(node.x) * TS, float(node.y) * TS)
+	var opt := {"dir": node.dir, "tag": "in", "node": node}
+	var how := "walk"
+	if from == null:
+		var door = World.stage_door(to, 380.0)
+		if door != null:
+			from = door; opt.fin = 200.0; how = "door"
+		else:
+			# 朝着离主角远的一侧退一小段，淡入走进来
+			from = World.stage_side(to, to + (to - Vector2(World.player.x, World.player.y)), 64.0)
+			opt.fin = 250.0; opt.pts = [to]; how = "fadein"
+	elif from.distance_to(to) < 6: return
+	var g = World.ghost(node.sp, from, to, opt)
+	walks.append({"key": key, "scene": World.cur_id, "who": node.name, "kind": "blink" if (how == "walk" and g.mv != null and g.mv.kind == "blink") else how, "d": snappedf(from.distance_to(to), 1.0)})
 
 func _restore() -> void:
 	var e = staging_active
@@ -533,19 +637,66 @@ func _apply(key: String) -> void:
 	_restore()
 	var sc: Dictionary = World.cur
 	var hero = entry.get("hero")
-	var far: bool = hero != null and Vector2(hero[0] - World.player.x, hero[1] - World.player.y).length() > 70 and Time.get_ticks_msec() - _last_go > 900
-	var put := func():
-		staging_active = {"key": key, "entry": entry, "sc": sc, "original": sc.npcs, "placed": {}}
-		for name in entry.cast:
-			var v: Array = entry.cast[name]
-			if key in DAILY and not _on_map(sc, name): continue
-			if v.size() < 4 or v[3] != "late": _mount(name)
-		if hero != null:
-			World.player.x = hero[0]; World.player.y = hero[1]; World.player.dir = hero[2]
-			World.player.path = null; World.player.goal = null; World.player.talk_to = null
-			World.snap_cam()
-	if far: await UI.fade(put)
-	else: put.call()
+	# 2026-11-13 用户试玩：点村口老人“谈”，先黑一下屏才开口。原因是这句话所在的剧本登记了站位戏，主角离站位超过 70 像素
+	# 就黑场把主角挪过去——可玩家是自己走到人跟前搭话的，人也都已经站在站位上，没有要遮的东西。
+	# 这种情况（_beside）不黑场、不挪主角，原地开口；要把人挪位或凭空摆人的戏（活动、主线大事）照旧黑场。
+	# 2026-11-13 用户又提：“闪屏的问题要处理，看下别人是如何解决的，不然太生硬了”。开场不再用全屏黑场遮着瞬移，改成走位：
+	# 主角自己走到站位（World.stage_walk：路太远或走不通只淡精灵补位），戏里的人各自走到位（_mount → _walk_in），
+	# 镜头跟着主角平滑移过去；众人到位才开讲。只差一点就不挪、只转向：
+	#   搭话和日常戏（_present_only）120 像素内不挪；主线大事讲究站位，36 像素内才不挪；都要求不和戏里的人重叠
+	var fresh: bool = Time.get_ticks_msec() - _last_go <= 900   # 刚换完场景：换场景的黑场还遮着，众人直接在位
+	var d: float = Vector2(hero[0] - World.player.x, hero[1] - World.player.y).length() if hero != null else 0.0
+	var stay: bool = hero != null and ((not fresh and _beside(key, entry, sc)) or (d <= (120.0 if _present_only(key) else 36.0) and _clear_of_cast(entry)))
+	staging_active = {"key": key, "entry": entry, "sc": sc, "original": sc.npcs, "placed": {}}
+	World.clear_ghosts()
+	for name in entry.cast:
+		var v: Array = entry.cast[name]
+		if _present_only(key) and not _on_map(sc, name): continue
+		if v.size() < 4 or v[3] != "late": _mount(name, not fresh)
+	if hero != null:
+		var kind := "stay"
+		if stay: _face_cast()
+		else: kind = await World.stage_walk(hero[0], hero[1], hero[2], {"far": "put"} if fresh else {})
+		walks.append({"key": key, "scene": str(G.S.scene), "who": "萧白", "kind": kind, "d": snappedf(d, 1.0)})
+	await World.stage_wait("in")
+
+## 主角现在站的地方没踩在戏里任何人的站位上
+func _clear_of_cast(entry: Dictionary) -> bool:
+	for name in entry.cast:
+		var v: Array = entry.cast[name]
+		if Vector2(v[0] - World.player.x, (v[1] - World.player.y) * 1.8).length() < 44: return false
+	return true
+
+## 主角原地不挪时，转向最近的那个戏里的人
+func _face_cast() -> void:
+	var TS: float = World.TS
+	var best = null; var bd := 1e9
+	for n in World.npcs:
+		if not n.get("cast"): continue
+		var dd := Vector2(float(n.x) * TS - World.player.x, float(n.y) * TS - World.player.y).length()
+		if dd < bd: bd = dd; best = n
+	if best != null and bd > 4:
+		World.player.dir = World.face_to(float(best.x) * TS - World.player.x, float(best.y) * TS - World.player.y)
+	World.player.path = null; World.player.goal = null; World.player.talk_to = null
+
+## 主角是不是已经站在这场戏的人跟前、而且开场没有谁要挪位：开场就要摆的人（不是 late）都已在地图上、离自己的站位不到 24 像素，
+## 其中至少一个离主角不到 180 像素（搭话距离最大 140）
+func _beside(key: String, entry: Dictionary, sc: Dictionary) -> bool:
+	var TS: float = World.TS
+	var near := false
+	for name in entry.cast:
+		var v: Array = entry.cast[name]
+		if v.size() >= 4 and v[3] == "late": continue
+		var found = null
+		for n in sc.npcs:
+			if not n.get("cast") and n.get("sp") and _named(n, name) and (not (n.get("show") is Callable) or n.show.call()): found = n; break
+		if found == null:
+			if _present_only(key): continue   # 这类戏不在场的人本来就不摆
+			return false
+		if v.size() >= 4 and v[3] == "free": pass   # free：站位表不管他站哪
+		elif Vector2(float(found.x) * TS - v[0], float(found.y) * TS - v[1]).length() > 24: return false
+		if Vector2(float(found.x) * TS - World.player.x, float(found.y) * TS - World.player.y).length() < 180: near = true
+	return near
 
 ## 2026-11-10 人物行踪：第一夜的差事戏（送药、还碗、取布）只在第一夜摆站位；进了村中日常再和老人、陈伯、店家搭话，
 ## 不再把差役、采办随从、周砚这些此刻在别处的人拉过来站着（用户：“闲谈时出现那两个人，日常就看不到”）
@@ -553,6 +704,13 @@ const FIRST_NIGHT_ONLY := ["elder_door", "chen_hall", "inn_cloth", "lodging", "f
 ## 日常戏（玩家自己挑时候做的活动、搭话）：只把此刻已经站在这个场景地图上的人挪到站位；不在场的人一律不摆，
 ## 真要说话也只闻其声——由人物行踪检查（tools/cast_schedule.py）把“隔空说话”挑出来，改台词
 const DAILY := ["inn_tab_face", "inn_atan", "market", "practice", "transport"]
+## 2026-11-13 第一夜三件差事戏都是玩家走到人跟前搭话才开演的：正戏时戏里的人本来就站在各自的站位上；
+## 差事办完再搭话（一句闲话），已经走了的人（还完碗后的周砚）不再凭空摆回来——和日常戏同一条规矩
+const TALK_STAGED := ["elder_door", "chen_hall", "inn_cloth"]
+func _present_only(key) -> bool: return key in DAILY or key in TALK_STAGED
+## 演完就回到自由走动的主线大事（后面紧接着换场景的那些不在内，换场景本身有黑场）。
+## 2026-11-13 上午给这八场散场加过 0.9 秒黑场，同日按用户意见去掉：所有站位戏散场一律走位（_disperse），这份名单只留作记录和测试用
+const DISPERSE := ["lodging", "morning", "xu_visit", "loading_road", "packing", "refuge_arrival", "evidence", "routes"]
 
 func _within(key: String, fn: Callable) -> void:
 	var entry: Dictionary = T.scenes[key]
@@ -566,16 +724,68 @@ func _within(key: String, fn: Callable) -> void:
 	if G.S.scene == entry.at: await _apply(key)
 	await fn.call()
 	if staging_pending == key: staging_pending = outer
-	if staging_active != null and staging_active.key == key: _restore()
+	if staging_active != null and staging_active.key == key:
+		# 2026-11-13 散场：戏里的人各回各处（有的离开这个场景，有的回自己平时站的地方）。
+		# 原来台词一完人就原地消失或换位（上午给主线大事加过黑场）；现在人自己走开，不黑场，主角马上能动
+		if World.cur == staging_active.sc and G.mode == "scene": _disperse(key)
+		else: _restore()
+
+## 散场走位（不等，主角立刻恢复操作）：
+## - 演完还留在这个场景的人：走回自己平时站的地方（走到之前不能搭话、不挡路）；
+## - 演完离开这个场景的人：朝最近的出入口走，走出一段后精灵淡出（附近没有出入口就背着主角走开一小段淡出）；
+## - 同路的叶蘅：从戏里的站位走回主角身后（引擎的跟随）。
+func _disperse(key: String) -> void:
+	var e: Dictionary = staging_active
+	var TS: float = World.TS
+	World.clear_ghosts("in")
+	var was := {}
+	for n in e.sc.npcs:
+		if n.get("cast") and e.placed.has(str(n.name)): was[str(n.name)] = n
+	_restore()
+	if key == "lodging":
+		P.clear_clinic(); P.state().yeHold = "clinic"
+	elif key == "packing": state().yeHold = "house"
+	World.npcs = World.npcs_of(World.cur); World.reset_followers()
+	if not World.stage_live(): return
+	var hero := Vector2(World.player.x, World.player.y)
+	for name in was:
+		var node: Dictionary = was[name]
+		var from := Vector2(float(node.x) * TS, float(node.y) * TS)
+		if name == "叶蘅" and _ye_tagging():
+			# 跟随者从戏里的站位起步，自己走回主角身后
+			for f in World.followers:
+				if f.m == "ye":
+					f.x = from.x; f.y = from.y; f.dir = str(node.dir)
+					if f.npc is Dictionary: f.npc.x = f.x / TS; f.npc.y = f.y / TS
+			walks.append({"key": key, "scene": World.cur_id, "who": name, "kind": "out-follow", "d": snappedf(from.distance_to(hero), 1.0)})
+			continue
+		var home = null
+		for n in World.npcs:
+			if not n.get("cast") and n.get("sp") and _named(n, name): home = n; break
+		if home != null:
+			var to := Vector2(float(home.x) * TS, float(home.y) * TS)
+			if from.distance_to(to) < 6: continue
+			World.ghost(str(node.sp), from, to, {"tag": "out", "node": home, "away": true, "dir": str(home.get("dir", "d")), "dir0": str(node.dir), "speed": 0.3, "max_ms": 2600.0, "h": float(home.get("h", 0.0)) if home.get("h") else 0.0})
+			walks.append({"key": key, "scene": World.cur_id, "who": name, "kind": "out-home", "d": snappedf(from.distance_to(to), 1.0)})
+			continue
+		var opt := {"tag": "out", "dir0": str(node.dir), "speed": 0.3, "fout": 70.0, "max_ms": 2200.0}
+		var to2 = World.stage_door(from, 520.0)
+		var how := "out-door"
+		if to2 == null:
+			to2 = World.stage_side(from, from + (from - hero), 120.0)
+			opt.pts = [to2]; opt.fout = 110.0; how = "out-fade"
+		World.ghost(str(node.sp), from, to2, opt)
+		walks.append({"key": key, "scene": World.cur_id, "who": name, "kind": how, "d": snappedf(from.distance_to(to2), 1.0)})
 
 ## 正在演主线大事（event() 里，或非日常的站位戏）：这时候众人聚到一处是剧情交代过的
 func _gathering() -> bool:
 	var p = CP()
 	if p != null and p.get("pendingEvent"): return true
 	if p != null and p.get("stage") in ["fire", "escape"]: return true
-	return staging_active != null and not (staging_active.key in DAILY)
+	return staging_active != null and not _present_only(staging_active.key)
 
 func _on_map(sc: Dictionary, name: String) -> bool:
+	if name == "叶蘅" and sc == World.cur and _ye_tagging(): return true
 	for n in sc.npcs:
 		if not n.get("cast") and _named(n, name) and (not (n.get("show") is Callable) or n.show.call()): return true
 	return false
@@ -584,7 +794,7 @@ func _look(who: String) -> void:
 	if who == "" or World.cur.is_empty() or who == G.S.get("name", "萧白"): return
 	var base := who.split(" · ")[0]
 	if staging_active != null and staging_active.entry.cast.has(base) and not staging_active.placed.has(base) \
-		and not (staging_active.key in DAILY and not _on_map(staging_active.sc, base)): _mount(base)
+		and not (_present_only(staging_active.key) and not _on_map(staging_active.sc, base)): _mount(base)
 	if _muted: return
 	var TS: float = World.TS
 	for n in World.npcs:
@@ -828,15 +1038,24 @@ func lesson_battle() -> void:
 	while await story_battle("lesson") != "win":
 		if await play("fq_lesson_retry") == "stop": break
 
-func activity_body(id: String) -> void:
+## talker：点的是人（ye／luheng／merchant）时，对方先开口说一句眼下的事（story/风起-搭话先开口.ink），再问做不做；
+## 点的是物件（练场、药车）或已经说过主线那句时不传，照旧。
+## 2026-11-13 用户试玩：药棚里对叶蘅点“谈”，只弹“行程：药棚帮忙。现在开始／再想想”，没人说话（办过、过了时候也只有萧白一句心里话）
+func activity_body(id: String, talker := "") -> void:
 	var p := state()
 	if p.stage != "days": await play("fq_act_busy"); return
-	if p.choices.get(id): await play("fq_act_done"); return
+	var st := "done" if p.choices.get(id) else ("open" if activity_open(id) else "late")
+	if talker != "": await play("fq_talk_" + talker, {}, {"state": st})
+	if st == "done":
+		if talker == "": await play("fq_act_done")
+		return
 	var a = null
 	for x in ACTIVITIES:
 		if x[0] == id: a = x
 	if a == null: return
-	if not activity_open(id): await play("fq_act_late"); return
+	if st == "late":
+		if talker == "": await play("fq_act_late")
+		return
 	if await ask("行程", a[1] + "。" + ("陆衡会传授第一层，赠送练习棍与本人笔记。" if id == "practice" else ""), ["现在开始", "再想想"]) != 0: return
 	await play(ACTIVITY_KNOTS[id], {"fq_lesson_battle": func(): await lesson_battle(), "fq_grant_lesson": func(): grant_lesson()})
 	if id == "practice": await line("", "已学：丙级《护路棍法》第一层 · 横杆护身。守路战及后续招式培养可使用。")
@@ -994,6 +1213,8 @@ func interact(id: String) -> void:
 			# 西田埂的几处都是陆衡答，南村口的药商自己答；别处没人答就不出声
 			if id in ["luheng", "lesson", "cart"]: await play("fq_late_lu")
 			elif id == "apothecary": await play("fq_late_merchant")
+			# 2026-11-13 借宿那晚她还在药棚收药（萧白出了药棚她才回家）
+			elif id == "ye": await play("fq_follow_ye", {}, {"step": -1})
 			else: await line("", "天色晚了，这里没人。")
 			return
 		if p.stage == "opening": await begin_body(); return
@@ -1016,14 +1237,20 @@ func interact(id: String) -> void:
 		if p.stage == "days":
 			if id == "chen-club": await club_gift(); return
 			var m = main_step(p)
+			if id == "ye" and _ye_tagging():
+				# 她跟在身后：在药棚里照旧问帮不帮忙；别处说一句眼下要去哪（story/风起-同路.ink）
+				if World.cur_id == "prologue_clinic_interior": await activity_body("clinic", "ye")
+				else: await play("fq_follow_ye", {}, {"step": int(m.to) if (m != null and not m.get("aqi") and m.get("npc") == "ye") else 0})
+				return
 			if m != null and not m.get("aqi") and m.npc == id:
 				await play("fq_main_%d" % m.to)
 				if await main_offer(m): return
 				var rel := "clinic" if id == "ye" else "practice"
-				if activity_open(rel) and not p.choices.get(rel): await activity_body(rel)
+				# 2026-11-13 药棚帮忙只在药棚里接着问（原来她在东埠、在家时也会问“药棚帮忙”）
+				if activity_open(rel) and not p.choices.get(rel) and (id != "ye" or ye_location() == "clinic"): await activity_body(rel)
 				return
 			var amap := {"luheng": "practice", "lesson": "practice", "cart": "transport", "apothecary": "market"}
-			if amap.has(id): await activity_body(amap[id]); return
+			if amap.has(id): await activity_body(amap[id], {"luheng": "luheng", "apothecary": "merchant"}.get(id, "")); return
 			if id == "innkeeper":
 				var n = await play("fq_inn")
 				if n == "shop": await equipment_shop()
@@ -1031,7 +1258,11 @@ func interact(id: String) -> void:
 				return
 			# 2026-11-11 沈雁回装卸路那场（halfDay>=4）之后才在东埠；原来 halfDay>=2 就指路，那时地图上找不到她
 			if id == "zhouyan": await play("fq_zhou_idle", {}, {"shen_open": p.halfDay >= 4, "met_zhou": p.events.get("xu-meeting", false)}); return
-			if id == "ye": await activity_body("clinic"); return
+			if id == "ye":
+				# 2026-11-13 药棚帮忙只在药棚里问；她在东埠、在家时（主线这一步轮到别人，如小耗子在喊人）只说一句
+				if ye_location() == "clinic": await activity_body("clinic", "ye")
+				else: await play("fq_talk_ye", {}, {"state": "away"})
+				return
 			# 没人认领的 id 不出声（原来一律落到采办使那句，会凭空冒出别人的声音）
 			return
 		if id == "ye": await play("fq_ye_settled"); return
@@ -1095,7 +1326,11 @@ func quest_line() -> String:
 	if p == null: return P.quest_line()
 	var m = main_step(p)
 	match p.stage:
-		"days": return ("主线 · %s · %s在%s等你" % [m.title, m.who, m.where]) if m != null else "自由探索"   # 11-10：叶蘅已结伴，不写“找”
+		"days":
+			if m == null: return "自由探索"
+			# 11-13：叶蘅跟在身后同路的几步，写“同去”
+			if m.get("npc") == "ye" and not m.get("aqi") and ye_following(): return "主线 · %s · 与叶蘅同去%s" % [m.title, m.where]
+			return "主线 · %s · %s在%s等你" % [m.title, m.who, m.where]   # 11-10：叶蘅已结伴，不写“找”
 		"refuge": return "对证已记 · 与周砚商量去处" if p.events.get("evidence-v2") else "安置伤者后 · 核对三份来件"
 		"ended": return "J 继续上山"
 		"cultivation": return "自由练习与交谈"

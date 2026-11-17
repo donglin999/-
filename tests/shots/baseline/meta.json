@@ -45,9 +45,9 @@
   "updated": "2026-11-11 20:07"
  },
  "scene-west": {
-  "noise": 0.00014,
+  "noise": 0.0,
   "note": "西田埂",
-  "updated": "2026-11-11 20:07"
+  "updated": "2026-11-13 17:14"
  },
  "scene-north": {
   "noise": 0.0,
@@ -135,9 +135,9 @@
   "updated": "2026-11-11 20:07"
  },
  "battle-ye": {
-  "noise": 0.00796,
+  "noise": 0.00656,
   "note": "战斗（叶蘅）",
-  "updated": "2026-11-10 19:38"
+  "updated": "2026-11-13 17:14"
  },
  "esc-scene": {
   "noise": 0.0,

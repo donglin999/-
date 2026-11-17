@@ -159,6 +159,7 @@ static func tasks(s, main_line := "") -> Array:
 		var progress := []
 		var chap = _chapter()
 		var ms = chap.main_step(c) if chap and chap.has_method("main_step") else null
+		var tog: bool = ms != null and str(ms.get("npc", "")) == "ye" and not ms.get("aqi") and chap.has_method("ye_following") and chap.ye_following()
 		if c.stage != "opening": progress.append(step("进村走访", "在栖河自由走访。"))
 		if k.xu: progress.append(step("与徐令仪正式会面", "叶蘅说自己从没托人保管什么医武谱。"))
 		if k.three: progress.append(step("与岑霜、沈雁回会面", "叶蘅说自己从没答应交匣子、交药样。"))
@@ -166,7 +167,8 @@ static func tasks(s, main_line := "") -> Array:
 		if evidence(c): progress.append(step("对一对三张附页", "陈伯拿出了原底单，三家各自认了错。"))
 		if done: progress.append(step("山居安顿", "乡邻得到接应，赴山居暂住。"))
 		# 11-10：叶蘅第一天早上就结伴（进了队伍），白天她先走一步、在地点等；原来写“到某处找叶蘅”读着像人丢了
-		else: progress.append(step("当前行程", (str(ms.title) + "（" + str(ms.who) + "在" + str(ms.where) + "等你）") if ms else (line if line != "" else "准备好后继续当前剧情。"), false))
+		# 11-13：她跟在身后同路的几步写“同去”（chapter.gd ye_following），不再说“在某处等你／到那里会合”
+		else: progress.append(step("当前行程", ((str(ms.title) + "（与" + str(ms.who) + "同去" + str(ms.where) + "）") if tog else (str(ms.title) + "（" + str(ms.who) + "在" + str(ms.where) + "等你）")) if ms else (line if line != "" else "准备好后继续当前剧情。"), false))
 		if not done:
 			var ppl := ["ye"]
 			if k.xu: ppl.append("xulingyi")
@@ -174,9 +176,9 @@ static func tasks(s, main_line := "") -> Array:
 			var mt := "邻村对证" if c.stage in ["refuge", "mountain"] else ("撤离栖河" if c.stage in ["fire", "escape"] else ("三方来人" if k.three else ("正道盟上门" if k.xu else "村中走访")))
 			_add(rows, {"id": "main:qihe", "title": mt, "kind": "主线", "status": "active",
 				"origin": "正道盟的徐令仪拿着委托上门，叶蘅却说自己从没托过人。村里来的人越来越多，说法也越来越乱。" if k.xu else "在栖河继续走访，照应乡邻，了解村里的日常与来人的消息。",
-				"objective": (str(ms.title) + "：" + str(ms.who) + "先去了" + str(ms.where) + "，到那里会合。") if ms else (line if line != "" else "在村中走访，准备好后继续主线。"),
+				"objective": ((str(ms.title) + "：与" + str(ms.who) + "同去" + str(ms.where) + "。") if tog else (str(ms.title) + "：" + str(ms.who) + "先去了" + str(ms.where) + "，到那里会合。")) if ms else (line if line != "" else "在村中走访，准备好后继续主线。"),
 				"where": str(ms.where) if ms else phase(s).date, "people": ppl,
-				"action": {"type": "npc", "id": ms.npc, "label": "去会合"} if ms else {"type": "continue", "label": "继续主线"}, "progress": progress})
+				"action": {"type": "npc", "id": ms.npc, "label": "同去" if tog else "去会合"} if ms else {"type": "continue", "label": "继续主线"}, "progress": progress})
 		if c.stage == "cultivation":
 			_add(rows, {"id": "main:cultivation", "title": "山居", "kind": "主线", "status": "active", "origin": "在归云谷安顿下来，学习与日常往来从这里继续。",
 				"objective": line if line != "" else "在山居继续当前行程。", "people": ["ye", "zhouyan"], "where": "归云谷", "action": {"type": "continue", "label": "继续当前行程"},

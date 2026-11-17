@@ -74,6 +74,14 @@ func debug_start(arg: String) -> void:
 		G.S.hp = d.mhp; G.S.mp = d.mmp
 	G.mode = "scene"
 	await get_tree().process_frame
+	if arg.begins_with("uisnap"):
+		# 截图用（2026-11-13）：指令菜单在各种人数、站位下的位置，见 scripts/tests/battle_snap.gd
+		var sn: Node = load("res://scripts/tests/battle_snap.gd").new()
+		var ps := arg.split(":", false)
+		if ps.size() > 1: sn.out = ps[1]
+		if ps.size() > 2: sn.only = Array(ps[2].split(",", false))
+		add_child(sn)
+		return
 	if arg == "clash_sim":
 		# 自检：与原版 node -e "require('./js/qihe-faction-clash-rules.js').simulate()" 的结果逐项对照
 		var s := Clash.R.simulate()

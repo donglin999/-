@@ -185,6 +185,14 @@ func run() -> void:
 			if C.state().halfDay != hd0 or C.state().stage != "days": await shot("main-%s" % m.get("to", 0)); continue
 			var n := await goto_npc(m.scene, m.npc, str(m.get("who", "")))
 			if n.is_empty(): break
+		else:
+			# 11-13：叶蘅同路时跟在身后，隔着场景点她只会说一句去哪；先换到这一步的场景（一进场景会问“进入下一时段”）
+			var hd1: int = C.state().halfDay
+			if World.cur_id != m.scene:
+				note("（换到 %s）" % m.scene)
+				if not await h.guard("换场 " + str(m.scene), func(): await World.go_scene(m.scene)): break
+				await idle()
+			if C.state().halfDay != hd1 or C.state().stage != "days": await shot("main-%s" % m.get("to", 0)); continue
 		await h.guard("主线 " + str(m.get("title", "")), func(): await C.interact(m.npc)); await idle(); await shot("main-%s" % m.get("to", 0))
 		if C.main_step() == m and C.state().stage == "days" and policy != "first":
 			# 换了选项策略可能是选了“先不去”一类：按第一个选项再来一次

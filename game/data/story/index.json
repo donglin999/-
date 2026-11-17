@@ -263,7 +263,11 @@
   "fq_aqi_meet": "gd_fq_aqi_call",
   "fq_aqi_back": "gd_fq_aqi_call",
   "fq_aqi_got": "gd_fq_aqi_call",
-  "fq_aqi_learned": "gd_fq_aqi_call"
+  "fq_aqi_learned": "gd_fq_aqi_call",
+  "fq_talk_ye": "gd_fq_talk_ye",
+  "fq_talk_luheng": "gd_fq_talk_ye",
+  "fq_talk_merchant": "gd_fq_talk_ye",
+  "fq_follow_ye": "gd_fq_follow_ye"
  },
  "externals": [
   "reps_beat",
